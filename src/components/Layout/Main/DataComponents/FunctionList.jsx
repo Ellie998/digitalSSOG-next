@@ -34,7 +34,7 @@ function FunctionList() {
                         {
                           categoryObject.functions.map(functionInCategory=> (
                             <li className='animate-scale-up'>
-                              <Link to={"function/"+functionInCategory}>{functionInCategory}</Link>
+                              <Link to={"/function/"+functionInCategory}>{functionInCategory}</Link>
                             </li>
                           ))
                         }
