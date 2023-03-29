@@ -1,13 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import Index from "./components/Layout/Main/Index";
+import FunctionIndex from "./components/Layout/Main/FunctionIndex";
+import AppIndex from "./components/Layout/Main/AppIndex";
+import RootLayout from "./routes/RootLayout";
+import FunctionDetail from "./components/Layout/Main/FunctionDetail";
+import AppDetail from "./components/Layout/Main/AppDetail";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <Index /> },
+      { path: "/app", element: <AppIndex /> },
+      {
+        path: "/function",
+        element: <FunctionIndex />,
+      },
+      {
+        path: "/function/:id",
+        element: <FunctionDetail />,
+      },
+      {
+        path: "/app/:id",
+        element: <AppDetail />,
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
