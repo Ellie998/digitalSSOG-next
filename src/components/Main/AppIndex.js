@@ -1,4 +1,4 @@
-import AppList from "./DataComponents/AppList";
+import AppList from "./GetData/AppList";
 
 import "./common.css";
 import "./main.css";

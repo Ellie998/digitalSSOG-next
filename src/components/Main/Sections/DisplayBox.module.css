@@ -1,0 +1,8 @@
+.DisplayBox {
+  background-color: transparent;
+  width: 300px;
+  height: 604px;
+  background-image: url("./cellphone.png");
+  background-size: contain; 
+  border-radius: 44px;
+}

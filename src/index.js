@@ -6,12 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Index from "./components/Layout/Main/Index";
-import FunctionIndex from "./components/Layout/Main/FunctionIndex";
-import AppIndex from "./components/Layout/Main/AppIndex";
+import Index from "./components/Main/Index";
+import FunctionIndex from "./components/Main/FunctionIndex";
+import AppIndex from "./components/Main/AppIndex";
 import RootLayout from "./routes/RootLayout";
-import FunctionDetail from "./components/Layout/Main/FunctionDetail";
-import AppDetail from "./components/Layout/Main/AppDetail";
+import FunctionDetail from "./components/Main/FunctionDetail";
+import AppDetail from "./components/Main/AppDetail";
 
 const router = createBrowserRouter([
   {

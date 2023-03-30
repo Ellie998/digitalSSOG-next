@@ -1,4 +1,4 @@
-import FunctionList from "./DataComponents/FunctionList";
+import FunctionList from "./GetData/FunctionList";
 
 import "./common.css";
 import "./main.css";

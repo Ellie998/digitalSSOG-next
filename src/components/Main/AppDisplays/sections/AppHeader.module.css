@@ -1,0 +1,14 @@
+.AppHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.AppHeader li {
+  margin: 0 2px;
+}
+.AppHeader li {
+  font-size: 0.9rem;
+}
+
+.displayFlex {
+  display: flex;
+}

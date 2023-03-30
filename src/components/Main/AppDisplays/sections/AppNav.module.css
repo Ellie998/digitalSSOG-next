@@ -1,0 +1,10 @@
+
+.AppNav{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.AppNav i {
+  font-size: 0.7rem;
+}

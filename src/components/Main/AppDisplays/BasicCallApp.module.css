@@ -1,0 +1,11 @@
+.BasicCallApp {
+  background-color: transparent;
+  width: 200px;
+  height: 400px;
+  padding: 30px 25px 25px 25px;
+  background-image: url("./cellphone.png");
+  background-size: contain; 
+  border-radius: 18px;
+  display: grid;
+  grid-template-rows: 15px auto 25px;
+}
