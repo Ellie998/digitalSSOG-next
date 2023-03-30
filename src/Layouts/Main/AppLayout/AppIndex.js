@@ -1,7 +1,7 @@
 import AppList from "../../../components/GetData/AppList";
 
 import "../main.css";
-import "../Index.css";
+import "../Index.module.css";
 
 function AppIndex() {
   return (

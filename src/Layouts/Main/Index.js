@@ -1,14 +1,14 @@
 import FunctionList from "../../components/GetData/FunctionList";
 
 import "./main.css";
-import "./Index.css";
+import styles from "./Index.module.css";
 
 function Index() {
   return (
-    <main>
-      <section className="main-header layout-center border-radius-round hover-box-shadow-without-cursor">
+    <main className={styles.Index}>
+      <section>
         <h1>디지털쏙 페이지 입니다.</h1>
-        <p className="color-light-grey">
+        <p>
           사용하는 어플 속에 어떤 기능이 있는지 알고 있나요?
           <br />
           <br />

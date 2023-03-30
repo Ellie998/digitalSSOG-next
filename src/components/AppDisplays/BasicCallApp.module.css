@@ -8,4 +8,5 @@
   border-radius: 18px;
   display: grid;
   grid-template-rows: 15px auto 25px;
+  justify-self: center;
 }

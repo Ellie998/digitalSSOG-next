@@ -1,15 +1,15 @@
 import MakeListInCategory from './MakeListInCategory';
+import styles from './MakeList.module.css'
 
-function MakeList({ListObjects}){
+function MakeList({FunctionOrApp,ListObjects}){
   return (
-    <ul id="function-categorys" className="grid-repeat-two">
+    <ul className={styles.MakeList}>
     {
       ListObjects?.map(ListObject => (
-        <li className='border-radius-round hover-box-shadow'>
+        <li >
         <details>
           <summary>{ListObject.category}</summary>
-          <h3 className='none'>{ListObject.category}</h3>
-          <MakeListInCategory  prop={ListObject.functions}/>
+          <MakeListInCategory FunctionOrApp={FunctionOrApp} prop={ListObject.objects}/>
         </details>
       </li>
       ))

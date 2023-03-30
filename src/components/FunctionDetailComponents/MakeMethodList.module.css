@@ -1,0 +1,16 @@
+.MakeMethodList li {
+  margin-left: 2rem;
+  list-style: decimal;
+}
+.MakeMethodList li:hover, a:hover{
+  color: var(--grey-400);
+}
+
+.MakeMethodList a.active {
+  color: #4c85e88a;
+  font-weight: bold;
+}
+.MakeMethodList a.active:hover {
+  color: #4c85e88a;
+  font-weight: bold;
+}

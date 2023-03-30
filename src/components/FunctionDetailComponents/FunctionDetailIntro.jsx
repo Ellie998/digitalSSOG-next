@@ -1,18 +1,18 @@
-import "./FunctionDetailIntro.module.css"
+import styles from "./FunctionDetailIntro.module.css"
 import { Link } from "react-router-dom";
 
 
 function FunctionDetailIntro({name,charateristic,appNames}){
   return(
     
-      <section id="main-header" className="layout-center">
+      <section className={styles.FunctionDetailIntro} >
         <h1>{name} 기능 소개</h1>
-        <ul id="description-ul" className="grid-repeat-two">
-          <li className="background-grey border-radius-round hover-box-shadow">
+        <ul>
+          <li className={styles.listStyling}>
             <h2> 기능 특징</h2>
             <p>{charateristic}</p>
           </li>
-          <li className="background-grey border-radius-round hover-box-shadow">
+          <li className={styles.listStyling}>
             <h2>기능을 제공하는 어플</h2>
             <ul>
               {

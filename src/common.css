@@ -2,11 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --dark-grey: #242424;
-  --mid-grey: #555;
-  --light-grey: #999;
-  text-align: center;
+  --grey-900: #222222;
+  --grey-800: #333333;
+  --grey-700: #444444;
+  --grey-600: #555;
+  --grey-400: #999;
+  --main-color: #4c85e8;
   font-family: 'IBM Plex Sans KR', sans-serif;  
-  color: var(--dark-grey);
+  color: var(--grey-700);
 }
 
+p, li, nav {
+  font-size: 1rem;
+}

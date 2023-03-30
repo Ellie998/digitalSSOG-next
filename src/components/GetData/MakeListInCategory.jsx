@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
+import styles from './MakeListInCategory.module.css'
 
-
-function MakeListInCategory({prop}){
+function MakeListInCategory({FunctionOrApp, prop}){
   return (
-    <ol>
+    <ol className={styles.MakeListInCategory}>
       {
-        prop?.map(functionObject=> (
+        prop?.map(propObject=> (
           <li className='animate-scale-up'>
-            <Link to={"/function/"+functionObject.name}>{functionObject.name}</Link>
+            <Link to={"/"+ FunctionOrApp +"/"+propObject.name}>{propObject.name}</Link>
           </li>
         ))
       }
