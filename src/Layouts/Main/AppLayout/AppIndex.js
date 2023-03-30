@@ -1,8 +1,7 @@
-import AppList from "./GetData/AppList";
+import AppList from "../../../components/GetData/AppList";
 
-import "./common.css";
-import "./main.css";
-import "./Index.css";
+import "../main.css";
+import "../Index.css";
 
 function AppIndex() {
   return (

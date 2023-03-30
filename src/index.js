@@ -1,17 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import "./common.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Index from "./components/Main/Index";
-import FunctionIndex from "./components/Main/FunctionIndex";
-import AppIndex from "./components/Main/AppIndex";
+import Index from "./Layouts/Main/Index";
+import FunctionIndex from "./Layouts/Main/FunctionLayout/FunctionIndex";
+import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
+import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
+import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
+import DisplayBox from "./components/FunctionDetailComponents/DisplayBox";
 import RootLayout from "./routes/RootLayout";
-import FunctionDetail from "./components/Main/FunctionDetail";
-import AppDetail from "./components/Main/AppDetail";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,16 @@ const router = createBrowserRouter([
       {
         path: "/function/:id",
         element: <FunctionDetail />,
+        children: [
+          {
+            path: "/function/:id/",
+            element: <DisplayBox />,
+          },
+          {
+            path: "/function/:id/:description_id",
+            element: <DisplayBox />,
+          },
+        ],
       },
       {
         path: "/app/:id",

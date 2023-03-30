@@ -1,6 +1,5 @@
-import FunctionList from "./GetData/FunctionList";
+import FunctionList from "../../components/GetData/FunctionList";
 
-import "./common.css";
 import "./main.css";
 import "./Index.css";
 

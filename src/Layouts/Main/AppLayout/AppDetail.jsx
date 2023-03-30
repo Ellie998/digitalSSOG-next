@@ -1,5 +1,5 @@
-import "./common.css";
-import "./main.css";
+
+import "../main.css";
 import "./AppDetail.css"
 
 import { useEffect, useState } from "react"

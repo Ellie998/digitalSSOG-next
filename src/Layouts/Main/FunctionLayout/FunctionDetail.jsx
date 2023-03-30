@@ -1,8 +1,8 @@
-import "./common.css";
-import "./main.css";
+
+import "../main.css";
 import "./FunctionDetail.css"
-import FunctionDetailIntro from './Sections/FunctionDetailIntro'
-import FunctionDetailMain from './Sections/FunctionDetailMain'
+import FunctionDetailIntro from '../../../components/FunctionDetailComponents/FunctionDetailIntro'
+import FunctionDetailMain from '../../../components/FunctionDetailComponents/FunctionDetailMain'
 
 
 import { useEffect, useState } from "react"
@@ -44,7 +44,9 @@ function FunctionDetail(){
         charateristic={detailFunctionObject.charateristic} 
         appNames={detailFunctionObject.app}
       />
-      <FunctionDetailMain functionMethods={detailFunctionObject.method}/>
+      <FunctionDetailMain         
+        name={detailFunctionObject.name}
+        functionMethods={detailFunctionObject.method}/>
       </main>
   )
 }

@@ -1,0 +1,8 @@
+a.active {
+  color: #4c85e88a;
+  font-weight: bold;
+}
+a.active:hover {
+  color: #4c85e88a;
+  font-weight: bold;
+}

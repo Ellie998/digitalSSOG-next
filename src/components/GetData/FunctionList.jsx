@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 
-import "../common.css";
 import "./FunctionList.css";
 import MakeList from './MakeList';
 

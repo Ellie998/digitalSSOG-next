@@ -1,8 +1,4 @@
-import "../common.css";
-import "../main.css";
-import "../FunctionDetail.css"
-
-
+import "./FunctionDetailIntro.module.css"
 import { Link } from "react-router-dom";
 
 

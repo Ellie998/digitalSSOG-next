@@ -1,21 +1,13 @@
-import "../common.css";
-import "../main.css";
-import "../FunctionDetail.css"
-import styles from "./FunctionDetailMain.module.css"
+
+import "./FunctionDetailMain.module.css"
+
+import { NavLink , Outlet} from "react-router-dom";
+import DisplayBox from "./DisplayBox"
 
 
-import DisplayBox from './DisplayBox'
 
-function onMethodClick(event){
-  const listElements = event.target.parentElement.children;
-  for (const listElement of listElements){
-    listElement.classList.remove(styles.targetList);
-  }
-  event.target.classList.add(styles.targetList);
-
-}
-
-function FunctionDetailMain({functionMethods}){
+function FunctionDetailMain({name, functionMethods}){
+  let num = 0;
   return(
     <section id="main-main" className="layout-center background-grey">
         <div id="main-main-wrap" className="wrap grid-repeat-two">
@@ -35,8 +27,8 @@ function FunctionDetailMain({functionMethods}){
                             <ol className='margin-left'>
                               {
                                 functionMethod.methodContent?.map((methodDescription)=>(
-                                  <li key={methodDescription} className='list-hover description-list' onClick={onMethodClick}>
-                                    {methodDescription}
+                                  <li key={methodDescription} className='list-hover description-list' >
+                                    <NavLink to={'/function/'+ name +'/' + num++}>{methodDescription}</NavLink>
                                   </li>
                                 ))
                               }
@@ -50,8 +42,8 @@ function FunctionDetailMain({functionMethods}){
               ))
             }
           </ol>
-          <DisplayBox></DisplayBox>
-
+          <Outlet />
+          {/* <DisplayBox/> */}
         </div>
       </section>    
   )
