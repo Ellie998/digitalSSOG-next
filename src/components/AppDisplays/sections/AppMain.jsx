@@ -4,6 +4,7 @@ import '../display.css'
 import styles from'./AppMain.module.css'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
+import CallSuccess from '../Basic/CallSuccess'
 
 
 function ChoiceMainComponent({pathname}){
@@ -11,6 +12,8 @@ function ChoiceMainComponent({pathname}){
     return <BasicMain/>;
   } else if (pathname == 1) {
     return <CallAppMain/>;
+  } else if (pathname == 2) {
+    return <CallSuccess/>;
   }
   return BasicMain;
 }
@@ -24,7 +27,7 @@ function AppMain(){
   const descriptionName = words[3];
   
   return (
-    <div className={styles.AppMain}>
+    <div >
       <ChoiceMainComponent pathname={descriptionName}/>
     </div>
   )
