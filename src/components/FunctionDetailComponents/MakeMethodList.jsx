@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import styles from "./MakeMethodList.module.css"
 
+const numEmogi = [ ' 0️⃣',' 1️⃣', ' 2️⃣',' 3️⃣','4️⃣' ];
+
 function MakeMethodList({functionMethod, name}){
   let num = 0;
 
@@ -9,7 +11,7 @@ function MakeMethodList({functionMethod, name}){
     {
       functionMethod.methodContent?.map((methodDescription)=>(
         <li key={methodDescription} className='list-hover description-list' >
-          <NavLink to={'/function/'+ name +'/' + num++}>{methodDescription}</NavLink>
+          <NavLink to={'/function/'+ name +'/' + num}> {numEmogi[num++]} {methodDescription}</NavLink>
         </li>
       ))
     }

@@ -1,6 +1,6 @@
 .MakeMethodList li {
-  margin-left: 2rem;
-  list-style: decimal;
+  margin-left: 0.5rem;
+  /* list-style: decimal; */
 }
 .MakeMethodList li:hover, a:hover{
   color: var(--grey-400);

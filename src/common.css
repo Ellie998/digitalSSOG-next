@@ -7,11 +7,27 @@
   --grey-700: #444444;
   --grey-600: #555;
   --grey-400: #999;
-  --main-color: #4c85e8;
+  --main-color: #5684D6;
   font-family: 'IBM Plex Sans KR', sans-serif;  
   color: var(--grey-700);
 }
 
+h1 {
+  font-size: 2rem;
+  color: var(--grey-900);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--grey-800);
+}
+
+
 p, li, nav {
   font-size: 1rem;
+}
+
+summary {
+  color: var(--grey-900);
+
 }

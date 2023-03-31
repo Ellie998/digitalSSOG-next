@@ -6,7 +6,7 @@ function FunctionDetailIntro({name,charateristic,appNames}){
   return(
     
       <section className={styles.FunctionDetailIntro} >
-        <h1>{name} 기능 소개</h1>
+        <h1>📞 {name} 기능 소개</h1>
         <ul>
           <li className={styles.listStyling}>
             <h2> 기능 특징</h2>
