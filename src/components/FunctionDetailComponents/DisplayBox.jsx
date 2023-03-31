@@ -1,9 +1,9 @@
-import BasicCallApp from '../AppDisplays/BasicCallApp'
+import MakePhoneDisplay from '../AppDisplays/MakePhoneDisplay'
 
 
 function DisplayBox(){
   return (
-    <BasicCallApp></BasicCallApp>
+    <MakePhoneDisplay></MakePhoneDisplay>
   )
 }
 

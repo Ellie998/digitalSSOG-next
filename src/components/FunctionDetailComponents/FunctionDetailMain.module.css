@@ -4,7 +4,7 @@
 }
 
 .FunctionDetailMain  > div {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -17,6 +17,13 @@
   padding: 0.5rem 0;
 }
 
+
+
+@media (max-width: 850px){
+  .FunctionDetailMain  > div {
+    width: 80%;
+  }
+}
 
 
 @media (max-width: 550px){

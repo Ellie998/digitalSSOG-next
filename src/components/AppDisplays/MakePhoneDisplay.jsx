@@ -1,4 +1,4 @@
-import styles from "./BasicCallApp.module.css"
+import styles from "./MakePhoneDisplay.module.css"
 import './display.css'
 
 import AppHeader from './sections/AppHeader'
@@ -8,14 +8,10 @@ import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 
-
-function BasicCallApp(){
-
-  // console.log(functionName)
-  // console.log(currentURL[1])
+function MakePhoneDisplay(){
 
   return (
-    <div className={styles.BasicCallApp}>
+    <div className={styles.MakePhoneDisplay}>
       <AppHeader />
       <AppMain/>
       <AppNav/>
@@ -24,4 +20,4 @@ function BasicCallApp(){
   )
 }
 
-export default BasicCallApp;
+export default MakePhoneDisplay;

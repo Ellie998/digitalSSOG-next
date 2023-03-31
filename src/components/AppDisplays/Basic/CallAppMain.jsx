@@ -1,9 +1,9 @@
-import styles from '../sections/AppMain.module.css'
+import styles from '../sections/CallAppMain.module.css'
 import { NavLink } from 'react-router-dom';
 
 function CallAppMain({onChangeMain}){
   return (
-    <section  className={styles.AppMain}>
+    <section >
       <div >
 
       </div>
