@@ -4,8 +4,8 @@
   display: grid; 
   grid-template-rows: repeat(8, 35px);
   font-size: 1rem;
-  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .callNum {

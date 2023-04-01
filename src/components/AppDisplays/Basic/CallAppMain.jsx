@@ -9,8 +9,17 @@ function CallAppMain(){
   const [clickedNum, changeNum] = useState('');
 
   function onchangeClickNum(event){
-    if(event.target.innerText){
-      changeNum(clickedNum+event.target.innerText);
+    if(event.target.innerText && event.target.nodeName=="DIV"){
+      console.dir(event.target);
+      if ((!clickedNum.includes('-')&&clickedNum.length == 3) || clickedNum == '02'){
+        changeNum(clickedNum+'-'+event.target.innerText);
+      } else if ((clickedNum.length == 8 && clickedNum.slice(0,2) == '01')||(clickedNum.length == 6 && clickedNum.slice(0,2) == '02')) {
+        changeNum(clickedNum+'-'+ event.target.innerText);
+      } else if( clickedNum.length > 20 ){
+        changeNum('');
+      } else {
+        changeNum(clickedNum+event.target.innerText);
+      }
     }
   }
 
