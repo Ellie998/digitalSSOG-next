@@ -9,7 +9,7 @@ function MakeMethodListByCategory({name, functionMethods}){
         functionMethods?.map((functionMethodObject) => (
           <li key={Math.random()}>
             <details>
-              <summary>{functionMethodObject.methodAppName}</summary>
+              <summary data-tooltip-left="클릭!">{functionMethodObject.methodAppName}</summary>
               <MakeMethodListByApp functionMethodObject={functionMethodObject} name={name}/>
             </details>
           </li>

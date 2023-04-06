@@ -9,11 +9,11 @@ function CallAppMain(){
   const [clickedNum, changeNum] = useState('');
 
   function onchangeClickNum(event){
-    if(event.target.innerText && event.target.nodeName=="DIV"){
+    if(event.target.innerText && event.target.nodeName==="DIV"){
       console.dir(event.target);
-      if ((!clickedNum.includes('-')&&clickedNum.length == 3) || clickedNum == '02'){
+      if ((!clickedNum.includes('-')&&clickedNum.length === 3) || clickedNum === '02'){
         changeNum(clickedNum+'-'+event.target.innerText);
-      } else if ((clickedNum.length == 8 && clickedNum.slice(0,2) == '01')||(clickedNum.length == 6 && clickedNum.slice(0,2) == '02')) {
+      } else if ((clickedNum.length === 8 && clickedNum.slice(0,2) === '01')||(clickedNum.length === 6 && clickedNum.slice(0,2) === '02')) {
         changeNum(clickedNum+'-'+ event.target.innerText);
       } else if( clickedNum.length > 20 ){
         changeNum('');
@@ -60,7 +60,9 @@ function CallAppMain(){
         <ul>
           <li><i className="bi bi-camera-video"></i></li>
           <li>
-            <NavLink to="../2"><i className="bi bi-telephone"></i></NavLink>
+            <NavLink to="../2">
+              <div data-target="target" data-tooltip="클릭!"><i className="bi bi-telephone"></i></div>
+              </NavLink>
           </li>
           <li><i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i></li>
         </ul>

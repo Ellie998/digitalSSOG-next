@@ -23,6 +23,8 @@ li a {
   animation-fill-mode: forwards;
 }
 
+
+
 @keyframes scale-up {
   from {
     font-size: 1rem;

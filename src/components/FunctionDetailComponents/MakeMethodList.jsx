@@ -10,7 +10,7 @@ function MakeMethodList({functionMethod, name}){
     <ol className={styles.MakeMethodList}>
     {
       functionMethod.methodContent?.map((methodDescription)=>(
-        <li key={methodDescription} className='list-hover description-list' >
+        <li data-tooltip-midleft="클릭시 화면이 표시됩니다." key={methodDescription} className='list-hover description-list' >
           <NavLink to={'/function/'+ name +'/' + num}> {numEmogi[num++]} {methodDescription}</NavLink>
         </li>
       ))

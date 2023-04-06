@@ -1,5 +1,7 @@
 import BasicMain from '../Basic/BasicMain'
 import CallAppMain from '../Basic/CallAppMain'
+import KakaoMain from '../Kakaotalk/KakaoMain'
+import KakaoAppMain from '../Kakaotalk/KakaoAppMain'
 import '../display.css'
 import styles from'./AppMain.module.css'
 import { useState, useEffect } from 'react'
@@ -13,6 +15,12 @@ function ChoiceMainComponent({pathname}){
   } else if (pathname == 1) {
     return <CallAppMain/>;
   } else if (pathname == 2) {
+    return <CallSuccess/>;
+  } else if (pathname == 3) {
+    return <KakaoMain/>;
+  } else if (pathname == 4) {
+    return <KakaoAppMain/>;
+  } else if (pathname == 5) {
     return <CallSuccess/>;
   }
   return BasicMain;

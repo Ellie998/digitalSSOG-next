@@ -29,7 +29,9 @@ function FunctionList() {
       </p>
       <div>
             {categoryObjects.length > 0 && (
-              <MakeList FunctionOrApp={'function'} ListObjects={categoryObjects}/>
+              <MakeList 
+              FunctionOrApp={'function'} ListObjects={categoryObjects}
+              />
             )}
           </div>
     </section>
