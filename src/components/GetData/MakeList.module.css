@@ -1,18 +1,31 @@
 .MakeList {
   padding: 2rem 0;
   width: 80%;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  margin: 0 auto;
+  display: flex;
+  margin: 2rem auto 1rem auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .MakeList > li {
+  margin-left: 0.5rem;
+  min-width:max-content;
   transition: 0.1s;
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 4px rgba(23, 23, 23, 0.077);
+}
 
+.MakeList button {
+  padding: 0.5rem;
+  border-radius: 12px;
+  background-color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 4px rgba(23, 23, 23, 0.077);
+}
+
+
+.clicked {
+  background-color: rgb(244, 244, 244) ;
 }
 
 .MakeList summary{
@@ -25,20 +38,19 @@
 
 .MakeList > li:hover {
   box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
-  transform: translateY(-15px);
+  background-color: rgb(244, 244, 244) ;
+  transform: translateY(-3px);
 }
+
+/* button.clicked {
+  background-color: rgb(244, 244, 244) ;
+
+} */
 
 @media (max-width: 800px) {
   .MakeList {
-    display: flex;
-    flex-direction: column;
+    padding:0;
   }
 }
 
 
-
-@media (max-width: 600px) {
-  .MakeList {
-    padding: 0rem;
-  }
-}

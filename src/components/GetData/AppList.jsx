@@ -31,32 +31,6 @@ function AppList() {
               <MakeList FunctionOrApp={'app'} ListObjects={categoryObjects}/>
             )}
           </div>
-      {/* <div>
-            {categoryObjects.length > 0 && (
-              <ul id="app-categorys" className="grid-repeat-two">
-                {
-                  categoryObjects.map(categoryObject => (
-                    <li className='border-radius-round hover-box-shadow'>
-                    <details>
-                      <summary>{categoryObject.category}</summary>
-                      <h3 className='none'>{categoryObject.category}</h3>
-                      <ol>
-                        {
-                          categoryObject.apps.map(appObject=> (
-                            <li className='animate-scale-up'>
-                              <Link to={"/app/"+appObject.name}>{appObject.name}</Link>
-                            </li>
-                          ))
-                        }
-                        
-                      </ol>
-                    </details>
-                  </li>
-                  ))
-                }
-              </ul>
-            )}
-          </div> */}
     </section>
   );
 }

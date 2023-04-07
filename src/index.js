@@ -13,35 +13,44 @@ import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
 import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox";
 import RootLayout from "./routes/RootLayout";
+import MakeList from "./components/GetData/MakeList";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "/", element: <Index /> },
+      {
+        path: "/",
+        element: <Index />,
+        // children: [
+        //   {
+        //     path: "/functionCategory/:categoryName",
+        //     element: <MakeList />,
+        //     children: [],
+        //   },
+        // ],
+      },
       { path: "/app", element: <AppIndex /> },
       {
-        path: "/function",
-        element: <FunctionIndex />,
+        path: "/description/:appName",
+        element: <AppDetail />,
+        children: [],
       },
+
       {
-        path: "/function/:id",
+        path: "/description/:appName/:functionName",
         element: <FunctionDetail />,
         children: [
           {
-            path: "/function/:id/",
+            path: "/description/:appName/:functionName/",
             element: <DisplayBox />,
           },
           {
-            path: "/function/:id/:description_id",
+            path: "/description/:appName/:functionName/:description_id",
             element: <DisplayBox />,
           },
         ],
-      },
-      {
-        path: "/app/:id",
-        element: <AppDetail />,
       },
     ],
   },
