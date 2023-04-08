@@ -9,16 +9,18 @@
   /* z-index: -1; */
 }
 
+
 .MakeListInCategory li {
   /* display: grid;
   grid-template-columns: repeat(2, auto); */
   display: flex;
   text-align: left;
+  justify-content: space-between;
   /* z-index: 1; */
 }
 
-.MakeListInCategory li:hover {
-  color: white;
+.MakeListInCategory li:hover, .MakeListInCategory p:hover {
+  color: var(--grey-400);
 }
 
 .MakeListInCategory ul {
@@ -31,14 +33,14 @@
 @media (max-width: 800px) {
   .MakeListInCategory {
     width: 80%;
-    padding: 6rem 6rem 4rem 6rem; 
+    padding: 6rem 4rem 4rem 4rem; 
     top: -70px;
   }
 }
 @media (max-width: 482px) {
   .MakeListInCategory {
     width: 100%;
-    padding: 6rem 6rem 4rem 6rem; 
+    padding: 6rem 2rem 4rem 2rem; 
     top: -110px;
   }
 }

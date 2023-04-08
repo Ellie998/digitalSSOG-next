@@ -1,4 +1,3 @@
-import MakeListInCategory from './MakeListInCategory';
 import styles from './MakeList.module.css'
 import { NavLink } from 'react-router-dom';
 import { useState } from "react";
@@ -16,32 +15,23 @@ function MakeList({FunctionOrApp,ListObjects}){
 
   return (
     <ul className={styles.MakeList}>
-    {/* {
-      ListObjects?.map(ListObject => (
-        <li>
-          <NavLink to={"?functionCategory=" + ListObject.category}>
-            <button data-tooltip="클릭!">{ListObject.category}</button>
-            </NavLink>
-      </li>
-      ))
-      // <MakeListInCategory FunctionOrApp={FunctionOrApp} prop={ListObject.objects}/> 
-    } */}
-
-
     {
       categorys.map(categoryName => {
-        let categoryNameNoIcon = categoryName.slice(3, categoryName.length);
-      return <li>
-        <NavLink to={"?functionCategory="+categoryNameNoIcon}>
+        let categoryRealName = categoryName.slice(3, categoryName.length);
+        return (
+        <li key={Math.random()}>
+          <NavLink to={"?functionCategory="+categoryRealName}>
           <button 
-          value={categoryNameNoIcon} 
-          data-tooltip="클릭!" 
-          onClick={toggleActive}               
-          className={( {categoryNameNoIcon} == btnActive ? "clicked" : "")}>
+            value={categoryRealName} 
+            data-tooltip="클릭!" 
+            onClick={toggleActive}               
+            className={( {categoryRealName} === btnActive ? "clicked" : "")}
+            >
             {categoryName}
-            </button>
-        </NavLink>
-      </li>    
+          </button>
+          </NavLink>
+        </li>    
+        )
       })
     }   
   </ul>

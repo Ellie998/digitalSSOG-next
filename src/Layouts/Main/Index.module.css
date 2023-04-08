@@ -16,10 +16,25 @@
   font-weight: 400;
 }
 
-.Index p {
+.Index > main > p {
   color: var(--grey-400);
+  margin-bottom: 1rem;
 }
 
+.paraMarginBottom {
+  margin-bottom: 2rem;
+}
 
+.paraTextAlignLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  margin: 0 auto;
+}
+.paraTextAlignLeft li {
+  margin-bottom: 0.5rem;
+
+}
 
 

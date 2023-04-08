@@ -1,0 +1,16 @@
+#categoryIndex {
+  margin-bottom: 1rem;
+}
+#categoryIndex p {
+  color: var(--grey-800);
+}
+
+.functionAndAppList {
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 800px) {
+  .functionAndAppList ul, #categoryIndex ul{
+    display:none;
+  }
+}

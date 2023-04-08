@@ -33,21 +33,25 @@ const router = createBrowserRouter([
       },
       { path: "/app", element: <AppIndex /> },
       {
-        path: "/description/:appName",
+        path: "/description/function/:functionName2",
+        element: <FunctionDetail />,
+      },
+      {
+        path: "/description/app/:appName",
         element: <AppDetail />,
         children: [],
       },
 
       {
-        path: "/description/:appName/:functionName",
+        path: "/description/app/:appName/:functionName",
         element: <FunctionDetail />,
         children: [
           {
-            path: "/description/:appName/:functionName/",
+            path: "/description/app/:appName/:functionName/",
             element: <DisplayBox />,
           },
           {
-            path: "/description/:appName/:functionName/:description_id",
+            path: "/description/app/:appName/:functionName/:description_id",
             element: <DisplayBox />,
           },
         ],
