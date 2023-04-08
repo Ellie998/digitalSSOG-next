@@ -38,3 +38,10 @@
 }
 
 
+@media (max-width:450px){
+  .Index section:nth-child(1) {
+    max-width: 90%;
+    padding: 8rem 3rem;
+    min-width: 300px;
+  }  
+}

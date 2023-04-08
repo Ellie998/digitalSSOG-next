@@ -7,7 +7,10 @@ function Index() {
   return (
     <main className={styles.Index}>
       <section>
-        <h1>💁🏻‍♀️ 디지털쏙 페이지 입니다.</h1>
+        <h1>
+          안녕하세요 💁🏻‍♀️ <br />
+          디지털쏙 페이지 입니다.
+        </h1>
         <p className={styles.paraMarginBottom}>
           사용하는 어플 속에 어떤 기능이 있는지 알고 있나요?
         </p>
