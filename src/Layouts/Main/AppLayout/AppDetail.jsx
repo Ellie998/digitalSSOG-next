@@ -4,13 +4,16 @@ import "./AppDetail.css"
 
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom';
-
-
+import { useLocation } from "react-router-dom";
 
 function AppDetail(){
+  let location = useLocation();
+  let url = decodeURI(location.pathname);
+  const words = url.split('/');
   
-  const url = decodeURI(window.location.pathname);
-  const urlID = url.substring(5, url.length);
+  // const appName = words[3];
+  const functionName = words[4];
+  // const descriptionName = words[5];
   
   const [detailAppObject, setData] = useState([]);
   
@@ -21,7 +24,7 @@ function AppDetail(){
     }).then(data => {
       data.map(categoryObject => (
         categoryObject.apps.map(appObject => {
-          if(appObject.name == urlID){
+          if(appObject.name === functionName){
             setData(appObject)
             return
           }

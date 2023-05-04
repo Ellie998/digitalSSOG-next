@@ -1,7 +1,6 @@
 import styles from "./FunctionDetailIntro.module.css"
 import { Link } from "react-router-dom";
 
-
 function FunctionDetailIntro({name,charateristic,appNames}){
   return(
     
@@ -17,7 +16,7 @@ function FunctionDetailIntro({name,charateristic,appNames}){
             <ul>
               {
                 appNames?.map((appName)=>(
-                  <li key={appName}><Link to={'/app/'+ appName}>{appName}</Link></li>
+                  <li key={appName}><Link to={'/description/app/'+ appName +'/' + name }>{appName}</Link></li>
                 ))
               }
             </ul>

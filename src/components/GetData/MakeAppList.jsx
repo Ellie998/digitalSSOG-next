@@ -5,7 +5,7 @@ import './MakeListInCategory.css'
 import { useLocation } from 'react-router';
 
 
-function MakeListInCategory({FunctionOrApp, listObjects}){
+function MakeAppList({FunctionOrApp, listObjects}){
   const location = useLocation(); //바뀐 부분
   const sch= location.search;
   const params=new URLSearchParams(sch);
@@ -27,26 +27,16 @@ function MakeListInCategory({FunctionOrApp, listObjects}){
 
   return (
     <ol className={styles.MakeListInCategory}>
-      <li id="categoryIndex">
-        <p>기능 이름</p>
+      {/* <li id="categoryIndex">
+        <p>앱 이름</p>
         <ul>
           <li><p>기능을 제공하는 앱</p></li>
         </ul>
-      </li>
+      </li> */}
       {
         selectedCategoryObject.objects?.map(functionObject => (
           <li class="functionAndAppList" key={Math.random()}>
-            <p>{functionObject.name}</p>
-            {/* <Link to={"/description/function/"+functionObject.name}><p>{functionObject.name}</p></Link> */}
-            <ul>
-            {
-              functionObject.app?.map(appName => (
-                <li key={Math.random()}>
-                  <Link to={"/description/app/"+appName+"/"+functionObject.name}>{appName}</Link>
-                </li>
-              ))
-            }
-            </ul>
+            <Link to={"/description/app/"+functionObject.name}>{functionObject.name}</Link>
           </li>
         ))
       }
@@ -54,4 +44,4 @@ function MakeListInCategory({FunctionOrApp, listObjects}){
   )
 }
 
-export default MakeListInCategory;
+export default MakeAppList;

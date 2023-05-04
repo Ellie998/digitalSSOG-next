@@ -20,7 +20,7 @@ function MakeList({FunctionOrApp,ListObjects}){
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
         <li key={Math.random()}>
-          <NavLink to={"?functionCategory="+categoryRealName}>
+          <NavLink to={"?" + FunctionOrApp + "Category=" + categoryRealName}>
           <button 
             value={categoryRealName} 
             data-tooltip="클릭!" 

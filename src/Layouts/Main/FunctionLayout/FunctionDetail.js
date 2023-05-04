@@ -1,27 +1,31 @@
 import "../main.css";
 import FunctionDetailIntro from "../../../components/FunctionDetailComponents/FunctionDetailIntro";
 import FunctionDetailMain from "../../../components/FunctionDetailComponents/FunctionDetailMain";
+import { functionDataURL } from "../../../data";
 
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function FunctionDetail() {
-  const url = decodeURI(window.location.pathname);
-  const urlID = url.substring(10, url.length);
+  let location = useLocation();
+  let url = decodeURI(location.pathname);
+  const words = url.split("/");
+
+  const functionName = words[3];
+  const descriptionName = words[4];
 
   const [detailFunctionObject, setData] = useState([]);
 
   const fetchData = () => {
-    fetch(
-      "https://gist.githubusercontent.com/Ellie998/3154333c55ee8660e734025b6c3a42cb/raw/051088a274b0fb78692f50e2ebcbbde7f37b31e9/functionsInCategory.json"
-    )
+    fetch(functionDataURL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         data.map((categoryObject) =>
-          categoryObject.functions.map((functionObject) => {
-            if (functionObject.name == urlID) {
-              setData(functionObject);
+          categoryObject.objects.map((ObjectInArray) => {
+            if (ObjectInArray.name == functionName) {
+              setData(ObjectInArray);
             }
           })
         );

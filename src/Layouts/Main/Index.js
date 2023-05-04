@@ -2,6 +2,7 @@ import FunctionList from "../../components/GetData/FunctionList";
 
 import "./main.css";
 import styles from "./Index.module.css";
+// import AppList from "../../components/GetData/AppList";
 
 function Index() {
   return (
@@ -30,6 +31,7 @@ function Index() {
         </ul>
       </section>
       <FunctionList />
+      {/* <AppList /> */}
     </main>
   );
 }

@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react"
 import styles from "./FunctionList.module.css";
 import MakeList from './MakeList';
 import MakeListInCategory from './MakeListInCategory';
+import { functionDataURL } from '../../data';
 
 
 function FunctionList() {
   const [categoryObjects, setData] = useState([]);
 
   const fetchData = () => {
-    fetch("https://gist.githubusercontent.com/Ellie998/fd9e1db83bd4f011c59373bd115d9a36/raw/29c1e18346ee411c712144e4e5aab087e69e55bf/functionsInCategory.json"
-    ).then(response => {
+    fetch(functionDataURL).then(response => {
       return response.json()
     }).then(data => {
       setData(data);
@@ -33,7 +33,7 @@ function FunctionList() {
           )}
         {categoryObjects.length > 0 && (
 
-          <MakeListInCategory listObjects={categoryObjects}></MakeListInCategory>
+          <MakeListInCategory FunctionOrApp={'function'} listObjects={categoryObjects}></MakeListInCategory>
           )}
           
       </div>

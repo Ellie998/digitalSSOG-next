@@ -7,13 +7,12 @@ import "./common.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Index from "./Layouts/Main/Index";
-import FunctionIndex from "./Layouts/Main/FunctionLayout/FunctionIndex";
 import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
 import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
 import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox";
 import RootLayout from "./routes/RootLayout";
-import MakeList from "./components/GetData/MakeList";
+import FunctionDetailInApp from "./Layouts/Main/FunctionLayout/FunctionDetailInApp";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +34,16 @@ const router = createBrowserRouter([
       {
         path: "/description/function/:functionName2",
         element: <FunctionDetail />,
+        children: [
+          {
+            path: "/description/function/:functionName2/",
+            element: <DisplayBox />,
+          },
+          {
+            path: "/description/function/:functionName2/:description_id",
+            element: <DisplayBox />,
+          },
+        ],
       },
       {
         path: "/description/app/:appName",
@@ -44,7 +53,7 @@ const router = createBrowserRouter([
 
       {
         path: "/description/app/:appName/:functionName",
-        element: <FunctionDetail />,
+        element: <FunctionDetailInApp />,
         children: [
           {
             path: "/description/app/:appName/:functionName/",
@@ -56,6 +65,34 @@ const router = createBrowserRouter([
           },
         ],
       },
+      //
+      // {
+      //   path: "/description/app/:appName/",
+      //   element: <FunctionDetail />,
+      //   children: [
+      //     {
+      //       path: "/description/app/:appName/:functionName",
+      //       element: <FunctionDetailIntroInApp />,
+      //       children: [
+      //         {
+      //           path: "/description/app/:appName/:functionName/",
+      //           element: <FunctionDetailMainInApp />,
+      //           children: [
+      //             {
+      //               path: "/description/app/:appName/:functionName/",
+      //               element: <DisplayBox />,
+      //             },
+      //             {
+      //               path: "/description/app/:appName/:functionName/:description_id",
+      //               element: <DisplayBox />,
+      //             },
+      //           ],
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
+      //
     ],
   },
 ]);
