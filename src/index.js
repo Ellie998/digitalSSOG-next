@@ -16,11 +16,11 @@ import FunctionDetailInApp from "./Layouts/Main/FunctionLayout/FunctionDetailInA
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Index />,
         // children: [
         //   {
@@ -30,69 +30,41 @@ const router = createBrowserRouter([
         //   },
         // ],
       },
-      { path: "/app", element: <AppIndex /> },
-      {
-        path: "/description/function/:functionName2",
-        element: <FunctionDetail />,
-        children: [
-          {
-            path: "/description/function/:functionName2/",
-            element: <DisplayBox />,
-          },
-          {
-            path: "/description/function/:functionName2/:description_id",
-            element: <DisplayBox />,
-          },
-        ],
-      },
-      {
-        path: "/description/app/:appName",
-        element: <AppDetail />,
-        children: [],
-      },
-
-      {
-        path: "/description/app/:appName/:functionName",
-        element: <FunctionDetailInApp />,
-        children: [
-          {
-            path: "/description/app/:appName/:functionName/",
-            element: <DisplayBox />,
-          },
-          {
-            path: "/description/app/:appName/:functionName/:description_id",
-            element: <DisplayBox />,
-          },
-        ],
-      },
-      //
+      { path: "app", element: <AppIndex /> },
       // {
-      //   path: "/description/app/:appName/",
+      //   path: "description/function/:functionName2",
       //   element: <FunctionDetail />,
       //   children: [
       //     {
-      //       path: "/description/app/:appName/:functionName",
-      //       element: <FunctionDetailIntroInApp />,
-      //       children: [
-      //         {
-      //           path: "/description/app/:appName/:functionName/",
-      //           element: <FunctionDetailMainInApp />,
-      //           children: [
-      //             {
-      //               path: "/description/app/:appName/:functionName/",
-      //               element: <DisplayBox />,
-      //             },
-      //             {
-      //               path: "/description/app/:appName/:functionName/:description_id",
-      //               element: <DisplayBox />,
-      //             },
-      //           ],
-      //         },
-      //       ],
+      //       index: true,
+      //       element: <DisplayBox />,
+      //     },
+      //     {
+      //       path: ":description_id",
+      //       element: <DisplayBox />,
       //     },
       //   ],
       // },
-      //
+      // {
+      //   path: "/description/app/:appName",
+      //   element: <AppDetail />,
+      //   children: [],
+      // },
+
+      {
+        path: "description/app/:appName/:functionName",
+        element: <FunctionDetailInApp />,
+        children: [
+          {
+            index: true,
+            element: <DisplayBox />,
+          },
+          {
+            path: ":description_id",
+            element: <DisplayBox />,
+          },
+        ],
+      },
     ],
   },
 ]);

@@ -42,3 +42,8 @@ function FunctionList() {
 }
 
 export default FunctionList;
+
+
+// export function loader({param}){
+  
+// }

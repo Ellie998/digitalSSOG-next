@@ -1,0 +1,502 @@
+[
+  {
+    "category": "new",
+    "objects": [
+      {
+        "name": "카카오톡"
+      }
+    ]
+  },
+  {
+    "category": "hot",
+    "objects": [
+      {
+        "name": "카카오톡"
+      }
+    ]
+  },
+  {
+    "category": "sns",
+    "objects": [
+      {
+        "순번": 1,
+        "name": "카카오톡",
+        "downNum": "1억회이상",
+        "imgLink": "<a href=\"https://objects.apple.com/us/app/kakaotalk/id362057947?itscg=30200&amp;itsct=objects_box_appicon\" style=\"width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;\"><img src=\"https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/c6/82/1e/c6821e8b-cc9c-7b1d-9b81-6cec77e692d0/AppIcon-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-85-220.png/540x540bb.jpg\" alt=\"KakaoTalk\" style=\"width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;\"></a>",
+        "downLink": "[\"<a href=\"https://objects.apple.com/us/app/kakaotalk/id362057947?itsct=objects_box_badge&amp;itscg=30200\" style=\"display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;\"><img src=\"https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1268870400\" alt=\"Download on the App Store\" style=\"border-radius: 13px; width: 250px; height: 83px;\"></a>\",\"<a href='https://play.google.com/store/objects/details?id=com.kakao.talk&hl=ko&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>\"]",
+        "star": 4.1,
+        "rank": 1,
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": [
+          "채팅",
+          "이미지 및 동영상 전송",
+          "영상통화",
+          "간편송금",
+          "선물하기"
+        ],
+        "detail": {
+          "pay": "free"
+        },
+        "특징": "간편하게 문자, 사진, 영상 공유. 영상통화, 프로필 공간이 존재해 사진이나 음악을 올릴 수 있음. 오픈채팅, 간편 송금, 잡지, 캘린더,"
+      }
+    ]
+  },
+  {
+    "category": "금융",
+    "objects": [
+      {
+        "순번": 2,
+        "name": "NH올원뱅크",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": ["간편송금", "잔액조회"],
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 6,
+        "name": "KB Pay",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 10,
+        "name": "모니모",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 19,
+        "name": "하나은행",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 26,
+        "name": "토스",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 39,
+        "name": "카카오뱅크",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "엔터테인먼트",
+    "objects": [
+      {
+        "순번": 3,
+        "name": "넷플릭스",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": ["드라마", "영화", "다큐"],
+        "detail": {
+          "pay": "월 14,500원"
+        },
+        "특징": ""
+      },
+      {
+        "순번": 4,
+        "name": "디즈니+",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": ["드라마", "영화", "다큐"],
+        "detail": {
+          "pay": "월 14,500원"
+        },
+        "특징": ""
+      },
+      {
+        "순번": 9,
+        "name": "쿠팡플레이",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "교육",
+    "objects": [
+      {
+        "순번": 5,
+        "name": "하이클래스",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 15,
+        "name": "아이알리미",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "쇼핑",
+    "objects": [
+      {
+        "순번": 7,
+        "name": "aliExpress",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 21,
+        "name": "쿠팡",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "도구",
+    "objects": [
+      {
+        "순번": 8,
+        "name": "네이버 파파고",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 13,
+        "name": "네이버",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 18,
+        "name": "국세청 홈택스",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "건강/운동",
+    "objects": [
+      {
+        "순번": 11,
+        "name": "The건강보험",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "소셜/커뮤니티",
+    "objects": [
+      {
+        "순번": 12,
+        "name": "당근마켓",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 22,
+        "name": "밴드",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "라이프스타일",
+    "objects": [
+      {
+        "순번": 14,
+        "name": "기프티스타",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "교통",
+    "objects": [
+      {
+        "순번": 17,
+        "name": "티머니GO",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 20,
+        "name": "네이버 지도, 내비게이션",
+        "category": "지도 및 내비게이션",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 27,
+        "name": "카카오 T",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      },
+      {
+        "순번": 40,
+        "name": "코레일톡",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  },
+  {
+    "category": "여행 및 지역정보",
+    "objects": [
+      {
+        "순번": 25,
+        "name": "카카오맵",
+        "downNum": "",
+        "imgLink": "",
+        "downLink": "",
+        "star": "",
+        "rank": "",
+        "review": "",
+        "기능에 대한 시각적 구현 정보": "",
+        "": "",
+        "UI 구성": "",
+        "core": "",
+        "detail": "",
+        "특징": ""
+      }
+    ]
+  }
+]
