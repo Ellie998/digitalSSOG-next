@@ -4,36 +4,26 @@ import FunctionDetailMain from "../../../components/FunctionDetailComponents/Fun
 import { functionDataURL } from "../../../data";
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { json, useLoaderData, useParams } from "react-router-dom";
 
 function FunctionDetail() {
-  let location = useLocation();
-  let url = decodeURI(location.pathname);
-  const words = url.split("/");
+  const params = useParams();
+  const data = useLoaderData();
 
-  const functionName = words[3];
-  const descriptionName = words[4];
+  const functionName = params.functionName;
+  // const descriptionName = words[4];
 
   const [detailFunctionObject, setData] = useState([]);
 
-  const fetchData = () => {
-    fetch(functionDataURL)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        data.map((categoryObject) =>
-          categoryObject.objects.map((ObjectInArray) => {
-            if (ObjectInArray.name == functionName) {
-              setData(ObjectInArray);
-            }
-          })
-        );
-      });
-  };
   useEffect(() => {
-    fetchData();
-  }, []);
+    data.map((categoryObject) =>
+      categoryObject.objects?.map((ObjectInArray) => {
+        if (ObjectInArray.name === functionName) {
+          setData(ObjectInArray);
+        }
+      })
+    );
+  }, [data, functionName]);
 
   return (
     <main>
@@ -42,10 +32,7 @@ function FunctionDetail() {
         charateristic={detailFunctionObject.charateristic}
         appNames={detailFunctionObject.app}
       />
-      <FunctionDetailMain
-        name={detailFunctionObject.name}
-        functionMethods={detailFunctionObject.method}
-      />
+      <FunctionDetailMain functionMethods={detailFunctionObject.method} />
     </main>
   );
 }

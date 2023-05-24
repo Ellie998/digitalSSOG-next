@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 import styles from "./FunctionList.module.css";
 import MakeList from "./MakeList";
 import MakeListInCategory from "./MakeListInCategory";
