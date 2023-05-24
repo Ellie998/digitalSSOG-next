@@ -1,17 +1,15 @@
 import "../main.css";
 import FunctionDetailIntro from "../../../components/FunctionDetailComponents/FunctionDetailIntro";
 import FunctionDetailMain from "../../../components/FunctionDetailComponents/FunctionDetailMain";
-import { functionDataURL } from "../../../data";
 
 import { useEffect, useState } from "react";
-import { json, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 function FunctionDetail() {
   const params = useParams();
   const data = useLoaderData();
 
   const functionName = params.functionName;
-  // const descriptionName = words[4];
 
   const [detailFunctionObject, setData] = useState([]);
 

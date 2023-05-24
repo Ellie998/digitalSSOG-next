@@ -9,7 +9,7 @@ function FunctionDetailMain({ functionMethods }) {
       <div>
         <h2>기능 사용 방법 정리</h2>
         <MakeMethodListByCategory functionMethods={functionMethods} />
-        {/* <Outlet /> */}
+        <Outlet />
       </div>
     </section>
   );
