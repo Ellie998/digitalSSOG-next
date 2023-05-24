@@ -11,7 +11,7 @@
 
 .MakeList > li {
   margin-left: 0.5rem;
-  min-width:max-content;
+  min-width: max-content;
   transition: 0.1s;
 }
 
@@ -23,22 +23,21 @@
   box-shadow: 0 4px 4px rgba(23, 23, 23, 0.077);
 }
 
-
-.clicked {
-  background-color: rgb(244, 244, 244) ;
+.MakeList .active {
+  background-color: rgb(248, 30, 30);
+  color: red;
 }
 
-.MakeList summary{
+.MakeList summary {
   font-size: 1.2rem;
 }
-.MakeList details[open] summary{
+.MakeList details[open] summary {
   color: var(--main-color);
 }
 
-
 .MakeList > li:hover {
   box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
-  background-color: rgb(244, 244, 244) ;
+  background-color: rgb(244, 244, 244);
   transform: translateY(-3px);
 }
 
@@ -49,8 +48,6 @@
 
 @media (max-width: 800px) {
   .MakeList {
-    padding:0;
+    padding: 0;
   }
 }
-
-

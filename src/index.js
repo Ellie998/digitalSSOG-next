@@ -6,22 +6,31 @@ import "./common.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Index from "./Layouts/Main/Index";
+import Index, { loader as functionDataLoader } from "./Layouts/Main/Index";
 import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
 import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
-import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox";
 import RootLayout from "./routes/RootLayout";
-import FunctionDetailInApp from "./Layouts/Main/FunctionLayout/FunctionDetailInApp";
+// import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
+// import FunctionDetailInApp, {
+//   loader as detailDataLoader,
+// } from "./Layouts/Main/FunctionLayout/FunctionDetailInApp";
 
 const router = createBrowserRouter([
   {
     path: "",
     element: <RootLayout />,
+    // end: true,
     children: [
       {
         index: true,
+        element: <Index></Index>,
+        loader: functionDataLoader,
+      },
+      {
+        path: ":categoryName",
         element: <Index />,
+        loader: functionDataLoader,
         // children: [
         //   {
         //     path: "/functionCategory/:categoryName",
@@ -30,30 +39,10 @@ const router = createBrowserRouter([
         //   },
         // ],
       },
-      { path: "app", element: <AppIndex /> },
-      // {
-      //   path: "description/function/:functionName2",
-      //   element: <FunctionDetail />,
-      //   children: [
-      //     {
-      //       index: true,
-      //       element: <DisplayBox />,
-      //     },
-      //     {
-      //       path: ":description_id",
-      //       element: <DisplayBox />,
-      //     },
-      //   ],
-      // },
-      // {
-      //   path: "/description/app/:appName",
-      //   element: <AppDetail />,
-      //   children: [],
-      // },
-
+      // { path: "app", element: <AppIndex /> },
       {
-        path: "description/app/:appName/:functionName",
-        element: <FunctionDetailInApp />,
+        path: "description/:functionName",
+        element: <FunctionDetail />,
         children: [
           {
             index: true,
@@ -65,6 +54,27 @@ const router = createBrowserRouter([
           },
         ],
       },
+      // {
+      //   path: "/description/app/:appName",
+      //   element: <AppDetail />,
+      //   children: [],
+      // },
+
+      // {
+      //   path: "description/app/:appName/:functionName",
+      //   element: <FunctionDetailInApp />,
+      //   loader: detailDataLoader,
+      //   children: [
+      //     {
+      //       index: true,
+      //       element: <DisplayBox />,
+      //     },
+      //     {
+      //       path: ":description_id",
+      //       element: <DisplayBox />,
+      //     },
+      //   ],
+      // },
     ],
   },
 ]);

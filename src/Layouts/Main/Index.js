@@ -3,6 +3,8 @@ import FunctionList from "../../components/GetData/FunctionList";
 import "./main.css";
 import styles from "./Index.module.css";
 // import AppList from "../../components/GetData/AppList";
+import { functionDataURL } from "../../data";
+import { json } from "react-router-dom";
 
 function Index() {
   return (
@@ -37,3 +39,20 @@ function Index() {
 }
 
 export default Index;
+
+export async function loader({ params }) {
+  const response = await fetch(functionDataURL);
+
+  if (!response.ok) {
+    throw json(
+      { message: "Could not fetch events." },
+      {
+        status: 500,
+      }
+    );
+  } else {
+    const data = await response.json();
+
+    return data;
+  }
+}
