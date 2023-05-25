@@ -2,14 +2,11 @@ import BasicMain from "../Basic/BasicMain";
 import CallAppMain from "../Basic/CallAppMain";
 import KakaoMain from "../Kakaotalk/KakaoMain";
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
-import "../display.css";
 
 import CallSuccess from "../Basic/CallSuccess";
 import { useParams } from "react-router-dom";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
-
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function AppMain() {
   const params = useParams();

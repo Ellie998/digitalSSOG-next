@@ -1,0 +1,6 @@
+.MethodAppList > p {
+  color: var(--grey-400);
+}
+.MethodAppList summary {
+  font-size: 1.25rem;
+}

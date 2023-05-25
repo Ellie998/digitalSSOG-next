@@ -1,14 +1,14 @@
 import { NavLink, useParams } from "react-router-dom";
-import styles from "./MakeMethodList.module.css";
+import styles from "./MethodDescriptionList.module.css";
 
 const numEmogi = [" 0️⃣", " 1️⃣", " 2️⃣", " 3️⃣", "4️⃣"];
 
-function MakeMethodList({ functionMethod, appName }) {
+function MethodDescriptionList({ functionMethod, appName }) {
   let num = 0;
   const params = useParams();
 
   return (
-    <ol className={styles.MakeMethodList}>
+    <ol className={styles.methodDescriptionList}>
       {functionMethod.methodContent?.map((methodDescription) => (
         <li
           data-tooltip-midleft="클릭시 화면이 표시됩니다."
@@ -28,4 +28,4 @@ function MakeMethodList({ functionMethod, appName }) {
   );
 }
 
-export default MakeMethodList;
+export default MethodDescriptionList;

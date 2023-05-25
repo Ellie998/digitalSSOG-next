@@ -9,7 +9,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Index, { loader as functionDataLoader } from "./Layouts/Main/Index";
 import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
 // import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
-import DisplayBox from "./components/FunctionDetailComponents/DisplayBox";
+import DisplayBox from "./components/FunctionDetailComponents/DisplayBox/DisplayBox";
 import RootLayout from "./routes/RootLayout";
 // import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
 // import FunctionDetailInApp, {

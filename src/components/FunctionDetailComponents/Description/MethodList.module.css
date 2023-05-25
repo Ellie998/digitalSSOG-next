@@ -1,4 +1,4 @@
-.MakeMethodListByApp > li {
+.MethodList > li {
   list-style: circle;
   margin-left: 2.5rem;
 }

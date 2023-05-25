@@ -1,16 +1,17 @@
-.MakeMethodList li {
+.methodDescriptionList li {
   margin-left: 0.5rem;
   /* list-style: decimal; */
 }
-.MakeMethodList li:hover, a:hover{
+.methodDescriptionList li:hover,
+a:hover {
   color: var(--grey-400);
 }
 
-.MakeMethodList a.active {
+.methodDescriptionList a.active {
   color: #4c85e88a;
   font-weight: bold;
 }
-.MakeMethodList a.active:hover {
+.methodDescriptionList a.active:hover {
   color: #4c85e88a;
   font-weight: bold;
 }
