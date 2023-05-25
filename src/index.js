@@ -11,6 +11,7 @@ import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
 // import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox/DisplayBox";
 import RootLayout from "./routes/RootLayout";
+import ErrorPage from "./routes/ErrorPage";
 // import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
 // import FunctionDetailInApp, {
 //   loader as detailDataLoader,
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "",
     element: <RootLayout />,
+    errorElement: (
+      <RootLayout>
+        <ErrorPage />
+      </RootLayout>
+    ),
     // end: true,
     children: [
       {
