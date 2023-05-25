@@ -1,11 +1,7 @@
 import styles from "../sections/AppMain.module.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function BasicMain() {
-  const params = useParams();
-  const functionName = params.functionName;
-  const appName = params.appName;
-
+function BasicMain({ functionName, appName }) {
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>

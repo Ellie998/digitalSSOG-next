@@ -2,9 +2,9 @@
   background-color: white;
   width: 200px;
   height: 400px;
-  padding: 30px 25px 25px 25px;
+  padding: 30px 15px 25px 15px;
   background-image: url("./cellphone.png");
-  background-size: contain; 
+  background-size: contain;
   border-radius: 18px;
   display: grid;
   grid-template-rows: 15px auto 25px;

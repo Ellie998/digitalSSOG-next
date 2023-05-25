@@ -1,32 +1,44 @@
 .AppMain {
-  display: grid; 
+  display: grid;
   grid-template-rows: repeat(8, 35px);
   font-size: 1rem;
-
+  margin-top: 20px;
 }
 
 .AppMain i {
   box-shadow: 0px 0px 4px rgb(192, 192, 192);
   border-radius: 18px;
   padding: 2px 6px;
+  height: fit-content;
 }
+
 .AppMain i:hover {
   cursor: pointer;
   box-shadow: 0px 0px 6px #4c85e88a;
 }
+.mainDisplay {
+  grid-row: 1 / 8;
+}
 
-
-
-.mainApps{
+.mainApps {
   grid-row: 6 / 7;
 }
 
-.mainNavApps{
+.mainNavApps {
   grid-row: 8 / 9;
 }
 
+.kakaoProfileMain {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  margin-bottom: 10px;
+}
+.kakaoProfileMain .kakaoProfileMessage {
+  font-size: 8px;
+  color: rgb(199, 199, 199);
+}
 
-.wigetApps{
+.wigetApps {
   display: flex;
   justify-content: space-between;
 }

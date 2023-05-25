@@ -11,15 +11,16 @@ function CallAppMain() {
 
   function onchangeClickNum(event) {
     if (event.target.innerText && event.target.nodeName === "DIV") {
-      console.dir(event.target);
+      // console.dir(event.target);
       if (
         (!clickedNum.includes("-") && clickedNum.length === 3) ||
         clickedNum === "02"
       ) {
         changeNum(clickedNum + "-" + event.target.innerText);
       } else if (
+        (clickedNum.length === 6 && clickedNum.slice(0, 2) === "02") ||
         (clickedNum.length === 8 && clickedNum.slice(0, 2) === "01") ||
-        (clickedNum.length === 6 && clickedNum.slice(0, 2) === "02")
+        (clickedNum.length === 7 && clickedNum.slice(0, 2) !== "02")
       ) {
         changeNum(clickedNum + "-" + event.target.innerText);
       } else if (clickedNum.length > 20) {
@@ -68,7 +69,7 @@ function CallAppMain() {
           </li>
           <li>
             <NavLink to={`/description/${functionName}/${appName}/2`}>
-              <div data-target="target" data-tooltip="클릭!">
+              <div data-tooltip="클릭!">
                 <i className="bi bi-telephone"></i>
               </div>
             </NavLink>
