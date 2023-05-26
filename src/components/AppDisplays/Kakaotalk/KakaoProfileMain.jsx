@@ -15,11 +15,13 @@ function KakaoProfileMain({ functionName, appName }) {
             <p>music</p>
           </li>
           <li className={styles.kakaoProfileMain}>
-            <NavLink to={`/description/${functionName}/${appName}/3`}>
+            <NavLink
+              to={`/description/${functionName}/${appName}/3`}
+              data-tooltip="클릭!">
               <i className="bi bi-person"></i>
             </NavLink>
 
-            <div>
+            <div data-tooltip="클릭!">
               <NavLink to={`/description/${functionName}/${appName}/3`}>
                 <p>target</p>
                 <p className={styles.kakaoProfileMessage}>message</p>

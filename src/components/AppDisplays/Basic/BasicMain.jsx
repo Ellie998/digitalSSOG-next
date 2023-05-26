@@ -15,7 +15,7 @@ function BasicMain({ functionName, appName }) {
         <ul className={styles.wigetApps}>
           <li>
             <NavLink to={`/description/${functionName}/${appName}/1`}>
-              <i className="bi bi-telephone"></i>
+              <i data-tooltip="클릭!" className="bi bi-telephone"></i>
             </NavLink>
           </li>
           <li>

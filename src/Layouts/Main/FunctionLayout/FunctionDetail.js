@@ -13,13 +13,18 @@ function FunctionDetail() {
   const [detailFunctionObject, setData] = useState([]);
 
   useEffect(() => {
-    data.map((categoryObject) =>
-      categoryObject.objects?.forEach((ObjectInArray) => {
-        if (ObjectInArray.name === functionName) {
-          setData(ObjectInArray);
-        }
-      })
-    );
+    data.forEach((categoryObject) => {
+      if (
+        categoryObject.category !== "new" &&
+        categoryObject.category !== "hot"
+      ) {
+        categoryObject.objects?.forEach((ObjectInArray) => {
+          if (ObjectInArray.name === functionName) {
+            setData(ObjectInArray);
+          }
+        });
+      }
+    });
   }, [data, functionName]);
 
   return (
@@ -36,7 +41,8 @@ function FunctionDetail() {
             <ul>
               {detailFunctionObject.app?.map((appName) => (
                 <li key={Math.random()}>
-                  <Link to={"/description/" + functionName + "/" + appName}>
+                  <Link
+                    to={"/description/" + functionName + "/" + appName + "/0"}>
                     {appName}
                   </Link>
                 </li>

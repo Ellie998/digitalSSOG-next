@@ -15,10 +15,12 @@ function KakaoProfileDetail({ functionName, appName }) {
             <p>1:1채팅</p>
           </li>
           <li>
-            <NavLink to={`/description/${functionName}/${appName}/4`}>
-              <i className="bi bi-telephone"></i>
-              <p>통화하기</p>
-            </NavLink>
+            <div data-tooltip="클릭!">
+              <NavLink to={`/description/${functionName}/${appName}/4`}>
+                <i className="bi bi-telephone"></i>
+                <p>통화하기</p>
+              </NavLink>
+            </div>
           </li>
           <li>
             <i className="bi bi-camera-video"></i>

@@ -27,6 +27,8 @@ const router = createBrowserRouter([
       </RootLayout>
     ),
     // end: true,
+    loader: functionDataLoader,
+
     children: [
       {
         index: true,

@@ -11,8 +11,6 @@ li a {
   text-decoration: none;
 }
 
-
-
 /* animation */
 
 .animate-scale-up:hover {
@@ -23,8 +21,6 @@ li a {
   animation-fill-mode: forwards;
 }
 
-
-
 @keyframes scale-up {
   from {
     font-size: 1rem;
@@ -34,3 +30,8 @@ li a {
   }
 }
 
+@media (max-width: 800px) {
+  main {
+    padding-top: 10px;
+  }
+}

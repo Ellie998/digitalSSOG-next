@@ -8,7 +8,7 @@ function KakaoMain({ functionName, appName }) {
         <ul>
           <li>
             <NavLink to={`/description/${functionName}/${appName}/1`}>
-              <i className="bi bi-chat-fill"></i>
+              <i className="bi bi-chat-fill" data-tooltip="클릭!"></i>
             </NavLink>
           </li>
         </ul>
