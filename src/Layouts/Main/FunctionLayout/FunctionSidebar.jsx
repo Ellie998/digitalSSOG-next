@@ -3,7 +3,7 @@ import classes from "./FunctionSidebar.module.css";
 
 const FunctionSidebar = ({ isMenuClicked, isXClicked }) => {
   const data = useLoaderData();
-  console.log(data);
+
   return (
     <aside
       className={`${classes.aside} ${isMenuClicked ? "" : classes.disable} ${
@@ -13,7 +13,7 @@ const FunctionSidebar = ({ isMenuClicked, isXClicked }) => {
       <ul>
         {data?.map((categoryObject) => (
           <li key={Math.random()}>
-            <details>
+            <details open>
               <summary>{categoryObject.category}</summary>
               <ul>
                 {categoryObject.objects?.map((functionData) => (

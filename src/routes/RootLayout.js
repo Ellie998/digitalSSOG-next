@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function RootLayout({ children }) {
   const [menuClicked, setMenuClicked] = useState(false);
-  const [xClicked, setXClicked] = useState(false);
+  const [xClicked, setXClicked] = useState(true);
 
   function menuBtnClickHandler(event) {
     setMenuClicked(true);

@@ -7,9 +7,9 @@ function KakaoAppMain({ functionName, appName }) {
       <section className={styles.mainApps}></section>
       <section className={styles.mainNavApps}>
         <ul className={styles.wigetApps}>
-          <li>
+          <li data-tooltip="클릭!">
             <NavLink to={`/description/${functionName}/${appName}/2`}>
-              <i className="bi bi-person" data-tooltip="클릭!"></i>
+              <i className="bi bi-person"></i>
             </NavLink>
           </li>
           <li>

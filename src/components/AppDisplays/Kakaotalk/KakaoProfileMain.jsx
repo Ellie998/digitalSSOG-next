@@ -1,5 +1,6 @@
 import styles from "../sections/AppMain.module.css";
 import { NavLink } from "react-router-dom";
+// import classes from "./KakaoProfileMain.module.css";
 
 function KakaoProfileMain({ functionName, appName }) {
   return (

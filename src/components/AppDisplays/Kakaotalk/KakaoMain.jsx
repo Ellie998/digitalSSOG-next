@@ -6,9 +6,9 @@ function KakaoMain({ functionName, appName }) {
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>
         <ul>
-          <li>
+          <li data-tooltip="클릭!">
             <NavLink to={`/description/${functionName}/${appName}/1`}>
-              <i className="bi bi-chat-fill" data-tooltip="클릭!"></i>
+              <i className="bi bi-chat-fill"></i>
             </NavLink>
           </li>
         </ul>
