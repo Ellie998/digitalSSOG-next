@@ -6,7 +6,7 @@
   padding: 8rem 3rem;
   min-width: 300px;
   transition: 0.1s;
-  background-color: rgba(240, 248, 255, 0.531);
+  background-color: #c7c7c717;
   backdrop-filter: blur(12px);
 }
 

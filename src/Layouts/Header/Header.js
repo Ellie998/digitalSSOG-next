@@ -48,7 +48,14 @@ function Header() {
       </nav>
       {params.functionName && (
         <nav className={classes.nav2}>
-          <ul onMouseOver={hoverHandler} onMouseLeave={leaveHandler}>
+          <ul
+            onMouseOver={hoverHandler}
+            onMouseLeave={leaveHandler}
+            style={
+              isHovered
+                ? { justifyContent: "" }
+                : { justifyContent: "space-around" }
+            }>
             {data?.map((categoryObject) => (
               <li key={Math.random()}>
                 <p>{categoryObject.category}</p>

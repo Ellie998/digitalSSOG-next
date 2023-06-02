@@ -2,23 +2,17 @@
   margin: 0 auto;
   width: 80%;
   /* background-color: rgb(244, 244, 244); */
-  /* background-color: aliceblue; */
-  background-color: rgba(240, 248, 255, 0.531);
-  backdrop-filter: blur(12px);
+  background-color: #c7c7c717;
   border-radius: 12px;
   padding: 6rem 6rem 4rem 6rem;
   position: relative;
   top: -110px;
-  /* z-index: -1; */
 }
 
 .MakeListInCategory li {
-  /* display: grid;
-  grid-template-columns: repeat(2, auto); */
   display: flex;
   text-align: left;
   justify-content: space-between;
-  /* z-index: 1; */
 }
 
 .MakeListInCategory li:hover,
