@@ -8,21 +8,17 @@ function Header() {
   const data = useLoaderData();
   const params = useParams();
   const [isHovered, setIsHovered] = useState(false);
+  const [scrolled, setScrolled] = useState("0%");
 
-  // const categorys = [
-  //   "🔔 new",
-  //   "👑 hot",
-  //   "📞 전화, 문자",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  //   "👥 sns",
-  // ];
+  window.addEventListener("scroll", () => {
+    const scrolledHeight =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    var scrolled = (scrolledHeight / height) * 100;
+    setScrolled(scrolled + "%");
+  });
 
   function hoverHandler(event) {
     setIsHovered(true);
@@ -33,6 +29,9 @@ function Header() {
 
   return (
     <header className={classes.header}>
+      <div className={classes.scroll_container}>
+        <div className={classes.scroll} style={{ width: scrolled }}></div>
+      </div>
       <nav className={classes.nav1}>
         <Link to="/">
           <img src={logo} className="App-logo" alt="logo" />
@@ -46,6 +45,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      {/* if functionName Url is exsiting, show Nav */}
       {params.functionName && (
         <nav className={classes.nav2}>
           <ul
