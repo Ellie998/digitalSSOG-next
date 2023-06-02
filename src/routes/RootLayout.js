@@ -6,7 +6,7 @@ import classes from "./RootLayout.module.css";
 import { useState } from "react";
 
 function RootLayout({ children }) {
-  window.history.scrollRestoration = "auto";
+  // window.history.scrollRestoration = "auto";
   const [menuClicked, setMenuClicked] = useState(false);
   const [xClicked, setXClicked] = useState(true);
 

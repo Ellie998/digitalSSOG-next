@@ -1,27 +1,12 @@
 .header {
+  margin: 0 auto;
   width: 100%;
   background-color: #c7c7c717;
   backdrop-filter: blur(12px);
   box-shadow: 0px 2px 12px 6px rgba(202, 202, 202, 0.3);
   position: fixed;
-  top: 0px;
+  /* top: 20px; */
   z-index: 999;
-}
-
-.scroll_container {
-  position: fixed;
-  top: 0px;
-  z-index: 999;
-  width: 100%;
-  height: 10px;
-  background-color: #c7c7c717;
-  backdrop-filter: blur(12px);
-}
-
-.scroll {
-  height: 10px;
-  width: 0%;
-  background-color: rgba(129, 129, 129, 0.453);
 }
 
 .nav1 {
