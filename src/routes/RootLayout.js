@@ -22,7 +22,7 @@ function RootLayout({ children }) {
   return (
     <div className={classes.layout}>
       <Header />
-      <div className={classes.aside}>
+      {/* <div className={classes.aside}>
         {!menuClicked && (
           <i class="bi bi-list" onClick={menuBtnClickHandler}></i>
         )}
@@ -30,7 +30,7 @@ function RootLayout({ children }) {
         <FunctionSidebar
           isMenuClicked={menuClicked}
           isXClicked={xClicked}></FunctionSidebar>
-      </div>
+      </div> */}
       <Outlet />
       {children}
       <Footer />

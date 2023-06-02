@@ -1,37 +1,44 @@
-import styles from './MakeList.module.css'
-import { NavLink } from 'react-router-dom';
+import styles from "./MakeList.module.css";
+import { NavLink } from "react-router-dom";
 
-
-
-function MakeList({FunctionOrApp,ListObjects}){
-  const categorys = ["🔔 new", "👑 hot", "📞 전화, 문자","👥 sns"];
+function MakeList({ FunctionOrApp, ListObjects }) {
+  const categorys = [
+    "🔔 new",
+    "👑 hot",
+    "📞 전화, 문자",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+    "👥 sns",
+  ];
 
   return (
     <ul className={styles.MakeList}>
-    {
-      categorys.map(categoryName => {
+      {categorys.map((categoryName) => {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
-        <li key={categoryRealName}>
-          <NavLink to={`/${categoryRealName}`}>
-            {
-              ({isActive})=>
-                <button 
-                  value={categoryRealName} 
-                  data-tooltip="클릭!" 
+          <li key={categoryRealName}>
+            <NavLink to={`/${categoryRealName}`}>
+              {({ isActive }) => (
+                <button
+                  value={categoryRealName}
+                  data-tooltip="클릭!"
                   // className={isActive? "active":""}
-                  style={{fontWeight: isActive? "bold":""}}
-                  >
-                    {categoryName}
-                    </button>
-            }
-          </NavLink>
-        </li>    
-        )
-      })
-    }   
-  </ul>
-    )
+                  style={{ fontWeight: isActive ? "bold" : "" }}>
+                  {categoryName}
+                </button>
+              )}
+            </NavLink>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default MakeList;

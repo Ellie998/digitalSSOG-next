@@ -1,15 +1,23 @@
 .MakeList {
+  margin: 1rem auto 1rem auto;
   padding: 2rem 0;
-  width: 80%;
-  display: flex;
-  margin: 2rem auto 1rem auto;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: 60%;
+  /* display: flex; */
+  /* justify-content: center;
+  flex-wrap: wrap; */
   position: relative;
+  overflow-x: scroll;
+  white-space: nowrap;
   z-index: 1;
 }
 
+.MakeList::-webkit-scrollbar {
+  display: none;
+}
+
 .MakeList > li {
+  margin-top: 35px;
+  display: inline-block;
   margin-left: 0.5rem;
   min-width: max-content;
   transition: 0.1s;
@@ -49,5 +57,10 @@
 @media (max-width: 800px) {
   .MakeList {
     padding: 0;
+  }
+}
+@media (max-width: 483px) {
+  .MakeList {
+    width: 80%;
   }
 }

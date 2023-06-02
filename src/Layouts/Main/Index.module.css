@@ -1,11 +1,13 @@
 .Index section:nth-child(1) {
   max-width: 70%;
-  margin: 0 auto 10rem auto;
+  margin: 0rem auto 10rem auto;
   text-align: center;
   border-radius: 20px;
   padding: 8rem 3rem;
   min-width: 300px;
   transition: 0.1s;
+  background-color: rgba(240, 248, 255, 0.531);
+  backdrop-filter: blur(12px);
 }
 
 .Index section:nth-child(1):hover {
@@ -34,14 +36,12 @@
 }
 .paraTextAlignLeft li {
   margin-bottom: 0.5rem;
-
 }
 
-
-@media (max-width:450px){
+@media (max-width: 450px) {
   .Index section:nth-child(1) {
     max-width: 90%;
     padding: 8rem 3rem;
     min-width: 300px;
-  }  
+  }
 }
