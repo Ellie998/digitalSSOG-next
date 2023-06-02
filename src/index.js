@@ -17,6 +17,7 @@ const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID; // 환경 변수에 �
 ReactGA.initialize(gaTrackingId, { debug: true }); // react-ga 초기화 및 debug 사용
 
 const history = createBrowserHistory();
+
 history.listen((response) => {
   console.log(response.location.pathname);
   ReactGA.set({ page: response.location.pathname });
