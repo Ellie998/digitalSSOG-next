@@ -8,6 +8,7 @@ function Header() {
   const data = useLoaderData();
   const params = useParams();
   const [isHovered, setIsHovered] = useState(false);
+  const [scrolled, setScrolled] = useState("0%");
 
   function hoverHandler(event) {
     setIsHovered(true);
@@ -16,8 +17,21 @@ function Header() {
     setIsHovered(false);
   }
 
+  window.addEventListener("scroll", () => {
+    const scrolledHeight =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    var scrolled = (scrolledHeight / height) * 100;
+    setScrolled(scrolled + "%");
+  });
+
   return (
     <header className={classes.header}>
+      <div className={classes.scroll_container}>
+        <div className={classes.scroll} style={{ width: scrolled }}></div>
+      </div>
       <nav className={classes.nav1}>
         <Link to="/">
           <img src={logo} className="App-logo" alt="logo" />
