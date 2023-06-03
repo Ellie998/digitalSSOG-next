@@ -101,15 +101,15 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .header {
     left: 30px;
   }
-}
+} */
 @media (max-width: 500px) {
-  .header {
+  /* .header {
     left: 20px;
-  }
+  } */
   .header nav a {
     font-size: 1rem;
   }
