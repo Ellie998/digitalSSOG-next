@@ -1,12 +1,12 @@
 .MakeListInCategory {
   margin: 0 auto;
   width: 80%;
-  /* background-color: rgb(244, 244, 244); */
-  background-color: #c7c7c717;
   border-radius: 12px;
   padding: 6rem 6rem 4rem 6rem;
   position: relative;
   top: -110px;
+  background-color: #ffffff4d;
+  border: 0.1px solid rgba(255, 255, 255, 0.387);
 }
 
 .MakeListInCategory li {

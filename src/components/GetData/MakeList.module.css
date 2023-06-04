@@ -45,7 +45,6 @@
 
 .MakeList > li:hover {
   box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
-  background-color: rgb(244, 244, 244);
   transform: translateY(-3px);
 }
 

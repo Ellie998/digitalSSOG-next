@@ -13,7 +13,7 @@
   padding: 30px 15px 25px 15px;
   background-image: url("./cellphone.png");
   background-size: contain;
-  border-radius: 18px;
+  border-radius: 34px;
   display: grid;
   grid-template-rows: 15px auto 25px;
   justify-self: center;

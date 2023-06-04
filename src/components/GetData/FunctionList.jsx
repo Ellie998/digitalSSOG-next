@@ -9,7 +9,7 @@ function FunctionList() {
         기능 이름을 클릭하면 기능에 대한 설명, 기능을 제공하는 어플 목록, 기능을
         사용하는 방법을 상세히 알려줍니다.
       </p>
-      <div>
+      <div className={styles.box}>
         <MakeList FunctionOrApp={"function"}></MakeList>
         <MakeListInCategory FunctionOrApp={"function"}></MakeListInCategory>
       </div>

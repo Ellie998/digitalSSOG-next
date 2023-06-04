@@ -22,7 +22,7 @@
   padding: 3rem;
   min-width: 300px;
   max-width: 100%;
-  background-color: rgba(242, 242, 242, 0.807);
+  background-color: rgba(242, 242, 242, 0.38);
   transition: 0.1s;
 }
 .listStyling:hover {
@@ -46,7 +46,7 @@
 
 /*  */
 .functionDetailMain {
-  background-color: rgba(242, 242, 242, 0.807);
+  /* background-color: rgba(242, 242, 242, 0.489); */
   padding: 8rem 0;
 }
 

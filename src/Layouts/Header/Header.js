@@ -1,6 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 
-import logo from "./logo2.png";
+import logo from "./logo3.png";
 import classes from "./Header.module.css";
 import { useState } from "react";
 
