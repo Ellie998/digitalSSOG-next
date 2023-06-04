@@ -1,42 +1,38 @@
-import { Outlet } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+
 import Header from "../Layouts/Header/Header";
 import Footer from "../Layouts/Footer/Footer";
-// import FunctionSidebar from "../Layouts/Main/FunctionLayout/FunctionSidebar";
-import classes from "./RootLayout.module.css";
 import ScrollToTop from "../components/ScrollToTop";
-// import { useState } from "react";
+
+import classes from "./RootLayout.module.css";
 
 function RootLayout({ children }) {
-  // window.history.scrollRestoration = "auto";
-  // const [menuClicked, setMenuClicked] = useState(false);
-  // const [xClicked, setXClicked] = useState(true);
+  const divRef = useRef(null);
+  const location = useLocation();
+  const pathArray = location.pathname.split("/");
 
-  // function menuBtnClickHandler(event) {
-  //   setMenuClicked(true);
-  //   setXClicked(false);
-  // }
-  // function xBtnClickHandler(event) {
-  //   setMenuClicked(false);
-  //   setXClicked(true);
-  // }
+  const scrollToTop = () => {
+    location.search === "" &&
+      pathArray.length !== 5 &&
+      divRef.current.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [location]);
 
   return (
-    <div className={classes.layout}>
+    <div className={classes.layout} ref={divRef}>
       <ScrollToTop></ScrollToTop>
-      {/* <div className={classes.header_back}></div> */}
       <Header />
-      {/* <div className={classes.aside}>
-        {!menuClicked && (
-          <i class="bi bi-list" onClick={menuBtnClickHandler}></i>
-          )}
-          {!xClicked && <i class="bi bi-x-lg" onClick={xBtnClickHandler}></i>}
-          <FunctionSidebar
-          isMenuClicked={menuClicked}
-          isXClicked={xClicked}></FunctionSidebar>
-        </div> */}
 
       <Outlet />
       {children}
+
       <Footer />
     </div>
   );

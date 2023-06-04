@@ -1,15 +1,15 @@
+import { json } from "react-router-dom";
+
 import FunctionList from "../../components/GetData/FunctionList";
 
 import "./main.css";
 import styles from "./Index.module.css";
-// import AppList from "../../components/GetData/AppList";
 import { functionDataURL } from "../../data";
-import { json } from "react-router-dom";
 
 function Index() {
   return (
-    <main className={styles.Index}>
-      <section>
+    <main>
+      <section className={styles.section}>
         <h1>
           안녕하세요 💁🏻‍♀️ <br />
           디지털쏙 페이지 입니다.
