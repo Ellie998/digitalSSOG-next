@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const params = useParams();
+  const location = useLocation();
+  const pathArray = location.pathname.split("/");
 
-  console.log(params.descriptionId === undefined);
-  console.log(params.descriptionId);
+  console.log(location.search);
 
   useEffect(() => {
-    params.descriptionId === undefined && window.scrollTo(0, 0);
-  }, [params]);
+    location.search === "" && pathArray.length !== 5 && window.scrollTo(0, 0);
+  }, [location, pathArray]);
 
   return null;
 }
