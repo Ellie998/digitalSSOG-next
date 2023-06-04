@@ -47,11 +47,11 @@
 
 @media (max-width: 800px) {
   .MakeList {
-    padding: 0;
+    width: 90%;
   }
 }
-@media (max-width: 483px) {
-  .MakeList {
-    width: 80%;
+@media (max-width: 500px) {
+  .MakeList button {
+    background-color: rgba(255, 255, 255, 0.525);
   }
 }

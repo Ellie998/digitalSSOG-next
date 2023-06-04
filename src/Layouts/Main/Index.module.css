@@ -38,7 +38,7 @@
   margin-bottom: 0.5rem;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .Index section:nth-child(1) {
     max-width: 90%;
     padding: 8rem 3rem;
