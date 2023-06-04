@@ -7,12 +7,12 @@ import ReactGA from "react-ga";
 import reportWebVitals from "./reportWebVitals";
 import Index, { loader as functionDataLoader } from "./Layouts/Main/Index";
 import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
-// import AppIndex from "./Layouts/Main/AppLayout/AppIndex";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox/DisplayBox";
 import RootLayout from "./routes/RootLayout";
 import ErrorPage from "./routes/ErrorPage";
 import "./common.css";
 
+// google search console
 const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID; // 환경 변수에 저장된 추적ID 가져오기
 ReactGA.initialize(gaTrackingId, { debug: true }); // react-ga 초기화 및 debug 사용
 
@@ -23,11 +23,6 @@ history.listen((response) => {
   ReactGA.set({ page: response.location.pathname });
   ReactGA.pageview(response.location.pathname);
 });
-
-// import AppDetail from "./Layouts/Main/AppLayout/AppDetail";
-// import FunctionDetailInApp, {
-//   loader as detailDataLoader,
-// } from "./Layouts/Main/FunctionLayout/FunctionDetailInApp";
 
 const router = createBrowserRouter([
   {
@@ -69,27 +64,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-      // {
-      //   path: "/description/app/:appName",
-      //   element: <AppDetail />,
-      //   children: [],
-      // },
-
-      // {
-      //   path: "description/app/:appName/:functionName",
-      //   element: <FunctionDetailInApp />,
-      //   loader: detailDataLoader,
-      //   children: [
-      //     {
-      //       index: true,
-      //       element: <DisplayBox />,
-      //     },
-      //     {
-      //       path: ":description_id",
-      //       element: <DisplayBox />,
-      //     },
-      //   ],
-      // },
     ],
   },
 ]);

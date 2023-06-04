@@ -3,6 +3,7 @@ import Header from "../Layouts/Header/Header";
 import Footer from "../Layouts/Footer/Footer";
 // import FunctionSidebar from "../Layouts/Main/FunctionLayout/FunctionSidebar";
 import classes from "./RootLayout.module.css";
+import ScrollToTop from "../components/ScrollToTop";
 // import { useState } from "react";
 
 function RootLayout({ children }) {
@@ -21,17 +22,18 @@ function RootLayout({ children }) {
 
   return (
     <div className={classes.layout}>
+      <ScrollToTop></ScrollToTop>
       {/* <div className={classes.header_back}></div> */}
       <Header />
       {/* <div className={classes.aside}>
         {!menuClicked && (
           <i class="bi bi-list" onClick={menuBtnClickHandler}></i>
-        )}
-        {!xClicked && <i class="bi bi-x-lg" onClick={xBtnClickHandler}></i>}
-        <FunctionSidebar
+          )}
+          {!xClicked && <i class="bi bi-x-lg" onClick={xBtnClickHandler}></i>}
+          <FunctionSidebar
           isMenuClicked={menuClicked}
           isXClicked={xClicked}></FunctionSidebar>
-      </div> */}
+        </div> */}
 
       <Outlet />
       {children}
