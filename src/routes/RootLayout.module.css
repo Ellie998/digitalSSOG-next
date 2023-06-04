@@ -11,19 +11,32 @@
   border-radius: 12px;
 }
 
-/* .layout::before {
-  content: "";
-  width: 100%;
-  padding: 15px 20px;
-  background-color: #ffffff;
-  position: fixed;
-  top: 0px;
-  left: 0;
-  z-index: 999;
-} */
-
 .layout::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
+}
+
+.layout > button {
+  position: fixed;
+  top: 80vh;
+  left: 85%;
+  z-index: 999;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 30px;
+}
+.layout > button {
+  cursor: pointer;
+}
+.layout > button > i {
+  display: block;
+  width: 35px;
+  height: 35px;
+  font-size: 1.7rem;
+  /* color: rgb(44, 44, 44); */
+  color: white;
+  font-weight: bold;
+  background-color: rgb(53, 53, 53);
+  border-radius: 100%;
 }
 
 @media (max-width: 500px) {
