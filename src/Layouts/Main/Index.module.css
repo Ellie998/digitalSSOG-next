@@ -6,8 +6,8 @@
   padding: 8rem 3rem;
   min-width: 300px;
   transition: 0.1s;
-  background-color: #c7c7c717;
-  backdrop-filter: blur(12px);
+  background-color: #ffffff4d;
+  border: 0.1px solid rgba(255, 255, 255, 0.387);
 }
 
 .Index section:nth-child(1):hover {

@@ -12,6 +12,11 @@
   color: var(--grey-700);
 }
 
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 h1 {
   font-size: 2rem;
   color: var(--grey-900);
