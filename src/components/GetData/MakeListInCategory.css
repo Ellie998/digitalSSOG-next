@@ -10,7 +10,13 @@
 }
 
 @media (max-width: 800px) {
-  .functionAndAppList ul, #categoryIndex ul{
-    display:none;
+  .functionAndAppList ul,
+  #categoryIndex ul {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .MakeListInCategory {
+    background-color: #e1e1e15f;
   }
 }

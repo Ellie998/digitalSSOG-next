@@ -1,7 +1,11 @@
 import styles from "./MakeList.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function MakeList({ FunctionOrApp, ListObjects }) {
+  const url = useLocation();
+  const params = url.search.slice(1);
+  const keyword = decodeURI(params);
+
   const categorys = [
     "🔔 new",
     "👑 hot",
@@ -23,13 +27,24 @@ function MakeList({ FunctionOrApp, ListObjects }) {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
           <li key={categoryRealName}>
-            <NavLink to={`/${categoryRealName}`}>
+            <NavLink to={`?${categoryRealName}`}>
               {({ isActive }) => (
                 <button
                   value={categoryRealName}
                   data-tooltip="클릭!"
-                  // className={isActive? "active":""}
-                  style={{ fontWeight: isActive ? "bold" : "" }}>
+                  style={
+                    keyword === categoryRealName
+                      ? {
+                          backgroundColor: "rgba(255, 255, 255, 0.431)",
+                          transform: "translateY(-6px)",
+                        }
+                      : {}
+                  }
+                  className={
+                    keyword === categoryRealName ? styles.clicked : undefined
+                  }>
+                  {/* // className={isActive? "active":""}
+                  // style={{ fontWeight: isActive ? "bold" : "" }}> */}
                   {categoryName}
                 </button>
               )}

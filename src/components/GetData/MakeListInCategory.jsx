@@ -1,33 +1,29 @@
-import { Link } from "react-router-dom";
-import styles from "./MakeListInCategory.module.css";
-import "./MakeListInCategory.css";
+import { Link, useLocation } from "react-router-dom";
+import classes from "./MakeListInCategory.module.css";
 
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 function MakeListInCategory({ FunctionOrApp }) {
-  const params = useParams();
-  const keyword = decodeURI(params.categoryName);
+  const url = useLocation();
+  const params = url.search.slice(1);
+  const keyword = decodeURI(params);
 
   const listObjects = useLoaderData();
   let selectedCategoryObject = { ...listObjects[0] };
 
-  listObjects?.map((categoryObject) => {
+  selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
+  listObjects?.forEach((categoryObject) => {
     if (categoryObject.category === keyword) {
       selectedCategoryObject = categoryObject;
     }
   });
 
-  if (keyword === undefined) {
-    selectedCategoryObject = { ...listObjects[0] };
-  }
-
   return (
-    <ol className={styles.MakeListInCategory}>
-      <li id="categoryIndex">
-        <p>기능 이름</p>
-      </li>
+    <ol className={classes.MakeListInCategory}>
+      <p>기능 이름</p>
+
       {selectedCategoryObject.objects?.map((functionObject) => (
-        <li className="functionAndAppList" key={Math.random()}>
+        <li key={Math.random()}>
           <Link to={"/description/" + functionObject.name}>
             <p>{functionObject.name}</p>
           </Link>

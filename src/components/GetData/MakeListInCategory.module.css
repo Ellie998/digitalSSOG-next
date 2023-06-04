@@ -4,7 +4,7 @@
   border-radius: 12px;
   padding: 6rem 6rem 4rem 6rem;
   position: relative;
-  top: -110px;
+  top: -100px;
   background-color: #ffffff4d;
   border: 0.1px solid rgba(255, 255, 255, 0.387);
 }
@@ -38,6 +38,7 @@
   .MakeListInCategory {
     width: 100%;
     padding: 6rem 2rem 4rem 2rem;
-    top: -70px;
+    background-color: #e1e1e15f;
+    box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
   }
 }

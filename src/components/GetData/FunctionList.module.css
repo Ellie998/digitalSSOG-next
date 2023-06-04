@@ -3,3 +3,9 @@
   padding: 3rem;
   margin: 0 auto;
 }
+
+@media (max-width: 500px) {
+  .FunctionList {
+    padding: 1rem;
+  }
+}
