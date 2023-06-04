@@ -10,6 +10,7 @@ function Footer() {
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
+
   (function () {
     // DON'T EDIT BELOW THIS LINE
     var d = document,
@@ -18,6 +19,7 @@ function Footer() {
     s.setAttribute("data-timestamp", +new Date());
     (d.head || d.body).appendChild(s);
   })();
+
   return (
     <footer className={classes.footer}>
       <section>
@@ -30,6 +32,7 @@ function Footer() {
           </a>
         </noscript>
       </section>
+
       <p>Copyright © upps</p>
     </footer>
   );

@@ -27,7 +27,7 @@ function MakeListInCategory({ FunctionOrApp }) {
         <p>기능 이름</p>
       </li>
       {selectedCategoryObject.objects?.map((functionObject) => (
-        <li class="functionAndAppList" key={Math.random()}>
+        <li className="functionAndAppList" key={Math.random()}>
           <Link to={"/description/" + functionObject.name}>
             <p>{functionObject.name}</p>
           </Link>
