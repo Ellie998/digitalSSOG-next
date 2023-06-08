@@ -90,14 +90,20 @@
       {
         "name": "💬문자 발신",
         "app": ["기본", "카카오톡"],
-        "charateristic": "문자를 보낼 수 있다.",
+        "charateristic": "특정 사람에게 문자를 보낸다.",
         "method": [
           {
             "methodAppName": "기본",
             "howto": [
               {
-                "methodNum": 1,
-                "methodContent": []
+                "methodNum": "1. 연락처에 저장된 사람한테 문자 보내기",
+                "methodContent": [
+                  "메시지 어플을 터치한다.",
+                  "메시지 작성 아이콘을 터치한 후, 1:1 대화 아이콘을 터치한다.",
+                  "저장된 연락처 중에서 메시지를 보내려는 사람을 클릭한다.",
+                  "메시지를 작성하고, 작성 후에는 전송 버튼을 누른다.",
+                  "전송한 메시지와 전송된 시간이 우측에 표시되면 메시지 전송 성공!"
+                ]
               }
             ]
           }
@@ -106,7 +112,7 @@
       {
         "name": "💬문자 수신",
         "app": ["기본", "카카오톡"],
-        "charateristic": "문자를 보낼 수 있다.",
+        "charateristic": "수신된 문자를 확인한다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -128,8 +134,8 @@
             "methodAppName": "기본",
             "howto": [
               {
-                "methodNum": 1,
-                "methodContent": []
+                "methodNum": "1. 연락처에 저장된 사람한테 문자 보내기",
+                "methodContent": [""]
               }
             ]
           }

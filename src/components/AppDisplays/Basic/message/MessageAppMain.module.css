@@ -1,0 +1,91 @@
+.AppMain {
+  display: grid;
+  grid-template-rows: repeat(9, 33px);
+  font-size: 1rem;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: #cecece8a;
+  filter: blur(6px);
+}
+
+.AppMain i {
+  border-radius: 18px;
+  padding: 2px 6px;
+  height: fit-content;
+  font-size: 0.7rem;
+}
+
+.AppMain i:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 6px #cdcdcd8a;
+  background-color: #cdcdcd8a;
+}
+.messageTitle {
+  grid-row: 1 / 3;
+  font-size: 1.25rem;
+  text-align: center;
+  align-self: center;
+}
+.messageETCLists {
+  grid-row: 3 / 4;
+  display: flex;
+  justify-content: end;
+}
+.messageCategoryLists {
+  grid-row: 4 / 5;
+  display: flex;
+}
+.messageCategoryLists li {
+  cursor: pointer;
+}
+.messageCategoryLists li:first-child::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--grey-700);
+  z-index: 999;
+}
+
+.messageLists {
+  grid-row: 5/7;
+}
+
+.messagePlus {
+  grid-row: 9/10;
+  text-align: end;
+  margin-right: 10px;
+}
+.appNav {
+  text-align: end;
+  position: relative;
+  z-index: 999;
+  top: -30px;
+  margin-right: 10px;
+}
+
+.appNav p {
+  font-size: 0.7rem;
+  display: inline;
+  margin-right: 10px;
+}
+
+.appNav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.appNav li {
+  margin-bottom: 10px;
+}
+.appNav i,
+.messagePlus i {
+  box-shadow: 0px 0px 4px rgb(192, 192, 192);
+}
+.appNav li:last-child i,
+.messagePlus i {
+  font-size: 1rem;
+}

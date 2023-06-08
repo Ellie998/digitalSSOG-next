@@ -1,17 +1,27 @@
-import BasicMain from "../Basic/BasicMain";
-import CallAppMain from "../Basic/CallAppMain";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+
+import BasicMain from "../Basic/call/BasicMain";
+import CallAppMain from "../Basic/call/CallAppMain";
+import CallSuccess from "../Basic/call/CallSuccess";
+
 import KakaoMain from "../Kakaotalk/KakaoMain";
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
-
-import CallSuccess from "../Basic/CallSuccess";
-import { useParams } from "react-router-dom";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
-import AnswerCall from "../Basic/AnswerCall";
-import CallConnected from "../Basic/CallConnected";
+
+import AnswerCall from "../Basic/call/AnswerCall";
+import CallConnected from "../Basic/call/CallConnected";
+
+import MessageMain from "../Basic/message/MessageMain";
+import MessageAppMain from "../Basic/message/MessageAppMain";
+import SelectPerson from "../Basic/message/SelectPerson";
+import MessageInsert from "../Basic/message/MessageInsert";
+import SendSuccess from "../Basic/message/SendSuccess";
 
 function AppMain() {
   const params = useParams();
+  const [enteredInput, setEnteredInput] = useState("");
 
   const functionName = params.functionName;
   const appName = params.appName;
@@ -96,12 +106,54 @@ function AppMain() {
     }
   }
 
+  function sendMessage() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MessageMain
+            appName={appName}
+            functionName={functionName}></MessageMain>
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <MessageAppMain
+            appName={appName}
+            functionName={functionName}></MessageAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectPerson
+            appName={appName}
+            functionName={functionName}></SelectPerson>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <MessageInsert
+            appName={appName}
+            functionName={functionName}
+            setInputValue={setEnteredInput}
+            inputValue={enteredInput}></MessageInsert>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SendSuccess
+            appName={appName}
+            functionName={functionName}
+            messageContent={enteredInput}></SendSuccess>
+        );
+      }
+    }
+  }
+
   switch (functionName.slice(2)) {
     case "전화받기(수신)":
       answerTheCall();
       break;
     case "전화걸기(발신)":
       makeACall();
+      break;
+    case "문자 발신":
+      sendMessage();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);

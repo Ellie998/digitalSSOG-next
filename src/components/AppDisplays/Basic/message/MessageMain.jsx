@@ -1,7 +1,7 @@
-import styles from "../sections/AppMain.module.css";
+import styles from "../../sections/AppMain.module.css";
 import { NavLink } from "react-router-dom";
 
-function BasicMain({ functionName, appName }) {
+function MessageMain({ functionName, appName }) {
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>
@@ -13,10 +13,8 @@ function BasicMain({ functionName, appName }) {
       </section>
       <section className={styles.mainNavApps}>
         <ul className={styles.wigetApps}>
-          <li data-tooltip="클릭!">
-            <NavLink to={`/description/${functionName}/${appName}/1`}>
-              <i className="bi bi-telephone"></i>
-            </NavLink>
+          <li>
+            <i className="bi bi-telephone"></i>
           </li>
           <li>
             <i className="bi bi-camera"></i>
@@ -27,8 +25,10 @@ function BasicMain({ functionName, appName }) {
           <li>
             <i className="bi bi-browser-chrome"></i>
           </li>
-          <li>
-            <i className="bi bi-chat-dots"></i>
+          <li data-tooltip="클릭!">
+            <NavLink to={`/description/${functionName}/${appName}/1`}>
+              <i className="bi bi-chat-dots"></i>
+            </NavLink>
           </li>
         </ul>
       </section>
@@ -36,4 +36,4 @@ function BasicMain({ functionName, appName }) {
   );
 }
 
-export default BasicMain;
+export default MessageMain;

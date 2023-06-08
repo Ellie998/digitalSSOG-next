@@ -14,7 +14,8 @@
 
 .AppMain i:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 6px #4c85e88a;
+  box-shadow: 0px 0px 6px #cdcdcd8a;
+  background-color: #cdcdcd8a;
 }
 .mainDisplay {
   grid-row: 1 / 8;
