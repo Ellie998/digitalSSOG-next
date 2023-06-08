@@ -34,7 +34,13 @@ function Header() {
       </div>
       <nav className={classes.nav1}>
         <Link to="/">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            className="App-logo"
+            alt="logo"
+            width="6rem"
+            height="fit-content"
+          />
         </Link>
         <ul>
           <li>

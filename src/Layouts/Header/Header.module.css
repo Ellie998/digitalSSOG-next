@@ -2,7 +2,7 @@
   width: 90%;
   background-color: #fefefe2b;
   backdrop-filter: blur(10px);
-  position: fixed;
+  position: absolute;
   top: 10vh;
   left: 5%;
   z-index: 999;
@@ -26,6 +26,7 @@
 
 .nav1 img {
   width: 6rem;
+  height: fit-content;
 }
 
 .nav1 ul {

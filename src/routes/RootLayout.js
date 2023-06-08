@@ -13,28 +13,13 @@ function RootLayout({ children }) {
   const location = useLocation();
   const pathArray = location.pathname.split("/");
 
-  const pcScrollToTopCondition = () => {
-    location.search === "" &&
-      pathArray.length !== 5 &&
-      divRef.current.scroll({
-        top: 0,
-        behavior: "smooth",
-      });
-  };
   const pcScrollToTop = () => {
     divRef.current.scroll({
       top: 0,
       behavior: "smooth",
     });
   };
-  const mScrollToTopCondition = () => {
-    location.search === "" &&
-      pathArray.length !== 5 &&
-      window.scroll({
-        top: 0,
-        behavior: "smooth",
-      });
-  };
+
   const mScrollToTop = () => {
     window.scroll({
       top: 0,
@@ -43,8 +28,24 @@ function RootLayout({ children }) {
   };
 
   useEffect(() => {
+    const pcScrollToTopCondition = () => {
+      location.search === "" &&
+        pathArray.length !== 5 &&
+        divRef.current.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+    };
+    const mScrollToTopCondition = () => {
+      location.search === "" &&
+        pathArray.length !== 5 &&
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+    };
     isWidthLess500 ? mScrollToTopCondition() : pcScrollToTopCondition();
-  }, [location]);
+  }, [location, pathArray.length]);
 
   return (
     <div className={classes.layout} id="pcScrollTarget" ref={divRef}>
