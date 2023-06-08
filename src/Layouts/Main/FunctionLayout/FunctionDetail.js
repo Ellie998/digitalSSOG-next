@@ -30,14 +30,16 @@ function FunctionDetail() {
   return (
     <main>
       <section className={styles.functionDetailIntro}>
-        <h1>📞 {detailFunctionObject.name} 기능 소개</h1>
+        <h1>
+          <b className={styles.b}>{detailFunctionObject.name}</b> 기능 소개
+        </h1>
         <ul>
           <li className={styles.listStyling}>
-            <h2> 기능 특징</h2>
+            <h2>특징</h2>
             <p>{detailFunctionObject.charateristic}</p>
           </li>
           <li className={styles.listStyling}>
-            <h2>기능을 제공하는 어플</h2>
+            <h2>관련 어플</h2>
             <ul>
               {detailFunctionObject.app?.map((appName) => (
                 <li key={Math.random()}>
@@ -53,7 +55,10 @@ function FunctionDetail() {
       </section>
       <section className={styles.functionDetailMain}>
         <div>
-          <h2>기능 사용 방법 정리</h2>
+          <h2>
+            <b className={styles.b}>{detailFunctionObject.name}</b> 기능 실행
+            방법
+          </h2>
           <MethodAppList functionMethods={detailFunctionObject.method} />
           <Outlet />
         </div>

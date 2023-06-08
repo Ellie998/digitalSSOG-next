@@ -1,12 +1,12 @@
-.layout {
-  display: grid;
-  grid-template-columns: 200px auto;
-}
-
 .functionDetailIntro {
   width: 80%;
   margin: 0rem auto 14rem auto;
   text-align: center;
+}
+
+.b {
+  color: #ffca2b;
+  /* color: rgb(255, 103, 89); */
 }
 
 .functionDetailIntro > ul {

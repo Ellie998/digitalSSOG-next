@@ -56,7 +56,7 @@ function RootLayout({ children }) {
 
       <Footer />
       <button onClick={isWidthLess500 ? mScrollToTop : pcScrollToTop}>
-        <i class="bi bi-arrow-up-short"></i>
+        <i className="bi bi-arrow-up-short"></i>
       </button>
     </div>
   );
