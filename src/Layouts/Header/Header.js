@@ -71,7 +71,7 @@ function Header() {
                   {categoryObject.objects?.map((functionData) => (
                     <li key={Math.random()}>
                       <Link to={`/description/${functionData.name}`}>
-                        <p>{functionData.name.slice(3)}</p>
+                        <p>{functionData.name.slice(2)}</p>
                       </Link>
                     </li>
                   ))}

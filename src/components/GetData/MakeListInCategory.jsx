@@ -25,7 +25,7 @@ function MakeListInCategory({ FunctionOrApp }) {
       {selectedCategoryObject.objects?.map((functionObject) => (
         <li key={Math.random()}>
           <Link to={"/description/" + functionObject.name}>
-            <p>{functionObject.name.slice(3)}</p>
+            <p>{functionObject.name.slice(2)}</p>
           </Link>
         </li>
       ))}
