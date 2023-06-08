@@ -6,8 +6,8 @@ function FunctionList() {
     <section className={styles.FunctionList}>
       <h1>카테고리별 사용 가능한 기능</h1>
       <p>
-        기능 이름을 클릭하면 기능에 대한 설명, 기능을 제공하는 어플 목록, 기능을
-        사용하는 방법을 상세히 알려줍니다.
+        기능을 제공하는 어플 목록, 사용 방법을 알고 싶은 기능의 이름을
+        클릭하세요.
       </p>
       <div className={styles.box}>
         <MakeList FunctionOrApp={"function"}></MakeList>

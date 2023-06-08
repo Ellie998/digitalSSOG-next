@@ -7,7 +7,6 @@ import CallSuccess from "../Basic/CallSuccess";
 import { useParams } from "react-router-dom";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
-import ComeCall from "../Basic/ComeCall";
 import AnswerCall from "../Basic/AnswerCall";
 import CallConnected from "../Basic/CallConnected";
 
@@ -68,14 +67,12 @@ function AppMain() {
   function answerTheCall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = <ComeCall />;
-      } else if (descriptionId === "1") {
         choicedComponent = (
           <AnswerCall
             appName={appName}
             functionName={functionName}></AnswerCall>
         );
-      } else if (descriptionId === "2") {
+      } else if (descriptionId === "1") {
         choicedComponent = (
           <CallConnected
             appName={appName}
@@ -84,14 +81,12 @@ function AppMain() {
       }
     } else if (appName === "카카오톡") {
       if (descriptionId === "0") {
-        choicedComponent = <ComeCall />;
-      } else if (descriptionId === "1") {
         choicedComponent = (
           <AnswerCall
             appName={appName}
             functionName={functionName}></AnswerCall>
         );
-      } else if (descriptionId === "2") {
+      } else if (descriptionId === "1") {
         choicedComponent = (
           <CallConnected
             appName={appName}
@@ -101,7 +96,7 @@ function AppMain() {
     }
   }
 
-  switch (functionName) {
+  switch (functionName.slice(3)) {
     case "전화받기":
       answerTheCall();
       break;
