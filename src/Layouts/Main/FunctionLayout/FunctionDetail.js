@@ -54,14 +54,11 @@ function FunctionDetail() {
         </ul>
       </section>
       <section className={styles.functionDetailMain}>
-        <div>
-          <h2>
-            <b className={styles.b}>{detailFunctionObject.name}</b> 기능 실행
-            방법
-          </h2>
-          <MethodAppList functionMethods={detailFunctionObject.method} />
-          <Outlet />
-        </div>
+        <h2>
+          <b className={styles.b}>{detailFunctionObject.name}</b> 기능 실행 방법
+        </h2>
+        <MethodAppList functionMethods={detailFunctionObject.method} />
+        <Outlet />
       </section>
     </main>
   );

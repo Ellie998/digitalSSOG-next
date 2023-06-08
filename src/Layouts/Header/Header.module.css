@@ -1,11 +1,14 @@
 .header {
-  width: 85%;
-  background-color: #5a5a5a2b;
+  background-color: #f4f4f484;
   backdrop-filter: blur(10px);
   position: absolute;
   top: 10vh;
-  margin: 10px auto;
-  left: 7%;
+  width: 90%;
+  left: 5%;
+
+  /* margin: 10px auto; */
+  /* width: 85%;
+  left: 7%; */
   z-index: 999;
   border-radius: 12px;
 }

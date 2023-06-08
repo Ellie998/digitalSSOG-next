@@ -4,14 +4,12 @@
 }
 .methodDescriptionList li:hover,
 a:hover {
-  color: var(--grey-400);
+  color: var(--grey-800);
 }
 
 .methodDescriptionList a.active {
-  color: #4c85e88a;
-  font-weight: bold;
+  color: var(--grey-800);
 }
 .methodDescriptionList a.active:hover {
-  color: #4c85e88a;
-  font-weight: bold;
+  color: var(--grey-800);
 }

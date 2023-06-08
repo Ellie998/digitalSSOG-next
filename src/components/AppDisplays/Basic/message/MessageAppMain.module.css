@@ -40,6 +40,7 @@
 }
 .messageCategoryLists li {
   cursor: pointer;
+  font-size: 0.8rem;
 }
 .messageCategoryLists li:first-child::after {
   content: "";
@@ -57,14 +58,12 @@
 .messagePlus {
   grid-row: 9/10;
   text-align: end;
-  margin-right: 10px;
 }
 .appNav {
   text-align: end;
   position: relative;
   z-index: 999;
   top: -30px;
-  margin-right: 10px;
 }
 
 .appNav p {

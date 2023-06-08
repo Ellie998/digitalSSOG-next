@@ -1,9 +1,10 @@
 import styles from "./MethodAppList.module.css";
 import MethodList from "./MethodList";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function MethodAppList({ functionMethods }) {
   const params = useParams();
+  const functionName = params.functionName;
 
   return (
     <ol className={styles.MethodAppList}>
@@ -17,7 +18,16 @@ function MethodAppList({ functionMethods }) {
                 : false
             }>
             <summary data-tooltip-left="클릭!">
-              {functionMethodObject.methodAppName}
+              <Link
+                to={
+                  "/description/" +
+                  functionName +
+                  "/" +
+                  functionMethodObject.methodAppName +
+                  "/0"
+                }>
+                {functionMethodObject.methodAppName} 어플
+              </Link>
             </summary>
             <MethodList
               functionMethodObject={functionMethodObject}

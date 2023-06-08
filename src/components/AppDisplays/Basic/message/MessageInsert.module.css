@@ -58,7 +58,7 @@
 /*  */
 
 .appNav {
-  margin: 0 8px 0 3px;
+  margin: 0 3px;
   grid-row: 9/10;
   display: grid;
   grid-template-columns: auto auto 15%;
@@ -89,7 +89,7 @@
 .sendIcon,
 .soundIcon {
   border-radius: 18px;
-  margin: 0 3px 0 3px;
+  margin: 0 0 0 3px;
   height: fit-content;
   text-align: center;
 }
