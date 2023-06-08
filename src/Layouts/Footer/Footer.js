@@ -11,18 +11,18 @@ function Footer() {
     };
     */
 
-  (function () {
-    // DON'T EDIT BELOW THIS LINE
-    var d = document,
-      s = d.createElement("script");
-    s.src = "https://disitalssog.disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
+  // (function () {
+  //   // DON'T EDIT BELOW THIS LINE
+  //   var d = document,
+  //     s = d.createElement("script");
+  //   s.src = "https://disitalssog.disqus.com/embed.js";
+  //   s.setAttribute("data-timestamp", +new Date());
+  //   (d.head || d.body).appendChild(s);
+  // })();
 
   return (
     <footer className={classes.footer}>
-      <section>
+      {/* <section>
         <div id="disqus_thread"></div>
 
         <noscript>
@@ -31,7 +31,7 @@ function Footer() {
             comments powered by Disqus.
           </a>
         </noscript>
-      </section>
+      </section> */}
 
       <p>Copyright © upps</p>
     </footer>

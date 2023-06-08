@@ -96,11 +96,11 @@ function AppMain() {
     }
   }
 
-  switch (functionName.slice(3)) {
-    case "전화받기":
+  switch (functionName.slice(2)) {
+    case "전화받기(수신)":
       answerTheCall();
       break;
-    case "전화걸기":
+    case "전화걸기(발신)":
       makeACall();
       break;
     default:

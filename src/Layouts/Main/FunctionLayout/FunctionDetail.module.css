@@ -5,7 +5,8 @@
 }
 
 .b {
-  color: rgb(255, 103, 89);
+  /* color: rgb(255, 89, 89); */
+  color: var(--grey-900);
 }
 
 .functionDetailIntro > ul {
