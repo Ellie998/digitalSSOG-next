@@ -39,34 +39,34 @@ function MessageInsert({ functionName, appName, setInputValue, inputValue }) {
       </div>
       <div className={classes.appNav}>
         {!inputClicked && (
-          <ul className={classes.navOptions}>
-            <li>
+          <div className={classes.navOptions}>
+            <div>
               <i className="bi bi-image"></i>
-            </li>
-            <li>
+            </div>
+            <div>
               <i className="bi bi-camera"></i>
-            </li>
-            <li>
+            </div>
+            <div>
               <i className="bi bi-plus"></i>
-            </li>
-          </ul>
+            </div>
+          </div>
         )}
         {inputClicked && (
           <div className={classes.navOption}>
             <i className="bi bi-chevron-right"></i>
           </div>
         )}
-        <ul className={classes.inputBox}>
-          <li>
+        <div className={classes.inputBox}>
+          <div>
             <input
               onFocus={inputClickHandler}
               onBlur={inputOutHandler}
               onChange={inputChangeHandler}></input>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-emoji-smile"></i>
-          </li>
-        </ul>
+          </div>
+        </div>
         {!inputValue && (
           <div className={classes.soundIcon}>
             <i className="bi bi-soundwave"></i>

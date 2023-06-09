@@ -46,3 +46,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.kakaoApp {
+  display: inline-block;
+}

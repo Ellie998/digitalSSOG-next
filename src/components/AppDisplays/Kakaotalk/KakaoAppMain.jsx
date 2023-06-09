@@ -6,25 +6,25 @@ function KakaoAppMain({ functionName, appName }) {
     <section className={styles.AppMain}>
       <section className={styles.mainApps}></section>
       <section className={styles.mainNavApps}>
-        <ul className={styles.wigetApps}>
-          <li data-tooltip="클릭!">
+        <div className={styles.wigetApps}>
+          <div data-tooltip="클릭!">
             <NavLink to={`/description/${functionName}/${appName}/2`}>
               <i className="bi bi-person"></i>
             </NavLink>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-chat"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-eye"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-handbag"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-three-dots"></i>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
     </section>
   );

@@ -13,29 +13,29 @@ function SendResend({ functionName, appName }) {
       </div>
       <div className={classes.messages}></div>
       <div className={classes.appNav}>
-        <ul className={classes.navOptions}>
-          <li>
+        <div className={classes.navOptions}>
+          <div>
             <i className="bi bi-image"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-camera"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-plus"></i>
-          </li>
-        </ul>
+          </div>
+        </div>
 
-        <ul className={classes.inputBox}>
-          <li>
+        <div className={classes.inputBox}>
+          <div>
             <input
               readOnly
               value="결혼식 주소입니다. OO특별시 OO구 
             OO로 OOO번길 O, OOO 컨벤션"></input>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-emoji-smile"></i>
-          </li>
-        </ul>
+          </div>
+        </div>
 
         <NavLink to={`/description/${functionName}/${appName}/5`}>
           <div className={classes.sendIcon} data-tooltip="클릭!">

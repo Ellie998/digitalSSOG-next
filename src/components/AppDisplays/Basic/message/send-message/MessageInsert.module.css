@@ -35,8 +35,8 @@
 .sendMessage {
   justify-content: end;
 }
-.sendMessage div:nth-child(2),
-.getMessage div:nth-child(1) {
+.sendMessage > div:nth-child(2),
+.getMessage > div:nth-child(1) {
   max-width: 70%;
   padding: 6px;
   border-radius: 18px;
@@ -44,15 +44,15 @@
   font-size: 0.8rem;
 }
 
-.sendMessage div:nth-child(1),
-.getMessage div:nth-child(2) {
+.sendMessage > div:nth-child(1),
+.getMessage > div:nth-child(2) {
   font-size: 0.5rem;
 }
-.sendMessage div:nth-child(2) {
+.sendMessage > div:nth-child(2) {
   background-color: rgb(171, 214, 242);
 }
 
-.getMessage div:nth-child(1) {
+.getMessage > div:nth-child(1) {
   background-color: rgb(226, 226, 226);
 }
 /*  */
@@ -68,7 +68,8 @@
   display: flex;
   justify-content: space-around;
 }
-.navOptions li {
+
+.navOptions div {
   margin-right: 5px;
 }
 

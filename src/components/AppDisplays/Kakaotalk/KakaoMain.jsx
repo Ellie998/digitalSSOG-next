@@ -5,32 +5,32 @@ function KakaoMain({ functionName, appName }) {
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>
-        <ul>
-          <li data-tooltip="클릭!">
+        <div>
+          <div className={styles.kakaoApp} data-tooltip="클릭!">
             <NavLink to={`/description/${functionName}/${appName}/1`}>
               <i className="bi bi-chat-fill"></i>
             </NavLink>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
       <section className={styles.mainNavApps}>
-        <ul className={styles.wigetApps}>
-          <li>
+        <div className={styles.wigetApps}>
+          <div>
             <i className="bi bi-telephone"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-camera"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-clock"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-browser-chrome"></i>
-          </li>
-          <li>
+          </div>
+          <div>
             <i className="bi bi-chat-dots"></i>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
     </section>
   );
