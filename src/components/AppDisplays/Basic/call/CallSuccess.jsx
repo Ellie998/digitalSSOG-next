@@ -1,6 +1,6 @@
 import styles from "../../sections/AppMain.module.css";
 
-function CallSuccess({ onChangeMain }) {
+function CallSuccess() {
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>

@@ -1,6 +1,6 @@
-import classes from "./MessageInsert.module.css";
+import classes from "../send-message/MessageInsert.module.css";
 
-function SeeMessage({ functionName, appName }) {
+function ResendSuccess() {
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>
@@ -12,22 +12,8 @@ function SeeMessage({ functionName, appName }) {
       </div>
       <div className={classes.messages}>
         <div className={classes.sendMessage}>
-          <div>
-            6월 9일
-            <br />
-            오전 10:12
-          </div>
-          <div>어디에 계신가요?</div>
-        </div>
-        <div className={classes.getMessage}>
-          <div>사거리 앞에 있습니다.</div>
-          <div>오전 10:13</div>
-        </div>
-        <div className={classes.getMessage}>
-          <div>
-            안녕하세요, <br></br>홍길동입니다.<br></br> 전화 바랍니다.
-          </div>
-          <div>오전 8:03</div>
+          <div>오전 9:54</div>
+          <div>결혼식 주소입니다. OO특별시 OO구 OO로 OOO번길 O, OOO 컨벤션</div>
         </div>
       </div>
       <div className={classes.appNav}>
@@ -60,4 +46,4 @@ function SeeMessage({ functionName, appName }) {
   );
 }
 
-export default SeeMessage;
+export default ResendSuccess;

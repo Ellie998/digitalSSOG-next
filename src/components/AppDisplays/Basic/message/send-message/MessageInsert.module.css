@@ -37,7 +37,6 @@
 }
 .sendMessage div:nth-child(2),
 .getMessage div:nth-child(1) {
-  width: max-content;
   max-width: 70%;
   padding: 6px;
   border-radius: 18px;
@@ -103,3 +102,20 @@
 }
 
 /* SeeMessage */
+/* SelectResend */
+.options {
+  background-color: white;
+  box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  max-width: max-content;
+  padding: 5px 10px;
+  position: relative;
+  top: -80px;
+  left: 60px;
+  z-index: 500;
+}
+
+.options div {
+  margin-bottom: 10px;
+}

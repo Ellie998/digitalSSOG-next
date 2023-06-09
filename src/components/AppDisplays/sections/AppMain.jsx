@@ -15,11 +15,16 @@ import CallConnected from "../Basic/call/CallConnected";
 
 import MessageMain from "../Basic/message/MessageMain";
 import MessageAppMain from "../Basic/message/MessageAppMain";
-import SelectPerson from "../Basic/message/SelectPerson";
-import MessageInsert from "../Basic/message/MessageInsert";
-import SendSuccess from "../Basic/message/SendSuccess";
-import SelectMessage from "../Basic/message/SelectMessage";
-import SeeMessage from "../Basic/message/SeeMessage";
+import SelectPerson from "../Basic/message/send-message/SelectPerson";
+import MessageInsert from "../Basic/message/send-message/MessageInsert";
+import SendSuccess from "../Basic/message/send-message/SendSuccess";
+import SelectMessage from "../Basic/message/see-message/SelectMessage";
+import SeeMessage from "../Basic/message/see-message/SeeMessage";
+import SelectResend from "../Basic/message/resend-message/SelectResend";
+import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
+import SendResend from "../Basic/message/resend-message/SendResend";
+import SelectList from "../Basic/message/resend-message/SelectList";
+import SelectResendPerson from "../Basic/message/resend-message/SelectResendPerson";
 
 function AppMain() {
   const params = useParams();
@@ -41,9 +46,7 @@ function AppMain() {
           <CallAppMain appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <CallSuccess appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <CallSuccess />;
       } else {
         choicedComponent = <div></div>;
       }
@@ -67,9 +70,7 @@ function AppMain() {
           <KakaoProfileDetail appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <CallSuccess appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <CallSuccess />;
       } else {
         choicedComponent = <div></div>;
       }
@@ -85,11 +86,7 @@ function AppMain() {
             functionName={functionName}></AnswerCall>
         );
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <CallConnected
-            appName={appName}
-            functionName={functionName}></CallConnected>
-        );
+        choicedComponent = <CallConnected></CallConnected>;
       }
     } else if (appName === "카카오톡") {
       if (descriptionId === "0") {
@@ -99,11 +96,7 @@ function AppMain() {
             functionName={functionName}></AnswerCall>
         );
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <CallConnected
-            appName={appName}
-            functionName={functionName}></CallConnected>
-        );
+        choicedComponent = <CallConnected></CallConnected>;
       }
     }
   }
@@ -138,10 +131,7 @@ function AppMain() {
         );
       } else if (descriptionId === "4") {
         choicedComponent = (
-          <SendSuccess
-            appName={appName}
-            functionName={functionName}
-            messageContent={enteredInput}></SendSuccess>
+          <SendSuccess messageContent={enteredInput}></SendSuccess>
         );
       }
     }
@@ -162,13 +152,44 @@ function AppMain() {
             functionName={functionName}></SelectMessage>
         );
       } else if (descriptionId === "2") {
+        choicedComponent = <SeeMessage></SeeMessage>;
+      }
+    }
+  }
+  function resendMessage() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
         choicedComponent = (
-          <SeeMessage
+          <MessageMain
             appName={appName}
-            functionName={functionName}
-            setInputValue={setEnteredInput}
-            inputValue={enteredInput}></SeeMessage>
+            functionName={functionName}></MessageMain>
         );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <SelectList
+            appName={appName}
+            functionName={functionName}></SelectList>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectResend
+            appName={appName}
+            functionName={functionName}></SelectResend>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <SelectResendPerson
+            appName={appName}
+            functionName={functionName}></SelectResendPerson>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SendResend
+            appName={appName}
+            functionName={functionName}></SendResend>
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = <ResendSuccess></ResendSuccess>;
       }
     }
   }
@@ -185,6 +206,9 @@ function AppMain() {
       break;
     case "문자 수신":
       seeMessage();
+      break;
+    case "문자 전달":
+      resendMessage();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);

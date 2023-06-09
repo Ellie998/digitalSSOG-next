@@ -1,6 +1,6 @@
 import classes from "./CallConnected.module.css";
 
-const CallConnected = ({ functionName, appName }) => {
+const CallConnected = () => {
   return (
     <section className={classes.section}>
       <div className={classes.etcBtn}>...</div>

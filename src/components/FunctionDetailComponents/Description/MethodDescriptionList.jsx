@@ -1,7 +1,19 @@
 import { NavLink, useParams } from "react-router-dom";
 import styles from "./MethodDescriptionList.module.css";
 
-const numEmogi = [" 0️⃣", " 1️⃣", " 2️⃣", " 3️⃣", "4️⃣"];
+const numEmogi = [
+  " 0️⃣",
+  " 1️⃣",
+  " 2️⃣",
+  " 3️⃣",
+  "4️⃣",
+  "5️⃣",
+  " 6️⃣",
+  " 7️⃣",
+  " 8️⃣",
+  " 9️⃣",
+  "🔟",
+];
 
 function MethodDescriptionList({ functionMethod, appName }) {
   let num = 0;

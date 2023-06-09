@@ -1,12 +1,11 @@
-import classes from "./MessageAppMain.module.css";
+import classes from "../MessageAppMain.module.css";
 import { NavLink } from "react-router-dom";
 
-function SelectMessage({ functionName, appName }) {
+function SelectList({ functionName, appName }) {
   return (
     <section className={classes.AppMain}>
       <div className={classes.messageTitle}>
-        <h1>읽지 않은 메시지 1개</h1>
-        <div>보기</div>
+        <h1>Messages</h1>
       </div>
       <ul className={classes.messageETCLists}>
         <li>
@@ -29,12 +28,11 @@ function SelectMessage({ functionName, appName }) {
         <li data-tooltip="클릭!">
           <div className={classes.firstNameBox}>홍</div>
           <NavLink to={`/description/${functionName}/${appName}/2`}>
-            <div className={classes.nameBox}>홍길동</div>
+            <div className={classes.nameBox}>홍길순</div>
             <div className={classes.time}>오전 8:03</div>
             <div className={`${classes.message} ${classes.longMessage}`}>
-              안녕하세요, 홍길동입니다. 전화 바랍니다.
+              결혼식 장소 정보입니다...
             </div>
-            <div className={classes.alert}>1</div>
           </NavLink>
         </li>
       </ul>
@@ -48,4 +46,4 @@ function SelectMessage({ functionName, appName }) {
   );
 }
 
-export default SelectMessage;
+export default SelectList;
