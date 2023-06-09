@@ -25,9 +25,21 @@
 }
 .messageTitle {
   grid-row: 1 / 3;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-align: center;
   align-self: center;
+}
+.messageTitle h1 {
+  font-size: 1rem;
+}
+.messageTitle div {
+  font-size: 0.6rem;
+  background-color: #cdcdcd8a;
+  width: max-content;
+  padding: 1px 10px;
+  margin: 0 auto;
+  border-radius: 12px;
+  color: var(--grey-600);
 }
 .messageETCLists {
   grid-row: 3 / 4;
@@ -53,6 +65,18 @@
 
 .messageLists {
   grid-row: 5/7;
+  align-self: center;
+}
+
+.messageLists > li {
+  display: grid;
+  grid-template-columns: 15% auto;
+  align-items: center;
+}
+.messageLists > li > a {
+  display: grid;
+  grid-template-columns: auto 20% 10%;
+  align-items: center;
 }
 
 .messagePlus {
@@ -87,4 +111,47 @@
 .appNav li:last-child i,
 .messagePlus i {
   font-size: 1rem;
+}
+
+/* MessageList.jsx */
+.firstNameBox {
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #cdcdcd8a;
+  border-radius: 18px;
+  color: var(--grey-700);
+}
+.nameBox {
+  font-size: 0.9rem;
+  margin-left: 10px;
+  color: var(--grey-900);
+}
+.nameBox:hover,
+.time:hover,
+.message:hover,
+.alert:hover {
+  cursor: pointer;
+}
+.time {
+  font-size: 0.5rem;
+  grid-column: 2/4;
+  text-align: right;
+  color: var(--grey-400);
+}
+
+.message {
+  font-size: 0.5rem;
+  grid-column: 1/3;
+  margin-left: 10px;
+  color: var(--grey-400);
+}
+
+.alert {
+  font-size: 0.6rem;
+  grid-column: 3/4;
+  text-align: center;
+  background-color: rgb(255, 118, 68);
+  color: white;
+  border-radius: 22px;
+  width: 0.9rem;
 }

@@ -18,6 +18,8 @@ import MessageAppMain from "../Basic/message/MessageAppMain";
 import SelectPerson from "../Basic/message/SelectPerson";
 import MessageInsert from "../Basic/message/MessageInsert";
 import SendSuccess from "../Basic/message/SendSuccess";
+import SelectMessage from "../Basic/message/SelectMessage";
+import SeeMessage from "../Basic/message/SeeMessage";
 
 function AppMain() {
   const params = useParams();
@@ -145,6 +147,32 @@ function AppMain() {
     }
   }
 
+  function seeMessage() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MessageMain
+            appName={appName}
+            functionName={functionName}></MessageMain>
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <SelectMessage
+            appName={appName}
+            functionName={functionName}></SelectMessage>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SeeMessage
+            appName={appName}
+            functionName={functionName}
+            setInputValue={setEnteredInput}
+            inputValue={enteredInput}></SeeMessage>
+        );
+      }
+    }
+  }
+
   switch (functionName.slice(2)) {
     case "전화받기(수신)":
       answerTheCall();
@@ -154,6 +182,9 @@ function AppMain() {
       break;
     case "문자 발신":
       sendMessage();
+      break;
+    case "문자 수신":
+      seeMessage();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);
