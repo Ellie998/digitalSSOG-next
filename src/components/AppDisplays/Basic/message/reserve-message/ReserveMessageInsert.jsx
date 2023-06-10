@@ -57,13 +57,15 @@ function ReserveMessageInsert() {
             </div>
           )}
         </div>
-        <div className={classes.resInfo}>
-          <div>예약 전송: 2023년 06월 11일 (일) 오후 2:00 </div>
-          <div>
-            {/* <i className="bi bi-dash-lg"></i> */}
-            <i className="bi bi-dash-circle-fill"></i>
+        {!isSubmitted && (
+          <div className={classes.resInfo}>
+            <div>예약 전송: 2023년 06월 11일 (일) 오후 2:00 </div>
+            <div>
+              {/* <i className="bi bi-dash-lg"></i> */}
+              <i className="bi bi-dash-circle-fill"></i>
+            </div>
           </div>
-        </div>
+        )}
         <div className={classes.appNav}>
           {!inputClicked && (
             <div className={classes.navOptions}>
@@ -88,7 +90,9 @@ function ReserveMessageInsert() {
               <input
                 onFocus={inputClickHandler}
                 onBlur={inputOutHandler}
-                onChange={inputChangeHandler}></input>
+                onChange={inputChangeHandler}
+                readOnly={isSubmitted ? true : false}
+                value={isSubmitted ? "" : inputValue}></input>
             </div>
             <div>
               <i className="bi bi-emoji-smile"></i>

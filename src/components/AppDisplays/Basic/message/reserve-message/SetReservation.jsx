@@ -40,8 +40,8 @@ function SetReservation({ functionName, appName }) {
           </div>
         </div>
         <div className={classes.boxOption}>
-          <input type="radio"></input>
-          <div>전송 시간을 나중에 예약</div>
+          <input id="reserveLater" type="radio"></input>
+          <label for="reserveLater">전송 시간을 나중에 예약</label>
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
