@@ -25,6 +25,9 @@ import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
 import SendResend from "../Basic/message/resend-message/SendResend";
 import SelectList from "../Basic/message/resend-message/SelectList";
 import SelectResendPerson from "../Basic/message/resend-message/SelectResendPerson";
+import PlusOptionTouch from "../Basic/message/reserve-message/PlusOptionTouch";
+import SetReservation from "../Basic/message/reserve-message/SetReservation";
+import ReserveMessageInsert from "../Basic/message/reserve-message/ReserveMessageInsert";
 
 function AppMain() {
   const params = useParams();
@@ -194,6 +197,44 @@ function AppMain() {
     }
   }
 
+  function reserveMessage() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MessageMain
+            appName={appName}
+            functionName={functionName}></MessageMain>
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <MessageAppMain
+            appName={appName}
+            functionName={functionName}></MessageAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectPerson
+            appName={appName}
+            functionName={functionName}></SelectPerson>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <PlusOptionTouch
+            appName={appName}
+            functionName={functionName}></PlusOptionTouch>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SetReservation
+            appName={appName}
+            functionName={functionName}></SetReservation>
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = <ReserveMessageInsert></ReserveMessageInsert>;
+      }
+    }
+  }
+
   switch (functionName.slice(2)) {
     case "전화받기(수신)":
       answerTheCall();
@@ -209,6 +250,9 @@ function AppMain() {
       break;
     case "문자 전달":
       resendMessage();
+      break;
+    case "예약 문자 발송":
+      reserveMessage();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);
