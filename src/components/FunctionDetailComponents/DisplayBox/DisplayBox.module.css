@@ -17,4 +17,5 @@
   display: grid;
   grid-template-rows: 15px auto 25px;
   justify-self: center;
+  overflow: hidden;
 }

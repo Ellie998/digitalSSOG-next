@@ -1,4 +1,4 @@
-import classes from "../send-message/MessageInsert.module.css";
+import classes from "../Message.module.css";
 import { NavLink } from "react-router-dom";
 
 function SendResend({ functionName, appName }) {
@@ -6,7 +6,7 @@ function SendResend({ functionName, appName }) {
     <section className={classes.appMain}>
       <div className={classes.appHeader}>
         <div className={classes.firstNameBox}>홍</div>
-        <div className={classes.nameBox}>홍길동</div>
+        <div className={classes.nameBox}>홍길순</div>
         <div>
           <i className="bi bi-three-dots-vertical"></i>
         </div>

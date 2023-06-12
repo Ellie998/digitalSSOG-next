@@ -1,4 +1,4 @@
-import classes from "../send-message/MessageInsert.module.css";
+import classes from "../Message.module.css";
 
 function ResendSuccess() {
   return (

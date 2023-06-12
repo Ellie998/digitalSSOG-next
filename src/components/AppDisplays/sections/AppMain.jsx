@@ -1,11 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 
-import BasicMain from "../Basic/call/BasicMain";
+import MainApps from "./MainApps";
 import CallAppMain from "../Basic/call/CallAppMain";
 import CallSuccess from "../Basic/call/CallSuccess";
 
-import KakaoMain from "../Kakaotalk/KakaoMain";
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
@@ -13,37 +11,30 @@ import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
 import AnswerCall from "../Basic/call/AnswerCall";
 import CallConnected from "../Basic/call/CallConnected";
 
-import MessageMain from "../Basic/message/MessageMain";
-import MessageAppMain from "../Basic/message/MessageAppMain";
-import SelectPerson from "../Basic/message/send-message/SelectPerson";
-import MessageInsert from "../Basic/message/send-message/MessageInsert";
-import SendSuccess from "../Basic/message/send-message/SendSuccess";
-import SelectMessage from "../Basic/message/see-message/SelectMessage";
-import SeeMessage from "../Basic/message/see-message/SeeMessage";
-import SelectResend from "../Basic/message/resend-message/SelectResend";
+import SelectPerson from "../Basic/message/SelectPerson";
+
 import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
 import SendResend from "../Basic/message/resend-message/SendResend";
-import SelectList from "../Basic/message/resend-message/SelectList";
-import SelectResendPerson from "../Basic/message/resend-message/SelectResendPerson";
-import PlusOptionTouch from "../Basic/message/reserve-message/PlusOptionTouch";
+
 import SetReservation from "../Basic/message/reserve-message/SetReservation";
 import ReserveMessageInsert from "../Basic/message/reserve-message/ReserveMessageInsert";
-import BasicMessage from "../Basic/message/BasicMessage";
+import MessageAppMain from "../Basic/message/MessageAppMain";
+import Message from "../Basic/message/Message";
 
 function AppMain() {
   const params = useParams();
-  const [enteredInput, setEnteredInput] = useState("");
 
   const functionName = params.functionName;
   const appName = params.appName;
   const descriptionId = params.descriptionId;
 
   let choicedComponent = <div></div>;
+  // call
   function makeACall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <BasicMain appName={appName} functionName={functionName} />
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
@@ -57,7 +48,7 @@ function AppMain() {
     } else if (appName === "카카오톡") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <KakaoMain appName={appName} functionName={functionName} />
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
@@ -80,7 +71,6 @@ function AppMain() {
       }
     }
   }
-
   function answerTheCall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
@@ -104,14 +94,12 @@ function AppMain() {
       }
     }
   }
-
+  // message
   function sendMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <MessageMain
-            appName={appName}
-            functionName={functionName}></MessageMain>
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
@@ -127,36 +115,27 @@ function AppMain() {
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
-          <MessageInsert
-            appName={appName}
-            functionName={functionName}
-            setInputValue={setEnteredInput}
-            inputValue={enteredInput}></MessageInsert>
-        );
-      } else if (descriptionId === "4") {
-        choicedComponent = (
-          <SendSuccess messageContent={enteredInput}></SendSuccess>
+          <Message appName={appName} functionName={functionName}></Message>
         );
       }
     }
   }
-
   function seeMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <MessageMain
-            appName={appName}
-            functionName={functionName}></MessageMain>
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
-          <SelectMessage
+          <MessageAppMain
             appName={appName}
-            functionName={functionName}></SelectMessage>
+            functionName={functionName}></MessageAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <SeeMessage></SeeMessage>;
+        choicedComponent = (
+          <Message appName={appName} functionName={functionName}></Message>
+        );
       }
     }
   }
@@ -164,27 +143,23 @@ function AppMain() {
     if (appName === "기본") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <MessageMain
-            appName={appName}
-            functionName={functionName}></MessageMain>
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
-          <SelectList
+          <MessageAppMain
             appName={appName}
-            functionName={functionName}></SelectList>
+            functionName={functionName}></MessageAppMain>
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
-          <SelectResend
-            appName={appName}
-            functionName={functionName}></SelectResend>
+          <Message appName={appName} functionName={functionName}></Message>
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
-          <SelectResendPerson
+          <SelectPerson
             appName={appName}
-            functionName={functionName}></SelectResendPerson>
+            functionName={functionName}></SelectPerson>
         );
       } else if (descriptionId === "4") {
         choicedComponent = (
@@ -197,14 +172,11 @@ function AppMain() {
       }
     }
   }
-
   function reserveMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
         choicedComponent = (
-          <MessageMain
-            appName={appName}
-            functionName={functionName}></MessageMain>
+          <MainApps appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "1") {
         choicedComponent = (
@@ -220,9 +192,7 @@ function AppMain() {
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
-          <PlusOptionTouch
-            appName={appName}
-            functionName={functionName}></PlusOptionTouch>
+          <Message appName={appName} functionName={functionName}></Message>
         );
       } else if (descriptionId === "4") {
         choicedComponent = (
@@ -238,9 +208,7 @@ function AppMain() {
 
   function sendFile() {
     choicedComponent = (
-      <BasicMessage
-        appName={appName}
-        functionName={functionName}></BasicMessage>
+      <MainApps appName={appName} functionName={functionName} />
     );
   }
 

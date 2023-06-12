@@ -1,25 +1,48 @@
 import { useState } from "react";
-import classes from "./PlusOptionTouch.module.css";
+import classes from "./Message.module.css";
 import { NavLink } from "react-router-dom";
 
-function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
+function Message({ functionName, appName, setInputValue, inputValue }) {
   const [inputClicked, setInputClicked] = useState(false);
+  const [sendBtnClicked, setSendBtnClicked] = useState(false);
+  const [messageContent, setMessageContent] = useState("");
+  const [enteredMessage, setenteredMessage] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
+  const [isOvered, setIsOvered] = useState(false);
+  function mouseOverHandler(event) {
+    setTimeout(() => {
+      setIsOvered(true);
+    }, 1000);
+  }
+  function backClickHandler() {
+    setIsOvered(false);
+    setPlusClicked(false);
+  }
 
   function inputClickHandler(event) {
     setInputClicked(true);
+    setSendBtnClicked(false);
   }
+  function sendBtnClickHandler(event) {
+    setMessageContent(enteredMessage);
+    setSendBtnClicked(true);
+    setenteredMessage("");
+  }
+
   function inputOutHandler(event) {
     setInputClicked(false);
   }
-
+  function inputChangeHandler(event) {
+    setenteredMessage(event.target.value);
+  }
   function plusBtnClickHandler() {
     setPlusClicked(true);
   }
 
+  const realFunctionName = functionName.slice(2);
   return (
     <section className={classes.appMain}>
-      <div className={classes.appHeader}>
+      <div className={classes.appHeader} onClick={backClickHandler}>
         <div className={classes.firstNameBox}>홍</div>
         <div className={classes.nameBox}>홍길동</div>
         <div>
@@ -29,18 +52,49 @@ function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
       <div
         className={`${classes.messages} ${
           plusClicked && classes.messagesSmall
-        }`}>
-        <div className={classes.sendMessage}>
-          <div>오전 10:12</div>
-          <div>어디에 계신가요?</div>
-        </div>
+        }`}
+        onClick={backClickHandler}>
         <div className={classes.getMessage}>
-          <div>사거리 앞에 있습니다.</div>
-          <div>오전 10:13</div>
+          <div onMouseOver={mouseOverHandler}>
+            결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
+            OO로 OOO번길 O, OOO 컨벤션
+          </div>
+          <div>오전 8:03</div>
         </div>
+        {messageContent && sendBtnClicked && (
+          <div className={classes.sendMessage}>
+            <div>오전 9:54</div>
+            <div>{messageContent}</div>
+          </div>
+        )}
+        {isOvered && (
+          <div className={classes.options}>
+            <div>삭제</div>
+            <div>답장</div>
+            <div>글자 복사</div>
+            <div>텍스트 선택</div>
+
+            <NavLink
+              data-tooltip={
+                appName === "기본" && realFunctionName === "문자 전달"
+                  ? `클릭!`
+                  : null
+              }
+              to={
+                appName === "기본" && realFunctionName === "문자 전달"
+                  ? `/description/${functionName}/${appName}/3`
+                  : null
+              }>
+              <div>전달</div>
+            </NavLink>
+            <div>공유</div>
+            <div>별표하기</div>
+          </div>
+        )}
       </div>
       <div
-        className={`${classes.appNav} ${plusClicked && classes.appNavSmall}`}>
+        className={`${classes.appNav} ${plusClicked && classes.appNavSmall}`}
+        onClick={plusClicked ? backClickHandler : null}>
         {!inputClicked && (
           <div className={classes.navOptions}>
             <div>
@@ -49,10 +103,9 @@ function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
             <div>
               <i className="bi bi-camera"></i>
             </div>
-            <div data-tooltip="클릭!" onClick={plusBtnClickHandler}>
+            <div onClick={plusBtnClickHandler}>
               <i className="bi bi-plus"></i>
             </div>
-            {/* </NavLink> */}
           </div>
         )}
         {inputClicked && (
@@ -62,21 +115,30 @@ function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
         )}
         <div className={classes.inputBox}>
           <div>
-            <input onFocus={inputClickHandler} onBlur={inputOutHandler}></input>
+            <input
+              onFocus={inputClickHandler}
+              onBlur={inputOutHandler}
+              onChange={inputChangeHandler}
+              value={sendBtnClicked ? "" : enteredMessage}></input>
           </div>
           <div>
             <i className="bi bi-emoji-smile"></i>
           </div>
         </div>
-        {!inputValue && (
+        {!enteredMessage && (
           <div className={classes.soundIcon}>
             <i className="bi bi-soundwave"></i>
           </div>
         )}
-        {inputValue && (
-          <div className={classes.sendIcon}>
-            <i className="bi bi-send"></i>
-          </div>
+        {enteredMessage && (
+          <NavLink>
+            <div
+              className={classes.sendIcon}
+              onClick={sendBtnClickHandler}
+              data-tooltip="클릭!">
+              <i className="bi bi-send"></i>
+            </div>
+          </NavLink>
         )}
       </div>
       {plusClicked && (
@@ -120,8 +182,18 @@ function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
               </div>
               <div>빠른 답장 문구</div>
             </div>
-            <div data-tooltip="클릭!">
-              <NavLink to={`/description/${functionName}/${appName}/4`}>
+            <div>
+              <NavLink
+                data-tooltip={
+                  appName === "기본" && realFunctionName === "예약 문자 발송"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === "기본" && realFunctionName === "예약 문자 발송"
+                    ? `/description/${functionName}/${appName}/4`
+                    : null
+                }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-clock"></i>
                 </div>
@@ -193,4 +265,4 @@ function PlusOptionTouch({ functionName, appName, setInputValue, inputValue }) {
   );
 }
 
-export default PlusOptionTouch;
+export default Message;

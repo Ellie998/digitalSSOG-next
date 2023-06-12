@@ -2,6 +2,7 @@ import classes from "./SelectPerson.module.css";
 import { NavLink } from "react-router-dom";
 
 function SelectPerson({ functionName, appName }) {
+  const realFunctionName = functionName.slice(2);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>
@@ -10,7 +11,14 @@ function SelectPerson({ functionName, appName }) {
         <input type="text" placeholder="이름 또는 번호 입력"></input>
       </div>
       <ul className={classes.numLists}>
-        <NavLink to={`/description/${functionName}/${appName}/3`}>
+        <NavLink
+          to={
+            realFunctionName === "문자 발신"
+              ? `/description/${functionName}/${appName}/3`
+              : realFunctionName === "문자 전달"
+              ? `/description/${functionName}/${appName}/4`
+              : null
+          }>
           <li data-tooltip="클릭!">
             <div className={classes.firstNameBox}>홍</div>
             <div>홍길동</div>
