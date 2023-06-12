@@ -28,6 +28,7 @@ import SelectResendPerson from "../Basic/message/resend-message/SelectResendPers
 import PlusOptionTouch from "../Basic/message/reserve-message/PlusOptionTouch";
 import SetReservation from "../Basic/message/reserve-message/SetReservation";
 import ReserveMessageInsert from "../Basic/message/reserve-message/ReserveMessageInsert";
+import BasicMessage from "../Basic/message/BasicMessage";
 
 function AppMain() {
   const params = useParams();
@@ -235,6 +236,14 @@ function AppMain() {
     }
   }
 
+  function sendFile() {
+    choicedComponent = (
+      <BasicMessage
+        appName={appName}
+        functionName={functionName}></BasicMessage>
+    );
+  }
+
   switch (functionName.slice(2)) {
     case "전화받기(수신)":
       answerTheCall();
@@ -253,6 +262,9 @@ function AppMain() {
       break;
     case "예약 문자 발송":
       reserveMessage();
+      break;
+    case "파일(이미지, 동영상, 음성, 문서) 전송":
+      sendFile();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);
