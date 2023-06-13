@@ -2,7 +2,8 @@
   margin: 0 auto;
   width: 80%;
   border-radius: 12px;
-  padding: 6rem 6rem 4rem 6rem;
+  /* padding: 6rem 6rem 4rem 6rem; */
+  padding: 96px 96px 64px 96px;
   position: relative;
   top: -100px;
   background-color: #ffffff4d;
@@ -24,19 +25,20 @@
   display: flex;
 }
 .MakeListInCategory ul li {
-  margin: 0 1rem;
+  margin: 0 16px;
 }
 
 @media (max-width: 800px) {
   .MakeListInCategory {
     width: 100%;
-    padding: 6rem 4rem 4rem 4rem;
+    padding: 96px 64px 64px 64px;
     top: -80px;
   }
 }
 @media (max-width: 482px) {
   .MakeListInCategory {
-    padding: 6rem 2rem 4rem 2rem;
+    padding: 96px 32px 64px 32px;
+    /* padding: 6rem 2rem 4rem 2rem; */
     background-color: #e1e1e15f;
     box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
   }
