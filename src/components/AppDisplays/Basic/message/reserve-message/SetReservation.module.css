@@ -4,14 +4,14 @@
   width: 170px;
 }
 .appMain i {
-  font-size: 0.7rem;
+  font-size: 12px;
 }
 
 /*  */
 .appHeader {
   grid-row: 1/2;
   display: grid;
-  grid-template-columns: 1.5rem auto 1rem;
+  grid-template-columns: 24px auto 16px;
   align-items: center;
 }
 
@@ -59,11 +59,12 @@
 /*  */
 
 .appNav {
-  margin: 0 3px;
+  padding: 0 3px;
   grid-row: 9/10;
   display: grid;
   grid-template-columns: auto auto 15%;
   align-items: center;
+  background-color: white;
 }
 .navOptions {
   display: flex;
@@ -76,7 +77,7 @@
 
 .inputBox {
   display: grid;
-  grid-template-columns: auto 1rem;
+  grid-template-columns: auto 16px;
   background-color: rgba(227, 227, 227, 0.803);
   border-radius: 18px;
   align-items: center;

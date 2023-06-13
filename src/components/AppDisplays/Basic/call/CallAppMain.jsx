@@ -1,4 +1,3 @@
-// import appStyles from '../sections/AppMain.module.css'
 import styles from "./CallAppMain.module.css";
 import { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";

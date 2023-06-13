@@ -17,26 +17,36 @@
 
 .layout > button {
   position: fixed;
-  top: 80vh;
-  left: 85%;
   z-index: 999;
   background-color: transparent;
   border-color: transparent;
   border-radius: 30px;
-}
-.layout > button {
   cursor: pointer;
 }
+
 .layout > button > i {
   display: block;
   width: 35px;
   height: 35px;
-  font-size: 1.7rem;
-  /* color: rgb(44, 44, 44); */
-  color: white;
+  font-size: 30px;
   font-weight: bold;
-  background-color: rgb(53, 53, 53);
   border-radius: 100%;
+}
+.upBtn {
+  left: 80%;
+  top: 85vh;
+}
+.upBtn > i {
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
+.bigBtn {
+  left: 80%;
+  top: 77vh;
+}
+.smallBtn {
+  left: 80%;
+  top: 70vh;
 }
 
 @media (max-width: 500px) {

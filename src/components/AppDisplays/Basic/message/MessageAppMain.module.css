@@ -60,7 +60,7 @@
   border-radius: 18px;
   padding: 2px 6px;
   height: fit-content;
-  font-size: 0.7rem;
+  font-size: 12px;
 }
 
 .AppMain i:hover {
@@ -136,7 +136,7 @@
   position: relative;
   z-index: 600;
   top: -120px;
-  font-size: 0.8rem;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -157,7 +157,7 @@
   width: 25px;
   height: 25px;
   border-radius: 12px;
-  font-size: 0.7rem;
+  font-size: 13px;
   text-align: center;
 }
 .wigetApps > div > a > div:last-child {
@@ -167,7 +167,7 @@
 }
 
 .wigetApps .wigetApps i {
-  font-size: 0.7rem;
+  font-size: 13px;
 }
 
 .wigetApps > div:last-child i,
