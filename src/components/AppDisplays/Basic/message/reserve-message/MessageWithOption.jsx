@@ -31,6 +31,7 @@ function MessageWithOption({ appName, functionName }) {
     setBackdropClicked(false);
     setImgIsClicked(true);
   }
+
   function backdropClickHandler() {
     setBackdropClicked(true);
     setImgIsClicked(false);
@@ -41,51 +42,116 @@ function MessageWithOption({ appName, functionName }) {
   }
   return (
     <>
-      <section className={classes.appMain}>
+      <section className={classes.layout}>
         <div className={classes.appHeader}>
-          <div className={classes.firstNameBox}>홍</div>
-          <div className={classes.nameBox}>홍길동</div>
+          <div className={classes["appHeader_firstName"]}>홍</div>
+          <div className={classes["appHeader_name"]}>홍길동</div>
           <div>
             <i className="bi bi-three-dots-vertical"></i>
           </div>
         </div>
-        <div className={classes.messages}>
-          <div className={classes.sendMessage}>
-            <div>오전 7:12</div>
-            <div>어디에 계신가요?</div>
+        <div className={classes.appMain}>
+          {/* default messages */}
+          <div className={classes["appMain_sendMessageWrap"]}>
+            <div className={classes["appMain_sendMessageTime"]}>오전 7:12</div>
+            <div className={classes["appMain_sendMessage"]}>
+              어디에 계신가요?
+            </div>
           </div>
-          <div className={classes.getMessage}>
-            <div>사거리 앞에 있습니다.</div>
-            <div>오전 7:13</div>
+          <div className={classes["appMain_getMessageWrap"]}>
+            <div className={classes["appMain_getMessage"]}>
+              사거리 앞에 있습니다.
+            </div>
+            <div className={classes["appMain_getMessageTime"]}>오전 7:13</div>
           </div>
+          {/* option messages */}
           {isSubmitted && realFunctionName === "예약 문자 발송" && (
-            <div className={classes.resMessage}>
+            <div className={classes["appMain_sendMessageWrap--res"]}>
               <div
                 onClick={clockBtnClickHandler}
-                className={classes.resMessageClock}>
+                className={classes["appMain_sendMessage--resIcon"]}>
                 <i class="bi bi-clock"></i>
               </div>
-              <div>{isSubmitted && inputValue}</div>
+              <div className={classes["appMain_sendMessage--res"]}>
+                {isSubmitted && inputValue}
+              </div>
             </div>
           )}
           {isSubmitted && realFunctionName === "이미지, 동영상 전송" && (
-            <div className={classes.imgMessage}>
+            <div className={classes["appMain_sendMessageWrap--img"]}>
               <div
                 onClick={imgClickHandler}
-                className={`${classes.sendedImg} ${classes.img}`}></div>
-              <div className={classes.sendMessage}>
-                <div>오전 9:54</div>
-                {isSubmitted && inputValue && <div> {inputValue}</div>}
+                className={`${classes["appMain_sendMessageImg"]}`}></div>
+              <div className={classes["appMain_sendMessageWrap"]}>
+                <div className={classes["appMain_sendMessageTime"]}>
+                  오전 9:54
+                </div>
+                {isSubmitted && inputValue && (
+                  <div className={classes["appMain_sendMessage"]}>
+                    {inputValue}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          {isSubmitted && realFunctionName === "오디오 전송" && (
+            <div>
+              <div className={classes["appMain_sendMessageWrap"]}>
+                <div
+                  className={`${classes["appMain_sendMessageOptionWrap--flex"]}`}>
+                  <div>
+                    <i className="bi bi-play"></i>
+                  </div>
+                  <div>audio.mp3</div>
+                </div>
+              </div>
+              <div className={classes["appMain_sendMessageWrap"]}>
+                <div className={classes["appMain_sendMessageTime"]}>
+                  오전 9:54
+                </div>
+                {isSubmitted && inputValue && (
+                  <div className={classes["appMain_sendMessage"]}>
+                    {inputValue}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          {isSubmitted && realFunctionName === "연락처 공유" && (
+            <div>
+              <div className={classes["appMain_sendMessageWrap"]}>
+                <div
+                  className={`${classes["appMain_sendMessageOptionWrap--flex"]}`}>
+                  <div>
+                    <i className="bi bi-person"></i>
+                  </div>
+                  <div>홍길동</div>
+                </div>
+              </div>
+              <div className={classes["appMain_sendMessageWrap"]}>
+                <div className={classes["appMain_sendMessageTime"]}>
+                  오전 9:54
+                </div>
+                {isSubmitted && inputValue && (
+                  <div className={classes["appMain_sendMessage"]}>
+                    {inputValue}
+                  </div>
+                )}
               </div>
             </div>
           )}
         </div>
+        {/* option elements */}
         {realFunctionName === "예약 문자 발송" &&
           !isSubmitted &&
           !deleteOptionClicked && (
-            <div className={classes.resInfo}>
-              <div>예약 전송: 2023년 06월 11일 (일) 오후 2:00 </div>
-              <div onClick={deleteOptionHandler}>
+            <div className={classes["appMain_messageOptionLayout"]}>
+              <div className={classes["appMain_messageOptionContent--res"]}>
+                예약 전송: 2023년 06월 11일 (일) 오후 2:00
+              </div>
+              <div
+                className={classes["appMain_messageOptionDeleteBtn"]}
+                onClick={deleteOptionHandler}>
                 <i className="bi bi-dash-circle-fill"></i>
               </div>
             </div>
@@ -93,9 +159,56 @@ function MessageWithOption({ appName, functionName }) {
         {realFunctionName === "이미지, 동영상 전송" &&
           !isSubmitted &&
           !deleteOptionClicked && (
-            <div className={classes.imgFileInfo}>
-              <div className={classes.img}>img</div>
-              <div onClick={deleteOptionHandler}>
+            <div className={classes["appMain_messageOptionLayout"]}>
+              <div className={classes["appMain_messageOptionContent--img"]}>
+                img
+              </div>
+              <div
+                className={classes["appMain_messageOptionDeleteBtn"]}
+                onClick={deleteOptionHandler}>
+                <i className="bi bi-dash-circle-fill"></i>
+              </div>
+            </div>
+          )}
+        {realFunctionName === "오디오 전송" &&
+          !isSubmitted &&
+          !deleteOptionClicked && (
+            <div className={classes["appMain_messageOptionLayout"]}>
+              <div className={classes["appMain_messageOptionWrap--flex"]}>
+                <div>
+                  <i className="bi bi-play"></i>
+                </div>
+                <div>audio.mp3</div>
+              </div>
+              <div
+                className={classes["appMain_messageOptionDeleteBtn"]}
+                onClick={deleteOptionHandler}>
+                <i className="bi bi-dash-circle-fill"></i>
+              </div>
+            </div>
+          )}
+        {realFunctionName === "연락처 공유" &&
+          !isSubmitted &&
+          !deleteOptionClicked && (
+            <div className={classes["appMain_messageOptionLayout"]}>
+              <div className={classes["appMain_messageOptionWrap--grid"]}>
+                <div className={classes["appMain_messageOptionIcon--phoneNum"]}>
+                  <i className="bi bi-person"></i>
+                </div>
+                <div
+                  className={
+                    classes["appMain_messageOptionContent--phoneNumName"]
+                  }>
+                  홍길동
+                </div>
+                <div
+                  className={classes["appMain_messageOptionContent--phoneNum"]}>
+                  010-0000-0000
+                </div>
+              </div>
+              <div
+                className={classes["appMain_messageOptionDeleteBtn"]}
+                onClick={deleteOptionHandler}>
                 <i className="bi bi-dash-circle-fill"></i>
               </div>
             </div>
@@ -144,6 +257,18 @@ function MessageWithOption({ appName, functionName }) {
                 <i className="bi bi-soundwave"></i>
               </div>
             )}
+          {realFunctionName === "오디오 전송" &&
+            ((deleteOptionClicked && !inputValue) || isSubmitted) && (
+              <div className={classes.soundIcon}>
+                <i className="bi bi-soundwave"></i>
+              </div>
+            )}
+          {realFunctionName === "연락처 공유" &&
+            ((deleteOptionClicked && !inputValue) || isSubmitted) && (
+              <div className={classes.soundIcon}>
+                <i className="bi bi-soundwave"></i>
+              </div>
+            )}
           {realFunctionName === "예약 문자 발송" &&
             inputValue &&
             !deleteOptionClicked && (
@@ -164,8 +289,29 @@ function MessageWithOption({ appName, functionName }) {
                 <i className="bi bi-send"></i>
               </div>
             )}
+          {realFunctionName === "오디오 전송" &&
+            ((deleteOptionClicked && inputValue && !isSubmitted) ||
+              (!deleteOptionClicked && !isSubmitted)) && (
+              <div
+                className={classes.sendIcon}
+                data-tooltip="클릭!"
+                onClick={submitHandler}>
+                <i className="bi bi-send"></i>
+              </div>
+            )}
+          {realFunctionName === "연락처 공유" &&
+            ((deleteOptionClicked && inputValue && !isSubmitted) ||
+              (!deleteOptionClicked && !isSubmitted)) && (
+              <div
+                className={classes.sendIcon}
+                data-tooltip="클릭!"
+                onClick={submitHandler}>
+                <i className="bi bi-send"></i>
+              </div>
+            )}
         </div>
       </section>
+      {/* modal backdrop */}
       {clockIsClicked && !backdropClicked && (
         <>
           <div class={classes.backdrop} onClick={backdropClickHandler}></div>
@@ -179,6 +325,7 @@ function MessageWithOption({ appName, functionName }) {
           </div>
         </>
       )}
+      {/* img modal */}
       {imgIsClicked && !backdropClicked && (
         <>
           <div class={classes.backdrop} onClick={backdropClickHandler}></div>

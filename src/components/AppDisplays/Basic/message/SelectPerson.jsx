@@ -15,7 +15,9 @@ function SelectPerson({ functionName, appName }) {
           to={
             realFunctionName === "문자 발신" ||
             realFunctionName === "이미지, 동영상 전송" ||
-            realFunctionName === "예약 문자 발송"
+            realFunctionName === "예약 문자 발송" ||
+            realFunctionName === "오디오 전송" ||
+            realFunctionName === "연락처 공유"
               ? `/description/${functionName}/${appName}/3`
               : realFunctionName === "문자 전달"
               ? `/description/${functionName}/${appName}/4`

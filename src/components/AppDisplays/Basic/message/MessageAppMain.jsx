@@ -20,7 +20,9 @@ function MessageAppMain({ functionName, appName }) {
     <>
       <section className={classes.AppMain}>
         {(realFunctionName === "문자 발신" ||
-          realFunctionName === "이미지, 동영상 전송") && (
+          realFunctionName === "이미지, 동영상 전송" ||
+          realFunctionName === "오디오 전송" ||
+          realFunctionName === "연락처 공유") && (
           <div className={classes.appTitle}>Messages</div>
         )}
         {realFunctionName === "문자 수신" && (
@@ -49,7 +51,9 @@ function MessageAppMain({ functionName, appName }) {
         {(realFunctionName === "문자 발신" ||
           realFunctionName === "문자 전달" ||
           realFunctionName === "문자 수신" ||
-          realFunctionName === "이미지, 동영상 전송") && (
+          realFunctionName === "이미지, 동영상 전송" ||
+          realFunctionName === "오디오 전송" ||
+          realFunctionName === "연락처 공유") && (
           <div className={classes.contentLists}>
             <div className={classes.firstNameBox}>홍</div>
             <NavLink
@@ -59,7 +63,12 @@ function MessageAppMain({ functionName, appName }) {
                   ? `/description/${functionName}/${appName}/2`
                   : null
               }
-              data-tooltip={realFunctionName === "문자 전달" ? `클릭!` : null}>
+              data-tooltip={
+                realFunctionName === "문자 전달" ||
+                realFunctionName === "문자 수신"
+                  ? `클릭!`
+                  : null
+              }>
               <div className={classes.nameBox}>홍길동</div>
               <div className={classes.time}>오전 8:03</div>
               <div className={`${classes.message} ${classes.longMessage}`}>
@@ -92,7 +101,9 @@ function MessageAppMain({ functionName, appName }) {
                   appName === "기본" &&
                   (realFunctionName === "문자 발신" ||
                     realFunctionName === "예약 문자 발송" ||
-                    realFunctionName === "이미지, 동영상 전송")
+                    realFunctionName === "이미지, 동영상 전송" ||
+                    realFunctionName === "오디오 전송" ||
+                    realFunctionName === "연락처 공유")
                     ? `클릭!`
                     : null
                 }
@@ -100,7 +111,9 @@ function MessageAppMain({ functionName, appName }) {
                   appName === "기본" &&
                   (realFunctionName === "문자 발신" ||
                     realFunctionName === "예약 문자 발송" ||
-                    realFunctionName === "이미지, 동영상 전송")
+                    realFunctionName === "이미지, 동영상 전송" ||
+                    realFunctionName === "오디오 전송" ||
+                    realFunctionName === "연락처 공유")
                     ? `/description/${functionName}/${appName}/2`
                     : null
                 }>

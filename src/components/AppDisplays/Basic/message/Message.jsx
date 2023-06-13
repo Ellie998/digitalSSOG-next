@@ -106,7 +106,7 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
             <div>
               <i className="bi bi-camera"></i>
             </div>
-            <div onClick={plusBtnClickHandler}>
+            <div data-tooltip="클릭" onClick={plusBtnClickHandler}>
               <i className="bi bi-plus"></i>
             </div>
           </div>
@@ -259,18 +259,42 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
               </NavLink>
             </div>
             <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-music-note"></i>
-              </div>
-              <div>오디오</div>
+              <NavLink
+                data-tooltip={
+                  appName === "기본" && realFunctionName === "오디오 전송"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === "기본" && realFunctionName === "오디오 전송"
+                    ? `/description/${functionName}/${appName}/4`
+                    : null
+                }>
+                <div className={classes.iconWrap}>
+                  <i className="bi bi-music-note"></i>
+                </div>
+                <div>오디오</div>
+              </NavLink>
             </div>
           </div>
           <div className={classes.optionRow}>
             <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-person"></i>
-              </div>
-              <div>연락처</div>
+              <NavLink
+                data-tooltip={
+                  appName === "기본" && realFunctionName === "연락처 공유"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === "기본" && realFunctionName === "연락처 공유"
+                    ? `/description/${functionName}/${appName}/4`
+                    : null
+                }>
+                <div className={classes.iconWrap}>
+                  <i className="bi bi-person"></i>
+                </div>
+                <div>연락처</div>
+              </NavLink>
             </div>
             <div>
               <div className={classes.iconWrap}>

@@ -1,13 +1,9 @@
-.appMain {
+.layout {
   display: grid;
   grid-template-rows: repeat(9, 33px);
   width: 170px;
 }
-.appMain i {
-  font-size: 12px;
-}
 
-/*  */
 .appHeader {
   grid-row: 1/2;
   display: grid;
@@ -15,32 +11,33 @@
   align-items: center;
 }
 
-.firstNameBox {
+.appHeader_firstName {
   background-color: bisque;
   border-radius: 100%;
   text-align: center;
 }
-.nameBox {
+.appHeader_name {
   margin-left: 10px;
 }
 /*  */
-.messages {
+.appMain {
   grid-row: 2/7;
 }
-.sendMessage,
-.getMessage,
-.resMessage {
+/*  -----------------  DEFAULT MESSAGES  -----------------------*/
+.appMain_sendMessageWrap,
+.appMain_getMessageWrap,
+.appMain_sendMessageWrap--res {
   display: flex;
   align-items: end;
 }
 
-.sendMessage,
-.resMessage {
+.appMain_sendMessageWrap,
+.appMain_sendMessageWrap--res {
   justify-content: end;
 }
-.sendMessage > div:nth-child(2),
-.getMessage > div:nth-child(1),
-.resMessage > div:nth-child(2) {
+.appMain_sendMessage,
+.appMain_getMessage,
+.appMain_sendMessage--res {
   max-width: 70%;
   padding: 6px;
   border-radius: 18px;
@@ -48,83 +45,112 @@
   font-size: 0.8rem;
 }
 
-.sendMessage > div:nth-child(1),
-.getMessage > div:nth-child(2) {
+.appMain_sendMessageTime,
+.appMain_getMessageTime {
   font-size: 0.5rem;
 }
-.sendMessage > div:nth-child(2) {
+.appMain_sendMessage {
   background-color: rgb(171, 214, 242);
 }
 
-.getMessage > div:nth-child(1) {
+.appMain_getMessage {
   background-color: rgb(226, 226, 226);
 }
 
-.resMessage > div:nth-child(2) {
-  background-color: gainsboro;
+/*  -----------------  OPTION MESSAGES  -----------------------*/
+.appMain_sendMessage--res {
+  background-color: rgb(237, 226, 226);
+}
+.appMain_sendMessageImg {
+  margin-left: 130px;
+  border: 1px solid rgb(224, 224, 224);
+  background-color: antiquewhite;
+  width: 33px;
+  height: 33px;
 }
 
-/*  */
-.resInfo {
-  grid-row: 7/9;
-  font-size: 0.8rem;
-  border-top: 1px solid rgb(144, 144, 144);
-  border-bottom: 1px solid rgb(144, 144, 144);
-  align-self: center;
+.appMain_sendMessageOptionWrap--flex {
+  display: block;
+  width: max-content;
+  padding: 4px;
   display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
+  margin-right: 0%;
+  font-size: 0.7rem;
+  background-color: rgb(171, 214, 242);
+  border-radius: 8px;
 }
-.resInfo div:last-child {
-  align-self: end;
+/*  -----------------  OPTIONS  -----------------------*/
+.appMain_messageOptionDeleteBtn {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  align-self: self-start;
+  justify-self: end;
 }
-.resInfo div:last-child i,
-.imgFileInfo div:last-child i {
+.appMain_messageOptionDeleteBtn i {
   font-size: 1rem;
   color: rgba(253, 40, 40, 0.746);
   cursor: pointer;
 }
-
-/*  */
-.imgMessage > div:first-child {
-  margin-left: 130px;
-  border: 1px solid gray;
-}
-
-.imgFileInfo {
+.appMain_messageOptionLayout {
   grid-row: 7/9;
   font-size: 0.8rem;
-  border-top: 1px solid rgb(144, 144, 144);
-  border-bottom: 1px solid rgb(144, 144, 144);
-  align-self: center;
-  display: flex;
-  justify-content: center;
   padding: 5px 0;
+  border-top: 1px solid rgb(224, 224, 224);
+  display: grid;
+  grid-template-columns: 80% 10%;
 }
 
-.img {
-  background-color: antiquewhite;
+.appMain_messageOptionWrap--grid {
+  margin: 0 auto;
+  width: fit-content;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: auto;
   align-items: center;
+  padding: 2px 10px;
+}
+
+.appMain_messageOptionWrap--flex {
+  margin: 0 auto;
+  width: fit-content;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 8px;
+  align-items: center;
+  padding: 2px 10px;
+  display: flex;
+}
+.appMain_messageOptionIcon--phoneNum {
+  grid-row: 1/3;
+}
+.appMain_messageOptionIcon--phoneNum i {
+  font-size: 16px;
+}
+
+.appMain_messageOptionContent--phoneNumName {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  font-size: 0.7rem;
+}
+.appMain_messageOptionContent--phoneNum {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  font-size: 0.4rem;
+  color: var(--grey-600);
+}
+
+.appMain_messageOptionContent--img {
+  background-color: antiquewhite;
+  align-self: center;
+  justify-self: center;
   width: 36px;
   height: 36px;
-  margin-left: 10px;
+  margin-left: 20px;
 }
-.imgClicked {
-  position: relative;
-  z-index: 200;
-  top: -230px;
-  left: 20px;
-  width: 120px;
-  height: 120px;
-  background-color: antiquewhite;
-}
-.imgFileInfo div:last-child {
-  position: relative;
-  z-index: 100;
-  left: -10px;
-  top: 15px;
-}
-/*  */
+
+/*  -----------------  NAVIGATION  -----------------------*/
 .appNav {
   padding: 0 3px;
   grid-row: 9/10;
@@ -171,8 +197,7 @@
   cursor: pointer;
 }
 
-/* SeeMessage */
-/* SelectResend */
+/*  -----------------  NAV PLUS OPTIONS  -----------------------*/
 .options {
   background-color: white;
   box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
@@ -190,18 +215,7 @@
   margin-bottom: 10px;
 }
 
-/*  */
-
-.backdrop {
-  background-color: rgba(23, 23, 23, 0.4);
-  position: relative;
-  z-index: 100;
-  top: -335px;
-  left: -10px;
-  width: 185px;
-  height: 385px;
-  border-radius: 12px;
-}
+/*  -----------------  RESERVE MESSAGE MODAL  -----------------------*/
 
 .resSet {
   background-color: white;
@@ -225,4 +239,25 @@
 .resSetNav div {
   padding: 0 3px;
   font-weight: 800;
+}
+
+/*  -----------------  ETC  -----------------------*/
+.backdrop {
+  background-color: rgba(23, 23, 23, 0.4);
+  position: relative;
+  z-index: 100;
+  top: -335px;
+  left: -10px;
+  width: 185px;
+  height: 385px;
+  border-radius: 12px;
+}
+.imgClicked {
+  position: relative;
+  z-index: 200;
+  top: -230px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
 }

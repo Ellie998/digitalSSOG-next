@@ -60,7 +60,9 @@ function MainApps({ functionName, appName }) {
                 realFunctionName === "문자 수신" ||
                 realFunctionName === "예약 문자 발송" ||
                 realFunctionName === "문자 전달" ||
-                realFunctionName === "이미지, 동영상 전송")
+                realFunctionName === "이미지, 동영상 전송" ||
+                realFunctionName === "오디오 전송" ||
+                realFunctionName === "연락처 공유")
                 ? `클릭!`
                 : null
             }>
@@ -71,7 +73,9 @@ function MainApps({ functionName, appName }) {
                   realFunctionName === "문자 수신" ||
                   realFunctionName === "예약 문자 발송" ||
                   realFunctionName === "문자 전달" ||
-                  realFunctionName === "이미지, 동영상 전송")
+                  realFunctionName === "이미지, 동영상 전송" ||
+                  realFunctionName === "오디오 전송" ||
+                  realFunctionName === "연락처 공유")
                   ? `/description/${functionName}/${appName}/1`
                   : null
               }>

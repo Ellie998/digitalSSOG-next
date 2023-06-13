@@ -255,6 +255,80 @@ function AppMain() {
       }
     }
   }
+  function sendAudio() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MainApps appName={appName} functionName={functionName} />
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <MessageAppMain
+            appName={appName}
+            functionName={functionName}></MessageAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectPerson
+            appName={appName}
+            functionName={functionName}></SelectPerson>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <Message appName={appName} functionName={functionName}></Message>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SelectFile
+            appName={appName}
+            functionName={functionName}></SelectFile>
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = (
+          <MessageWithOption
+            appName={appName}
+            functionName={functionName}></MessageWithOption>
+        );
+      }
+    }
+  }
+  function sendNumber() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MainApps appName={appName} functionName={functionName} />
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <MessageAppMain
+            appName={appName}
+            functionName={functionName}></MessageAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectPerson
+            appName={appName}
+            functionName={functionName}></SelectPerson>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <Message appName={appName} functionName={functionName}></Message>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SelectFile
+            appName={appName}
+            functionName={functionName}></SelectFile>
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = (
+          <MessageWithOption
+            appName={appName}
+            functionName={functionName}></MessageWithOption>
+        );
+      }
+    }
+  }
 
   switch (functionName.slice(2)) {
     case "전화받기(수신)":
@@ -277,6 +351,12 @@ function AppMain() {
       break;
     case "이미지, 동영상 전송":
       sendImg();
+      break;
+    case "오디오 전송":
+      sendAudio();
+      break;
+    case "연락처 공유":
+      sendNumber();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);
