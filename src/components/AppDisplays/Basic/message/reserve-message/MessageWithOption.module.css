@@ -78,11 +78,52 @@
 .resInfo div:last-child {
   align-self: end;
 }
-.resInfo div:last-child i {
+.resInfo div:last-child i,
+.imgFileInfo div:last-child i {
   font-size: 1rem;
   color: rgba(253, 40, 40, 0.746);
+  cursor: pointer;
 }
 
+/*  */
+.imgMessage > div:first-child {
+  margin-left: 130px;
+  border: 1px solid gray;
+}
+
+.imgFileInfo {
+  grid-row: 7/9;
+  font-size: 0.8rem;
+  border-top: 1px solid rgb(144, 144, 144);
+  border-bottom: 1px solid rgb(144, 144, 144);
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.img {
+  background-color: antiquewhite;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+}
+.imgClicked {
+  position: relative;
+  z-index: 200;
+  top: -230px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+}
+.imgFileInfo div:last-child {
+  position: relative;
+  z-index: 100;
+  left: -10px;
+  top: 15px;
+}
 /*  */
 .appNav {
   margin: 0 3px;
@@ -153,7 +194,7 @@
 .backdrop {
   background-color: rgba(23, 23, 23, 0.4);
   position: relative;
-  z-index: 500;
+  z-index: 100;
   top: -335px;
   left: -10px;
   width: 185px;
@@ -163,7 +204,7 @@
 
 .resSet {
   background-color: white;
-  z-index: 600;
+  z-index: 200;
   border-radius: 12px;
   width: 90%;
   position: relative;

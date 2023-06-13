@@ -17,9 +17,11 @@ import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
 import SendResend from "../Basic/message/resend-message/SendResend";
 
 import SetReservation from "../Basic/message/reserve-message/SetReservation";
-import ReserveMessageInsert from "../Basic/message/reserve-message/ReserveMessageInsert";
+import MessageWithOption from "../Basic/message/reserve-message/MessageWithOption";
 import MessageAppMain from "../Basic/message/MessageAppMain";
 import Message from "../Basic/message/Message";
+import SelectFile from "../Basic/file/SelectFile";
+import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
 
 function AppMain() {
   const params = useParams();
@@ -201,15 +203,57 @@ function AppMain() {
             functionName={functionName}></SetReservation>
         );
       } else if (descriptionId === "5") {
-        choicedComponent = <ReserveMessageInsert></ReserveMessageInsert>;
+        choicedComponent = (
+          <MessageWithOption
+            appName={appName}
+            functionName={functionName}></MessageWithOption>
+        );
       }
     }
   }
 
-  function sendFile() {
-    choicedComponent = (
-      <MainApps appName={appName} functionName={functionName} />
-    );
+  function sendImg() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MainApps appName={appName} functionName={functionName} />
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <MessageAppMain
+            appName={appName}
+            functionName={functionName}></MessageAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <SelectPerson
+            appName={appName}
+            functionName={functionName}></SelectPerson>
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <Message appName={appName} functionName={functionName}></Message>
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <SelectFile
+            appName={appName}
+            functionName={functionName}></SelectFile>
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = (
+          <ChoiceImgs
+            appName={appName}
+            functionName={functionName}></ChoiceImgs>
+        );
+      } else if (descriptionId === "6") {
+        choicedComponent = (
+          <MessageWithOption
+            appName={appName}
+            functionName={functionName}></MessageWithOption>
+        );
+      }
+    }
   }
 
   switch (functionName.slice(2)) {
@@ -231,8 +275,8 @@ function AppMain() {
     case "예약 문자 발송":
       reserveMessage();
       break;
-    case "파일(이미지, 동영상, 음성, 문서) 전송":
-      sendFile();
+    case "이미지, 동영상 전송":
+      sendImg();
       break;
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);

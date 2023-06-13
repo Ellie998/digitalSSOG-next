@@ -19,7 +19,8 @@ function MessageAppMain({ functionName, appName }) {
   return (
     <>
       <section className={classes.AppMain}>
-        {realFunctionName === "문자 발신" && (
+        {(realFunctionName === "문자 발신" ||
+          realFunctionName === "이미지, 동영상 전송") && (
           <div className={classes.appTitle}>Messages</div>
         )}
         {realFunctionName === "문자 수신" && (
@@ -47,7 +48,8 @@ function MessageAppMain({ functionName, appName }) {
         </div>
         {(realFunctionName === "문자 발신" ||
           realFunctionName === "문자 전달" ||
-          realFunctionName === "문자 수신") && (
+          realFunctionName === "문자 수신" ||
+          realFunctionName === "이미지, 동영상 전송") && (
           <div className={classes.contentLists}>
             <div className={classes.firstNameBox}>홍</div>
             <NavLink
@@ -80,21 +82,25 @@ function MessageAppMain({ functionName, appName }) {
       </section>
       {isClicked && (
         <>
-          <div className={classes.backdropLight}></div>
+          <div
+            className={classes.backdropLight}
+            onClick={chatXBtnClickHandler}></div>
           <section className={`${classes.wigetApps} `}>
             <div>
               <NavLink
                 data-tooltip={
                   appName === "기본" &&
                   (realFunctionName === "문자 발신" ||
-                    realFunctionName === "예약 문자 발송")
+                    realFunctionName === "예약 문자 발송" ||
+                    realFunctionName === "이미지, 동영상 전송")
                     ? `클릭!`
                     : null
                 }
                 to={
                   appName === "기본" &&
                   (realFunctionName === "문자 발신" ||
-                    realFunctionName === "예약 문자 발송")
+                    realFunctionName === "예약 문자 발송" ||
+                    realFunctionName === "이미지, 동영상 전송")
                     ? `/description/${functionName}/${appName}/2`
                     : null
                 }>

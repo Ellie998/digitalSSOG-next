@@ -9,6 +9,7 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
   const [enteredMessage, setenteredMessage] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
+
   function mouseOverHandler(event) {
     setTimeout(() => {
       setIsOvered(true);
@@ -55,7 +56,8 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
         }`}
         onClick={backClickHandler}>
         <div className={classes.getMessage}>
-          <div onMouseOver={mouseOverHandler}>
+          <div onPointerDown={mouseOverHandler}>
+            {/* <div onMouseOver={mouseOverHandler}> */}
             결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
             OO로 OOO번길 O, OOO 컨벤션
           </div>
@@ -67,6 +69,7 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
             <div>{messageContent}</div>
           </div>
         )}
+
         {isOvered && (
           <div className={classes.options}>
             <div>삭제</div>
@@ -214,17 +217,46 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
               </div>
               <div>위치</div>
             </div>
+
             <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-card-image"></i>
-              </div>
-              <div>이미지</div>
+              <NavLink
+                data-tooltip={
+                  appName === "기본" &&
+                  realFunctionName === "이미지, 동영상 전송"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === "기본" &&
+                  realFunctionName === "이미지, 동영상 전송"
+                    ? `/description/${functionName}/${appName}/4`
+                    : null
+                }>
+                <div className={classes.iconWrap}>
+                  <i className="bi bi-card-image"></i>
+                </div>
+                <div>이미지</div>
+              </NavLink>
             </div>
             <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-play-btn"></i>
-              </div>
-              <div>동영상</div>
+              <NavLink
+                data-tooltip={
+                  appName === "기본" &&
+                  realFunctionName === "이미지, 동영상 전송"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === "기본" &&
+                  realFunctionName === "이미지, 동영상 전송"
+                    ? `/description/${functionName}/${appName}/4`
+                    : null
+                }>
+                <div className={classes.iconWrap}>
+                  <i className="bi bi-play-btn"></i>
+                </div>
+                <div>동영상</div>
+              </NavLink>
             </div>
             <div>
               <div className={classes.iconWrap}>

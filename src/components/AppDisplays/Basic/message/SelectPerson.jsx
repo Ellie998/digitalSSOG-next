@@ -13,7 +13,9 @@ function SelectPerson({ functionName, appName }) {
       <ul className={classes.numLists}>
         <NavLink
           to={
-            realFunctionName === "문자 발신"
+            realFunctionName === "문자 발신" ||
+            realFunctionName === "이미지, 동영상 전송" ||
+            realFunctionName === "예약 문자 발송"
               ? `/description/${functionName}/${appName}/3`
               : realFunctionName === "문자 전달"
               ? `/description/${functionName}/${appName}/4`
