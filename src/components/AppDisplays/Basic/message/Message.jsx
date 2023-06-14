@@ -145,7 +145,7 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
         )}
       </div>
       {plusClicked && (
-        <div className={classes.optionBox}>
+        <div className={`${classes.optionBox} `}>
           <div className={classes.optionRow}>
             <div>
               <div className={classes.iconWrap}>

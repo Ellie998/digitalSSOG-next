@@ -37,7 +37,7 @@ function ChoiceImgs({ functionName, appName }) {
         return [...prevObject];
       });
     }
-    console.dir(event.target);
+    // console.dir(event.target);
   }
 
   return (
