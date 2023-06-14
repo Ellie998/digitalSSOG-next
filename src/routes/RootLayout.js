@@ -44,7 +44,7 @@ function RootLayout({ children }) {
   useEffect(() => {
     const pcScrollToTopCondition = () => {
       location.search === "" &&
-        pathArray.length !== 5 &&
+        pathArray.length !== 6 &&
         divRef.current.scroll({
           top: 0,
           behavior: "smooth",
@@ -52,7 +52,7 @@ function RootLayout({ children }) {
     };
     const mScrollToTopCondition = () => {
       location.search === "" &&
-        pathArray.length !== 5 &&
+        pathArray.length !== 6 &&
         window.scroll({
           top: 0,
           behavior: "smooth",
