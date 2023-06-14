@@ -1,12 +1,10 @@
 import styles from "./CallAppMain.module.css";
 import { useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function CallAppMain() {
+function CallAppMain({ appName, functionName }) {
   const [clickedNum, changeNum] = useState("");
-  const params = useParams();
-  const functionName = params.functionName;
-  const appName = params.appName;
+  const realFunctionName = functionName.slice(2);
 
   function onchangeClickNum(event) {
     if (event.target.innerText && event.target.nodeName === "DIV") {
@@ -63,12 +61,34 @@ function CallAppMain() {
       </div>
       <div className={styles.navSection}>
         <ul>
+          <NavLink
+            data-tooltip={
+              appName === "기본" && realFunctionName === "영상통화 발신"
+                ? `클릭!`
+                : null
+            }
+            to={
+              appName === "기본" && realFunctionName === "영상통화 발신"
+                ? `/description/${functionName}/${appName}/2`
+                : null
+            }>
+            <li>
+              <i className="bi bi-camera-video"></i>
+            </li>
+          </NavLink>
           <li>
-            <i className="bi bi-camera-video"></i>
-          </li>
-          <li>
-            <NavLink to={`/description/${functionName}/${appName}/2`}>
-              <div data-tooltip="클릭!">
+            <NavLink
+              data-tooltip={
+                appName === "기본" && realFunctionName === "전화걸기(발신)"
+                  ? `클릭!`
+                  : null
+              }
+              to={
+                appName === "기본" && realFunctionName === "전화걸기(발신)"
+                  ? `/description/${functionName}/${appName}/2`
+                  : null
+              }>
+              <div>
                 <i className="bi bi-telephone"></i>
               </div>
             </NavLink>

@@ -22,6 +22,7 @@ import MessageAppMain from "../Basic/message/MessageAppMain";
 import Message from "../Basic/message/Message";
 import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
+import VideoCallConnected from "../Basic/call/VideoCallConnected";
 
 function AppMain() {
   const params = useParams();
@@ -43,7 +44,9 @@ function AppMain() {
           <CallAppMain appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <CallSuccess />;
+        choicedComponent = (
+          <CallConnected appName={appName} functionName={functionName} />
+        );
       } else {
         choicedComponent = <div></div>;
       }
@@ -93,6 +96,25 @@ function AppMain() {
         );
       } else if (descriptionId === "1") {
         choicedComponent = <CallConnected></CallConnected>;
+      }
+    }
+  }
+  function makeAVideoCall() {
+    if (appName === "기본") {
+      if (descriptionId === "0") {
+        choicedComponent = (
+          <MainApps appName={appName} functionName={functionName} />
+        );
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <CallAppMain appName={appName} functionName={functionName} />
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = (
+          <VideoCallConnected appName={appName} functionName={functionName} />
+        );
+      } else {
+        choicedComponent = <div></div>;
       }
     }
   }
@@ -228,7 +250,8 @@ function AppMain() {
         choicedComponent = (
           <SelectPerson
             appName={appName}
-            functionName={functionName}></SelectPerson>
+            functionName={functionName}
+            descriptionId={descriptionId}></SelectPerson>
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
@@ -271,7 +294,8 @@ function AppMain() {
         choicedComponent = (
           <SelectPerson
             appName={appName}
-            functionName={functionName}></SelectPerson>
+            functionName={functionName}
+            descriptionId={descriptionId}></SelectPerson>
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
@@ -308,7 +332,8 @@ function AppMain() {
         choicedComponent = (
           <SelectPerson
             appName={appName}
-            functionName={functionName}></SelectPerson>
+            functionName={functionName}
+            descriptionId={descriptionId}></SelectPerson>
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
@@ -316,9 +341,10 @@ function AppMain() {
         );
       } else if (descriptionId === "4") {
         choicedComponent = (
-          <SelectFile
+          <SelectPerson
             appName={appName}
-            functionName={functionName}></SelectFile>
+            functionName={functionName}
+            descriptionId={descriptionId}></SelectPerson>
         );
       } else if (descriptionId === "5") {
         choicedComponent = (
@@ -331,10 +357,16 @@ function AppMain() {
   }
 
   switch (functionName.slice(2)) {
+    case "전화걸기(발신)":
+      makeACall();
+      break;
     case "전화받기(수신)":
       answerTheCall();
       break;
-    case "전화걸기(발신)":
+    case "영상통화 발신":
+      makeAVideoCall();
+      break;
+    case "":
       makeACall();
       break;
     case "문자 발신":

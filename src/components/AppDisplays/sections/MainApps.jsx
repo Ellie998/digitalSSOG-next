@@ -31,18 +31,22 @@ function MainApps({ functionName, appName }) {
         <div className={styles.wigetApps}>
           <div
             data-tooltip={
-              appName === "기본" && realFunctionName === "전화걸기(발신)"
+              appName === "기본" &&
+              (realFunctionName === "전화걸기(발신)" ||
+                realFunctionName === "영상통화 발신")
                 ? `클릭!`
                 : null
             }>
             <NavLink
               to={
-                appName === "기본" && realFunctionName === "전화걸기(발신)"
+                appName === "기본" &&
+                (realFunctionName === "전화걸기(발신)" ||
+                  realFunctionName === "영상통화 발신")
                   ? `/description/${functionName}/${appName}/1`
                   : null
               }>
               <i className="bi bi-telephone"></i>
-            </NavLink>{" "}
+            </NavLink>
           </div>
           <div>
             <i className="bi bi-camera"></i>

@@ -1,6 +1,6 @@
-import classes from "./CallConnected.module.css";
+import classes from "./VideoCallConnected.module.css";
 
-const CallConnected = ({ appName, functionName }) => {
+const VideoCallConnected = ({ appName, functionName }) => {
   return (
     <section className={classes.layout}>
       <div className={classes.headerNav}>...</div>
@@ -37,4 +37,4 @@ const CallConnected = ({ appName, functionName }) => {
   );
 };
 
-export default CallConnected;
+export default VideoCallConnected;
