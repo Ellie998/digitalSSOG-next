@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import classes from "./KakaoProfileDetail.module.css";
 
-function KakaoProfileDetail({ functionName, appName }) {
+function KakaoProfileDetail({
+  functionName,
+  appName,
+  methodId,
+  realFunctionName,
+}) {
   return (
     <section className={classes.AppMain}>
       <section className={classes.mainDisplay}>
@@ -16,7 +21,8 @@ function KakaoProfileDetail({ functionName, appName }) {
           </li>
           <li>
             <div data-tooltip="클릭!">
-              <NavLink to={`/description/${functionName}/${appName}/4`}>
+              <NavLink
+                to={`/description/${functionName}/${methodId}/${appName}/4`}>
                 <i className="bi bi-telephone"></i>
                 <p>통화하기</p>
               </NavLink>

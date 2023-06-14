@@ -1,6 +1,11 @@
 import classes from "./CallConnected.module.css";
 
-const CallConnected = ({ appName, functionName }) => {
+const CallConnected = ({
+  functionName,
+  appName,
+  methodId,
+  realFunctionName,
+}) => {
   return (
     <section className={classes.layout}>
       <div className={classes.headerNav}>...</div>

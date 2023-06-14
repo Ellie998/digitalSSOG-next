@@ -10,6 +10,7 @@ import FunctionDetail from "./Layouts/Main/FunctionLayout/FunctionDetail";
 import DisplayBox from "./components/FunctionDetailComponents/DisplayBox/DisplayBox";
 import RootLayout from "./routes/RootLayout";
 import ErrorPage from "./routes/ErrorPage";
+
 import "./common.css";
 
 // google search console

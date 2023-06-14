@@ -1,8 +1,13 @@
 import classes from "./SelectPerson.module.css";
 import { NavLink } from "react-router-dom";
 
-function SelectPerson({ functionName, appName, descriptionId }) {
-  const realFunctionName = functionName.slice(2);
+function SelectPerson({
+  functionName,
+  appName,
+  methodId,
+  realFunctionName,
+  descriptionId,
+}) {
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>

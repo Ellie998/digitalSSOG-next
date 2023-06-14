@@ -25,10 +25,11 @@ import VideoCallConnected from "../Basic/call/VideoCallConnected";
 
 function AppMain() {
   const params = useParams();
-
   const functionName = params.functionName;
   const appName = params.appName;
   const descriptionId = params.descriptionId;
+  const methodId = params.methodId;
+  const realFunctionName = functionName;
 
   let choicedComponent = <div></div>;
   // call
@@ -392,7 +393,8 @@ function AppMain() {
     default:
       console.log(`작성중인 기능입니다.  ${functionName}.`);
   }
-  return choicedComponent;
+
+  return { choicedComponent };
 }
 
 export default AppMain;
