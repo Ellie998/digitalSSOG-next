@@ -67,7 +67,7 @@ function ChoiceImgs() {
                 to={
                   appName === "기본" &&
                   realFunctionName === "이미지, 동영상 전송"
-                    ? `/description/${functionName}/${appName}/6`
+                    ? `${urlContent}/1/6`
                     : null
                 }>
                 <div>완료</div>

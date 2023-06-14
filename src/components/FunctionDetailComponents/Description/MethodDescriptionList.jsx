@@ -15,7 +15,7 @@ const numEmogi = [
   "🔟",
 ];
 
-function MethodDescriptionList({ functionMethod, appName }) {
+function MethodDescriptionList({ functionMethod, appName, methodNum }) {
   let num = 0;
   const params = useParams();
 
@@ -27,11 +27,10 @@ function MethodDescriptionList({ functionMethod, appName }) {
           key={methodDescription}
           className="list-hover description-list">
           <NavLink
-            to={`/description/${params.functionName}/${appName}/${num}`}
+            to={`/description/${params.functionName}/${appName}/${methodNum}/${num}`}
             style={({ isActive }) => {
               return { fontWeight: isActive ? "bold" : "" };
             }}>
-            {" "}
             {numEmogi[num++]} {methodDescription}
           </NavLink>
         </li>

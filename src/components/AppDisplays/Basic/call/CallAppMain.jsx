@@ -70,7 +70,7 @@ function CallAppMain() {
             }
             to={
               appName === "기본" && realFunctionName === "영상통화 발신"
-                ? `/description/${functionName}/${appName}/2`
+                ? `${urlContent}/1/2`
                 : null
             }>
             <li>
@@ -86,7 +86,7 @@ function CallAppMain() {
               }
               to={
                 appName === "기본" && realFunctionName === "전화걸기(발신)"
-                  ? `/description/${functionName}/${appName}/2`
+                  ? `${urlContent}/1/2`
                   : null
               }>
               <div>

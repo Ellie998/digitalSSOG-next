@@ -37,9 +37,9 @@ function SelectPerson() {
             realFunctionName === "예약 문자 발송" ||
             realFunctionName === "오디오 전송" ||
             (realFunctionName === "연락처 공유" && descriptionId === "2")
-              ? `/description/${functionName}/${appName}/3`
+              ? `${urlContent}/1/3`
               : realFunctionName === "문자 전달"
-              ? `/description/${functionName}/${appName}/4`
+              ? `${urlContent}/1/4`
               : null
           }>
           <li>
@@ -60,7 +60,7 @@ function SelectPerson() {
             appName === "기본" &&
             realFunctionName === "연락처 공유" &&
             descriptionId === "4" &&
-            `/description/${functionName}/${appName}/5`
+            `${urlContent}/1/5`
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>

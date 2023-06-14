@@ -40,7 +40,7 @@ function AppMain() {
   const appName = params.appName;
   const methodId = params.methodId;
   const descriptionId = params.descriptionId;
-  const urlContent = `/description/${functionName}/${appName}/`;
+  const urlContent = `/description/${functionName}/${appName}`;
 
   let choicedComponent = <div></div>;
   // call

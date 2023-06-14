@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             element: <DisplayBox />,
           },
           {
-            path: ":appName/:descriptionId",
+            path: ":appName/:methodId/:descriptionId",
             element: <DisplayBox />,
           },
         ],

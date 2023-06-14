@@ -29,7 +29,7 @@ function MainApps() {
               to={
                 appName === "카카오톡" &&
                 functionName.slice(2) === "전화걸기(발신)"
-                  ? `/description/${functionName}/${appName}/1`
+                  ? `${urlContent}/1`
                   : null
               }>
               <i className="bi bi-chat-fill"></i>
@@ -52,7 +52,7 @@ function MainApps() {
                 appName === "기본" &&
                 (realFunctionName === "전화걸기(발신)" ||
                   realFunctionName === "영상통화 발신")
-                  ? `/description/${functionName}/${appName}/1`
+                  ? `${urlContent}/1/1`
                   : null
               }>
               <i className="bi bi-telephone"></i>
@@ -90,7 +90,7 @@ function MainApps() {
                   realFunctionName === "이미지, 동영상 전송" ||
                   realFunctionName === "오디오 전송" ||
                   realFunctionName === "연락처 공유")
-                  ? `/description/${functionName}/${appName}/1`
+                  ? `${urlContent}/1/1`
                   : null
               }>
               <i className="bi bi-chat-dots"></i>

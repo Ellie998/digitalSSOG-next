@@ -68,7 +68,7 @@ function MessageAppMain() {
               to={
                 realFunctionName === "문자 전달" ||
                 realFunctionName === "문자 수신"
-                  ? `/description/${functionName}/${appName}/2`
+                  ? `${urlContent}/1/2`
                   : null
               }
               data-tooltip={
@@ -122,7 +122,7 @@ function MessageAppMain() {
                     realFunctionName === "이미지, 동영상 전송" ||
                     realFunctionName === "오디오 전송" ||
                     realFunctionName === "연락처 공유")
-                    ? `/description/${functionName}/${appName}/2`
+                    ? `${urlContent}/1/2`
                     : null
                 }>
                 <div>1:1 대화</div>

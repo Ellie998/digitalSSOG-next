@@ -24,6 +24,8 @@ function MethodAppList({ functionMethods }) {
                   functionName +
                   "/" +
                   functionMethodObject.methodAppName +
+                  "/" +
+                  functionMethodObject.methodNum +
                   "/0"
                 }>
                 {functionMethodObject.methodAppName} 어플

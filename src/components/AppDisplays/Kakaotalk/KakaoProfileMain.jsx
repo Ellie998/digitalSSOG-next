@@ -19,14 +19,12 @@ function KakaoProfileMain() {
             <p>music</p>
           </li>
           <li className={styles.kakaoProfileMain}>
-            <NavLink
-              to={`/description/${functionName}/${appName}/3`}
-              data-tooltip="클릭!">
+            <NavLink to={`${urlContent}/1/3`} data-tooltip="클릭!">
               <i className="bi bi-person"></i>
             </NavLink>
 
             <div data-tooltip="클릭!">
-              <NavLink to={`/description/${functionName}/${appName}/3`}>
+              <NavLink to={`${urlContent}/1/3`}>
                 <p>target</p>
                 <p className={styles.kakaoProfileMessage}>message</p>
               </NavLink>
@@ -46,7 +44,7 @@ function KakaoProfileMain() {
       <section className={styles.mainNavApps}>
         <ul className={styles.wigetApps}>
           <li>
-            <NavLink to={`/description/${functionName}/${appName}/2`}>
+            <NavLink to={`${urlContent}/1/2`}>
               <i className="bi bi-person"></i>
             </NavLink>
           </li>

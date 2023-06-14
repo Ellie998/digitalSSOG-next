@@ -12,7 +12,7 @@ function KakaoAppMain() {
       <section className={styles.mainNavApps}>
         <div className={styles.wigetApps}>
           <div data-tooltip="클릭!">
-            <NavLink to={`/description/${functionName}/${appName}/2`}>
+            <NavLink to={`${urlContent}/1/2`}>
               <i className="bi bi-person"></i>
             </NavLink>
           </div>

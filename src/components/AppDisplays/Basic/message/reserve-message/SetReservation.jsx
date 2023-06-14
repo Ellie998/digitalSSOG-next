@@ -54,7 +54,7 @@ function SetReservation() {
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
-          <NavLink to={`/description/${functionName}/${appName}/5`}>
+          <NavLink to={`${urlContent}/1/5`}>
             <div data-tooltip="클릭!">완료</div>
           </NavLink>
         </div>

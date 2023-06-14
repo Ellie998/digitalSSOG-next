@@ -11,7 +11,7 @@ const AnswerCall = () => {
       <p className={classes.name}>이름</p>
       <p className={classes.num}>010-0000-0000</p>
       <div className={classes.btns}>
-        <NavLink to={`/description/${functionName}/${appName}/1`}>
+        <NavLink to={`${urlContent}/1/1`}>
           <div data-tooltip="클릭!">
             <i className="bi bi-telephone" style={{ color: "blue" }}></i>
           </div>

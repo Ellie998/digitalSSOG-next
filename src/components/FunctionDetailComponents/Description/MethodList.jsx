@@ -10,6 +10,7 @@ function MethodList({ functionMethodObject, appName }) {
           <MethodDescriptionList
             functionMethod={functionMethod}
             appName={appName}
+            methodNum={functionMethod.methodNum}
           />
         </li>
       ))}
