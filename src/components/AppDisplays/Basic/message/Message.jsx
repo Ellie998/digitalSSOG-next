@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./Message.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../sections/AppMain";
 
-function Message({ functionName, appName, setInputValue, inputValue }) {
+function Message() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
@@ -40,7 +49,6 @@ function Message({ functionName, appName, setInputValue, inputValue }) {
     setPlusClicked(true);
   }
 
-  const realFunctionName = functionName.slice(2);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader} onClick={backClickHandler}>

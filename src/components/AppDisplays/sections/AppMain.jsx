@@ -22,53 +22,48 @@ import Message from "../Basic/message/Message";
 import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
 import VideoCallConnected from "../Basic/call/VideoCallConnected";
+import { createContext } from "react";
+
+export const PageContext = createContext({
+  functionName: "",
+  realFunctionName: "",
+  appName: "",
+  methodId: "",
+  descriptionId: "",
+  urlContent: "",
+});
 
 function AppMain() {
   const params = useParams();
   const functionName = params.functionName;
+  const realFunctionName = functionName.slice(2);
   const appName = params.appName;
-  const descriptionId = params.descriptionId;
   const methodId = params.methodId;
-  const realFunctionName = functionName;
+  const descriptionId = params.descriptionId;
+  const urlContent = `/description/${functionName}/${appName}/`;
 
   let choicedComponent = <div></div>;
   // call
   function makeACall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <CallAppMain appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <CallAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <CallConnected appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <CallConnected />;
       } else {
         choicedComponent = <div></div>;
       }
     } else if (appName === "카카오톡") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <KakaoAppMain appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <KakaoAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <KakaoProfileMain
-            appName={appName}
-            functionName={functionName}></KakaoProfileMain>
-        );
+        choicedComponent = <KakaoProfileMain />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <KakaoProfileDetail appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <KakaoProfileDetail />;
       } else if (descriptionId === "4") {
         choicedComponent = <CallConnected />;
       } else {
@@ -79,11 +74,7 @@ function AppMain() {
   function answerTheCall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <AnswerCall
-            appName={appName}
-            functionName={functionName}></AnswerCall>
-        );
+        choicedComponent = <AnswerCall />;
       } else if (descriptionId === "1") {
         choicedComponent = <CallConnected></CallConnected>;
       }
@@ -102,17 +93,11 @@ function AppMain() {
   function makeAVideoCall() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <CallAppMain appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <CallAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <VideoCallConnected appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <VideoCallConnected />;
       } else {
         choicedComponent = <div></div>;
       }
@@ -122,69 +107,37 @@ function AppMain() {
   function sendMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message></Message>;
       }
     }
   }
   function seeMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       }
     }
   }
   function resendMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "4") {
         choicedComponent = (
           <SendResend
@@ -199,159 +152,70 @@ function AppMain() {
   function reserveMessage() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <SetReservation
-            appName={appName}
-            functionName={functionName}></SetReservation>
-        );
+        choicedComponent = <SetReservation />;
       } else if (descriptionId === "5") {
-        choicedComponent = (
-          <MessageWithOption
-            appName={appName}
-            functionName={functionName}></MessageWithOption>
-        );
+        choicedComponent = <MessageWithOption />;
       }
     }
   }
-
   function sendImg() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}
-            descriptionId={descriptionId}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <SelectFile
-            appName={appName}
-            functionName={functionName}></SelectFile>
-        );
+        choicedComponent = <SelectFile />;
       } else if (descriptionId === "5") {
-        choicedComponent = (
-          <ChoiceImgs
-            appName={appName}
-            functionName={functionName}></ChoiceImgs>
-        );
+        choicedComponent = <ChoiceImgs />;
       } else if (descriptionId === "6") {
-        choicedComponent = (
-          <MessageWithOption
-            appName={appName}
-            functionName={functionName}></MessageWithOption>
-        );
+        choicedComponent = <MessageWithOption></MessageWithOption>;
       }
     }
   }
   function sendAudio() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}
-            descriptionId={descriptionId}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <SelectFile
-            appName={appName}
-            functionName={functionName}></SelectFile>
-        );
+        choicedComponent = <SelectFile />;
       } else if (descriptionId === "5") {
-        choicedComponent = (
-          <MessageWithOption
-            appName={appName}
-            functionName={functionName}></MessageWithOption>
-        );
+        choicedComponent = <MessageWithOption />;
       }
     }
   }
   function sendNumber() {
     if (appName === "기본") {
       if (descriptionId === "0") {
-        choicedComponent = (
-          <MainApps appName={appName} functionName={functionName} />
-        );
+        choicedComponent = <MainApps />;
       } else if (descriptionId === "1") {
-        choicedComponent = (
-          <MessageAppMain
-            appName={appName}
-            functionName={functionName}></MessageAppMain>
-        );
+        choicedComponent = <MessageAppMain />;
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}
-            descriptionId={descriptionId}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <Message appName={appName} functionName={functionName}></Message>
-        );
+        choicedComponent = <Message />;
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <SelectPerson
-            appName={appName}
-            functionName={functionName}
-            descriptionId={descriptionId}></SelectPerson>
-        );
+        choicedComponent = <SelectPerson />;
       } else if (descriptionId === "5") {
-        choicedComponent = (
-          <MessageWithOption
-            appName={appName}
-            functionName={functionName}></MessageWithOption>
-        );
+        choicedComponent = <MessageWithOption />;
       }
     }
   }
@@ -394,7 +258,19 @@ function AppMain() {
       console.log(`작성중인 기능입니다.  ${functionName}.`);
   }
 
-  return { choicedComponent };
+  return (
+    <PageContext.Provider
+      value={{
+        functionName: functionName,
+        realFunctionName: realFunctionName,
+        appName: appName,
+        methodId: methodId,
+        descriptionId: descriptionId,
+        urlContent: urlContent,
+      }}>
+      {choicedComponent}
+    </PageContext.Provider>
+  );
 }
 
 export default AppMain;

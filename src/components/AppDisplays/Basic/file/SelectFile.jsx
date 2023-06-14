@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./SelectFile.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../sections/AppMain";
 
-function SelectFile({ functionName, appName }) {
+function SelectFile() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [isFolderClicked, setFolderClicked] = useState(false);
   const [clickedFileId, setClickedFileId] = useState("");
   const checkboxes = document.getElementsByName("audio");
 
-  const realFunctionName = functionName.slice(2);
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const numArray_folder = [0, 1, 2, 3, 4];
 

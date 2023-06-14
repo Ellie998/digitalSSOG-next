@@ -1,7 +1,17 @@
+import { useContext } from "react";
+import { PageContext } from "../../../sections/AppMain";
 import classes from "../Message.module.css";
 import { NavLink } from "react-router-dom";
 
-function SendResend({ functionName, appName }) {
+function SendResend() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>

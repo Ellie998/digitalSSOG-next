@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./ChoiceImgs.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../sections/AppMain";
 
-function ChoiceImgs({ functionName, appName }) {
+function ChoiceImgs() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
-  const realFunctionName = functionName.slice(2);
+
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   function imgCheckHandler(event) {

@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./MessageAppMain.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../sections/AppMain";
 
-function MessageAppMain({ functionName, appName }) {
+function MessageAppMain() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [isClicked, setIsClicked] = useState(false);
   const [isXClicked, setIsXClicked] = useState(true);
-  const realFunctionName = functionName.slice(2);
 
   function chatBtnClickHandler() {
     setIsClicked(true);

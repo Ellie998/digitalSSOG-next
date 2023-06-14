@@ -1,8 +1,11 @@
 import styles from "./CallAppMain.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../sections/AppMain";
 
-function CallAppMain({ functionName, appName, methodId, realFunctionName }) {
+function CallAppMain() {
+  const { functionName, appName, methodId, urlContent, realFunctionName } =
+    useContext(PageContext);
   const [clickedNum, changeNum] = useState("");
 
   function onchangeClickNum(event) {
@@ -67,7 +70,7 @@ function CallAppMain({ functionName, appName, methodId, realFunctionName }) {
             }
             to={
               appName === "기본" && realFunctionName === "영상통화 발신"
-                ? `/description/${functionName}/${methodId}/${appName}/2`
+                ? `/description/${functionName}/${appName}/2`
                 : null
             }>
             <li>
@@ -83,7 +86,7 @@ function CallAppMain({ functionName, appName, methodId, realFunctionName }) {
               }
               to={
                 appName === "기본" && realFunctionName === "전화걸기(발신)"
-                  ? `/description/${functionName}/${methodId}/${appName}/2`
+                  ? `/description/${functionName}/${appName}/2`
                   : null
               }>
               <div>

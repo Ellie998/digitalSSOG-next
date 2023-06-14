@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./SetReservation.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "../../../sections/AppMain";
 
-function SetReservation({ functionName, appName }) {
+function SetReservation() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [inputClicked, setInputClicked] = useState(false);
 
   return (

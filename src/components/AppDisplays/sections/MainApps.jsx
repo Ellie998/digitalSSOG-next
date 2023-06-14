@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import styles from "./AppMain.module.css";
 import { NavLink } from "react-router-dom";
+import { PageContext } from "./AppMain";
 
-function MainApps({ functionName, appName, methodId, realFunctionName }) {
+function MainApps() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
+
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}>
@@ -18,7 +29,7 @@ function MainApps({ functionName, appName, methodId, realFunctionName }) {
               to={
                 appName === "카카오톡" &&
                 functionName.slice(2) === "전화걸기(발신)"
-                  ? `/description/${functionName}/${methodId}/${appName}/1`
+                  ? `/description/${functionName}/${appName}/1`
                   : null
               }>
               <i className="bi bi-chat-fill"></i>
@@ -41,7 +52,7 @@ function MainApps({ functionName, appName, methodId, realFunctionName }) {
                 appName === "기본" &&
                 (realFunctionName === "전화걸기(발신)" ||
                   realFunctionName === "영상통화 발신")
-                  ? `/description/${functionName}/${methodId}/${appName}/1`
+                  ? `/description/${functionName}/${appName}/1`
                   : null
               }>
               <i className="bi bi-telephone"></i>
@@ -79,7 +90,7 @@ function MainApps({ functionName, appName, methodId, realFunctionName }) {
                   realFunctionName === "이미지, 동영상 전송" ||
                   realFunctionName === "오디오 전송" ||
                   realFunctionName === "연락처 공유")
-                  ? `/description/${functionName}/${methodId}/${appName}/1`
+                  ? `/description/${functionName}/${appName}/1`
                   : null
               }>
               <i className="bi bi-chat-dots"></i>

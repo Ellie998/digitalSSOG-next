@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import classes from "./MessageWithOption.module.css";
+import { PageContext } from "../../../sections/AppMain";
 
-function MessageWithOption({ appName, functionName }) {
-  const realFunctionName = functionName.slice(2);
+function MessageWithOption() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
+
   const [inputClicked, setInputClicked] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);

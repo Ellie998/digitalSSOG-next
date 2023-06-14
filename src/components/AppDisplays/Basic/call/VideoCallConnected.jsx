@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { PageContext } from "../../sections/AppMain";
 import classes from "./VideoCallConnected.module.css";
 
-const VideoCallConnected = ({ appName, functionName }) => {
+const VideoCallConnected = () => {
+  const { functionName, appName, methodId, urlContent, realFunctionName } =
+    useContext(PageContext);
   return (
     <section className={classes.layout}>
       <div className={classes.headerNav}>

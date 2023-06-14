@@ -1,13 +1,17 @@
+import { useContext } from "react";
+import { PageContext } from "../../sections/AppMain";
 import classes from "./SelectPerson.module.css";
 import { NavLink } from "react-router-dom";
 
-function SelectPerson({
-  functionName,
-  appName,
-  methodId,
-  realFunctionName,
-  descriptionId,
-}) {
+function SelectPerson() {
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>
