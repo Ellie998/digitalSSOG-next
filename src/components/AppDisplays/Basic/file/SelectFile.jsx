@@ -216,7 +216,7 @@ function SelectFile({ functionName, appName }) {
                           clickedFileId === `audio${num}` ? true : false
                         }></input>
                       <div>
-                        <i className="bi bi-music-note"></i>
+                        <i className="bi bi-file-music-fill"></i>
                       </div>
                       <div>
                         <i className="bi bi-arrows-fullscreen"></i>

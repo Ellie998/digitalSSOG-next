@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 
 import MainApps from "./MainApps";
 import CallAppMain from "../Basic/call/CallAppMain";
-import CallSuccess from "../Basic/call/CallSuccess";
 
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
@@ -70,7 +69,7 @@ function AppMain() {
           <KakaoProfileDetail appName={appName} functionName={functionName} />
         );
       } else if (descriptionId === "4") {
-        choicedComponent = <CallSuccess />;
+        choicedComponent = <CallConnected />;
       } else {
         choicedComponent = <div></div>;
       }
