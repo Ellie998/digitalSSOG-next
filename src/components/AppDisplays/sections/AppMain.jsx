@@ -50,43 +50,6 @@ function AppMain() {
   const urlContent = `/description/${functionName}/${appName}`;
 
   let choicedComponent = <div></div>;
-  //
-
-  // if (
-  //   realFunctionName === functionName_makeACall &&
-  //   appName === appName_basic &&
-  //   methodId === "1"
-  // ) {
-  //   choicedComponent =
-  //     (descriptionId === "0" && <MainApps />) ||
-  //     (descriptionId === "1" && <CallAppMain />) ||
-  //     (descriptionId === "2" && <CallConnected />);
-  // } else if (
-  //   realFunctionName === functionName_makeACall &&
-  //   appName === appName_kakaotalk &&
-  //   methodId === "1"
-  // ) {
-  //   choicedComponent =
-  //     (descriptionId === "0" && <MainApps />) ||
-  //     (descriptionId === "1" && <KakaoAppMain />) ||
-  //     (descriptionId === "2" && <KakaoProfileMain />) ||
-  //     (descriptionId === "3" && <KakaoProfileDetail />) ||
-  //     (descriptionId === "4" && <CallConnected />);
-  // } else if (
-  //   realFunctionName === functionName_getACall &&
-  //   appName === appName_basic &&
-  //   methodId === "1"
-  // ) {
-  // } else if (appName === undefined) {
-  //   choicedComponent = (
-  //     <div style={{ textAlign: "center", marginTop: "100px" }}>
-  //       설명을 누르시면 <br />
-  //       화면이 출력됩니다.
-  //     </div>
-  //   );
-  // } else {
-  //   choicedComponent = <AppMainError />;
-  // }
 
   switch (realFunctionName) {
     case "전화걸기(발신)":
