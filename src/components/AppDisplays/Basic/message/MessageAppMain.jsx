@@ -33,10 +33,12 @@ function MessageAppMain() {
           realFunctionName === "연락처 공유") && (
           <div className={classes.appTitle}>Messages</div>
         )}
-        {realFunctionName === "문자 수신" && (
-          <div className={classes.appTitle}>
-            <div>읽지 않은 메시지 1개</div>
-            <div>보기</div>
+        {realFunctionName === "문자 수신" && methodId === "2" && (
+          <div className={classes.appTitle} data-tooltip={`클릭!`}>
+            <NavLink to={`${urlContent}/2/2`}>
+              <div>읽지 않은 메시지 1개</div>
+              <div>보기</div>
+            </NavLink>
           </div>
         )}
         <div className={classes.appETCLists}>
@@ -67,13 +69,13 @@ function MessageAppMain() {
             <NavLink
               to={
                 realFunctionName === "문자 전달" ||
-                realFunctionName === "문자 수신"
+                (realFunctionName === "문자 수신" && methodId === "1")
                   ? `${urlContent}/1/2`
                   : null
               }
               data-tooltip={
                 realFunctionName === "문자 전달" ||
-                realFunctionName === "문자 수신"
+                (realFunctionName === "문자 수신" && methodId === "1")
                   ? `클릭!`
                   : null
               }>

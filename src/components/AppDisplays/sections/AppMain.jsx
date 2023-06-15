@@ -23,6 +23,7 @@ import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
 import VideoCallConnected from "../Basic/call/VideoCallConnected";
 import { createContext } from "react";
+import UnreadMessage from "../Basic/message/seeMessage/UnreadMessage";
 
 export const PageContext = createContext({
   functionName: "",
@@ -119,12 +120,24 @@ function AppMain() {
   }
   function seeMessage() {
     if (appName === "기본") {
-      if (descriptionId === "0") {
-        choicedComponent = <MainApps />;
-      } else if (descriptionId === "1") {
-        choicedComponent = <MessageAppMain />;
-      } else if (descriptionId === "2") {
-        choicedComponent = <Message />;
+      if (methodId === "1") {
+        if (descriptionId === "0") {
+          choicedComponent = <MainApps />;
+        } else if (descriptionId === "1") {
+          choicedComponent = <MessageAppMain />;
+        } else if (descriptionId === "2") {
+          choicedComponent = <Message />;
+        }
+      } else if (methodId === "2") {
+        if (descriptionId === "0") {
+          choicedComponent = <MainApps />;
+        } else if (descriptionId === "1") {
+          choicedComponent = <MessageAppMain />;
+        } else if (descriptionId === "2") {
+          choicedComponent = <UnreadMessage />;
+        } else if (descriptionId === "3") {
+          choicedComponent = <Message />;
+        }
       }
     }
   }
