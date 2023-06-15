@@ -1,35 +1,33 @@
 import { useContext } from "react";
 import { PageContext } from "../sections/AppMain";
-import styles from "../sections/AppMain.module.css";
+import classes from "../sections/AppMain.module.css";
 import { NavLink } from "react-router-dom";
 
 function KakaoAppMain() {
   const { urlContent } = useContext(PageContext);
   return (
-    <section className={styles.AppMain}>
-      <section className={styles.mainApps}></section>
-      <section className={styles.mainNavApps}>
-        <div className={styles.wigetApps}>
-          <div data-tooltip="클릭!">
-            <NavLink to={`${urlContent}`}>
-              <i className="bi bi-person"></i>
-            </NavLink>
-          </div>
+    <div className={classes.layout}>
+      <section className={classes.appLayout}></section>
+      <div className={classes.navAppLayout}>
+        <NavLink to={`${urlContent}`} data-tooltip="클릭!">
           <div>
-            <i className="bi bi-chat"></i>
+            <i className="bi bi-person"></i>
           </div>
-          <div>
-            <i className="bi bi-eye"></i>
-          </div>
-          <div>
-            <i className="bi bi-handbag"></i>
-          </div>
-          <div>
-            <i className="bi bi-three-dots"></i>
-          </div>
+        </NavLink>
+        <div>
+          <i className="bi bi-chat"></i>
         </div>
-      </section>
-    </section>
+        <div>
+          <i className="bi bi-eye"></i>
+        </div>
+        <div>
+          <i className="bi bi-handbag"></i>
+        </div>
+        <div>
+          <i className="bi bi-three-dots"></i>
+        </div>
+      </div>
+    </div>
   );
 }
 

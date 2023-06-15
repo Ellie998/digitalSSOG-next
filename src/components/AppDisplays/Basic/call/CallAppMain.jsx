@@ -34,7 +34,7 @@ function CallAppMain() {
   }
 
   return (
-    <section className={classes.layout}>
+    <div className={classes.layout}>
       <div className={classes.main_title}>{clickedNum}</div>
       <div className={classes.main_optionBox} onClick={onchangeClickNum}>
         <div className={classes.main_optionRow}>
@@ -95,7 +95,7 @@ function CallAppMain() {
           <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
