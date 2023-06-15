@@ -1,18 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import classes from "./SetReservation.module.css";
 import { NavLink } from "react-router-dom";
 import { PageContext } from "../../../sections/AppMain";
 
 function SetReservation() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
-  const [inputClicked, setInputClicked] = useState(false);
+  const { urlContent } = useContext(PageContext);
 
   return (
     <>
@@ -54,7 +46,7 @@ function SetReservation() {
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
-          <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+          <NavLink to={`${urlContent}`}>
             <div data-tooltip="클릭!">완료</div>
           </NavLink>
         </div>

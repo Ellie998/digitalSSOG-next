@@ -3,14 +3,7 @@ import classes from "./MessageWithOption.module.css";
 import { PageContext } from "../../../sections/AppMain";
 
 function MessageWithOption() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { realFunctionName } = useContext(PageContext);
 
   const [inputClicked, setInputClicked] = useState(false);
   const [inputValue, setInputValue] = useState("");

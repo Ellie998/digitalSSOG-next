@@ -4,14 +4,7 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function Message() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, urlContent, realFunctionName } = useContext(PageContext);
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
@@ -92,9 +85,9 @@ function Message() {
                   : null
               }
               to={
-                appName === "기본" && realFunctionName === "문자 전달"
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
+                appName === "기본" &&
+                realFunctionName === "문자 전달" &&
+                `${urlContent}`
               }>
               <div>전달</div>
             </NavLink>
@@ -201,9 +194,9 @@ function Message() {
                     : null
                 }
                 to={
-                  appName === "기본" && realFunctionName === "예약 문자 발송"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  appName === "기본" &&
+                  realFunctionName === "예약 문자 발송" &&
+                  `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-clock"></i>
@@ -236,9 +229,8 @@ function Message() {
                 }
                 to={
                   appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  realFunctionName === "이미지, 동영상 전송" &&
+                  `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-card-image"></i>
@@ -256,9 +248,8 @@ function Message() {
                 }
                 to={
                   appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  realFunctionName === "이미지, 동영상 전송" &&
+                  `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-play-btn"></i>
@@ -274,9 +265,9 @@ function Message() {
                     : null
                 }
                 to={
-                  appName === "기본" && realFunctionName === "오디오 전송"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  appName === "기본" &&
+                  realFunctionName === "오디오 전송" &&
+                  `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-music-note"></i>
@@ -294,9 +285,9 @@ function Message() {
                     : null
                 }
                 to={
-                  appName === "기본" && realFunctionName === "연락처 공유"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  appName === "기본" &&
+                  realFunctionName === "연락처 공유" &&
+                  `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-person"></i>

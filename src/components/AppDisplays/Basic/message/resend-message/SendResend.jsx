@@ -4,14 +4,7 @@ import classes from "../Message.module.css";
 import { NavLink } from "react-router-dom";
 
 function SendResend() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>
@@ -47,7 +40,7 @@ function SendResend() {
           </div>
         </div>
 
-        <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+        <NavLink to={`${urlContent}`}>
           <div className={classes.sendIcon} data-tooltip="클릭!">
             <i className="bi bi-send"></i>
           </div>

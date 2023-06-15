@@ -4,14 +4,8 @@ import classes from "./SelectPerson.module.css";
 import { NavLink } from "react-router-dom";
 
 function SelectPerson() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, urlContent, descriptionId, realFunctionName } =
+    useContext(PageContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>
@@ -37,9 +31,7 @@ function SelectPerson() {
             realFunctionName === "예약 문자 발송" ||
             realFunctionName === "오디오 전송" ||
             (realFunctionName === "연락처 공유" && descriptionId === "2") ||
-            realFunctionName === "문자 전달"
-              ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-              : null
+            (realFunctionName === "문자 전달" && `${urlContent}`)
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>
@@ -59,7 +51,7 @@ function SelectPerson() {
             appName === "기본" &&
             realFunctionName === "연락처 공유" &&
             descriptionId === "4" &&
-            `${urlContent}/${methodId}/${+descriptionId + 1}`
+            `${urlContent}`
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>

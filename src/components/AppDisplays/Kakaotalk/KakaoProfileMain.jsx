@@ -4,14 +4,7 @@ import styles from "../sections/AppMain.module.css";
 import { NavLink } from "react-router-dom";
 
 function KakaoProfileMain() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainDisplay}>
@@ -25,14 +18,12 @@ function KakaoProfileMain() {
             <p>music</p>
           </li>
           <li className={styles.kakaoProfileMain}>
-            <NavLink
-              to={`${urlContent}/${methodId}/${+descriptionId + 1}`}
-              data-tooltip="클릭!">
+            <NavLink to={`${urlContent}`} data-tooltip="클릭!">
               <i className="bi bi-person"></i>
             </NavLink>
 
             <div data-tooltip="클릭!">
-              <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+              <NavLink to={`${urlContent}`}>
                 <p>target</p>
                 <p className={styles.kakaoProfileMessage}>message</p>
               </NavLink>
@@ -52,7 +43,7 @@ function KakaoProfileMain() {
       <section className={styles.mainNavApps}>
         <ul className={styles.wigetApps}>
           <li>
-            <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+            <NavLink to={`${urlContent}`}>
               <i className="bi bi-person"></i>
             </NavLink>
           </li>

@@ -4,14 +4,7 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function SelectFile() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, urlContent, realFunctionName } = useContext(PageContext);
   const [isFolderClicked, setFolderClicked] = useState(false);
   const [clickedFileId, setClickedFileId] = useState("");
   const checkboxes = document.getElementsByName("audio");
@@ -93,9 +86,8 @@ function SelectFile() {
                   }
                   to={
                     appName === "기본" &&
-                    realFunctionName === "이미지, 동영상 전송"
-                      ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                      : null
+                    realFunctionName === "이미지, 동영상 전송" &&
+                    `${urlContent}`
                   }>
                   <div>
                     <i className="bi bi-flower3"></i>
@@ -243,9 +235,9 @@ function SelectFile() {
                   : null
               }
               to={
-                appName === "기본" && realFunctionName === "오디오 전송"
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
+                appName === "기본" &&
+                realFunctionName === "오디오 전송" &&
+                `${urlContent}`
               }>
               <div className={classes["button_done"]}>완료</div>
             </NavLink>

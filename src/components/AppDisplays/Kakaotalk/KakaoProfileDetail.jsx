@@ -4,14 +4,7 @@ import { PageContext } from "../sections/AppMain";
 import { useContext } from "react";
 
 function KakaoProfileDetail() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   return (
     <section className={classes.AppMain}>
       <section className={classes.mainDisplay}>
@@ -26,7 +19,7 @@ function KakaoProfileDetail() {
           </li>
           <li>
             <div data-tooltip="클릭!">
-              <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+              <NavLink to={`${urlContent}`}>
                 <i className="bi bi-telephone"></i>
                 <p>통화하기</p>
               </NavLink>

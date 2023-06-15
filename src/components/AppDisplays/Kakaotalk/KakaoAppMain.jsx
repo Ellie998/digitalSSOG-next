@@ -4,21 +4,14 @@ import styles from "../sections/AppMain.module.css";
 import { NavLink } from "react-router-dom";
 
 function KakaoAppMain() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   return (
     <section className={styles.AppMain}>
       <section className={styles.mainApps}></section>
       <section className={styles.mainNavApps}>
         <div className={styles.wigetApps}>
           <div data-tooltip="클릭!">
-            <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+            <NavLink to={`${urlContent}`}>
               <i className="bi bi-person"></i>
             </NavLink>
           </div>

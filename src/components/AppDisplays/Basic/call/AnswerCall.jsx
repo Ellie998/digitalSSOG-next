@@ -4,20 +4,13 @@ import classes from "./ComeCall.module.css";
 import { NavLink } from "react-router-dom";
 
 const AnswerCall = () => {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   return (
     <section className={classes.section}>
       <p className={classes.name}>이름</p>
       <p className={classes.num}>010-0000-0000</p>
       <div className={classes.btns}>
-        <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+        <NavLink to={`${urlContent}`}>
           <div data-tooltip="클릭!">
             <i className="bi bi-telephone" style={{ color: "blue" }}></i>
           </div>

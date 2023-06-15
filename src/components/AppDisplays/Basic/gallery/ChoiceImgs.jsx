@@ -4,14 +4,7 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function ChoiceImgs() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, urlContent, realFunctionName } = useContext(PageContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -66,9 +59,8 @@ function ChoiceImgs() {
                 }
                 to={
                   appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                  realFunctionName === "이미지, 동영상 전송" &&
+                  `${urlContent}`
                 }>
                 <div>완료</div>
               </NavLink>

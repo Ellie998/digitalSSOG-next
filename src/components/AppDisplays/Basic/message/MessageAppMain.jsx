@@ -4,14 +4,8 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function MessageAppMain() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, methodId, urlContent, realFunctionName } =
+    useContext(PageContext);
   const [isClicked, setIsClicked] = useState(false);
   const [isXClicked, setIsXClicked] = useState(true);
 
@@ -35,7 +29,7 @@ function MessageAppMain() {
         )}
         {realFunctionName === "문자 수신" && methodId === "2" && (
           <div className={classes.appTitle} data-tooltip={`클릭!`}>
-            <NavLink to={`${urlContent}/${methodId}/${+descriptionId + 1}`}>
+            <NavLink to={`${urlContent}`}>
               <div>읽지 않은 메시지 1개</div>
               <div>보기</div>
             </NavLink>
@@ -69,9 +63,9 @@ function MessageAppMain() {
             <NavLink
               to={
                 realFunctionName === "문자 전달" ||
-                (realFunctionName === "문자 수신" && methodId === "1")
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
+                (realFunctionName === "문자 수신" &&
+                  methodId === "1" &&
+                  `${urlContent}`)
               }
               data-tooltip={
                 realFunctionName === "문자 전달" ||
@@ -123,9 +117,8 @@ function MessageAppMain() {
                     realFunctionName === "예약 문자 발송" ||
                     realFunctionName === "이미지, 동영상 전송" ||
                     realFunctionName === "오디오 전송" ||
-                    realFunctionName === "연락처 공유")
-                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                    : null
+                    realFunctionName === "연락처 공유") &&
+                  `${urlContent}`
                 }>
                 <div>1:1 대화</div>
                 <div>
