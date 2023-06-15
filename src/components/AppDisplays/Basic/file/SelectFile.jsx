@@ -94,7 +94,7 @@ function SelectFile() {
                   to={
                     appName === "기본" &&
                     realFunctionName === "이미지, 동영상 전송"
-                      ? `${urlContent}/1/5`
+                      ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                       : null
                   }>
                   <div>
@@ -244,7 +244,7 @@ function SelectFile() {
               }
               to={
                 appName === "기본" && realFunctionName === "오디오 전송"
-                  ? `${urlContent}/1/5`
+                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                   : null
               }>
               <div className={classes["button_done"]}>완료</div>

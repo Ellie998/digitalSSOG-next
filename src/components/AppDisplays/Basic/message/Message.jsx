@@ -93,7 +93,7 @@ function Message() {
               }
               to={
                 appName === "기본" && realFunctionName === "문자 전달"
-                  ? `${urlContent}/1/3`
+                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                   : null
               }>
               <div>전달</div>
@@ -202,7 +202,7 @@ function Message() {
                 }
                 to={
                   appName === "기본" && realFunctionName === "예약 문자 발송"
-                    ? `${urlContent}/1/4`
+                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                     : null
                 }>
                 <div className={classes.iconWrap}>
@@ -237,7 +237,7 @@ function Message() {
                 to={
                   appName === "기본" &&
                   realFunctionName === "이미지, 동영상 전송"
-                    ? `${urlContent}/1/4`
+                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                     : null
                 }>
                 <div className={classes.iconWrap}>
@@ -257,7 +257,7 @@ function Message() {
                 to={
                   appName === "기본" &&
                   realFunctionName === "이미지, 동영상 전송"
-                    ? `${urlContent}/1/4`
+                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                     : null
                 }>
                 <div className={classes.iconWrap}>
@@ -275,7 +275,7 @@ function Message() {
                 }
                 to={
                   appName === "기본" && realFunctionName === "오디오 전송"
-                    ? `${urlContent}/1/4`
+                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                     : null
                 }>
                 <div className={classes.iconWrap}>
@@ -295,7 +295,7 @@ function Message() {
                 }
                 to={
                   appName === "기본" && realFunctionName === "연락처 공유"
-                    ? `${urlContent}/1/4`
+                    ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                     : null
                 }>
                 <div className={classes.iconWrap}>

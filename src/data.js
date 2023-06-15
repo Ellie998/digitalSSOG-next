@@ -1,5 +1,5 @@
 const functionDataURL =
-  "https://gist.githubusercontent.com/Ellie998/c6fdd3f55e87ae24859255205c0bb8a6/raw/3aaa01fa3743aacfd712b94417f831a1d96f1a5e/functionData.json";
+  "https://gist.githubusercontent.com/Ellie998/c6fdd3f55e87ae24859255205c0bb8a6/raw/84819b9a6741b224a82e6e6219e8d2e2c5832a35/functionData.json";
 
 const appDataURL =
   "https://gist.githubusercontent.com/Ellie998/7e12f7d3f5811c008341b317f86b342b/raw/e80b27658bfec8afa75bb90257c137e94162406a/appData.json";

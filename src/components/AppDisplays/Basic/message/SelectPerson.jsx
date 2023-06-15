@@ -36,10 +36,9 @@ function SelectPerson() {
             realFunctionName === "이미지, 동영상 전송" ||
             realFunctionName === "예약 문자 발송" ||
             realFunctionName === "오디오 전송" ||
-            (realFunctionName === "연락처 공유" && descriptionId === "2")
-              ? `${urlContent}/1/3`
-              : realFunctionName === "문자 전달"
-              ? `${urlContent}/1/4`
+            (realFunctionName === "연락처 공유" && descriptionId === "2") ||
+            realFunctionName === "문자 전달"
+              ? `${urlContent}/${methodId}/${+descriptionId + 1}`
               : null
           }>
           <li>
@@ -60,7 +59,7 @@ function SelectPerson() {
             appName === "기본" &&
             realFunctionName === "연락처 공유" &&
             descriptionId === "4" &&
-            `${urlContent}/1/5`
+            `${urlContent}/${methodId}/${+descriptionId + 1}`
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>

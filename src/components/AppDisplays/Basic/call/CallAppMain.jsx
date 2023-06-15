@@ -4,8 +4,14 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function CallAppMain() {
-  const { functionName, appName, methodId, urlContent, realFunctionName } =
-    useContext(PageContext);
+  const {
+    functionName,
+    appName,
+    methodId,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+  } = useContext(PageContext);
   const [clickedNum, changeNum] = useState("");
 
   function onchangeClickNum(event) {
@@ -70,7 +76,7 @@ function CallAppMain() {
             }
             to={
               appName === "기본" && realFunctionName === "영상통화 발신"
-                ? `${urlContent}/1/2`
+                ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                 : null
             }>
             <li>
@@ -86,7 +92,7 @@ function CallAppMain() {
               }
               to={
                 appName === "기본" && realFunctionName === "전화걸기(발신)"
-                  ? `${urlContent}/1/2`
+                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
                   : null
               }>
               <div>
