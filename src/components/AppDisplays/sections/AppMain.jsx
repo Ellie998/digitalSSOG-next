@@ -24,6 +24,7 @@ import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
 import VideoCallConnected from "../Basic/call/VideoCallConnected";
 import { createContext } from "react";
 import UnreadMessage from "../Basic/message/seeMessage/UnreadMessage";
+import AppMainError from "./AppMainError";
 
 export const PageContext = createContext({
   functionName: "",
@@ -268,7 +269,7 @@ function AppMain() {
       sendNumber();
       break;
     default:
-      console.log(`작성중인 기능입니다.  ${functionName}.`);
+      choicedComponent = <AppMainError />;
   }
 
   return (
