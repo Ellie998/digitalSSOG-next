@@ -1,17 +1,11 @@
-import styles from "./CallAppMain.module.css";
 import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
+
 import { PageContext } from "../../sections/AppMain";
+import classes from "./CallAppMain.module.css";
 
 function CallAppMain() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { appName, urlContent, realFunctionName } = useContext(PageContext);
   const [clickedNum, changeNum] = useState("");
 
   function onchangeClickNum(event) {
@@ -40,70 +34,66 @@ function CallAppMain() {
   }
 
   return (
-    <section className={styles.CallAppMain}>
-      <div className={styles.callNum}>{clickedNum}</div>
-      <div className={styles.callBtns}>
-        <ul onClick={onchangeClickNum}>
-          <li>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </li>
-          <li>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-          </li>
-          <li>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-          </li>
-          <li>
-            <div>*</div>
-            <div>0</div>
-            <div>#</div>
-          </li>
-        </ul>
+    <section className={classes.layout}>
+      <div className={classes.main_title}>{clickedNum}</div>
+      <div className={classes.main_optionBox} onClick={onchangeClickNum}>
+        <div className={classes.main_optionRow}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+        <div className={classes.main_optionRow}>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+        </div>
+        <div className={classes.main_optionRow}>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+        </div>
+        <div className={classes.main_optionRow}>
+          <div>*</div>
+          <div>0</div>
+          <div>#</div>
+        </div>
       </div>
-      <div className={styles.navSection}>
-        <ul>
+      <div className={classes.navLayout}>
+        <NavLink
+          data-tooltip={
+            appName === "기본" && realFunctionName === "영상통화 발신"
+              ? `클릭!`
+              : null
+          }
+          to={
+            appName === "기본" &&
+            realFunctionName === "영상통화 발신" &&
+            `${urlContent}`
+          }>
+          <div>
+            <i className="bi bi-camera-video"></i>
+          </div>
+        </NavLink>
+        <div>
           <NavLink
             data-tooltip={
-              appName === "기본" && realFunctionName === "영상통화 발신"
+              appName === "기본" && realFunctionName === "전화걸기(발신)"
                 ? `클릭!`
                 : null
             }
             to={
-              appName === "기본" && realFunctionName === "영상통화 발신"
-                ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                : null
+              appName === "기본" &&
+              realFunctionName === "전화걸기(발신)" &&
+              `${urlContent}`
             }>
-            <li>
-              <i className="bi bi-camera-video"></i>
-            </li>
+            <div>
+              <i className="bi bi-telephone"></i>
+            </div>
           </NavLink>
-          <li>
-            <NavLink
-              data-tooltip={
-                appName === "기본" && realFunctionName === "전화걸기(발신)"
-                  ? `클릭!`
-                  : null
-              }
-              to={
-                appName === "기본" && realFunctionName === "전화걸기(발신)"
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
-              }>
-              <div>
-                <i className="bi bi-telephone"></i>
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
-          </li>
-        </ul>
+        </div>
+        <div>
+          <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
+        </div>
       </div>
     </section>
   );

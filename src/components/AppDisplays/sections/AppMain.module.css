@@ -1,34 +1,43 @@
-.AppMain {
+/* ------------------- LAYOUT ---------------------- */
+.layout {
   display: grid;
   grid-template-rows: repeat(8, 35px);
   font-size: 1rem;
   margin-top: 20px;
+  align-self: center;
 }
 
-.AppMain i {
+.layout i {
   box-shadow: 0px 0px 4px rgb(192, 192, 192);
   border-radius: 18px;
   padding: 2px 6px;
+  cursor: pointer;
   height: fit-content;
 }
-
-.AppMain i:hover {
-  cursor: pointer;
+.layout i:hover {
   box-shadow: 0px 0px 6px #cdcdcd8a;
   background-color: #cdcdcd8a;
 }
-.mainDisplay {
+/* ------------------- LAYOUT ---------------------- */
+
+/* .mainDisplay {
   grid-row: 1 / 8;
-}
+} */
 
-.mainApps {
-  grid-row: 6 / 7;
+.appLayout {
+  grid-row: 7 / 8;
 }
-
-.mainNavApps {
+.app_row {
+  display: flex;
+}
+.navAppLayout {
   grid-row: 8 / 9;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: space-between;
 }
 
+/* ------------------- KAKAO ---------------------- */
 .kakaoProfileMain {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
@@ -40,13 +49,4 @@
 .kakaoProfileMain .kakaoProfileMessage {
   font-size: 8px;
   color: rgb(199, 199, 199);
-}
-
-.wigetApps {
-  display: flex;
-  justify-content: space-between;
-}
-
-.kakaoApp {
-  display: inline-block;
 }

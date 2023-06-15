@@ -37,8 +37,6 @@ export const PageContext = createContext({
 
 const appName_basic = "기본";
 const appName_kakaotalk = "카카오톡";
-const functionName_makeACall = "전화걸기(발신)";
-const functionName_getACall = "전화받기(수신)";
 
 function AppMain() {
   const params = useParams();
@@ -47,13 +45,15 @@ function AppMain() {
   const appName = params.appName;
   const methodId = params.methodId;
   const descriptionId = params.descriptionId;
-  const urlContent = `/description/${functionName}/${appName}`;
+  const urlContent = `/description/${functionName}/${appName}/${methodId}/${
+    +descriptionId + 1
+  }`;
 
   let choicedComponent = <div></div>;
 
   switch (realFunctionName) {
     case "전화걸기(발신)":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -63,7 +63,7 @@ function AppMain() {
         } else {
           choicedComponent = <div></div>;
         }
-      } else if (appName === "카카오톡") {
+      } else if (appName === appName_kakaotalk) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -80,13 +80,13 @@ function AppMain() {
       }
       break;
     case "전화받기(수신)":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <AnswerCall />;
         } else if (descriptionId === "1") {
           choicedComponent = <CallConnected></CallConnected>;
         }
-      } else if (appName === "카카오톡") {
+      } else if (appName === appName_kakaotalk) {
         if (descriptionId === "0") {
           choicedComponent = (
             <AnswerCall
@@ -99,7 +99,7 @@ function AppMain() {
       }
       break;
     case "영상통화 발신":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -112,7 +112,7 @@ function AppMain() {
       }
       break;
     case "문자 발신":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -125,7 +125,7 @@ function AppMain() {
       }
       break;
     case "문자 수신":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (methodId === "1") {
           if (descriptionId === "0") {
             choicedComponent = <MainApps />;
@@ -148,7 +148,7 @@ function AppMain() {
       }
       break;
     case "문자 전달":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -169,7 +169,7 @@ function AppMain() {
       }
       break;
     case "예약 문자 발송":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -186,7 +186,7 @@ function AppMain() {
       }
       break;
     case "이미지, 동영상 전송":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -205,7 +205,7 @@ function AppMain() {
       }
       break;
     case "오디오 전송":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
@@ -222,7 +222,7 @@ function AppMain() {
       }
       break;
     case "연락처 공유":
-      if (appName === "기본") {
+      if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {

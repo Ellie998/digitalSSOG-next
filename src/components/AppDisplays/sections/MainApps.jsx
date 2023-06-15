@@ -1,103 +1,92 @@
 import { useContext } from "react";
-import styles from "./AppMain.module.css";
 import { NavLink } from "react-router-dom";
-import { PageContext } from "./AppMain";
 
-function MainApps() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+import { PageContext } from "./AppMain";
+import classes from "./AppMain.module.css";
+
+const MainApps = () => {
+  const { appName, urlContent, realFunctionName } = useContext(PageContext);
 
   return (
-    <section className={styles.AppMain}>
-      <section className={styles.mainApps}>
-        <div>
-          <div
-            className={styles.kakaoApp}
+    <section className={classes.layout}>
+      <section className={classes.appLayout}>
+        <div className={classes.app_row}>
+          <NavLink
+            to={
+              appName === "카카오톡" &&
+              realFunctionName === "전화걸기(발신)" &&
+              `${urlContent}`
+            }
             data-tooltip={
               appName === "카카오톡" && realFunctionName === "전화걸기(발신)"
                 ? `클릭!`
                 : null
             }>
-            <NavLink
-              to={
-                appName === "카카오톡" && realFunctionName === "전화걸기(발신)"
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
-              }>
+            <div>
               <i className="bi bi-chat-fill"></i>
-            </NavLink>
-          </div>
+            </div>
+          </NavLink>
         </div>
       </section>
-      <section className={styles.mainNavApps}>
-        <div className={styles.wigetApps}>
-          <div
-            data-tooltip={
-              appName === "기본" &&
-              (realFunctionName === "전화걸기(발신)" ||
-                realFunctionName === "영상통화 발신")
-                ? `클릭!`
-                : null
-            }>
-            <NavLink
-              to={
-                appName === "기본" &&
-                (realFunctionName === "전화걸기(발신)" ||
-                  realFunctionName === "영상통화 발신")
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
-              }>
-              <i className="bi bi-telephone"></i>
-            </NavLink>
-          </div>
+      <section className={classes.navAppLayout}>
+        <NavLink
+          to={
+            appName === "기본" &&
+            (realFunctionName === "전화걸기(발신)" ||
+              realFunctionName === "영상통화 발신") &&
+            `${urlContent}`
+          }
+          data-tooltip={
+            appName === "기본" &&
+            (realFunctionName === "전화걸기(발신)" ||
+              realFunctionName === "영상통화 발신")
+              ? `클릭!`
+              : null
+          }>
           <div>
-            <i className="bi bi-camera"></i>
+            <i className="bi bi-telephone"></i>
           </div>
-          <div>
-            <i className="bi bi-clock"></i>
-          </div>
-          <div>
-            <i className="bi bi-browser-chrome"></i>
-          </div>
-          <div
-            data-tooltip={
-              appName === "기본" &&
-              (realFunctionName === "문자 발신" ||
-                realFunctionName === "문자 수신" ||
-                realFunctionName === "예약 문자 발송" ||
-                realFunctionName === "문자 전달" ||
-                realFunctionName === "이미지, 동영상 전송" ||
-                realFunctionName === "오디오 전송" ||
-                realFunctionName === "연락처 공유")
-                ? `클릭!`
-                : null
-            }>
-            <NavLink
-              to={
-                appName === "기본" &&
-                (realFunctionName === "문자 발신" ||
-                  realFunctionName === "문자 수신" ||
-                  realFunctionName === "예약 문자 발송" ||
-                  realFunctionName === "문자 전달" ||
-                  realFunctionName === "이미지, 동영상 전송" ||
-                  realFunctionName === "오디오 전송" ||
-                  realFunctionName === "연락처 공유")
-                  ? `${urlContent}/${methodId}/${+descriptionId + 1}`
-                  : null
-              }>
-              <i className="bi bi-chat-dots"></i>
-            </NavLink>
-          </div>
+        </NavLink>
+        <div>
+          <i className="bi bi-camera"></i>
         </div>
+        <div>
+          <i className="bi bi-clock"></i>
+        </div>
+        <div>
+          <i className="bi bi-browser-chrome"></i>
+        </div>
+        <NavLink
+          to={
+            appName === "기본" &&
+            (realFunctionName === "문자 발신" ||
+              realFunctionName === "문자 수신" ||
+              realFunctionName === "예약 문자 발송" ||
+              realFunctionName === "문자 전달" ||
+              realFunctionName === "이미지, 동영상 전송" ||
+              realFunctionName === "오디오 전송" ||
+              realFunctionName === "연락처 공유") &&
+            `${urlContent}`
+          }
+          data-tooltip={
+            appName === "기본" &&
+            (realFunctionName === "문자 발신" ||
+              realFunctionName === "문자 수신" ||
+              realFunctionName === "예약 문자 발송" ||
+              realFunctionName === "문자 전달" ||
+              realFunctionName === "이미지, 동영상 전송" ||
+              realFunctionName === "오디오 전송" ||
+              realFunctionName === "연락처 공유")
+              ? `클릭!`
+              : null
+          }>
+          <div>
+            <i className="bi bi-chat-dots"></i>
+          </div>
+        </NavLink>
       </section>
     </section>
   );
-}
+};
 
 export default MainApps;
