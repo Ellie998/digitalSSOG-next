@@ -15,7 +15,7 @@ const AnswerCall = () => {
           </div>
           <div className={classes.content_sub}>010-0000-0000</div>
           <div className={classes.btns}>
-            <NavLink to={`${urlContent}`}>
+            <NavLink to={urlContent}>
               <div data-tooltip="클릭!">
                 <i
                   className="bi bi-telephone-fill"
@@ -52,7 +52,7 @@ const AnswerCall = () => {
                 className="bi bi-telephone-x-fill"
                 style={{ color: "red" }}></i>
             </div>
-            <NavLink to={`${urlContent}`}>
+            <NavLink to={urlContent}>
               <div data-tooltip="클릭!">
                 <i
                   className="bi bi-telephone-fill"

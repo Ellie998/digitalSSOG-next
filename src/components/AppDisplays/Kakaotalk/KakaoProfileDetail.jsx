@@ -19,7 +19,7 @@ function KakaoProfileDetail() {
           </li>
           <li>
             <div data-tooltip="클릭!">
-              <NavLink to={`${urlContent}`}>
+              <NavLink to={urlContent}>
                 <i className="bi bi-telephone"></i>
                 <p>통화하기</p>
               </NavLink>

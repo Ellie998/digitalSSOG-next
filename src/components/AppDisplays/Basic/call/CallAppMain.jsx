@@ -75,8 +75,9 @@ function CallAppMain() {
           }
           to={
             appName === appName_basic &&
-            realFunctionName === functionName_makeVideoCall &&
-            `${urlContent}`
+            realFunctionName === functionName_makeVideoCall
+              ? urlContent
+              : null
           }>
           <div>
             <i className="bi bi-camera-video"></i>
@@ -92,8 +93,9 @@ function CallAppMain() {
             }
             to={
               appName === appName_basic &&
-              realFunctionName === functionName_makeCall &&
-              `${urlContent}`
+              realFunctionName === functionName_makeCall
+                ? urlContent
+                : null
             }>
             <div>
               <i className="bi bi-telephone"></i>

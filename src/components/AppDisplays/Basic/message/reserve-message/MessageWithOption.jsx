@@ -133,7 +133,7 @@ function MessageWithOption() {
                   <div>
                     <i className="bi bi-person"></i>
                   </div>
-                  <div>홍길동</div>
+                  <div>홍길순</div>
                 </div>
               </div>
               <div className={classes["appMain_sendMessageWrap"]}>
@@ -207,7 +207,7 @@ function MessageWithOption() {
                   className={
                     classes["appMain_messageOptionContent--phoneNumName"]
                   }>
-                  홍길동
+                  홍길순
                 </div>
                 <div
                   className={classes["appMain_messageOptionContent--phoneNum"]}>

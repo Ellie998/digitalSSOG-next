@@ -13,6 +13,7 @@ function SelectPerson() {
     functionName_sendMessage,
     functionName_sendImg,
     functionName_reserveMessage,
+    functionName_resendMessage,
     functionName_sendAudio,
     functionName_sendPhoneNum,
     //
@@ -34,8 +35,9 @@ function SelectPerson() {
               realFunctionName === functionName_reserveMessage ||
               realFunctionName === functionName_sendAudio ||
               (realFunctionName === functionName_sendPhoneNum &&
-                descriptionId === "2"))
-              ? `클릭!`
+                descriptionId === "2") ||
+              realFunctionName === functionName_resendMessage)
+              ? "클릭!"
               : null
           }
           to={
@@ -45,7 +47,9 @@ function SelectPerson() {
             realFunctionName === functionName_sendAudio ||
             (realFunctionName === functionName_sendPhoneNum &&
               descriptionId === "2") ||
-            (realFunctionName === "문자 전달" && `${urlContent}`)
+            realFunctionName === functionName_resendMessage
+              ? urlContent
+              : null
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>
@@ -64,8 +68,9 @@ function SelectPerson() {
           to={
             appName === appName_basic &&
             realFunctionName === functionName_sendPhoneNum &&
-            descriptionId === "4" &&
-            `${urlContent}`
+            descriptionId === "4"
+              ? urlContent
+              : null
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>

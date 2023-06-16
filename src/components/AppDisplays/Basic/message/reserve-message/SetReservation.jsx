@@ -46,7 +46,7 @@ function SetReservation() {
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
-          <NavLink to={`${urlContent}`}>
+          <NavLink to={urlContent}>
             <div data-tooltip="클릭!">완료</div>
           </NavLink>
         </div>

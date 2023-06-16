@@ -51,8 +51,9 @@ const MainApps = () => {
           to={
             appName === appName_basic &&
             (realFunctionName === functionName_makeCall ||
-              realFunctionName === functionName_makeVideoCall) &&
-            `${urlContent}`
+              realFunctionName === functionName_makeVideoCall)
+              ? urlContent
+              : null
           }
           data-tooltip={
             appName === appName_basic &&
@@ -83,8 +84,9 @@ const MainApps = () => {
               realFunctionName === functionName_resendMessage ||
               realFunctionName === functionName_sendImg ||
               realFunctionName === functionName_sendAudio ||
-              realFunctionName === functionName_sendPhoneNum) &&
-            `${urlContent}`
+              realFunctionName === functionName_sendPhoneNum)
+              ? urlContent
+              : null
           }
           data-tooltip={
             appName === appName_basic &&

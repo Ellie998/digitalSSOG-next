@@ -94,13 +94,14 @@ function Message() {
               data-tooltip={
                 appName === appName_basic &&
                 realFunctionName === functionName_resendMessage
-                  ? `클릭!`
+                  ? "클릭!"
                   : null
               }
               to={
                 appName === appName_basic &&
-                realFunctionName === functionName_resendMessage &&
-                `${urlContent}`
+                realFunctionName === functionName_resendMessage
+                  ? urlContent
+                  : null
               }>
               <div>전달</div>
             </NavLink>
@@ -209,8 +210,9 @@ function Message() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_reserveMessage &&
-                  `${urlContent}`
+                  realFunctionName === functionName_reserveMessage
+                    ? urlContent
+                    : null
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-clock"></i>
@@ -243,8 +245,9 @@ function Message() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendImg &&
-                  `${urlContent}`
+                  realFunctionName === functionName_sendImg
+                    ? urlContent
+                    : null
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-card-image"></i>
@@ -281,8 +284,9 @@ function Message() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendAudio &&
-                  `${urlContent}`
+                  realFunctionName === functionName_sendAudio
+                    ? urlContent
+                    : null
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-music-note"></i>
@@ -302,8 +306,9 @@ function Message() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendPhoneNum &&
-                  `${urlContent}`
+                  realFunctionName === functionName_sendPhoneNum
+                    ? urlContent
+                    : null
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-person"></i>

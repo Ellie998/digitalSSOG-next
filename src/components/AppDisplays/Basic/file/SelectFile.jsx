@@ -92,8 +92,9 @@ function SelectFile() {
                   }
                   to={
                     appName === "기본" &&
-                    realFunctionName === functionName_sendImg &&
-                    `${urlContent}`
+                    realFunctionName === functionName_sendImg
+                      ? urlContent
+                      : null
                   }>
                   <div>
                     <i className="bi bi-flower3"></i>
@@ -243,8 +244,9 @@ function SelectFile() {
               }
               to={
                 appName === "기본" &&
-                realFunctionName === functionName_sendAudio &&
-                `${urlContent}`
+                realFunctionName === functionName_sendAudio
+                  ? urlContent
+                  : null
               }>
               <div className={classes["button_done"]}>완료</div>
             </NavLink>

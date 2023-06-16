@@ -24,7 +24,7 @@ function UnreadMessage() {
           <NavLink
             to={
               realFunctionName === functionName_seeMessage && methodId === "2"
-                ? `${urlContent}/2/3`
+                ? urlContent
                 : null
             }
             data-tooltip={

@@ -9,7 +9,7 @@ function KakaoAppMain() {
     <div className={classes.layout}>
       <section className={classes.appLayout}></section>
       <div className={classes.navAppLayout}>
-        <NavLink to={`${urlContent}`} data-tooltip="클릭!">
+        <NavLink to={urlContent} data-tooltip="클릭!">
           <div>
             <i className="bi bi-person"></i>
           </div>

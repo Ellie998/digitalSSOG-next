@@ -40,7 +40,7 @@ function SendResend() {
           </div>
         </div>
 
-        <NavLink to={`${urlContent}`}>
+        <NavLink to={urlContent}>
           <div className={classes.sendIcon} data-tooltip="클릭!">
             <i className="bi bi-send"></i>
           </div>

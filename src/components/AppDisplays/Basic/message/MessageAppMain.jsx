@@ -43,7 +43,7 @@ function MessageAppMain() {
         )}
         {realFunctionName === functionName_seeMessage && methodId === "2" && (
           <div className={classes.appTitle} data-tooltip={`클릭!`}>
-            <NavLink to={`${urlContent}`}>
+            <NavLink to={urlContent}>
               <div>읽지 않은 메시지 1개</div>
               <div>보기</div>
             </NavLink>
@@ -78,8 +78,9 @@ function MessageAppMain() {
               to={
                 realFunctionName === functionName_resendMessage ||
                 (realFunctionName === functionName_seeMessage &&
-                  methodId === "1" &&
-                  `${urlContent}`)
+                  methodId === "1")
+                  ? urlContent
+                  : null
               }
               data-tooltip={
                 realFunctionName === functionName_resendMessage ||
@@ -132,8 +133,9 @@ function MessageAppMain() {
                     realFunctionName === functionName_reserveMessage ||
                     realFunctionName === functionName_sendImg ||
                     realFunctionName === functionName_sendAudio ||
-                    realFunctionName === functionName_sendPhoneNum) &&
-                  `${urlContent}`
+                    realFunctionName === functionName_sendPhoneNum)
+                    ? urlContent
+                    : null
                 }>
                 <div>1:1 대화</div>
                 <div>

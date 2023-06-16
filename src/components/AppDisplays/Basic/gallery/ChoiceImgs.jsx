@@ -65,8 +65,9 @@ function ChoiceImgs() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendImg &&
-                  `${urlContent}`
+                  realFunctionName === functionName_sendImg
+                    ? urlContent
+                    : null
                 }>
                 <div>완료</div>
               </NavLink>
