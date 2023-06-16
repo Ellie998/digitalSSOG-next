@@ -86,13 +86,20 @@ function RootLayout({ children }) {
       <Footer />
       <button
         className={classes.upBtn}
+        aria-label="font size up button"
         onClick={isWidthLess500 ? mScrollToTop : pcScrollToTop}>
         <i className="bi bi-arrow-up-short"></i>
       </button>
-      <button className={classes.bigBtn} onClick={bigFontBtnClickHandler}>
+      <button
+        className={classes.bigBtn}
+        aria-label="font size down button"
+        onClick={bigFontBtnClickHandler}>
         <i className="bi bi-plus-circle"></i>
       </button>
-      <button className={classes.smallBtn} onClick={smallFontBtnClickHandler}>
+      <button
+        className={classes.smallBtn}
+        aria-label="page scroll to top button"
+        onClick={smallFontBtnClickHandler}>
         <i className="bi bi-dash-circle"></i>
       </button>
     </div>

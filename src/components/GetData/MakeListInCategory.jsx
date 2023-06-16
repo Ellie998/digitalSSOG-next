@@ -19,17 +19,18 @@ function MakeListInCategory({ FunctionOrApp }) {
   });
 
   return (
-    <ol className={classes.MakeListInCategory}>
+    <>
       <p>기능 이름</p>
-
-      {selectedCategoryObject.objects?.map((functionObject) => (
-        <li key={Math.random()}>
-          <Link to={"/description/" + functionObject.name}>
-            <p>{functionObject.name.slice(2)}</p>
-          </Link>
-        </li>
-      ))}
-    </ol>
+      <ol className={classes.MakeListInCategory}>
+        {selectedCategoryObject.objects?.map((functionObject) => (
+          <li key={Math.random()}>
+            <Link to={"/description/" + functionObject.name}>
+              <p>{functionObject.name.slice(2)}</p>
+            </Link>
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }
 
