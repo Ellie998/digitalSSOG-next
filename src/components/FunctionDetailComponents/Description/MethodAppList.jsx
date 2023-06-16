@@ -1,14 +1,13 @@
-import styles from "./MethodAppList.module.css";
+import classes from "./MethodAppList.module.css";
 import MethodList from "./MethodList";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function MethodAppList({ functionMethods }) {
   const params = useParams();
-  const functionName = params.functionName;
   const methodId = params.methodId;
 
   return (
-    <ol className={styles.MethodAppList}>
+    <ol className={classes.MethodAppList}>
       <p>화면을 보고싶은 목차를 click!</p>
       {functionMethods?.map((functionMethodObject) => (
         <li key={Math.random()}>

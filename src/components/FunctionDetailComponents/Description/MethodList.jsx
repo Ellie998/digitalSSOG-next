@@ -9,8 +9,10 @@ function MethodList({ functionMethodObject, appName, methodId }) {
           <details open={+methodId === functionMethod.methodNum ? true : false}>
             <summary>
               방법
-              {`${functionMethod.methodNum} ${
-                functionMethod.methodTitle ? functionMethod.methodTitle : ""
+              {` ${functionMethod.methodNum}${
+                functionMethod.methodTitle
+                  ? `) ${functionMethod.methodTitle}`
+                  : ""
               }`}
             </summary>
             <MethodDescriptionList

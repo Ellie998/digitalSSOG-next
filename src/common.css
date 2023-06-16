@@ -38,6 +38,9 @@ summary {
   color: var(--grey-900);
 }
 
+details summary {
+  cursor: pointer;
+}
 /* TOOLTIP */
 [data-tooltip] {
   position: relative;

@@ -1,4 +1,13 @@
 .MethodList > li {
-  list-style: circle;
-  margin-left: 2.5rem;
+  margin-left: 16px;
+  margin-bottom: 10px;
+}
+
+.MethodList summary {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.MethodList details[open] {
+  color: red;
 }

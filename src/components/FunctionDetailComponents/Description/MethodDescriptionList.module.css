@@ -1,6 +1,10 @@
+.methodDescriptionList {
+  margin-bottom: 2.5rem;
+}
+
 .methodDescriptionList li {
-  margin-left: 0.5rem;
-  /* list-style: decimal; */
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
 }
 .methodDescriptionList li:hover,
 a:hover {
