@@ -1,13 +1,13 @@
-.MethodList > li {
+.listWrap > li {
   margin-left: 16px;
   margin-bottom: 10px;
 }
 
-.MethodList summary {
+.listWrap summary {
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
-.MethodList details[open] {
+.listWrap details[open] {
   color: red;
 }

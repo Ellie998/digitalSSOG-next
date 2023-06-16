@@ -7,8 +7,10 @@ function MethodAppList({ functionMethods }) {
   const methodId = params.methodId;
 
   return (
-    <ol className={classes.MethodAppList}>
-      <p>화면을 보고싶은 목차를 click!</p>
+    <ol className={classes.listWrap}>
+      <p className={classes.extraInfoWrap}>
+        <i className="bi bi-info-circle-fill"></i> 아래 글씨를 눌러보세요
+      </p>
       {functionMethods?.map((functionMethodObject) => (
         <li key={Math.random()}>
           <details

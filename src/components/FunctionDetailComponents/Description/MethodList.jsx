@@ -3,7 +3,7 @@ import MethodDescriptionList from "./MethodDescriptionList";
 
 function MethodList({ functionMethodObject, appName, methodId }) {
   return (
-    <ol className={classes.MethodList}>
+    <ol className={classes.listWrap}>
       {functionMethodObject.howto?.map((functionMethod) => (
         <li key={Math.random()}>
           <details open={+methodId === functionMethod.methodNum ? true : false}>
