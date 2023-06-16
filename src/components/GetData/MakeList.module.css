@@ -1,14 +1,8 @@
 .MakeList {
-  margin: 0.5rem auto 1rem auto;
-  /* padding: 1rem 0; */
   width: 60%;
-  /* display: flex; */
-  /* justify-content: center;
-  flex-wrap: wrap; */
-  position: relative;
   overflow-x: scroll;
   white-space: nowrap;
-  z-index: 1;
+  margin: 40px auto;
 }
 
 .MakeList::-webkit-scrollbar {
