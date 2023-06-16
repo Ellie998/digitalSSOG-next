@@ -33,6 +33,7 @@ export const PageContext = createContext({
   methodId: "",
   descriptionId: "",
   urlContent: "",
+  //
   functionName_makeCall: "",
   functionName_getCall: "",
   functionName_getVideoCall: "",
@@ -41,6 +42,9 @@ export const PageContext = createContext({
   functionName_reserveMessage: "",
   functionName_sendImg: "",
   functionName_sendPhoneNum: "",
+  //
+  appName_basic: "",
+  appName_kakaotalk: "",
 });
 
 const appName_basic = "기본";
@@ -269,6 +273,7 @@ function AppMain() {
         methodId: methodId,
         descriptionId: descriptionId,
         urlContent: urlContent,
+        //
         functionName_makeCall: functionName_makeCall,
         functionName_getCall: functionName_getCall,
         functionName_getVideoCall: functionName_getVideoCall,
@@ -278,6 +283,9 @@ function AppMain() {
         functionName_reserveMessage: functionName_reserveMessage,
         functionName_sendImg: functionName_sendImg,
         functionName_sendPhoneNum: functionName_sendPhoneNum,
+        //
+        appName_basic: appName_basic,
+        appName_kakaotalk: appName_kakaotalk,
       }}>
       {choicedComponent}
     </PageContext.Provider>
