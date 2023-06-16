@@ -20,7 +20,7 @@ function MethodDescriptionList({ functionMethod, appName, methodNum }) {
   const params = useParams();
 
   return (
-    <ol className={styles.methodDescriptionList}>
+    <ol className={styles.listWrap}>
       {functionMethod.methodContent?.map((methodDescription) => (
         <li
           data-tooltip-midleft="클릭시 화면이 표시됩니다."

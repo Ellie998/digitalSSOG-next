@@ -1,19 +1,19 @@
-.methodDescriptionList {
+.listWrap {
   margin-bottom: 2.5rem;
 }
 
-.methodDescriptionList li {
+.listWrap li {
   margin-left: 1rem;
   margin-bottom: 0.6rem;
 }
-.methodDescriptionList li:hover,
+.listWrap li:hover,
 a:hover {
   color: var(--grey-800);
 }
 
-.methodDescriptionList a.active {
+.listWrap a.active {
   color: var(--grey-800);
 }
-.methodDescriptionList a.active:hover {
+.listWrap a.active:hover {
   color: var(--grey-800);
 }
