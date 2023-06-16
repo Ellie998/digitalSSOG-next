@@ -1,39 +1,86 @@
 /* ---------------- LAYOUT ----------------- */
 .layout {
-  display: grid;
-  grid-template-rows: repeat(8, 35px);
   font-size: 1rem;
   align-items: center;
   text-align: center;
 }
 .layout i {
-  box-shadow: 0px 0px 4px rgb(192, 192, 192);
-  border-radius: 18px;
-  padding: 2px 6px;
+  border-radius: 100%;
   cursor: pointer;
+  font-size: 1rem;
+}
+.iconWrap_background i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 8px;
 }
 
 .layout i:hover {
-  box-shadow: 0px 0px 6px #4c85e88a;
+  box-shadow: 0px 0px 15px #bbbbbb8a;
 }
 
 /* ---------------- MAIN ----------------- */
 
 .main_title {
-  grid-row: 1 / 3;
+  margin-top: 20px;
+  height: 60px;
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 .main_optionBox {
-  grid-row: 3 / 7;
+  height: 136px;
 }
 .main_optionRow {
   display: flex;
   justify-content: space-around;
-  margin-top: 16px;
   cursor: pointer;
+}
+.main_optionRow div {
+  width: 100%;
+  height: 34px;
 }
 /* ---------------- NAV ----------------- */
 .navLayout {
-  grid-row: 7 / 9;
+  height: 30px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-around;
+}
+
+/* ---------------- NAV ----------------- */
+.tabLayout {
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.tabLayout div::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: green;
+  opacity: 0;
+}
+.tabLayout div:hover::after {
+  opacity: 1;
+  transition: all 0.5s;
+  animation: lr-bar 750ms;
+  animation-delay: 0;
+}
+
+.tap_clicked::after {
+  opacity: 1 !important;
+}
+
+@keyframes lr-bar {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
