@@ -2,29 +2,28 @@ import { createContext } from "react";
 import { useParams } from "react-router-dom";
 
 import MainApps from "./MainApps";
+import AppMainError from "./AppMainError";
+// call
 import CallAppMain from "../Basic/call/CallAppMain";
-
+import AnswerCall from "../Basic/call/AnswerCall";
+import CallConnected from "../Basic/call/CallConnected";
+import VideoCallConnected from "../Basic/call/VideoCallConnected";
+//kakao
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
 import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
-
-import AnswerCall from "../Basic/call/AnswerCall";
-import CallConnected from "../Basic/call/CallConnected";
-
-import SelectPerson from "../Basic/message/SelectPerson";
-
-import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
-import SendResend from "../Basic/message/resend-message/SendResend";
-
-import SetReservation from "../Basic/message/reserve-message/SetReservation";
-import MessageWithOption from "../Basic/message/reserve-message/MessageWithOption";
+// message
 import MessageAppMain from "../Basic/message/MessageAppMain";
 import Message from "../Basic/message/Message";
+import MessageWithOption from "../Basic/message/reserve-message/MessageWithOption";
+import UnreadMessage from "../Basic/message/seeMessage/UnreadMessage";
+import SelectPerson from "../Basic/message/SelectPerson";
+import ResendSuccess from "../Basic/message/resend-message/ResendSuccess";
+import SendResend from "../Basic/message/resend-message/SendResend";
+import SetReservation from "../Basic/message/reserve-message/SetReservation";
+//file
 import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
-import VideoCallConnected from "../Basic/call/VideoCallConnected";
-import UnreadMessage from "../Basic/message/seeMessage/UnreadMessage";
-import AppMainError from "./AppMainError";
 
 export const PageContext = createContext({
   functionName: "",
@@ -36,11 +35,12 @@ export const PageContext = createContext({
   //
   functionName_makeCall: "",
   functionName_getCall: "",
-  functionName_getVideoCall: "",
+  functionName_makeVideoCall: "",
   functionName_sendMessage: "",
   functionName_resendMessage: "",
   functionName_reserveMessage: "",
   functionName_sendImg: "",
+  functionName_sendAudio: "",
   functionName_sendPhoneNum: "",
   //
   appName_basic: "",
@@ -51,7 +51,7 @@ const appName_basic = "기본";
 const appName_kakaotalk = "카카오톡";
 const functionName_makeCall = "전화걸기(발신)";
 const functionName_getCall = "전화받기(수신)";
-const functionName_getVideoCall = "영상통화 발신";
+const functionName_makeVideoCall = "영상통화 발신";
 const functionName_sendMessage = "문자 발신";
 const functionName_seeMessage = "문자 수신";
 const functionName_resendMessage = "문자 전달";
@@ -120,7 +120,7 @@ function AppMain() {
         }
       }
       break;
-    case functionName_getVideoCall:
+    case functionName_makeVideoCall:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps />;
@@ -276,12 +276,13 @@ function AppMain() {
         //
         functionName_makeCall: functionName_makeCall,
         functionName_getCall: functionName_getCall,
-        functionName_getVideoCall: functionName_getVideoCall,
+        functionName_makeVideoCall: functionName_makeVideoCall,
         functionName_sendMessage: functionName_sendMessage,
         functionName_seeMessage: functionName_seeMessage,
         functionName_resendMessage: functionName_resendMessage,
         functionName_reserveMessage: functionName_reserveMessage,
         functionName_sendImg: functionName_sendImg,
+        functionName_sendAudio: functionName_sendAudio,
         functionName_sendPhoneNum: functionName_sendPhoneNum,
         //
         appName_basic: appName_basic,

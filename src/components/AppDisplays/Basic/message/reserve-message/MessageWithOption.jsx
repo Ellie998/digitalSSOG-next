@@ -3,7 +3,13 @@ import classes from "./MessageWithOption.module.css";
 import { PageContext } from "../../../sections/AppMain";
 
 function MessageWithOption() {
-  const { realFunctionName } = useContext(PageContext);
+  const {
+    realFunctionName,
+    functionName_reserveMessage,
+    functionName_sendImg,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+  } = useContext(PageContext);
 
   const [inputClicked, setInputClicked] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -67,7 +73,7 @@ function MessageWithOption() {
             <div className={classes["appMain_getMessageTime"]}>오전 7:13</div>
           </div>
           {/* option messages */}
-          {isSubmitted && realFunctionName === "예약 문자 발송" && (
+          {isSubmitted && realFunctionName === functionName_reserveMessage && (
             <div className={classes["appMain_sendMessageWrap--res"]}>
               <div
                 onClick={clockBtnClickHandler}
@@ -79,7 +85,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-          {isSubmitted && realFunctionName === "이미지, 동영상 전송" && (
+          {isSubmitted && realFunctionName === functionName_sendImg && (
             <div className={classes["appMain_sendMessageWrap--img"]}>
               <div
                 onClick={imgClickHandler}
@@ -96,7 +102,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-          {isSubmitted && realFunctionName === "오디오 전송" && (
+          {isSubmitted && realFunctionName === functionName_sendAudio && (
             <div>
               <div className={classes["appMain_sendMessageWrap"]}>
                 <div
@@ -119,7 +125,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-          {isSubmitted && realFunctionName === "연락처 공유" && (
+          {isSubmitted && realFunctionName === functionName_sendPhoneNum && (
             <div>
               <div className={classes["appMain_sendMessageWrap"]}>
                 <div
@@ -144,7 +150,7 @@ function MessageWithOption() {
           )}
         </div>
         {/* option elements */}
-        {realFunctionName === "예약 문자 발송" &&
+        {realFunctionName === functionName_reserveMessage &&
           !isSubmitted &&
           !deleteOptionClicked && (
             <div className={classes["appMain_messageOptionLayout"]}>
@@ -158,7 +164,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-        {realFunctionName === "이미지, 동영상 전송" &&
+        {realFunctionName === functionName_sendImg &&
           !isSubmitted &&
           !deleteOptionClicked && (
             <div className={classes["appMain_messageOptionLayout"]}>
@@ -172,7 +178,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-        {realFunctionName === "오디오 전송" &&
+        {realFunctionName === functionName_sendAudio &&
           !isSubmitted &&
           !deleteOptionClicked && (
             <div className={classes["appMain_messageOptionLayout"]}>
@@ -189,7 +195,7 @@ function MessageWithOption() {
               </div>
             </div>
           )}
-        {realFunctionName === "연락처 공유" &&
+        {realFunctionName === functionName_sendPhoneNum &&
           !isSubmitted &&
           !deleteOptionClicked && (
             <div className={classes["appMain_messageOptionLayout"]}>
@@ -247,31 +253,31 @@ function MessageWithOption() {
               <i className="bi bi-emoji-smile"></i>
             </div>
           </div>
-          {realFunctionName === "예약 문자 발송" &&
+          {realFunctionName === functionName_reserveMessage &&
             ((!inputValue && !isSubmitted) || deleteOptionClicked) && (
               <div className={classes.soundIcon}>
                 <i className="bi bi-soundwave"></i>
               </div>
             )}
-          {realFunctionName === "이미지, 동영상 전송" &&
+          {realFunctionName === functionName_sendImg &&
             ((deleteOptionClicked && !inputValue) || isSubmitted) && (
               <div className={classes.soundIcon}>
                 <i className="bi bi-soundwave"></i>
               </div>
             )}
-          {realFunctionName === "오디오 전송" &&
+          {realFunctionName === functionName_sendAudio &&
             ((deleteOptionClicked && !inputValue) || isSubmitted) && (
               <div className={classes.soundIcon}>
                 <i className="bi bi-soundwave"></i>
               </div>
             )}
-          {realFunctionName === "연락처 공유" &&
+          {realFunctionName === functionName_sendPhoneNum &&
             ((deleteOptionClicked && !inputValue) || isSubmitted) && (
               <div className={classes.soundIcon}>
                 <i className="bi bi-soundwave"></i>
               </div>
             )}
-          {realFunctionName === "예약 문자 발송" &&
+          {realFunctionName === functionName_reserveMessage &&
             inputValue &&
             !deleteOptionClicked && (
               <div
@@ -281,7 +287,7 @@ function MessageWithOption() {
                 <i className="bi bi-send"></i>
               </div>
             )}
-          {realFunctionName === "이미지, 동영상 전송" &&
+          {realFunctionName === functionName_sendImg &&
             ((deleteOptionClicked && inputValue && !isSubmitted) ||
               (!deleteOptionClicked && !isSubmitted)) && (
               <div
@@ -291,7 +297,7 @@ function MessageWithOption() {
                 <i className="bi bi-send"></i>
               </div>
             )}
-          {realFunctionName === "오디오 전송" &&
+          {realFunctionName === functionName_sendAudio &&
             ((deleteOptionClicked && inputValue && !isSubmitted) ||
               (!deleteOptionClicked && !isSubmitted)) && (
               <div
@@ -301,7 +307,7 @@ function MessageWithOption() {
                 <i className="bi bi-send"></i>
               </div>
             )}
-          {realFunctionName === "연락처 공유" &&
+          {realFunctionName === functionName_sendPhoneNum &&
             ((deleteOptionClicked && inputValue && !isSubmitted) ||
               (!deleteOptionClicked && !isSubmitted)) && (
               <div

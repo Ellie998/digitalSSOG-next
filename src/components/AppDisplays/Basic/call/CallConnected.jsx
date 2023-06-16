@@ -3,10 +3,10 @@ import classes from "./CallConnected.module.css";
 import { PageContext } from "../../sections/AppMain";
 
 const CallConnected = () => {
-  const { appName } = useContext(PageContext);
+  const { appName, appName_basic, appName_kakaotalk } = useContext(PageContext);
   return (
     <>
-      {appName === "기본" && (
+      {appName === appName_basic && (
         <section className={classes.layout}>
           <div className={classes.headerNav}>...</div>
           <div
@@ -43,7 +43,7 @@ const CallConnected = () => {
           </div>
         </section>
       )}
-      {appName === "카카오톡" && (
+      {appName === appName_kakaotalk && (
         <section className={classes.layout}>
           <div
             className={`${classes["profileBox"]} ${classes["marginTop--10"]}`}>

@@ -5,7 +5,14 @@ import { PageContext } from "../../sections/AppMain";
 import classes from "./CallAppMain.module.css";
 
 function CallAppMain() {
-  const { appName, urlContent, realFunctionName } = useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    realFunctionName,
+    functionName_makeCall,
+    functionName_makeVideoCall,
+    appName_basic,
+  } = useContext(PageContext);
   const [clickedNum, changeNum] = useState("");
 
   function onchangeClickNum(event) {
@@ -61,13 +68,14 @@ function CallAppMain() {
       <div className={classes.navLayout}>
         <NavLink
           data-tooltip={
-            appName === "기본" && realFunctionName === "영상통화 발신"
+            appName === appName_basic &&
+            realFunctionName === functionName_makeVideoCall
               ? `클릭!`
               : null
           }
           to={
-            appName === "기본" &&
-            realFunctionName === "영상통화 발신" &&
+            appName === appName_basic &&
+            realFunctionName === functionName_makeVideoCall &&
             `${urlContent}`
           }>
           <div>
@@ -77,13 +85,14 @@ function CallAppMain() {
         <div>
           <NavLink
             data-tooltip={
-              appName === "기본" && realFunctionName === "전화걸기(발신)"
+              appName === appName_basic &&
+              realFunctionName === functionName_makeCall
                 ? `클릭!`
                 : null
             }
             to={
-              appName === "기본" &&
-              realFunctionName === "전화걸기(발신)" &&
+              appName === appName_basic &&
+              realFunctionName === functionName_makeCall &&
               `${urlContent}`
             }>
             <div>

@@ -4,7 +4,19 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function Message() {
-  const { appName, urlContent, realFunctionName } = useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    realFunctionName,
+    //
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    functionName_sendImg,
+    //
+    appName_basic,
+  } = useContext(PageContext);
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
@@ -80,13 +92,14 @@ function Message() {
 
             <NavLink
               data-tooltip={
-                appName === "기본" && realFunctionName === "문자 전달"
+                appName === appName_basic &&
+                realFunctionName === functionName_resendMessage
                   ? `클릭!`
                   : null
               }
               to={
-                appName === "기본" &&
-                realFunctionName === "문자 전달" &&
+                appName === appName_basic &&
+                realFunctionName === functionName_resendMessage &&
                 `${urlContent}`
               }>
               <div>전달</div>
@@ -189,13 +202,14 @@ function Message() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" && realFunctionName === "예약 문자 발송"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_reserveMessage
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "예약 문자 발송" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_reserveMessage &&
                   `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
@@ -222,14 +236,14 @@ function Message() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg &&
                   `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
@@ -241,14 +255,14 @@ function Message() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg &&
                   `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
@@ -260,13 +274,14 @@ function Message() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" && realFunctionName === "오디오 전송"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendAudio
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "오디오 전송" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendAudio &&
                   `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>
@@ -280,13 +295,14 @@ function Message() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" && realFunctionName === "연락처 공유"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendPhoneNum
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "연락처 공유" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendPhoneNum &&
                   `${urlContent}`
                 }>
                 <div className={classes.iconWrap}>

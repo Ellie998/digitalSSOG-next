@@ -4,19 +4,13 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../../sections/AppMain";
 
 function UnreadMessage() {
-  const {
-    functionName,
-    appName,
-    methodId,
-    urlContent,
-    descriptionId,
-    realFunctionName,
-  } = useContext(PageContext);
+  const { methodId, urlContent, realFunctionName, functionName_seeMessage } =
+    useContext(PageContext);
 
   return (
     <>
       <section className={classes.layout}>
-        {realFunctionName === "문자 수신" && methodId === "2" && (
+        {realFunctionName === functionName_seeMessage && methodId === "2" && (
           <div className={classes.header}>
             <div>읽지 않은 메시지</div>
             <div>
@@ -29,12 +23,12 @@ function UnreadMessage() {
           <div className={classes.message_firstName}>홍</div>
           <NavLink
             to={
-              realFunctionName === "문자 수신" && methodId === "2"
+              realFunctionName === functionName_seeMessage && methodId === "2"
                 ? `${urlContent}/2/3`
                 : null
             }
             data-tooltip={
-              realFunctionName === "문자 수신" && methodId === "2"
+              realFunctionName === functionName_seeMessage && methodId === "2"
                 ? `클릭!`
                 : null
             }>
@@ -43,7 +37,7 @@ function UnreadMessage() {
             <div className={classes.message_content}>
               결혼식 장소 정보입니다...
             </div>
-            {realFunctionName === "문자 수신" && (
+            {realFunctionName === functionName_seeMessage && (
               <div className={classes.message_alert}>1</div>
             )}
           </NavLink>

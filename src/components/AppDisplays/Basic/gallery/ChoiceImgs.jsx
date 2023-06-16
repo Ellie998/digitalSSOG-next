@@ -4,7 +4,13 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function ChoiceImgs() {
-  const { appName, urlContent, realFunctionName } = useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    realFunctionName,
+    functionName_sendImg,
+    appName_basic,
+  } = useContext(PageContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -52,14 +58,14 @@ function ChoiceImgs() {
               <div>{choicedImgs.length}/10</div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송"
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  realFunctionName === "이미지, 동영상 전송" &&
+                  appName === appName_basic &&
+                  realFunctionName === functionName_sendImg &&
                   `${urlContent}`
                 }>
                 <div>완료</div>

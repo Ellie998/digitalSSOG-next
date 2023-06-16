@@ -4,10 +4,11 @@ import classes from "./ComeCall.module.css";
 import { NavLink } from "react-router-dom";
 
 const AnswerCall = () => {
-  const { urlContent, appName } = useContext(PageContext);
+  const { urlContent, appName, appName_basic, appName_kakaotalk } =
+    useContext(PageContext);
   return (
     <>
-      {appName === "기본" && (
+      {appName === appName_basic && (
         <div className={classes.layout}>
           <div className={`${classes.content_title} ${classes.marginTop}`}>
             이름
@@ -33,7 +34,7 @@ const AnswerCall = () => {
           </div>
         </div>
       )}
-      {appName === "카카오톡" && (
+      {appName === appName_kakaotalk && (
         <div className={classes.layout}>
           <div className={classes["profileBox"]}>
             <div>

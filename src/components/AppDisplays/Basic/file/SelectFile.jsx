@@ -4,7 +4,13 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function SelectFile() {
-  const { appName, urlContent, realFunctionName } = useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    realFunctionName,
+    functionName_sendImg,
+    functionName_sendAudio,
+  } = useContext(PageContext);
   const [isFolderClicked, setFolderClicked] = useState(false);
   const [clickedFileId, setClickedFileId] = useState("");
   const checkboxes = document.getElementsByName("audio");
@@ -29,7 +35,7 @@ function SelectFile() {
 
   return (
     <>
-      {realFunctionName === "이미지, 동영상 전송" && (
+      {realFunctionName === functionName_sendImg && (
         <section className={classes.layout}>
           <div className={classes["header--grid4"]}>
             <div>
@@ -80,13 +86,13 @@ function SelectFile() {
                 <NavLink
                   data-tooltip={
                     appName === "기본" &&
-                    realFunctionName === "이미지, 동영상 전송"
+                    realFunctionName === functionName_sendImg
                       ? `클릭!`
                       : null
                   }
                   to={
                     appName === "기본" &&
-                    realFunctionName === "이미지, 동영상 전송" &&
+                    realFunctionName === functionName_sendImg &&
                     `${urlContent}`
                   }>
                   <div>
@@ -127,7 +133,7 @@ function SelectFile() {
           </div>
         </section>
       )}
-      {realFunctionName === "오디오 전송" && (
+      {realFunctionName === functionName_sendAudio && (
         <section className={classes.layout}>
           <div className={classes.header}>
             <div className={classes["header_title"]}>오디오 파일 선택</div>
@@ -230,13 +236,14 @@ function SelectFile() {
           {clickedFileId && (
             <NavLink
               data-tooltip={
-                appName === "기본" && realFunctionName === "오디오 전송"
+                appName === "기본" &&
+                realFunctionName === functionName_sendAudio
                   ? `클릭!`
                   : null
               }
               to={
                 appName === "기본" &&
-                realFunctionName === "오디오 전송" &&
+                realFunctionName === functionName_sendAudio &&
                 `${urlContent}`
               }>
               <div className={classes["button_done"]}>완료</div>

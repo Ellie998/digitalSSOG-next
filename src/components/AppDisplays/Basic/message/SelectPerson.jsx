@@ -4,8 +4,20 @@ import classes from "./SelectPerson.module.css";
 import { NavLink } from "react-router-dom";
 
 function SelectPerson() {
-  const { appName, urlContent, descriptionId, realFunctionName } =
-    useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    descriptionId,
+    realFunctionName,
+    //
+    functionName_sendMessage,
+    functionName_sendImg,
+    functionName_reserveMessage,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    //
+    appName_basic,
+  } = useContext(PageContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>
@@ -16,21 +28,23 @@ function SelectPerson() {
       <ul className={classes.numLists}>
         <NavLink
           data-tooltip={
-            appName === "기본" &&
-            (realFunctionName === "문자 발신" ||
-              realFunctionName === "이미지, 동영상 전송" ||
-              realFunctionName === "예약 문자 발송" ||
-              realFunctionName === "오디오 전송" ||
-              (realFunctionName === "연락처 공유" && descriptionId === "2"))
+            appName === appName_basic &&
+            (realFunctionName === functionName_sendMessage ||
+              realFunctionName === functionName_sendImg ||
+              realFunctionName === functionName_reserveMessage ||
+              realFunctionName === functionName_sendAudio ||
+              (realFunctionName === functionName_sendPhoneNum &&
+                descriptionId === "2"))
               ? `클릭!`
               : null
           }
           to={
-            realFunctionName === "문자 발신" ||
-            realFunctionName === "이미지, 동영상 전송" ||
-            realFunctionName === "예약 문자 발송" ||
-            realFunctionName === "오디오 전송" ||
-            (realFunctionName === "연락처 공유" && descriptionId === "2") ||
+            realFunctionName === functionName_sendMessage ||
+            realFunctionName === functionName_sendImg ||
+            realFunctionName === functionName_reserveMessage ||
+            realFunctionName === functionName_sendAudio ||
+            (realFunctionName === functionName_sendPhoneNum &&
+              descriptionId === "2") ||
             (realFunctionName === "문자 전달" && `${urlContent}`)
           }>
           <li>
@@ -41,15 +55,15 @@ function SelectPerson() {
         </NavLink>
         <NavLink
           data-tooltip={
-            appName === "기본" &&
-            realFunctionName === "연락처 공유" &&
+            appName === appName_basic &&
+            realFunctionName === functionName_sendPhoneNum &&
             descriptionId === "4"
               ? `클릭!`
               : null
           }
           to={
-            appName === "기본" &&
-            realFunctionName === "연락처 공유" &&
+            appName === appName_basic &&
+            realFunctionName === functionName_sendPhoneNum &&
             descriptionId === "4" &&
             `${urlContent}`
           }>

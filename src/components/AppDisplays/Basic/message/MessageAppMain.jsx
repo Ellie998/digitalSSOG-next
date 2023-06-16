@@ -4,8 +4,22 @@ import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
 
 function MessageAppMain() {
-  const { appName, methodId, urlContent, realFunctionName } =
-    useContext(PageContext);
+  const {
+    appName,
+    methodId,
+    urlContent,
+    realFunctionName,
+    //
+    functionName_seeMessage,
+    functionName_sendImg,
+    functionName_sendMessage,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    //
+    appName_basic,
+  } = useContext(PageContext);
   const [isClicked, setIsClicked] = useState(false);
   const [isXClicked, setIsXClicked] = useState(true);
 
@@ -21,13 +35,13 @@ function MessageAppMain() {
   return (
     <>
       <section className={classes.AppMain}>
-        {(realFunctionName === "문자 발신" ||
-          realFunctionName === "이미지, 동영상 전송" ||
-          realFunctionName === "오디오 전송" ||
-          realFunctionName === "연락처 공유") && (
+        {(realFunctionName === functionName_sendMessage ||
+          realFunctionName === functionName_sendImg ||
+          realFunctionName === functionName_sendAudio ||
+          realFunctionName === functionName_sendPhoneNum) && (
           <div className={classes.appTitle}>Messages</div>
         )}
-        {realFunctionName === "문자 수신" && methodId === "2" && (
+        {realFunctionName === functionName_seeMessage && methodId === "2" && (
           <div className={classes.appTitle} data-tooltip={`클릭!`}>
             <NavLink to={`${urlContent}`}>
               <div>읽지 않은 메시지 1개</div>
@@ -52,24 +66,25 @@ function MessageAppMain() {
             <i className="bi bi-plus"></i>
           </div>
         </div>
-        {(realFunctionName === "문자 발신" ||
-          realFunctionName === "문자 전달" ||
-          realFunctionName === "문자 수신" ||
-          realFunctionName === "이미지, 동영상 전송" ||
-          realFunctionName === "오디오 전송" ||
-          realFunctionName === "연락처 공유") && (
+        {(realFunctionName === functionName_sendMessage ||
+          realFunctionName === functionName_resendMessage ||
+          realFunctionName === functionName_seeMessage ||
+          realFunctionName === functionName_sendImg ||
+          realFunctionName === functionName_sendAudio ||
+          realFunctionName === functionName_sendPhoneNum) && (
           <div className={classes.contentLists}>
             <div className={classes.firstNameBox}>홍</div>
             <NavLink
               to={
-                realFunctionName === "문자 전달" ||
-                (realFunctionName === "문자 수신" &&
+                realFunctionName === functionName_resendMessage ||
+                (realFunctionName === functionName_seeMessage &&
                   methodId === "1" &&
                   `${urlContent}`)
               }
               data-tooltip={
-                realFunctionName === "문자 전달" ||
-                (realFunctionName === "문자 수신" && methodId === "1")
+                realFunctionName === functionName_resendMessage ||
+                (realFunctionName === functionName_seeMessage &&
+                  methodId === "1")
                   ? `클릭!`
                   : null
               }>
@@ -78,7 +93,7 @@ function MessageAppMain() {
               <div className={`${classes.message} ${classes.longMessage}`}>
                 결혼식 장소 정보입니다...
               </div>
-              {realFunctionName === "문자 수신" && (
+              {realFunctionName === functionName_seeMessage && (
                 <div className={classes.alert}>1</div>
               )}
             </NavLink>
@@ -102,22 +117,22 @@ function MessageAppMain() {
             <div>
               <NavLink
                 data-tooltip={
-                  appName === "기본" &&
-                  (realFunctionName === "문자 발신" ||
-                    realFunctionName === "예약 문자 발송" ||
-                    realFunctionName === "이미지, 동영상 전송" ||
-                    realFunctionName === "오디오 전송" ||
-                    realFunctionName === "연락처 공유")
+                  appName === appName_basic &&
+                  (realFunctionName === functionName_sendMessage ||
+                    realFunctionName === functionName_reserveMessage ||
+                    realFunctionName === functionName_sendImg ||
+                    realFunctionName === functionName_sendAudio ||
+                    realFunctionName === functionName_sendPhoneNum)
                     ? `클릭!`
                     : null
                 }
                 to={
-                  appName === "기본" &&
-                  (realFunctionName === "문자 발신" ||
-                    realFunctionName === "예약 문자 발송" ||
-                    realFunctionName === "이미지, 동영상 전송" ||
-                    realFunctionName === "오디오 전송" ||
-                    realFunctionName === "연락처 공유") &&
+                  appName === appName_basic &&
+                  (realFunctionName === functionName_sendMessage ||
+                    realFunctionName === functionName_reserveMessage ||
+                    realFunctionName === functionName_sendImg ||
+                    realFunctionName === functionName_sendAudio ||
+                    realFunctionName === functionName_sendPhoneNum) &&
                   `${urlContent}`
                 }>
                 <div>1:1 대화</div>

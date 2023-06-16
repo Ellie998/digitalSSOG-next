@@ -5,7 +5,24 @@ import { PageContext } from "./AppMain";
 import classes from "./AppMain.module.css";
 
 const MainApps = () => {
-  const { appName, urlContent, realFunctionName } = useContext(PageContext);
+  const {
+    appName,
+    urlContent,
+    realFunctionName,
+    //
+    functionName_makeCall,
+    functionName_makeVideoCall,
+    functionName_sendMessage,
+    functionName_seeMessage,
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    functionName_sendImg,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    //
+    appName_kakaotalk,
+    appName_basic,
+  } = useContext(PageContext);
 
   return (
     <section className={classes.layout}>
@@ -13,12 +30,13 @@ const MainApps = () => {
         <div className={classes.app_row}>
           <NavLink
             to={
-              appName === "카카오톡" &&
-              realFunctionName === "전화걸기(발신)" &&
+              appName === appName_kakaotalk &&
+              realFunctionName === functionName_makeCall &&
               `${urlContent}`
             }
             data-tooltip={
-              appName === "카카오톡" && realFunctionName === "전화걸기(발신)"
+              appName === appName_kakaotalk &&
+              realFunctionName === functionName_makeCall
                 ? `클릭!`
                 : null
             }>
@@ -31,15 +49,15 @@ const MainApps = () => {
       <section className={classes.navAppLayout}>
         <NavLink
           to={
-            appName === "기본" &&
-            (realFunctionName === "전화걸기(발신)" ||
-              realFunctionName === "영상통화 발신") &&
+            appName === appName_basic &&
+            (realFunctionName === functionName_makeCall ||
+              realFunctionName === functionName_makeVideoCall) &&
             `${urlContent}`
           }
           data-tooltip={
-            appName === "기본" &&
-            (realFunctionName === "전화걸기(발신)" ||
-              realFunctionName === "영상통화 발신")
+            appName === appName_basic &&
+            (realFunctionName === functionName_makeCall ||
+              realFunctionName === functionName_makeVideoCall)
               ? `클릭!`
               : null
           }>
@@ -58,25 +76,25 @@ const MainApps = () => {
         </div>
         <NavLink
           to={
-            appName === "기본" &&
-            (realFunctionName === "문자 발신" ||
-              realFunctionName === "문자 수신" ||
-              realFunctionName === "예약 문자 발송" ||
-              realFunctionName === "문자 전달" ||
-              realFunctionName === "이미지, 동영상 전송" ||
-              realFunctionName === "오디오 전송" ||
-              realFunctionName === "연락처 공유") &&
+            appName === appName_basic &&
+            (realFunctionName === functionName_sendMessage ||
+              realFunctionName === functionName_seeMessage ||
+              realFunctionName === functionName_reserveMessage ||
+              realFunctionName === functionName_resendMessage ||
+              realFunctionName === functionName_sendImg ||
+              realFunctionName === functionName_sendAudio ||
+              realFunctionName === functionName_sendPhoneNum) &&
             `${urlContent}`
           }
           data-tooltip={
-            appName === "기본" &&
-            (realFunctionName === "문자 발신" ||
-              realFunctionName === "문자 수신" ||
-              realFunctionName === "예약 문자 발송" ||
-              realFunctionName === "문자 전달" ||
-              realFunctionName === "이미지, 동영상 전송" ||
-              realFunctionName === "오디오 전송" ||
-              realFunctionName === "연락처 공유")
+            appName === appName_basic &&
+            (realFunctionName === functionName_sendMessage ||
+              realFunctionName === functionName_seeMessage ||
+              realFunctionName === functionName_reserveMessage ||
+              realFunctionName === functionName_resendMessage ||
+              realFunctionName === functionName_sendImg ||
+              realFunctionName === functionName_sendAudio ||
+              realFunctionName === functionName_sendPhoneNum)
               ? `클릭!`
               : null
           }>
