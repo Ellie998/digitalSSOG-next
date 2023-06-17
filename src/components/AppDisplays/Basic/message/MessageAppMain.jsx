@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
-import classes from "./MessageAppMain.module.css";
 import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+
 import { PageContext } from "../../sections/AppMain";
+import classes from "./MessageAppMain.module.css";
 
 function MessageAppMain() {
   const {

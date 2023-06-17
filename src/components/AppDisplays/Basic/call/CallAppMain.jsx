@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import { PageContext } from "../../sections/AppMain";
 import classes from "./CallAppMain.module.css";
+import listClass from "../components/MakeList.module.css";
+import NavBar from "../components/NavBar";
+import MakeList from "../components/MakeList";
 
 function CallAppMain() {
   const {
@@ -48,72 +51,172 @@ function CallAppMain() {
 
   return (
     <div className={classes.layout}>
-      <div className={classes.main_title}>{clickedNum}</div>
-      <div className={classes.main_optionBox} onClick={onchangeClickNum}>
-        <div className={classes.main_optionRow}>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <div className={classes.main_optionRow}>
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-        </div>
-        <div className={classes.main_optionRow}>
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-        </div>
-        <div className={classes.main_optionRow}>
-          <div>*</div>
-          <div>0</div>
-          <div>#</div>
-        </div>
-      </div>
-      <div className={classes.navLayout}>
-        <NavLink
-          data-tooltip={
-            appName === appName_basic &&
-            realFunctionName === functionName_makeVideoCall
-              ? `클릭!`
-              : null
-          }
-          to={
-            appName === appName_basic &&
-            realFunctionName === functionName_makeVideoCall
-              ? urlContent
-              : null
-          }>
-          <div>
-            <i className="bi bi-camera-video-fill"></i>
-          </div>
-        </NavLink>
+      {/* clickedTapName === "키패드" */}
+      {clickedTapName === "키패드" && (
         <div>
-          <NavLink
-            data-tooltip={
-              appName === appName_basic &&
-              realFunctionName === functionName_makeCall &&
-              methodId === "1"
-                ? `클릭!`
-                : null
-            }
-            to={
-              appName === appName_basic &&
-              realFunctionName === functionName_makeCall &&
-              methodId === "1"
-                ? urlContent
-                : null
-            }>
-            <div className={classes.iconWrap_background}>
-              <i className="bi bi-telephone-fill"></i>
+          <div className={classes.main_title}>{clickedNum}</div>
+          <div className={classes.main_optionBox} onClick={onchangeClickNum}>
+            <div className={classes.main_optionRow}>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
             </div>
-          </NavLink>
+            <div className={classes.main_optionRow}>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+            </div>
+            <div className={classes.main_optionRow}>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+            <div className={classes.main_optionRow}>
+              <div>*</div>
+              <div>0</div>
+              <div>#</div>
+            </div>
+          </div>
+          <div className={classes.navLayout}>
+            <NavLink
+              data-tooltip={
+                appName === appName_basic &&
+                realFunctionName === functionName_makeVideoCall
+                  ? `클릭!`
+                  : null
+              }
+              to={
+                appName === appName_basic &&
+                realFunctionName === functionName_makeVideoCall
+                  ? urlContent
+                  : null
+              }>
+              <div>
+                <i className="bi bi-camera-video-fill"></i>
+              </div>
+            </NavLink>
+            <div>
+              <NavLink
+                data-tooltip={
+                  appName === appName_basic &&
+                  realFunctionName === functionName_makeCall &&
+                  methodId === "1"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === appName_basic &&
+                  realFunctionName === functionName_makeCall &&
+                  methodId === "1"
+                    ? urlContent
+                    : null
+                }>
+                <div className={classes.iconWrap_background}>
+                  <i className="bi bi-telephone-fill"></i>
+                </div>
+              </NavLink>
+            </div>
+            <div>
+              <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
+            </div>
+          </div>
         </div>
+      )}
+      {clickedTapName === "최근기록" && (
         <div>
-          <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
+          <div className={classes.main_title}>전화</div>
+          <NavBar rIcons={["filter", "search", "three-dots-vertical"]}></NavBar>
+          <div className={classes.listWrap}>
+            <div className={listClass["subTitle"]}>6월 17일</div>
+            <MakeList repeatNum={3}>
+              <div className={listClass.layout_grid} data-tooltip="클릭!">
+                <div
+                  className={`${listClass["grid_firstCol--row1"]} ${listClass["iconWrap_color--green"]}`}>
+                  <i className="bi bi-telephone"></i>
+                </div>
+                <div
+                  className={`${listClass["grid_secondCol--row1"]} ${listClass["title"]}`}>
+                  홍길동
+                </div>
+                <div
+                  className={`${listClass["grid_thirdCol--row1"]} ${listClass["info"]}`}>
+                  오후 7:53
+                </div>
+              </div>
+            </MakeList>
+          </div>
         </div>
-      </div>
+      )}
+      {clickedTapName === "연락처" && (
+        <div>
+          <div className={classes.main_title}>{clickedNum}</div>
+          <div className={classes.main_optionBox} onClick={onchangeClickNum}>
+            <div className={classes.main_optionRow}>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+            </div>
+            <div className={classes.main_optionRow}>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+            </div>
+            <div className={classes.main_optionRow}>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+            <div className={classes.main_optionRow}>
+              <div>*</div>
+              <div>0</div>
+              <div>#</div>
+            </div>
+          </div>
+          <div className={classes.navLayout}>
+            <NavLink
+              data-tooltip={
+                appName === appName_basic &&
+                realFunctionName === functionName_makeVideoCall
+                  ? `클릭!`
+                  : null
+              }
+              to={
+                appName === appName_basic &&
+                realFunctionName === functionName_makeVideoCall
+                  ? urlContent
+                  : null
+              }>
+              <div>
+                <i className="bi bi-camera-video-fill"></i>
+              </div>
+            </NavLink>
+            <div>
+              <NavLink
+                data-tooltip={
+                  appName === appName_basic &&
+                  realFunctionName === functionName_makeCall &&
+                  methodId === "1"
+                    ? `클릭!`
+                    : null
+                }
+                to={
+                  appName === appName_basic &&
+                  realFunctionName === functionName_makeCall &&
+                  methodId === "1"
+                    ? urlContent
+                    : null
+                }>
+                <div className={classes.iconWrap_background}>
+                  <i className="bi bi-telephone-fill"></i>
+                </div>
+              </NavLink>
+            </div>
+            <div>
+              <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
+            </div>
+          </div>
+        </div>
+      )}
       <div className={classes.tabLayout}>
         <div
           onClick={changeTapHandler}

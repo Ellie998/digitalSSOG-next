@@ -8,6 +8,7 @@
   border-radius: 100%;
   cursor: pointer;
   font-size: 1rem;
+  padding: 5px;
 }
 .iconWrap_background i {
   color: white;
@@ -15,16 +16,16 @@
   padding: 8px;
 }
 
-.layout i:hover {
+/* .layout i:hover {
   box-shadow: 0px 0px 15px #bbbbbb8a;
-}
+} */
 
 /* ---------------- MAIN ----------------- */
 
 .main_title {
   margin-top: 20px;
   height: 60px;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 .main_optionBox {
@@ -47,7 +48,11 @@
   justify-content: space-around;
 }
 
-/* ---------------- NAV ----------------- */
+/* ---------------- LIST ----------------- */
+.listWrap {
+  height: 155px; /* 270px - 80px - 25px + (15px + 30px * 3)  - 20px*/
+}
+/* ---------------- TAP ----------------- */
 .tabLayout {
   height: 20px;
   display: flex;
@@ -62,7 +67,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: green;
+  background-color: rgb(0, 101, 0);
   opacity: 0;
 }
 .tabLayout div:hover::after {
@@ -72,6 +77,9 @@
   animation-delay: 0;
 }
 
+.tap_clicked {
+  color: rgb(0, 101, 0);
+}
 .tap_clicked::after {
   opacity: 1 !important;
 }
