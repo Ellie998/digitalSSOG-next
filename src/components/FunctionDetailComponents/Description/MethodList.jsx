@@ -6,7 +6,13 @@ function MethodList({ functionMethodObject, appName, methodId }) {
     <ol className={classes.listWrap}>
       {functionMethodObject.howto?.map((functionMethod) => (
         <li key={Math.random()}>
-          <details open={+methodId === functionMethod.methodNum ? true : false}>
+          <details
+            open={
+              +methodId === functionMethod.methodNum &&
+              functionMethodObject.methodAppName === appName
+                ? true
+                : false
+            }>
             <summary>
               방법
               {` ${functionMethod.methodNum}${

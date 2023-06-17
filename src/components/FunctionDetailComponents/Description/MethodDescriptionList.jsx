@@ -22,10 +22,7 @@ function MethodDescriptionList({ functionMethod, appName, methodNum }) {
   return (
     <ol className={styles.listWrap}>
       {functionMethod.methodContent?.map((methodDescription) => (
-        <li
-          data-tooltip-midleft="클릭시 화면이 표시됩니다."
-          key={methodDescription}
-          className="list-hover description-list">
+        <li key={methodDescription} className="list-hover description-list">
           <NavLink
             to={`/description/${params.functionName}/${appName}/${methodNum}/${num}`}
             style={({ isActive }) => {

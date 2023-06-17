@@ -5,7 +5,7 @@ function NavBar({ lIcons, title, rIcons }) {
     <div className={classes["navLayout"]}>
       <div className={classes.lNav}>
         {lIcons?.map((lIcon) => (
-          <div>
+          <div key={Math.random()}>
             <i className={`bi bi-${lIcon}`}></i>
           </div>
         ))}
@@ -13,7 +13,7 @@ function NavBar({ lIcons, title, rIcons }) {
       </div>
       <div className={classes.rNav}>
         {rIcons?.map((rIcon) => (
-          <div>
+          <div key={Math.random()}>
             <i className={`bi bi-${rIcon}`}></i>
           </div>
         ))}

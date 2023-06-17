@@ -156,7 +156,7 @@ function CallAppMain() {
           <div
             className={
               isListClicked1 || isListClicked2 || isListClicked3
-                ? null
+                ? ""
                 : classes.listWrap
             }>
             <div className={listClass["subTitle"]}>6월 17일</div>
@@ -314,17 +314,17 @@ function CallAppMain() {
       <div className={classes.tabLayout}>
         <div
           onClick={changeTapHandler}
-          className={clickedTapName === "키패드" && classes.tap_clicked}>
+          className={clickedTapName === "키패드" ? classes.tap_clicked : ""}>
           키패드
         </div>
         <div
           onClick={changeTapHandler}
-          className={clickedTapName === "최근기록" && classes.tap_clicked}>
+          className={clickedTapName === "최근기록" ? classes.tap_clicked : ""}>
           최근기록
         </div>
         <div
           onClick={changeTapHandler}
-          className={clickedTapName === "연락처" && classes.tap_clicked}>
+          className={clickedTapName === "연락처" ? classes.tap_clicked : ""}>
           연락처
         </div>
       </div>
