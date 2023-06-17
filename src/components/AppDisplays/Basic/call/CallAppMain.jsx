@@ -19,6 +19,9 @@ function CallAppMain() {
   } = useContext(PageContext);
   const [clickedTapName, setClickedTapName] = useState("키패드");
   const [clickedNum, changeNum] = useState("");
+  const [isListClicked1, setIsListClicked1] = useState(false);
+  const [isListClicked2, setIsListClicked2] = useState(false);
+  const [isListClicked3, setIsListClicked3] = useState(false);
 
   function onchangeClickNum(event) {
     if (event.target.innerText && event.target.nodeName === "DIV") {
@@ -48,6 +51,10 @@ function CallAppMain() {
   function changeTapHandler(event) {
     setClickedTapName(event.target.innerText);
   }
+  const showListOption1 = () => {
+    !isListClicked1 && setIsListClicked1(true);
+    isListClicked1 && setIsListClicked1(false);
+  };
 
   return (
     <div className={classes.layout}>
@@ -124,24 +131,56 @@ function CallAppMain() {
       )}
       {clickedTapName === "최근기록" && (
         <div>
-          <div className={classes.main_title}>전화</div>
-          <NavBar rIcons={["filter", "search", "three-dots-vertical"]}></NavBar>
-          <div className={classes.listWrap}>
+          <div>
+            <div className={classes.main_title}>전화</div>
+            <NavBar
+              rIcons={["filter", "search", "three-dots-vertical"]}></NavBar>
+          </div>
+          <div className={isListClicked1 ? null : classes.listWrap}>
             <div className={listClass["subTitle"]}>6월 17일</div>
             <MakeList repeatNum={3}>
-              <div className={listClass.layout_grid} data-tooltip="클릭!">
+              <div className={`${listClass["border_bottom"]}`}>
                 <div
-                  className={`${listClass["grid_firstCol--row1"]} ${listClass["iconWrap_color--green"]}`}>
-                  <i className="bi bi-telephone"></i>
+                  className={`${listClass.layout_grid}`}
+                  data-tooltip="클릭!"
+                  onClick={showListOption1}>
+                  <div
+                    className={`${listClass["grid_firstCol--row1"]} ${listClass["iconWrap_color--green"]}`}>
+                    <i className="bi bi-telephone"></i>
+                  </div>
+                  <div
+                    className={`${listClass["grid_secondCol--row1"]} ${listClass["title"]}`}>
+                    홍길동
+                  </div>
+                  <div
+                    className={`${listClass["grid_thirdCol--row1"]} ${listClass["info"]}`}>
+                    오후 7:53
+                  </div>
                 </div>
-                <div
-                  className={`${listClass["grid_secondCol--row1"]} ${listClass["title"]}`}>
-                  홍길동
-                </div>
-                <div
-                  className={`${listClass["grid_thirdCol--row1"]} ${listClass["info"]}`}>
-                  오후 7:53
-                </div>
+                {isListClicked1 && (
+                  <div className={classes.listOptionWrap}>
+                    <div className={listClass["subTitle_color--blackB"]}>
+                      휴대전화 010-0000-0000
+                    </div>
+                    <div className={listClass["subTitle_color--black"]}>
+                      발신전화, 0분 33초
+                    </div>
+                    <div className={listClass.layout_flex}>
+                      <div className={classes["iconWrapS_background"]}>
+                        <i className="bi bi-telephone-fill"></i>
+                      </div>
+                      <div className={classes["iconWrapS_background"]}>
+                        <i className="bi bi-chat-fill"></i>
+                      </div>
+                      <div className={classes["iconWrapS_background"]}>
+                        <i className="bi bi-camera-video-fill"></i>
+                      </div>
+                      <div className={classes["iconWrapS_background"]}>
+                        <i className="bi bi-info-circle-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </MakeList>
           </div>

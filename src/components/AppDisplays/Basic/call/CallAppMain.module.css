@@ -3,6 +3,12 @@
   font-size: 1rem;
   align-items: center;
   text-align: center;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.layout::-webkit-scrollbar {
+  display: none;
 }
 .layout i {
   border-radius: 100%;
@@ -10,18 +16,20 @@
   font-size: 1rem;
   padding: 5px;
 }
+/* ---------------- ICON ----------------- */
 .iconWrap_background i {
   color: white;
   background-color: rgb(41, 184, 64);
   padding: 8px;
 }
-
-/* .layout i:hover {
-  box-shadow: 0px 0px 15px #bbbbbb8a;
-} */
+.iconWrapS_background i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 3px;
+  font-size: 0.6rem;
+}
 
 /* ---------------- MAIN ----------------- */
-
 .main_title {
   margin-top: 20px;
   height: 60px;
@@ -51,6 +59,9 @@
 /* ---------------- LIST ----------------- */
 .listWrap {
   height: 155px; /* 270px - 80px - 25px + (15px + 30px * 3)  - 20px*/
+}
+.listOptionWrap {
+  padding: 10px 20px;
 }
 /* ---------------- TAP ----------------- */
 .tabLayout {
