@@ -1,7 +1,11 @@
 /* --------------- LAYOUT ------------------ */
-.layout_flex {
+.layout_flex--spaceBetween {
   display: flex;
   justify-content: space-between;
+}
+.layout_flex--spaceAround {
+  display: flex;
+  justify-content: space-around;
 }
 .layout_grid {
   display: grid;
@@ -54,13 +58,20 @@
   border-radius: 18px;
   color: var(--grey-700);
 }
-.iconWrap_backgroud--green {
+.iconWrap_backgroud--green i {
   text-align: center;
   font-size: 0.9rem;
   background-color: green;
   border-radius: 18px;
   color: var(--grey-700);
 }
+.iconWrapS_background--green i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 3px;
+  font-size: 0.6rem;
+}
+/*  */
 .iconWrap_color--green i {
   color: green;
   font-size: 0.8rem;
