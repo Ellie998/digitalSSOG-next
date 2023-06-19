@@ -1,4 +1,4 @@
-import styles from "./MakeList.module.css";
+import classes from "./MakeList.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 
 function MakeList({ FunctionOrApp, ListObjects }) {
@@ -9,7 +9,7 @@ function MakeList({ FunctionOrApp, ListObjects }) {
   const categorys = ["🔔 new", "👑 hot", "📞 전화, 문자", "👥 sns"];
 
   return (
-    <ul className={styles.MakeList}>
+    <ul className={classes.MakeList}>
       {categorys.map((categoryName) => {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
@@ -28,7 +28,7 @@ function MakeList({ FunctionOrApp, ListObjects }) {
                       : {}
                   }
                   className={
-                    keyword === categoryRealName ? styles.clicked : undefined
+                    keyword === categoryRealName ? classes.clicked : undefined
                   }>
                   {/* // className={isActive? "active":""}
                   // style={{ fontWeight: isActive ? "bold" : "" }}> */}
