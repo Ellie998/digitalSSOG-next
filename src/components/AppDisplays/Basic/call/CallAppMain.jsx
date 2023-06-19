@@ -422,12 +422,7 @@ function CallAppMain() {
             </div>
             <NavBar rIcons={["plus", "search", "three-dots-vertical"]}></NavBar>
           </div>
-          <div
-            className={
-              isListClicked1 || isListClicked2 || isListClicked3
-                ? ""
-                : classes.listWrap
-            }>
+          <div>
             <div className={listClass["subTitle"]}>내 프로필</div>
             {listProps?.map((prop) => (
               <>

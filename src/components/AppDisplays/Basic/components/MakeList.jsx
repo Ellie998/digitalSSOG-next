@@ -57,17 +57,22 @@ function MakeList({
               {item1.content}
             </div>
             <div
-              className={`${classes["grid_secondCol--row1"]} ${
-                classes[item2.className]
-              }`}>
+              className={`${
+                item3.content !== ""
+                  ? classes["grid_secondCol--row1"]
+                  : classes["grid_secondToThirdCol--row1"]
+              } ${classes[item2.className]}`}>
               {item2.content}
             </div>
-            <div
-              className={`${classes["grid_thirdCol--row1"]} ${
-                classes[item3.className]
-              }`}>
-              {item3.content}
-            </div>
+
+            {item3.content !== "" && (
+              <div
+                className={`${classes["grid_thirdCol--row1"]} ${
+                  classes[item3.className]
+                }`}>
+                {item3.content}
+              </div>
+            )}
           </div>
           {children}
         </>
