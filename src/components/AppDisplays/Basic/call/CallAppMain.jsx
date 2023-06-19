@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-
 import { PageContext } from "../../sections/AppMain";
-import classes from "./CallAppMain.module.css";
-import listClass from "../components/MakeList.module.css";
+
 import NavBar from "../components/NavBar";
 import MakeList from "../components/MakeList";
-import AppMainError from "../../sections/AppMainError";
+
+import classes from "./CallAppMain.module.css";
+import listClass from "../components/MakeList.module.css";
 
 function CallAppMain() {
   const {
@@ -73,6 +73,93 @@ function CallAppMain() {
     setIsListClicked1(false);
     setIsListClicked2(false);
   };
+
+  const optionlistContent = (
+    <MakeList
+      listStyle={"flex_spaceBetween"}
+      item1={{
+        className: "iconWrapS_background--green",
+        content: (
+          <NavLink
+            to={realFunctionName === functionName_makeCall ? urlContent : null}>
+            <i className="bi bi-telephone-fill"></i>
+          </NavLink>
+        ),
+      }}
+      item2={{
+        className: "iconWrapS_background--green",
+        content: <i className="bi bi-chat-fill"></i>,
+      }}
+      item3={{
+        className: "iconWrapS_background--green",
+        content: <i className="bi bi-camera-video-fill"></i>,
+      }}
+      item4={{
+        className: "iconWrapS_background--green",
+        content: <i className="bi bi-info-circle-fill"></i>,
+      }}></MakeList>
+  );
+
+  const listProps = [
+    {
+      className1: "iconWrap_background--pink",
+      content1: <i className="bi bi-person-fill"></i>,
+      className2: "title",
+      content2: "진수",
+      className3: "",
+      content3: "",
+    },
+    {
+      className1: "iconWrap_background--yellow",
+      content1: <i className="bi bi-star"></i>,
+      className2: "title",
+      content2: "즐겨찾는 연락처 추가",
+      className3: "",
+      content3: "",
+    },
+    {
+      className1: "iconWrap_background--grey",
+      content1: <i className="bi bi-people-fill"></i>,
+      className2: "title",
+      content2: "그룹",
+      className3: "",
+      content3: "",
+    },
+    {
+      onClickFunction: showListOption1,
+      className1: "iconWrap_background--pink",
+      content1: <i className="bi bi-person-fill"></i>,
+      className2: "title",
+      content2: "영희",
+      className3: "",
+      content3: "",
+      children: isListClicked1 && (
+        <div className={classes.listOptionWrap}>
+          <div className={listClass["subTitle_color--blackB"]}>
+            휴대전화 010-1234-0000
+          </div>
+          {optionlistContent}
+        </div>
+      ),
+    },
+    {
+      onClickFunction: showListOption2,
+      className1: "iconWrap_background--orange",
+      content1: <i className="bi bi-person-fill"></i>,
+      className2: "title",
+      content2: "철수",
+      className3: "",
+      content3: "",
+      children: isListClicked2 && (
+        <div className={classes.listOptionWrap}>
+          <div className={listClass["subTitle_color--blackB"]}>
+            휴대전화 010-1234-0001
+          </div>
+          {optionlistContent}
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className={classes.layout}>
@@ -324,7 +411,57 @@ function CallAppMain() {
           </div>
         </div>
       )}
-      {clickedTapName === "연락처" && <AppMainError></AppMainError>}
+      {clickedTapName === "연락처" && (
+        <div>
+          <div>
+            <div className={classes["main_title--noMargin"]}>
+              전화
+              <div className={classes.main_subTitle}>
+                전화번호가 저장된 연락처 2개
+              </div>
+            </div>
+            <NavBar rIcons={["plus", "search", "three-dots-vertical"]}></NavBar>
+          </div>
+          <div
+            className={
+              isListClicked1 || isListClicked2 || isListClicked3
+                ? ""
+                : classes.listWrap
+            }>
+            <div className={listClass["subTitle"]}>내 프로필</div>
+            {listProps?.map((prop) => (
+              <>
+                {prop.content2 === "영희" && (
+                  <div className={listClass["subTitle"]}>ㅇ</div>
+                )}
+                {prop.content2 === "철수" && (
+                  <div className={listClass["subTitle"]}>ㅊ</div>
+                )}
+                <MakeList
+                  listStyle={"grid_oneLine"}
+                  list={{ className: "" }}
+                  listOnClick={
+                    prop.onClickFunction ? prop.onClickFunction : null
+                  }
+                  item1={{
+                    className: prop.className1,
+                    content: prop.content1,
+                  }}
+                  item2={{
+                    className: prop.className2,
+                    content: prop.content2,
+                  }}
+                  item3={{
+                    className: prop.className3,
+                    content: prop.content3,
+                  }}>
+                  {prop.children ? prop.children : null}
+                </MakeList>
+              </>
+            ))}
+          </div>
+        </div>
+      )}
       {/* TAP LIST COMPONETS */}
       <div className={classes.tabLayout}>
         <div

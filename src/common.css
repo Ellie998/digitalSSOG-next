@@ -6,7 +6,10 @@
   --grey-800: #333333;
   --grey-700: #444444;
   --grey-600: #555;
+  --grey-500: #666;
   --grey-400: #999;
+  --grey-300: #b9b9b9;
+  --grey-200: #d6d6d6;
   --main-color: #5684d6;
   font-family: "IBM Plex Sans KR", sans-serif;
   color: var(--grey-700);

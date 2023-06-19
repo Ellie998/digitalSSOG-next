@@ -51,14 +51,53 @@
 }
 
 /* --------------- ICON ------------------ */
-.iconWrap_backgroud--grey {
+.iconWrap_background--grey {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   background-color: #cdcdcd8a;
   border-radius: 18px;
-  color: var(--grey-700);
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.iconWrap_backgroud--green i {
+.iconWrap_background--pink {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ff855f8a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconWrap_background--yellow {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ffd0278a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconWrap_background--orange {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ffb8468a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconWrap_background--orange i,
+.iconWrap_background--yellow i,
+.iconWrap_background--pink i,
+.iconWrap_background--grey i {
+  color: white;
+}
+.iconWrap_background--green i {
   text-align: center;
   font-size: 0.9rem;
   background-color: green;
