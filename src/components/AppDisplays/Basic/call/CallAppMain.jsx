@@ -130,8 +130,7 @@ function CallAppMain() {
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_makeCall &&
-                  methodId === "1"
+                  realFunctionName === functionName_makeCall
                     ? urlContent
                     : null
                 }>
@@ -189,7 +188,12 @@ function CallAppMain() {
                     item1={{
                       className: "iconWrapS_background--green",
                       content: (
-                        <NavLink to={urlContent}>
+                        <NavLink
+                          to={
+                            realFunctionName === functionName_makeCall
+                              ? urlContent
+                              : null
+                          }>
                           <i className="bi bi-telephone-fill"></i>
                         </NavLink>
                       ),
@@ -238,7 +242,12 @@ function CallAppMain() {
                     item1={{
                       className: "iconWrapS_background--green",
                       content: (
-                        <NavLink to={urlContent}>
+                        <NavLink
+                          to={
+                            realFunctionName === functionName_makeCall
+                              ? urlContent
+                              : null
+                          }>
                           <i className="bi bi-telephone-fill"></i>
                         </NavLink>
                       ),
@@ -287,7 +296,12 @@ function CallAppMain() {
                     item1={{
                       className: "iconWrapS_background--green",
                       content: (
-                        <NavLink to={urlContent}>
+                        <NavLink
+                          to={
+                            realFunctionName === functionName_makeCall
+                              ? urlContent
+                              : null
+                          }>
                           <i className="bi bi-telephone-fill"></i>
                         </NavLink>
                       ),
@@ -311,6 +325,7 @@ function CallAppMain() {
         </div>
       )}
       {clickedTapName === "연락처" && <AppMainError></AppMainError>}
+      {/* TAP LIST COMPONETS */}
       <div className={classes.tabLayout}>
         <div
           onClick={changeTapHandler}
