@@ -21,6 +21,18 @@ html {
   font-size: 16px;
 }
 
+body {
+  background-color: #fdfdfd;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 h1 {
   font-size: 2rem;
   color: var(--grey-900);
@@ -40,7 +52,6 @@ nav {
 summary {
   color: var(--grey-900);
 }
-
 details summary {
   cursor: pointer;
 }
@@ -182,3 +193,32 @@ details summary {
 
 /* target */
 /* [data-target]{} */
+
+/* animation */
+
+.animate-scale-up:hover {
+  animation-name: scale-up;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale-up {
+  from {
+    font-size: 1rem;
+  }
+  to {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    padding-top: 50px;
+  }
+  body {
+    background-color: #f4f4f4;
+    background-image: none;
+  }
+}

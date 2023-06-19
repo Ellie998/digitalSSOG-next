@@ -6,8 +6,6 @@ import Footer from "../Layouts/Footer/Footer";
 
 import classes from "./RootLayout.module.css";
 
-const isWidthLess500 = window.screen.width < 500 ? true : false;
-
 function RootLayout({ children }) {
   const htmlElement = document.querySelector("html");
   const sizes = [
@@ -27,14 +25,7 @@ function RootLayout({ children }) {
   const location = useLocation();
   const pathArray = location.pathname.split("/");
 
-  const pcScrollToTop = () => {
-    divRef.current.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const mScrollToTop = () => {
+  const scrollToTop = () => {
     window.scroll({
       top: 0,
       behavior: "smooth",
@@ -42,15 +33,7 @@ function RootLayout({ children }) {
   };
 
   useEffect(() => {
-    const pcScrollToTopCondition = () => {
-      location.search === "" &&
-        pathArray.length !== 6 &&
-        divRef.current.scroll({
-          top: 0,
-          behavior: "smooth",
-        });
-    };
-    const mScrollToTopCondition = () => {
+    const scrollToTopCondition = () => {
       location.search === "" &&
         pathArray.length !== 6 &&
         window.scroll({
@@ -58,7 +41,7 @@ function RootLayout({ children }) {
           behavior: "smooth",
         });
     };
-    isWidthLess500 ? mScrollToTopCondition() : pcScrollToTopCondition();
+    scrollToTopCondition();
   }, [location, pathArray.length]);
 
   function bigFontBtnClickHandler() {
@@ -79,15 +62,13 @@ function RootLayout({ children }) {
   return (
     <div className={classes.layout} id="pcScrollTarget" ref={divRef}>
       <Header />
-
       <Outlet />
       {children}
-
       <Footer />
       <button
         className={classes.upBtn}
         aria-label="font size up button"
-        onClick={isWidthLess500 ? mScrollToTop : pcScrollToTop}>
+        onClick={scrollToTop}>
         <i className="bi bi-arrow-up-short"></i>
       </button>
       <button

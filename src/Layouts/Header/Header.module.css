@@ -1,22 +1,19 @@
 .header {
-  background-color: #f4f4f484;
+  background-color: #f3f3f384;
   backdrop-filter: blur(10px);
-  position: absolute;
-  top: 10vh;
-  width: 90%;
-  left: 5%;
-
-  /* margin: 10px auto; */
-  /* width: 85%;
-  left: 7%; */
-  z-index: 999;
   border-radius: 12px;
+  padding: 5px 0;
+  box-shadow: 0px 0px 18px rgba(212, 212, 212, 0.683);
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+.header:hover {
+  box-shadow: 0px 0px 6px rgba(171, 171, 171, 0.683);
 }
 
 .nav1 {
   margin-top: 10px;
   padding: 10px 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +96,7 @@
 }
 @media (max-width: 500px) {
   .header {
-    top: 0;
+    /* top: 0; */
   }
   .header nav a {
     font-size: 1rem;
