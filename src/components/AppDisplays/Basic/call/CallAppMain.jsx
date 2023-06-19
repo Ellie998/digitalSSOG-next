@@ -22,7 +22,6 @@ function CallAppMain() {
   const [clickedNum, changeNum] = useState("");
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
-  const [isListClicked3, setIsListClicked3] = useState(false);
 
   function onchangeClickNum(event) {
     if (event.target.innerText && event.target.nodeName === "DIV") {
@@ -53,27 +52,19 @@ function CallAppMain() {
     setClickedTapName(event.target.innerText);
     setIsListClicked1(false);
     setIsListClicked2(false);
-    setIsListClicked3(false);
   }
   const showListOption1 = () => {
     !isListClicked1 && setIsListClicked1(true);
     isListClicked1 && setIsListClicked1(false);
     setIsListClicked2(false);
-    setIsListClicked3(false);
   };
   const showListOption2 = () => {
     !isListClicked2 && setIsListClicked2(true);
     isListClicked2 && setIsListClicked2(false);
     setIsListClicked1(false);
-    setIsListClicked3(false);
-  };
-  const showListOption3 = () => {
-    !isListClicked3 && setIsListClicked3(true);
-    isListClicked3 && setIsListClicked3(false);
-    setIsListClicked1(false);
-    setIsListClicked2(false);
   };
 
+  // 연락처 누르면 생기는 옵션 elements
   const optionlistContent = (
     <MakeList
       listStyle={"flex_spaceBetween"}
@@ -100,7 +91,73 @@ function CallAppMain() {
       }}></MakeList>
   );
 
-  const listProps = [
+  // list정보에 대한 prop 파라미터를 받아 list 만드는 함수
+  const makeListContent = (prop) => (
+    <MakeList
+      listStyle={"grid_oneLine"}
+      list={{ className: "" }}
+      listOnClick={prop.onClickFunction ? prop.onClickFunction : null}
+      item1={{
+        className: prop.className1,
+        content: prop.content1,
+      }}
+      item2={{
+        className: prop.className2,
+        content: prop.content2,
+      }}
+      item3={{
+        className: prop.className3,
+        content: prop.content3,
+      }}>
+      {prop.children ? prop.children : null}
+    </MakeList>
+  );
+
+  // 최근기록 tap에 만들 list 정보
+  const callHistoryListProps = [
+    {
+      onClickFunction: showListOption1,
+      className1: "iconWrap_color--green",
+      content1: <i className="bi bi-telephone-outbound-fill"></i>,
+      className2: "title",
+      content2: "영희",
+      className3: "subTitle",
+      content3: "오후 7:38",
+      children: isListClicked1 && (
+        <div className={classes.listOptionWrap}>
+          <div className={listClass["subTitle_color--blackB"]}>
+            휴대전화 010-0000-0000
+          </div>
+          <div className={listClass["subTitle_color--black"]}>
+            발신전화, 0분 33초
+          </div>
+          {optionlistContent}
+        </div>
+      ),
+    },
+    {
+      onClickFunction: showListOption2,
+      className1: "iconWrap_color--green",
+      content1: <i className="bi bi-telephone-outbound-fill"></i>,
+      className2: "title",
+      content2: "철수",
+      className3: "subTitle",
+      content3: "오후 7:38",
+      children: isListClicked2 && (
+        <div className={classes.listOptionWrap}>
+          <div className={listClass["subTitle_color--blackB"]}>
+            휴대전화 010-0000-0000
+          </div>
+          <div className={listClass["subTitle_color--black"]}>
+            발신전화, 0분 33초
+          </div>
+          {optionlistContent}
+        </div>
+      ),
+    },
+  ];
+  // 연락처 tap에 만들 list 정보
+  const contactListProps = [
     {
       className1: "iconWrap_background--pink",
       content1: <i className="bi bi-person-fill"></i>,
@@ -241,173 +298,10 @@ function CallAppMain() {
           </div>
           <div
             className={
-              isListClicked1 || isListClicked2 || isListClicked3
-                ? ""
-                : classes.listWrap
+              isListClicked1 || isListClicked2 ? "" : classes.listWrap
             }>
             <div className={listClass["subTitle"]}>6월 17일</div>
-            <MakeList
-              listStyle={"grid_oneLine"}
-              list={{ className: "" }}
-              listOnClick={showListOption1}
-              item1={{
-                className: "iconWrap_color--green",
-                content: <i className="bi bi-telephone-outbound-fill"></i>,
-              }}
-              item2={{
-                className: "title",
-                content: "홍길동",
-              }}
-              item3={{
-                className: "subTitle",
-                content: `오후 7:38`,
-              }}>
-              {isListClicked1 && (
-                <div className={classes.listOptionWrap}>
-                  <div className={listClass["subTitle_color--blackB"]}>
-                    휴대전화 010-0000-0000
-                  </div>
-                  <div className={listClass["subTitle_color--black"]}>
-                    발신전화, 0분 33초
-                  </div>
-                  <MakeList
-                    listStyle={"flex_spaceBetween"}
-                    item1={{
-                      className: "iconWrapS_background--green",
-                      content: (
-                        <NavLink
-                          to={
-                            realFunctionName === functionName_makeCall
-                              ? urlContent
-                              : null
-                          }>
-                          <i className="bi bi-telephone-fill"></i>
-                        </NavLink>
-                      ),
-                    }}
-                    item2={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-chat-fill"></i>,
-                    }}
-                    item3={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-camera-video-fill"></i>,
-                    }}
-                    item4={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-info-circle-fill"></i>,
-                    }}></MakeList>
-                </div>
-              )}
-            </MakeList>
-            <MakeList
-              listStyle={"grid_oneLine"}
-              list={{ className: "" }}
-              listOnClick={showListOption2}
-              item1={{
-                className: "iconWrap_color--green",
-                content: <i className="bi bi-telephone-inbound-fill"></i>,
-              }}
-              item2={{
-                className: "title",
-                content: "영희",
-              }}
-              item3={{
-                className: "subTitle",
-                content: `오후 1:22`,
-              }}>
-              {isListClicked2 && (
-                <div className={classes.listOptionWrap}>
-                  <div className={listClass["subTitle_color--blackB"]}>
-                    휴대전화 010-1234-0000
-                  </div>
-                  <div className={listClass["subTitle_color--black"]}>
-                    수신전화, 1분 02초
-                  </div>
-                  <MakeList
-                    listStyle={"flex_spaceBetween"}
-                    item1={{
-                      className: "iconWrapS_background--green",
-                      content: (
-                        <NavLink
-                          to={
-                            realFunctionName === functionName_makeCall
-                              ? urlContent
-                              : null
-                          }>
-                          <i className="bi bi-telephone-fill"></i>
-                        </NavLink>
-                      ),
-                    }}
-                    item2={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-chat-fill"></i>,
-                    }}
-                    item3={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-camera-video-fill"></i>,
-                    }}
-                    item4={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-info-circle-fill"></i>,
-                    }}></MakeList>
-                </div>
-              )}
-            </MakeList>
-            <MakeList
-              listStyle={"grid_oneLine"}
-              list={{ className: "" }}
-              listOnClick={showListOption3}
-              item1={{
-                className: "iconWrap_color--green",
-                content: <i className="bi bi-telephone-x-fill"></i>,
-              }}
-              item2={{
-                className: "title",
-                content: "철수",
-              }}
-              item3={{
-                className: "subTitle",
-                content: `오전 9:00`,
-              }}>
-              {isListClicked3 && (
-                <div className={classes.listOptionWrap}>
-                  <div className={listClass["subTitle_color--blackB"]}>
-                    휴대전화 010-0000-0001
-                  </div>
-                  <div className={listClass["subTitle_color--black"]}>
-                    부재중 전화
-                  </div>
-                  <MakeList
-                    listStyle={"flex_spaceBetween"}
-                    item1={{
-                      className: "iconWrapS_background--green",
-                      content: (
-                        <NavLink
-                          to={
-                            realFunctionName === functionName_makeCall
-                              ? urlContent
-                              : null
-                          }>
-                          <i className="bi bi-telephone-fill"></i>
-                        </NavLink>
-                      ),
-                    }}
-                    item2={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-chat-fill"></i>,
-                    }}
-                    item3={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-camera-video-fill"></i>,
-                    }}
-                    item4={{
-                      className: "iconWrapS_background--green",
-                      content: <i className="bi bi-info-circle-fill"></i>,
-                    }}></MakeList>
-                </div>
-              )}
-            </MakeList>
+            {callHistoryListProps.map((prop) => makeListContent(prop))}
           </div>
         </div>
       )}
@@ -424,36 +318,7 @@ function CallAppMain() {
           </div>
           <div>
             <div className={listClass["subTitle"]}>내 프로필</div>
-            {listProps?.map((prop) => (
-              <>
-                {prop.content2 === "영희" && (
-                  <div className={listClass["subTitle"]}>ㅇ</div>
-                )}
-                {prop.content2 === "철수" && (
-                  <div className={listClass["subTitle"]}>ㅊ</div>
-                )}
-                <MakeList
-                  listStyle={"grid_oneLine"}
-                  list={{ className: "" }}
-                  listOnClick={
-                    prop.onClickFunction ? prop.onClickFunction : null
-                  }
-                  item1={{
-                    className: prop.className1,
-                    content: prop.content1,
-                  }}
-                  item2={{
-                    className: prop.className2,
-                    content: prop.content2,
-                  }}
-                  item3={{
-                    className: prop.className3,
-                    content: prop.content3,
-                  }}>
-                  {prop.children ? prop.children : null}
-                </MakeList>
-              </>
-            ))}
+            {contactListProps.map((prop) => makeListContent(prop))}
           </div>
         </div>
       )}
