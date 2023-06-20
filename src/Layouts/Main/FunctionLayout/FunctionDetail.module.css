@@ -1,6 +1,6 @@
 .functionDetailIntro {
   width: 80%;
-  margin: 0rem auto 14rem auto;
+  margin: 8rem auto 14rem auto;
   text-align: center;
 }
 
@@ -73,6 +73,9 @@
   }
   .functionDetailMain > :nth-child(3) {
     justify-self: end;
+  }
+  .functionDetailIntro {
+    margin: 4rem auto 6rem auto;
   }
 }
 
