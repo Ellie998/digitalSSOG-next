@@ -19,7 +19,6 @@ function MakeList({ FunctionOrApp, ListObjects }) {
           <li key={categoryRealName}>
             <NavLink
               to={`/?${categoryRealName}`}
-              data-tooltip="클릭!"
               className={keyword === categoryRealName ? classes.clicked : ""}>
               {categoryName}
             </NavLink>

@@ -16,6 +16,7 @@
     inset 0 25px 10px rgba(0, 0, 0, 0.034);
   line-height: 1.5rem;
   transition: 0.5s;
+  max-width: 800px;
 }
 .postIt_note:hover {
   transform: translateY(-10px);
@@ -42,12 +43,14 @@
   color: var(--grey-900);
   margin-top: 20px;
   border-bottom: 1px solid #b9b9b986;
+  word-break: keep-all;
 }
 .subTitle {
   height: 30px;
   border-bottom: 1px solid #b9b9b986;
   margin-top: 20px;
   color: var(--grey-400);
+  word-break: keep-all;
 }
 
 /* ------------------NOTE------------------- */
@@ -56,10 +59,12 @@
 }
 .note {
   background-color: #dadada08;
-  box-shadow: 0 0px 3px rgba(23, 23, 23, 0.187);
+  box-shadow: 0 0px 18px rgba(23, 23, 23, 0.18);
   transition: 0.1s;
   background-color: rgba(242, 242, 242, 0.38);
   min-height: 800px;
+  max-width: 800px;
+  transition: 0.3s;
 }
 .noteHoles {
   width: 30px;
@@ -73,15 +78,16 @@
   width: 20px;
   height: 20px;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.333);
   border-radius: 100%;
-}
-.note:hover {
-  box-shadow: 0 0px 18px rgba(23, 23, 23, 0.187);
-}
-.note:hover .noteHoles > div {
   box-shadow: inset 2px 4px 3px rgba(166, 166, 166, 0.187),
     0 0px 3px rgba(0, 0, 0, 0.333);
+}
+.note:hover {
+  box-shadow: 0 0px 3px rgba(23, 23, 23, 0.187);
+  transform: translateY(10px);
+}
+.note:hover .noteHoles > div {
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.333);
 }
 
 @media (max-width: 800px) {
@@ -91,18 +97,20 @@
 }
 @media (max-width: 600px) {
   .layout {
-    padding: 1rem;
+    padding: 4rem 2rem 2rem 2rem;
     display: block;
   }
 
   .title {
     font-size: 1.7rem;
-    word-break: keep-all;
+
+    width: 90%;
+    margin: 0 auto;
   }
   .subTitle {
     height: 60px;
-    margin-top: 0px;
-    word-break: keep-all;
+    margin: 0 auto;
+    width: 90%;
   }
   .noteHoles {
     display: none;
