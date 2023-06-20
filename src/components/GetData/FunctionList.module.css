@@ -4,6 +4,14 @@
   margin: 0 auto;
 }
 
+.title {
+  color: var(--grey-900);
+}
+
+.subTitle {
+  color: var(--grey-400);
+  margin-bottom: 4rem;
+}
 .listBox {
   background-color: #ffffff4d;
   border: 0.1px solid rgba(255, 255, 255, 0.387);
