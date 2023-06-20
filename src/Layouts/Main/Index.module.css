@@ -32,6 +32,7 @@
 
   line-height: 1.7em;
   font-size: 19px;
+  transition: 0.4s;
 }
 
 .postIt:before {
@@ -52,11 +53,13 @@
 /* -------------------TEXT------------------ */
 .title {
   color: var(--grey-900);
+  word-break: keep-all;
 }
 
 .subTitle {
   color: var(--grey-400);
   margin-bottom: 1rem;
+  word-break: keep-all;
 }
 
 /* -------------------LIST------------------ */

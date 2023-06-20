@@ -1,15 +1,15 @@
-.MakeList {
+.layout {
   width: 60%;
   overflow-x: scroll;
   white-space: nowrap;
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
 }
 
-.MakeList::-webkit-scrollbar {
+.layout::-webkit-scrollbar {
   display: none;
 }
 
-.MakeList > li {
+.layout > li {
   margin-top: 35px;
   padding: 0 0 10px 0;
   display: inline-block;
@@ -18,34 +18,21 @@
   transition: 0.1s;
 }
 
-.MakeList button {
-  padding: 0.5rem;
+.layout a {
+  font-size: 0.9rem;
+  padding: 4px 8px;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.93);
-
-  border-color: transparent;
+  background-color: rgb(255, 255, 255);
+  border: 4px solid transparent;
   box-shadow: 0 4px 4px rgba(23, 23, 23, 0.077);
 }
 
-/* .MakeList summary {
-  font-size: 1.2rem;
-}
-.MakeList details[open] summary {
-  color: var(--main-color);
-} */
-
-.MakeList button:hover {
-  box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
-  transform: translateY(-6px);
+.clicked {
+  font-weight: 900;
 }
 
 @media (max-width: 800px) {
-  .MakeList {
+  .layout {
     width: 90%;
-  }
-}
-@media (max-width: 500px) {
-  .MakeList button {
-    background-color: rgba(255, 255, 255, 0.525);
   }
 }

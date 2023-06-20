@@ -9,9 +9,16 @@
   justify-content: space-between;
   padding-bottom: 10px;
   margin-bottom: 5px;
+  border-bottom: 1px solid #b9b9b986;
 }
 
 .MakeListInCategory li:hover,
 .MakeListInCategory p:hover {
   color: var(--grey-400);
+}
+
+@media (max-width: 600px) {
+  .MakeListInCategory {
+    padding: 20px 20px 64px 20px;
+  }
 }

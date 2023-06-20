@@ -1,51 +1,113 @@
+/* ------------------LAYOUT------------------- */
 .layout {
   text-align: center;
   padding: 3rem;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 30px auto;
+}
+.postIt_note {
+  position: relative;
+  margin-top: 60px;
+  background: rgb(255, 255, 209);
+  box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
+  overflow: hidden;
+  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.05),
+    inset 0 25px 10px rgba(0, 0, 0, 0.034);
+  line-height: 1.5rem;
+  transition: 0.5s;
+}
+.postIt_note:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.124);
 }
 
+.postIt_note:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgb(255, 255, 209);
+  box-shadow: -3px -2px 10px rgba(0, 0, 0, 0.196),
+    inset -15px -15px 15px rgba(0, 0, 0, 0.093);
+  right: -15px;
+  top: 0;
+  z-index: 2;
+  transform: skewX(25deg);
+}
+
+/* ------------------TEXT------------------- */
 .title {
   color: var(--grey-900);
+  margin-top: 20px;
+  border-bottom: 1px solid #b9b9b986;
 }
-
 .subTitle {
+  height: 30px;
+  border-bottom: 1px solid #b9b9b986;
+  margin-top: 20px;
   color: var(--grey-400);
-  margin-bottom: 4rem;
-}
-.listBox {
-  background-color: #ffffff4d;
-  border: 0.1px solid rgba(255, 255, 255, 0.387);
-  margin: 30px auto;
-  width: 80%;
-  border-radius: 18px;
 }
 
-.boxShadow {
+/* ------------------NOTE------------------- */
+.noteContent {
+  margin: 0 0 0 30px;
+}
+.note {
   background-color: #dadada08;
   box-shadow: 0 0px 3px rgba(23, 23, 23, 0.187);
-  border: 0.1px solid rgba(98, 98, 98, 0.387);
   transition: 0.1s;
-  border-radius: 12px;
   background-color: rgba(242, 242, 242, 0.38);
-  /* background-color: #e1e1e15f; */
+  min-height: 800px;
 }
-.boxShadow:hover {
-  transform: translateY(-10px);
-  border: 0.1px solid rgba(255, 255, 255, 0.387);
+.noteHoles {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.noteHoles > div {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.333);
+  border-radius: 100%;
+}
+.note:hover {
   box-shadow: 0 0px 18px rgba(23, 23, 23, 0.187);
+}
+.note:hover .noteHoles > div {
+  box-shadow: inset 2px 4px 3px rgba(166, 166, 166, 0.187),
+    0 0px 3px rgba(0, 0, 0, 0.333);
 }
 
 @media (max-width: 800px) {
-  .listBox {
+  .postIt_note_note {
     width: 100%;
   }
 }
-@media (max-width: 500px) {
-  .FunctionList {
+@media (max-width: 600px) {
+  .layout {
     padding: 1rem;
+    display: block;
   }
-  .listBox {
-    background-color: #e1e1e15f;
-    box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
+
+  .title {
+    font-size: 1.7rem;
+    word-break: keep-all;
+  }
+  .subTitle {
+    height: 60px;
+    margin-top: 0px;
+    word-break: keep-all;
+  }
+  .noteHoles {
+    display: none;
+  }
+  .noteContent {
+    margin: 0 0 0 0px;
   }
 }

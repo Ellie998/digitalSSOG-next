@@ -9,33 +9,21 @@ function MakeList({ FunctionOrApp, ListObjects }) {
   const categorys = ["🔔 new", "👑 hot", "📞 전화, 문자", "👥 sns"];
 
   return (
-    <ul className={classes.MakeList}>
+    <ul className={classes.layout}>
+      <li>
+        <h3>카테고리 : </h3>
+      </li>
       {categorys.map((categoryName) => {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
           <li key={categoryRealName}>
-            <NavLink to={`?${categoryRealName}`}>
-              {({ isActive }) => (
-                <button
-                  value={categoryRealName}
-                  data-tooltip="클릭!"
-                  style={
-                    keyword === categoryRealName
-                      ? {
-                          backgroundColor: "rgba(255, 255, 255, 0.431)",
-                          transform: "translateY(-6px)",
-                        }
-                      : {}
-                  }
-                  className={
-                    keyword === categoryRealName ? classes.clicked : undefined
-                  }>
-                  {/* // className={isActive? "active":""}
-                  // style={{ fontWeight: isActive ? "bold" : "" }}> */}
-                  {categoryName}
-                </button>
-              )}
+            <NavLink
+              to={`/?${categoryRealName}`}
+              data-tooltip="클릭!"
+              className={keyword === categoryRealName ? classes.clicked : ""}>
+              {categoryName}
             </NavLink>
+            {categoryName !== categorys[categorys.length - 1] && ","}
           </li>
         );
       })}

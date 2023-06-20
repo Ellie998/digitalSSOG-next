@@ -20,7 +20,6 @@ function MakeListInCategory({ FunctionOrApp }) {
 
   return (
     <>
-      <p>기능 이름</p>
       <ol className={classes.MakeListInCategory}>
         {selectedCategoryObject.objects?.map((functionObject) => (
           <li key={Math.random()}>
