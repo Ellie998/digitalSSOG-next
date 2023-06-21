@@ -136,9 +136,12 @@ function AppMain() {
           choicedComponent = <MainApps />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
-        } else if (descriptionId === "2") {
+        } else if (descriptionId === "2" && methodId === "1") {
           choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "3") {
+        } else if (
+          (descriptionId === "3" && methodId === "1") ||
+          (descriptionId === "2" && methodId === "2")
+        ) {
           choicedComponent = <Message></Message>;
         }
       }
