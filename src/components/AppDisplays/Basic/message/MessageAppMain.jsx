@@ -77,6 +77,8 @@ function MessageAppMain() {
             <div className={classes.firstNameBox}>홍</div>
             <NavLink
               to={
+                (realFunctionName === functionName_sendMessage &&
+                  methodId === "2") ||
                 realFunctionName === functionName_resendMessage ||
                 (realFunctionName === functionName_seeMessage &&
                   methodId === "1")
@@ -84,6 +86,8 @@ function MessageAppMain() {
                   : null
               }
               data-tooltip={
+                (realFunctionName === functionName_sendMessage &&
+                  methodId === "2") ||
                 realFunctionName === functionName_resendMessage ||
                 (realFunctionName === functionName_seeMessage &&
                   methodId === "1")
