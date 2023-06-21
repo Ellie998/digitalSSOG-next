@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PageContext } from "../../sections/AppMain";
-import classes from "./ComeCall.module.css";
+import classes from "./AnswerCall.module.css";
 import { NavLink } from "react-router-dom";
 
 const AnswerCall = () => {
@@ -41,7 +41,7 @@ const AnswerCall = () => {
               <i className="bi bi-person-fill"></i>
             </div>
           </div>
-          <div className={classes.content_title}>홍길동</div>
+          <div className={classes.content_title}>철수</div>
           <div
             className={`${classes["content_sub"]} ${classes["font_color--light"]}`}>
             보이스톡 해요.
