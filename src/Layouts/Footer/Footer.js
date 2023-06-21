@@ -21,7 +21,7 @@ function Footer() {
   // })();
 
   return (
-    <footer className={classes.footer}>
+    <footer className={classes.layout}>
       {/* <section>
         <div id="disqus_thread"></div>
 
@@ -33,7 +33,9 @@ function Footer() {
         </noscript>
       </section> */}
 
-      <p>Copyright © upps</p>
+      <p>
+        <i className="bi bi-envelope-fill"></i> digitalssog@naver.com
+      </p>
     </footer>
   );
 }

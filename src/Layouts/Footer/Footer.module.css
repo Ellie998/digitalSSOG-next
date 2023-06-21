@@ -1,4 +1,4 @@
-.footer {
+.layout {
   padding: 10rem 1rem;
   /* display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   align-items: center; */
 }
 
-.footer p {
+.layout p {
   margin: 9rem auto 3rem auto;
   text-align: center;
 }
