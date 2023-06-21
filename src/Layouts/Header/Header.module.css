@@ -1,6 +1,5 @@
 .header {
   background-color: #f3f3f384;
-  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 5px 0;
   box-shadow: 0px 0px 18px rgba(30, 30, 30, 0.116);

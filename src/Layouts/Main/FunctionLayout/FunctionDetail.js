@@ -1,4 +1,4 @@
-import styles from "./FunctionDetail.module.css";
+import classes from "./FunctionDetail.module.css";
 import MethodAppList from "../../../components/FunctionDetailComponents/Description/MethodAppList";
 
 import { useEffect, useState } from "react";
@@ -29,22 +29,24 @@ function FunctionDetail() {
 
   return (
     <main>
-      <section className={styles.functionDetailIntro}>
-        <h1>
-          <b className={styles.b}>{detailFunctionObject.name}</b> 기능 소개
+      <section className={classes.main_header}>
+        <h1 className={classes.title}>
+          <b>{detailFunctionObject.name}</b> 기능 소개
         </h1>
         <ul>
-          <li className={styles.listStyling}>
+          <li className={classes.listBox}>
             <h2>특징</h2>
             <p>{detailFunctionObject.charateristic}</p>
           </li>
-          <li className={styles.listStyling}>
+          <li className={classes.listBox}>
             <h2>관련 어플</h2>
             <ul>
               {detailFunctionObject.app?.map((appName) => (
                 <li key={Math.random()}>
                   <Link
-                    to={"/description/" + functionName + "/" + appName + "/0"}>
+                    to={
+                      "/description/" + functionName + "/" + appName + "/0/0"
+                    }>
                     {appName}
                   </Link>
                 </li>
@@ -53,12 +55,19 @@ function FunctionDetail() {
           </li>
         </ul>
       </section>
-      <section className={styles.functionDetailMain}>
+      <section className={classes.main}>
         <h2>
-          <b className={styles.b}>{detailFunctionObject.name}</b> 기능 실행 방법
+          <b className={classes.title}>{detailFunctionObject.name}</b> 기능 실행
+          방법
         </h2>
         <MethodAppList functionMethods={detailFunctionObject.method} />
-        <Outlet />
+        <div>
+          <Outlet />
+          <div className={classes.flexWrap}>
+            {/* <div className={classes.btn}>이전 화면</div>
+            <div className={classes.btn}>다음 화면</div> */}
+          </div>
+        </div>
       </section>
     </main>
   );
