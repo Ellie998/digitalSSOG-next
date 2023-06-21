@@ -10,7 +10,6 @@ import CallConnected from "../Basic/call/CallConnected";
 import VideoCallConnected from "../Basic/call/VideoCallConnected";
 //kakao
 import KakaoAppMain from "../Kakaotalk/KakaoAppMain";
-import KakaoProfileMain from "../Kakaotalk/KakaoProfileMain";
 import KakaoProfileDetail from "../Kakaotalk/KakaoProfileDetail";
 // message
 import MessageAppMain from "../Basic/message/MessageAppMain";
@@ -91,10 +90,8 @@ function AppMain() {
         } else if (descriptionId === "1") {
           choicedComponent = <KakaoAppMain />;
         } else if (descriptionId === "2") {
-          choicedComponent = <KakaoProfileMain />;
-        } else if (descriptionId === "3") {
           choicedComponent = <KakaoProfileDetail />;
-        } else if (descriptionId === "4") {
+        } else if (descriptionId === "3") {
           choicedComponent = <CallConnected />;
         } else {
           choicedComponent = <div></div>;

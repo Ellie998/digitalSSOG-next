@@ -1,39 +1,59 @@
-.mainDisplay {
+.layout {
   margin-top: 10px;
   font-size: 1rem;
-  background-color: aliceblue;
+  background-color: rgba(47, 47, 47, 0.306);
   display: grid;
-  grid-template-rows: repeat(7, 39px);
+  grid-template-rows: repeat(7, 38px);
   text-align: center;
+  position: relative;
+  width: 175px;
+  left: -4px;
+}
+.mainLayout {
+  grid-row: 5/7;
+}
+
+/*  */
+.text_center--white {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .profileImg {
-  grid-row: 4/5;
   margin: 0 auto;
-  background-color: white;
-  border: 2px solid rgb(54, 147, 219);
-  border-radius: 40px;
+  background-color: rgb(193, 229, 255);
+  border-radius: 22px;
   width: 50px;
   height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0 0 4px rgb(164, 164, 164);
 }
 
 .profileImg i {
+  color: rgb(226, 243, 255);
   font-size: 24px;
 }
-.propfileMenus {
-  grid-row: 6/8;
+.listLayout {
+  grid-row: 7/8;
   display: flex;
   justify-content: space-between;
-  /* border: 2px solid black; */
+  border-top: 0.5px solid rgb(236, 236, 236);
+  padding: 8px 0;
 }
 
-.propfileMenus li {
-  width: 32px;
+.listLayout > div {
+  width: 38px;
 }
-.propfileMenus p {
-  color: rgb(217, 217, 217);
+.listLayout > div > div,
+.listLayout > div > a > div {
+  color: white;
   font-size: 8px;
+  font-weight: 600;
+}
+.listLayout i {
+  color: white;
 }

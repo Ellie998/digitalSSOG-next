@@ -94,6 +94,7 @@ function CallAppMain() {
   // list정보에 대한 prop 파라미터를 받아 list 만드는 함수
   const makeListContent = (prop) => (
     <MakeList
+      key={Math.random()}
       listStyle={"grid_oneLine"}
       list={{ className: "" }}
       listOnClick={prop.onClickFunction ? prop.onClickFunction : null}

@@ -6,35 +6,34 @@ import { useContext } from "react";
 function KakaoProfileDetail() {
   const { urlContent } = useContext(PageContext);
   return (
-    <section className={classes.AppMain}>
-      <section className={classes.mainDisplay}>
-        {/* <div className={classes.profileBackImg}></div> */}
+    <section className={classes.layout}>
+      <section className={classes.mainLayout}>
         <div className={classes.profileImg}>
-          <i className="bi bi-person"></i>
+          <i className="bi bi-person-fill"></i>
         </div>
-        <ul className={classes.propfileMenus}>
-          <li>
-            <i className="bi bi-chat"></i>
-            <p>1:1채팅</p>
-          </li>
-          <li>
-            <div data-tooltip="클릭!">
-              <NavLink to={urlContent}>
-                <i className="bi bi-telephone"></i>
-                <p>통화하기</p>
-              </NavLink>
-            </div>
-          </li>
-          <li>
-            <i className="bi bi-camera-video"></i>
-            <p>페이스톡</p>
-          </li>
-          <li>
-            <i className="bi bi-quote"></i>
-            <p>스토리</p>
-          </li>
-        </ul>
+        <div className={classes["text_center--white"]}>철수</div>
       </section>
+
+      <div className={classes.listLayout}>
+        <div>
+          <i className="bi bi-chat-fill"></i>
+          <div>1:1채팅</div>
+        </div>
+        <div>
+          <NavLink to={urlContent} data-tooltip="클릭!">
+            <i className="bi bi-telephone-fill"></i>
+            <div>통화하기</div>
+          </NavLink>
+        </div>
+        <div>
+          <i className="bi bi-camera-video-fill"></i>
+          <div>페이스톡</div>
+        </div>
+        <div>
+          <i className="bi bi-quote"></i>
+          <div>스토리</div>
+        </div>
+      </div>
     </section>
   );
 }

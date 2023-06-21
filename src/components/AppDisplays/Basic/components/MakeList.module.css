@@ -11,7 +11,7 @@
   display: grid;
   grid-template-columns: repeat(6, 28px);
   align-items: center;
-  height: 30px;
+  height: 35px;
 }
 .background--grey {
   background-color: rgb(243, 243, 243);
@@ -52,6 +52,11 @@
 .grid_thirdCol--row2 {
   grid-column: 5/7;
   grid-row: 2/3;
+}
+/* --------------- FLEX LAYOUT ------------------ */
+.flex_leftItems,
+.flex_rightItems {
+  display: flex;
 }
 
 /* --------------- ICON ------------------ */
@@ -95,11 +100,46 @@
   justify-content: center;
   align-items: center;
 }
+.iconWrap_background--skyBlue {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92e7ff8a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconWrap_background--purple {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #929dff8a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconWrap_background--blue {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92caff8a;
+  border-radius: 18px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .iconWrap_background--orange i,
 .iconWrap_background--yellow i,
 .iconWrap_background--pink i,
 .iconWrap_background--grey i {
   color: white;
+}
+.iconWrap_background--skyBlue i,
+.iconWrap_background--blue i,
+.iconWrap_background--purple i {
+  color: #ededed;
 }
 .iconWrap_background--green i {
   text-align: center;
@@ -126,9 +166,16 @@
   text-align: start;
   margin-left: 5px;
 }
+.title--bold {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+  font-weight: 600;
+}
 .subTitle {
   font-size: 0.5rem;
-  margin-left: 10px;
+  margin-left: 5px;
   text-align: start;
   color: var(--grey-400);
 }
@@ -158,9 +205,59 @@
   border-radius: 22px;
   width: 0.9rem;
 }
+.subInfo_border--grey {
+  grid-column: 4/7;
+  font-size: 0.6rem;
+  text-align: center;
+  border-radius: 22px;
+  border: 1px solid rgb(206, 206, 206);
+}
 .title:hover,
 .info:hover,
 .subTitle:hover,
 .subInfo:hover {
   cursor: pointer;
+}
+
+/* ------------------KAKAO--------------------- */
+.profile_layout {
+  display: grid;
+  grid-template-columns: 30px 70px 70px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.profile_layout i {
+  width: fit-content;
+}
+.profile_img {
+  margin-right: 14px;
+}
+.profile_message {
+  font-size: 0.6rem;
+  color: var(--grey-400);
+}
+
+.profile_musicBox {
+  grid-column: 4/7;
+
+  font-size: 0.7rem;
+  border: 1px solid greenyellow;
+  border-radius: 12px;
+  /* max-width: 70px; */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  justify-self: end;
+}
+.profile_musicBox:hover {
+  background-color: rgb(208, 208, 208);
+}
+.profile_musicBox i {
+  color: greenyellow;
+  box-shadow: none;
+}
+.profile_musicBox i:hover {
+  box-shadow: none;
+  background-color: transparent;
 }

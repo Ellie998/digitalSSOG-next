@@ -53,7 +53,7 @@ const CallConnected = () => {
           </div>
 
           <div className={classes.content_title}>
-            <div>홍길동</div>
+            <div>철수</div>
           </div>
           <div className={classes["content_sub"]}>00:04</div>
           <div
