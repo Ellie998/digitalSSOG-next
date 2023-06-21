@@ -7,7 +7,16 @@
 .title {
   color: var(--grey-900);
 }
-
+.subTitle {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  width: 230px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+.subTitle:hover {
+  color: var(--grey-600);
+}
 .main_header > ul {
   margin: 2rem auto;
   display: grid;
