@@ -11,7 +11,6 @@ function MakeListInCategory({ FunctionOrApp }) {
   const listObjects = useLoaderData();
 
   let selectedCategoryObject = {};
-  // selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
   // let selectedCategoryObject = { ...listObjects[0] };
   // selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
   listObjects?.forEach((categoryObject) => {
