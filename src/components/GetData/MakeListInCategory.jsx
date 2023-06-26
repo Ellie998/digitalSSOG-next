@@ -9,9 +9,11 @@ function MakeListInCategory({ FunctionOrApp }) {
   const keyword = decodeURI(params);
 
   const listObjects = useLoaderData();
-  let selectedCategoryObject = { ...listObjects[0] };
 
-  selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
+  let selectedCategoryObject = {};
+  // selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
+  // let selectedCategoryObject = { ...listObjects[0] };
+  // selectedCategoryObject = !keyword ? { ...listObjects[0] } : "";
   listObjects?.forEach((categoryObject) => {
     if (categoryObject.category === keyword) {
       selectedCategoryObject = categoryObject;

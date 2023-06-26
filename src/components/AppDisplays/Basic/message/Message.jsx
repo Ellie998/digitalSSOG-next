@@ -105,7 +105,7 @@ function Message() {
   }
 
   return (
-    <section className={classes.layout}>
+    <div className={classes.layout}>
       <div className={classes.main_header} onClick={backClickHandler}>
         <div className={classes.firstNameBox}>홍</div>
         <div className={classes.nameBox}>홍길동</div>
@@ -428,7 +428,7 @@ function Message() {
           />
         </div>
       )}
-    </section>
+    </div>
   );
 }
 
