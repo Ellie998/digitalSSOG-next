@@ -1,5 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://www.ssog.pages.dev/sitemap.xml
+Sitemap: https://ssog.pages.dev/sitemap.xml
 google.com, pub-9013250950684251, DIRECT, f08c47fec0942fa0
