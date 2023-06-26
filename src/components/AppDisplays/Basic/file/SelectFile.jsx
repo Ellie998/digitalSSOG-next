@@ -193,6 +193,7 @@ function SelectFile() {
               </div>
             </div>
             {/* folder list */}
+
             {!isFolderClicked && (
               <div className={`${classes["listWrap_Gallery"]}`}>
                 {numArray_folder.map((num) => (

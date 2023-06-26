@@ -1,0 +1,51 @@
+.display_grid--col4 {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  column-gap: 4px;
+  row-gap: 4px;
+}
+
+.display_flex {
+  display: flex;
+}
+
+.imgBox {
+  position: relative;
+  z-index: 0;
+  font-size: 0.6rem;
+  background-color: antiquewhite;
+  width: 38px;
+  padding: 10px 4px 4px 4px;
+  height: 38px;
+  text-align: center;
+}
+
+.display_flex > label {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  top: -10px;
+  z-index: 0;
+}
+
+.checkBox {
+  display: block;
+  position: relative;
+  z-index: 10;
+  top: 15px;
+  align-self: first baseline;
+}
+
+.iconWrap {
+  position: relative;
+  z-index: 10;
+  align-self: end;
+  right: 15px;
+}
+.iconWrap > i {
+  background-color: rgba(19, 19, 19, 0.517);
+  font-size: 10px;
+  color: white;
+  padding: 0 2px;
+  border-radius: 4px;
+}

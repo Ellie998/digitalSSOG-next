@@ -217,11 +217,11 @@ function AppMain() {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
           choicedComponent = <Message />;
-        } else if (descriptionId === "4") {
+        } else if (descriptionId === "4" && methodId === "2") {
           choicedComponent = <SelectFile />;
-        } else if (descriptionId === "5") {
+        } else if (descriptionId === "5" && methodId === "2") {
           choicedComponent = <ChoiceImgs />;
-        } else if (descriptionId === "6") {
+        } else if (descriptionId === "6" && methodId === "2") {
           choicedComponent = <MessageWithOption></MessageWithOption>;
         }
       }

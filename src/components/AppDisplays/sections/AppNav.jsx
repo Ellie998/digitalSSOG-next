@@ -3,13 +3,13 @@ import styles from "./AppNav.module.css";
 
 function AppNav() {
   const navigate = useNavigate();
-  const { functionName, appName } = useParams();
+  const { functionName, appName, methodId } = useParams();
 
   function goToBack() {
     window.history.back();
   }
   function goToHome() {
-    navigate(`/description/${functionName}/${appName}/0`);
+    navigate(`/description/${functionName}/${appName}/${methodId}/0`);
   }
   return (
     <section>

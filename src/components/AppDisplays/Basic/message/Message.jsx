@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
-import classes from "./Message.module.css";
 import { NavLink } from "react-router-dom";
 import { PageContext } from "../../sections/AppMain";
+import classes from "./Message.module.css";
+import ChoiceImg from "../components/ChoiceImg";
 
 function Message() {
   const {
     appName,
     urlContent,
     realFunctionName,
+    methodId,
     //
     functionName_resendMessage,
     functionName_reserveMessage,
@@ -20,18 +22,24 @@ function Message() {
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
-  const [enteredMessage, setenteredMessage] = useState("");
+  const [enteredMessage, setEnteredMessage] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
+  const [imgBtnClicked, setImgBtnClicked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
+  // Choice IMG
+  const [choicedImgs, setChoicedImgs] = useState([]);
+  const [sendImgs, setSendImgs] = useState([]);
 
   function mouseOverHandler(event) {
     setTimeout(() => {
       setIsOvered(true);
     }, 1000);
   }
+
   function backClickHandler() {
     setIsOvered(false);
     setPlusClicked(false);
+    setImgBtnClicked(false);
   }
 
   function inputClickHandler(event) {
@@ -41,22 +49,64 @@ function Message() {
   function sendBtnClickHandler(event) {
     setMessageContent(enteredMessage);
     setSendBtnClicked(true);
-    setenteredMessage("");
+    setEnteredMessage("");
+    setImgBtnClicked(false);
+    setSendImgs([...choicedImgs]);
+    setChoicedImgs([]);
   }
 
   function inputOutHandler(event) {
     setInputClicked(false);
   }
   function inputChangeHandler(event) {
-    setenteredMessage(event.target.value);
+    setEnteredMessage(event.target.value);
   }
   function plusBtnClickHandler() {
     setPlusClicked(true);
+    setImgBtnClicked(false);
+    setChoicedImgs([]);
+    setSendBtnClicked(false);
+  }
+  function imgNavBtnClickHandler() {
+    setImgBtnClicked(true);
+    setPlusClicked(false);
+    setMessageContent("");
+    setSendBtnClicked(false);
+    setChoicedImgs([]);
+  }
+
+  // OPTION IMG CLICKED
+  function imgCheckHandler(event) {
+    let updatedValue;
+    updatedValue = event.target.id;
+    event.target.checked === true &&
+      setChoicedImgs((prevObject) => [...prevObject, updatedValue]);
+
+    event.target.checked === false &&
+      setChoicedImgs((prevObject) => {
+        prevObject = prevObject.filter((item) => item !== updatedValue);
+        return [...prevObject];
+      });
+  }
+  function deleteBtnHandler(event) {
+    if (event.target.tagName === "I") {
+      const deleteItem = event.target.parentNode.dataset.deleteitemid;
+      setChoicedImgs((prevObject) => {
+        prevObject = prevObject.filter((item) => item !== deleteItem);
+        return [...prevObject];
+      });
+    } else {
+      const deleteItem = event.target.dataset.deleteitemid;
+      setChoicedImgs((prevObject) => {
+        prevObject = prevObject.filter((item) => item !== deleteItem);
+        return [...prevObject];
+      });
+    }
   }
 
   return (
-    <section className={classes.appMain}>
-      <div className={classes.appHeader} onClick={backClickHandler}>
+    <section className={classes.layout}>
+      <div className={classes.main_header} onClick={backClickHandler}>
         <div className={classes.firstNameBox}>홍</div>
         <div className={classes.nameBox}>홍길동</div>
         <div>
@@ -65,17 +115,30 @@ function Message() {
       </div>
       <div
         className={`${classes.messages} ${
-          plusClicked && classes.messagesSmall
-        }`}
+          plusClicked ? classes.messagesSmall : ""
+        }
+        ${imgBtnClicked || inputClicked ? classes["messagesSmall--2to4"] : ""}`}
         onClick={backClickHandler}>
         <div className={classes.getMessage}>
           <div onPointerDown={mouseOverHandler}>
-            {/* <div onMouseOver={mouseOverHandler}> */}
             결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
             OO로 OOO번길 O, OOO 컨벤션
           </div>
           <div>오전 8:03</div>
         </div>
+        {!messageContent && sendBtnClicked && (
+          <div className={classes.sendMessage}>
+            <div>오전 9:54</div>
+            <div style={{ display: "none" }}></div>
+            <div className={classes.imgBox}></div>
+          </div>
+        )}
+        {messageContent && sendImgs.length !== 0 && sendBtnClicked && (
+          <div className={classes.sendMessage}>
+            <div className={classes.imgBox}></div>
+            <div style={{ display: "none" }}></div>
+          </div>
+        )}
         {messageContent && sendBtnClicked && (
           <div className={classes.sendMessage}>
             <div>오전 9:54</div>
@@ -111,17 +174,17 @@ function Message() {
         )}
       </div>
       <div
-        className={`${classes.appNav} ${plusClicked && classes.appNavSmall}`}
-        onClick={plusClicked ? backClickHandler : null}>
+        className={`${classes.appNav} ${plusClicked ? classes.appNavSmall : ""}
+        ${imgBtnClicked ? classes["appNavSmall--6to7"] : ""}`}>
         {!inputClicked && (
           <div className={classes.navOptions}>
-            <div>
+            <div onClick={imgNavBtnClickHandler}>
               <i className="bi bi-image"></i>
             </div>
             <div>
               <i className="bi bi-camera"></i>
             </div>
-            <div data-tooltip="클릭" onClick={plusBtnClickHandler}>
+            <div onClick={plusBtnClickHandler}>
               <i className="bi bi-plus"></i>
             </div>
           </div>
@@ -143,12 +206,12 @@ function Message() {
             <i className="bi bi-emoji-smile"></i>
           </div>
         </div>
-        {!enteredMessage && (
+        {!enteredMessage && choicedImgs.length === 0 && (
           <div className={classes.soundIcon}>
             <i className="bi bi-soundwave"></i>
           </div>
         )}
-        {enteredMessage && (
+        {(enteredMessage || choicedImgs.length !== 0) && (
           <NavLink>
             <div
               className={classes.sendIcon}
@@ -159,8 +222,23 @@ function Message() {
           </NavLink>
         )}
       </div>
+      {imgBtnClicked && choicedImgs.length >= 1 && (
+        <div className={classes.optionInfoWrap}>
+          {choicedImgs?.map((item) => (
+            <div className={classes.optionImgWrap} key={Math.random()}>
+              <div className={classes.imgBox}>{item.slice(3, 4)}</div>
+              <div
+                className={classes.deleteBtn}
+                onClick={deleteBtnHandler}
+                data-deleteitemid={item}>
+                <i className="bi bi-dash-circle"></i>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
       {plusClicked && (
-        <div className={`${classes.optionBox} `}>
+        <div className={`${classes["optionBox_background--grey"]} `}>
           <div className={classes.optionRow}>
             <div>
               <div className={classes.iconWrap}>
@@ -239,13 +317,15 @@ function Message() {
               <NavLink
                 data-tooltip={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendImg
+                  realFunctionName === functionName_sendImg &&
+                  methodId === "2"
                     ? `클릭!`
                     : null
                 }
                 to={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendImg
+                  realFunctionName === functionName_sendImg &&
+                  methodId === "2"
                     ? urlContent
                     : null
                 }>
@@ -259,14 +339,17 @@ function Message() {
               <NavLink
                 data-tooltip={
                   appName === appName_basic &&
-                  realFunctionName === functionName_sendImg
+                  realFunctionName === functionName_sendImg &&
+                  methodId === "2"
                     ? `클릭!`
                     : null
                 }
                 to={
                   appName === appName_basic &&
                   realFunctionName === functionName_sendImg &&
-                  `${urlContent}`
+                  methodId === "2"
+                    ? `${urlContent}`
+                    : null
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-play-btn"></i>
@@ -335,6 +418,14 @@ function Message() {
               <div>음성녹음</div>
             </div>
           </div>
+        </div>
+      )}
+      {imgBtnClicked && (
+        <div className={classes.optionBox}>
+          <ChoiceImg
+            onImgCheckHandler={imgCheckHandler}
+            choicedImgs={choicedImgs}
+          />
         </div>
       )}
     </section>

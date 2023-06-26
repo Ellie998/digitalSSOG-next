@@ -1,8 +1,9 @@
-
-.AppNav{
+.AppNav {
   display: flex;
   justify-content: space-between;
   padding: 0 12px;
+  z-index: 1;
+  background-color: white;
 }
 
 .AppNav i {
