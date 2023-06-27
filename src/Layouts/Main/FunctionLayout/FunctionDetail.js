@@ -61,7 +61,7 @@ function FunctionDetail() {
           방법
         </h2>
         <MethodAppList functionMethods={detailFunctionObject.method} />
-        <div>
+        <div className={classes.displayBox}>
           <p className={classes.subTitle}>
             ❗️ 학습에 도움을 드리기 위해 실제 스마트폰의 모습을 본따 만든
             화면입니다.
