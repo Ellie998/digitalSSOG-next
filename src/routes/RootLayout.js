@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+
+import { Outlet, useLocation, useParams } from "react-router-dom";
 
 import Header from "../Layouts/Header/Header";
 import Footer from "../Layouts/Footer/Footer";
 
 import classes from "./RootLayout.module.css";
+import MetaTag from "../MetaTag";
 
 function RootLayout({ children }) {
   const htmlElement = document.querySelector("html");
@@ -23,7 +25,11 @@ function RootLayout({ children }) {
   const [fontSize, setfontSize] = useState("16px");
 
   const location = useLocation();
+
   const pathArray = location.pathname.split("/");
+  const params = useParams();
+  const functionName = params.functionName;
+  const realFunctionName = functionName?.slice(2);
 
   const scrollToTop = () => {
     window.scroll({
@@ -61,6 +67,16 @@ function RootLayout({ children }) {
   }, [fontSize, htmlElement.style]);
   return (
     <div className={classes.layout} id="pcScrollTarget" ref={divRef}>
+      <MetaTag
+        title={
+          realFunctionName ? `${realFunctionName} 기능 사용법` : "디지털쏙"
+        }
+        url={`https://ssog.pages.dev${location.pathname}`}
+        description={
+          realFunctionName
+            ? `${realFunctionName} 기능을 사용하는 여러가지 방법을 공유합니다.`
+            : "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요."
+        }></MetaTag>
       <Header />
       <Outlet />
       {children}

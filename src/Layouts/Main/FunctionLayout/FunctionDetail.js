@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams, Link, Outlet } from "react-router-dom";
 
 function FunctionDetail() {
-  const params = useParams();
   const data = useLoaderData();
 
+  const params = useParams();
   const functionName = params.functionName;
 
   const [detailFunctionObject, setData] = useState([]);

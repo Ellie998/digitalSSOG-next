@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
+
 // import { createBrowserHistory } from "history";
 // import ReactGA from "react-ga";
 
@@ -12,6 +15,7 @@ import RootLayout from "./routes/RootLayout";
 import ErrorPage from "./routes/ErrorPage";
 
 import "./common.css";
+// import MetaTag from "./MetaTag";
 
 // google search console
 // const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID; // 환경 변수에 저장된 추적ID 가져오기
@@ -72,7 +76,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>
 );
 
