@@ -1,11 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-// import { Helmet } from "react-helmet-async";
 
-// import { createBrowserHistory } from "history";
-// import ReactGA from "react-ga";
+import { hydrate, render } from "react-dom";
 
 import reportWebVitals from "./reportWebVitals";
 import Index, { loader as functionDataLoader } from "./Layouts/Main/Index";
@@ -15,19 +13,6 @@ import RootLayout from "./routes/RootLayout";
 import ErrorPage from "./routes/ErrorPage";
 
 import "./common.css";
-// import MetaTag from "./MetaTag";
-
-// google search console
-// const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID; // 환경 변수에 저장된 추적ID 가져오기
-// ReactGA.initialize(gaTrackingId, { debug: true }); // react-ga 초기화 및 debug 사용
-
-// const history = createBrowserHistory();
-
-// history.listen((response) => {
-//   console.log(response.location.pathname);
-//   ReactGA.set({ page: response.location.pathname });
-//   ReactGA.pageview(response.location.pathname);
-// });
 
 const router = createBrowserRouter([
   {
@@ -73,14 +58,28 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+const rootElement = document.getElementById("root");
+const app = (
   <React.StrictMode>
     <HelmetProvider>
       <RouterProvider router={router} />
     </HelmetProvider>
   </React.StrictMode>
 );
+
+if (rootElement?.hasChildNodes()) {
+  hydrate(app, rootElement);
+} else {
+  render(app, rootElement);
+}
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <React.StrictMode>
+//     <HelmetProvider>
+//       <RouterProvider router={router} />
+//     </HelmetProvider>
+//   </React.StrictMode>
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
