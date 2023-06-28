@@ -26,3 +26,7 @@ yarn-error.log*
 # data files
 /data
 data.js
+
+
+src/generateSitemap.js
+src/sitemapRoutes.js
