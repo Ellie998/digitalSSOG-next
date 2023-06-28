@@ -69,7 +69,9 @@ function RootLayout({ children }) {
     <div className={classes.layout} id="pcScrollTarget" ref={divRef}>
       <MetaTag
         title={
-          realFunctionName ? `${realFunctionName} 기능 사용법` : "디지털쏙"
+          realFunctionName
+            ? `${realFunctionName} 기능 사용법 - 디지털쏙`
+            : "디지털쏙"
         }
         url={`https://ssog.pages.dev${location.pathname}`}
         description={
