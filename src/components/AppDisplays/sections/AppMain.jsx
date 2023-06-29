@@ -23,6 +23,7 @@ import SetReservation from "../Basic/message/reserve-message/SetReservation";
 //file
 import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
+import KakaoChatRoom from "../Kakaotalk/KakaoChatRoom";
 
 export const PageContext = createContext({
   functionName: "",
@@ -276,7 +277,7 @@ function AppMain() {
           <KakaoAppMain navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <AppMainError />;
+        choicedComponent = <KakaoChatRoom />;
       } else if (descriptionId === "3") {
         choicedComponent = <AppMainError />;
       } else if (descriptionId === "4") {

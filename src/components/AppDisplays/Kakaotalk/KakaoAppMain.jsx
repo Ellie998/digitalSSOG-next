@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { PageContext } from "../sections/AppMain";
 
@@ -8,8 +8,9 @@ import MakeList from "../Basic/components/MakeList";
 
 function KakaoAppMain({ navTriger }) {
   const { urlContent } = useContext(PageContext);
+  const [tabName, setTabName] = useState("friend");
 
-  const listContents = [
+  const friendListContents = [
     <MakeList
       listStyle={"grid_oneLine"}
       item1={{
@@ -53,62 +54,232 @@ function KakaoAppMain({ navTriger }) {
         content: "밤이 깊었네-노..",
       }}></MakeList>,
   ];
+  const chatListContents = [
+    <MakeList
+      listStyle={"grid_twoLine"}
+      item1={{
+        className: "iconWrap_background--purple",
+        content: <i className="bi bi-people-fill"></i>,
+      }}
+      item2={{
+        className: "title",
+        content: "그룹채팅방1",
+      }}
+      item3={{
+        className: "info",
+        content: "오전 8:09",
+      }}
+      subItem2={{
+        className: "subTitle",
+        content: "퇴사합니다.",
+      }}></MakeList>,
+    <MakeList
+      listStyle={"grid_twoLine"}
+      item1={{
+        className: "iconWrap_background--purple",
+        content: <i className="bi bi-person-fill"></i>,
+      }}
+      item2={{
+        className: "title",
+        content: "영희",
+      }}
+      item3={{
+        className: "info",
+        content: "오후 2:05",
+      }}
+      subItem2={{
+        className: "subTitle",
+        content: "네.",
+      }}
+      subItem3={{
+        className: "subInfo",
+        content: "1",
+      }}></MakeList>,
+    <MakeList
+      listStyle={"grid_twoLine"}
+      item1={{
+        className: "iconWrap_background--purple",
+        content: <i className="bi bi-person-fill"></i>,
+      }}
+      item2={{
+        className: "title",
+        content: "철수",
+      }}
+      item3={{
+        className: "info",
+        content: "오전 9:42",
+      }}
+      subItem2={{
+        className: "subTitle",
+        content: "아모티콘을 보냈습니다.",
+      }}></MakeList>,
+  ];
   return (
     <div className={classes.layout}>
       <div className={classes.mainLayout}>
         <div className={classes.main_header}>
-          <MakeList
-            listStyle={"flex_spaceBetween"}
-            leftFlexItem={[{ classeName: "title--bold", content: "친구" }]}
-            rightFlexItem={[
-              {
-                className: "",
-                content: <i className="bi bi-search"></i>,
-              },
-              {
-                className: "",
-                content: <i className="bi bi-person-plus"></i>,
-              },
-              {
-                className: "",
-                content: <i className="bi bi-music-note-beamed"></i>,
-              },
-              {
-                className: "",
-                content: <i className="bi bi-gear"></i>,
-              },
-            ]}></MakeList>
+          {tabName === "friend" && (
+            <MakeList
+              listStyle={"flex_spaceBetween"}
+              leftFlexItem={[{ classeName: "title--bold", content: "친구" }]}
+              rightFlexItem={[
+                {
+                  className: "",
+                  content: <i className="bi bi-search"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-person-plus"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-music-note-beamed"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-gear"></i>,
+                },
+              ]}></MakeList>
+          )}
+          {tabName === "chat" && (
+            <MakeList
+              listStyle={"flex_spaceBetween"}
+              leftFlexItem={[{ classeName: "title--bold", content: "채팅" }]}
+              rightFlexItem={[
+                {
+                  className: "",
+                  content: <i className="bi bi-search"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-plus-circle"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-gear"></i>,
+                },
+              ]}></MakeList>
+          )}
+          {tabName === "openChat" && (
+            <MakeList
+              listStyle={"flex_spaceBetween"}
+              leftFlexItem={[
+                { classeName: "title--bold", content: "오픈채팅" },
+              ]}
+              rightFlexItem={[
+                {
+                  className: "",
+                  content: <i className="bi bi-plus-circle"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-chat"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-gear"></i>,
+                },
+              ]}></MakeList>
+          )}
+          {tabName === "shopping" && (
+            <MakeList
+              listStyle={"flex_spaceBetween"}
+              leftFlexItem={[{ classeName: "title--bold", content: "쇼핑" }]}
+              rightFlexItem={[
+                {
+                  className: "",
+                  content: <i className="bi bi-bag-check"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-gear"></i>,
+                },
+              ]}></MakeList>
+          )}
+          {tabName === "ETC" && (
+            <MakeList
+              listStyle={"flex_spaceBetween"}
+              leftFlexItem={[{ classeName: "title--bold", content: "더보기" }]}
+              rightFlexItem={[
+                {
+                  className: "",
+                  content: <i className="bi bi-search"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-upc-scan"></i>,
+                },
+                {
+                  className: "",
+                  content: <i className="bi bi-gear"></i>,
+                },
+              ]}></MakeList>
+          )}
         </div>
-        <div className={classes.list}>
-          <div className={classes.border_topbottom}>{listContents[0]}</div>
-          <div className={classes.profile_message}>친구 2</div>
-          {
-            <NavLink to={navTriger === "profile_friend" && urlContent}>
-              {listContents[1]}
+        {/* main */}
+        {tabName === "friend" && (
+          <div className={classes.list}>
+            <div className={classes.border_topbottom}>
+              {friendListContents[0]}
+            </div>
+            <div className={classes.profile_message}>친구 2</div>
+            {
+              <NavLink to={navTriger === "profile_friend" && urlContent}>
+                {friendListContents[1]}
+              </NavLink>
+            }
+            {
+              <NavLink to={navTriger === "profile_friend" && urlContent}>
+                {friendListContents[2]}
+              </NavLink>
+            }
+          </div>
+        )}
+        {tabName === "chat" && (
+          <div className={classes.list}>
+            <NavLink to={navTriger === "chatList_group" && urlContent}>
+              {chatListContents[0]}
             </NavLink>
-          }
-          {
-            <NavLink to={navTriger === "profile_friend" && urlContent}>
-              {listContents[2]}
-            </NavLink>
-          }
-        </div>
+            {chatListContents[1]}
+            {chatListContents[2]}
+          </div>
+        )}
+        {tabName === "openChat" && <div className={classes.list}></div>}
+        {tabName === "shopping" && <div className={classes.list}></div>}
+        {tabName === "ETC" && <div className={classes.list}></div>}
       </div>
       <div className={classes.navAppLayout}>
-        <div>
-          <i className={`bi bi-person-fill`}></i>
+        <div onClick={() => setTabName("friend")}>
+          <i
+            className={
+              tabName === "friend" ? "bi bi-person-fill" : "bi bi-person"
+            }></i>
         </div>
-        <div>
-          <i className="bi bi-chat"></i>
+        <div onClick={() => setTabName("chat")}>
+          <i
+            className={
+              tabName === "chat" ? "bi bi-chat-fill" : "bi bi-chat"
+            }></i>
         </div>
-        <div>
-          <i className="bi bi-eye"></i>
+        <div onClick={() => setTabName("openChat")}>
+          <i
+            className={
+              tabName === "openChat"
+                ? "bi bi-chat-heart-fill"
+                : "bi bi-chat-heart"
+            }></i>
         </div>
-        <div>
-          <i className="bi bi-handbag"></i>
+        <div onClick={() => setTabName("shopping")}>
+          <i
+            className={
+              tabName === "shopping" ? "bi bi-handbag-fill" : "bi bi-handbag"
+            }></i>
         </div>
-        <div>
-          <i className="bi bi-three-dots"></i>
+        <div onClick={() => setTabName("ETC")}>
+          <i
+            className={
+              tabName === "ETC" ? "bi bi-three-dots" : "bi bi-three-dots"
+            }></i>
         </div>
       </div>
     </div>
