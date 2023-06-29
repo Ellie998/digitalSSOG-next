@@ -17,12 +17,12 @@ function Header() {
           />
         </Link>
         <ul>
-          <li>
+          {/* <li>
             <Link to="/function">Function</Link>
           </li>
           <li>
             <Link to="/app">App</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>
