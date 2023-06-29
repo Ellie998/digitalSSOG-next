@@ -20,9 +20,10 @@ function MakeList({ FunctionOrApp, ListObjects }) {
             <NavLink
               to={`/?${categoryRealName}`}
               className={keyword === categoryRealName ? classes.clicked : ""}>
-              {categoryName}
+              {categoryName !== categorys[categorys.length - 1]
+                ? `${categoryName} ,`
+                : categoryName}
             </NavLink>
-            {categoryName !== categorys[categorys.length - 1] && ","}
           </li>
         );
       })}
