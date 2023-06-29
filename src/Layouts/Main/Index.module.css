@@ -2,8 +2,14 @@
 .layout {
   margin: 0rem auto 10rem auto;
   text-align: center;
-
   padding: 8rem 3rem;
+}
+@font-face {
+  font-family: "KyoboHandwriting2020A";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/KyoboHandwriting2020A.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* -------------------BOX SHADOW------------------ */
@@ -29,7 +35,6 @@
   border-radius: 0 0 0 30px/45px;
   box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.05),
     inset 0 25px 10px rgba(0, 0, 0, 0.034);
-
   line-height: 1.7em;
   font-size: 19px;
   transition: 0.4s;
@@ -68,7 +73,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 2rem 2rem;
+  padding: 32px;
 }
 .listWrap li {
   text-align: left;
@@ -78,18 +83,17 @@
   margin-right: 30px;
 }
 .listWrap li h3 {
-  font-family: "Nanum Brush Script", cursive;
-  font-size: 1.9rem;
+  font-family: "KyoboHandwriting2020A";
+  font-size: 1.4rem;
   margin-bottom: 20px;
   font-weight: 600;
 }
 .listWrap li h3 span {
-  font-size: 1.3rem;
   vertical-align: text-top;
 }
 .listWrap li p {
-  font-family: "Nanum Brush Script", cursive;
-  font-size: 1.4rem;
+  font-family: "KyoboHandwriting2020A";
+  font-size: 1.2rem;
 }
 
 @media (max-width: 900px) {

@@ -12,8 +12,8 @@ function Header() {
             src={logo}
             className="App-logo"
             alt="logo"
-            width="6rem"
-            height="fit-content"
+            width="96px"
+            height="30px"
           />
         </Link>
         <ul>
