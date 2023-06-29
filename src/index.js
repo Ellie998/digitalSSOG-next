@@ -3,7 +3,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
-import { hydrate, render } from "react-dom";
+// import { hydrate, render } from "react-dom";
 
 import reportWebVitals from "./reportWebVitals";
 import Index, { loader as functionDataLoader } from "./Layouts/Main/Index";
@@ -58,28 +58,28 @@ const router = createBrowserRouter([
   },
 ]);
 
-const rootElement = document.getElementById("root");
-const app = (
-  <React.StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
-  </React.StrictMode>
-);
-
-if (rootElement?.hasChildNodes()) {
-  hydrate(app, rootElement);
-} else {
-  render(app, rootElement);
-}
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(
+// const rootElement = document.getElementById("root");
+// const app = (
 //   <React.StrictMode>
 //     <HelmetProvider>
 //       <RouterProvider router={router} />
 //     </HelmetProvider>
 //   </React.StrictMode>
 // );
+
+// if (rootElement?.hasChildNodes()) {
+//   hydrate(app, rootElement);
+// } else {
+//   render(app, rootElement);
+// }
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
