@@ -6,7 +6,7 @@ import { PageContext } from "../sections/AppMain";
 import classes from "./KakaoAppMain.module.css";
 import MakeList from "../Basic/components/MakeList";
 
-function KakaoAppMain() {
+function KakaoAppMain({ navTriger }) {
   const { urlContent } = useContext(PageContext);
 
   const listContents = [
@@ -81,15 +81,22 @@ function KakaoAppMain() {
         </div>
         <div className={classes.list}>
           {listContents[0]}
-          {<NavLink to={urlContent}>{listContents[1]}</NavLink>}
-          {<NavLink to={urlContent}>{listContents[2]}</NavLink>}
+          {
+            <NavLink to={navTriger === "profile_friend" && urlContent}>
+              {listContents[1]}
+            </NavLink>
+          }
+          {
+            <NavLink to={navTriger === "profile_friend" && urlContent}>
+              {listContents[2]}
+            </NavLink>
+          }
         </div>
       </div>
       <div className={classes.navAppLayout}>
         <div>
           <i className={`bi bi-person-fill`}></i>
         </div>
-
         <div>
           <i className="bi bi-chat"></i>
         </div>
