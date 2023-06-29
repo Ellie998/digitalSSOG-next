@@ -4,14 +4,14 @@
   text-align: center;
   padding: 8rem 3rem;
 }
+
 @font-face {
-  font-family: "KyoboHandwriting2020A";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/KyoboHandwriting2020A.woff")
+  font-family: "Cafe24Shiningstar";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
 /* -------------------BOX SHADOW------------------ */
 .boxShadow {
   background-color: #dadada08;
@@ -83,7 +83,8 @@
   margin-right: 30px;
 }
 .listWrap li h3 {
-  font-family: "KyoboHandwriting2020A";
+  font-family: "Cafe24Shiningstar";
+
   font-size: 1.4rem;
   margin-bottom: 20px;
   font-weight: 600;
@@ -92,7 +93,8 @@
   vertical-align: text-top;
 }
 .listWrap li p {
-  font-family: "KyoboHandwriting2020A";
+  font-family: "Cafe24Shiningstar";
+
   font-size: 1.2rem;
 }
 
