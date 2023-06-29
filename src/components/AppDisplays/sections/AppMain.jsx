@@ -44,10 +44,15 @@ export const PageContext = createContext({
   //
   appName_basic: "",
   appName_kakaotalk: "",
+  appName_call: "",
+  appName_message: "",
 });
 
 const appName_basic = "기본";
+const appName_call = "전화";
+const appName_message = "메시지";
 const appName_kakaotalk = "카카오톡";
+//
 const functionName_makeCall = "전화걸기(발신)";
 const functionName_getCall = "전화받기(수신)";
 const functionName_makeVideoCall = "영상통화 발신";
@@ -58,6 +63,9 @@ const functionName_reserveMessage = "예약 문자 발송";
 const functionName_sendImg = "이미지, 동영상 전송";
 const functionName_sendAudio = "오디오 전송";
 const functionName_sendPhoneNum = "연락처 공유";
+const functionName_kakaotalk_groubChatLeave_RejectInvitation =
+  "그룹채팅방 초대거부 및 나가기";
+const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
 
 function AppMain() {
   const params = useParams();
@@ -76,7 +84,7 @@ function AppMain() {
     case functionName_makeCall:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
           choicedComponent = <CallAppMain />;
         } else if (descriptionId === "2") {
@@ -86,7 +94,7 @@ function AppMain() {
         }
       } else if (appName === appName_kakaotalk) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
         } else if (descriptionId === "1") {
           choicedComponent = <KakaoAppMain />;
         } else if (descriptionId === "2") {
@@ -120,7 +128,7 @@ function AppMain() {
     case functionName_makeVideoCall:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
           choicedComponent = <CallAppMain />;
         } else if (descriptionId === "2") {
@@ -133,7 +141,7 @@ function AppMain() {
     case functionName_sendMessage:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2" && methodId === "1") {
@@ -150,7 +158,7 @@ function AppMain() {
       if (appName === appName_basic) {
         if (methodId === "1") {
           if (descriptionId === "0") {
-            choicedComponent = <MainApps />;
+            choicedComponent = <MainApps navLinkTriger={appName_message} />;
           } else if (descriptionId === "1") {
             choicedComponent = <MessageAppMain />;
           } else if (descriptionId === "2") {
@@ -158,7 +166,7 @@ function AppMain() {
           }
         } else if (methodId === "2") {
           if (descriptionId === "0") {
-            choicedComponent = <MainApps />;
+            choicedComponent = <MainApps navLinkTriger={appName_message} />;
           } else if (descriptionId === "1") {
             choicedComponent = <MessageAppMain />;
           } else if (descriptionId === "2") {
@@ -172,7 +180,7 @@ function AppMain() {
     case functionName_resendMessage:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2") {
@@ -193,7 +201,7 @@ function AppMain() {
     case functionName_reserveMessage:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2") {
@@ -210,7 +218,7 @@ function AppMain() {
     case functionName_sendImg:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2") {
@@ -229,7 +237,7 @@ function AppMain() {
     case functionName_sendAudio:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2") {
@@ -246,7 +254,7 @@ function AppMain() {
     case functionName_sendPhoneNum:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <MainApps />;
+          choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
           choicedComponent = <MessageAppMain />;
         } else if (descriptionId === "2") {
@@ -258,6 +266,19 @@ function AppMain() {
         } else if (descriptionId === "5") {
           choicedComponent = <MessageWithOption />;
         }
+      }
+      break;
+    case functionName_kakaotalk_groubChatLeave_RejectInvitation:
+      if (descriptionId === "0") {
+        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
+      } else if (descriptionId === "1") {
+        choicedComponent = <KakaoAppMain></KakaoAppMain>;
+      } else if (descriptionId === "2") {
+        choicedComponent = <AppMainError />;
+      } else if (descriptionId === "3") {
+        choicedComponent = <AppMainError />;
+      } else if (descriptionId === "4") {
+        choicedComponent = <AppMainError />;
       }
       break;
     default:
@@ -285,8 +306,15 @@ function AppMain() {
         functionName_sendAudio: functionName_sendAudio,
         functionName_sendPhoneNum: functionName_sendPhoneNum,
         //
+        functionName_kakaotalk_groubChatLeave_RejectInvitation:
+          functionName_kakaotalk_groubChatLeave_RejectInvitation,
+        functionName_kakaotalk_groubChatLock:
+          functionName_kakaotalk_groubChatLock,
+        //
         appName_basic: appName_basic,
         appName_kakaotalk: appName_kakaotalk,
+        appName_message: appName_message,
+        appName_call: appName_call,
       }}>
       {choicedComponent}
     </PageContext.Provider>
