@@ -52,7 +52,6 @@ function RootLayout({ children }) {
 
   function bigFontBtnClickHandler() {
     const index = sizes.findIndex((element) => element === fontSize);
-    console.log(index);
     index !== 8 && setfontSize(sizes[index + 1]);
     index === 8 && setfontSize(sizes[8]);
   }
@@ -60,7 +59,6 @@ function RootLayout({ children }) {
     const index = sizes.findIndex((element) => element === fontSize);
     index !== 0 && setfontSize(sizes[index - 1]);
     index === 0 && setfontSize(sizes[0]);
-    console.log(index);
   }
   useEffect(() => {
     htmlElement.style.fontSize = fontSize;

@@ -20,7 +20,7 @@ function Index() {
           <li className={`${classes.postIt} ${classes.boxShadow}`}>
             <h3>
               디지털쏙 페이지의 <br />
-              핵심 포인트 <span> 1️⃣</span>
+              핵심 포인트 1️⃣
             </h3>
             <p> 스마트 기기로 할 수 있는 기능들을 정리했습니다.</p>
           </li>
@@ -28,7 +28,7 @@ function Index() {
             <h3>
               디지털쏙 페이지의
               <br />
-              핵심 포인트 <span>2️⃣</span>
+              핵심 포인트 2️⃣
             </h3>
             <p>화면을 직접 눌러보며 기능을 미리 경험할 수 있습니다.</p>
           </li>

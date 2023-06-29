@@ -12,9 +12,11 @@
 }
 
 .layout a {
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
   padding: 0px 8px;
   max-height: 40px;
+  font-family: "Cafe24Shiningstar";
+  font-size: 1.5rem;
 }
 .layout a:hover {
   font-weight: 900;

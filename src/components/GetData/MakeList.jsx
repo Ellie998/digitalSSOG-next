@@ -6,7 +6,7 @@ function MakeList({ FunctionOrApp, ListObjects }) {
   const params = url.search.slice(1);
   const keyword = decodeURI(params);
 
-  const categorys = ["🔔 new", "👑 hot", "📞 전화, 문자", "👥 sns"];
+  const categorys = ["🌱 new", "🔥 hot", "📞 전화, 문자", "❤️ sns"];
 
   return (
     <ul className={classes.layout}>
