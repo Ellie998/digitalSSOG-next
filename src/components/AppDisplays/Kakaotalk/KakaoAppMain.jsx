@@ -80,7 +80,8 @@ function KakaoAppMain({ navTriger }) {
             ]}></MakeList>
         </div>
         <div className={classes.list}>
-          {listContents[0]}
+          <div className={classes.border_topbottom}>{listContents[0]}</div>
+          <div className={classes.profile_message}>친구 2</div>
           {
             <NavLink to={navTriger === "profile_friend" && urlContent}>
               {listContents[1]}

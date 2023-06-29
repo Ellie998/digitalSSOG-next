@@ -72,3 +72,9 @@
   box-shadow: none;
   background-color: transparent;
 }
+/* --------------------COMMON CSS--------------------- */
+.border_topbottom {
+  border-bottom: 1px solid rgb(244, 244, 244);
+  border-top: 1px solid rgb(244, 244, 244);
+  margin-bottom: 10px;
+}
