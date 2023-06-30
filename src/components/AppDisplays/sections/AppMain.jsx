@@ -24,6 +24,7 @@ import SetReservation from "../Basic/message/reserve-message/SetReservation";
 import SelectFile from "../Basic/file/SelectFile";
 import ChoiceImgs from "../Basic/gallery/ChoiceImgs";
 import KakaoChatRoom from "../Kakaotalk/KakaoChatRoom";
+import KakaoSettingPage from "../Kakaotalk/KakaoSettingPage";
 
 export const PageContext = createContext({
   functionName: "",
@@ -279,7 +280,7 @@ function AppMain() {
       } else if (descriptionId === "2") {
         choicedComponent = <KakaoChatRoom />;
       } else if (descriptionId === "3") {
-        choicedComponent = <AppMainError />;
+        choicedComponent = <KakaoSettingPage />;
       } else if (descriptionId === "4") {
         choicedComponent = <AppMainError />;
       }

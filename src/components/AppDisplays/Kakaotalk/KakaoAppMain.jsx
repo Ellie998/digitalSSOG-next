@@ -114,6 +114,7 @@ function KakaoAppMain({ navTriger }) {
         content: "아모티콘을 보냈습니다.",
       }}></MakeList>,
   ];
+
   return (
     <div className={classes.layout}>
       <div className={classes.mainLayout}>
@@ -121,7 +122,7 @@ function KakaoAppMain({ navTriger }) {
           {tabName === "friend" && (
             <MakeList
               listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ classeName: "title--bold", content: "친구" }]}
+              leftFlexItem={[{ className: "title--bold", content: "친구" }]}
               rightFlexItem={[
                 {
                   className: "",
@@ -144,7 +145,7 @@ function KakaoAppMain({ navTriger }) {
           {tabName === "chat" && (
             <MakeList
               listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ classeName: "title--bold", content: "채팅" }]}
+              leftFlexItem={[{ className: "title--bold", content: "채팅" }]}
               rightFlexItem={[
                 {
                   className: "",
@@ -163,9 +164,7 @@ function KakaoAppMain({ navTriger }) {
           {tabName === "openChat" && (
             <MakeList
               listStyle={"flex_spaceBetween"}
-              leftFlexItem={[
-                { classeName: "title--bold", content: "오픈채팅" },
-              ]}
+              leftFlexItem={[{ className: "title--bold", content: "오픈채팅" }]}
               rightFlexItem={[
                 {
                   className: "",
@@ -184,7 +183,7 @@ function KakaoAppMain({ navTriger }) {
           {tabName === "shopping" && (
             <MakeList
               listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ classeName: "title--bold", content: "쇼핑" }]}
+              leftFlexItem={[{ className: "title--bold", content: "쇼핑" }]}
               rightFlexItem={[
                 {
                   className: "",
@@ -199,7 +198,7 @@ function KakaoAppMain({ navTriger }) {
           {tabName === "ETC" && (
             <MakeList
               listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ classeName: "title--bold", content: "더보기" }]}
+              leftFlexItem={[{ className: "title--bold", content: "더보기" }]}
               rightFlexItem={[
                 {
                   className: "",

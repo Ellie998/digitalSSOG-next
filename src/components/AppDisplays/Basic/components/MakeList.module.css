@@ -9,14 +9,26 @@
 }
 .layout_grid {
   display: grid;
-  grid-template-columns: repeat(6, 28px);
   align-items: center;
-  height: 35px;
+  grid-template-columns: repeat(6, 28px);
+  height: 30px;
+  margin: 2px 0;
+}
+.layout_grid--auto {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto;
   margin: 2px 0;
 }
 .background--grey {
   background-color: rgb(243, 243, 243);
   border-radius: 8px;
+}
+.background-white {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 4px 6px;
+  width: fit-content;
 }
 .border_bottom {
   border-bottom: 1px solid rgb(230, 230, 230);
@@ -58,78 +70,97 @@
 .flex_leftItems,
 .flex_rightItems {
   display: flex;
+  justify-content: space-around;
+}
+.flex_leftItems > div,
+.flex_rightItems > div {
+  margin-right: 3px;
 }
 
 /* --------------- ICON ------------------ */
 .iconWrap_background--grey {
   text-align: center;
   font-size: 0.8rem;
-  background-color: #cdcdcd8a;
+  background-color: #e4e4e48a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--pink {
   text-align: center;
   font-size: 0.8rem;
   background-color: #ff855f8a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--yellow {
   text-align: center;
   font-size: 0.8rem;
   background-color: #ffd0278a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--orange {
   text-align: center;
   font-size: 0.8rem;
   background-color: #ffb8468a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--skyBlue {
   text-align: center;
   font-size: 0.8rem;
   background-color: #92e7ff8a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--purple {
   text-align: center;
   font-size: 0.8rem;
   background-color: #929dff8a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--blue {
   text-align: center;
   font-size: 0.8rem;
   background-color: #92caff8a;
   border-radius: 18px;
-  height: 25px;
+  height: 20px;
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .iconWrap_background--orange i,
 .iconWrap_background--yellow i,
@@ -213,13 +244,28 @@
   border-radius: 22px;
   border: 1px solid rgb(206, 206, 206);
 }
+.timeStamp {
+  font-size: 0.6rem;
+}
 .title:hover,
 .info:hover,
 .subTitle:hover,
 .subInfo:hover {
   cursor: pointer;
 }
-
+.color_blue {
+  color: rgb(41, 112, 236);
+  font-size: 0.7rem;
+}
+.color_black {
+  color: rgb(33, 33, 33);
+  font-size: 0.7rem;
+}
+.color_black--bold {
+  color: rgb(33, 33, 33);
+  font-size: 0.7rem;
+  font-weight: bold;
+}
 /* ------------------KAKAO--------------------- */
 .profile_layout {
   display: grid;

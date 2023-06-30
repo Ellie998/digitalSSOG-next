@@ -1,73 +1,59 @@
 .layout {
-  display: grid;
-  grid-template-rows: repeat(9, 33px);
   overflow: hidden;
+  height: 305px;
+}
+
+.layout i {
+  border-radius: 18px;
+  padding: 2px 4px;
+  cursor: pointer;
+  height: fit-content;
 }
 
 /* ---------------------HEADER---------------------------- */
 .main_header {
-  grid-row: 1/2;
-  display: grid;
-  grid-template-columns: 24px auto 16px;
-  align-items: center;
-  background-color: white;
-  z-index: 100;
+  background-color: rgb(178, 198, 218);
+  padding-top: 10px;
+  height: 35px;
 }
 
-.firstNameBox {
-  background-color: bisque;
-  border-radius: 100%;
-  text-align: center;
-}
-.nameBox {
-  margin-left: 10px;
-}
 /* ---------------------MESSAGE---------------------------- */
 .messages {
-  grid-row: 2/9;
+  background-color: rgb(178, 198, 217);
+  padding: 4px;
+  height: 240px;
 }
+
 .messagesSmall {
-  grid-row: 2/5;
+  height: 140px;
 }
-.messagesSmall--2to4 {
-  grid-row: 2/4;
-  /* overflow-y: hidden; */
-  position: relative;
-  top: -40px;
-  z-index: 0;
+.getMessageWrap,
+.sendMessageWrap {
+  max-width: 95%;
+  font-size: 0.8rem;
+  height: max-content;
+  margin-bottom: 10px;
 }
-.sendMessage,
-.getMessage {
+
+.sendMessageWrap {
+  justify-content: end;
   display: flex;
   align-items: end;
+  margin-left: auto;
 }
 
 .sendMessage {
-  justify-content: end;
+  background-color: rgb(255, 235, 50);
+  border-radius: 8px;
+  padding: 4px 6px;
 }
-.sendMessage > div:nth-child(2),
-.getMessage > div:nth-child(1) {
-  max-width: 70%;
-  padding: 6px;
-  border-radius: 18px;
-  margin-bottom: 4px;
-  font-size: 0.8rem;
+.timeStamp {
+  font-size: 0.6rem;
+  margin-right: 6px;
 }
 
-.sendMessage > div:nth-child(1),
-.getMessage > div:nth-child(2) {
-  font-size: 0.5rem;
-}
-.sendMessage > div:nth-child(2) {
-  background-color: rgb(171, 214, 242);
-}
-
-.getMessage > div:nth-child(1) {
-  background-color: rgb(226, 226, 226);
-}
 /* ---------------------OPTION INFO---------------------------- */
 .optionInfoWrap {
-  grid-row: 4/6;
   border-top: 1px solid rgb(226, 226, 226);
   width: 160px;
   display: flex;
@@ -110,34 +96,20 @@
 /* --------------------- NAV---------------------------- */
 .appNav {
   padding: 0 3px;
-  grid-row: 9/10;
+  height: 30px;
   display: grid;
   grid-template-columns: auto auto 15%;
   align-items: center;
   background-color: white;
 }
 .appNavSmall {
-  grid-row: 5/6;
-  animation: fadeInUp 0.5s;
-}
-.appNavSmall--6to7 {
-  grid-row: 6/7;
-  animation: fadeInUp 0.5s;
-}
-
-.navOptions {
-  display: flex;
-  justify-content: space-around;
-}
-
-.navOptions div {
-  margin-right: 5px;
+  animation: fadeInUp 0.2s;
 }
 
 .inputBox {
   display: grid;
   grid-template-columns: auto 16px;
-  background-color: rgba(227, 227, 227, 0.803);
+  background-color: white;
   border-radius: 18px;
   align-items: center;
 }
@@ -148,22 +120,15 @@
   border-color: transparent;
 }
 
-.sendIcon,
-.soundIcon {
-  border-radius: 18px;
-  margin: 0 0 0 3px;
+.sendIcon {
   height: fit-content;
   text-align: center;
-}
-.soundIcon {
-  background-color: rgba(227, 227, 227, 0.803);
-}
-.sendIcon {
-  background-color: rgba(184, 184, 184, 0.803);
   cursor: pointer;
+  background-color: rgb(247, 229, 64);
+  margin-left: 4px;
 }
 
-/* SelectResend */
+/* --------------------- OPTIONS ---------------------------- */
 .options {
   background-color: white;
   box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
@@ -181,27 +146,16 @@
   margin-bottom: 10px;
 }
 
-/*  */
+/* --------------------- OPTION BOX ---------------------------- */
 .optionBox {
-  /* padding: 10px; */
-  grid-row: 7/10;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  animation: fadeInUp 0.5s;
-  background-color: rgba(239, 239, 239, 0.247);
-}
-.optionBox_background--grey {
   padding: 10px;
-  grid-row: 6/10;
-  background-color: rgba(227, 227, 227, 0.803);
-  border-radius: 12px;
+  height: 100px;
   overflow-x: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  animation: fadeInUp 0.5s;
+  animation: fadeInUp 0.2s;
+  background-color: rgba(239, 239, 239, 0.247);
 }
 
 .optionBox::-webkit-scrollbar,
@@ -222,12 +176,52 @@
 }
 
 .iconWrap {
-  background-color: white;
   border-radius: 100%;
   max-width: fit-content;
   max-height: fit-content;
-  padding: 2px 6px;
+  padding: 4px 4px;
 }
+.iconWrap > i {
+  color: white;
+  font-size: 0.7rem;
+}
+
+/* ------------------SIDE MENU-------------------- */
+.sideMenuWrap {
+  position: relative;
+  z-index: 100;
+  top: -305px;
+  height: 305px;
+  display: flex;
+}
+.backdrop {
+  background-color: rgba(6, 6, 6, 0.235);
+  width: 50px;
+  height: 305px;
+  animation: opacity0to100 0.5s;
+}
+.sideMenuBox {
+  background-color: white;
+  height: 305px;
+  width: 130px;
+  animation: rightLeft 0.5s;
+}
+.sideTitle {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.sideMenuContentWrap {
+  padding: 6px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+.sideMenuNavWrap {
+  padding: 3px;
+  background-color: rgb(239, 239, 239);
+  position: relative;
+  bottom: -15px;
+}
+
+/* ------------------ANIMAITION-------------------- */
 
 @keyframes fadeInUp {
   0% {
@@ -237,5 +231,23 @@
   to {
     opacity: 1;
     transform: translateZ(0);
+  }
+}
+@keyframes rightLeft {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translateZ(0);
+  }
+}
+@keyframes opacity0to100 {
+  0% {
+    opacity: 0;
+    transform: scaleX(7);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
