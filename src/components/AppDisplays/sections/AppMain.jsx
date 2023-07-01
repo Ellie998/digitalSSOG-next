@@ -98,7 +98,9 @@ function AppMain() {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <KakaoAppMain navTriger="profile_friend" />;
+          choicedComponent = (
+            <KakaoAppMain tab={"friend"} navTriger="profile_friend" />
+          );
         } else if (descriptionId === "2") {
           choicedComponent = <KakaoProfileDetail />;
         } else if (descriptionId === "3") {
@@ -275,14 +277,14 @@ function AppMain() {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
         choicedComponent = (
-          <KakaoAppMain navTriger="chatList_group"></KakaoAppMain>
+          <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
         choicedComponent = <KakaoChatRoom />;
       } else if (descriptionId === "3") {
         choicedComponent = <KakaoSettingPage />;
       } else if (descriptionId === "4") {
-        choicedComponent = <AppMainError />;
+        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
       }
       break;
     default:

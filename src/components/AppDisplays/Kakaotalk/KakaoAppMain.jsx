@@ -6,9 +6,9 @@ import { PageContext } from "../sections/AppMain";
 import classes from "./KakaoAppMain.module.css";
 import MakeList from "../Basic/components/MakeList";
 
-function KakaoAppMain({ navTriger }) {
+function KakaoAppMain({ navTriger, tab }) {
   const { urlContent } = useContext(PageContext);
-  const [tabName, setTabName] = useState("friend");
+  const [tabName, setTabName] = useState(tab);
 
   const friendListContents = [
     <MakeList
@@ -236,9 +236,11 @@ function KakaoAppMain({ navTriger }) {
         )}
         {tabName === "chat" && (
           <div className={classes.list}>
-            <NavLink to={navTriger === "chatList_group" && urlContent}>
-              {chatListContents[0]}
-            </NavLink>
+            {navTriger === "chatList_group" && (
+              <NavLink to={navTriger === "chatList_group" && urlContent}>
+                {chatListContents[0]}
+              </NavLink>
+            )}
             {chatListContents[1]}
             {chatListContents[2]}
           </div>
