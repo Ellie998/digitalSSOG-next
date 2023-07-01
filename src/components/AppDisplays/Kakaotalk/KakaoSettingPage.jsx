@@ -6,10 +6,49 @@ import classes from "./KakaoSettingPage.module.css";
 import MakeList from "../Basic/components/MakeList";
 
 function KakaoSettingPage() {
-  const { urlContent, appName_basic } = useContext(PageContext);
+  const { urlContent } = useContext(PageContext);
   const [choicedModal, setChoicedModal] = useState("");
+  const [isCheckbox, setIsCheckbox] = useState(false);
   return (
     <div className={classes.layout}>
+      {choicedModal !== "" && (
+        <div className={classes.modalWrap}>
+          <div
+            className={classes.backdrop}
+            onClick={() => setChoicedModal("")}></div>
+          <div className={classes.modal}>
+            <div className={classes.title}>초대 거부 및 나가기</div>
+            <div className={classes.subTitle}>
+              초대를 거부하고 채팅방을 나갑니다.
+              <br />
+              이후 이 채팅방에 다시 입장할 수 없습니다.
+              <br />
+              대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
+            </div>
+            <label
+              className={`${classes.modalRadioWrap}`}
+              htmlFor="info_config">
+              <input
+                type="checkbox"
+                id="info_config"
+                onChange={(event) => setIsCheckbox(event.target.value)}></input>
+              <div className={classes.subTitle}>
+                위 내용을 모두 확인하였습니다.
+              </div>
+            </label>
+            <div className={classes.modalNavWrap}>
+              <div
+                className={classes["color_blue--bold"]}
+                onClick={() => setChoicedModal("")}>
+                취소
+              </div>
+              <NavLink to={isCheckbox && urlContent}>
+                <div className={classes["color_grey--bold"]}>나가기</div>
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      )}
       {/* header nav */}
       <div className={classes.main_header}>
         <MakeList

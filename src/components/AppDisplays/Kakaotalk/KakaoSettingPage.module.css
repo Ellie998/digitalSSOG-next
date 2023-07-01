@@ -73,23 +73,33 @@
 }
 /* ---------------------MODAL---------------------------- */
 .modalWrap {
-  position: relative;
-  z-index: 100;
-  top: -305px;
+  position: absolute;
+  animation: opacity0to100 0.5s;
 }
 .backdrop {
-  background-color: #4d4d4d4f;
+  background-color: #2a2a2a6a;
   width: 174px;
   height: 305px;
-  position: relative;
-  z-index: 100;
+  position: absolute;
 }
 .modal {
   background-color: white;
   width: 150px;
-  height: 150px;
-  position: relative;
+  height: max-content;
+  position: absolute;
+  padding: 10px;
   z-index: 100;
+  border-radius: 4px;
+  top: 50px;
+  left: 10px;
+}
+.modalNavWrap {
+  display: flex;
+  justify-content: end;
+}
+.modalRadioWrap {
+  display: flex;
+  cursor: pointer;
 }
 /* ---------------------COMMON---------------------------- */
 .border_bottom {
@@ -119,12 +129,33 @@
   font-size: 0.8rem;
   margin-left: 5px;
 }
+.color_grey--bold {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.color_blue--bold {
+  color: rgb(0, 119, 246);
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.title {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+}
 .subTitle {
   font-size: 0.5rem;
   padding: 5px 0;
   margin-left: 5px;
   text-align: start;
   color: var(--grey-400);
+  line-height: 140%;
 }
 
 .iconWrap_background--skyBlue {
@@ -173,4 +204,14 @@
 .iconWrap_background--blue i,
 .iconWrap_background--purple i {
   color: #ededed;
+}
+
+/* -----------------ANIMATION----------------- */
+@keyframes opacity0to100 {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
