@@ -104,8 +104,18 @@ function KakaoSettingPage() {
           <div className={classes.color_black}>현재 채팅방 알림음</div>
           <div className={classes.subTitle}>카톡</div>
         </div>
-        <div className={classes.contentWrap}>
-          <div className={classes.color_black}>현재 채팅방 입력창 잠금</div>
+        <div
+          className={`${classes.contentWrap} ${classes["display_flex--speaceBetween"]}`}>
+          <label className={`${classes.color_black} `} htmlFor="chatLock">
+            현재 채팅방 입력창 잠금
+          </label>
+          <input
+            type="checkbox"
+            id="chatLock"
+            className={classes.toggleInput}></input>
+          <label
+            className={` ${classes.toggleLabel}`}
+            htmlFor="chatLock"></label>
         </div>
       </div>
       <div className={classes.border_bottom}>

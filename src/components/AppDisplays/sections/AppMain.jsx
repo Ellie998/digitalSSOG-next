@@ -273,6 +273,7 @@ function AppMain() {
       }
       break;
     case functionName_kakaotalk_groubChatLeave_RejectInvitation:
+    case functionName_kakaotalk_groubChatLock:
       if (descriptionId === "0") {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
@@ -284,7 +285,7 @@ function AppMain() {
       } else if (descriptionId === "3") {
         choicedComponent = <KakaoSettingPage />;
       } else if (descriptionId === "4") {
-        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
+        choicedComponent = <KakaoChatRoom />;
       }
       break;
     default:
