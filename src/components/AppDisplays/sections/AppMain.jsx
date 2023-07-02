@@ -273,6 +273,20 @@ function AppMain() {
       }
       break;
     case functionName_kakaotalk_groubChatLeave_RejectInvitation:
+      if (descriptionId === "0") {
+        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
+      } else if (descriptionId === "1") {
+        choicedComponent = (
+          <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
+        );
+      } else if (descriptionId === "2") {
+        choicedComponent = <KakaoChatRoom />;
+      } else if (descriptionId === "3") {
+        choicedComponent = <KakaoSettingPage />;
+      } else if (descriptionId === "4") {
+        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
+      }
+      break;
     case functionName_kakaotalk_groubChatLock:
       if (descriptionId === "0") {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
