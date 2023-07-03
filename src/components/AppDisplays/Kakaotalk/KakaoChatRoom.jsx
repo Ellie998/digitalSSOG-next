@@ -1,22 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { PageContext } from "../sections/AppMain";
 import classes from "./KakaoChatRoom.module.css";
-import ChoiceImg from "../Basic/components/ChoiceImg";
 import MakeList from "../Basic/components/MakeList";
 
-function KakaoChatRoom() {
+function KakaoChatRoom({ inputLocked }) {
   const {
     appName,
     urlContent,
     realFunctionName,
-    methodId,
     //
     functionName_resendMessage,
-    functionName_reserveMessage,
-    functionName_sendAudio,
-    functionName_sendPhoneNum,
-    functionName_sendImg,
+
     //
     appName_basic,
   } = useContext(PageContext);
@@ -26,12 +21,14 @@ function KakaoChatRoom() {
   const [enteredMessage, setEnteredMessage] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
   const [menuBtnClicked, setMenuBtnClicked] = useState(false);
-  const [imgBtnClicked, setImgBtnClicked] = useState(false);
+  const [isInputLocked, setIsInputLocked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
   const [sendImgs, setSendImgs] = useState([]);
-
+  useEffect(() => {
+    inputLocked ? setIsInputLocked(true) : setIsInputLocked(false);
+  }, [inputLocked]);
   function mouseOverHandler(event) {
     setTimeout(() => {
       setIsOvered(true);
@@ -41,7 +38,6 @@ function KakaoChatRoom() {
   function backClickHandler() {
     setIsOvered(false);
     setPlusClicked(false);
-    setImgBtnClicked(false);
   }
 
   function inputClickHandler(event) {
@@ -52,7 +48,6 @@ function KakaoChatRoom() {
     setMessageContent(enteredMessage);
     setSendBtnClicked(true);
     setEnteredMessage("");
-    setImgBtnClicked(false);
     setSendImgs([...choicedImgs]);
     setChoicedImgs([]);
   }
@@ -65,7 +60,6 @@ function KakaoChatRoom() {
   }
   function plusBtnClickHandler() {
     setPlusClicked(true);
-    setImgBtnClicked(false);
     setChoicedImgs([]);
     setSendBtnClicked(false);
   }
@@ -177,52 +171,84 @@ function KakaoChatRoom() {
         )}
       </div>
       {/* Nav */}
-      <div
-        className={`${classes.appNav} ${
-          plusClicked ? classes.appNavSmall : ""
-        }`}>
-        {!plusClicked && (
-          <div className={classes.navOptions}>
-            <div onClick={plusBtnClickHandler}>
-              <i className="bi bi-plus-lg"></i>
+      {!isInputLocked && (
+        <div
+          className={`${classes.appNav} ${
+            plusClicked ? classes.appNavSmall : ""
+          }`}>
+          {!plusClicked && (
+            <div className={classes.navOptions}>
+              <div onClick={plusBtnClickHandler}>
+                <i className="bi bi-plus-lg"></i>
+              </div>
+            </div>
+          )}
+          {plusClicked && (
+            <div
+              className={classes.navOption}
+              onClick={() => setPlusClicked(false)}>
+              <i className="bi bi-x-lg"></i>
+            </div>
+          )}
+          <div className={classes.inputBox}>
+            <div>
+              <input
+                onFocus={inputClickHandler}
+                onBlur={inputOutHandler}
+                onChange={inputChangeHandler}
+                value={sendBtnClicked ? "" : enteredMessage}></input>
+            </div>
+            <div>
+              <i className="bi bi-emoji-smile"></i>
             </div>
           </div>
-        )}
-        {plusClicked && (
-          <div
-            className={classes.navOption}
-            onClick={() => setPlusClicked(false)}>
-            <i className="bi bi-x-lg"></i>
-          </div>
-        )}
-        <div className={classes.inputBox}>
-          <div>
-            <input
-              onFocus={inputClickHandler}
-              onBlur={inputOutHandler}
-              onChange={inputChangeHandler}
-              value={sendBtnClicked ? "" : enteredMessage}></input>
-          </div>
-          <div>
-            <i className="bi bi-emoji-smile"></i>
-          </div>
-        </div>
-        {!enteredMessage && choicedImgs.length === 0 && (
-          <div className={classes.soundIcon}>
-            <i className="bi bi-hash"></i>
-          </div>
-        )}
-        {(enteredMessage || choicedImgs.length !== 0) && (
-          <NavLink>
+          {!enteredMessage && choicedImgs.length === 0 && (
+            <div className={classes.soundIcon}>
+              <i className="bi bi-hash"></i>
+            </div>
+          )}
+          {(enteredMessage || choicedImgs.length !== 0) && (
             <div
               className={classes.sendIcon}
               onClick={sendBtnClickHandler}
               data-tooltip="클릭!">
               <i className="bi bi-send-fill"></i>
             </div>
-          </NavLink>
-        )}
-      </div>
+          )}
+        </div>
+      )}
+      {isInputLocked && (
+        <div
+          className={`${classes.appNav} ${
+            plusClicked ? classes.appNavSmall : ""
+          }`}>
+          {!plusClicked && (
+            <div className={classes.navOptions}>
+              <div>
+                <i className="bi bi-plus-lg"></i>
+              </div>
+            </div>
+          )}
+          {plusClicked && (
+            <div
+              className={classes.navOption}
+              onClick={() => setPlusClicked(false)}>
+              <i className="bi bi-x-lg"></i>
+            </div>
+          )}
+          <div className={classes.inputBox}>
+            <div className={classes.subTitle}>
+              대화에 주의가 필요한 방입니다.
+            </div>
+          </div>
+          <div
+            className={classes.sendIcon}
+            onClick={() => setIsInputLocked(false)}
+            data-tooltip="클릭!">
+            <i className="bi bi-lock"></i>
+          </div>
+        </div>
+      )}
       {/* Option Box */}
       {plusClicked && (
         <div className={`${classes["optionBox"]} `}>

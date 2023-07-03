@@ -5,7 +5,7 @@ import classes from "./KakaoSettingPage.module.css";
 
 import MakeList from "../Basic/components/MakeList";
 
-function KakaoSettingPage() {
+function KakaoSettingPage({ navTriger }) {
   const { urlContent } = useContext(PageContext);
   const [choicedModal, setChoicedModal] = useState("");
   const [isCheckbox, setIsCheckbox] = useState(false);
@@ -42,7 +42,12 @@ function KakaoSettingPage() {
                 onClick={() => setChoicedModal("")}>
                 취소
               </div>
-              <NavLink to={isCheckbox && urlContent}>
+              <NavLink
+                to={
+                  isCheckbox &&
+                  navTriger === "leaveOutBtn_inviteReject" &&
+                  urlContent
+                }>
                 <div className={classes["color_grey--bold"]}>나가기</div>
               </NavLink>
             </div>
@@ -56,7 +61,11 @@ function KakaoSettingPage() {
           leftFlexItem={[
             {
               className: "title",
-              content: <i className="bi bi-arrow-left"></i>,
+              content: (
+                <NavLink to={navTriger === "backBtn" && urlContent}>
+                  <i className="bi bi-arrow-left"></i>
+                </NavLink>
+              ),
             },
             { className: "title--bold", content: "채팅방 설정" },
           ]}></MakeList>

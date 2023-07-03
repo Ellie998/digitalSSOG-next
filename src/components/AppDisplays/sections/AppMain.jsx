@@ -280,9 +280,11 @@ function AppMain() {
           <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <KakaoChatRoom />;
+        choicedComponent = <KakaoChatRoom inputLocked={false} />;
       } else if (descriptionId === "3") {
-        choicedComponent = <KakaoSettingPage />;
+        choicedComponent = (
+          <KakaoSettingPage navTriger="leaveOutBtn_inviteReject" />
+        );
       } else if (descriptionId === "4") {
         choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
       }
@@ -295,11 +297,11 @@ function AppMain() {
           <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <KakaoChatRoom />;
+        choicedComponent = <KakaoChatRoom inputLocked={false} />;
       } else if (descriptionId === "3") {
-        choicedComponent = <KakaoSettingPage />;
+        choicedComponent = <KakaoSettingPage navTriger="backBtn" />;
       } else if (descriptionId === "4") {
-        choicedComponent = <KakaoChatRoom />;
+        choicedComponent = <KakaoChatRoom inputLocked={true} />;
       }
       break;
     default:
