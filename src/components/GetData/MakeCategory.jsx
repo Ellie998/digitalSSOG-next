@@ -1,12 +1,17 @@
-import classes from "./MakeList.module.css";
+import classes from "./MakeCategory.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 
-function MakeList({ FunctionOrApp, ListObjects }) {
+function MakeCategory({ FunctionOrApp, ListObjects }) {
   const url = useLocation();
   const params = url.search.slice(1);
   const keyword = decodeURI(params);
 
-  const categorys = ["🌱 new", "🔥 hot", "📞 전화, 문자", "❤️ sns"];
+  const categorys = [
+    "🌱 새로운 기능",
+    "🔥 인기있는 기능",
+    "📞 전화, 문자",
+    "❤️ sns",
+  ];
 
   return (
     <ul className={classes.layout}>
@@ -31,4 +36,4 @@ function MakeList({ FunctionOrApp, ListObjects }) {
   );
 }
 
-export default MakeList;
+export default MakeCategory;

@@ -1,5 +1,5 @@
 import classes from "./FunctionList.module.css";
-import MakeList from "./MakeList";
+import MakeCategory from "./MakeCategory";
 import MakeListInCategory from "./MakeListInCategory";
 function FunctionList() {
   return (
@@ -30,7 +30,7 @@ function FunctionList() {
         </div>
 
         <div className={`${classes.postIt_note}`}>
-          <MakeList FunctionOrApp={"function"}></MakeList>
+          <MakeCategory FunctionOrApp={"function"}></MakeCategory>
 
           <MakeListInCategory FunctionOrApp={"function"}></MakeListInCategory>
         </div>

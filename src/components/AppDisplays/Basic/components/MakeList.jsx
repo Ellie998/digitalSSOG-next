@@ -23,12 +23,15 @@ function MakeList({
           onClick={listOnClick}>
           <div className={`${classes["flex_leftItems"]}`}>
             {leftFlexItem?.map((item) => (
-              <div className={classes[item.className]}>{item.content}</div>
+              <div key={Math.random()} className={classes[item.className]}>
+                {item.content}
+              </div>
             ))}
           </div>
           <div className={`${classes["flex_rightItems"]}`}>
             {rightFlexItem?.map((item) => (
               <div
+                key={Math.random()}
                 className={classes[item.className]}
                 onClick={item.onClick ? item.onClick : null}>
                 {item.content}
@@ -37,18 +40,6 @@ function MakeList({
           </div>
         </div>
       )}
-      {/* {listStyle === "flex_spaceBetween" && rightFlexItem === undefined && (
-        <>
-          <div
-            className={`${classes["layout_flex--spaceBetween"]}`}
-            onClick={listOnClick}>
-            {leftFlexItem?.map((item) => (
-              <div className={classes[item.className]}>{item.content}</div>
-            ))}
-          </div>
-          {children}
-        </>
-      )} */}
       {listStyle === "flex_spaceAround" && <div></div>}
       {listStyle === "grid_oneLine" && (
         <>
