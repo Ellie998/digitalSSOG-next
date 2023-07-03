@@ -10,14 +10,14 @@ const MetaTag = (props) => {
       <meta name="description" content={props.description} />
       <meta itemprop="name" content={props.title} />
       <meta itemprop="description" content={props.description} />
-      {/* <meta itemprop="image" content="http://ssog.pages.dev/metaIMG.png" /> */}
+      <meta itemprop="image" content="http://ssog.pages.dev/metaIMG.png" />
       <meta property="og:url" content={props.url} />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
-      {/* <meta property="og:image" content="http://ssog.pages.dev/metaIMG.png" /> */}
+      <meta property="og:image" content="http://ssog.pages.dev/metaIMG.png" />
       <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={props.description} />
-      {/* <meta name="twitter:image" content="http://ssog.pages.dev/metaIMG.png" /> */}
+      <meta name="twitter:image" content="http://ssog.pages.dev/metaIMG.png" />
     </Helmet>
   );
 };
