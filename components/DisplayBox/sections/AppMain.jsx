@@ -1,4 +1,3 @@
-import { createContext } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 
 import MainApps from "./MainApps";
@@ -26,29 +25,6 @@ import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
 import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
 import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
 
-export const PageContext = createContext({
-  functionName: "",
-  appName: "",
-  methodId: "",
-  descriptionId: "",
-  urlContent: "",
-  //
-  functionName_makeCall: "",
-  functionName_getCall: "",
-  functionName_makeVideoCall: "",
-  functionName_sendMessage: "",
-  functionName_resendMessage: "",
-  functionName_reserveMessage: "",
-  functionName_sendImg: "",
-  functionName_sendAudio: "",
-  functionName_sendPhoneNum: "",
-  //
-  appName_basic: "",
-  appName_kakaotalk: "",
-  appName_call: "",
-  appName_message: "",
-});
-
 const appName_basic = "기본";
 const appName_call = "전화";
 const appName_message = "메시지";
@@ -68,16 +44,15 @@ const functionName_kakaotalk_groubChatLeave_RejectInvitation =
   "그룹채팅방 초대거부 및 나가기";
 const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
 
-function AppMain() {
+function AppMain({ appName, methodId, descriptionId }) {
   const params = useParams();
   const functionName = decodeURI(params.functionName);
   const searchParams = useSearchParams();
-  const appName = searchParams.get("appName");
-  const methodId = searchParams.get("methodId");
-  const descriptionId = searchParams.get("descriptionId");
+
   const nextDescriptionId = +descriptionId + 1;
   const urlContent = `/description/${functionName}/?appName=${appName}&methodId=${methodId}&descriptionId=${nextDescriptionId.toString()}`;
-
+  console.log(methodId);
+  console.log(descriptionId);
   let choicedComponent = <div></div>;
 
   switch (functionName) {
@@ -306,40 +281,7 @@ function AppMain() {
       choicedComponent = <AppMainError />;
   }
 
-  return (
-    <PageContext.Provider
-      value={{
-        functionName: functionName,
-        realFunctionName: functionName,
-        appName: appName,
-        methodId: methodId,
-        descriptionId: descriptionId,
-        urlContent: urlContent,
-        //
-        functionName_makeCall: functionName_makeCall,
-        functionName_getCall: functionName_getCall,
-        functionName_makeVideoCall: functionName_makeVideoCall,
-        functionName_sendMessage: functionName_sendMessage,
-        functionName_seeMessage: functionName_seeMessage,
-        functionName_resendMessage: functionName_resendMessage,
-        functionName_reserveMessage: functionName_reserveMessage,
-        functionName_sendImg: functionName_sendImg,
-        functionName_sendAudio: functionName_sendAudio,
-        functionName_sendPhoneNum: functionName_sendPhoneNum,
-        //
-        functionName_kakaotalk_groubChatLeave_RejectInvitation:
-          functionName_kakaotalk_groubChatLeave_RejectInvitation,
-        functionName_kakaotalk_groubChatLock:
-          functionName_kakaotalk_groubChatLock,
-        //
-        appName_basic: appName_basic,
-        appName_kakaotalk: appName_kakaotalk,
-        appName_message: appName_message,
-        appName_call: appName_call,
-      }}>
-      {choicedComponent}
-    </PageContext.Provider>
-  );
+  return choicedComponent;
 }
 
 export default AppMain;

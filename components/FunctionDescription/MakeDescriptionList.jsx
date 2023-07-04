@@ -17,7 +17,14 @@ const numEmogi = [
   "🔟",
 ];
 
-function MakeDescriptionList({ functionMethod, appName, methodId }) {
+function MakeDescriptionList({
+  functionMethod,
+  appName,
+  methodId,
+  setAppName,
+  setMethodId,
+  setDescriptionId,
+}) {
   let num = 0;
   const params = useParams();
   const router = useRouter();
@@ -28,20 +35,17 @@ function MakeDescriptionList({ functionMethod, appName, methodId }) {
         <li
           key={methodDescription}
           className="list-hover description-list"
-          // onClick={(e) => {
-          //   e.preventDefault();
-          //   router.push(
-          //     `/description/${params.functionName}/${appName}/${methodNum}/${num}`
-          //   );
-          // }}
-        >
-          <Link
+          onClick={() => {
+            setAppName(appName);
+            setMethodId(methodId.toString());
+            setDescriptionId(num.toString());
+          }}>
+          <NoScrollLink
             href={`/description/${
               params.functionName
-            }/?appName=${appName}&methodId=${methodId.toString()}&descriptionId=${num.toString()}`}
-            scroll={false}>
+            }/?appName=${appName}&methodId=${methodId.toString()}&descriptionId=${num.toString()}`}>
             {numEmogi[num++]} {methodDescription}
-          </Link>
+          </NoScrollLink>
         </li>
       ))}
     </ol>

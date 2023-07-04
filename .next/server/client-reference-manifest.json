@@ -377,6 +377,14 @@
       "modules": [],
       "files": []
     },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": {
+      "modules": [
+        "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css"
+      ],
+      "files": [
+        "static/css/app/layout.css"
+      ]
+    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/page": {
       "modules": [
         "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/IndexFunctionList/FunctionList.module.css",
@@ -389,14 +397,6 @@
       ],
       "files": [
         "static/css/app/page.css"
-      ]
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": {
-      "modules": [
-        "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css"
-      ],
-      "files": [
-        "static/css/app/layout.css"
       ]
     },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/description/[...functionName]/page": {

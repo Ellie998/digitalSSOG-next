@@ -2,9 +2,17 @@
 import Link, { LinkProps } from "next/link";
 import React, { ReactNode } from "react";
 
-const NoScrollLink = ({ children, ...props }) => {
+const NoScrollLink = ({ children, href }) => {
   return (
-    <Link {...props} scroll={false}>
+    <Link
+      // {...props}
+      href={href}
+      scroll={false}
+      onClick={(e) => {
+        e.preventDefault();
+        window.history.replaceState("", "", href);
+        console.log("clicked");
+      }}>
       {children}
     </Link>
   );

@@ -1,10 +1,21 @@
 import { useSearchParams } from "next/navigation";
 import MakeMethodList from "./MakeMethodList";
 import classes from "./MakeAppList.module.css";
+import { useEffect, useState } from "react";
 
-function MakeAppList({ functionMethods }) {
-  const searchParams = useSearchParams();
-  const appName = searchParams.get("appName");
+function MakeAppList({
+  functionMethods,
+  appName,
+  methodId,
+  descriptionId,
+  setAppName,
+  setMethodId,
+  setDescriptionId,
+}) {
+  //   const searchParams = useSearchParams();
+  //   const paramAppName = searchParams.get("appName");
+  // const [appName, setAppName] = useState(paramAppName);
+
   return (
     <ol className={classes.listWrap}>
       <p className={classes.extraInfoWrap}>
@@ -21,7 +32,15 @@ function MakeAppList({ functionMethods }) {
               className={classes.fontSize_1_2rem}>
               {functionMethodObject.methodAppName} 어플
             </summary>
-            <MakeMethodList functionMethodObject={functionMethodObject} />
+            <MakeMethodList
+              functionMethodObject={functionMethodObject}
+              methodId={methodId}
+              descriptionId={descriptionId}
+              appName={appName}
+              setAppName={setAppName}
+              setMethodId={setMethodId}
+              setDescriptionId={setDescriptionId}
+            />
           </details>
         </li>
       ))}

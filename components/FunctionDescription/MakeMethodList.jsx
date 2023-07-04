@@ -3,10 +3,18 @@ import MakeDescriptionList from "./MakeDescriptionList";
 // import data from "../public/data/functionData.json";
 import classes from "./MakeMethodList.module.css";
 
-function MakeMethodList({ functionMethodObject }) {
+function MakeMethodList({
+  functionMethodObject,
+  appName,
+  methodId,
+  descriptionId,
+  setAppName,
+  setMethodId,
+  setDescriptionId,
+}) {
   const searchParams = useSearchParams();
-  const methodId = searchParams.get("methodId");
-  const appName = searchParams.get("appName");
+  // const methodId = searchParams.get("methodId");
+  // const appName = searchParams.get("appName");
 
   return (
     <ol className={classes.listWrap}>
@@ -32,6 +40,9 @@ function MakeMethodList({ functionMethodObject }) {
                 functionMethod={functionMethod}
                 appName={functionMethodObject.methodAppName}
                 methodId={functionMethod.methodNum}
+                setAppName={setAppName}
+                setMethodId={setMethodId}
+                setDescriptionId={setDescriptionId}
               />
             </details>
           </li>
@@ -41,6 +52,9 @@ function MakeMethodList({ functionMethodObject }) {
           functionMethod={functionMethodObject.howto[0]}
           appName={functionMethodObject.methodAppName}
           methodId={functionMethodObject.howto[0].methodNum}
+          setAppName={setAppName}
+          setMethodId={setMethodId}
+          setDescriptionId={setDescriptionId}
         />
       )}
     </ol>
