@@ -1,0 +1,13 @@
+.fontSize_1_2rem {
+  font-size: 1.2rem;
+}
+.extraInfoWrap {
+  color: rgb(117, 117, 117);
+}
+.extraInfoWrap:hover,
+.extraInfoWrap > i {
+  color: rgb(41, 41, 41);
+}
+.extraInfoWrap > i {
+  font-size: 1rem;
+}

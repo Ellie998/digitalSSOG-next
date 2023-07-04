@@ -1,0 +1,128 @@
+/* ---------------- LAYOUT ----------------- */
+.layout {
+  font-size: 1rem;
+  align-items: center;
+  text-align: center;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.layout::-webkit-scrollbar {
+  display: none;
+}
+.layout i {
+  border-radius: 100%;
+  cursor: pointer;
+  padding: 5px;
+}
+/* ---------------- ICON ----------------- */
+.iconWrap_background i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 8px;
+}
+.iconWrapS_background i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 3px;
+  font-size: 0.6rem;
+}
+
+/* ---------------- MAIN ----------------- */
+.main_title {
+  margin-top: 20px;
+  height: 60px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.main_title--noMargin {
+  height: 60px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.main_subTitle {
+  font-size: 0.7rem;
+  color: var(--grey-300);
+}
+.main_optionBox {
+  height: 136px;
+}
+.main_optionRow {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.main_optionRow div {
+  width: 100%;
+  height: 34px;
+}
+/* ---------------- NAV ----------------- */
+.navLayout {
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ---------------- LIST ----------------- */
+.listWrap {
+  height: 155px; /* 270px - 80px - 25px + (15px + 30px * 3)  - 20px*/
+}
+.listOptionWrap {
+  padding: 10px 20px;
+  animation: fadeInDown 0.5s;
+}
+/* ---------------- TAP ----------------- */
+.tabLayout {
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.tabLayout div::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(0, 101, 0);
+  opacity: 0;
+}
+.tabLayout div:hover::after {
+  opacity: 1;
+  transition: all 0.5s;
+  animation: lr-bar 750ms;
+  animation-delay: 0;
+}
+
+.tap_clicked {
+  color: rgb(0, 101, 0);
+}
+.tap_clicked::after {
+  opacity: 1 !important;
+}
+
+@keyframes lr-bar {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}

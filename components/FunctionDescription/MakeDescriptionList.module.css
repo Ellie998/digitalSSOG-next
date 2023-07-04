@@ -1,0 +1,19 @@
+.listWrap {
+  margin-bottom: 2.5rem;
+  word-break: keep-all;
+}
+
+.listWrap li {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
+}
+.listWrap li:hover {
+  color: var(--grey-800);
+}
+
+.listWrap a.active {
+  color: var(--grey-800);
+}
+.listWrap a.active:hover {
+  color: var(--grey-800);
+}
