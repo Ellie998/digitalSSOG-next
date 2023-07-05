@@ -1,9 +1,8 @@
 import { useContext, useState } from "react";
-import Link from "next/link";
 
-import { PageContext } from "../../../sections/AppMain";
 import classes from "./MessageAppMain.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
+import NoScrollLink from "../../../../NoScrollLink";
 
 function MessageAppMain() {
   const {
@@ -44,11 +43,11 @@ function MessageAppMain() {
           <div className={classes.appTitle}>Messages</div>
         )}
         {functionName === functionName_seeMessage && methodId === "2" && (
-          <div className={classes.appTitle} data-tooltip={`클릭!`}>
-            <Link href={urlContent}>
+          <div className={classes.appTitle} tooltip={`클릭!`}>
+            <NoScrollLink href={urlContent}>
               <div>읽지 않은 메시지 1개</div>
               <div>보기</div>
-            </Link>
+            </NoScrollLink>
           </div>
         )}
         <div className={classes.appETCLists}>
@@ -76,7 +75,7 @@ function MessageAppMain() {
           functionName === functionName_sendPhoneNum) && (
           <div className={classes.contentLists}>
             <div className={classes.firstNameBox}>홍</div>
-            <Link
+            <NoScrollLink
               href={
                 (functionName === functionName_sendMessage &&
                   methodId === "2") ||
@@ -85,7 +84,7 @@ function MessageAppMain() {
                   ? urlContent
                   : ""
               }
-              data-tooltip={
+              tooltip={
                 (functionName === functionName_sendMessage &&
                   methodId === "2") ||
                 functionName === functionName_resendMessage ||
@@ -101,7 +100,7 @@ function MessageAppMain() {
               {functionName === functionName_seeMessage && (
                 <div className={classes.alert}>1</div>
               )}
-            </Link>
+            </NoScrollLink>
           </div>
         )}
 
@@ -120,8 +119,8 @@ function MessageAppMain() {
             onClick={chatXBtnClickHandler}></div>
           <section className={`${classes.wigetApps} `}>
             <div>
-              <Link
-                data-tooltip={
+              <NoScrollLink
+                tooltip={
                   appName === appName_basic &&
                   (functionName === functionName_sendMessage ||
                     functionName === functionName_reserveMessage ||
@@ -139,37 +138,37 @@ function MessageAppMain() {
                     functionName === functionName_sendAudio ||
                     functionName === functionName_sendPhoneNum)
                     ? urlContent
-                    : null
+                    : ""
                 }>
                 <div>1:1 대화</div>
                 <div>
                   <i className="bi bi-chat"></i>
                 </div>
-              </Link>
+              </NoScrollLink>
             </div>
             <div>
-              <Link>
+              <NoScrollLink>
                 <div>그룹 채팅</div>
                 <div>
                   <i className="bi bi-people"></i>
                 </div>
-              </Link>
+              </NoScrollLink>
             </div>
             <div>
-              <Link>
+              <NoScrollLink>
                 <div>단체 문자</div>
                 <div>
                   <i className="bi bi-wechat"></i>
                 </div>
-              </Link>
+              </NoScrollLink>
             </div>
             <div onClick={chatXBtnClickHandler}>
-              <Link>
+              <NoScrollLink>
                 <div></div>
                 <div>
                   <i className="bi bi-x-lg"></i>
                 </div>
-              </Link>
+              </NoScrollLink>
             </div>
           </section>
         </>

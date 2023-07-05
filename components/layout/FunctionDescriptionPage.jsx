@@ -48,7 +48,7 @@ function FunctionDescriptionPage() {
               {detailFunctionObject.app?.map((dataAppName) => (
                 <li key={Math.random()}>
                   <NoScrollLink
-                    href={`/description/${functionName}/?appName=${dataAppName}&methodId=0&descriptionId=0`}>
+                    href={`/description/${functionName}/?appName=${dataAppName}&methodId=1&descriptionId=0`}>
                     {dataAppName}
                   </NoScrollLink>
                 </li>

@@ -49,7 +49,9 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
           className={
             // methodPageId === dataMethodId &&
             // descriptionPageId === num.toString()
-            +methodId === dataMethodId && +descriptionId === num
+            appName == dataAppName &&
+            +methodId === dataMethodId &&
+            +descriptionId === num
               ? classes.list_active
               : classes.list
           }>

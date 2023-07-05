@@ -1,34 +1,29 @@
 import { useContext } from "react";
-import Link from "next/link";
-import { PageContext } from "./AppMain";
 import classes from "./AppMain.module.css";
 import UrlContext from "../../page_context/UrlContext";
+import NextDescriptionLink from "../../NextDescriptionLink";
 
 const MainApps = ({ navLinkTriger }) => {
-  const { urlContent, appName_kakaotalk, appName_call, appName_message } =
+  const { appName_kakaotalk, appName_call, appName_message } =
     useContext(UrlContext);
 
   return (
     <section className={classes.layout}>
       <section className={classes.appLayout}>
         <div className={classes.app_row}>
-          <Link
-            href={navLinkTriger === appName_kakaotalk ? `${urlContent}` : ""}
-            data-tooltip={navLinkTriger === appName_kakaotalk ? `클릭!` : null}>
+          <NextDescriptionLink nextOption={navLinkTriger === appName_kakaotalk}>
             <div>
               <i className="bi bi-chat-fill"></i>
             </div>
-          </Link>
+          </NextDescriptionLink>
         </div>
       </section>
       <section className={classes.navAppLayout}>
-        <Link
-          href={navLinkTriger === appName_call ? urlContent : ""}
-          data-tooltip={navLinkTriger === appName_call ? `클릭!` : null}>
+        <NextDescriptionLink nextOption={navLinkTriger === appName_call}>
           <div>
             <i className="bi bi-telephone"></i>
           </div>
-        </Link>
+        </NextDescriptionLink>
         <div>
           <i className="bi bi-camera"></i>
         </div>
@@ -38,13 +33,11 @@ const MainApps = ({ navLinkTriger }) => {
         <div>
           <i className="bi bi-browser-chrome"></i>
         </div>
-        <Link
-          href={navLinkTriger === appName_message ? urlContent : ""}
-          data-tooltip={navLinkTriger === appName_message ? `클릭!` : null}>
+        <NextDescriptionLink nextOption={navLinkTriger === appName_message}>
           <div>
             <i className="bi bi-chat-dots"></i>
           </div>
-        </Link>
+        </NextDescriptionLink>
       </section>
     </section>
   );

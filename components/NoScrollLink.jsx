@@ -1,37 +1,27 @@
 // components/NoScrollLink.tsx
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-import React, { ReactNode, useContext, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import { UrlChangeDetecter } from "./UrlChangeDetecter";
+import Link from "next/link";
+import React, { useContext, useEffect } from "react";
 import UrlContext from "./page_context/UrlContext";
 
-const NoScrollLink = ({ children, href }) => {
-  const scrollY = localStorage.getItem("scrollY");
-  // const searchParams = useSearchParams();
-  // const appName = searchParams.get("appName");
-  // const methodId = searchParams.get("methodId");
-  // const descriptionId = searchParams.get("descriptionId");
+const NoScrollLink = ({ children, href, tooltip }) => {
   const { urlChangeDetecter } = useContext(UrlContext);
-  const parmas = urlChangeDetecter();
-  // console.log(parmas);
+  const { appName, descriptionId, methodId } = urlChangeDetecter();
+  const scrollY = localStorage.getItem("scrollY");
 
-  useEffect(() => {
-    window.scrollTo({ top: scrollY, behavior: "instant" });
-  }, [parmas]);
+  appName !== null &&
+    useEffect(() => {
+      window.scrollTo({ top: scrollY, behavior: "instant" });
+      console.log("prevent scroll");
+    }, [appName, descriptionId, methodId]);
 
   return (
     <Link
-      // {...props}
-      href={href}
+      href={href ? href : ""}
       scroll={false}
+      data-tooltip={tooltip ? tooltip : null}
       onClick={(e) => {
         localStorage.setItem("scrollX", window.scrollX);
         localStorage.setItem("scrollY", window.scrollY);
-        // router.push(href);
-
-        // e.preventDefault();
-        // window.history.replaceState("", "", href);
       }}>
       {children}
     </Link>
