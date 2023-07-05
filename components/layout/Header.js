@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import classes from "./Header.module.css";
-import logo from "../../public/assets/logo.png";
+import logo from "../../app/logo.png";
+// import logo from "../../public/assets/logo.png";
 
 function Header() {
   return (
