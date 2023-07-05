@@ -1,7 +1,7 @@
 // app/page.jsx
 import Index from "../components/layout/Index";
 import MyLayout from "../components/layout/MyLayout";
-
+export const runtime = "edge";
 {
   /*   
 <meta itemprop="image" content="http://ssog.pages.dev/metaIMG.png" />
