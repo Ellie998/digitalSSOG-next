@@ -6,10 +6,10 @@ import MakeListInCategory from "./MakeListInCategory";
 import classes from "./FunctionList.module.css";
 
 function FunctionList() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [tabName, setTabName] = useState(searchParams.get("tab"));
 
+  /**function for change query in home page */
   function linkClickHandler(e) {
     e.preventDefault();
     const tabName = e.target.id.slice(3);

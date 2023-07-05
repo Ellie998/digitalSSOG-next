@@ -8,11 +8,11 @@ const NoScrollLink = ({ children, href, tooltip }) => {
   const { appName, descriptionId, methodId } = urlChangeDetecter();
   const scrollY = localStorage.getItem("scrollY");
 
-  appName !== null &&
-    useEffect(() => {
-      window.scrollTo({ top: scrollY, behavior: "instant" });
-      // console.log("prevent scroll");
-    }, [appName, descriptionId, methodId]);
+  // appName !== null &&
+  //   useEffect(() => {
+  //     window.scrollTo({ top: scrollY, behavior: "instant" });
+  //     console.log("prevent scroll");
+  //   }, []);
 
   return (
     <Link
@@ -22,6 +22,8 @@ const NoScrollLink = ({ children, href, tooltip }) => {
       onClick={(e) => {
         localStorage.setItem("scrollX", window.scrollX);
         localStorage.setItem("scrollY", window.scrollY);
+        window.scrollTo({ top: scrollY, behavior: "instant" });
+        // console.log("prevent scroll");
       }}>
       {children}
     </Link>

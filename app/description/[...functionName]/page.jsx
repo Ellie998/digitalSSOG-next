@@ -1,6 +1,5 @@
 // app/description/[functionName]/page.jsx
 import FunctionDescriptionProvider from "../../../components/FunctionDescription/FunctionDescriptionProvider";
-import FunctionDescriptionPage from "../../../components/layout/FunctionDescriptionPage";
 import MyLayout from "../../../components/layout/MyLayout";
 
 // or Dynamic metadata
@@ -69,7 +68,6 @@ export default function Page() {
   return (
     <MyLayout>
       <FunctionDescriptionProvider></FunctionDescriptionProvider>
-      {/* <FunctionDescriptionPage></FunctionDescriptionPage> */}
     </MyLayout>
   );
 }

@@ -2,9 +2,6 @@ import { createContext } from "react";
 
 const UrlContext = createContext({
   functionName: "",
-  appName: "",
-  methodId: "",
-  descriptionId: "",
   myAppName: "",
   myMethodId: "",
   myDescriptionId: "",

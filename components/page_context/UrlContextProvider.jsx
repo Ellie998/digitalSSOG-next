@@ -30,34 +30,22 @@ function urlChangeDetecter() {
 }
 
 export default function UrlContextProvider({ children }) {
-  const querys = urlChangeDetecter();
   const params = useParams();
   const functionName = decodeURI(params.functionName.replace("%2C", ","));
+  console.log("url context provider");
 
-  //
-  const appName = querys.appName;
-  const methodId = querys.methodId;
-  const descriptionId = querys.descriptionId;
-  //
+  const [myAppName, setMyAppName] = useState("");
+  const [myMethodId, setMyMethodId] = useState("");
+  const [myDescriptionId, setMyDescriptionId] = useState("");
 
-  // const nextDescriptionId = +descriptionId + 1;
-  // const urlContent = `/description/${functionName}/?appName=${appName}&methodId=${methodId}&descriptionId=${nextDescriptionId.toString()}`;
-  //
-
-  const [myAppName, setMyAppName] = useState(appName);
-  const [myMethodId, setMyMethodId] = useState(methodId);
-  const [myDescriptionId, setMyDescriptionId] = useState(descriptionId);
-  // const nextDescriptionId = +myDescriptionId + 1;
-  // const urlContent = `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId.toString()}`;
-
-  (myDescriptionId !== null) &
+  (myDescriptionId !== "") &
     useEffect(() => {
       window.history.replaceState(
         "",
         "",
         `${
-          myDescriptionId
-            ? `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId.toString()}`
+          myDescriptionId !== ""
+            ? `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId}`
             : `/description/${functionName}`
         }`
       );
@@ -67,16 +55,12 @@ export default function UrlContextProvider({ children }) {
     <UrlContext.Provider
       value={{
         functionName: functionName,
-        appName: appName,
-        methodId: methodId,
-        descriptionId: descriptionId,
         myAppName: myAppName,
         myMethodId: myMethodId,
         myDescriptionId: myDescriptionId,
         setMyAppName: setMyAppName,
         setMyMethodId: setMyMethodId,
         setMyDescriptionId: setMyDescriptionId,
-        // urlContent: urlContent,
         urlChangeDetecter: urlChangeDetecter,
         //
         functionName_makeCall,

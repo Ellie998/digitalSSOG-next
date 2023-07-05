@@ -1,18 +1,18 @@
-import { useParams, useRouter } from "next/navigation";
 import styles from "./AppNav.module.css";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
 
 function AppNav() {
-  const router = useRouter();
-  const { urlChangeDetecter, functionName } = useContext(UrlContext);
-  const { appName, methodId } = urlChangeDetecter();
+  const { setMyDescriptionId, myDescriptionId } = useContext(UrlContext);
 
   function goToBack() {
-    window.history.back();
+    myDescriptionId !== "0" &&
+      setMyDescriptionId((prevValue) => {
+        return `${prevValue - 1}`;
+      });
   }
   function goToHome() {
-    // router.push(`/description/${functionName}/${appName}/${methodId}/0`);
+    setMyDescriptionId("0");
   }
   return (
     <section>

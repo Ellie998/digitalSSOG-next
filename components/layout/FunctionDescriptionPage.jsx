@@ -3,15 +3,13 @@ import { useContext, useEffect, useState } from "react";
 
 import MakeAppList from "../../components/FunctionDescription/MakeAppList";
 import DisplayBox from "../DisplayBox/DisplayBox";
-import NoScrollLink from "../NoScrollLink";
 import UrlContext from "../page_context/UrlContext";
 import classes from "./FunctionDescriptionPage.module.css";
 
 const data = require("/public/data/functionData.json");
 
 function FunctionDescriptionPage() {
-  const { functionName, urlChangeDetecter } = useContext(UrlContext);
-  const { appName, methodId, descriptionId } = urlChangeDetecter();
+  const { functionName, setMyAppName } = useContext(UrlContext);
   const [detailFunctionObject, setData] = useState([]);
 
   useEffect(() => {
@@ -33,7 +31,6 @@ function FunctionDescriptionPage() {
   }, []);
 
   return (
-    // <UrlContextProvider>
     <main>
       <section className={classes.main_header}>
         <h1 className={classes.title}>
@@ -48,11 +45,10 @@ function FunctionDescriptionPage() {
             <h2>관련 어플</h2>
             <ul>
               {detailFunctionObject.app?.map((dataAppName) => (
-                <li key={Math.random()}>
-                  <NoScrollLink
-                    href={`/description/${functionName}/?appName=${dataAppName}&methodId=1&descriptionId=0`}>
-                    {dataAppName}
-                  </NoScrollLink>
+                <li
+                  key={Math.random()}
+                  onClick={() => setMyAppName(dataAppName)}>
+                  {dataAppName}
                 </li>
               ))}
             </ul>
@@ -75,7 +71,6 @@ function FunctionDescriptionPage() {
         </div>
       </section>
     </main>
-    // </UrlContextProvider>
   );
 }
 

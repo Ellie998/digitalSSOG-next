@@ -1,9 +1,7 @@
 import classes from "./MakeDescriptionList.module.css";
 
-import NoScrollLink from "../NoScrollLink";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import UrlContext from "../page_context/UrlContext";
-import { useSearchParams } from "next/navigation";
 
 const numEmogi = [
   " 0️⃣",
@@ -22,7 +20,6 @@ const numEmogi = [
 function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
   let num = 0;
   const {
-    functionName,
     myAppName,
     myMethodId,
     myDescriptionId,
@@ -33,7 +30,7 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
 
   function changeUrlQueryStateHandler(e) {
     setMyAppName(dataAppName);
-    setMyMethodId(dataMethodId.toString());
+    setMyMethodId(dataMethodId);
     setMyDescriptionId(e.target.dataset.listOrder);
   }
 
@@ -45,8 +42,8 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
           data-list-order={num.toString()}
           className={
             myAppName == dataAppName &&
-            +myMethodId === dataMethodId &&
-            +myDescriptionId === num
+            myMethodId === dataMethodId &&
+            myDescriptionId === num.toString()
               ? classes.list_active
               : classes.list
           }
@@ -55,27 +52,6 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
         </li>
       ))}
     </ol>
-    // <ol className={classes.listWrap}>
-    //   {functionMethod.methodContent?.map((methodDescription) => (
-    //     <li
-    //       key={methodDescription}
-    //       className={
-    //         appName == dataAppName &&
-    //         +methodId === dataMethodId &&
-    //         +descriptionId === num
-    //           ? classes.list_active
-    //           : classes.list
-    //       }
-    //       onClick={() => {
-    //         changeUrlQueryStateHandler;
-    //       }}>
-    //       <NoScrollLink
-    //         href={`/description/${functionName}/?appName=${dataAppName}&methodId=${dataMethodId}&descriptionId=${num.toString()}`}>
-    //         {numEmogi[num++]} {methodDescription}
-    //       </NoScrollLink>
-    //     </li>
-    //   ))}
-    // </ol>
   );
 }
 

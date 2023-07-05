@@ -41,7 +41,7 @@
   box-shadow: 0 4px 22px rgba(23, 23, 23, 0.157);
   transform: translateY(-15px);
 }
-.listBox a:hover {
+.listBox li:hover {
   text-decoration: underline;
 }
 
