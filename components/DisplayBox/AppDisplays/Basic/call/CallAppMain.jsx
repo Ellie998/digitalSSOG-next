@@ -8,7 +8,8 @@ import classes from "./CallAppMain.module.css";
 import listClass from "../components/MakeList.module.css";
 
 import UrlContext from "../../../../page_context/UrlContext";
-import NoScrollLink from "../../../../NoScrollLink";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
+NextDescriptionLink;
 
 function CallAppMain() {
   const {
@@ -76,10 +77,10 @@ function CallAppMain() {
         {
           className: "iconWrapS_background--green",
           content: (
-            <NoScrollLink
-              href={functionName === functionName_makeCall ? urlContent : ""}>
+            <NextDescriptionLink
+              nextOption={functionName === functionName_makeCall}>
               <i className="bi bi-telephone-fill"></i>
-            </NoScrollLink>
+            </NextDescriptionLink>
           ),
         },
         {
@@ -253,42 +254,25 @@ function CallAppMain() {
             </div>
           </div>
           <div className={classes.navLayout}>
-            <NoScrollLink
-              data-tooltip={
+            <NextDescriptionLink
+              nextOption={
                 appName === appName_basic &&
                 functionName === functionName_makeVideoCall
-                  ? `클릭!`
-                  : null
-              }
-              href={
-                appName === appName_basic &&
-                functionName === functionName_makeVideoCall
-                  ? urlContent
-                  : ""
               }>
               <div>
                 <i className="bi bi-camera-video-fill"></i>
               </div>
-            </NoScrollLink>
+            </NextDescriptionLink>
             <div>
-              <NoScrollLink
-                data-tooltip={
-                  appName === appName_basic &&
-                  functionName === functionName_makeCall &&
-                  methodId === "1"
-                    ? `클릭!`
-                    : null
-                }
-                href={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_makeCall
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap_background}>
                   <i className="bi bi-telephone-fill"></i>
                 </div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
               <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>

@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import Link from "next/link";
-import { PageContext } from "../../sections/AppMain";
+
 import classes from "./KakaoProfileDetail.module.css";
 import UrlContext from "../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../NextDescriptionLink";
 
 function KakaoProfileDetail() {
   const { urlContent } = useContext(UrlContext);
@@ -21,10 +21,10 @@ function KakaoProfileDetail() {
           <div>1:1채팅</div>
         </div>
         <div>
-          <Link href={urlContent} data-tooltip="클릭!">
+          <NextDescriptionLink nextOption={true}>
             <i className="bi bi-telephone-fill"></i>
             <div>통화하기</div>
-          </Link>
+          </NextDescriptionLink>
         </div>
         <div>
           <i className="bi bi-camera-video-fill"></i>

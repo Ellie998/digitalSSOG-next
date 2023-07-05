@@ -31,7 +31,7 @@ function urlChangeDetecter() {
 
 export default function UrlContextProvider({ children }) {
   const params = useParams();
-  const functionName = decodeURI(params.functionName);
+  const functionName = decodeURI(params.functionName).replace("%2C", ",");
   //
   // const searchParams = useSearchParams();
   // const paramAppName = searchParams.get("appName");

@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import Link from "next/link";
-import { PageContext } from "../../sections/AppMain";
+
 import MakeList from "../Basic/components/MakeList";
-import classes from "./KakaoChatRoom.module.css";
+import NextDescriptionLink from "../../../NextDescriptionLink";
+
 import UrlContext from "../../../page_context/UrlContext";
+import classes from "./KakaoChatRoom.module.css";
 
 function KakaoChatRoom({ inputLocked }) {
   const {
@@ -151,21 +152,13 @@ function KakaoChatRoom({ inputLocked }) {
             <div>글자 복사</div>
             <div>텍스트 선택</div>
 
-            <Link
-              data-tooltip={
+            <NextDescriptionLink
+              nextOption={
                 appName === appName_basic &&
                 functionName === functionName_resendMessage
-                  ? "클릭!"
-                  : null
-              }
-              href={
-                appName === appName_basic &&
-                functionName === functionName_resendMessage
-                  ? urlContent
-                  : ""
               }>
               <div>전달</div>
-            </Link>
+            </NextDescriptionLink>
             <div>공유</div>
             <div>별표하기</div>
           </div>
@@ -463,9 +456,9 @@ function KakaoChatRoom({ inputLocked }) {
                   {
                     className: "",
                     content: (
-                      <Link href={urlContent}>
+                      <NextDescriptionLink nextOption={true}>
                         <i className="bi bi-gear"></i>
-                      </Link>
+                      </NextDescriptionLink>
                     ),
                   },
                 ]}></MakeList>

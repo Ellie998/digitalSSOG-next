@@ -1,13 +1,8 @@
-import { useContext } from "react";
-import Link from "next/link";
-
-import { PageContext } from "../../../../sections/AppMain";
 import classes from "./SetReservation.module.css";
-import UrlContext from "../../../../../page_context/UrlContext";
+
+import NextDescriptionLink from "../../../../../NextDescriptionLink";
 
 function SetReservation() {
-  const { urlContent } = useContext(UrlContext);
-
   return (
     <>
       <section className={classes.appMain}>
@@ -48,9 +43,9 @@ function SetReservation() {
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
-          <Link href={urlContent}>
-            <div data-tooltip="클릭!">완료</div>
-          </Link>
+          <NextDescriptionLink nextOption={true}>
+            <div>완료</div>
+          </NextDescriptionLink>
         </div>
       </div>
     </>

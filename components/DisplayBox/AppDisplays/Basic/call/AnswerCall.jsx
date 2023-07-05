@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import { PageContext } from "../../../sections/AppMain";
-import classes from "./AnswerCall.module.css";
 import Link from "next/link";
 import UrlContext from "../../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
+import classes from "./AnswerCall.module.css";
 
 const AnswerCall = () => {
-  const { urlContent, appName, appName_basic, appName_kakaotalk } =
-    useContext(UrlContext);
+  const { appName, appName_basic, appName_kakaotalk } = useContext(UrlContext);
   return (
     <>
       {appName === appName_basic && (
@@ -16,13 +15,13 @@ const AnswerCall = () => {
           </div>
           <div className={classes.content_sub}>010-0000-0000</div>
           <div className={classes.btns_basic}>
-            <Link href={urlContent}>
+            <NextDescriptionLink nextOption={true}>
               <div data-tooltip="클릭!">
                 <i
                   className="bi bi-telephone-fill"
                   style={{ color: "blue" }}></i>
               </div>
-            </Link>
+            </NextDescriptionLink>
 
             <div>
               <i
@@ -53,13 +52,13 @@ const AnswerCall = () => {
                 className="bi bi-telephone-x-fill"
                 style={{ color: "red" }}></i>
             </div>
-            <Link href={urlContent}>
+            <NextDescriptionLink nextOption={true}>
               <div data-tooltip="클릭!">
                 <i
                   className="bi bi-telephone-fill"
                   style={{ color: "blue" }}></i>
               </div>
-            </Link>
+            </NextDescriptionLink>
           </div>
         </div>
       )}

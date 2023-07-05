@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import classes from "./MessageWithOption.module.css";
-import { PageContext } from "../../../../sections/AppMain";
+
 import UrlContext from "../../../../../page_context/UrlContext";
 
 function MessageWithOption() {
@@ -79,7 +79,7 @@ function MessageWithOption() {
               <div
                 onClick={clockBtnClickHandler}
                 className={classes["appMain_sendMessage--resIcon"]}>
-                <i class="bi bi-clock"></i>
+                <i className="bi bi-clock"></i>
               </div>
               <div className={classes["appMain_sendMessage--res"]}>
                 {isSubmitted && inputValue}

@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { useContext } from "react";
-import { PageContext } from "../../../sections/AppMain";
+
 import classes from "./SelectPerson.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function SelectPerson() {
   const {
@@ -28,20 +28,8 @@ function SelectPerson() {
         <input type="text" placeholder="이름 또는 번호 입력"></input>
       </div>
       <ul className={classes.numLists}>
-        <Link
-          data-tooltip={
-            appName === appName_basic &&
-            (functionName === functionName_sendMessage ||
-              functionName === functionName_sendImg ||
-              functionName === functionName_reserveMessage ||
-              functionName === functionName_sendAudio ||
-              (functionName === functionName_sendPhoneNum &&
-                descriptionId === "2") ||
-              functionName === functionName_resendMessage)
-              ? "클릭!"
-              : null
-          }
-          href={
+        <NextDescriptionLink
+          nextOption={
             functionName === functionName_sendMessage ||
             functionName === functionName_sendImg ||
             functionName === functionName_reserveMessage ||
@@ -49,36 +37,25 @@ function SelectPerson() {
             (functionName === functionName_sendPhoneNum &&
               descriptionId === "2") ||
             functionName === functionName_resendMessage
-              ? urlContent
-              : ""
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>
             <div>홍길동</div>
             <div className={classes.callNumber}>010-0000-0000</div>
           </li>
-        </Link>
-        <Link
-          data-tooltip={
+        </NextDescriptionLink>
+        <NextDescriptionLink
+          nextOption={
             appName === appName_basic &&
             functionName === functionName_sendPhoneNum &&
             descriptionId === "4"
-              ? `클릭!`
-              : null
-          }
-          href={
-            appName === appName_basic &&
-            functionName === functionName_sendPhoneNum &&
-            descriptionId === "4"
-              ? urlContent
-              : ""
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>
             <div>홍길순</div>
             <div className={classes.callNumber}>010-0000-0000</div>
           </li>
-        </Link>
+        </NextDescriptionLink>
       </ul>
     </section>
   );

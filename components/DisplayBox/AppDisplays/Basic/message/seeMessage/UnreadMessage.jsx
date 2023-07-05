@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import Link from "next/link";
 
-import { PageContext } from "../../../../sections/AppMain";
-import classes from "./UnreadMessage.module.css";
 import UrlContext from "../../../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../../../NextDescriptionLink";
+import classes from "./UnreadMessage.module.css";
 
 function UnreadMessage() {
-  const { methodId, urlContent, functionName, functionName_seeMessage } =
+  const { methodId, functionName, functionName_seeMessage } =
     useContext(UrlContext);
 
   return (
@@ -23,16 +22,9 @@ function UnreadMessage() {
 
         <div className={classes.main_messageList}>
           <div className={classes.message_firstName}>홍</div>
-          <Link
-            href={
+          <NextDescriptionLink
+            nextOption={
               functionName === functionName_seeMessage && methodId === "2"
-                ? urlContent
-                : ""
-            }
-            data-tooltip={
-              functionName === functionName_seeMessage && methodId === "2"
-                ? `클릭!`
-                : null
             }>
             <div className={classes.message_name}>홍길동</div>
             <div className={classes.message_time}>오전 8:03</div>
@@ -42,7 +34,7 @@ function UnreadMessage() {
             {functionName === functionName_seeMessage && (
               <div className={classes.message_alert}>1</div>
             )}
-          </Link>
+          </NextDescriptionLink>
         </div>
       </section>
     </>

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 
 import classes from "./MessageAppMain.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import NoScrollLink from "../../../../NoScrollLink";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function MessageAppMain() {
   const {
@@ -44,10 +44,10 @@ function MessageAppMain() {
         )}
         {functionName === functionName_seeMessage && methodId === "2" && (
           <div className={classes.appTitle} tooltip={`클릭!`}>
-            <NoScrollLink href={urlContent}>
+            <NextDescriptionLink nextOption={true}>
               <div>읽지 않은 메시지 1개</div>
               <div>보기</div>
-            </NoScrollLink>
+            </NextDescriptionLink>
           </div>
         )}
         <div className={classes.appETCLists}>
@@ -75,22 +75,12 @@ function MessageAppMain() {
           functionName === functionName_sendPhoneNum) && (
           <div className={classes.contentLists}>
             <div className={classes.firstNameBox}>홍</div>
-            <NoScrollLink
-              href={
+            <NextDescriptionLink
+              nextOption={
                 (functionName === functionName_sendMessage &&
                   methodId === "2") ||
                 functionName === functionName_resendMessage ||
                 (functionName === functionName_seeMessage && methodId === "1")
-                  ? urlContent
-                  : ""
-              }
-              tooltip={
-                (functionName === functionName_sendMessage &&
-                  methodId === "2") ||
-                functionName === functionName_resendMessage ||
-                (functionName === functionName_seeMessage && methodId === "1")
-                  ? `클릭!`
-                  : null
               }>
               <div className={classes.nameBox}>홍길동</div>
               <div className={classes.time}>오전 8:03</div>
@@ -100,7 +90,7 @@ function MessageAppMain() {
               {functionName === functionName_seeMessage && (
                 <div className={classes.alert}>1</div>
               )}
-            </NoScrollLink>
+            </NextDescriptionLink>
           </div>
         )}
 
@@ -119,56 +109,44 @@ function MessageAppMain() {
             onClick={chatXBtnClickHandler}></div>
           <section className={`${classes.wigetApps} `}>
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   (functionName === functionName_sendMessage ||
                     functionName === functionName_reserveMessage ||
                     functionName === functionName_sendImg ||
                     functionName === functionName_sendAudio ||
                     functionName === functionName_sendPhoneNum)
-                    ? `클릭!`
-                    : ""
-                }
-                href={
-                  appName === appName_basic &&
-                  (functionName === functionName_sendMessage ||
-                    functionName === functionName_reserveMessage ||
-                    functionName === functionName_sendImg ||
-                    functionName === functionName_sendAudio ||
-                    functionName === functionName_sendPhoneNum)
-                    ? urlContent
-                    : ""
                 }>
                 <div>1:1 대화</div>
                 <div>
                   <i className="bi bi-chat"></i>
                 </div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
-              <NoScrollLink>
+              <NextDescriptionLink>
                 <div>그룹 채팅</div>
                 <div>
                   <i className="bi bi-people"></i>
                 </div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
-              <NoScrollLink>
+              <NextDescriptionLink>
                 <div>단체 문자</div>
                 <div>
                   <i className="bi bi-wechat"></i>
                 </div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div onClick={chatXBtnClickHandler}>
-              <NoScrollLink>
+              <NextDescriptionLink>
                 <div></div>
                 <div>
                   <i className="bi bi-x-lg"></i>
                 </div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
           </section>
         </>

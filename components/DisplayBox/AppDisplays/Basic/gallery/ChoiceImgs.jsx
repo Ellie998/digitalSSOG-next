@@ -1,16 +1,12 @@
 import { useContext, useState } from "react";
-import Link from "next/link";
-import { PageContext } from "../../../sections/AppMain";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
+
 import classes from "./ChoiceImgs.module.css";
+import UrlContext from "../../../../page_context/UrlContext";
 
 function ChoiceImgs() {
-  const {
-    appName,
-    urlContent,
-    functionName,
-    functionName_sendImg,
-    appName_basic,
-  } = useContext(urlContent);
+  const { appName, functionName, functionName_sendImg, appName_basic } =
+    useContext(UrlContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -56,21 +52,13 @@ function ChoiceImgs() {
           {choicedImgs.length !== 0 && (
             <div>
               <div>{choicedImgs.length}/10</div>
-              <Link
-                data-tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_sendImg
-                    ? `클릭!`
-                    : null
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_sendImg
-                    ? urlContent
-                    : ""
                 }>
                 <div>완료</div>
-              </Link>
+              </NextDescriptionLink>
             </div>
           )}
           {choicedImgs.length === 0 && (

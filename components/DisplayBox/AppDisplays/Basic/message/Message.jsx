@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceImg from "../components/ChoiceImg";
 import UrlContext from "../../../../page_context/UrlContext";
-import NoScrollLink from "../../../../NoScrollLink";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function Message() {
   const {
@@ -153,21 +153,13 @@ function Message() {
             <div>글자 복사</div>
             <div>텍스트 선택</div>
 
-            <NoScrollLink
-              tooltip={
+            <NextDescriptionLink
+              nextOption={
                 appName === appName_basic &&
                 functionName === functionName_resendMessage
-                  ? "클릭!"
-                  : null
-              }
-              href={
-                appName === appName_basic &&
-                functionName === functionName_resendMessage
-                  ? urlContent
-                  : ""
               }>
               <div>전달</div>
-            </NoScrollLink>
+            </NextDescriptionLink>
             <div>공유</div>
             <div>별표하기</div>
           </div>
@@ -212,14 +204,9 @@ function Message() {
           </div>
         )}
         {(enteredMessage || choicedImgs.length !== 0) && (
-          <NoScrollLink href="">
-            <div
-              className={classes.sendIcon}
-              onClick={sendBtnClickHandler}
-              data-tooltip="클릭!">
-              <i className="bi bi-send"></i>
-            </div>
-          </NoScrollLink>
+          <div className={classes.sendIcon} onClick={sendBtnClickHandler}>
+            <i className="bi bi-send"></i>
+          </div>
         )}
       </div>
       {imgBtnClicked && choicedImgs.length >= 1 && (
@@ -279,24 +266,16 @@ function Message() {
               <div>빠른 답장 문구</div>
             </div>
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_reserveMessage
-                    ? `클릭!`
-                    : null
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_reserveMessage
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-clock"></i>
                 </div>
                 <div>메시지 예약</div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
               <div className={classes.iconWrap}>
@@ -314,90 +293,56 @@ function Message() {
             </div>
 
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_sendImg &&
                   methodId === "2"
-                    ? `클릭!`
-                    : null
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_sendImg &&
-                  methodId === "2"
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-card-image"></i>
                 </div>
                 <div>이미지</div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_sendImg &&
                   methodId === "2"
-                    ? `클릭!`
-                    : null
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_sendImg &&
-                  methodId === "2"
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-play-btn"></i>
                 </div>
                 <div>동영상</div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_sendAudio
-                    ? `클릭!`
-                    : null
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_sendAudio
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-music-note"></i>
                 </div>
                 <div>오디오</div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
           </div>
           <div className={classes.optionRow}>
             <div>
-              <NoScrollLink
-                tooltip={
+              <NextDescriptionLink
+                nextOption={
                   appName === appName_basic &&
                   functionName === functionName_sendPhoneNum
-                    ? `클릭!`
-                    : ""
-                }
-                href={
-                  appName === appName_basic &&
-                  functionName === functionName_sendPhoneNum
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-person"></i>
                 </div>
                 <div>연락처</div>
-              </NoScrollLink>
+              </NextDescriptionLink>
             </div>
             <div>
               <div className={classes.iconWrap}>

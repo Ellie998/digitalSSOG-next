@@ -1,13 +1,11 @@
-import { useContext, useState } from "react";
-import Link from "next/link";
-import { PageContext } from "../../sections/AppMain";
+import { useState } from "react";
+import NextDescriptionLink from "../../../NextDescriptionLink";
+
 import MakeList from "../Basic/components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
-import UrlContext from "../../../page_context/UrlContext";
 
 function KakaoSettingPage({ navTriger }) {
-  const { urlContent } = useContext(UrlContext);
   const [choicedModal, setChoicedModal] = useState("");
   const [isCheckbox, setIsCheckbox] = useState(false);
   return (
@@ -43,14 +41,12 @@ function KakaoSettingPage({ navTriger }) {
                 onClick={() => setChoicedModal("")}>
                 취소
               </div>
-              <Link
-                href={
+              <NextDescriptionLink
+                nextOption={
                   isCheckbox && navTriger === "leaveOutBtn_inviteReject"
-                    ? urlContent
-                    : ""
                 }>
                 <div className={classes["color_grey--bold"]}>나가기</div>
-              </Link>
+              </NextDescriptionLink>
             </div>
           </div>
         </div>
@@ -63,9 +59,9 @@ function KakaoSettingPage({ navTriger }) {
             {
               className: "title",
               content: (
-                <Link href={navTriger === "backBtn" ? urlContent : ""}>
+                <NextDescriptionLink nextOption={navTriger === "backBtn"}>
                   <i className="bi bi-arrow-left"></i>
-                </Link>
+                </NextDescriptionLink>
               ),
             },
             { className: "title--bold", content: "채팅방 설정" },

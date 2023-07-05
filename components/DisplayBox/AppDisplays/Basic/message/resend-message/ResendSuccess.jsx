@@ -2,8 +2,8 @@ import classes from "../Message.module.css";
 
 function ResendSuccess() {
   return (
-    <section className={classes.appMain}>
-      <div className={classes.appHeader}>
+    <section className={classes.layout}>
+      <div className={classes.main_header}>
         <div className={classes.firstNameBox}>홍</div>
         <div className={classes.nameBox}>홍길동</div>
         <div>

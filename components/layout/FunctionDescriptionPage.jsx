@@ -21,7 +21,9 @@ function FunctionDescriptionPage() {
         categoryObject.category !== "hot"
       ) {
         categoryObject.objects?.forEach((ObjectInArray) => {
-          if (ObjectInArray.name.slice(2) === functionName) {
+          if (
+            ObjectInArray.name.slice(2) === functionName.replace("%2C", ",")
+          ) {
             setData(ObjectInArray);
             return;
           }

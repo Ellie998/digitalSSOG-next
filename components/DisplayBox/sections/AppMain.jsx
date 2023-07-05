@@ -24,14 +24,10 @@ import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
 import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
-import { useSearchParams } from "next/navigation";
 
 function AppMain() {
   const {
     functionName,
-    // appName,
-    // descriptionId,
-    // methodId,
     urlChangeDetecter,
     //
     functionName_makeCall,
@@ -53,10 +49,6 @@ function AppMain() {
     appName_call,
   } = useContext(UrlContext);
 
-  // const searchParams = useSearchParams();
-  // const appName = searchParams.get("appName");
-  // const methodId = searchParams.get("methodId");
-  // const descriptionId = searchParams.get("descriptionId");
   const params = urlChangeDetecter();
   const appName = params.appName;
   const methodId = params.methodId;
@@ -174,11 +166,7 @@ function AppMain() {
         } else if (descriptionId === "3") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "4") {
-          choicedComponent = (
-            <SendResend
-              appName={appName}
-              functionName={functionName}></SendResend>
-          );
+          choicedComponent = <SendResend></SendResend>;
         } else if (descriptionId === "5") {
           choicedComponent = <ResendSuccess></ResendSuccess>;
         }

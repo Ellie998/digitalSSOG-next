@@ -5,6 +5,7 @@ import classes from "./KakaoAppMain.module.css";
 import MakeList from "../Basic/components/MakeList";
 import Link from "next/link";
 import UrlContext from "../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../NextDescriptionLink";
 
 function KakaoAppMain({ navTriger, tab }) {
   const { urlContent } = useContext(UrlContext);
@@ -223,32 +224,23 @@ function KakaoAppMain({ navTriger, tab }) {
             </div>
             <div className={classes.profile_message}>친구 2</div>
             {
-              <Link
-                href={
-                  navTriger === "profile_friend" && urlContent ? urlContent : ""
-                }>
+              <NextDescriptionLink nextOption={navTriger === "profile_friend"}>
                 {friendListContents[1]}
-              </Link>
+              </NextDescriptionLink>
             }
             {
-              <Link
-                href={
-                  navTriger === "profile_friend" && urlContent ? urlContent : ""
-                }>
+              <NextDescriptionLink nextOption={navTriger === "profile_friend"}>
                 {friendListContents[2]}
-              </Link>
+              </NextDescriptionLink>
             }
           </div>
         )}
         {tabName === "chat" && (
           <div className={classes.list}>
             {navTriger === "chatList_group" && (
-              <Link
-                href={
-                  navTriger === "chatList_group" && urlContent ? urlContent : ""
-                }>
+              <NextDescriptionLink nextOption={navTriger === "chatList_group"}>
                 {chatListContents[0]}
-              </Link>
+              </NextDescriptionLink>
             )}
             {chatListContents[1]}
             {chatListContents[2]}

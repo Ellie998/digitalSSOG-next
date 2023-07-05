@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import Link from "next/link";
-import { PageContext } from "../../../../sections/AppMain";
+
 import classes from "../Message.module.css";
 import UrlContext from "../../../../../page_context/UrlContext";
+import NextDescriptionLink from "../../../../../NextDescriptionLink";
 
 function SendResend() {
   const { urlContent } = useContext(UrlContext);
   return (
-    <section className={classes.appMain}>
-      <div className={classes.appHeader}>
+    <div className={classes.layout}>
+      <div className={classes.main_header}>
         <div className={classes.firstNameBox}>홍</div>
         <div className={classes.nameBox}>홍길순</div>
         <div>
@@ -41,13 +41,13 @@ function SendResend() {
           </div>
         </div>
 
-        <Link href={urlContent}>
+        <NextDescriptionLink nextOption={true}>
           <div className={classes.sendIcon} data-tooltip="클릭!">
             <i className="bi bi-send"></i>
           </div>
-        </Link>
+        </NextDescriptionLink>
       </div>
-    </section>
+    </div>
   );
 }
 

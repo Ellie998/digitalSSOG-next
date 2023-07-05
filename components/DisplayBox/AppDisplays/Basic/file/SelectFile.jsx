@@ -1,14 +1,12 @@
 import { useContext, useState } from "react";
 
-import { PageContext } from "../../../sections/AppMain";
-import classes from "./SelectFile.module.css";
-import Link from "next/link";
+import NextDescriptionLink from "../../../../NextDescriptionLink";
 import UrlContext from "../../../../page_context/UrlContext";
+import classes from "./SelectFile.module.css";
 
 function SelectFile() {
   const {
     appName,
-    urlContent,
     functionName,
     functionName_sendImg,
     functionName_sendAudio,
@@ -85,22 +83,15 @@ function SelectFile() {
                 <div>버그 신고</div>
               </div>
               <div>
-                <Link
-                  data-tooltip={
+                <NextDescriptionLink
+                  nextOption={
                     appName === "기본" && functionName === functionName_sendImg
-                      ? `클릭!`
-                      : null
-                  }
-                  href={
-                    appName === "기본" && functionName === functionName_sendImg
-                      ? urlContent
-                      : ""
                   }>
                   <div>
                     <i className="bi bi-flower3"></i>
                   </div>
                   <div>갤러리</div>
-                </Link>
+                </NextDescriptionLink>
               </div>
               <div>
                 <div>
@@ -236,19 +227,12 @@ function SelectFile() {
             )}
           </div>
           {clickedFileId && (
-            <Link
-              data-tooltip={
+            <NextDescriptionLink
+              nextOption={
                 appName === "기본" && functionName === functionName_sendAudio
-                  ? `클릭!`
-                  : null
-              }
-              href={
-                appName === "기본" && functionName === functionName_sendAudio
-                  ? urlContent
-                  : ""
               }>
               <div className={classes["button_done"]}>완료</div>
-            </Link>
+            </NextDescriptionLink>
           )}
         </section>
       )}
