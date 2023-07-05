@@ -5,13 +5,13 @@ import NextDescriptionLink from "../../../../../NextDescriptionLink";
 import classes from "./UnreadMessage.module.css";
 
 function UnreadMessage() {
-  const { methodId, functionName, functionName_seeMessage } =
+  const { myMethodId, functionName, functionName_seeMessage } =
     useContext(UrlContext);
 
   return (
     <>
       <section className={classes.layout}>
-        {functionName === functionName_seeMessage && methodId === "2" && (
+        {functionName === functionName_seeMessage && myMethodId === "2" && (
           <div className={classes.header}>
             <div>읽지 않은 메시지</div>
             <div>
@@ -24,7 +24,7 @@ function UnreadMessage() {
           <div className={classes.message_firstName}>홍</div>
           <NextDescriptionLink
             nextOption={
-              functionName === functionName_seeMessage && methodId === "2"
+              functionName === functionName_seeMessage && myMethodId === "2"
             }>
             <div className={classes.message_name}>홍길동</div>
             <div className={classes.message_time}>오전 8:03</div>

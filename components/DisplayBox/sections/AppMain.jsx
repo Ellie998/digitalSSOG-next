@@ -29,6 +29,9 @@ function AppMain() {
   const {
     functionName,
     urlChangeDetecter,
+    myAppName,
+    myMethodId,
+    myDescriptionId,
     //
     functionName_makeCall,
     functionName_getCall,
@@ -50,9 +53,12 @@ function AppMain() {
   } = useContext(UrlContext);
 
   const params = urlChangeDetecter();
-  const appName = params.appName;
-  const methodId = params.methodId;
-  const descriptionId = params.descriptionId;
+  const appName = myAppName;
+  const methodId = myMethodId;
+  const descriptionId = myDescriptionId;
+  // const appName = params.appName;
+  // const methodId = params.methodId;
+  // const descriptionId = params.descriptionId;
 
   let choicedComponent = <div></div>;
 

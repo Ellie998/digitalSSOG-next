@@ -1,11 +1,8 @@
-import { useContext } from "react";
-
 import classes from "./KakaoProfileDetail.module.css";
-import UrlContext from "../../../page_context/UrlContext";
+
 import NextDescriptionLink from "../../../NextDescriptionLink";
 
 function KakaoProfileDetail() {
-  const { urlContent } = useContext(UrlContext);
   return (
     <section className={classes.layout}>
       <section className={classes.mainLayout}>

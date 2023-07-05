@@ -4,10 +4,11 @@ import { PageContext } from "../../../sections/AppMain";
 import UrlContext from "../../../../page_context/UrlContext";
 
 const CallConnected = () => {
-  const { appName, appName_basic, appName_kakaotalk } = useContext(UrlContext);
+  const { myAppName, appName_basic, appName_kakaotalk } =
+    useContext(UrlContext);
   return (
     <>
-      {appName === appName_basic && (
+      {myAppName === appName_basic && (
         <section className={classes.layout}>
           <div className={classes.headerNav}>...</div>
           <div
@@ -44,7 +45,7 @@ const CallConnected = () => {
           </div>
         </section>
       )}
-      {appName === appName_kakaotalk && (
+      {myAppName === appName_kakaotalk && (
         <section className={classes.layout}>
           <div
             className={`${classes["profileBox"]} ${classes["marginTop--10"]}`}>

@@ -6,9 +6,8 @@ import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function MessageAppMain() {
   const {
-    appName,
-    methodId,
-    urlContent,
+    myAppName,
+    myMethodId,
     functionName,
     //
     functionName_seeMessage,
@@ -42,7 +41,7 @@ function MessageAppMain() {
           functionName === functionName_sendPhoneNum) && (
           <div className={classes.appTitle}>Messages</div>
         )}
-        {functionName === functionName_seeMessage && methodId === "2" && (
+        {functionName === functionName_seeMessage && myMethodId === "2" && (
           <div className={classes.appTitle} tooltip={`클릭!`}>
             <NextDescriptionLink nextOption={true}>
               <div>읽지 않은 메시지 1개</div>
@@ -78,9 +77,9 @@ function MessageAppMain() {
             <NextDescriptionLink
               nextOption={
                 (functionName === functionName_sendMessage &&
-                  methodId === "2") ||
+                  myMethodId === "2") ||
                 functionName === functionName_resendMessage ||
-                (functionName === functionName_seeMessage && methodId === "1")
+                (functionName === functionName_seeMessage && myMethodId === "1")
               }>
               <div className={classes.nameBox}>홍길동</div>
               <div className={classes.time}>오전 8:03</div>
@@ -111,7 +110,7 @@ function MessageAppMain() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   (functionName === functionName_sendMessage ||
                     functionName === functionName_reserveMessage ||
                     functionName === functionName_sendImg ||

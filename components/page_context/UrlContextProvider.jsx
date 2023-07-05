@@ -30,24 +30,39 @@ function urlChangeDetecter() {
 }
 
 export default function UrlContextProvider({ children }) {
-  const params = useParams();
-  const functionName = decodeURI(params.functionName).replace("%2C", ",");
-  //
-  // const searchParams = useSearchParams();
-  // const paramAppName = searchParams.get("appName");
-  // const parmaMethodId = searchParams.get("methodId");
-  // const paramDescriptionId = searchParams.get("descriptionId");
-  // const [appName, setAppName] = useState(paramAppName);
-  // const [methodId, setMethodId] = useState(parmaMethodId);
-  // const [descriptionId, setDescriptionId] = useState(paramDescriptionId);
   const querys = urlChangeDetecter();
+  const params = useParams();
+  const functionName = decodeURI(params.functionName.replace("%2C", ","));
+
+  //
   const appName = querys.appName;
   const methodId = querys.methodId;
   const descriptionId = querys.descriptionId;
   //
-  const nextDescriptionId = +descriptionId + 1;
-  const urlContent = `/description/${functionName}/?appName=${appName}&methodId=${methodId}&descriptionId=${nextDescriptionId.toString()}`;
-  // useEffect(() => {}, [paramAppName, parmaMethodId, paramDescriptionId]);
+
+  // const nextDescriptionId = +descriptionId + 1;
+  // const urlContent = `/description/${functionName}/?appName=${appName}&methodId=${methodId}&descriptionId=${nextDescriptionId.toString()}`;
+  //
+
+  const [myAppName, setMyAppName] = useState(appName);
+  const [myMethodId, setMyMethodId] = useState(methodId);
+  const [myDescriptionId, setMyDescriptionId] = useState(descriptionId);
+  // const nextDescriptionId = +myDescriptionId + 1;
+  // const urlContent = `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId.toString()}`;
+
+  (myDescriptionId !== null) &
+    useEffect(() => {
+      window.history.replaceState(
+        "",
+        "",
+        `${
+          myDescriptionId
+            ? `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId.toString()}`
+            : `/description/${functionName}`
+        }`
+      );
+    }, [myDescriptionId]);
+
   return (
     <UrlContext.Provider
       value={{
@@ -55,32 +70,33 @@ export default function UrlContextProvider({ children }) {
         appName: appName,
         methodId: methodId,
         descriptionId: descriptionId,
-        // setAppName: setAppName,
-        // setMethodId: setMethodId,
-        // setDescriptionId: setDescriptionId,
-        urlContent: urlContent,
+        myAppName: myAppName,
+        myMethodId: myMethodId,
+        myDescriptionId: myDescriptionId,
+        setMyAppName: setMyAppName,
+        setMyMethodId: setMyMethodId,
+        setMyDescriptionId: setMyDescriptionId,
+        // urlContent: urlContent,
         urlChangeDetecter: urlChangeDetecter,
         //
-        functionName_makeCall: functionName_makeCall,
-        functionName_getCall: functionName_getCall,
-        functionName_makeVideoCall: functionName_makeVideoCall,
-        functionName_sendMessage: functionName_sendMessage,
-        functionName_seeMessage: functionName_seeMessage,
-        functionName_resendMessage: functionName_resendMessage,
-        functionName_reserveMessage: functionName_reserveMessage,
-        functionName_sendImg: functionName_sendImg,
-        functionName_sendAudio: functionName_sendAudio,
-        functionName_sendPhoneNum: functionName_sendPhoneNum,
+        functionName_makeCall,
+        functionName_getCall,
+        functionName_makeVideoCall,
+        functionName_sendMessage,
+        functionName_seeMessage,
+        functionName_resendMessage,
+        functionName_reserveMessage,
+        functionName_sendImg,
+        functionName_sendAudio,
+        functionName_sendPhoneNum,
         //
-        functionName_kakaotalk_groubChatLeave_RejectInvitation:
-          functionName_kakaotalk_groubChatLeave_RejectInvitation,
-        functionName_kakaotalk_groubChatLock:
-          functionName_kakaotalk_groubChatLock,
+        functionName_kakaotalk_groubChatLeave_RejectInvitation,
+        functionName_kakaotalk_groubChatLock,
         //
-        appName_basic: appName_basic,
-        appName_kakaotalk: appName_kakaotalk,
-        appName_message: appName_message,
-        appName_call: appName_call,
+        appName_basic,
+        appName_kakaotalk,
+        appName_message,
+        appName_call,
       }}>
       {children}
     </UrlContext.Provider>

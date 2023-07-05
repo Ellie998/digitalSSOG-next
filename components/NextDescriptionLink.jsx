@@ -5,13 +5,21 @@ import NoScrollLink from "./NoScrollLink";
 
 /**Get children and nextOption */
 const NextDescriptionLink = ({ children, nextOption }) => {
-  const { urlContent } = useContext(UrlContext);
+  const { setMyDescriptionId } = useContext(UrlContext);
   return (
-    <NoScrollLink
-      href={nextOption ? urlContent : ""}
+    <div
+      onClick={() => {
+        nextOption &&
+          setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
+      }}
       tooltip={nextOption ? "클릭" : null}>
       {children}
-    </NoScrollLink>
+    </div>
+    // <NoScrollLink
+    //   href={nextOption ? urlContent : ""}
+    //   tooltip={nextOption ? "클릭" : null}>
+    //   {children}
+    // </NoScrollLink>
   );
 };
 

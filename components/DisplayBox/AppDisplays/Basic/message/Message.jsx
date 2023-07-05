@@ -6,10 +6,9 @@ import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function Message() {
   const {
-    appName,
-    urlContent,
+    myAppName,
+    myMethodId,
     functionName,
-    methodId,
     //
     functionName_resendMessage,
     functionName_reserveMessage,
@@ -155,7 +154,7 @@ function Message() {
 
             <NextDescriptionLink
               nextOption={
-                appName === appName_basic &&
+                myAppName === appName_basic &&
                 functionName === functionName_resendMessage
               }>
               <div>전달</div>
@@ -268,7 +267,7 @@ function Message() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_reserveMessage
                 }>
                 <div className={classes.iconWrap}>
@@ -295,9 +294,9 @@ function Message() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_sendImg &&
-                  methodId === "2"
+                  myMethodId === "2"
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-card-image"></i>
@@ -308,9 +307,9 @@ function Message() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_sendImg &&
-                  methodId === "2"
+                  myMethodId === "2"
                 }>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-play-btn"></i>
@@ -321,7 +320,7 @@ function Message() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_sendAudio
                 }>
                 <div className={classes.iconWrap}>
@@ -335,7 +334,7 @@ function Message() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_sendPhoneNum
                 }>
                 <div className={classes.iconWrap}>

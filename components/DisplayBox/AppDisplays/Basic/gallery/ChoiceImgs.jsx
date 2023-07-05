@@ -5,7 +5,7 @@ import classes from "./ChoiceImgs.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
 
 function ChoiceImgs() {
-  const { appName, functionName, functionName_sendImg, appName_basic } =
+  const { myAppName, functionName, functionName_sendImg, appName_basic } =
     useContext(UrlContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
@@ -54,7 +54,7 @@ function ChoiceImgs() {
               <div>{choicedImgs.length}/10</div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_sendImg
                 }>
                 <div>완료</div>

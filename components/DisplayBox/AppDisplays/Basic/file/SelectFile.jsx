@@ -6,7 +6,7 @@ import classes from "./SelectFile.module.css";
 
 function SelectFile() {
   const {
-    appName,
+    myAppName,
     functionName,
     functionName_sendImg,
     functionName_sendAudio,
@@ -85,7 +85,8 @@ function SelectFile() {
               <div>
                 <NextDescriptionLink
                   nextOption={
-                    appName === "기본" && functionName === functionName_sendImg
+                    myAppName === "기본" &&
+                    functionName === functionName_sendImg
                   }>
                   <div>
                     <i className="bi bi-flower3"></i>
@@ -229,7 +230,7 @@ function SelectFile() {
           {clickedFileId && (
             <NextDescriptionLink
               nextOption={
-                appName === "기본" && functionName === functionName_sendAudio
+                myAppName === "기본" && functionName === functionName_sendAudio
               }>
               <div className={classes["button_done"]}>완료</div>
             </NextDescriptionLink>

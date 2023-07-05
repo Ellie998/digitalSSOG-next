@@ -6,9 +6,8 @@ import NextDescriptionLink from "../../../../NextDescriptionLink";
 
 function SelectPerson() {
   const {
-    appName,
-    urlContent,
-    descriptionId,
+    myAppName,
+    myDescriptionId,
     functionName,
     //
     functionName_sendMessage,
@@ -35,7 +34,7 @@ function SelectPerson() {
             functionName === functionName_reserveMessage ||
             functionName === functionName_sendAudio ||
             (functionName === functionName_sendPhoneNum &&
-              descriptionId === "2") ||
+              myDescriptionId === "2") ||
             functionName === functionName_resendMessage
           }>
           <li>
@@ -46,9 +45,9 @@ function SelectPerson() {
         </NextDescriptionLink>
         <NextDescriptionLink
           nextOption={
-            appName === appName_basic &&
+            myAppName === appName_basic &&
             functionName === functionName_sendPhoneNum &&
-            descriptionId === "4"
+            myDescriptionId === "4"
           }>
           <li>
             <div className={classes.firstNameBox}>홍</div>

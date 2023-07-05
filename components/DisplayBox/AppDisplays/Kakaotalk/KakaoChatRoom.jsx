@@ -8,8 +8,7 @@ import classes from "./KakaoChatRoom.module.css";
 
 function KakaoChatRoom({ inputLocked }) {
   const {
-    appName,
-    urlContent,
+    myAppName,
     functionName,
     //
     functionName_resendMessage,
@@ -154,7 +153,7 @@ function KakaoChatRoom({ inputLocked }) {
 
             <NextDescriptionLink
               nextOption={
-                appName === appName_basic &&
+                myAppName === appName_basic &&
                 functionName === functionName_resendMessage
               }>
               <div>전달</div>

@@ -11,7 +11,7 @@ const NoScrollLink = ({ children, href, tooltip }) => {
   appName !== null &&
     useEffect(() => {
       window.scrollTo({ top: scrollY, behavior: "instant" });
-      console.log("prevent scroll");
+      // console.log("prevent scroll");
     }, [appName, descriptionId, methodId]);
 
   return (

@@ -13,10 +13,8 @@ NextDescriptionLink;
 
 function CallAppMain() {
   const {
-    appName,
-    methodId,
+    myAppName,
     functionName,
-    urlContent,
     //
     functionName_makeCall,
     functionName_makeVideoCall,
@@ -256,7 +254,7 @@ function CallAppMain() {
           <div className={classes.navLayout}>
             <NextDescriptionLink
               nextOption={
-                appName === appName_basic &&
+                myAppName === appName_basic &&
                 functionName === functionName_makeVideoCall
               }>
               <div>
@@ -266,7 +264,7 @@ function CallAppMain() {
             <div>
               <NextDescriptionLink
                 nextOption={
-                  appName === appName_basic &&
+                  myAppName === appName_basic &&
                   functionName === functionName_makeCall
                 }>
                 <div className={classes.iconWrap_background}>

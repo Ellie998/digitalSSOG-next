@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import Link from "next/link";
 import UrlContext from "../../../../page_context/UrlContext";
 import NextDescriptionLink from "../../../../NextDescriptionLink";
 import classes from "./AnswerCall.module.css";
 
 const AnswerCall = () => {
-  const { appName, appName_basic, appName_kakaotalk } = useContext(UrlContext);
+  const { myAppName, appName_basic, appName_kakaotalk } =
+    useContext(UrlContext);
   return (
     <>
-      {appName === appName_basic && (
+      {myAppName === appName_basic && (
         <div className={classes.layout}>
           <div className={`${classes.content_title} ${classes.marginTop}`}>
             이름
@@ -34,7 +34,7 @@ const AnswerCall = () => {
           </div>
         </div>
       )}
-      {appName === appName_kakaotalk && (
+      {myAppName === appName_kakaotalk && (
         <div className={classes.layout}>
           <div className={classes["profileBox"]}>
             <div>
