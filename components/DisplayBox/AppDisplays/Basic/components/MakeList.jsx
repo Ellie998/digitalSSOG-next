@@ -1,6 +1,7 @@
 import classes from "./MakeList.module.css";
 
 // -------- MAKE LIST REPEAT WITH COUSTOM CONTENT
+/** select listStyle between "flex_spaceBetween" "flex_spaceAround" "grid_oneLine" "grid_twoLine" "grid_twoLine--auto" */
 function MakeList({
   listStyle,
   listOnClick,

@@ -28,7 +28,6 @@ import UrlContext from "../../page_context/UrlContext";
 function AppMain() {
   const {
     functionName,
-    urlChangeDetecter,
     myAppName,
     myMethodId,
     myDescriptionId,
@@ -52,13 +51,9 @@ function AppMain() {
     appName_call,
   } = useContext(UrlContext);
 
-  const params = urlChangeDetecter();
   const appName = myAppName;
-  const methodId = myMethodId;
-  const descriptionId = myDescriptionId;
-  // const appName = params.appName;
-  // const methodId = params.methodId;
-  // const descriptionId = params.descriptionId;
+  const methodId = myMethodId.toString();
+  const descriptionId = myDescriptionId.toString();
 
   let choicedComponent = <div></div>;
 

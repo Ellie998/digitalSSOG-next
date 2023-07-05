@@ -32,7 +32,6 @@ function urlChangeDetecter() {
 export default function UrlContextProvider({ children }) {
   const params = useParams();
   const functionName = decodeURI(params.functionName.replace("%2C", ","));
-  console.log("url context provider");
 
   const [myAppName, setMyAppName] = useState("");
   const [myMethodId, setMyMethodId] = useState("");

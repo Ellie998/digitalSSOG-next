@@ -9,37 +9,39 @@ function MakeMethodList({ functionMethodObject }) {
 
   return (
     <ol className={classes.listWrap}>
-      {functionMethodObject.howto.length === 1 && (
-        <MakeDescriptionList
-          functionMethod={functionMethodObject.howto[0]}
-          dataAppName={functionMethodObject.methodAppName}
-          dataMethodId={functionMethodObject.howto[0].methodNum.toString()}
-        />
-      )}
       {functionMethodObject.howto.length !== 1 &&
-        functionMethodObject.howto?.map((functionMethod) => {
-          const methodNum = functionMethod.methodNum.toString();
-          const methodTitle = functionMethod.methodTitle;
-
+        functionMethodObject.howto?.map((functionMethod) => (
           <li key={Math.random()}>
             <details
               open={
-                myMethodId === methodNum && myAppName === methodAppName
+                +myMethodId === functionMethod.methodNum &&
+                myAppName === methodAppName
                   ? true
                   : false
               }>
               <summary>
                 방법
-                {` ${methodNum}${methodTitle ? `) ${methodTitle}` : ""}`}
+                {` ${functionMethod.methodNum}${
+                  functionMethod.methodTitle
+                    ? `) ${functionMethod.methodTitle}`
+                    : ""
+                }`}
               </summary>
               <MakeDescriptionList
                 functionMethod={functionMethod}
                 dataAppName={methodAppName}
-                dataMethodId={methodNum}
+                dataMethodId={functionMethod.methodNum}
               />
             </details>
-          </li>;
-        })}
+          </li>
+        ))}
+      {functionMethodObject.howto.length === 1 && (
+        <MakeDescriptionList
+          functionMethod={functionMethodObject.howto[0]}
+          dataAppName={methodAppName}
+          dataMethodId={functionMethodObject.howto[0].methodNum}
+        />
+      )}
     </ol>
   );
 }

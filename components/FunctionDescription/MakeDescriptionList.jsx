@@ -30,10 +30,9 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
 
   function changeUrlQueryStateHandler(e) {
     setMyAppName(dataAppName);
-    setMyMethodId(dataMethodId);
+    setMyMethodId(dataMethodId.toString());
     setMyDescriptionId(e.target.dataset.listOrder);
   }
-
   return (
     <ol className={classes.listWrap}>
       {functionMethod.methodContent?.map((methodDescription) => (
@@ -42,7 +41,7 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
           data-list-order={num.toString()}
           className={
             myAppName == dataAppName &&
-            myMethodId === dataMethodId &&
+            +myMethodId === dataMethodId &&
             myDescriptionId === num.toString()
               ? classes.list_active
               : classes.list

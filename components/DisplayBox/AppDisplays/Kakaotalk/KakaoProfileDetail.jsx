@@ -15,21 +15,21 @@ function KakaoProfileDetail() {
       <div className={classes.listLayout}>
         <div>
           <i className="bi bi-chat-fill"></i>
-          <div>1:1채팅</div>
+          <div className={classes.iconDescription}>1:1채팅</div>
         </div>
         <div>
           <NextDescriptionLink nextOption={true}>
             <i className="bi bi-telephone-fill"></i>
-            <div>통화하기</div>
+            <div className={classes.iconDescription}>통화하기</div>
           </NextDescriptionLink>
         </div>
         <div>
           <i className="bi bi-camera-video-fill"></i>
-          <div>페이스톡</div>
+          <div className={classes.iconDescription}>페이스톡</div>
         </div>
         <div>
           <i className="bi bi-quote"></i>
-          <div>스토리</div>
+          <div className={classes.iconDescription}>스토리</div>
         </div>
       </div>
     </section>

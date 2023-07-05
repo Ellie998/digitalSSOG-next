@@ -115,6 +115,7 @@
   grid-template-columns: auto auto 15%;
   align-items: center;
   background-color: white;
+  font-size: 0.8rem;
 }
 .appNavSmall {
   grid-row: 5/6;

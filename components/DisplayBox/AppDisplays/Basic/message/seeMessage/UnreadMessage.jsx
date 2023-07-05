@@ -3,6 +3,7 @@ import { useContext } from "react";
 import UrlContext from "../../../../../page_context/UrlContext";
 import NextDescriptionLink from "../../../../../NextDescriptionLink";
 import classes from "./UnreadMessage.module.css";
+import MakeList from "../../components/MakeList";
 
 function UnreadMessage() {
   const { myMethodId, functionName, functionName_seeMessage } =
@@ -20,22 +21,35 @@ function UnreadMessage() {
           </div>
         )}
 
-        <div className={classes.main_messageList}>
-          <div className={classes.message_firstName}>홍</div>
-          <NextDescriptionLink
-            nextOption={
-              functionName === functionName_seeMessage && myMethodId === "2"
-            }>
-            <div className={classes.message_name}>홍길동</div>
-            <div className={classes.message_time}>오전 8:03</div>
-            <div className={classes.message_content}>
-              결혼식 장소 정보입니다...
-            </div>
-            {functionName === functionName_seeMessage && (
-              <div className={classes.message_alert}>1</div>
-            )}
-          </NextDescriptionLink>
-        </div>
+        {/* <div className={classes.main_messageList}> */}
+        <NextDescriptionLink
+          nextOption={
+            functionName === functionName_seeMessage && myMethodId === "2"
+          }>
+          <MakeList
+            listStyle="grid_twoLine"
+            item1={{
+              className: "iconWrap_background--grey",
+              content: "홍",
+            }}
+            item2={{
+              className: "title",
+              content: "홍길동",
+            }}
+            subItem2={{
+              className: "subTitle",
+              content: "결혼식 장소 정보입니다...",
+            }}
+            item3={{
+              classeName: "info",
+              content: "오전 8:03",
+            }}
+            subItem3={{
+              className: "subInfo",
+              content: functionName === functionName_seeMessage ? "1" : "",
+            }}></MakeList>
+        </NextDescriptionLink>
+        {/* </div> */}
       </section>
     </>
   );
