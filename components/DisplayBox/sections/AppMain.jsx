@@ -88,7 +88,8 @@ function AppMain() {
     case functionName_getCall:
       if (appName === appName_basic) {
         if (descriptionId === "0") {
-          choicedComponent = <AnswerCall />;
+          // choicedComponent = <AnswerCall />;
+          choicedComponent = <AppMainError />;
         } else if (descriptionId === "1") {
           choicedComponent = <CallConnected></CallConnected>;
         }

@@ -6,7 +6,7 @@ export const runtime = "edge";
 // or Dynamic metadata
 export async function generateMetadata({ params }) {
   const functionName = decodeURI(params.functionName);
-  const realFunctionName = functionName.slice(2);
+
   return {
     charset: "utf-8",
     viewport: {
@@ -14,9 +14,9 @@ export async function generateMetadata({ params }) {
       initialScale: 1,
       maximumScale: 1,
     },
-    title: `${realFunctionName} 기능 사용법 - 디지털쏙`,
-    description: `${realFunctionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-    url: `https://ssog.pages.dev/description/${realFunctionName}`,
+    title: `${functionName} 기능 사용법 - 디지털쏙`,
+    description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+    url: `https://ssog.pages.dev/description/${functionName}`,
     verification: {
       naver: "55145f147d68935311d0493b0428d0a9843e5eb9",
     },
@@ -48,16 +48,16 @@ export async function generateMetadata({ params }) {
       manifest: "/assets/favicon/site.webmanifest",
     },
     openGraph: {
-      title: `${realFunctionName} 기능 사용법 - 디지털쏙`,
-      description: `${realFunctionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-      url: `https://ssog.pages.dev/description/${realFunctionName}`,
+      title: `${functionName} 기능 사용법 - 디지털쏙`,
+      description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+      url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
       image: "/assets/metaIMG.png",
     },
     twitter: {
-      title: `${realFunctionName} 기능 사용법 - 디지털쏙`,
-      description: `${realFunctionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-      url: `https://ssog.pages.dev/description/${realFunctionName}`,
+      title: `${functionName} 기능 사용법 - 디지털쏙`,
+      description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+      url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
       image: "/assets/metaIMG.png",
     },
