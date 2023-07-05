@@ -1,7 +1,9 @@
-import Link from "next/link";
 import classes from "./MakeDescriptionList.module.css";
-import { useParams, useRouter } from "next/navigation";
+
 import NoScrollLink from "../NoScrollLink";
+import { useContext, useEffect, useState } from "react";
+import UrlContext from "../page_context/UrlContext";
+import { useSearchParams } from "next/navigation";
 
 const numEmogi = [
   " 0️⃣",
@@ -17,33 +19,45 @@ const numEmogi = [
   "🔟",
 ];
 
-function MakeDescriptionList({
-  functionMethod,
-  appName,
-  methodId,
-  setAppName,
-  setMethodId,
-  setDescriptionId,
-}) {
+function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
   let num = 0;
-  const params = useParams();
-  const router = useRouter();
+  const {
+    functionName,
+    setAppName,
+    setMethodId,
+    setDescriptionId,
+    urlChangeDetecter,
+  } = useContext(UrlContext);
+  /**appName is string, methodId is string, desctiptionId is string */
+  const { appName, methodId, descriptionId } = urlChangeDetecter();
+
+  // function listClickHandler() {
+  //   setAppName(dataAppName);
+  //   setMethodId(dataMethodId);
+  //   setDescriptionId(num.toString());
+  //   setDescriptionPageId(num.toString());
+  //   setMethodPageId(dataMethodId);
+  // }
+  // const [descriptionPageId, setDescriptionPageId] = useState(descriptionId);
+  // const [methodPageId, setMethodPageId] = useState(methodId);
 
   return (
     <ol className={classes.listWrap}>
       {functionMethod.methodContent?.map((methodDescription) => (
         <li
           key={methodDescription}
-          className="list-hover description-list"
-          onClick={() => {
-            setAppName(appName);
-            setMethodId(methodId.toString());
-            setDescriptionId(num.toString());
-          }}>
+          className={
+            // methodPageId === dataMethodId &&
+            // descriptionPageId === num.toString()
+            +methodId === dataMethodId && +descriptionId === num
+              ? classes.list_active
+              : classes.list
+          }>
+          {/* // onClick={() => {
+          //   listClickHandler;
+          // }}> */}
           <NoScrollLink
-            href={`/description/${
-              params.functionName
-            }/?appName=${appName}&methodId=${methodId.toString()}&descriptionId=${num.toString()}`}>
+            href={`/description/${functionName}/?appName=${dataAppName}&methodId=${dataMethodId}&descriptionId=${num.toString()}`}>
             {numEmogi[num++]} {methodDescription}
           </NoScrollLink>
         </li>

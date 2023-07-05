@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { PageContext } from "../../../sections/AppMain";
 import classes from "./SelectFile.module.css";
 import Link from "next/link";
+import UrlContext from "../../../../page_context/UrlContext";
 
 function SelectFile() {
   const {
@@ -11,7 +12,7 @@ function SelectFile() {
     functionName,
     functionName_sendImg,
     functionName_sendAudio,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   const [isFolderClicked, setFolderClicked] = useState(false);
   const [clickedFileId, setClickedFileId] = useState("");
   const checkboxes = document.getElementsByName("audio");

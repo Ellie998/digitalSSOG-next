@@ -3,10 +3,11 @@ import Link from "next/link";
 
 import { PageContext } from "../../../../sections/AppMain";
 import classes from "./UnreadMessage.module.css";
+import UrlContext from "../../../../../page_context/UrlContext";
 
 function UnreadMessage() {
   const { methodId, urlContent, functionName, functionName_seeMessage } =
-    useContext(PageContext);
+    useContext(UrlContext);
 
   return (
     <>

@@ -1,20 +1,11 @@
-import { useSearchParams } from "next/navigation";
 import MakeMethodList from "./MakeMethodList";
 import classes from "./MakeAppList.module.css";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import UrlContext from "../page_context/UrlContext";
 
-function MakeAppList({
-  functionMethods,
-  appName,
-  methodId,
-  descriptionId,
-  setAppName,
-  setMethodId,
-  setDescriptionId,
-}) {
-  //   const searchParams = useSearchParams();
-  //   const paramAppName = searchParams.get("appName");
-  // const [appName, setAppName] = useState(paramAppName);
+function MakeAppList({ functionMethods }) {
+  const { urlChangeDetecter } = useContext(UrlContext);
+  const { appName } = urlChangeDetecter();
 
   return (
     <ol className={classes.listWrap}>
@@ -32,15 +23,7 @@ function MakeAppList({
               className={classes.fontSize_1_2rem}>
               {functionMethodObject.methodAppName} 어플
             </summary>
-            <MakeMethodList
-              functionMethodObject={functionMethodObject}
-              methodId={methodId}
-              descriptionId={descriptionId}
-              appName={appName}
-              setAppName={setAppName}
-              setMethodId={setMethodId}
-              setDescriptionId={setDescriptionId}
-            />
+            <MakeMethodList functionMethodObject={functionMethodObject} />
           </details>
         </li>
       ))}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { PageContext } from "../../../sections/AppMain";
 import classes from "./SelectPerson.module.css";
+import UrlContext from "../../../../page_context/UrlContext";
 
 function SelectPerson() {
   const {
@@ -18,7 +19,7 @@ function SelectPerson() {
     functionName_sendPhoneNum,
     //
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   return (
     <section className={classes.appMain}>
       <div className={classes.appHeader}>대화 멤버 선택</div>

@@ -4,9 +4,10 @@ import { PageContext } from "../../sections/AppMain";
 import classes from "./KakaoAppMain.module.css";
 import MakeList from "../Basic/components/MakeList";
 import Link from "next/link";
+import UrlContext from "../../../page_context/UrlContext";
 
 function KakaoAppMain({ navTriger, tab }) {
-  const { urlContent } = useContext(PageContext);
+  const { urlContent } = useContext(UrlContext);
   const [tabName, setTabName] = useState(tab);
 
   const friendListContents = [

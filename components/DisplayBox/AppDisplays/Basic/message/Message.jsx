@@ -3,6 +3,7 @@ import { PageContext } from "../../../sections/AppMain";
 import classes from "./Message.module.css";
 import ChoiceImg from "../components/ChoiceImg";
 import Link from "next/link";
+import UrlContext from "../../../../page_context/UrlContext";
 
 function Message() {
   const {
@@ -18,7 +19,7 @@ function Message() {
     functionName_sendImg,
     //
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");

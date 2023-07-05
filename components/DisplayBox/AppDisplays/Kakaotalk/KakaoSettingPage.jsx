@@ -4,9 +4,10 @@ import { PageContext } from "../../sections/AppMain";
 import MakeList from "../Basic/components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
+import UrlContext from "../../../page_context/UrlContext";
 
 function KakaoSettingPage({ navTriger }) {
-  const { urlContent } = useContext(PageContext);
+  const { urlContent } = useContext(UrlContext);
   const [choicedModal, setChoicedModal] = useState("");
   const [isCheckbox, setIsCheckbox] = useState(false);
   return (

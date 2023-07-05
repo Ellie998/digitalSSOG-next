@@ -56,14 +56,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/error.jsx": {
-      "*": {
-        "id": "(sc_client)/./app/error.jsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./public/assets/logo.png": {
       "*": {
         "id": "(sc_client)/./public/assets/logo.png",
@@ -104,9 +96,25 @@
         "async": false
       }
     },
+    "(app-client)/./app/error.jsx": {
+      "*": {
+        "id": "(sc_client)/./app/error.jsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
     "(app-client)/./public/assets/work-hard.jpg": {
       "*": {
         "id": "(sc_client)/./public/assets/work-hard.jpg",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js": {
+      "*": {
+        "id": "(sc_client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -283,14 +291,6 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
-      "id": "(app-client)/./app/error.jsx",
-      "name": "*",
-      "chunks": [
-        "app/error:static/chunks/app/error.js"
-      ],
-      "async": false
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/public/assets/logo.png": {
       "id": "(app-client)/./public/assets/logo.png",
       "name": "*",
@@ -355,8 +355,24 @@
       ],
       "async": false
     },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
+      "id": "(app-client)/./app/error.jsx",
+      "name": "*",
+      "chunks": [
+        "app/error:static/chunks/app/error.js"
+      ],
+      "async": false
+    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/public/assets/work-hard.jpg": {
       "id": "(app-client)/./public/assets/work-hard.jpg",
+      "name": "*",
+      "chunks": [
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/FunctionDescription/FunctionDescriptionProvider.js": {
+      "id": "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
       "name": "*",
       "chunks": [
         "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
@@ -373,18 +389,6 @@
     }
   },
   "entryCSSFiles": {
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": {
-      "modules": [],
-      "files": []
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": {
-      "modules": [
-        "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css"
-      ],
-      "files": [
-        "static/css/app/layout.css"
-      ]
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/page": {
       "modules": [
         "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/IndexFunctionList/FunctionList.module.css",
@@ -398,6 +402,18 @@
       "files": [
         "static/css/app/page.css"
       ]
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": {
+      "modules": [
+        "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css"
+      ],
+      "files": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": {
+      "modules": [],
+      "files": []
     },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/description/[...functionName]/page": {
       "modules": [

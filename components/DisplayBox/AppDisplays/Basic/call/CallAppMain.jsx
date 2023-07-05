@@ -6,18 +6,22 @@ import MakeList from "../components/MakeList";
 
 import classes from "./CallAppMain.module.css";
 import listClass from "../components/MakeList.module.css";
-import Link from "next/link";
+
+import UrlContext from "../../../../page_context/UrlContext";
+import NoScrollLink from "../../../../NoScrollLink";
 
 function CallAppMain() {
   const {
     appName,
     methodId,
-    urlContent,
     functionName,
+    urlContent,
+    //
     functionName_makeCall,
     functionName_makeVideoCall,
+    //
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   const [clickedTapName, setClickedTapName] = useState("키패드");
   const [clickedNum, changeNum] = useState("");
   const [isListClicked1, setIsListClicked1] = useState(false);
@@ -53,12 +57,12 @@ function CallAppMain() {
     setIsListClicked1(false);
     setIsListClicked2(false);
   }
-  const showLihrefption1 = () => {
+  const showListOption1 = () => {
     !isListClicked1 && setIsListClicked1(true);
     isListClicked1 && setIsListClicked1(false);
     setIsListClicked2(false);
   };
-  const showLihrefption2 = () => {
+  const showListOption2 = () => {
     !isListClicked2 && setIsListClicked2(true);
     isListClicked2 && setIsListClicked2(false);
     setIsListClicked1(false);
@@ -68,26 +72,29 @@ function CallAppMain() {
   const optionlistContent = (
     <MakeList
       listStyle={"flex_spaceBetween"}
-      item1={{
-        className: "iconWrapS_background--green",
-        content: (
-          <Link href={functionName === functionName_makeCall ? urlContent : ""}>
-            <i className="bi bi-telephone-fill"></i>
-          </Link>
-        ),
-      }}
-      item2={{
-        className: "iconWrapS_background--green",
-        content: <i className="bi bi-chat-fill"></i>,
-      }}
-      item3={{
-        className: "iconWrapS_background--green",
-        content: <i className="bi bi-camera-video-fill"></i>,
-      }}
-      item4={{
-        className: "iconWrapS_background--green",
-        content: <i className="bi bi-info-circle-fill"></i>,
-      }}></MakeList>
+      leftFlexItem={[
+        {
+          className: "iconWrapS_background--green",
+          content: (
+            <NoScrollLink
+              href={functionName === functionName_makeCall ? urlContent : ""}>
+              <i className="bi bi-telephone-fill"></i>
+            </NoScrollLink>
+          ),
+        },
+        {
+          className: "iconWrapS_background--green",
+          content: <i className="bi bi-chat-fill"></i>,
+        },
+        {
+          className: "iconWrapS_background--green",
+          content: <i className="bi bi-camera-video-fill"></i>,
+        },
+        {
+          className: "iconWrapS_background--green",
+          content: <i className="bi bi-info-circle-fill"></i>,
+        },
+      ]}></MakeList>
   );
 
   // list정보에 대한 prop 파라미터를 받아 list 만드는 함수
@@ -96,7 +103,7 @@ function CallAppMain() {
       key={Math.random()}
       listStyle={"grid_oneLine"}
       list={{ className: "" }}
-      lihrefnClick={prop.onClickFunction ? prop.onClickFunction : null}
+      listOnClick={prop.onClickFunction ? prop.onClickFunction : null}
       item1={{
         className: prop.className1,
         content: prop.content1,
@@ -114,9 +121,9 @@ function CallAppMain() {
   );
 
   // 최근기록 tap에 만들 list 정보
-  const callHihrefryListProps = [
+  const callHistoryListProps = [
     {
-      onClickFunction: showLihrefption1,
+      onClickFunction: showListOption1,
       className1: "iconWrap_color--green",
       content1: <i className="bi bi-telephone-outbound-fill"></i>,
       className2: "title",
@@ -124,7 +131,7 @@ function CallAppMain() {
       className3: "subTitle",
       content3: "오후 7:38",
       children: isListClicked1 && (
-        <div className={classes.lihrefptionWrap}>
+        <div className={classes.listOptionWrap}>
           <div className={listClass["subTitle_color--blackB"]}>
             휴대전화 010-0000-0000
           </div>
@@ -136,7 +143,7 @@ function CallAppMain() {
       ),
     },
     {
-      onClickFunction: showLihrefption2,
+      onClickFunction: showListOption2,
       className1: "iconWrap_color--green",
       content1: <i className="bi bi-telephone-outbound-fill"></i>,
       className2: "title",
@@ -144,7 +151,7 @@ function CallAppMain() {
       className3: "subTitle",
       content3: "오후 7:38",
       children: isListClicked2 && (
-        <div className={classes.lihrefptionWrap}>
+        <div className={classes.listOptionWrap}>
           <div className={listClass["subTitle_color--blackB"]}>
             휴대전화 010-0000-0000
           </div>
@@ -183,7 +190,7 @@ function CallAppMain() {
       content3: "",
     },
     {
-      onClickFunction: showLihrefption1,
+      onClickFunction: showListOption1,
       className1: "iconWrap_background--pink",
       content1: <i className="bi bi-person-fill"></i>,
       className2: "title",
@@ -191,7 +198,7 @@ function CallAppMain() {
       className3: "",
       content3: "",
       children: isListClicked1 && (
-        <div className={classes.lihrefptionWrap}>
+        <div className={classes.listOptionWrap}>
           <div className={listClass["subTitle_color--blackB"]}>
             휴대전화 010-1234-0000
           </div>
@@ -200,7 +207,7 @@ function CallAppMain() {
       ),
     },
     {
-      onClickFunction: showLihrefption2,
+      onClickFunction: showListOption2,
       className1: "iconWrap_background--orange",
       content1: <i className="bi bi-person-fill"></i>,
       className2: "title",
@@ -208,7 +215,7 @@ function CallAppMain() {
       className3: "",
       content3: "",
       children: isListClicked2 && (
-        <div className={classes.lihrefptionWrap}>
+        <div className={classes.listOptionWrap}>
           <div className={listClass["subTitle_color--blackB"]}>
             휴대전화 010-1234-0001
           </div>
@@ -246,12 +253,12 @@ function CallAppMain() {
             </div>
           </div>
           <div className={classes.navLayout}>
-            <Link
+            <NoScrollLink
               data-tooltip={
                 appName === appName_basic &&
                 functionName === functionName_makeVideoCall
                   ? `클릭!`
-                  : ""
+                  : null
               }
               href={
                 appName === appName_basic &&
@@ -262,15 +269,15 @@ function CallAppMain() {
               <div>
                 <i className="bi bi-camera-video-fill"></i>
               </div>
-            </Link>
+            </NoScrollLink>
             <div>
-              <Link
+              <NoScrollLink
                 data-tooltip={
                   appName === appName_basic &&
                   functionName === functionName_makeCall &&
                   methodId === "1"
                     ? `클릭!`
-                    : ""
+                    : null
                 }
                 href={
                   appName === appName_basic &&
@@ -281,7 +288,7 @@ function CallAppMain() {
                 <div className={classes.iconWrap_background}>
                   <i className="bi bi-telephone-fill"></i>
                 </div>
-              </Link>
+              </NoScrollLink>
             </div>
             <div>
               <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
@@ -301,7 +308,7 @@ function CallAppMain() {
               isListClicked1 || isListClicked2 ? "" : classes.listWrap
             }>
             <div className={listClass["subTitle"]}>6월 17일</div>
-            {callHihrefryListProps.map((prop) => makeListContent(prop))}
+            {callHistoryListProps.map((prop) => makeListContent(prop))}
           </div>
         </div>
       )}

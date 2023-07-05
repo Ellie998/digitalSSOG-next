@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { PageContext } from "../../../sections/AppMain";
 import classes from "./AnswerCall.module.css";
 import Link from "next/link";
+import UrlContext from "../../../../page_context/UrlContext";
 
 const AnswerCall = () => {
   const { urlContent, appName, appName_basic, appName_kakaotalk } =
-    useContext(PageContext);
+    useContext(UrlContext);
   return (
     <>
       {appName === appName_basic && (

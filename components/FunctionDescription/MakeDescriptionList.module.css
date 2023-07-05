@@ -3,17 +3,20 @@
   word-break: keep-all;
 }
 
-.listWrap li {
+.list {
   margin-left: 1rem;
   margin-bottom: 0.6rem;
 }
-.listWrap li:hover {
+.list:hover {
   color: var(--grey-800);
 }
 
-.listWrap a.active {
+.list_active {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
   color: var(--grey-800);
+  font-weight: bold;
 }
-.listWrap a.active:hover {
+.list_active:hover {
   color: var(--grey-800);
 }

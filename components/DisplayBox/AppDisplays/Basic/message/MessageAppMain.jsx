@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { PageContext } from "../../../sections/AppMain";
 import classes from "./MessageAppMain.module.css";
+import UrlContext from "../../../../page_context/UrlContext";
 
 function MessageAppMain() {
   const {
@@ -20,7 +21,7 @@ function MessageAppMain() {
     functionName_reserveMessage,
     //
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   const [isClicked, setIsClicked] = useState(false);
   const [isXClicked, setIsXClicked] = useState(true);
 

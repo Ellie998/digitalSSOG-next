@@ -2,10 +2,11 @@ import { useContext } from "react";
 import Link from "next/link";
 import { PageContext } from "./AppMain";
 import classes from "./AppMain.module.css";
+import UrlContext from "../../page_context/UrlContext";
 
 const MainApps = ({ navLinkTriger }) => {
   const { urlContent, appName_kakaotalk, appName_call, appName_message } =
-    useContext(PageContext);
+    useContext(UrlContext);
 
   return (
     <section className={classes.layout}>

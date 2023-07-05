@@ -3,9 +3,10 @@ import Link from "next/link";
 
 import { PageContext } from "../../../../sections/AppMain";
 import classes from "./SetReservation.module.css";
+import UrlContext from "../../../../../page_context/UrlContext";
 
 function SetReservation() {
-  const { urlContent } = useContext(PageContext);
+  const { urlContent } = useContext(UrlContext);
 
   return (
     <>

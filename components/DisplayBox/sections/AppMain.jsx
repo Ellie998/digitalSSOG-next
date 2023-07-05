@@ -1,5 +1,3 @@
-import { useParams, useSearchParams } from "next/navigation";
-
 import MainApps from "./MainApps";
 import AppMainError from "./AppMainError";
 // call
@@ -24,35 +22,46 @@ import SelectFile from "../AppDisplays/Basic/file/SelectFile";
 import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
 import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
 import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
+import { useContext } from "react";
+import UrlContext from "../../page_context/UrlContext";
+import { useSearchParams } from "next/navigation";
 
-const appName_basic = "기본";
-const appName_call = "전화";
-const appName_message = "메시지";
-const appName_kakaotalk = "카카오톡";
-//
-const functionName_makeCall = "전화걸기(발신)";
-const functionName_getCall = "전화받기(수신)";
-const functionName_makeVideoCall = "영상통화 발신";
-const functionName_sendMessage = "문자 발신";
-const functionName_seeMessage = "문자 수신";
-const functionName_resendMessage = "문자 전달";
-const functionName_reserveMessage = "예약 문자 발송";
-const functionName_sendImg = "이미지, 동영상 전송";
-const functionName_sendAudio = "오디오 전송";
-const functionName_sendPhoneNum = "연락처 공유";
-const functionName_kakaotalk_groubChatLeave_RejectInvitation =
-  "그룹채팅방 초대거부 및 나가기";
-const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
+function AppMain() {
+  const {
+    functionName,
+    // appName,
+    // descriptionId,
+    // methodId,
+    urlChangeDetecter,
+    //
+    functionName_makeCall,
+    functionName_getCall,
+    functionName_makeVideoCall,
+    functionName_sendMessage,
+    functionName_seeMessage,
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    functionName_sendImg,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    functionName_kakaotalk_groubChatLeave_RejectInvitation,
+    functionName_kakaotalk_groubChatLock,
+    //
+    appName_basic,
+    appName_kakaotalk,
+    appName_message,
+    appName_call,
+  } = useContext(UrlContext);
 
-function AppMain({ appName, methodId, descriptionId }) {
-  const params = useParams();
-  const functionName = decodeURI(params.functionName);
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
+  // const appName = searchParams.get("appName");
+  // const methodId = searchParams.get("methodId");
+  // const descriptionId = searchParams.get("descriptionId");
+  const params = urlChangeDetecter();
+  const appName = params.appName;
+  const methodId = params.methodId;
+  const descriptionId = params.descriptionId;
 
-  const nextDescriptionId = +descriptionId + 1;
-  const urlContent = `/description/${functionName}/?appName=${appName}&methodId=${methodId}&descriptionId=${nextDescriptionId.toString()}`;
-  console.log(methodId);
-  console.log(descriptionId);
   let choicedComponent = <div></div>;
 
   switch (functionName) {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageContext } from "../../sections/AppMain";
 import MakeList from "../Basic/components/MakeList";
 import classes from "./KakaoChatRoom.module.css";
+import UrlContext from "../../../page_context/UrlContext";
 
 function KakaoChatRoom({ inputLocked }) {
   const {
@@ -14,7 +15,7 @@ function KakaoChatRoom({ inputLocked }) {
 
     //
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(UrlContext);
   const [inputClicked, setInputClicked] = useState(false);
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");

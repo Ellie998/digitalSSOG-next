@@ -2,19 +2,12 @@ import { useSearchParams } from "next/navigation";
 import MakeDescriptionList from "./MakeDescriptionList";
 // import data from "../public/data/functionData.json";
 import classes from "./MakeMethodList.module.css";
+import { useContext } from "react";
+import UrlContext from "../page_context/UrlContext";
 
-function MakeMethodList({
-  functionMethodObject,
-  appName,
-  methodId,
-  descriptionId,
-  setAppName,
-  setMethodId,
-  setDescriptionId,
-}) {
-  const searchParams = useSearchParams();
-  // const methodId = searchParams.get("methodId");
-  // const appName = searchParams.get("appName");
+function MakeMethodList({ functionMethodObject }) {
+  const { urlChangeDetecter } = useContext(UrlContext);
+  const { appName, methodId } = urlChangeDetecter();
 
   return (
     <ol className={classes.listWrap}>
@@ -38,11 +31,8 @@ function MakeMethodList({
               </summary>
               <MakeDescriptionList
                 functionMethod={functionMethod}
-                appName={functionMethodObject.methodAppName}
-                methodId={functionMethod.methodNum}
-                setAppName={setAppName}
-                setMethodId={setMethodId}
-                setDescriptionId={setDescriptionId}
+                dataAppName={functionMethodObject.methodAppName}
+                dataMethodId={functionMethod.methodNum}
               />
             </details>
           </li>
@@ -50,11 +40,8 @@ function MakeMethodList({
       {functionMethodObject.howto.length === 1 && (
         <MakeDescriptionList
           functionMethod={functionMethodObject.howto[0]}
-          appName={functionMethodObject.methodAppName}
-          methodId={functionMethodObject.howto[0].methodNum}
-          setAppName={setAppName}
-          setMethodId={setMethodId}
-          setDescriptionId={setDescriptionId}
+          dataAppName={functionMethodObject.methodAppName}
+          dataMethodId={functionMethodObject.howto[0].methodNum}
         />
       )}
     </ol>

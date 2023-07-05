@@ -21,6 +21,39 @@ function MakeList({
         <div
           className={`${classes["layout_flex--spaceBetween"]}`}
           onClick={listOnClick}>
+          {rightFlexItem === undefined &&
+            leftFlexItem?.map((item) => (
+              <div key={Math.random()} className={classes[item.className]}>
+                {item.content}
+              </div>
+            ))}
+          {rightFlexItem !== undefined && (
+            <>
+              <div className={`${classes["flex_leftItems"]}`}>
+                {leftFlexItem?.map((item) => (
+                  <div key={Math.random()} className={classes[item.className]}>
+                    {item.content}
+                  </div>
+                ))}
+              </div>
+              <div className={`${classes["flex_rightItems"]}`}>
+                {rightFlexItem?.map((item) => (
+                  <div
+                    key={Math.random()}
+                    className={classes[item.className]}
+                    onClick={item.onClick ? item.onClick : null}>
+                    {item.content}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+      {listStyle === "flex_spaceAround" && (
+        <div
+          className={`${classes["layout_flex--spaceBetween"]}`}
+          onClick={listOnClick}>
           <div className={`${classes["flex_leftItems"]}`}>
             {leftFlexItem?.map((item) => (
               <div key={Math.random()} className={classes[item.className]}>
@@ -40,7 +73,6 @@ function MakeList({
           </div>
         </div>
       )}
-      {listStyle === "flex_spaceAround" && <div></div>}
       {listStyle === "grid_oneLine" && (
         <>
           <div className={`${classes.layout_grid}`} onClick={listOnClick}>

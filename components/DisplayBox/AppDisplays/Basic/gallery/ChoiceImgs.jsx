@@ -10,7 +10,7 @@ function ChoiceImgs() {
     functionName,
     functionName_sendImg,
     appName_basic,
-  } = useContext(PageContext);
+  } = useContext(urlContent);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

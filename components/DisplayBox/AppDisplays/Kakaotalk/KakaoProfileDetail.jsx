@@ -2,9 +2,10 @@ import { useContext } from "react";
 import Link from "next/link";
 import { PageContext } from "../../sections/AppMain";
 import classes from "./KakaoProfileDetail.module.css";
+import UrlContext from "../../../page_context/UrlContext";
 
 function KakaoProfileDetail() {
-  const { urlContent } = useContext(PageContext);
+  const { urlContent } = useContext(UrlContext);
   return (
     <section className={classes.layout}>
       <section className={classes.mainLayout}>

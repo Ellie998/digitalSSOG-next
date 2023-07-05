@@ -6,18 +6,21 @@
   word-break: keep-all;
 }
 
-.MakeDescriptionList_listWrap__e5Hnd li {
+.MakeDescriptionList_list__IRy2Y {
   margin-left: 1rem;
   margin-bottom: 0.6rem;
 }
-.MakeDescriptionList_listWrap__e5Hnd li:hover {
+.MakeDescriptionList_list__IRy2Y:hover {
   color: var(--grey-800);
 }
 
-.MakeDescriptionList_listWrap__e5Hnd a.MakeDescriptionList_active__oZu5t {
+.MakeDescriptionList_list_active__gOWpV {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
   color: var(--grey-800);
+  font-weight: bold;
 }
-.MakeDescriptionList_listWrap__e5Hnd a.MakeDescriptionList_active__oZu5t:hover {
+.MakeDescriptionList_list_active__gOWpV:hover {
   color: var(--grey-800);
 }
 

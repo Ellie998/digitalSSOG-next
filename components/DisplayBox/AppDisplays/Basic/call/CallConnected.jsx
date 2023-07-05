@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import classes from "./CallConnected.module.css";
 import { PageContext } from "../../../sections/AppMain";
+import UrlContext from "../../../../page_context/UrlContext";
 
 const CallConnected = () => {
-  const { appName, appName_basic, appName_kakaotalk } = useContext(PageContext);
+  const { appName, appName_basic, appName_kakaotalk } = useContext(UrlContext);
   return (
     <>
       {appName === appName_basic && (
