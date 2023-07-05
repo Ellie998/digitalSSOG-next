@@ -1,3 +1,6 @@
 {
-  "/page": "static/webpack/app/page.49ac1486f90abb6d.hot-update.js"
+  "/page": "app/page.js",
+  "/description/[...functionName]/page": "app/description/[...functionName]/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js"
 }
