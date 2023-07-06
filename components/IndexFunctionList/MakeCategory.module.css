@@ -19,7 +19,7 @@
   transition: 0.1s;
 }
 
-.layout h3 a {
+.layout a {
   /* font-size: 0.9rem; */
   padding: 0px 8px;
   max-height: 40px;
@@ -29,6 +29,10 @@
 }
 .layout a:hover {
   font-weight: 900;
+}
+.fontWidth_bold {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .clicked {

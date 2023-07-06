@@ -1,21 +1,37 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MakeCategory from "./MakeCategory";
 import MakeListInCategory from "./MakeListInCategory";
 import classes from "./FunctionList.module.css";
 
 function FunctionList() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [tabName, setTabName] = useState(searchParams.get("tab"));
+  let temp = 0;
 
   /**function for change query in home page */
   function linkClickHandler(e) {
     e.preventDefault();
     const tabName = e.target.id.slice(3);
-    window.history.replaceState("", "", `/?tab=${tabName}`);
+    window.history.pushState("", "", `/?tab=${tabName}`);
     setTabName(tabName);
   }
+  // when back or forehead btn clicked, function trigered in descriotion page
+  window.onpopstate = function (e) {
+    const url = decodeURI(window.location);
+    if (temp === 1) {
+      return;
+    }
+    if (url.includes("=")) {
+      const tabNameFromUrl = url.split("=");
+      setTabName(tabNameFromUrl[1]);
+    } else {
+      router.push(url, { scroll: false });
+    }
+    temp++;
+  };
   return (
     <section className={`${classes.layout} ${classes.note}`}>
       <div className={classes.noteHoles}>

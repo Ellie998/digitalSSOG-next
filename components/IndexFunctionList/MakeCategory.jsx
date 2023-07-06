@@ -12,23 +12,22 @@ function MakeCategory({ FunctionOrApp, ListObjects, onLinkClick, tabName }) {
   return (
     <ul className={classes.layout}>
       <li>
-        <h3>카테고리 : </h3>
+        <p className={classes.fontWidth_bold}>카테고리 : </p>
       </li>
       {categorys.map((categoryName) => {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
           <li key={categoryRealName}>
-            <h3>
-              <Link
-                onClick={onLinkClick}
-                href={{ query: { tab: categoryRealName } }}
-                className={tabName === categoryRealName ? classes.clicked : ""}
-                id={categoryName}>
-                {categoryName !== categorys[categorys.length - 1]
-                  ? `${categoryName} ,`
-                  : categoryName}
-              </Link>
-            </h3>
+            <Link
+              scroll={false}
+              onClick={onLinkClick}
+              href={{ query: { tab: categoryRealName } }}
+              className={tabName === categoryRealName ? classes.clicked : ""}
+              id={categoryName}>
+              {categoryName !== categorys[categorys.length - 1]
+                ? `${categoryName} ,`
+                : categoryName}
+            </Link>
           </li>
         );
       })}

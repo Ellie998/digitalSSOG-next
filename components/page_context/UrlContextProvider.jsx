@@ -1,6 +1,6 @@
 import UrlContext from "./UrlContext";
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 const appName_basic = "기본";
 const appName_call = "전화";
@@ -30,8 +30,13 @@ function urlChangeDetecter() {
 }
 
 export default function UrlContextProvider({ children }) {
+  const router = useRouter();
   const params = useParams();
-  const functionName = decodeURI(params.functionName.replace("%2C", ","));
+  const functionNameTemp = decodeURI(params.functionName.replace("%2C", ","));
+  const functionName =
+    functionNameTemp.split("/").length !== 1
+      ? functionNameTemp.split("/")[0]
+      : functionNameTemp;
 
   const [myAppName, setMyAppName] = useState("");
   const [myMethodId, setMyMethodId] = useState("");
@@ -44,11 +49,17 @@ export default function UrlContextProvider({ children }) {
         "",
         `${
           myDescriptionId !== ""
-            ? `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId}`
-            : `/description/${functionName}`
+            ? `/description/${functionName}/${myAppName}/${myMethodId}/${myDescriptionId}`
+            : // ? `/description/${functionName}/?appName=${myAppName}&methodId=${myMethodId}&descriptionId=${myDescriptionId}`
+              `/description/${functionName}`
         }`
       );
     }, [myDescriptionId]);
+  // when back or forehead btn clicked, function trigered in root page
+  window.onpopstate = function (e) {
+    const url = decodeURI(window.location);
+    router.push(url, { scroll: false });
+  };
 
   return (
     <UrlContext.Provider
