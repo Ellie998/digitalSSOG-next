@@ -59,7 +59,8 @@ export default function UrlContextProvider({ children }) {
   window.onpopstate = function (e) {
     // http://localhost:3000/?tab=새로운 기능
     const url = decodeURI(window.location);
-    router.push(url, { scroll: false });
+    const urlTemp = url.split("%2F");
+    router.push(urlTemp[0], { scroll: false });
   };
 
   return (
