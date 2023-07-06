@@ -8,7 +8,7 @@ function Header() {
       <nav className={classes.nav1}>
         <Link href="/">
           <Image
-            src={"/assets/images/logo.png"}
+            src="/assets/images/logo.png"
             className="App-logo"
             alt="logo"
             width={96}
