@@ -7,7 +7,7 @@ function Header() {
     <header className={classes.header}>
       <nav className={classes.nav1}>
         <Link href="/">
-          <Image
+          <img
             src="/assets/images/logo.png"
             className="App-logo"
             alt="logo"
