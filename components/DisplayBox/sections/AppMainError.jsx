@@ -1,6 +1,6 @@
 import Image from "next/image";
-// import work from "../../../app/work-hard.jpg";
-import workHardImg from "../../../public/work-hard.jpg";
+
+import workHardImg from "../../../public/assets/images/work-hard.jpg";
 
 const AppMainError = () => {
   return (
