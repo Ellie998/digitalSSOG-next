@@ -33,8 +33,6 @@ export default function UrlContextProvider({ children }) {
   const router = useRouter();
   const params = useParams();
   const functionNameTemp = decodeURI(params.functionName.replace("%2C", ","));
-
-  console.log(functionNameTemp);
   function functionNameFilter() {
     if (functionNameTemp.split("/").length !== 1) {
       console.log("return functionNameTemp.split('/')[0];");
@@ -45,25 +43,9 @@ export default function UrlContextProvider({ children }) {
       const temp = functionNameTemp.split("%2F");
       return temp[0];
     }
-    if (functionNameTemp.includes("%2f")) {
-      console.log("%2F");
-      f;
-      const temp = functionNameTemp.split("%2f");
-      return temp[0];
-    }
-    if (functionNameTemp.includes("/")) {
-      console.log("/");
-      const temp = functionNameTemp.split("/");
-      return temp[0];
-    }
     return functionNameTemp;
   }
   const functionName = functionNameFilter();
-
-  // const functionName =
-  //   functionNameTemp.split("/").length !== 1
-  //     ? functionNameTemp.split("/")[0]
-  //     : functionNameTemp;
 
   const [myAppName, setMyAppName] = useState("");
   const [myMethodId, setMyMethodId] = useState("");
