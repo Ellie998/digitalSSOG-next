@@ -72,14 +72,6 @@
         "chunks": [],
         "async": false
       }
-    },
-    "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js": {
-      "*": {
-        "id": "(sc_client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
     }
   },
   "clientModules": {
@@ -163,19 +155,11 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css": {
-      "id": "(app-client)/./app/layout.css",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/link.js": {
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -183,7 +167,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -191,7 +175,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -199,7 +183,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -219,19 +203,11 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Footer.module.css": {
-      "id": "(app-client)/./components/layout/Footer.module.css",
-      "name": "*",
-      "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
-      ],
-      "async": false
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Header.module.css": {
       "id": "(app-client)/./components/layout/Header.module.css",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -239,7 +215,23 @@
       "id": "(app-client)/./components/layout/MyLayout.module.css",
       "name": "*",
       "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Footer.module.css": {
+      "id": "(app-client)/./components/layout/Footer.module.css",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css": {
+      "id": "(app-client)/./app/layout.css",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
@@ -250,26 +242,15 @@
         "app/error:static/chunks/app/error.js"
       ],
       "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/FunctionDescription/FunctionDescriptionProvider.js": {
-      "id": "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
-      "name": "*",
-      "chunks": [
-        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
-      ],
-      "async": false
     }
   },
   "entryCSSFiles": {
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": [
-      "static/css/app/layout.css"
-    ],
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/page": [
       "static/css/app/page.css"
     ],
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": [],
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/description/[...functionName]/page": [
-      "static/css/app/description/[...functionName]/page.css"
-    ]
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": [
+      "static/css/app/layout.css"
+    ],
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": []
   }
 }

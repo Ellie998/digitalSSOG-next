@@ -22,27 +22,6 @@
       ],
       "wasm": [],
       "assets": []
-    },
-    "/description/[...functionName]/page": {
-      "files": [
-        "server/server-reference-manifest.js",
-        "server/client-reference-manifest.js",
-        "server/middleware-build-manifest.js",
-        "server/middleware-react-loadable-manifest.js",
-        "server/next-font-manifest.js",
-        "server/edge-runtime-webpack.js",
-        "server/app/description/[...functionName]/page.js"
-      ],
-      "name": "app/description/[...functionName]/page",
-      "page": "/description/[...functionName]/page",
-      "matchers": [
-        {
-          "regexp": "^/description/(?<functionName>.+?)$",
-          "originalSource": "/description/[...functionName]"
-        }
-      ],
-      "wasm": [],
-      "assets": []
     }
   },
   "version": 2
