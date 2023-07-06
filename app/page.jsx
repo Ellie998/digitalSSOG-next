@@ -11,6 +11,7 @@ export const runtime = "edge";
 */
 }
 export const metadata = {
+  metadataBase: new URL("https://ssog.pages.dev"),
   charset: "utf-8",
   viewport: {
     width: "device-width",
