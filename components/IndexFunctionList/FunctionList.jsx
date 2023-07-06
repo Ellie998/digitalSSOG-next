@@ -28,10 +28,8 @@ function FunctionList() {
       const tabNameFromUrl = url.split("=");
       setTabName(tabNameFromUrl[1]);
     } else {
-      console.log(url);
-      const urlTemp = url.replaceAll("%2F", "/");
-      console.log(urlTemp);
-      router.push(urlTemp, { scroll: false });
+      const urlTemp = url.split("%2F");
+      router.push(urlTemp[0], { scroll: false });
     }
     temp++;
   };
