@@ -35,11 +35,9 @@ export default function UrlContextProvider({ children }) {
   const functionNameTemp = decodeURI(params.functionName.replace("%2C", ","));
   function functionNameFilter() {
     if (functionNameTemp.split("/").length !== 1) {
-      console.log("return functionNameTemp.split('/')[0];");
       return functionNameTemp.split("/")[0];
     }
     if (functionNameTemp.includes("%2F")) {
-      console.log("%2F");
       const temp = functionNameTemp.split("%2F");
       return temp[0];
     }
