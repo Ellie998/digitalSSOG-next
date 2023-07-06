@@ -31,26 +31,8 @@ function Index() {
         </ul>
       </section>
       <FunctionList />
-      {/* <AppList /> */}
     </main>
   );
 }
 
 export default Index;
-
-// export async function loader({ params }) {
-//   const response = await fetch(functionDataURL);
-
-//   if (!response.ok) {
-//     throw json(
-//       { message: "Could not fetch events." },
-//       {
-//         status: 500,
-//       }
-//     );
-//   } else {
-//     const data = await response.json();
-
-//     return data;
-//   }
-// }

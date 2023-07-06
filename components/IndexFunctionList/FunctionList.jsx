@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import MakeCategory from "./MakeCategory";
 import MakeListInCategory from "./MakeListInCategory";
 import classes from "./FunctionList.module.css";
+import HeadMeta from "../HeadMeta";
 
 function FunctionList() {
   const router = useRouter();
@@ -34,6 +35,8 @@ function FunctionList() {
   };
   return (
     <section className={`${classes.layout} ${classes.note}`}>
+      <HeadMeta></HeadMeta>
+
       <div className={classes.noteHoles}>
         <div></div>
         <div></div>

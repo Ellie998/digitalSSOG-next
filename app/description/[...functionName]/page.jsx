@@ -1,8 +1,8 @@
 // app/description/[functionName]/page.jsx
-import { useParams } from "next/navigation";
+
 import FunctionDescriptionProvider from "../../../components/FunctionDescription/FunctionDescriptionProvider";
 import MyLayout from "../../../components/layout/MyLayout";
-import HeadMeta from "../../../components/HeadMeta";
+
 export const runtime = "edge";
 
 // or Dynamic metadata
@@ -64,11 +64,8 @@ export async function generateMetadata({ params }) {
     },
   };
 }
-// export const metadata = {};
 
 export default function Page() {
-  const params = useParams();
-  const functionName = decodeURI(params.functionName);
   return (
     <MyLayout>
       {/* <Head>
@@ -139,10 +136,7 @@ export default function Page() {
         />
         <link rel="manifest" href="/assets/favicon/site.webmanifest" />
       </Head> */}
-      <HeadMeta
-        title={`${functionName} 기능 사용법 - 디지털쏙`}
-        description={`${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`}
-        url={`https://ssog.pages.dev/description/${functionName}`}></HeadMeta>
+
       <FunctionDescriptionProvider></FunctionDescriptionProvider>
     </MyLayout>
   );

@@ -1,11 +1,13 @@
 import Head from "next/head";
 
 const HeadMeta = ({ title, description, url, image }) => {
+  console.log("head meta");
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <title>{title || "디지털쏙"}</title>
+      <title key={title}>{title || "디지털쏙"}</title>
       <meta
+        key={description}
         name="description"
         content={
           description ||
@@ -13,8 +15,16 @@ const HeadMeta = ({ title, description, url, image }) => {
         }
       />
       <meta property="type" content="website" />
-      <meta property="url" content={url || "https://ssog.pages.dev"} />
-      <meta property="image" content={image || "/assets/metaIMG.png"} />
+      <meta
+        key={url}
+        property="url"
+        content={url || "https://ssog.pages.dev"}
+      />
+      <meta
+        key={image}
+        property="image"
+        content={image || "/assets/metaIMG.png"}
+      />
       {/*  */}
       <meta property="og:title" content={title || "디지털쏙"} />
       <meta

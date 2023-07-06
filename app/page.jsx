@@ -2,8 +2,6 @@
 import Head from "next/head";
 import Index from "../components/layout/Index";
 import MyLayout from "../components/layout/MyLayout";
-import HeadMeta from "../components/HeadMeta";
-// import { Metadata } from "next";
 
 export const runtime = "edge";
 {
@@ -131,7 +129,7 @@ export default function Page() {
         />
         <link rel="manifest" href="/assets/favicon/site.webmanifest" />
       </Head>  */}
-      <HeadMeta></HeadMeta>
+
       <Index></Index>
     </MyLayout>
   );
