@@ -35,7 +35,7 @@ function FunctionList() {
   };
   return (
     <section className={`${classes.layout} ${classes.note}`}>
-      <HeadMeta></HeadMeta>
+      {/* <HeadMeta></HeadMeta> */}
 
       <div className={classes.noteHoles}>
         <div></div>
