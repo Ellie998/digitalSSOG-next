@@ -26,7 +26,7 @@ const HeadMeta = ({ title, description, url, image }) => {
         content={image || "/assets/metaIMG.png"}
       />
       {/*  */}
-      <meta property="og:title" content={title || "디지털쏙"} />
+      {/* <meta property="og:title" content={title || "디지털쏙"} />
       <meta
         name="og:description"
         content={
@@ -36,9 +36,9 @@ const HeadMeta = ({ title, description, url, image }) => {
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url || "https://ssog.pages.dev"} />
-      <meta property="og:image" content={image || "/assets/metaIMG.png"} />
+      <meta property="og:image" content={image || "/assets/metaIMG.png"} /> */}
       {/*  */}
-      <meta property="twitter:title" content={title || "디지털쏙"} />
+      {/* <meta property="twitter:title" content={title || "디지털쏙"} />
       <meta
         name="twitter:description"
         content={
@@ -48,7 +48,7 @@ const HeadMeta = ({ title, description, url, image }) => {
       />
       <meta property="twitter:type" content="website" />
       <meta property="twitter:url" content={url || "https://ssog.pages.dev"} />
-      <meta property="twitter:image" content={image || "/assets/metaIMG.png"} />
+      <meta property="twitter:image" content={image || "/assets/metaIMG.png"} /> */}
       {/*  */}
       <link rel="icon" href="/assets/favicon/favicon.ico" />
       <link
