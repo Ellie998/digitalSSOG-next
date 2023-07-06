@@ -57,8 +57,8 @@ export default function UrlContextProvider({ children }) {
     }, [myDescriptionId]);
   // when back or forehead btn clicked, function trigered in root page
   window.onpopstate = function (e) {
-    const urlTemp = decodeURI(window.location);
-    const url = urlTemp.replaceAll("%2F", "/");
+    // http://localhost:3000/?tab=새로운 기능
+    const url = decodeURI(window.location);
     router.push(url, { scroll: false });
   };
 

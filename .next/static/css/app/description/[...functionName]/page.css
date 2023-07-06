@@ -1,0 +1,3271 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/FunctionDescription/MakeDescriptionList.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+.MakeDescriptionList_listWrap__e5Hnd {
+  margin-bottom: 2.5rem;
+  word-break: keep-all;
+}
+
+.MakeDescriptionList_list__IRy2Y {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
+}
+.MakeDescriptionList_list__IRy2Y:hover {
+  color: var(--grey-800);
+}
+
+.MakeDescriptionList_list_active__gOWpV {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--grey-800);
+  font-weight: bold;
+}
+.MakeDescriptionList_list_active__gOWpV:hover {
+  color: var(--grey-800);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/FunctionDescription/MakeMethodList.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+.MakeMethodList_listWrap__J_SGM > li {
+  margin-left: 16px;
+  margin-bottom: 10px;
+}
+
+.MakeMethodList_listWrap__J_SGM summary {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/FunctionDescription/MakeAppList.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.MakeAppList_fontSize_1_2rem__b_Cwq {
+  font-size: 1.2rem;
+}
+.MakeAppList_extraInfoWrap__3U7C7 {
+  color: rgb(117, 117, 117);
+}
+.MakeAppList_extraInfoWrap__3U7C7:hover,
+.MakeAppList_extraInfoWrap__3U7C7 > i {
+  color: rgb(41, 41, 41);
+}
+.MakeAppList_extraInfoWrap__3U7C7 > i {
+  font-size: 1rem;
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/sections/AppHeader.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.AppHeader_AppHeader__nx1kG {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+}
+.AppHeader_AppHeader__nx1kG li {
+  margin: 0 2px;
+}
+.AppHeader_AppHeader__nx1kG li {
+  font-size: 0.9rem;
+}
+
+.AppHeader_displayFlex__K6d3F {
+  display: flex;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/sections/AppMain.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/* ------------------- LAYOUT ---------------------- */
+.AppMain_layout__rzCoy {
+  display: grid;
+  grid-template-rows: repeat(8, 35px);
+  font-size: 0.8rem;
+  margin-top: 20px;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.AppMain_layout__rzCoy i {
+  box-shadow: 0px 0px 4px rgb(192, 192, 192);
+  border-radius: 18px;
+  padding: 2px 4px;
+  cursor: pointer;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.AppMain_layout__rzCoy i:hover {
+  box-shadow: 0px 0px 6px #cdcdcd8a;
+  background-color: #cdcdcd8a;
+}
+/* ------------------- LAYOUT ---------------------- */
+
+.AppMain_mainLayout__yxyQj {
+  grid-row: 1 / 8;
+}
+
+.AppMain_appLayout__QH5_g {
+  grid-row: 7 / 8;
+}
+.AppMain_app_row__yW2Ae {
+  display: flex;
+}
+.AppMain_navAppLayout__FUcle {
+  grid-row: 8 / 9;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/components/NavBar.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+.NavBar_navLayout__37vap {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0 0 0;
+  height: 30px;
+  width: 170px;
+  padding-left: 5px;
+  font-size: 0.8rem;
+}
+.NavBar_navLayout__37vap i {
+  font-size: 0.8rem;
+}
+
+.NavBar_nav_title__uEz_y {
+  align-self: center;
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.NavBar_rNav__6x0OG,
+.NavBar_lNav__j53Cd {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/components/MakeList.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* --------------- LAYOUT ------------------ */
+.MakeList_layout_flex--spaceBetween__8eXGl {
+  display: flex;
+  justify-content: space-between;
+}
+.MakeList_layout_flex--spaceAround__kEe1d {
+  display: flex;
+  justify-content: space-around;
+}
+.MakeList_layout_grid__Tir6P {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(6, 28px);
+  height: 30px;
+  margin: 2px 0;
+}
+.MakeList_layout_grid--auto__YvVqQ {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto;
+  margin: 2px 0;
+}
+.MakeList_background--grey__ky93T {
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+}
+.MakeList_background-white__fV90H {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 4px 6px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.MakeList_border_bottom__0Mo02 {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+/* --------------- GRID LAYOUT ------------------ */
+.MakeList_grid_firstCol--row1__XF_tX {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.MakeList_grid_firstCol--row2__fvjXE {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+.MakeList_grid_firstCol--row12__vYNHw {
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+.MakeList_grid_secondCol--row1__iqeKc {
+  grid-column: 2/5;
+  grid-row: 1/2;
+}
+.MakeList_grid_secondToThirdCol--row1__xtSks {
+  grid-column: 2/7;
+  grid-row: 1/2;
+}
+.MakeList_grid_secondCol--row2__Z_n3H {
+  grid-column: 2/6;
+  grid-row: 2/3;
+}
+.MakeList_grid_thirdCol--row1__zbGF6 {
+  grid-column: 5/7;
+  grid-row: 1/2;
+}
+.MakeList_grid_thirdCol--row2__R6zss {
+  grid-column: 6/7;
+  grid-row: 2/3;
+}
+/* --------------- FLEX LAYOUT ------------------ */
+.MakeList_flex_leftItems__0rfzk,
+.MakeList_flex_rightItems__c8RLN {
+  display: flex;
+  justify-content: space-around;
+}
+.MakeList_flex_leftItems__0rfzk > div,
+.MakeList_flex_rightItems__c8RLN > div {
+  margin-right: 3px;
+}
+
+/* --------------- ICON ------------------ */
+.MakeList_iconWrap_background--grey__1J0x9 {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #e4e4e48a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--pink__1o_4R {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ff855f8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--yellow__dJQMw {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ffd0278a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--orange__LegZ9 {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #ffb8468a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--skyBlue__v9_eq {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92e7ff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--purple__0PfcJ {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #929dff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--blue__KS6_D {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92caff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.MakeList_iconWrap_background--orange__LegZ9 i,
+.MakeList_iconWrap_background--yellow__dJQMw i,
+.MakeList_iconWrap_background--pink__1o_4R i,
+.MakeList_iconWrap_background--grey__1J0x9 i {
+  color: white;
+}
+.MakeList_iconWrap_background--skyBlue__v9_eq i,
+.MakeList_iconWrap_background--blue__KS6_D i,
+.MakeList_iconWrap_background--purple__0PfcJ i {
+  color: #ededed;
+}
+.MakeList_iconWrap_background--green__Bev9k i {
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: green;
+  border-radius: 18px;
+  color: var(--grey-700);
+}
+.MakeList_iconWrapS_background--green__wjv5V i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 3px;
+  font-size: 0.6rem;
+}
+/*  */
+.MakeList_iconWrap_color--green__li_68 i {
+  color: green;
+  font-size: 0.8rem;
+}
+/* --------------- TEXT ------------------ */
+.MakeList_title__C4_ea {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+}
+.MakeList_title--bold__iF14b {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+  font-weight: 600;
+}
+.MakeList_subTitle__Tqhg_ {
+  font-size: 0.5rem;
+  margin-left: 5px;
+  text-align: start;
+  color: var(--grey-400);
+}
+.MakeList_subTitle_color--blackB__gzOFO {
+  font-size: 0.5rem;
+  margin-left: 10px;
+  text-align: start;
+  color: var(--grey-700);
+  font-weight: 600;
+}
+.MakeList_subTitle_color--black__dLRDh {
+  font-size: 0.5rem;
+  margin-left: 10px;
+  text-align: start;
+  color: var(--grey-700);
+}
+.MakeList_info__yqCTZ {
+  font-size: 0.5rem;
+  text-align: right;
+  color: var(--grey-400);
+}
+.MakeList_subInfo__wa4Ll {
+  font-size: 0.6rem;
+  text-align: center;
+  background-color: rgb(255, 118, 68);
+  color: white;
+  border-radius: 22px;
+  width: 0.9rem;
+}
+.MakeList_subInfo_border--grey__R9mxJ {
+  grid-column: 4/7;
+  font-size: 0.6rem;
+  text-align: center;
+  border-radius: 22px;
+  border: 1px solid rgb(206, 206, 206);
+}
+.MakeList_timeStamp__VZGzy {
+  font-size: 0.6rem;
+}
+.MakeList_title__C4_ea:hover,
+.MakeList_info__yqCTZ:hover,
+.MakeList_subTitle__Tqhg_:hover,
+.MakeList_subInfo__wa4Ll:hover {
+  cursor: pointer;
+}
+.MakeList_color_blue__CKXgO {
+  color: rgb(41, 112, 236);
+  font-size: 0.7rem;
+}
+.MakeList_color_black__cCyE4 {
+  color: rgb(33, 33, 33);
+  font-size: 0.7rem;
+}
+.MakeList_color_black--bold__kEm57 {
+  color: rgb(33, 33, 33);
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+/* ------------------KAKAO--------------------- */
+.MakeList_profile_layout__Rhvu2 {
+  display: grid;
+  grid-template-columns: 30px 70px 70px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.MakeList_profile_layout__Rhvu2 i {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.MakeList_profile_img__UgSBP {
+  margin-right: 14px;
+}
+.MakeList_profile_message__5zaYn {
+  font-size: 0.6rem;
+  color: var(--grey-400);
+}
+
+.MakeList_profile_musicBox__oWufk {
+  grid-column: 4/7;
+
+  font-size: 0.7rem;
+  border: 1px solid greenyellow;
+  border-radius: 12px;
+  /* max-width: 70px; */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  justify-self: end;
+}
+.MakeList_profile_musicBox__oWufk:hover {
+  background-color: rgb(208, 208, 208);
+}
+.MakeList_profile_musicBox__oWufk i {
+  color: greenyellow;
+  box-shadow: none;
+}
+.MakeList_profile_musicBox__oWufk i:hover {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/call/CallAppMain.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* ---------------- LAYOUT ----------------- */
+.CallAppMain_layout__XEiSQ {
+  font-size: 1rem;
+  align-items: center;
+  text-align: center;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.CallAppMain_layout__XEiSQ::-webkit-scrollbar {
+  display: none;
+}
+.CallAppMain_layout__XEiSQ i {
+  border-radius: 100%;
+  cursor: pointer;
+  padding: 5px;
+}
+/* ---------------- ICON ----------------- */
+.CallAppMain_iconWrap_background__XIQ_z i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 8px;
+}
+.CallAppMain_iconWrapS_background__LdGPr i {
+  color: white;
+  background-color: rgb(41, 184, 64);
+  padding: 3px;
+  font-size: 0.6rem;
+}
+
+/* ---------------- MAIN ----------------- */
+.CallAppMain_main_title___s41H {
+  margin-top: 20px;
+  height: 60px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.CallAppMain_main_title--noMargin__i05pw {
+  height: 60px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.CallAppMain_main_subTitle__Hm5Ek {
+  font-size: 0.7rem;
+  color: var(--grey-300);
+}
+.CallAppMain_main_optionBox__JKGiz {
+  height: 136px;
+}
+.CallAppMain_main_optionRow__DL1Wk {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.CallAppMain_main_optionRow__DL1Wk div {
+  width: 100%;
+  height: 34px;
+}
+/* ---------------- NAV ----------------- */
+.CallAppMain_navLayout__RqqzV {
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ---------------- LIST ----------------- */
+.CallAppMain_listWrap__WuebU {
+  height: 155px; /* 270px - 80px - 25px + (15px + 30px * 3)  - 20px*/
+}
+.CallAppMain_listOptionWrap__LowAL {
+  padding: 10px 20px;
+  animation: CallAppMain_fadeInDown___lk2S 0.5s;
+}
+/* ---------------- TAP ----------------- */
+.CallAppMain_tabLayout___NYFl {
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.CallAppMain_tabLayout___NYFl div::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(0, 101, 0);
+  opacity: 0;
+}
+.CallAppMain_tabLayout___NYFl div:hover::after {
+  opacity: 1;
+  transition: all 0.5s;
+  animation: CallAppMain_lr-bar__6Q9ov 750ms;
+  animation-delay: 0;
+}
+
+.CallAppMain_tap_clicked__pP8aw {
+  color: rgb(0, 101, 0);
+}
+.CallAppMain_tap_clicked__pP8aw::after {
+  opacity: 1 !important;
+}
+
+@keyframes CallAppMain_lr-bar__6Q9ov {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes CallAppMain_fadeInDown___lk2S {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/call/AnswerCall.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+.AnswerCall_font_color--light__VU3P2 {
+  color: var(--grey-400);
+}
+.AnswerCall_marginTop___pbp3 {
+  margin-top: 40px;
+}
+.AnswerCall_layout__iLVg7 {
+  text-align: center;
+  width: 170px;
+}
+
+.AnswerCall_profileBox__DAHFg {
+  background-color: rgb(141, 200, 253);
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.AnswerCall_profileBox__DAHFg i {
+  color: rgb(214, 240, 255);
+  font-size: 36px;
+}
+.AnswerCall_profileBox__DAHFg i::before {
+  vertical-align: text-bottom;
+}
+
+.AnswerCall_content_sub__hbgu_ {
+  font-size: 0.7rem;
+}
+
+.AnswerCall_btns_basic__rg0lb {
+  margin-top: 120px;
+  font-size: 1rem;
+  grid-row: 6 / 7;
+  display: flex;
+  justify-content: space-around;
+}
+.AnswerCall_btns__K3bnb {
+  margin-top: 80px;
+  font-size: 1rem;
+  grid-row: 6 / 7;
+  display: flex;
+  justify-content: space-around;
+}
+
+.AnswerCall_btns__K3bnb div,
+.AnswerCall_btns_basic__rg0lb div {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  box-shadow: 2px 4px 8px rgba(80, 80, 80, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AnswerCall_message__3lN_L {
+  margin-top: 20px;
+  grid-row: 7 / 8;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/call/CallConnected.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CallConnected_font_color--light__VOI8T {
+  color: var(--grey-400);
+}
+.CallConnected_marginTop--40__ZfJz3 {
+  margin-top: 40px;
+}
+.CallConnected_marginTop--30__fQ_A_ {
+  margin-top: 30px;
+}
+.CallConnected_marginTop--10__gRSlj {
+  margin-top: 10px;
+}
+.CallConnected_layout__8WQQN {
+  text-align: center;
+  width: 170px;
+}
+
+.CallConnected_headerNav__tZg9P {
+  text-align: end;
+  margin-right: 15px;
+}
+.CallConnected_content_sub__O710s {
+  font-size: 0.7rem;
+}
+
+/* ---------------- OPTION BOX --------------- */
+.CallConnected_main_optionBox__6MhBk,
+.CallConnected_main_optionBox--kakao__PAmzP {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 10px;
+}
+.CallConnected_main_optionBox__6MhBk {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(222, 222, 222, 0.428);
+}
+.CallConnected_main_optionBox__6MhBk div,
+.CallConnected_main_optionBox--kakao__PAmzP div {
+  font-size: 0.6rem;
+}
+
+.CallConnected_main_optionBox--kakao__PAmzP > div {
+  margin: 5px;
+}
+.CallConnected_main_optionIcon--border__crSO5 {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 0.5px solid rgb(207, 207, 207);
+  border-radius: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CallConnected_main_optionIcon--border__crSO5 i {
+  font-size: 18px;
+}
+
+.CallConnected_main_optionIcon--redBack__0yXko {
+  grid-column: 1 / 4;
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+.CallConnected_main_optionIcon--redBack__0yXko i {
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+/* ---------------- KAKAO --------------- */
+
+.CallConnected_profileBox__2_JvE {
+  background-color: rgb(141, 200, 253);
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  overflow: hidden;
+}
+
+.CallConnected_profileBox__2_JvE i {
+  color: rgb(214, 240, 255);
+  font-size: 36px;
+}
+.CallConnected_profileBox__2_JvE i::before {
+  vertical-align: text-bottom;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/call/VideoCallConnected.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.VideoCallConnected_layout__NbZLE {
+  display: grid;
+  grid-template-rows: repeat(7, 39px);
+  text-align: center;
+}
+/* ---------------- HEADER NAV --------------------- */
+.VideoCallConnected_headerNav__rDnJs i {
+  margin-right: 4px;
+}
+.VideoCallConnected_headerNav__rDnJs {
+  grid-row: 1/2;
+  text-align: end;
+  display: flex;
+  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+.VideoCallConnected_headerNav__rDnJs > div:first-child {
+  position: relative;
+  z-index: 100;
+  margin-right: 22px;
+  font-size: 0.7rem;
+}
+
+/* ---------------- PHONE NUMBER --------------------- */
+.VideoCallConnected_phoneNum__8FXj7 {
+  grid-row: 2/3;
+}
+/* ---------------- MAIN --------------------- */
+.VideoCallConnected_main_center__W9onN {
+  grid-row: 4/5;
+  font-size: 3rem;
+}
+
+/* ---------------- HEAMAIN SUB OPTION --------------------- */
+.VideoCallConnected_main_subOptionLayout___LNMW {
+  grid-row: 6/7;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  align-items: center;
+}
+.VideoCallConnected_main_subOption__EDGKL {
+  background-color: rgba(196, 196, 196, 0.428);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+}
+.VideoCallConnected_main_subOption__EDGKL:nth-child(1),
+.VideoCallConnected_main_subOption__EDGKL:nth-child(3) {
+  border-radius: 100%;
+}
+.VideoCallConnected_main_subOption__EDGKL:nth-child(2) {
+  border-radius: 8px;
+  padding: 1px 8px;
+}
+/* ---------------- MAIN OPTION --------------------- */
+.VideoCallConnected_main_optionBox__iDtqQ {
+  grid-row: 7/8;
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  column-gap: 2px;
+  background-color: rgba(196, 196, 196, 0.428);
+  border-radius: 10px;
+  margin: 0 5px 0 5px;
+}
+.VideoCallConnected_main_optionBox__iDtqQ > div > p {
+  font-size: 0.5rem;
+}
+.VideoCallConnected_main_optionIcon--selected__rcfzB i,
+.VideoCallConnected_main_optionIcon--selected__rcfzB p {
+  color: rgb(0, 190, 114);
+  font-weight: 900;
+}
+.VideoCallConnected_main_optionIcon--redBack__5O6jA {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+.VideoCallConnected_main_optionIcon--redBack__5O6jA i {
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Kakaotalk/KakaoAppMain.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* ------------------- LAYOUT ---------------------- */
+.KakaoAppMain_layout__3tdx9 {
+  display: grid;
+  grid-template-rows: repeat(8, 35px);
+  font-size: 0.8rem;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.KakaoAppMain_layout__3tdx9 i {
+  font-size: 0.9rem;
+  border-radius: 18px;
+  padding: 2px 4px;
+  cursor: pointer;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+/* ------------------- LAYOUT ---------------------- */
+
+.KakaoAppMain_mainLayout__OfBm_ {
+  grid-row: 1 / 8;
+}
+
+.KakaoAppMain_app_row__v7wBx {
+  display: flex;
+}
+.KakaoAppMain_navAppLayout__xhrqv {
+  grid-row: 8 / 9;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(246, 246, 246, 0.445);
+  box-shadow: 2px 0 4px rgba(208, 208, 208, 0.482);
+  align-items: center;
+}
+
+/* ------------------- KAKAO PROFILE---------------------- */
+.KakaoAppMain_profile_layout__5JbRZ {
+  display: grid;
+  grid-template-columns: 30px 70px 70px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.KakaoAppMain_profile_layout__5JbRZ i {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.KakaoAppMain_profile_img__7XXMz {
+  margin-right: 14px;
+}
+.KakaoAppMain_profile_message__dXgcn {
+  font-size: 0.6rem;
+  color: var(--grey-400);
+}
+
+.KakaoAppMain_profile_musicBox__u7eLn {
+  font-size: 0.7rem;
+  border: 1px solid greenyellow;
+  border-radius: 12px;
+  max-width: 70px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.KakaoAppMain_profile_musicBox__u7eLn:hover {
+  background-color: rgb(208, 208, 208);
+}
+.KakaoAppMain_profile_musicBox__u7eLn i {
+  color: greenyellow;
+  box-shadow: none;
+}
+.KakaoAppMain_profile_musicBox__u7eLn i:hover {
+  box-shadow: none;
+  background-color: transparent;
+}
+/* --------------------COMMON CSS--------------------- */
+.KakaoAppMain_border_topbottom__e5_cN {
+  border-bottom: 1px solid rgb(244, 244, 244);
+  border-top: 1px solid rgb(244, 244, 244);
+  margin-bottom: 10px;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Kakaotalk/KakaoProfileDetail.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.KakaoProfileDetail_layout__pwebP {
+  margin-top: 10px;
+  font-size: 1rem;
+  background-color: rgba(47, 47, 47, 0.306);
+  display: grid;
+  grid-template-rows: repeat(7, 38px);
+  text-align: center;
+  position: relative;
+  width: 175px;
+}
+.KakaoProfileDetail_mainLayout__8tKCn {
+  grid-row: 5/7;
+}
+
+/*  */
+.KakaoProfileDetail_text_center--white__IPoJe {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.KakaoProfileDetail_profileImg__EoYCN {
+  margin: 0 auto;
+  background-color: rgb(193, 229, 255);
+  border-radius: 22px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 4px rgb(164, 164, 164);
+}
+
+.KakaoProfileDetail_profileImg__EoYCN i {
+  color: rgb(226, 243, 255);
+  font-size: 24px;
+}
+.KakaoProfileDetail_listLayout__KsEeD {
+  grid-row: 7/8;
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.5px solid rgb(236, 236, 236);
+  padding: 8px;
+  cursor: pointer;
+}
+
+.KakaoProfileDetail_iconDescription__r70o6 {
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+}
+.KakaoProfileDetail_listLayout__KsEeD i {
+  color: white;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/MessageAppMain.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.MessageAppMain_backdropDark__MFQiQ {
+  background-color: rgba(23, 23, 23, 0.4);
+  position: relative;
+  z-index: 500;
+  top: -335px;
+  left: -10px;
+  width: 185px;
+  height: 385px;
+  border-radius: 12px;
+}
+.MessageAppMain_backdropLight__kJY3S {
+  background-color: rgba(240, 240, 240, 0.4);
+  position: relative;
+  z-index: 500;
+  top: -335px;
+  left: -5px;
+  width: 180px;
+  height: 385px;
+  border-radius: 22px;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+}
+
+.MessageAppMain_modalBoxRight__jbG4C {
+  background-color: transparent;
+  z-index: 600;
+  border-radius: 12px;
+  width: 50%;
+  position: relative;
+  top: -200px;
+  padding: 10px;
+  font-size: 0.8rem;
+  margin-left: 70px;
+  display: grid;
+  grid-template-rows: repeat(6, 22);
+  row-gap: 10px;
+}
+.MessageAppMain_modalBoxBottom__6jXfs {
+  background-color: white;
+  z-index: 600;
+  border-radius: 12px;
+  width: 90%;
+  position: relative;
+  top: -160px;
+  padding: 10px;
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-rows: repeat(6, 22);
+  row-gap: 10px;
+}
+
+/*  */
+.MessageAppMain_AppMain__9Iqp1 {
+  display: grid;
+  grid-template-rows: repeat(9, 33px);
+  font-size: 0.8rem;
+  width: 170px;
+}
+
+.MessageAppMain_AppMain__9Iqp1 i {
+  border-radius: 18px;
+  padding: 2px 6px;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 12px;
+}
+
+.MessageAppMain_AppMain__9Iqp1 i:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 6px #cdcdcd8a;
+  background-color: #cdcdcd8a;
+}
+.MessageAppMain_appTitle__Ic20L {
+  grid-row: 1 / 3;
+  text-align: center;
+  align-self: center;
+  font-size: 1rem;
+  margin: 0 auto;
+  color: var(--grey-800);
+  cursor: pointer;
+}
+
+.MessageAppMain_appTitle_btn__L5_LC {
+  font-size: 0.6rem;
+  background-color: #cdcdcd8a;
+  width: max-content;
+  padding: 1px 10px;
+  margin: 0 auto;
+  border-radius: 12px;
+  color: var(--grey-600);
+}
+/*  */
+
+.MessageAppMain_appETCLists__H13Zk {
+  grid-row: 3 / 4;
+  display: flex;
+  justify-content: end;
+  font-size: 0.7rem;
+}
+.MessageAppMain_appCategoryLists__Y34XF {
+  grid-row: 4 / 5;
+  display: flex;
+}
+.MessageAppMain_appCategoryLists__Y34XF div {
+  cursor: pointer;
+}
+.MessageAppMain_appCategoryLists__Y34XF div:first-child::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--grey-400);
+  z-index: 200;
+}
+
+.MessageAppMain_contentLists__rnzmD {
+  grid-row: 5/6;
+  align-self: center;
+}
+
+.MessageAppMain_messagePlus__l9MHG {
+  grid-row: 9/10;
+  text-align: end;
+}
+.MessageAppMain_wigetApps__9HsYV {
+  text-align: end;
+  position: relative;
+  z-index: 600;
+  top: -120px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: 75px;
+}
+
+.MessageAppMain_wigetAppWrap__3xVwb {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.MessageAppMain_wigetIconWrap__qmqEr i,
+.MessageAppMain_messagePlus__l9MHG i {
+  box-shadow: 0px 4px 4px rgba(87, 87, 87, 0.195);
+  width: 25px;
+  height: 25px;
+  border-radius: 12px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.MessageAppMain_wigetApps__9HsYV,
+.MessageAppMain_wigetApps__9HsYV i {
+  font-size: 13px;
+}
+
+.MessageAppMain_wigetApps__9HsYV > div:last-child i,
+.MessageAppMain_messagePlus__l9MHG i {
+  font-size: 1rem;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/components/ChoiceImg.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ChoiceImg_display_grid--col4___7m70 {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  column-gap: 4px;
+  row-gap: 4px;
+}
+
+.ChoiceImg_display_flex__fMLBQ {
+  display: flex;
+}
+
+.ChoiceImg_imgBox__R2tO1 {
+  position: relative;
+  z-index: 0;
+  font-size: 0.6rem;
+  background-color: antiquewhite;
+  width: 38px;
+  padding: 10px 4px 4px 4px;
+  height: 38px;
+  text-align: center;
+}
+
+.ChoiceImg_display_flex__fMLBQ > label {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  top: -10px;
+  z-index: 0;
+}
+
+.ChoiceImg_checkBox__chr0t {
+  display: block;
+  position: relative;
+  z-index: 10;
+  top: 15px;
+  align-self: first baseline;
+}
+
+.ChoiceImg_iconWrap__3xRv0 {
+  position: relative;
+  z-index: 10;
+  align-self: end;
+  right: 15px;
+}
+.ChoiceImg_iconWrap__3xRv0 > i {
+  background-color: rgba(19, 19, 19, 0.517);
+  font-size: 10px;
+  color: white;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/Message.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Message_layout__Symbl {
+  display: grid;
+  grid-template-rows: repeat(9, 33px);
+  overflow: hidden;
+}
+
+/* ---------------------HEADER---------------------------- */
+.Message_main_header__zLXrY {
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 24px auto 16px;
+  align-items: center;
+  background-color: white;
+  z-index: 100;
+}
+
+.Message_firstNameBox__JCAYb {
+  background-color: bisque;
+  border-radius: 100%;
+  text-align: center;
+}
+.Message_nameBox__nF9BB {
+  margin-left: 10px;
+}
+/* ---------------------MESSAGE---------------------------- */
+.Message_messages__QFY13 {
+  grid-row: 2/9;
+}
+.Message_messagesSmall__0m_v8 {
+  grid-row: 2/5;
+}
+.Message_messagesSmall--2to4__iryBD {
+  grid-row: 2/4;
+  /* overflow-y: hidden; */
+  position: relative;
+  top: -40px;
+  z-index: 0;
+}
+.Message_sendMessage__HcQnI,
+.Message_getMessage__fwp3t {
+  display: flex;
+  align-items: end;
+}
+
+.Message_sendMessage__HcQnI {
+  justify-content: end;
+}
+.Message_sendMessage__HcQnI > div:nth-child(2),
+.Message_getMessage__fwp3t > div:nth-child(1) {
+  max-width: 70%;
+  padding: 6px;
+  border-radius: 18px;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+.Message_sendMessage__HcQnI > div:nth-child(1),
+.Message_getMessage__fwp3t > div:nth-child(2) {
+  font-size: 0.5rem;
+}
+.Message_sendMessage__HcQnI > div:nth-child(2) {
+  background-color: rgb(171, 214, 242);
+}
+
+.Message_getMessage__fwp3t > div:nth-child(1) {
+  background-color: rgb(226, 226, 226);
+}
+/* ---------------------OPTION INFO---------------------------- */
+.Message_optionInfoWrap__yq9n9 {
+  grid-row: 4/6;
+  border-top: 1px solid rgb(226, 226, 226);
+  width: 160px;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Message_optionInfoWrap__yq9n9::-webkit-scrollbar {
+  display: none;
+}
+.Message_optionImgWrap__2Y1Wr {
+  display: flex;
+}
+
+.Message_imgBox___hYQy {
+  background-color: antiquewhite;
+  width: 38px;
+  height: 38px;
+  position: relative;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.Message_deleteBtn__1dkxn {
+  position: relative;
+  top: 0px;
+  right: 10px;
+  align-self: normal;
+  z-index: 100;
+  cursor: pointer;
+}
+.Message_deleteBtn__1dkxn i {
+  color: red;
+  background-color: white;
+  border-radius: 100%;
+}
+/* --------------------- NAV---------------------------- */
+.Message_appNav__KfTMZ {
+  padding: 0 3px;
+  grid-row: 9/10;
+  display: grid;
+  grid-template-columns: auto auto 15%;
+  align-items: center;
+  background-color: white;
+  font-size: 0.8rem;
+}
+.Message_appNavSmall__wxoRn {
+  grid-row: 5/6;
+  animation: Message_fadeInUp__fByy8 0.5s;
+}
+.Message_appNavSmall--6to7___MNjK {
+  grid-row: 6/7;
+  animation: Message_fadeInUp__fByy8 0.5s;
+}
+
+.Message_navOptions__dbJ38 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Message_navOptions__dbJ38 div {
+  margin-right: 5px;
+}
+
+.Message_inputBox__MBIT0 {
+  display: grid;
+  grid-template-columns: auto 16px;
+  background-color: rgba(227, 227, 227, 0.803);
+  border-radius: 18px;
+  align-items: center;
+}
+
+.Message_inputBox__MBIT0 input {
+  width: 90%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.Message_sendIcon__jpWoF,
+.Message_soundIcon__WXjqh {
+  border-radius: 18px;
+  margin: 0 0 0 3px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+.Message_soundIcon__WXjqh {
+  background-color: rgba(227, 227, 227, 0.803);
+}
+.Message_sendIcon__jpWoF {
+  background-color: rgba(184, 184, 184, 0.803);
+  cursor: pointer;
+}
+
+/* SelectResend */
+.Message_options__0lnok {
+  background-color: white;
+  box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  max-width: max-content;
+  padding: 5px 10px;
+  position: relative;
+  top: -80px;
+  left: 60px;
+  z-index: 500;
+}
+
+.Message_options__0lnok div {
+  margin-bottom: 10px;
+}
+
+/*  */
+.Message_optionBox__oKyn5 {
+  /* padding: 10px; */
+  grid-row: 7/10;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: Message_fadeInUp__fByy8 0.5s;
+  background-color: rgba(239, 239, 239, 0.247);
+}
+.Message_optionBox_background--grey__hbvYk {
+  padding: 10px;
+  grid-row: 6/10;
+  background-color: rgba(227, 227, 227, 0.803);
+  border-radius: 12px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: Message_fadeInUp__fByy8 0.5s;
+}
+
+.Message_optionBox__oKyn5::-webkit-scrollbar,
+.Message_optionBox_background--grey__hbvYk::-webkit-scrollbar {
+  display: none;
+}
+
+.Message_optionRow__HSJuy {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.Message_optionRow__HSJuy div {
+  font-size: 0.6rem;
+  margin: 0 auto;
+}
+
+.Message_iconWrap__MZGqT {
+  background-color: white;
+  border-radius: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 2px 6px;
+}
+
+@keyframes Message_fadeInUp__fByy8 {
+  0% {
+    opacity: 0.7;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/reserve-message/MessageWithOption.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.MessageWithOption_layout__GXwp1 {
+  display: grid;
+  grid-template-rows: repeat(9, 33px);
+  width: 170px;
+}
+
+.MessageWithOption_appHeader__GmgFO {
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 24px auto 16px;
+  align-items: center;
+}
+
+.MessageWithOption_appHeader_firstName__WENxk {
+  background-color: bisque;
+  border-radius: 100%;
+  text-align: center;
+}
+.MessageWithOption_appHeader_name__P3_7M {
+  margin-left: 10px;
+}
+/*  */
+.MessageWithOption_appMain__jt1S3 {
+  grid-row: 2/7;
+}
+/*  -----------------  DEFAULT MESSAGES  -----------------------*/
+.MessageWithOption_appMain_sendMessageWrap__PqTtW,
+.MessageWithOption_appMain_getMessageWrap__y_Alb,
+.MessageWithOption_appMain_sendMessageWrap--res__D1YAW {
+  display: flex;
+  align-items: end;
+}
+
+.MessageWithOption_appMain_sendMessageWrap__PqTtW,
+.MessageWithOption_appMain_sendMessageWrap--res__D1YAW {
+  justify-content: end;
+}
+.MessageWithOption_appMain_sendMessage__7MRdX,
+.MessageWithOption_appMain_getMessage__enLGs,
+.MessageWithOption_appMain_sendMessage--res__Olm7Y {
+  max-width: 70%;
+  padding: 6px;
+  border-radius: 18px;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+.MessageWithOption_appMain_sendMessageTime__0GhK2,
+.MessageWithOption_appMain_getMessageTime__wNI0h {
+  font-size: 0.5rem;
+}
+.MessageWithOption_appMain_sendMessage__7MRdX {
+  background-color: rgb(171, 214, 242);
+}
+
+.MessageWithOption_appMain_getMessage__enLGs {
+  background-color: rgb(226, 226, 226);
+}
+
+/*  -----------------  OPTION MESSAGES  -----------------------*/
+.MessageWithOption_appMain_sendMessage--res__Olm7Y {
+  background-color: rgb(237, 226, 226);
+}
+.MessageWithOption_appMain_sendMessageImg__xNeiL {
+  margin-left: 130px;
+  border: 1px solid rgb(224, 224, 224);
+  background-color: antiquewhite;
+  width: 33px;
+  height: 33px;
+}
+
+.MessageWithOption_appMain_sendMessageOptionWrap--flex__U1gpm {
+  display: block;
+  width: max-content;
+  padding: 4px;
+  display: flex;
+  margin-right: 0%;
+  font-size: 0.7rem;
+  background-color: rgb(171, 214, 242);
+  border-radius: 8px;
+}
+/*  -----------------  OPTIONS  -----------------------*/
+.MessageWithOption_appMain_messageOptionDeleteBtn__M_0Tj {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  align-self: self-start;
+  justify-self: end;
+}
+.MessageWithOption_appMain_messageOptionDeleteBtn__M_0Tj i {
+  font-size: 1rem;
+  color: rgba(253, 40, 40, 0.746);
+  cursor: pointer;
+}
+.MessageWithOption_appMain_messageOptionLayout__sUeX0 {
+  grid-row: 7/9;
+  font-size: 0.8rem;
+  padding: 5px 0;
+  border-top: 1px solid rgb(224, 224, 224);
+  display: grid;
+  grid-template-columns: 80% 10%;
+}
+
+.MessageWithOption_appMain_messageOptionWrap--grid__z5e1O {
+  margin: 0 auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  padding: 2px 10px;
+}
+
+.MessageWithOption_appMain_messageOptionWrap--flex__8A6CC {
+  margin: 0 auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 8px;
+  align-items: center;
+  padding: 2px 10px;
+  display: flex;
+}
+.MessageWithOption_appMain_messageOptionIcon--phoneNum__r_gJG {
+  grid-row: 1/3;
+}
+.MessageWithOption_appMain_messageOptionIcon--phoneNum__r_gJG i {
+  font-size: 16px;
+}
+
+.MessageWithOption_appMain_messageOptionContent--phoneNumName__PdsDV {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  font-size: 0.7rem;
+}
+.MessageWithOption_appMain_messageOptionContent--phoneNum__ytAxA {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  font-size: 0.4rem;
+  color: var(--grey-600);
+}
+
+.MessageWithOption_appMain_messageOptionContent--img__dMHib {
+  background-color: antiquewhite;
+  align-self: center;
+  justify-self: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 20px;
+}
+
+/*  -----------------  NAVIGATION  -----------------------*/
+.MessageWithOption_appNav___7Rcf {
+  padding: 0 3px;
+  grid-row: 9/10;
+  display: grid;
+  grid-template-columns: auto auto 15%;
+  align-items: center;
+  background-color: white;
+}
+.MessageWithOption_navOptions__1yueE {
+  display: flex;
+  justify-content: space-around;
+}
+
+.MessageWithOption_navOptions__1yueE div {
+  margin-right: 5px;
+}
+
+.MessageWithOption_inputBox__F7meD {
+  display: grid;
+  grid-template-columns: auto 16px;
+  background-color: rgba(227, 227, 227, 0.803);
+  border-radius: 18px;
+  align-items: center;
+}
+
+.MessageWithOption_inputBox__F7meD input {
+  width: 90%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.MessageWithOption_sendIcon__rReej,
+.MessageWithOption_soundIcon__TefN4 {
+  border-radius: 18px;
+  margin: 0 0 0 3px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+.MessageWithOption_soundIcon__TefN4 {
+  background-color: rgba(227, 227, 227, 0.803);
+}
+.MessageWithOption_sendIcon__rReej {
+  background-color: rgba(184, 184, 184, 0.803);
+  cursor: pointer;
+}
+
+/*  -----------------  NAV PLUS OPTIONS  -----------------------*/
+.MessageWithOption_options__alfM0 {
+  background-color: white;
+  box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  max-width: max-content;
+  padding: 5px 10px;
+  position: relative;
+  top: -80px;
+  left: 60px;
+  z-index: 500;
+  animation: MessageWithOption_fadeInUp__k0RrW 0.5s;
+}
+
+.MessageWithOption_options__alfM0 div {
+  margin-bottom: 10px;
+}
+
+/*  -----------------  RESERVE MESSAGE MODAL  -----------------------*/
+
+.MessageWithOption_resSet___TN3f {
+  background-color: white;
+  z-index: 200;
+  border-radius: 12px;
+  width: 90%;
+  position: relative;
+  top: -70px;
+  padding: 10px;
+  font-size: 0.8rem;
+}
+.MessageWithOption_resSet___TN3f > div:first-child {
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+.MessageWithOption_resSetNav__avcPo {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.MessageWithOption_resSetNav__avcPo div {
+  padding: 0 3px;
+  font-weight: 800;
+}
+
+/*  -----------------  ETC  -----------------------*/
+.MessageWithOption_backdrop__3t5xd {
+  background-color: rgba(23, 23, 23, 0.4);
+  position: relative;
+  z-index: 100;
+  top: -335px;
+  left: -10px;
+  width: 185px;
+  height: 385px;
+  border-radius: 12px;
+}
+.MessageWithOption_imgClicked__DY7e1 {
+  position: relative;
+  z-index: 200;
+  top: -230px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  background-color: antiquewhite;
+}
+
+@keyframes MessageWithOption_fadeInUp__k0RrW {
+  0% {
+    opacity: 0.7;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/seeMessage/UnreadMessage.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*  */
+.UnreadMessage_layout__KTXre {
+  font-size: 0.8rem;
+  width: 170px;
+}
+
+.UnreadMessage_layout__KTXre i {
+  border-radius: 18px;
+  padding: 2px 6px;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 12px;
+}
+.UnreadMessage_layout__KTXre i:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 6px #cdcdcd8a;
+  background-color: #cdcdcd39;
+}
+/* -------------------- HEADER ----------------------- */
+.UnreadMessage_header__lH87V {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  align-self: center;
+  color: var(--grey-800);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+/* -------------------- HEADER ----------------------- */
+.UnreadMessage_main_messageList__0WMHF {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 15% auto;
+  align-items: center;
+}
+
+/* -------------------- MESSAGE ----------------------- */
+.UnreadMessage_main_messageList__0WMHF > a {
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: auto 20% 10%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.UnreadMessage_message_firstName__s0YSx {
+  grid-row: 1/3;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #cdcdcd8a;
+  border-radius: 18px;
+  color: var(--grey-700);
+}
+.UnreadMessage_message_name__ZK9gC {
+  font-size: 0.9rem;
+  margin-left: 10px;
+  grid-row: 1/2;
+  grid-column: 1/3;
+  color: var(--grey-900);
+}
+
+.UnreadMessage_message_time__Lyt1t {
+  font-size: 0.5rem;
+  grid-column: 3/5;
+  grid-row: 1/2;
+  text-align: right;
+  color: var(--grey-400);
+}
+
+.UnreadMessage_message_content__j9HGL {
+  font-size: 0.5rem;
+  grid-column: 1/4;
+  grid-row: 2/3;
+  margin-left: 10px;
+  color: var(--grey-400);
+}
+
+.UnreadMessage_message_alert__D0Tlz {
+  font-size: 0.6rem;
+  grid-column: 4/5;
+  text-align: center;
+  background-color: rgb(255, 118, 68);
+  color: white;
+  border-radius: 22px;
+  width: 0.9rem;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/SelectPerson.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SelectPerson_appMain__tYqm0 a {
+  text-decoration: none;
+}
+
+.SelectPerson_appMain__tYqm0 {
+  margin-top: 10px;
+  background-color: rgb(241, 241, 241);
+  display: grid;
+  grid-template-rows: repeat(8, 35px);
+}
+
+.SelectPerson_appHeader__cmX5G {
+  grid-row: 1/2;
+  text-align: left;
+}
+
+.SelectPerson_searchBox__DZ5yh {
+  grid-row: 2/3;
+}
+.SelectPerson_searchBox__DZ5yh p {
+  font-size: 0.5rem;
+}
+.SelectPerson_searchBox__DZ5yh input {
+  width: 100%;
+  height: 50%;
+  border-radius: 40px;
+  border-color: transparent;
+  background-color: rgb(208, 208, 208);
+  text-indent: 10px;
+}
+
+.SelectPerson_numLists__4nOXY {
+  margin-top: 15px;
+  grid-row: 3/8;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.SelectPerson_numLists__4nOXY li {
+  display: grid;
+  grid-template-columns: 20px auto;
+  margin: 10px 10px 0 10px;
+  cursor: pointer;
+  column-gap: 10px;
+  border-bottom: 1px solid rgba(222, 222, 222, 0.844);
+}
+.SelectPerson_firstNameBox__IJUrA {
+  text-align: center;
+  font-size: 0.8rem;
+  grid-row: 1/3;
+  width: 19px;
+  height: 19px;
+  border-radius: 100%;
+  color: white;
+  align-self: center;
+}
+.SelectPerson_firstNameBox__IJUrA:first-child {
+  background-color: rgb(255, 172, 71);
+}
+
+.SelectPerson_callNumber__E_MY0 {
+  font-size: 0.5rem;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/message/reserve-message/SetReservation.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.SetReservation_appMain__f6kPA {
+  display: grid;
+  grid-template-rows: repeat(9, 33px);
+  width: 170px;
+}
+.SetReservation_appMain__f6kPA i {
+  font-size: 12px;
+}
+
+/*  */
+.SetReservation_appHeader__gzHSn {
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 24px auto 16px;
+  align-items: center;
+}
+
+.SetReservation_firstNameBox__n_dS0 {
+  background-color: bisque;
+  border-radius: 100%;
+  text-align: center;
+}
+.SetReservation_nameBox__GlB_q {
+  margin-left: 10px;
+}
+/*  */
+.SetReservation_messages__3SObQ {
+  grid-row: 2/9;
+}
+.SetReservation_sendMessage__qUoky,
+.SetReservation_getMessage__s43a2 {
+  display: flex;
+  align-items: end;
+}
+
+.SetReservation_sendMessage__qUoky {
+  justify-content: end;
+}
+.SetReservation_sendMessage__qUoky > div:nth-child(2),
+.SetReservation_getMessage__s43a2 > div:nth-child(1) {
+  max-width: 70%;
+  padding: 6px;
+  border-radius: 18px;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+.SetReservation_sendMessage__qUoky > div:nth-child(1),
+.SetReservation_getMessage__s43a2 > div:nth-child(2) {
+  font-size: 0.5rem;
+}
+.SetReservation_sendMessage__qUoky > div:nth-child(2) {
+  background-color: rgb(171, 214, 242);
+}
+
+.SetReservation_getMessage__s43a2 > div:nth-child(1) {
+  background-color: rgb(226, 226, 226);
+}
+/*  */
+
+.SetReservation_appNav__r_bfK {
+  padding: 0 3px;
+  grid-row: 9/10;
+  display: grid;
+  grid-template-columns: auto auto 15%;
+  align-items: center;
+  background-color: white;
+}
+.SetReservation_navOptions__pGBF2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.SetReservation_navOptions__pGBF2 div {
+  margin-right: 5px;
+}
+
+.SetReservation_inputBox__uyxcu {
+  display: grid;
+  grid-template-columns: auto 16px;
+  background-color: rgba(227, 227, 227, 0.803);
+  border-radius: 18px;
+  align-items: center;
+}
+
+.SetReservation_inputBox__uyxcu input {
+  width: 90%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.SetReservation_sendIcon__p8G3I,
+.SetReservation_soundIcon__J15TC {
+  border-radius: 18px;
+  margin: 0 0 0 3px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+.SetReservation_soundIcon__J15TC {
+  background-color: rgba(227, 227, 227, 0.803);
+}
+.SetReservation_sendIcon__p8G3I {
+  background-color: rgba(184, 184, 184, 0.803);
+  cursor: pointer;
+}
+
+/* SeeMessage */
+/* SelectResend */
+
+.SetReservation_backdrop__2KOeU {
+  background-color: rgba(23, 23, 23, 0.4);
+  position: relative;
+  z-index: 500;
+  top: -335px;
+  left: -10px;
+  width: 185px;
+  height: 385px;
+  border-radius: 12px;
+}
+
+.SetReservation_resBox__3szru {
+  background-color: white;
+  z-index: 600;
+  border-radius: 12px;
+  width: 90%;
+  position: relative;
+  top: -160px;
+  padding: 10px;
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-rows: repeat(6, 22);
+  row-gap: 10px;
+}
+
+.SetReservation_boxTitle__Burqe {
+  font-weight: 600;
+  grid-row: 1/2;
+}
+.SetReservation_boxTime__6QrxP {
+  grid-row: 2/ 4;
+  font-size: 0.7rem;
+}
+.SetReservation_messageDate__ZtBxr label,
+.SetReservation_messageTime__LCB5k label {
+  margin-right: 10px;
+}
+.SetReservation_messageDate__ZtBxr input,
+.SetReservation_messageTime__LCB5k input {
+  width: 70%;
+  border-color: transparent;
+  background-color: rgba(220, 220, 220, 0.439);
+  border-radius: 10px;
+  font-size: 60%;
+  margin: 3px 0;
+}
+
+.SetReservation_boxOption__ePLuC {
+  grid-row: 4/5;
+  display: flex;
+  font-size: 0.6rem;
+}
+
+.SetReservation_boxOption__ePLuC input {
+  margin-right: 10px;
+}
+.SetReservation_boxNav__L2L_o {
+  grid-row: 5/6;
+  display: flex;
+  justify-content: space-around;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/file/SelectFile.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* --------------------------- COMMON ---------------------------- */
+.SelectFile_layout__nSkpH i {
+  font-size: 0.8rem;
+  margin-right: 3px;
+}
+.SelectFile_flex__e2G3A {
+  display: flex;
+}
+/* --------------------------- Layout ---------------------------- */
+.SelectFile_layout__nSkpH {
+  height: 300px;
+  width: 170px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.SelectFile_layout__nSkpH::-webkit-scrollbar {
+  display: none;
+}
+/* --------------------------- HEADER TOP ---------------------------- */
+.SelectFile_header__jnCUg {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 5px 0 0 0;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  height: 30px;
+}
+.SelectFile_header--grid4__u33Wz {
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  padding: 5px 0 0 0;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.SelectFile_header_title__tjZy6 {
+  font-size: 0.8rem;
+  align-self: center;
+  overflow: hidden;
+}
+.SelectFile_header_nav__A2Iih {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* --------------------------- HEADER FILLTER ---------------------------- */
+.SelectFile_headerFilter__G_IZq {
+  display: flex;
+  margin-top: 3px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 30px;
+}
+
+.SelectFile_headerFilter__G_IZq::-webkit-scrollbar {
+  display: none;
+}
+
+.SelectFile_headerFilter_contentWrap__sDrYO {
+  cursor: pointer;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.7rem;
+  padding: 1px 3px;
+  min-width: max-content;
+  margin-right: 3px;
+  height: 23.5px;
+}
+.SelectFile_headerFilter_contentWrap--selected__y8tg2 {
+  border: 1px solid rgb(199, 199, 199);
+  color: rgb(199, 199, 199);
+}
+
+/* --------------------------- HEADER TAP - IMG/VIDEO ---------------------------- */
+.SelectFile_headerTap__JIimb {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  height: 30px;
+}
+
+/* --------------------------- OTHER APPS - IMG/VIEDO ---------------------------- */
+.SelectFile_otherAppsLayout__iKL6R {
+  height: 65px;
+}
+.SelectFile_otherAppsWrap_title__Ss0Fs {
+  font-size: 0.6rem;
+  color: var(--grey-900);
+  font-weight: 700;
+  padding: 0 10px;
+}
+.SelectFile_otherAppsWrap__5_UGy {
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/* --------------------------- FILE LIST ---------------------------- */
+/* .listLayout {
+} */
+
+/* --------------------------- FILE LIST SROT ---------------------------- */
+.SelectFile_listSortWrap__N_R8S {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  padding-left: 10px;
+  align-items: center;
+}
+.SelectFile_listSortWrap_title__muorx {
+  color: var(--grey-900);
+  font-weight: 700;
+}
+.SelectFile_listSortWrap_nav__FPyiD {
+  display: flex;
+  justify-content: space-between;
+}
+.SelectFile_listSortWrap_nav__FPyiD > div {
+  margin-right: 4px;
+}
+/* --------------------------- FILE LIST - GALLERY ---------------------------- */
+.SelectFile_listWrap_Gallery__HUAVT {
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  grid-template-rows: max-content;
+  padding: 0 10px;
+  column-gap: 5px;
+  row-gap: 5px;
+  height: 200px;
+}
+
+.SelectFile_listBox_Gallery--img__tPQJH {
+  width: 100%;
+  height: 46px;
+  background-color: antiquewhite;
+}
+.SelectFile_listBox_Gallery__RlPBS {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 46px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.SelectFile_listBoxTitle_Gallery__Q8UKa {
+  color: var(--grey-700);
+  font-size: 0.7rem;
+}
+.SelectFile_listBox_Gallery--selectAndBig__H9GnV {
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  column-gap: 5px;
+  justify-content: center;
+}
+.SelectFile_listBox_Gallery--selectAndBig__H9GnV > input {
+  /* display: block; */
+  align-self: self-start;
+}
+.SelectFile_listBox_Gallery--selectAndBig__H9GnV > div:nth-child(3) {
+  align-self: self-end;
+}
+.SelectFile_listBox_Gallery--selectAndBig__H9GnV > div:nth-child(3) i {
+  font-size: 0.6rem;
+}
+.SelectFile_listBigBtn_Gallery__05x6y {
+  position: relative;
+  z-index: 100;
+  left: 30px;
+}
+.SelectFile_listBigBtn_Gallery__05x6y i {
+  font-size: 0.6rem;
+}
+/* --------------------------- FILE SUBMIT BUTTON - GALLERY ---------------------------- */
+.SelectFile_button_done__S5_f9 {
+  cursor: pointer;
+  height: 30px;
+  text-align: center;
+  animation: SelectFile_fadeInUp__NOipQ 0.5s;
+}
+
+@keyframes SelectFile_fadeInUp__NOipQ {
+  0% {
+    opacity: 0.7;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Basic/gallery/ChoiceImgs.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ChoiceImgs_mainLayout__yRglc {
+  display: grid;
+  height: 300px;
+  width: 180px;
+  grid-template-rows: 1fr auto 1fr;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.ChoiceImgs_mainLayout__yRglc i {
+  font-size: 13px;
+}
+.ChoiceImgs_mainLayout__yRglc::-webkit-scrollbar {
+  display: none;
+}
+
+/* header */
+.ChoiceImgs_headerLayout__pvcW4 {
+  grid-row: 1/2;
+  width: 170px;
+}
+.ChoiceImgs_headerLayout__pvcW4 > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.ChoiceImgs_choicedImgsListNone__olFuW,
+.ChoiceImgs_headerLayout__pvcW4 > div:last-child {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.ChoiceImgs_choicedImgsList__FVqWg {
+  display: flex;
+  column-gap: 5px;
+  width: 100%;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.ChoiceImgs_choicedImgsList__FVqWg::-webkit-scrollbar {
+  display: none;
+}
+
+.ChoiceImgs_choicedImgsList__FVqWg > div {
+  width: 44px;
+  height: 44px;
+  background-color: antiquewhite;
+}
+.ChoiceImgs_choicedImgsList__FVqWg > div > div:last-child {
+  position: relative;
+  z-index: 200;
+  left: 27px;
+  cursor: pointer;
+}
+.ChoiceImgs_choicedImgsList__FVqWg > div > div:last-child > i {
+  color: red;
+}
+
+.ChoiceImgs_headerTap__z897N {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 6px 0;
+}
+
+/* img list */
+.ChoiceImgs_imgListsGallery__TzB11 {
+  width: 170px;
+  padding: 0px 0px 20px 0px;
+  margin-bottom: 10px;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 5px;
+  row-gap: 5px;
+}
+.ChoiceImgs_imgListsGallery__TzB11 > div {
+  height: 53px;
+}
+.ChoiceImgs_imgListsGallery__TzB11 > div > input {
+  position: relative;
+  z-index: 200;
+  top: 23px;
+  left: 3px;
+}
+.ChoiceImgs_imgListsGallery__TzB11 > div > label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
+.ChoiceImgs_imgListsGallery__TzB11 > div > div:last-child {
+  position: relative;
+  z-index: 100;
+  top: -15px;
+  left: 30px;
+  text-align: center;
+  width: 30%;
+  height: 90%;
+}
+.ChoiceImgs_imgListsGallery__TzB11 > div > div:last-child i {
+  display: block;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.328);
+  font-size: 0.6rem;
+  color: white;
+}
+
+.ChoiceImgs_imgLists__LJgoB {
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Kakaotalk/KakaoChatRoom.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+.KakaoChatRoom_layout__nrKU5 {
+  overflow: hidden;
+  height: 305px;
+}
+
+.KakaoChatRoom_layout__nrKU5 i {
+  border-radius: 18px;
+  padding: 2px 4px;
+  cursor: pointer;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 0.8rem;
+}
+
+/* ---------------------HEADER---------------------------- */
+.KakaoChatRoom_main_header__voPcZ {
+  background-color: rgb(178, 198, 218);
+  padding-top: 10px;
+  height: 35px;
+}
+
+/* ---------------------MESSAGE---------------------------- */
+.KakaoChatRoom_messages__WCfXd {
+  background-color: rgb(178, 198, 217);
+  padding: 4px;
+  height: 240px;
+}
+
+.KakaoChatRoom_messagesSmall__soliT {
+  height: 140px;
+}
+.KakaoChatRoom_getMessageWrap__Yd6BC,
+.KakaoChatRoom_sendMessageWrap__aS3Lc {
+  max-width: 95%;
+  font-size: 0.8rem;
+  height: max-content;
+  margin-bottom: 10px;
+}
+
+.KakaoChatRoom_sendMessageWrap__aS3Lc {
+  justify-content: end;
+  display: flex;
+  align-items: end;
+  margin-left: auto;
+}
+
+.KakaoChatRoom_sendMessage__8wjkj {
+  background-color: rgb(255, 235, 50);
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+.KakaoChatRoom_timeStamp__bEYUb {
+  font-size: 0.6rem;
+  margin-right: 6px;
+}
+
+/* ---------------------OPTION INFO---------------------------- */
+.KakaoChatRoom_optionInfoWrap__2uyFi {
+  border-top: 1px solid rgb(226, 226, 226);
+  width: 160px;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.KakaoChatRoom_optionInfoWrap__2uyFi::-webkit-scrollbar {
+  display: none;
+}
+.KakaoChatRoom_optionImgWrap__GLg_l {
+  display: flex;
+}
+
+.KakaoChatRoom_imgBox__i3Dw1 {
+  background-color: antiquewhite;
+  width: 38px;
+  height: 38px;
+  position: relative;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.KakaoChatRoom_deleteBtn__vSVsd {
+  position: relative;
+  top: 0px;
+  right: 10px;
+  align-self: normal;
+  z-index: 100;
+  cursor: pointer;
+}
+.KakaoChatRoom_deleteBtn__vSVsd i {
+  color: red;
+  background-color: white;
+  border-radius: 100%;
+}
+/* --------------------- NAV---------------------------- */
+.KakaoChatRoom_appNav__2pqKL {
+  padding: 0 3px;
+  height: 30px;
+  display: grid;
+  grid-template-columns: auto auto 15%;
+  align-items: center;
+  background-color: white;
+}
+.KakaoChatRoom_appNavSmall__N2eHg {
+  animation: KakaoChatRoom_fadeInUp__4ZUoN 0.2s;
+}
+
+.KakaoChatRoom_inputBox__hh_sM {
+  display: grid;
+  grid-template-columns: auto 16px;
+  background-color: white;
+  border-radius: 18px;
+  align-items: center;
+}
+
+.KakaoChatRoom_inputBox__hh_sM input {
+  width: 90%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.KakaoChatRoom_sendIcon__Qsyk4 {
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(247, 229, 64);
+  margin-left: 4px;
+}
+.KakaoChatRoom_subTitle__Asn6N {
+  font-size: 0.5rem;
+  padding: 5px 0;
+  margin-left: 5px;
+  text-align: start;
+  color: var(--grey-400);
+  line-height: 140%;
+}
+
+/* --------------------- OPTIONS ---------------------------- */
+.KakaoChatRoom_options__f_aGE {
+  background-color: white;
+  box-shadow: 0 8px 8px rgba(184, 184, 184, 0.473);
+  border-radius: 12px;
+  font-size: 0.8rem;
+  max-width: max-content;
+  padding: 5px 10px;
+  position: relative;
+  top: -80px;
+  left: 60px;
+  z-index: 500;
+}
+
+.KakaoChatRoom_options__f_aGE div {
+  margin-bottom: 10px;
+}
+
+/* --------------------- OPTION BOX ---------------------------- */
+.KakaoChatRoom_optionBox__7G3th {
+  padding: 10px;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: KakaoChatRoom_fadeInUp__4ZUoN 0.2s;
+  background-color: rgba(239, 239, 239, 0.247);
+}
+
+.KakaoChatRoom_optionBox__7G3th::-webkit-scrollbar,
+.KakaoChatRoom_optionBox_background--grey__u88ZB::-webkit-scrollbar {
+  display: none;
+}
+
+.KakaoChatRoom_optionRow__jDw_m {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.KakaoChatRoom_optionRow__jDw_m div {
+  font-size: 0.6rem;
+  margin: 0 auto;
+}
+
+.KakaoChatRoom_iconWrap__GJT0x {
+  border-radius: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 4px 4px;
+}
+.KakaoChatRoom_iconWrap__GJT0x > i {
+  color: white;
+  font-size: 0.7rem;
+}
+
+/* ------------------SIDE MENU-------------------- */
+.KakaoChatRoom_sideMenuWrap__p6ZcH {
+  position: relative;
+  z-index: 100;
+  top: -305px;
+  height: 305px;
+  display: flex;
+}
+.KakaoChatRoom_backdrop__KEDbi {
+  background-color: rgba(6, 6, 6, 0.235);
+  width: 50px;
+  height: 305px;
+  animation: KakaoChatRoom_opacity0to100__w88Ac 0.5s;
+}
+.KakaoChatRoom_sideMenuBox__2HaWU {
+  background-color: white;
+  height: 305px;
+  width: 130px;
+  animation: KakaoChatRoom_rightLeft__J7qxg 0.5s;
+}
+.KakaoChatRoom_sideTitle__t_kfw {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.KakaoChatRoom_sideMenuContentWrap__OWquQ {
+  padding: 6px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+.KakaoChatRoom_sideMenuNavWrap__ACnwT {
+  padding: 3px;
+  background-color: rgb(239, 239, 239);
+  position: relative;
+  bottom: -15px;
+}
+
+/* ------------------ANIMAITION-------------------- */
+
+@keyframes KakaoChatRoom_fadeInUp__4ZUoN {
+  0% {
+    opacity: 0.7;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes KakaoChatRoom_rightLeft__J7qxg {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translateZ(0);
+  }
+}
+@keyframes KakaoChatRoom_opacity0to100__w88Ac {
+  0% {
+    opacity: 0;
+    transform: scaleX(7);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/AppDisplays/Kakaotalk/KakaoSettingPage.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+.KakaoSettingPage_layout__saoCp {
+  overflow: scroll;
+  height: 305px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.KakaoSettingPage_layout__saoCp::-webkit-scrollbar {
+  display: none;
+}
+.KakaoSettingPage_layout__saoCp i {
+  border-radius: 18px;
+  padding: 2px 4px;
+  cursor: pointer;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.KakaoSettingPage_display_flex__DK6FI {
+  display: flex;
+  align-items: center;
+}
+.KakaoSettingPage_display_flex--speaceBetween__tZQ52 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ---------------------HEADER---------------------------- */
+.KakaoSettingPage_main_header__gpZV0 {
+  background-color: rgb(255, 255, 255);
+  padding-top: 10px;
+  height: 35px;
+}
+
+/* ---------------------GROUP PROFILE---------------------------- */
+.KakaoSettingPage_groupProfileWrap__nkot3 {
+  width: 100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 20px;
+}
+.KakaoSettingPage_groupProfileSettingBtn__zinv7 {
+  text-align: center;
+  background-color: #4d4d4d;
+  border-radius: 18px;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  grid-column: 3/4;
+  grid-row: 2/3;
+  position: relative;
+  left: -6px;
+  top: 5px;
+}
+.KakaoSettingPage_groupProfileSettingBtn__zinv7 > i {
+  color: white;
+  font-size: 0.4rem;
+}
+/* ---------------------SETTING---------------------------- */
+.KakaoSettingPage_contentWrap__xeL5j {
+  padding: 6px 0;
+  cursor: pointer;
+}
+.KakaoSettingPage_contentWrap__xeL5j:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+/* ---------------------BUTTON---------------------------- */
+.KakaoSettingPage_buttonWrap__IoFX5 {
+  padding: 6px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60px;
+  cursor: pointer;
+}
+
+.KakaoSettingPage_layout__saoCp label {
+  cursor: pointer;
+}
+.KakaoSettingPage_toggleInput__EgTtY[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.KakaoSettingPage_toggleLabel__GsDxt {
+  cursor: pointer;
+  width: 30px;
+  height: 15px;
+  background: rgb(212, 212, 212);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.KakaoSettingPage_toggleLabel__GsDxt:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+  box-shadow: 0 0 2px rgba(27, 27, 27, 0.435);
+}
+
+.KakaoSettingPage_toggleInput__EgTtY:checked + .KakaoSettingPage_toggleLabel__GsDxt {
+  animation: KakaoSettingPage_opacity0to100__6csv1 0.5s;
+  background: #fff200;
+}
+
+.KakaoSettingPage_toggleInput__EgTtY:checked + .KakaoSettingPage_toggleLabel__GsDxt:after {
+  transform: translateX(100%);
+}
+
+/* ---------------------MODAL---------------------------- */
+.KakaoSettingPage_modalWrap__7gCIe {
+  position: absolute;
+  animation: KakaoSettingPage_opacity0to100__6csv1 0.5s;
+}
+.KakaoSettingPage_backdrop__eXmzp {
+  background-color: #2a2a2a6a;
+  width: 174px;
+  height: 305px;
+  position: absolute;
+}
+.KakaoSettingPage_modal__L1mAH {
+  background-color: white;
+  width: 150px;
+  height: max-content;
+  position: absolute;
+  padding: 10px;
+  z-index: 100;
+  border-radius: 4px;
+  top: 50px;
+  left: 10px;
+}
+.KakaoSettingPage_modalNavWrap__zPw7X {
+  display: flex;
+  justify-content: flex-end;
+}
+.KakaoSettingPage_modalRadioWrap__xPf73 {
+  display: flex;
+  cursor: pointer;
+}
+/* ---------------------COMMON---------------------------- */
+.KakaoSettingPage_border_bottom__EHBzx {
+  border-bottom: 1px solid rgb(233, 233, 233);
+}
+.KakaoSettingPage_border_orange__R5_jz {
+  border: 1px solid orange;
+  color: rgb(255, 115, 0);
+  text-align: center;
+  border-radius: 4px;
+  padding: 2px;
+}
+.KakaoSettingPage_background_orange__DDW8D {
+  background-color: rgb(255, 115, 0);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  padding: 2px;
+}
+.KakaoSettingPage_color_black__3F14B {
+  color: rgb(33, 33, 33);
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+.KakaoSettingPage_color_grey__oSAfN {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+.KakaoSettingPage_color_grey--bold__utsRK {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.KakaoSettingPage_color_blue--bold__qoKld {
+  color: rgb(0, 119, 246);
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.KakaoSettingPage_title__dwFxW {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+}
+.KakaoSettingPage_subTitle__T7Wki {
+  font-size: 0.5rem;
+  padding: 5px 0;
+  margin-left: 5px;
+  text-align: start;
+  color: var(--grey-400);
+  line-height: 140%;
+}
+
+.KakaoSettingPage_iconWrap_background--skyBlue__OLL7Q {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92e7ff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.KakaoSettingPage_iconWrap_background--purple__XlRDg {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #929dff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.KakaoSettingPage_iconWrap_background--blue__U3GVT {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #92caff8a;
+  border-radius: 18px;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.KakaoSettingPage_iconWrap_background--skyBlue__OLL7Q i,
+.KakaoSettingPage_iconWrap_background--blue__U3GVT i,
+.KakaoSettingPage_iconWrap_background--purple__XlRDg i {
+  color: #ededed;
+}
+
+/* -----------------ANIMATION----------------- */
+@keyframes KakaoSettingPage_opacity0to100__6csv1 {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/sections/AppNav.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+.AppNav_AppNav__EN_OI {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 1;
+  background-color: white;
+}
+
+.AppNav_AppNav__EN_OI i {
+  font-size: 0.7rem;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/DisplayBox/DisplayBox.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+.DisplayBox_DisplayBox__dh_h_ {
+  background-color: white;
+  width: 200px;
+  height: 400px;
+  padding: 30px 14px 25px 11px;
+  background-image: url(/_next/static/media/cellphone.3bf99a8b.png);
+  background-size: contain;
+  border-radius: 34px;
+  display: grid;
+  grid-template-rows: 15px auto 25px;
+  justify-self: center;
+  overflow: hidden;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/FunctionDescription/FunctionDescriptionPage.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+.FunctionDescriptionPage_main_header__Dt0eL {
+  width: 80%;
+  margin: 8rem auto 14rem auto;
+  text-align: center;
+}
+
+.FunctionDescriptionPage_title__VC88w {
+  color: var(--grey-900);
+  word-break: keep-all;
+}
+.FunctionDescriptionPage_subTitle__7X8dw {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  width: 230px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+.FunctionDescriptionPage_subTitle__7X8dw:hover {
+  color: var(--grey-600);
+}
+.FunctionDescriptionPage_main_header__Dt0eL > ul {
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.FunctionDescriptionPage_listBox__4QtzM {
+  border-radius: 20px;
+  box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
+  padding: 3rem;
+  min-width: 300px;
+  max-width: 380px;
+  width: 380px;
+  background-color: rgba(242, 242, 242, 0.38);
+  transition: 0.1s;
+  margin: 0 auto;
+}
+.FunctionDescriptionPage_listBox__4QtzM:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 22px rgba(23, 23, 23, 0.157);
+  transform: translateY(-15px);
+}
+.FunctionDescriptionPage_listBox__4QtzM li:hover {
+  text-decoration: underline;
+}
+
+/*  */
+
+.FunctionDescriptionPage_main__G_2Ws {
+  padding: 6rem 0 6rem 10%;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.FunctionDescriptionPage_main__G_2Ws > h2 {
+  grid-column: 1 / 3;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 1000px) {
+  .FunctionDescriptionPage_listBox__4QtzM {
+    width: auto;
+  }
+  .FunctionDescriptionPage_main__G_2Ws {
+    padding-left: 5%;
+  }
+}
+
+@media (max-width: 850px) {
+  .FunctionDescriptionPage_main__G_2Ws {
+    width: 80%;
+    padding-left: 0;
+  }
+
+  .FunctionDescriptionPage_main_header__Dt0eL {
+    margin: 4rem auto 6rem auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .FunctionDescriptionPage_main_header__Dt0eL {
+    padding: 3rem 0;
+  }
+
+  .FunctionDescriptionPage_main_header__Dt0eL > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .FunctionDescriptionPage_listBox__4QtzM {
+    width: 380px;
+  }
+}
+
+@media (max-width: 650px) {
+  .FunctionDescriptionPage_main__G_2Ws {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .FunctionDescriptionPage_listBox__4QtzM {
+    width: 300px;
+  }
+}
+
+/* ------------------------------- */
+.FunctionDescriptionPage_flexWrap__eH8sI {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.FunctionDescriptionPage_btn__y2YMW {
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(186, 186, 186);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.FunctionDescriptionPage_btn__y2YMW:hover {
+  border: 3px solid rgb(255, 123, 123);
+}
+
+.FunctionDescriptionPage_displayBox__pvZ8U {
+  margin: 0 auto;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/Footer.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_layout__04Vw_ {
+  padding: 10rem 1rem;
+}
+
+.Footer_layout__04Vw_ p {
+  margin: 9rem auto 3rem auto;
+  text-align: center;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/Header.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__RvT3c {
+  background-color: #f3f3f384;
+  border-radius: 12px;
+  padding: 5px 0;
+  box-shadow: 0px 0px 18px rgba(30, 30, 30, 0.116);
+  margin-top: 10px;
+}
+.Header_header__RvT3c:hover {
+  box-shadow: 0px 0px 6px rgba(41, 41, 41, 0.247);
+}
+
+.Header_nav1__DsP2L {
+  margin-top: 10px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header_nav1__DsP2L a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.Header_nav1__DsP2L img {
+  width: 6rem;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.Header_nav1__DsP2L ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.Header_nav1__DsP2L li {
+  margin-left: 20px;
+}
+
+.Header_nav1__DsP2L li a {
+  color: var(--grey-400);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.Header_nav1__DsP2L li a:hover {
+  color: var(--grey-800);
+}
+
+/* nav2 */
+.Header_nav2__MhcwW {
+  padding: 10px 30px;
+}
+.Header_nav2__MhcwW > ul {
+  display: flex;
+}
+.Header_nav2__MhcwW ul {
+  padding: 10px 20px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.Header_nav2__MhcwW ul::-webkit-scrollbar {
+  display: none;
+}
+.Header_nav2__MhcwW > ul > li {
+  padding: 4px 10px;
+  border-radius: 16px;
+}
+.Header_nav2__MhcwW ul > li p:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+@media (max-width: 800px) {
+  .Header_header__RvT3c nav img {
+    width: 5.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .Header_header__RvT3c {
+    margin-bottom: 40px;
+  }
+  .Header_header__RvT3c nav a {
+    font-size: 1rem;
+  }
+  .Header_header__RvT3c nav img {
+    width: 5rem;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/MyLayout.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.MyLayout_layout__P5Zf3 {
+  margin: 0 auto;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0px 2px 12px 6px rgba(202, 202, 202, 0.3);
+  border-radius: 12px;
+}
+
+.MyLayout_layout__P5Zf3 > button {
+  position: fixed;
+  z-index: 999;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.MyLayout_layout__P5Zf3 > button > i {
+  display: block;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 100%;
+}
+.MyLayout_upBtn__5YEuL {
+  left: 80%;
+  top: 85vh;
+}
+.MyLayout_upBtn__5YEuL > i {
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
+.MyLayout_bigBtn__DOzQq {
+  left: 80%;
+  top: 77vh;
+}
+.MyLayout_smallBtn__nk8md {
+  left: 80%;
+  top: 70vh;
+}
+
