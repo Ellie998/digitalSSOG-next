@@ -19,12 +19,13 @@
   transition: 0.1s;
 }
 
-.layout a {
+.layout h3 a {
   /* font-size: 0.9rem; */
   padding: 0px 8px;
   max-height: 40px;
   font-family: "Cafe24Shiningstar";
   font-size: 1.5rem;
+  font-weight: normal;
 }
 .layout a:hover {
   font-weight: 900;

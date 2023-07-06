@@ -18,15 +18,17 @@ function MakeCategory({ FunctionOrApp, ListObjects, onLinkClick, tabName }) {
         let categoryRealName = categoryName.slice(3, categoryName.length);
         return (
           <li key={categoryRealName}>
-            <Link
-              onClick={onLinkClick}
-              href={{ query: { tab: categoryRealName } }}
-              className={tabName === categoryRealName ? classes.clicked : ""}
-              id={categoryName}>
-              {categoryName !== categorys[categorys.length - 1]
-                ? `${categoryName} ,`
-                : categoryName}
-            </Link>
+            <h3>
+              <Link
+                onClick={onLinkClick}
+                href={{ query: { tab: categoryRealName } }}
+                className={tabName === categoryRealName ? classes.clicked : ""}
+                id={categoryName}>
+                {categoryName !== categorys[categorys.length - 1]
+                  ? `${categoryName} ,`
+                  : categoryName}
+              </Link>
+            </h3>
           </li>
         );
       })}

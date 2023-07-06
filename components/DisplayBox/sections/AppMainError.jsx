@@ -7,7 +7,7 @@ const AppMainError = () => {
     <div>
       <img
         src={"/assets/images/work-hard.jpg"}
-        alt=""
+        alt="work hard image"
         width="170"
         height="200"></img>
       <div style={{ textAlign: "center", height: "60px" }}>

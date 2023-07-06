@@ -12,7 +12,6 @@ export const metadata = {
   viewport: {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
   },
   title: "디지털쏙",
   description:

@@ -12,7 +12,6 @@ export async function generateMetadata({ params }) {
     viewport: {
       width: "device-width",
       initialScale: 1,
-      maximumScale: 1,
     },
     title: `${functionName} 기능 사용법 - 디지털쏙`,
     description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
