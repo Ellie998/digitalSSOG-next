@@ -1,6 +1,14 @@
 {
   "ssrModuleMapping": {},
   "edgeSSRModuleMapping": {
+    "(app-client)/./node_modules/next/dist/client/components/error-boundary.js": {
+      "*": {
+        "id": "(sc_client)/./node_modules/next/dist/esm/client/components/error-boundary.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
     "(app-client)/./node_modules/next/dist/client/components/app-router.js": {
       "*": {
         "id": "(sc_client)/./node_modules/next/dist/esm/client/components/app-router.js",
@@ -17,22 +25,6 @@
         "async": false
       }
     },
-    "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/esm/client/components/static-generation-searchparams-bailout-provider.js",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./node_modules/next/dist/client/components/error-boundary.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/esm/client/components/error-boundary.js",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js": {
       "*": {
         "id": "(sc_client)/./node_modules/next/dist/esm/client/components/render-from-template-context.js",
@@ -41,9 +33,9 @@
         "async": false
       }
     },
-    "(app-client)/./app/error.jsx": {
+    "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js": {
       "*": {
-        "id": "(sc_client)/./app/error.jsx",
+        "id": "(sc_client)/./node_modules/next/dist/esm/client/components/static-generation-searchparams-bailout-provider.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -72,9 +64,41 @@
         "chunks": [],
         "async": false
       }
+    },
+    "(app-client)/./app/error.jsx": {
+      "*": {
+        "id": "(sc_client)/./app/error.jsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js": {
+      "*": {
+        "id": "(sc_client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
     }
   },
   "clientModules": {
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/error-boundary.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/esm/client/components/error-boundary.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/app-router.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
       "name": "*",
@@ -107,38 +131,6 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
-      "name": "*",
-      "chunks": [
-        "app-client-internals:static/chunks/app-client-internals.js"
-      ],
-      "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/esm/client/components/static-generation-searchparams-bailout-provider.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
-      "name": "*",
-      "chunks": [
-        "app-client-internals:static/chunks/app-client-internals.js"
-      ],
-      "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/error-boundary.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
-      "name": "*",
-      "chunks": [
-        "app-client-internals:static/chunks/app-client-internals.js"
-      ],
-      "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/esm/client/components/error-boundary.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
-      "name": "*",
-      "chunks": [
-        "app-client-internals:static/chunks/app-client-internals.js"
-      ],
-      "async": false
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/render-from-template-context.js": {
       "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
       "name": "*",
@@ -155,11 +147,19 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
-      "id": "(app-client)/./app/error.jsx",
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
       "name": "*",
       "chunks": [
-        "app/error:static/chunks/app/error.js"
+        "app-client-internals:static/chunks/app-client-internals.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/esm/client/components/static-generation-searchparams-bailout-provider.js": {
+      "id": "(app-client)/./node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js",
+      "name": "*",
+      "chunks": [
+        "app-client-internals:static/chunks/app-client-internals.js"
       ],
       "async": false
     },
@@ -175,7 +175,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -183,7 +183,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -191,7 +191,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -199,7 +199,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -211,11 +211,19 @@
       ],
       "async": false
     },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Footer.module.css": {
+      "id": "(app-client)/./components/layout/Footer.module.css",
+      "name": "*",
+      "chunks": [
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+      ],
+      "async": false
+    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Header.module.css": {
       "id": "(app-client)/./components/layout/Header.module.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -223,15 +231,7 @@
       "id": "(app-client)/./components/layout/MyLayout.module.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
-      ],
-      "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Footer.module.css": {
-      "id": "(app-client)/./components/layout/Footer.module.css",
-      "name": "*",
-      "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -242,15 +242,34 @@
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
+      "id": "(app-client)/./app/error.jsx",
+      "name": "*",
+      "chunks": [
+        "app/error:static/chunks/app/error.js"
+      ],
+      "async": false
+    },
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/FunctionDescription/FunctionDescriptionProvider.js": {
+      "id": "(app-client)/./components/FunctionDescription/FunctionDescriptionProvider.js",
+      "name": "*",
+      "chunks": [
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
+      ],
+      "async": false
     }
   },
   "entryCSSFiles": {
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": [],
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/page": [
       "static/css/app/page.css"
     ],
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": [
       "static/css/app/layout.css"
+    ],
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": [],
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/description/[...functionName]/page": [
+      "static/css/app/description/[...functionName]/page.css"
     ]
   }
 }

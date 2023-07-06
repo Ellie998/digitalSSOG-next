@@ -37,9 +37,9 @@
 }
 
 .sendMessageWrap {
-  justify-content: end;
+  justify-content: flex-end;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   margin-left: auto;
 }
 

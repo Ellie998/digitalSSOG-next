@@ -30,7 +30,7 @@
 .sendMessage,
 .getMessage {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .sendMessage {

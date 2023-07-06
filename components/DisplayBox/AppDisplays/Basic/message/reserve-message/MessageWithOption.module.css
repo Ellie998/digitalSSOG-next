@@ -28,7 +28,7 @@
 .appMain_getMessageWrap,
 .appMain_sendMessageWrap--res {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .appMain_sendMessageWrap,

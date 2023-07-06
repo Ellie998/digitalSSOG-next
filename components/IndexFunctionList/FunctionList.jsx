@@ -16,7 +16,7 @@ function FunctionList() {
   function linkClickHandler(e) {
     e.preventDefault();
     const tabName = e.target.id.slice(3);
-    window.history.pushState("", "", `/?tab=${tabName}`);
+    history.pushState("", "", `/?tab=${tabName}`);
     setTabName(tabName);
   }
   // when back or forehead btn clicked, function trigered in descriotion page
@@ -33,6 +33,7 @@ function FunctionList() {
     }
     temp++;
   };
+
   return (
     <section className={`${classes.layout} ${classes.note}`}>
       {/* <HeadMeta></HeadMeta> */}

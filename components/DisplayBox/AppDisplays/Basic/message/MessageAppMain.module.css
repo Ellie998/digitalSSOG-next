@@ -92,7 +92,7 @@
 .appETCLists {
   grid-row: 3 / 4;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 0.7rem;
 }
 .appCategoryLists {
