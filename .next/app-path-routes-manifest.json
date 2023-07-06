@@ -1,6 +1,0 @@
-{
-  "/page": "/",
-  "/description/[...functionName]/page": "/description/[...functionName]",
-  "/robots.txt/route": "/robots.txt",
-  "/sitemap.xml/route": "/sitemap.xml"
-}

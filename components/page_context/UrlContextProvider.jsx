@@ -57,7 +57,8 @@ export default function UrlContextProvider({ children }) {
     }, [myDescriptionId]);
   // when back or forehead btn clicked, function trigered in root page
   window.onpopstate = function (e) {
-    const url = decodeURI(window.location);
+    const urlTemp = decodeURI(window.location);
+    const url = urlTemp.replaceAll("%2F", "/");
     router.push(url, { scroll: false });
   };
 
