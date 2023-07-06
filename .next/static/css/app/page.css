@@ -221,6 +221,128 @@
   }
 }
 
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/Index.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/* -------------------LAYOUTS------------------ */
+.Index_layout__OpCSH {
+  margin: 0rem auto 10rem auto;
+  text-align: center;
+  padding: 8rem 3rem;
+}
+@font-face {
+  font-family: "Cafe24Shiningstar";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -------------------BOX SHADOW------------------ */
+.Index_boxShadow__c7v_T {
+  background-color: #dadada08;
+  box-shadow: 0 0px 3px rgba(23, 23, 23, 0.187);
+  transition: 0.1s;
+  border-radius: 0 0 0 30px/45px;
+  background: #ffa;
+}
+.Index_boxShadow__c7v_T:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0px 18px rgba(23, 23, 23, 0.187);
+}
+/* -------------------POSTIT------------------ */
+.Index_postIt__LhKqq {
+  width: 20rem;
+  height: 19rem;
+  position: relative;
+  background: #ffa;
+  overflow: hidden;
+  padding: 10px 10px 20px 10px;
+  border-radius: 0 0 0 30px/45px;
+  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.05),
+    inset 0 25px 10px rgba(0, 0, 0, 0.034);
+  line-height: 1.7em;
+  font-size: 19px;
+  transition: 0.4s;
+}
+
+.Index_postIt__LhKqq:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 255, 174);
+  box-shadow: 3px -2px 10px rgba(0, 0, 0, 0.196),
+    inset 15px -15px 15px rgba(0, 0, 0, 0.093);
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: skewX(25deg);
+}
+
+/* -------------------TEXT------------------ */
+.Index_title__32BNJ {
+  color: var(--grey-900);
+  word-break: keep-all;
+}
+
+.Index_subTitle__xQJJY {
+  color: var(--grey-400);
+  margin-bottom: 1rem;
+  word-break: keep-all;
+}
+
+/* -------------------LIST------------------ */
+.Index_listWrap__m1doi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 32px;
+}
+.Index_listWrap__m1doi li {
+  text-align: left;
+  width: 300px;
+  height: 250px;
+  padding: 48px 48px 64px 48px;
+  margin-right: 30px;
+}
+
+.Index_listWrap__m1doi li h2 {
+  font-family: "Cafe24Shiningstar";
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.Index_fontWeight_bold__APTaa {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 900px) {
+  .Index_listWrap__m1doi {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+  }
+  .Index_listWrap__m1doi li {
+    margin-bottom: 30px;
+    margin-right: 0px;
+  }
+}
+@media (max-width: 500px) {
+  .Index_layout__OpCSH {
+    max-width: 100%;
+    padding: 8rem 0rem;
+    min-width: 300px;
+  }
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/Footer.module.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************/
@@ -370,127 +492,5 @@
 .MyLayout_smallBtn__nk8md {
   left: 80%;
   top: 70vh;
-}
-
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[3].oneOf[7].use[3]!./components/layout/Index.module.css ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
-/* -------------------LAYOUTS------------------ */
-.Index_layout__OpCSH {
-  margin: 0rem auto 10rem auto;
-  text-align: center;
-  padding: 8rem 3rem;
-}
-@font-face {
-  font-family: "Cafe24Shiningstar";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* -------------------BOX SHADOW------------------ */
-.Index_boxShadow__c7v_T {
-  background-color: #dadada08;
-  box-shadow: 0 0px 3px rgba(23, 23, 23, 0.187);
-  transition: 0.1s;
-  border-radius: 0 0 0 30px/45px;
-  background: #ffa;
-}
-.Index_boxShadow__c7v_T:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0px 18px rgba(23, 23, 23, 0.187);
-}
-/* -------------------POSTIT------------------ */
-.Index_postIt__LhKqq {
-  width: 20rem;
-  height: 19rem;
-  position: relative;
-  background: #ffa;
-  overflow: hidden;
-  padding: 10px 10px 20px 10px;
-  border-radius: 0 0 0 30px/45px;
-  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.05),
-    inset 0 25px 10px rgba(0, 0, 0, 0.034);
-  line-height: 1.7em;
-  font-size: 19px;
-  transition: 0.4s;
-}
-
-.Index_postIt__LhKqq:before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: rgb(255, 255, 174);
-  box-shadow: 3px -2px 10px rgba(0, 0, 0, 0.196),
-    inset 15px -15px 15px rgba(0, 0, 0, 0.093);
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  transform: skewX(25deg);
-}
-
-/* -------------------TEXT------------------ */
-.Index_title__32BNJ {
-  color: var(--grey-900);
-  word-break: keep-all;
-}
-
-.Index_subTitle__xQJJY {
-  color: var(--grey-400);
-  margin-bottom: 1rem;
-  word-break: keep-all;
-}
-
-/* -------------------LIST------------------ */
-.Index_listWrap__m1doi {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 32px;
-}
-.Index_listWrap__m1doi li {
-  text-align: left;
-  width: 300px;
-  height: 250px;
-  padding: 48px 48px 64px 48px;
-  margin-right: 30px;
-}
-
-.Index_listWrap__m1doi li h2 {
-  font-family: "Cafe24Shiningstar";
-  font-weight: normal;
-  font-size: 1.5rem;
-}
-
-.Index_fontWeight_bold__APTaa {
-  font-weight: bold;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-}
-
-@media (max-width: 900px) {
-  .Index_listWrap__m1doi {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    padding: 2rem 2rem;
-  }
-  .Index_listWrap__m1doi li {
-    margin-bottom: 30px;
-    margin-right: 0px;
-  }
-}
-@media (max-width: 500px) {
-  .Index_layout__OpCSH {
-    max-width: 100%;
-    padding: 8rem 0rem;
-    min-width: 300px;
-  }
 }
 
