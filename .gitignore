@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+node_modules/
 /.pnp
 .pnp.js
 
@@ -9,8 +10,8 @@
 /coverage
 
 # production
-/build
-/.next
+
+.next/
 
 # misc
 .DS_Store
@@ -25,7 +26,7 @@ yarn-error.log*
 
 
 # data files
-/data
+data/
 data.js
 
 

@@ -94,11 +94,12 @@ function AppMain() {
         }
       } else if (appName === appName_kakaotalk) {
         if (descriptionId === "0") {
-          choicedComponent = (
-            <AnswerCall
-              appName={appName}
-              functionName={functionName}></AnswerCall>
-          );
+          choicedComponent = <AppMainError></AppMainError>;
+          // choicedComponent = (
+          //   <AnswerCall
+          //     appName={appName}
+          //     functionName={functionName}></AnswerCall>
+          // );
         } else if (descriptionId === "1") {
           choicedComponent = <CallConnected></CallConnected>;
         }
