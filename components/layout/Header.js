@@ -7,12 +7,7 @@ function Header() {
     <header className={classes.header}>
       <nav className={classes.nav1}>
         <Link href="/">
-          <Image
-            src={"/assets/images/logo.png"}
-            className="App-logo"
-            alt="logo"
-            width={96}
-            height={30}></Image>
+          <Image src={"/assets/images/logo.png"} alt="logo"></Image>
         </Link>
         <ul>
           {/* <li>
