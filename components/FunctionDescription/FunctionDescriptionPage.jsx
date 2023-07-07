@@ -5,12 +5,12 @@ import MakeAppList from "./MakeAppList";
 import DisplayBox from "../DisplayBox/DisplayBox";
 import UrlContext from "../page_context/UrlContext";
 import classes from "./FunctionDescriptionPage.module.css";
+import HeadMeta from "../HeadMeta";
 
 const data = require("/public/data/functionData.json");
 
 function FunctionDescriptionPage() {
-  const { functionName, setMyAppName, setMyMethodId, setMyDescriptionId } =
-    useContext(UrlContext);
+  const { functionName, setMyAppName } = useContext(UrlContext);
   const [detailFunctionObject, setData] = useState([]);
 
   useEffect(() => {
@@ -33,6 +33,10 @@ function FunctionDescriptionPage() {
 
   return (
     <main>
+      <HeadMeta
+        title={`${functionName} 기능 사용법 - 디지털쏙`}
+        description={`${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`}
+        url={`https://ssog.pages.dev/description/${functionName}`}></HeadMeta>
       <section className={classes.main_header}>
         <h1 className={classes.title}>
           <b>{detailFunctionObject.name}</b> 기능 소개
@@ -48,20 +52,7 @@ function FunctionDescriptionPage() {
               {detailFunctionObject.app?.map((dataAppName) => (
                 <li
                   key={Math.random()}
-                  onClick={() => {
-                    innerWidth > 850 &&
-                      scrollTo({ top: 720, behavior: "smooth" });
-                    innerWidth < 851 &&
-                      innerWidth > 800 &&
-                      scrollTo({ top: 500, behavior: "smooth" });
-                    innerWidth < 801 &&
-                      scrollTo({ top: 820, behavior: "smooth" });
-                    innerWidth < 501 &&
-                      scrollTo({ top: 960, behavior: "smooth" });
-                    setMyAppName(dataAppName);
-                    setMyMethodId("1");
-                    setMyDescriptionId("0");
-                  }}>
+                  onClick={() => setMyAppName(dataAppName)}>
                   {dataAppName}
                 </li>
               ))}
