@@ -6,27 +6,34 @@ import NextDescriptionLink from "../../../NextDescriptionLink";
 import UrlContext from "../../../page_context/UrlContext";
 import classes from "./KakaoChatRoom.module.css";
 
-function KakaoChatRoom({ inputLocked }) {
+function KakaoChatRoom({ inputLocked, navTriger }) {
   const {
     myAppName,
     functionName,
     //
     functionName_resendMessage,
-
     //
     appName_basic,
   } = useContext(UrlContext);
-  const [inputClicked, setInputClicked] = useState(false);
-  const [sendBtnClicked, setSendBtnClicked] = useState(false);
+  //message
   const [messageContent, setMessageContent] = useState("");
+  const [isOvered, setIsOvered] = useState(false);
+  // input nav
   const [enteredMessage, setEnteredMessage] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
-  const [menuBtnClicked, setMenuBtnClicked] = useState(false);
+  const [inputClicked, setInputClicked] = useState(false);
+  const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [isInputLocked, setIsInputLocked] = useState(false);
-  const [isOvered, setIsOvered] = useState(false);
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
   const [sendImgs, setSendImgs] = useState([]);
+  // setting
+  const [menuBtnClicked, setMenuBtnClicked] = useState(false);
+  const [leaveBtnClicked, setLeaveBtnClicked] = useState(false);
+  // modal
+  const [isCheckbox, setIsCheckbox] = useState(false);
+  const [choicedModal, setChoicedModal] = useState("");
+
   useEffect(() => {
     inputLocked ? setIsInputLocked(true) : setIsInputLocked(false);
   }, [inputLocked]);
@@ -69,6 +76,7 @@ function KakaoChatRoom({ inputLocked }) {
   }
   function backdropClickHandler() {
     setMenuBtnClicked(false);
+    setLeaveBtnClicked(false);
   }
 
   return (
@@ -440,7 +448,14 @@ function KakaoChatRoom({ inputLocked }) {
                 leftFlexItem={[
                   {
                     className: "",
-                    content: <i className="bi bi-box-arrow-right"></i>,
+                    content: (
+                      <i
+                        onClick={() => {
+                          setLeaveBtnClicked(true);
+                          setChoicedModal("leave");
+                        }}
+                        className="bi bi-box-arrow-right"></i>
+                    ),
                   },
                 ]}
                 rightFlexItem={[
@@ -455,12 +470,50 @@ function KakaoChatRoom({ inputLocked }) {
                   {
                     className: "",
                     content: (
-                      <NextDescriptionLink nextOption={true}>
+                      <NextDescriptionLink nextOption={navTriger === "setting"}>
                         <i className="bi bi-gear"></i>
                       </NextDescriptionLink>
                     ),
                   },
                 ]}></MakeList>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Modal */}
+      {choicedModal !== "" && (
+        <div className={classes.modalWrap}>
+          <div
+            className={classes.backdrop_modal}
+            onClick={() => setChoicedModal("")}></div>
+          <div className={classes.modal}>
+            <div className={classes.title}>채팅방 나가기</div>
+            <div className={classes.subTitle}>
+              나가기를 하면 대화내용이 모두 삭제되고
+              <br />
+              채팅 목록에서도 삭제됩니다.
+            </div>
+            <label
+              className={`${classes.modalRadioWrap}`}
+              htmlFor="info_config">
+              <input
+                type="checkbox"
+                id="info_config"
+                onChange={(e) => {
+                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
+                }}></input>
+              <div className={classes.subTitle}>조용히 나가기</div>
+            </label>
+            <div className={classes.modalNavWrap}>
+              <div
+                className={classes["color_blue--bold"]}
+                onClick={() => setChoicedModal("")}>
+                취소
+              </div>
+              <NextDescriptionLink
+                nextOption={isCheckbox && navTriger === "leave"}>
+                <div className={classes["color_grey--bold"]}>나가기</div>
+              </NextDescriptionLink>
             </div>
           </div>
         </div>

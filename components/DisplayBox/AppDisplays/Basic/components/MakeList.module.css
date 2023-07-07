@@ -244,6 +244,20 @@
   border-radius: 22px;
   border: 1px solid rgb(206, 206, 206);
 }
+.subInfoFit_border--grey {
+  grid-column: 4/7;
+  font-size: 0.6rem;
+  text-align: center;
+  justify-self: flex-end;
+  width: fit-content;
+  padding: 2px 4px;
+  border-radius: 22px;
+  border: 1px solid rgb(206, 206, 206);
+}
+.subInfoFit_border--grey:hover {
+  background-color: rgb(227, 227, 227);
+  cursor: pointer;
+}
 .timeStamp {
   font-size: 0.6rem;
 }

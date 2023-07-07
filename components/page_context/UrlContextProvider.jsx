@@ -20,6 +20,8 @@ const functionName_sendPhoneNum = "연락처 공유";
 const functionName_kakaotalk_groubChatLeave_RejectInvitation =
   "그룹채팅방 초대거부 및 나가기";
 const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
+const functionName_kakaotalk_groubChatLeave_quietly =
+  "그룹채팅방 조용히 나가기";
 
 function urlChangeDetecter() {
   const searchParams = useSearchParams();
@@ -97,6 +99,7 @@ export default function UrlContextProvider({ children }) {
         //
         functionName_kakaotalk_groubChatLeave_RejectInvitation,
         functionName_kakaotalk_groubChatLock,
+        functionName_kakaotalk_groubChatLeave_quietly,
         //
         appName_basic,
         appName_kakaotalk,

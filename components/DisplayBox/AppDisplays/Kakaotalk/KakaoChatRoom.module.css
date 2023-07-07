@@ -230,8 +230,76 @@
   bottom: -15px;
 }
 
-/* ------------------ANIMAITION-------------------- */
+/* ---------------------MODAL---------------------------- */
+.modalWrap {
+  position: relative;
+  top: -610px;
+  animation: opacity0to100Pure 0.5s;
+  z-index: 200;
+  height: 305px;
+}
+.backdrop_modal {
+  background-color: #2a2a2a6a;
+  width: 174px;
+  height: 305px;
+  z-index: 200;
+}
+.modal {
+  position: absolute;
+  background-color: white;
+  width: 150px;
+  height: max-content;
+  padding: 10px;
+  z-index: 300;
+  border-radius: 4px;
+  top: 80px;
+  left: 10px;
+}
+.modalNavWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+.modalRadioWrap {
+  display: flex;
+  cursor: pointer;
+}
 
+/* ------------------COMMON-------------------- */
+.color_grey {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+.color_grey--bold {
+  color: var(--grey-400);
+  font-size: 0.8rem;
+  margin-left: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.color_blue--bold {
+  color: rgb(0, 119, 246);
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.title {
+  font-size: 0.9rem;
+  color: var(--grey-900);
+  text-align: start;
+  margin-left: 5px;
+}
+.subTitle {
+  font-size: 0.5rem;
+  padding: 5px 0;
+  margin-left: 5px;
+  text-align: start;
+  color: var(--grey-400);
+  line-height: 140%;
+}
+
+/* ------------------ANIMAITION-------------------- */
 @keyframes fadeInUp {
   0% {
     opacity: 0.7;
@@ -258,5 +326,13 @@
   to {
     opacity: 1;
     transform: scaleX(1);
+  }
+}
+@keyframes opacity0to100Pure {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

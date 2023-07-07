@@ -24,6 +24,7 @@ import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
 import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
+import ETCSetting from "../AppDisplays/Kakaotalk/ETCSetting";
 
 function AppMain() {
   const {
@@ -44,6 +45,7 @@ function AppMain() {
     functionName_sendPhoneNum,
     functionName_kakaotalk_groubChatLeave_RejectInvitation,
     functionName_kakaotalk_groubChatLock,
+    functionName_kakaotalk_groubChatLeave_quietly,
     //
     appName_basic,
     appName_kakaotalk,
@@ -251,7 +253,9 @@ function AppMain() {
           <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <KakaoChatRoom inputLocked={false} />;
+        choicedComponent = (
+          <KakaoChatRoom inputLocked={false} navTriger={"setting"} />
+        );
       } else if (descriptionId === "3") {
         choicedComponent = (
           <KakaoSettingPage navTriger="leaveOutBtn_inviteReject" />
@@ -268,11 +272,32 @@ function AppMain() {
           <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = <KakaoChatRoom inputLocked={false} />;
+        choicedComponent = (
+          <KakaoChatRoom inputLocked={false} navTriger={"setting"} />
+        );
       } else if (descriptionId === "3") {
         choicedComponent = <KakaoSettingPage navTriger="backBtn" />;
       } else if (descriptionId === "4") {
         choicedComponent = <KakaoChatRoom inputLocked={true} />;
+      }
+      break;
+    case functionName_kakaotalk_groubChatLeave_quietly:
+      if (descriptionId === "0") {
+        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
+      } else if (descriptionId === "1") {
+        choicedComponent = <KakaoAppMain tab="ETC" navTriger="setting" />;
+      } else if (descriptionId === "2") {
+        choicedComponent = <ETCSetting navTriger="leave_quietly"></ETCSetting>;
+      } else if (descriptionId === "3") {
+        choicedComponent = (
+          <KakaoAppMain tab="chat" navTriger="chatList_group" />
+        );
+      } else if (descriptionId === "4") {
+        choicedComponent = (
+          <KakaoChatRoom inputLocked={false} navTriger="leave" />
+        );
+      } else if (descriptionId === "5") {
+        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
       }
       break;
     default:

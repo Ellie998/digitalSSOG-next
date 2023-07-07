@@ -30,7 +30,9 @@ function KakaoSettingPage({ navTriger }) {
               <input
                 type="checkbox"
                 id="info_config"
-                onChange={(event) => setIsCheckbox(event.target.value)}></input>
+                onChange={(event) => {
+                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
+                }}></input>
               <div className={classes.subTitle}>
                 위 내용을 모두 확인하였습니다.
               </div>

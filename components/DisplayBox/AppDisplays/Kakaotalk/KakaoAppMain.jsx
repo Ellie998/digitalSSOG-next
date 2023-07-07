@@ -7,7 +7,7 @@ import MakeList from "../Basic/components/MakeList";
 import NextDescriptionLink from "../../../NextDescriptionLink";
 
 function KakaoAppMain({ navTriger, tab }) {
-  const [tabName, setTabName] = useState(tab);
+  const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
 
   const friendListContents = [
     <MakeList
@@ -209,7 +209,12 @@ function KakaoAppMain({ navTriger, tab }) {
                 },
                 {
                   className: "",
-                  content: <i className="bi bi-gear"></i>,
+                  content: (
+                    <NextDescriptionLink
+                      nextOption={tab === "ETC" && navTriger === "setting"}>
+                      <i className="bi bi-gear"></i>
+                    </NextDescriptionLink>
+                  ),
                 },
               ]}></MakeList>
           )}
