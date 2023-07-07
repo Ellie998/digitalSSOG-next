@@ -61,7 +61,7 @@ export default function UrlContextProvider({ children }) {
               `/description/${functionName}`
         }`
       );
-    }, [myDescriptionId]);
+    }, [myDescriptionId, myAppName, myMethodId]);
   // when back or forehead btn clicked, function trigered in root page
   useEffect(() => {
     window.onpopstate = function (e) {

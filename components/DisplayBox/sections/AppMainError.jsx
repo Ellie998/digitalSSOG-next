@@ -1,14 +1,11 @@
-import Image from "next/image";
-
 const AppMainError = () => {
   return (
     <div>
-      <Image
+      <img
         src={"/assets/images/work-hard.jpg"}
         alt="work hard image"
-        width={170}
-        height={200}></Image>
-
+        width="170"
+        height="200"></img>
       <div style={{ textAlign: "center", height: "60px" }}>
         화면 제작중 <i className="bi bi-arrow-repeat"></i>
         <br />

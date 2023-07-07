@@ -10,7 +10,8 @@ import HeadMeta from "../HeadMeta";
 const data = require("/public/data/functionData.json");
 
 function FunctionDescriptionPage() {
-  const { functionName, setMyAppName } = useContext(UrlContext);
+  const { functionName, setMyAppName, setMyMethodId, setMyDescriptionId } =
+    useContext(UrlContext);
   const [detailFunctionObject, setData] = useState([]);
 
   useEffect(() => {
@@ -52,7 +53,20 @@ function FunctionDescriptionPage() {
               {detailFunctionObject.app?.map((dataAppName) => (
                 <li
                   key={Math.random()}
-                  onClick={() => setMyAppName(dataAppName)}>
+                  onClick={() => {
+                    innerWidth > 850 &&
+                      scrollTo({ top: 720, behavior: "smooth" });
+                    innerWidth < 851 &&
+                      innerWidth > 800 &&
+                      scrollTo({ top: 500, behavior: "smooth" });
+                    innerWidth < 801 &&
+                      scrollTo({ top: 820, behavior: "smooth" });
+                    innerWidth < 501 &&
+                      scrollTo({ top: 960, behavior: "smooth" });
+                    setMyAppName(dataAppName);
+                    setMyMethodId("1");
+                    setMyDescriptionId("0");
+                  }}>
                   {dataAppName}
                 </li>
               ))}
