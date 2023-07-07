@@ -1,7 +1,16 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ssog.pages.dev",
+      },
+      {
+        hostname: "localhost",
+        port: "3000",
+      },
+    ],
   },
 };
 
