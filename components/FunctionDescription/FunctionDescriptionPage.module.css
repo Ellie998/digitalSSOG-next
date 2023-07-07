@@ -44,7 +44,10 @@
 .listBox li:hover {
   text-decoration: underline;
 }
-
+.lineHeight {
+  line-height: 150%;
+  margin-top: 3px;
+}
 /*  */
 
 .main {

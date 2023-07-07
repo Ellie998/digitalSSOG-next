@@ -45,7 +45,18 @@ function FunctionDescriptionPage() {
         <ul>
           <li className={classes.listBox}>
             <h2>특징</h2>
-            <p>{detailFunctionObject.charateristic}</p>
+
+            {typeof detailFunctionObject.charateristic === "object" ? (
+              detailFunctionObject.charateristic.map((charDescription) => (
+                <p key={Math.random()} className={classes.lineHeight}>
+                  {charDescription}
+                </p>
+              ))
+            ) : (
+              <p className={classes.lineHeight}>
+                {detailFunctionObject.charateristic}
+              </p>
+            )}
           </li>
           <li className={classes.listBox}>
             <h2>관련 어플</h2>
@@ -53,6 +64,7 @@ function FunctionDescriptionPage() {
               {detailFunctionObject.app?.map((dataAppName) => (
                 <li
                   key={Math.random()}
+                  className={classes.lineHeight}
                   onClick={() => {
                     innerWidth > 850 &&
                       scrollTo({ top: 720, behavior: "smooth" });

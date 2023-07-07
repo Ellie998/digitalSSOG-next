@@ -6,6 +6,7 @@
 .list {
   margin-left: 1rem;
   margin-bottom: 0.6rem;
+  line-height: 150%;
 }
 .list:hover {
   color: var(--grey-800);
@@ -16,6 +17,7 @@
   margin-bottom: 0.6rem;
   color: var(--grey-800);
   font-weight: bold;
+  line-height: 150%;
 }
 .list_active:hover {
   color: var(--grey-800);
