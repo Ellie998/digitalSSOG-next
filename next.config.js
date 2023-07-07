@@ -1,8 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  // images: {
-  //   domains: ["https://ssog.pages.dev"],
-  // },
+  images: {
+    domains: [],
+  },
 };
 
 // const { PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER } = require("next/constants");
