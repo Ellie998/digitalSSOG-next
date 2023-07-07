@@ -3,7 +3,7 @@ import Head from "next/head";
 import Index from "../components/layout/Index";
 import MyLayout from "../components/layout/MyLayout";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 {
   /*   
@@ -11,7 +11,7 @@ import MyLayout from "../components/layout/MyLayout";
 */
 }
 export const metadata = {
-  metadataBase: "/",
+  // metadataBase: "/",
   charset: "utf-8",
   viewport: {
     width: "device-width",

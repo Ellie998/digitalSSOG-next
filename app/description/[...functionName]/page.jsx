@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const functionName = decodeURI(params.functionName);
 
   return {
-    metadataBase: "/",
+    // metadataBase: "/",
     charset: "utf-8",
     viewport: {
       width: "device-width",

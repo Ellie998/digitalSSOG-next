@@ -71,6 +71,7 @@ export default function UrlContextProvider({ children }) {
       router.push(url, { scroll: false });
     };
   }, []);
+
   return (
     <UrlContext.Provider
       value={{

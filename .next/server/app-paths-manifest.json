@@ -1,6 +1,4 @@
 {
-  "/description/[...functionName]/page": "app/description/[...functionName]/page.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/description/[...functionName]/page": "app/description/[...functionName]/page.js"
 }
