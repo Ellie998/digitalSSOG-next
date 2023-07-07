@@ -108,6 +108,14 @@
     width: 300px;
   }
 }
+@media (max-width: 400px) {
+  .listBox {
+    width: fit-content;
+    min-width: 100%;
+    padding: 3rem 1rem;
+    margin: 0;
+  }
+}
 
 /* ------------------------------- */
 .flexWrap {

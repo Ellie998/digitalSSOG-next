@@ -41,14 +41,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/error.jsx": {
-      "*": {
-        "id": "(sc_client)/./app/error.jsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./node_modules/next/dist/client/link.js": {
       "*": {
         "id": "(sc_client)/./node_modules/next/dist/esm/client/link.js",
@@ -73,9 +65,9 @@
         "async": false
       }
     },
-    "(app-client)/./components/IndexFunctionList/FunctionList.jsx": {
+    "(app-client)/./app/error.jsx": {
       "*": {
-        "id": "(sc_client)/./components/IndexFunctionList/FunctionList.jsx",
+        "id": "(sc_client)/./app/error.jsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -163,27 +155,11 @@
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css": {
-      "id": "(app-client)/./app/layout.css",
-      "name": "*",
-      "chunks": [
-        "app/layout:static/chunks/app/layout.js"
-      ],
-      "async": false
-    },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
-      "id": "(app-client)/./app/error.jsx",
-      "name": "*",
-      "chunks": [
-        "app/error:static/chunks/app/error.js"
-      ],
-      "async": false
-    },
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/node_modules/next/dist/client/link.js": {
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -191,7 +167,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -199,7 +175,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -207,7 +183,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -223,7 +199,7 @@
       "id": "(app-client)/./components/layout/Footer.module.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -231,7 +207,7 @@
       "id": "(app-client)/./components/layout/Header.module.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
@@ -239,37 +215,34 @@
       "id": "(app-client)/./components/layout/MyLayout.module.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/description/[...functionName]/page:static/chunks/app/description/[...functionName]/page.js"
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/IndexFunctionList/FunctionList.jsx": {
-      "id": "(app-client)/./components/IndexFunctionList/FunctionList.jsx",
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout.css": {
+      "id": "(app-client)/./app/layout.css",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/components/layout/Index.module.css": {
-      "id": "(app-client)/./components/layout/Index.module.css",
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error.jsx": {
+      "id": "(app-client)/./app/error.jsx",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/error:static/chunks/app/error.js"
       ],
       "async": false
     }
   },
   "entryCSSFiles": {
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": [
-      "static/css/app/layout.css"
-    ],
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": [],
     "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/description/[...functionName]/page": [
       "static/css/app/description/[...functionName]/page.css"
     ],
-    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/page": [
-      "static/css/app/page.css"
-    ]
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/layout": [
+      "static/css/app/layout.css"
+    ],
+    "/Users/kim-yerim/Documents/project/digital-ssog-react/digitalssog/app/error": []
   }
 }
