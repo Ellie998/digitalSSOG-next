@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import classes from "./Header.module.css";
-import logo from "../../public/images/logo.png";
+import logo from "../../public/assets/images/logo.png";
 
 function Header() {
   return (
