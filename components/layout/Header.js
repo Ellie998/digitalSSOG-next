@@ -7,13 +7,20 @@ function Header() {
     <header className={classes.header}>
       <nav className={classes.nav1}>
         <Link href="/">
-          <img
+          <Image
+            src="https://ssog.pages.dev/assets/images/logo.png"
+            // className="App-logo"
+            alt="logo"
+            width={96}
+            height={30}
+          />
+          {/* <img
             src="/assets/images/logo.png"
             className="App-logo"
             alt="logo"
             width={96}
             height={30}
-          />
+          /> */}
         </Link>
         <ul>
           {/* <li>
