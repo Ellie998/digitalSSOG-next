@@ -70,11 +70,11 @@ function FunctionDescriptionPage() {
                       scrollTo({ top: 720, behavior: "smooth" });
                     innerWidth < 851 &&
                       innerWidth > 800 &&
-                      scrollTo({ top: 500, behavior: "smooth" });
+                      scrollTo({ top: 600, behavior: "smooth" });
                     innerWidth < 801 &&
-                      scrollTo({ top: 820, behavior: "smooth" });
+                      scrollTo({ top: 900, behavior: "smooth" });
                     innerWidth < 501 &&
-                      scrollTo({ top: 960, behavior: "smooth" });
+                      scrollTo({ top: 1050, behavior: "smooth" });
                     setMyAppName(dataAppName);
                     setMyMethodId("1");
                     setMyDescriptionId("0");
