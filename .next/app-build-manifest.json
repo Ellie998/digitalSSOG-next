@@ -1,37 +1,37 @@
 {
   "pages": {
     "/page": [
-      "static/chunks/webpack-9924d16593a35d97.js",
+      "static/chunks/webpack-72b7a42863faef4a.js",
       "static/chunks/bce60fc1-db732c24bfe48544.js",
       "static/chunks/698-fddeccd5273cfc4f.js",
-      "static/chunks/main-app-c713f4692cbd7320.js",
+      "static/chunks/main-app-5b0d782a8d604bb7.js",
       "static/chunks/187-fe10896b2ad2fe00.js",
-      "static/css/8c61ee8c318bf402.css",
-      "static/chunks/app/page-17bfeb1830fd4455.js"
+      "static/css/1724b1029b8d2b67.css",
+      "static/chunks/app/page-24fad8fcd6554cdf.js"
     ],
     "/layout": [
-      "static/chunks/webpack-9924d16593a35d97.js",
+      "static/chunks/webpack-72b7a42863faef4a.js",
       "static/chunks/bce60fc1-db732c24bfe48544.js",
       "static/chunks/698-fddeccd5273cfc4f.js",
-      "static/chunks/main-app-c713f4692cbd7320.js",
+      "static/chunks/main-app-5b0d782a8d604bb7.js",
       "static/css/30465bed01a173e5.css",
       "static/chunks/app/layout-a7205dafa3620daf.js"
     ],
     "/error": [
-      "static/chunks/webpack-9924d16593a35d97.js",
+      "static/chunks/webpack-72b7a42863faef4a.js",
       "static/chunks/bce60fc1-db732c24bfe48544.js",
       "static/chunks/698-fddeccd5273cfc4f.js",
-      "static/chunks/main-app-c713f4692cbd7320.js",
+      "static/chunks/main-app-5b0d782a8d604bb7.js",
       "static/chunks/app/error-e6cf5fda17404ac2.js"
     ],
     "/description/[...functionName]/page": [
-      "static/chunks/webpack-9924d16593a35d97.js",
+      "static/chunks/webpack-72b7a42863faef4a.js",
       "static/chunks/bce60fc1-db732c24bfe48544.js",
       "static/chunks/698-fddeccd5273cfc4f.js",
-      "static/chunks/main-app-c713f4692cbd7320.js",
+      "static/chunks/main-app-5b0d782a8d604bb7.js",
       "static/chunks/187-fe10896b2ad2fe00.js",
-      "static/css/d1b5ba9cb76045bf.css",
-      "static/chunks/app/description/[...functionName]/page-d62c298fc3b12b12.js"
+      "static/css/0f68640b5b611303.css",
+      "static/chunks/app/description/[...functionName]/page-d5a0553e1c3313a6.js"
     ]
   }
 }

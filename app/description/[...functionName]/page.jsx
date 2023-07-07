@@ -4,7 +4,7 @@ import Head from "next/head";
 import FunctionDescriptionProvider from "../../../components/FunctionDescription/FunctionDescriptionProvider";
 import MyLayout from "../../../components/layout/MyLayout";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 // or Dynamic metadata
 export async function generateMetadata({ params }) {
