@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 const HeadMeta = ({ title, description, url, image }) => {
-  console.log("head meta");
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />

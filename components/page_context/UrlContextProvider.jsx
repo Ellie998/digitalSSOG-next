@@ -63,13 +63,14 @@ export default function UrlContextProvider({ children }) {
       );
     }, [myDescriptionId]);
   // when back or forehead btn clicked, function trigered in root page
-  window.onpopstate = function (e) {
-    // http://localhost:3000/?tab=새로운 기능
-    const url = decodeURI(window.location);
+  useEffect(() => {
+    window.onpopstate = function (e) {
+      // http://localhost:3000/?tab=새로운 기능
+      const url = decodeURI(window.location);
 
-    router.push(url, { scroll: false });
-  };
-
+      router.push(url, { scroll: false });
+    };
+  }, []);
   return (
     <UrlContext.Provider
       value={{

@@ -20,19 +20,35 @@ function FunctionList() {
     setTabName(tabName);
   }
   // when back or forehead btn clicked, function trigered in descriotion page
-  window.onpopstate = function (e) {
-    const url = decodeURI(window.location);
-    if (temp === 1) {
-      return;
-    }
-    if (url.includes("=")) {
-      const tabNameFromUrl = url.split("=");
-      setTabName(tabNameFromUrl[1]);
-    } else {
-      router.push(url, { scroll: false });
-    }
-    temp++;
-  };
+  // window.onpopstate = function (e) {
+  //   const url = decodeURI(window.location);
+  //   if (temp === 1) {
+  //     return;
+  //   }
+  //   if (url.includes("=")) {
+  //     const tabNameFromUrl = url.split("=");
+  //     setTabName(tabNameFromUrl[1]);
+  //   } else {
+  //     router.push(url, { scroll: false });
+  //   }
+  //   temp++;
+  // };
+
+  useEffect(() => {
+    window.onpopstate = function (e) {
+      const url = decodeURI(window.location);
+      if (temp === 1) {
+        return;
+      }
+      if (url.includes("=")) {
+        const tabNameFromUrl = url.split("=");
+        setTabName(tabNameFromUrl[1]);
+      } else {
+        router.push(url, { scroll: false });
+      }
+      temp++;
+    };
+  }, []);
 
   return (
     <section className={`${classes.layout} ${classes.note}`}>
