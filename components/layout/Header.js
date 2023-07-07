@@ -11,7 +11,7 @@ function Header() {
           <Image
             src="/assets/images/logo.png"
             // className="App-logo"
-            alt="logo"
+            alt="디지털쏙 로고"
             width={96}
             height={30}
           />
