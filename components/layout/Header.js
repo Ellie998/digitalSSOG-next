@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import classes from "./Header.module.css";
+import Image from "next/image";
 
 function Header() {
   return (
