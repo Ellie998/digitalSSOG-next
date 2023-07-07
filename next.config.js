@@ -1,19 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  images: {
-    disableStaticImages: true,
-
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "ssog.pages.dev",
-      },
-      {
-        hostname: "localhost",
-        port: "3000",
-      },
-    ],
-  },
+  // images: {
+  //   domains: ["ssog.pages.dev"], // Add any other domains from which you'll fetch images
+  // },
 };
 
 // const { PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER } = require("next/constants");
