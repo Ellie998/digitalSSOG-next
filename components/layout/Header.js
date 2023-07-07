@@ -9,7 +9,13 @@ function Header() {
     <header className={classes.header}>
       <nav className={classes.nav1}>
         <Link href="/">
-          <Image src={img} alt="logo" />
+          <Image
+            src="/assets/images/logo.png"
+            // className="App-logo"
+            alt="디지털쏙 로고"
+            width={96}
+            height={30}
+          />
           {/* <img
             src="/assets/images/logo.png"
             className="App-logo"
