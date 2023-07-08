@@ -20,8 +20,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "lint": "next lint"
   },
   "browserslist": {
     "production": [
@@ -38,7 +37,6 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.2.0",
     "@jridgewell/sourcemap-codec": "^1.4.15",
-    "eslint": "^8.44.0",
-    "next-sitemap": "^4.1.8"
+    "eslint": "^8.44.0"
   }
 }
