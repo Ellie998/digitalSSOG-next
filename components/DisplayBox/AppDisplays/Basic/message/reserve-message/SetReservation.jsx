@@ -1,5 +1,5 @@
 import classes from "./SetReservation.module.css";
-import NextDescriptionLink from "../../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../../components/NextDescriptionLink";
 
 function SetReservation() {
   return (

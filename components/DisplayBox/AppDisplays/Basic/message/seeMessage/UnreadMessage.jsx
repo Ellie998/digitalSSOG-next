@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
 import UrlContext from "../../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../../components/NextDescriptionLink";
 import classes from "./UnreadMessage.module.css";
-import MakeList from "../../components/MakeList";
+import MakeList from "../../../components/MakeList";
 
 function UnreadMessage() {
   const { myMethodId, functionName, functionName_seeMessage } =

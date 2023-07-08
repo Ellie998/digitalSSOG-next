@@ -1,6 +1,6 @@
 // components/NextDescriptionLink.jsx
 import React, { useContext } from "react";
-import UrlContext from "./page_context/UrlContext";
+import UrlContext from "../../../page_context/UrlContext";
 
 /**prop : children and nextOption */
 const NextDescriptionLink = ({ children, nextOption }) => {

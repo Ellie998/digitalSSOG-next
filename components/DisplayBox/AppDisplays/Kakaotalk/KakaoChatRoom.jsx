@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
-import MakeList from "../Basic/components/MakeList";
-import NextDescriptionLink from "../../../NextDescriptionLink";
+import MakeList from "../components/MakeList";
+import NextDescriptionLink from "../components/NextDescriptionLink";
 
 import UrlContext from "../../../page_context/UrlContext";
 import classes from "./KakaoChatRoom.module.css";

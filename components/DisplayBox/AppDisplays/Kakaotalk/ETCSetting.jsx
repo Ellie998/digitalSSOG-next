@@ -1,10 +1,10 @@
 import { useState } from "react";
-import NextDescriptionLink from "../../../NextDescriptionLink";
+import NextDescriptionLink from "../components/NextDescriptionLink";
 
-import MakeList from "../Basic/components/MakeList";
+import MakeList from "../components/MakeList";
 
 import classes from "./ETCSetting.module.css";
-import TargetContent from "../../../TargetContent";
+import TargetContent from "../components/TargetContent";
 
 function ETCSetting({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -56,9 +56,14 @@ function ETCSetting({ navTriger }) {
       {choicedSetting !== "" && (
         <div>
           <div className={classes.main_header}>
-            <NextDescriptionLink nextOption={true}>
+            <div
+              onClick={() => {
+                setChoicedSetting("");
+                setIsCheckbox(false);
+                setChoicedModal("");
+              }}>
               <i className="bi bi-arrow-left"></i>
-            </NextDescriptionLink>
+            </div>
             <div>실험실</div>
           </div>
           <div>

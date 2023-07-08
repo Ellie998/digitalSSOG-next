@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import classes from "./Message.module.css";
-import ChoiceImg from "../components/ChoiceImg";
+import ChoiceImg from "../../components/ChoiceImg";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../components/NextDescriptionLink";
 
 function Message() {
   const {

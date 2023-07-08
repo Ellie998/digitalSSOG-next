@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import NextDescriptionLink from "../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../components/NextDescriptionLink";
 
 import classes from "./ChoiceImgs.module.css";
 import UrlContext from "../../../../page_context/UrlContext";

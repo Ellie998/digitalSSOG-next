@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 
 import classes from "./MessageAppMain.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../../NextDescriptionLink";
-import MakeList from "../components/MakeList";
+import NextDescriptionLink from "../../components/NextDescriptionLink";
+import MakeList from "../../components/MakeList";
 
 function MessageAppMain() {
   const {

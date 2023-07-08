@@ -1,6 +1,6 @@
 import classes from "./KakaoProfileDetail.module.css";
 
-import NextDescriptionLink from "../../../NextDescriptionLink";
+import NextDescriptionLink from "../components/NextDescriptionLink";
 
 function KakaoProfileDetail() {
   return (

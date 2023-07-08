@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import classes from "./SelectPerson.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../components/NextDescriptionLink";
 
 function SelectPerson() {
   const {

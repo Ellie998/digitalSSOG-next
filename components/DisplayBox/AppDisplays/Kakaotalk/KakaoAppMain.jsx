@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import { PageContext } from "../../sections/AppMain";
 
 import classes from "./KakaoAppMain.module.css";
-import MakeList from "../Basic/components/MakeList";
+import MakeList from "../components/MakeList";
 
-import NextDescriptionLink from "../../../NextDescriptionLink";
+import NextDescriptionLink from "../components/NextDescriptionLink";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);

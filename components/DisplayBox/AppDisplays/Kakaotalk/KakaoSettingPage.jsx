@@ -1,7 +1,7 @@
 import { useState } from "react";
-import NextDescriptionLink from "../../../NextDescriptionLink";
+import NextDescriptionLink from "../components/NextDescriptionLink";
 
-import MakeList from "../Basic/components/MakeList";
+import MakeList from "../components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
 

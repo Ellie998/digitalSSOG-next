@@ -1,6 +1,6 @@
 import classes from "../Message.module.css";
 
-import NextDescriptionLink from "../../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../../components/NextDescriptionLink";
 
 function SendResend() {
   return (

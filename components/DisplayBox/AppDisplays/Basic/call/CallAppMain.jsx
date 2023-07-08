@@ -1,14 +1,14 @@
 import { useState, useContext } from "react";
 import { PageContext } from "../../../sections/AppMain";
 
-import NavBar from "../components/NavBar";
-import MakeList from "../components/MakeList";
+import NavBar from "../../components/NavBar";
+import MakeList from "../../components/MakeList";
 
 import classes from "./CallAppMain.module.css";
-import listClass from "../components/MakeList.module.css";
+import listClass from "../../components/MakeList.module.css";
 
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../../NextDescriptionLink";
+import NextDescriptionLink from "../../components/NextDescriptionLink";
 NextDescriptionLink;
 
 function CallAppMain() {

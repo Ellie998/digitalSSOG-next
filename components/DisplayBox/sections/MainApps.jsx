@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import classes from "./AppMain.module.css";
 import UrlContext from "../../page_context/UrlContext";
-import NextDescriptionLink from "../../NextDescriptionLink";
+import NextDescriptionLink from "../AppDisplays/components/NextDescriptionLink";
 
 const MainApps = ({ navLinkTriger }) => {
   const { appName_kakaotalk, appName_call, appName_message } =
