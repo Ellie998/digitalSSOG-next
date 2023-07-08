@@ -64,5 +64,10 @@ export default function sitemap() {
       url: "https://ssog.pages.dev/description/%EA%B7%B8%EB%A3%B9%EC%B1%84%ED%8C%85%EB%B0%A9%20%EC%B1%84%ED%8C%85%20%EC%9E%85%EB%A0%A5%EC%B0%BD%20%EC%9E%A0%EA%B8%88%ED%95%98%EA%B8%B0",
       lastModified: new Date(),
     },
+    {
+      // <!--그룹채팅방 조용히 나가기-->
+      url: "https://ssog.pages.dev/description/그룹채팅방%20조용히%20나가기",
+      lastModified: new Date(),
+    },
   ];
 }
