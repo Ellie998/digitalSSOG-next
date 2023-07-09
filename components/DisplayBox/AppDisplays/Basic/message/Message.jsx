@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceImg from "../../components/ChoiceImg";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
+import TargetContent from "../../components/TargetContent";
 
 function Message() {
   const {
@@ -120,8 +120,16 @@ function Message() {
         onClick={backClickHandler}>
         <div className={classes.getMessage}>
           <div onPointerDown={mouseOverHandler}>
-            결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
-            OO로 OOO번길 O, OOO 컨벤션
+            <TargetContent
+              targetOption={
+                !isOvered &&
+                sendImgs.length === "0" &&
+                myAppName === appName_basic &&
+                functionName === functionName_resendMessage
+              }>
+              결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
+              OO로 OOO번길 O, OOO 컨벤션
+            </TargetContent>
           </div>
           <div>오전 8:03</div>
         </div>
@@ -151,14 +159,15 @@ function Message() {
             <div>답장</div>
             <div>글자 복사</div>
             <div>텍스트 선택</div>
-
-            <NextDescriptionLink
-              nextOption={
+            {/* 전달 */}
+            <TargetContent
+              targetOption={
                 myAppName === appName_basic &&
                 functionName === functionName_resendMessage
-              }>
-              <div>전달</div>
-            </NextDescriptionLink>
+              }
+              isNextDescriptionLink={true}>
+              전달
+            </TargetContent>
             <div>공유</div>
             <div>별표하기</div>
           </div>
@@ -170,13 +179,33 @@ function Message() {
         {!inputClicked && (
           <div className={classes.navOptions}>
             <div onClick={imgNavBtnClickHandler}>
-              <i className="bi bi-image"></i>
+              <TargetContent
+                targetOption={
+                  !imgBtnClicked &&
+                  sendImgs.length === 0 &&
+                  myAppName === appName_basic &&
+                  functionName === functionName_sendImg &&
+                  myMethodId === "1"
+                }>
+                <i className="bi bi-image"></i>
+              </TargetContent>
             </div>
             <div>
               <i className="bi bi-camera"></i>
             </div>
             <div onClick={plusBtnClickHandler}>
-              <i className="bi bi-plus"></i>
+              <TargetContent
+                targetOption={
+                  !plusClicked &&
+                  myAppName === appName_basic &&
+                  (functionName === functionName_reserveMessage ||
+                    (functionName === functionName_sendImg &&
+                      myMethodId === "2") ||
+                    functionName == functionName_sendAudio ||
+                    functionName == functionName_sendPhoneNum)
+                }>
+                <i className="bi bi-plus"></i>
+              </TargetContent>
             </div>
           </div>
         )}
@@ -265,16 +294,17 @@ function Message() {
               <div>빠른 답장 문구</div>
             </div>
             <div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_reserveMessage
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-clock"></i>
                 </div>
                 <div>메시지 예약</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
             <div>
               <div className={classes.iconWrap}>
@@ -292,56 +322,60 @@ function Message() {
             </div>
 
             <div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_sendImg &&
                   myMethodId === "2"
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-card-image"></i>
                 </div>
                 <div>이미지</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
             <div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_sendImg &&
                   myMethodId === "2"
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-play-btn"></i>
                 </div>
                 <div>동영상</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
             <div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_sendAudio
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-music-note"></i>
                 </div>
                 <div>오디오</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
           </div>
           <div className={classes.optionRow}>
             <div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_sendPhoneNum
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap}>
                   <i className="bi bi-person"></i>
                 </div>
                 <div>연락처</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
             <div>
               <div className={classes.iconWrap}>

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import NextDescriptionLink from "../../components/NextDescriptionLink";
 import UrlContext from "../../../../page_context/UrlContext";
 import classes from "./SelectFile.module.css";
+import TargetContent from "../../components/TargetContent";
 
 function SelectFile() {
   const {
@@ -83,16 +84,17 @@ function SelectFile() {
                 <div>버그 신고</div>
               </div>
               <div>
-                <NextDescriptionLink
-                  nextOption={
+                <TargetContent
+                  targetOption={
                     myAppName === "기본" &&
                     functionName === functionName_sendImg
-                  }>
+                  }
+                  isNextDescriptionLink={true}>
                   <div>
                     <i className="bi bi-flower3"></i>
                   </div>
                   <div>갤러리</div>
-                </NextDescriptionLink>
+                </TargetContent>
               </div>
               <div>
                 <div>
@@ -228,12 +230,13 @@ function SelectFile() {
             )}
           </div>
           {clickedFileId && (
-            <NextDescriptionLink
-              nextOption={
+            <TargetContent
+              targetOption={
                 myAppName === "기본" && functionName === functionName_sendAudio
-              }>
+              }
+              isNextDescriptionLink={true}>
               <div className={classes["button_done"]}>완료</div>
-            </NextDescriptionLink>
+            </TargetContent>
           )}
         </section>
       )}

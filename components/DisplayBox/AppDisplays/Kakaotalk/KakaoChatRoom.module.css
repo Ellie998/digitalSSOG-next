@@ -262,6 +262,7 @@
 .modalRadioWrap {
   display: flex;
   cursor: pointer;
+  width: 100px;
 }
 
 /* ------------------COMMON-------------------- */

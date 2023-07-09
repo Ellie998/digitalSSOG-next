@@ -37,6 +37,7 @@
 }
 
 .numLists li {
+  width: 140px;
   display: grid;
   grid-template-columns: 20px auto;
   margin: 10px 10px 0 10px;

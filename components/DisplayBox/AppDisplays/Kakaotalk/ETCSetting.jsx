@@ -1,5 +1,4 @@
 import { useState } from "react";
-import NextDescriptionLink from "../components/NextDescriptionLink";
 
 import MakeList from "../components/MakeList";
 
@@ -9,7 +8,7 @@ import TargetContent from "../components/TargetContent";
 function ETCSetting({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
   const [choicedSetting, setChoicedSetting] = useState("");
-  const [isCheckbox, setIsCheckbox] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div className={classes.layout}>
       {choicedModal !== "" && (
@@ -32,7 +31,7 @@ function ETCSetting({ navTriger }) {
               <input
                 type="checkbox"
                 id="info_config"
-                onChange={(event) => setIsCheckbox(event.target.value)}></input>
+                onChange={(event) => setIsChecked(event.target.value)}></input>
               <div className={classes.subTitle}>
                 위 내용을 모두 확인하였습니다.
               </div>
@@ -43,12 +42,13 @@ function ETCSetting({ navTriger }) {
                 onClick={() => setChoicedModal("")}>
                 취소
               </div>
-              <NextDescriptionLink
-                nextOption={
-                  isCheckbox && navTriger === "leaveOutBtn_inviteReject"
-                }>
+              <TargetContent
+                targetOption={
+                  isChecked && navTriger === "leaveOutBtn_inviteReject"
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes["color_grey--bold"]}>나가기</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
           </div>
         </div>
@@ -56,14 +56,15 @@ function ETCSetting({ navTriger }) {
       {choicedSetting !== "" && (
         <div>
           <div className={classes.main_header}>
-            <div
-              onClick={() => {
-                setChoicedSetting("");
-                setIsCheckbox(false);
-                setChoicedModal("");
-              }}>
-              <i className="bi bi-arrow-left"></i>
-            </div>
+            <TargetContent targetOption={isChecked}>
+              <div
+                onClick={() => {
+                  setChoicedSetting("");
+                  setChoicedModal("");
+                }}>
+                <i className="bi bi-arrow-left"></i>
+              </div>
+            </TargetContent>
             <div>실험실</div>
           </div>
           <div>
@@ -123,23 +124,34 @@ function ETCSetting({ navTriger }) {
             </div>
             {/* 채팅방 조용히 나가기 */}
             <TargetContent
-              className={`${classes.contentWrap} `}
-              targetOption={navTriger === "leave_quietly" ? `클릭` : ""}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.color_black} `} htmlFor="set3">
-                  채팅방 조용히 나가기
-                </label>
-                <input
-                  type="checkbox"
-                  id="set3"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set3"></label>
-              </div>
-              <div className={classes.subTitle}>
-                그룹채팅방에서 나가기 시, 조용히 나가기를 선택할 수 있습니다.
-                조용히 나가는 경우 채팅방에 나간 기록이 표시되지 않습니다.
+              targetOption={
+                navTriger === "groubChatLeave_quietly" && !isChecked
+              }>
+              <div className={`${classes.contentWrap} `}>
+                <div className={`${classes["display_flex--speaceBetween"]}`}>
+                  <label className={`${classes.color_black} `} htmlFor="set3">
+                    채팅방 조용히 나가기
+                  </label>
+                  <input
+                    type="checkbox"
+                    id="set3"
+                    className={classes.toggleInput}
+                    onChange={() => {
+                      navTriger === "groubChatLeave_quietly" &&
+                        isChecked &&
+                        setIsChecked(false);
+                      navTriger === "groubChatLeave_quietly" &&
+                        !isChecked &&
+                        setIsChecked(true);
+                    }}></input>
+                  <label
+                    className={` ${classes.toggleLabel}`}
+                    htmlFor="set3"></label>
+                </div>
+                <div className={classes.subTitle}>
+                  그룹채팅방에서 나가기 시, 조용히 나가기를 선택할 수 있습니다.
+                  조용히 나가는 경우 채팅방에 나간 기록이 표시되지 않습니다.
+                </div>
               </div>
             </TargetContent>
             {/* 빠른 공감하기 */}
@@ -211,9 +223,11 @@ function ETCSetting({ navTriger }) {
       {choicedSetting === "" && (
         <div>
           <div className={classes.main_header}>
-            <NextDescriptionLink nextOption={true}>
+            <TargetContent
+              targetOption={isChecked}
+              isNextDescriptionLink={true}>
               <i className="bi bi-arrow-left"></i>
-            </NextDescriptionLink>
+            </TargetContent>
             <div>설정</div>
           </div>
           <div className={classes.border_bottom}>
@@ -352,7 +366,10 @@ function ETCSetting({ navTriger }) {
                 }}></MakeList>
             </div>
             {/*실험실 */}
-            <TargetContent targetOption={navTriger === "leave_quietly"}>
+            <TargetContent
+              targetOption={
+                navTriger === "groubChatLeave_quietly" && !isChecked
+              }>
               <div
                 className={classes.contentWrap}
                 onClick={() => setChoicedSetting("experimentRoom")}>

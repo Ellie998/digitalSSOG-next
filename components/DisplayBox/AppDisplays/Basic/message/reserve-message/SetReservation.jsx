@@ -1,5 +1,6 @@
 import classes from "./SetReservation.module.css";
-import NextDescriptionLink from "../../../components/NextDescriptionLink";
+
+import TargetContent from "../../../components/TargetContent";
 
 function SetReservation() {
   return (
@@ -42,9 +43,9 @@ function SetReservation() {
         </div>
         <div className={classes.boxNav}>
           <div>취소</div>
-          <NextDescriptionLink nextOption={true}>
-            <div>완료</div>
-          </NextDescriptionLink>
+          <TargetContent targetOption={true} isNextDescriptionLink={true}>
+            완료
+          </TargetContent>
         </div>
       </div>
     </>

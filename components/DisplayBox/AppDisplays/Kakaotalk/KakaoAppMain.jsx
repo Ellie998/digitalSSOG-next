@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import { PageContext } from "../../sections/AppMain";
 
 import classes from "./KakaoAppMain.module.css";
 import MakeList from "../components/MakeList";
-
-import NextDescriptionLink from "../components/NextDescriptionLink";
+import TargetContent from "../components/TargetContent";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
@@ -210,10 +208,11 @@ function KakaoAppMain({ navTriger, tab }) {
                 {
                   className: "",
                   content: (
-                    <NextDescriptionLink
-                      nextOption={tab === "ETC" && navTriger === "setting"}>
+                    <TargetContent
+                      targetOption={tab === "ETC" && navTriger === "setting"}
+                      isNextDescriptionLink={true}>
                       <i className="bi bi-gear"></i>
-                    </NextDescriptionLink>
+                    </TargetContent>
                   ),
                 },
               ]}></MakeList>
@@ -226,24 +225,24 @@ function KakaoAppMain({ navTriger, tab }) {
               {friendListContents[0]}
             </div>
             <div className={classes.profile_message}>친구 2</div>
+            {friendListContents[1]}
             {
-              <NextDescriptionLink nextOption={navTriger === "profile_friend"}>
-                {friendListContents[1]}
-              </NextDescriptionLink>
-            }
-            {
-              <NextDescriptionLink nextOption={navTriger === "profile_friend"}>
+              <TargetContent
+                targetOption={navTriger === "profile_friend"}
+                isNextDescriptionLink={true}>
                 {friendListContents[2]}
-              </NextDescriptionLink>
+              </TargetContent>
             }
           </div>
         )}
         {tabName === "chat" && (
           <div className={classes.list}>
             {navTriger === "chatList_group" && (
-              <NextDescriptionLink nextOption={navTriger === "chatList_group"}>
+              <TargetContent
+                targetOption={navTriger === "chatList_group"}
+                isNextDescriptionLink={true}>
                 {chatListContents[0]}
-              </NextDescriptionLink>
+              </TargetContent>
             )}
             {chatListContents[1]}
             {chatListContents[2]}
@@ -255,36 +254,49 @@ function KakaoAppMain({ navTriger, tab }) {
       </div>
       <div className={classes.navAppLayout}>
         <div onClick={() => setTabName("friend")}>
-          <i
-            className={
-              tabName === "friend" ? "bi bi-person-fill" : "bi bi-person"
-            }></i>
+          <TargetContent
+            targetOption={tab === "friend" && tabName !== "friend"}>
+            <i
+              className={
+                tabName === "friend" ? "bi bi-person-fill" : "bi bi-person"
+              }></i>
+          </TargetContent>
         </div>
         <div onClick={() => setTabName("chat")}>
-          <i
-            className={
-              tabName === "chat" ? "bi bi-chat-fill" : "bi bi-chat"
-            }></i>
+          <TargetContent targetOption={tab === "chat" && tabName !== "chat"}>
+            <i
+              className={
+                tabName === "chat" ? "bi bi-chat-fill" : "bi bi-chat"
+              }></i>
+          </TargetContent>
         </div>
         <div onClick={() => setTabName("openChat")}>
-          <i
-            className={
-              tabName === "openChat"
-                ? "bi bi-chat-heart-fill"
-                : "bi bi-chat-heart"
-            }></i>
+          <TargetContent
+            targetOption={tab === "openChat" && tabName !== "openChat"}>
+            <i
+              className={
+                tabName === "openChat"
+                  ? "bi bi-chat-heart-fill"
+                  : "bi bi-chat-heart"
+              }></i>
+          </TargetContent>
         </div>
         <div onClick={() => setTabName("shopping")}>
-          <i
-            className={
-              tabName === "shopping" ? "bi bi-handbag-fill" : "bi bi-handbag"
-            }></i>
+          <TargetContent
+            targetOption={tab === "shopping" && tabName !== "shopping"}>
+            <i
+              className={
+                tabName === "shopping" ? "bi bi-handbag-fill" : "bi bi-handbag"
+              }></i>
+          </TargetContent>
         </div>
         <div onClick={() => setTabName("ETC")}>
-          <i
-            className={
-              tabName === "ETC" ? "bi bi-three-dots" : "bi bi-three-dots"
-            }></i>
+          <TargetContent targetOption={tab === "ETC" && tabName !== "ETC"}>
+            <i
+              className={
+                tabName === "ETC" ? "bi bi-three-dots" : "bi bi-three-dots"
+              }></i>
+          </TargetContent>
         </div>
       </div>
     </div>

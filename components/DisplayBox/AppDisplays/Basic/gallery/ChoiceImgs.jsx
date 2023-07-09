@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
 
 import classes from "./ChoiceImgs.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
+import TargetContent from "../../components/TargetContent";
 
 function ChoiceImgs() {
   const { myAppName, functionName, functionName_sendImg, appName_basic } =
@@ -52,13 +52,14 @@ function ChoiceImgs() {
           {choicedImgs.length !== 0 && (
             <div>
               <div>{choicedImgs.length}/10</div>
-              <NextDescriptionLink
-                nextOption={
+              <TargetContent
+                targetOption={
                   myAppName === appName_basic &&
                   functionName === functionName_sendImg
-                }>
+                }
+                isNextDescriptionLink={true}>
                 <div>완료</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
           )}
           {choicedImgs.length === 0 && (

@@ -1,6 +1,6 @@
 import classes from "./KakaoProfileDetail.module.css";
 
-import NextDescriptionLink from "../components/NextDescriptionLink";
+import TargetContent from "../components/TargetContent";
 
 function KakaoProfileDetail() {
   return (
@@ -18,10 +18,10 @@ function KakaoProfileDetail() {
           <div className={classes.iconDescription}>1:1채팅</div>
         </div>
         <div>
-          <NextDescriptionLink nextOption={true}>
+          <TargetContent targetOption={true} isNextDescriptionLink={true}>
             <i className="bi bi-telephone-fill"></i>
             <div className={classes.iconDescription}>통화하기</div>
-          </NextDescriptionLink>
+          </TargetContent>
         </div>
         <div>
           <i className="bi bi-camera-video-fill"></i>

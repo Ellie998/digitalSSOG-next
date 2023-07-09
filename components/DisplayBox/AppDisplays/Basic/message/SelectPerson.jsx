@@ -2,7 +2,8 @@ import { useContext } from "react";
 
 import classes from "./SelectPerson.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
+
+import TargetContent from "../../components/TargetContent";
 
 function SelectPerson() {
   const {
@@ -27,8 +28,8 @@ function SelectPerson() {
         <input type="text" placeholder="이름 또는 번호 입력"></input>
       </div>
       <ul className={classes.numLists}>
-        <NextDescriptionLink
-          nextOption={
+        <TargetContent
+          targetOption={
             functionName === functionName_sendMessage ||
             functionName === functionName_sendImg ||
             functionName === functionName_reserveMessage ||
@@ -36,25 +37,28 @@ function SelectPerson() {
             (functionName === functionName_sendPhoneNum &&
               myDescriptionId === "2") ||
             functionName === functionName_resendMessage
-          }>
+          }
+          isNextDescriptionLink={true}>
           <li>
             <div className={classes.firstNameBox}>홍</div>
             <div>홍길동</div>
             <div className={classes.callNumber}>010-0000-0000</div>
           </li>
-        </NextDescriptionLink>
-        <NextDescriptionLink
-          nextOption={
+        </TargetContent>
+
+        <TargetContent
+          targetOption={
             myAppName === appName_basic &&
             functionName === functionName_sendPhoneNum &&
             myDescriptionId === "4"
-          }>
+          }
+          isNextDescriptionLink={true}>
           <li>
             <div className={classes.firstNameBox}>홍</div>
             <div>홍길순</div>
             <div className={classes.callNumber}>010-0000-0000</div>
           </li>
-        </NextDescriptionLink>
+        </TargetContent>
       </ul>
     </section>
   );

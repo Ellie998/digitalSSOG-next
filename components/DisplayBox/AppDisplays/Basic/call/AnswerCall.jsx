@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
 import classes from "./AnswerCall.module.css";
+import TargetContent from "../../components/TargetContent";
 
 const AnswerCall = () => {
   const { myAppName, appName_basic, appName_kakaotalk } =
@@ -15,14 +15,9 @@ const AnswerCall = () => {
           </div>
           <div className={classes.content_sub}>010-0000-0000</div>
           <div className={classes.btns_basic}>
-            <NextDescriptionLink nextOption={true}>
-              <div data-tooltip="클릭!">
-                <i
-                  className="bi bi-telephone-fill"
-                  style={{ color: "blue" }}></i>
-              </div>
-            </NextDescriptionLink>
-
+            <TargetContent targetOption={true} isNextDescriptionLink={true}>
+              <i className="bi bi-telephone-fill" style={{ color: "blue" }}></i>
+            </TargetContent>
             <div>
               <i
                 className="bi bi-telephone-x-fill"
@@ -52,13 +47,9 @@ const AnswerCall = () => {
                 className="bi bi-telephone-x-fill"
                 style={{ color: "red" }}></i>
             </div>
-            <NextDescriptionLink nextOption={true}>
-              <div data-tooltip="클릭!">
-                <i
-                  className="bi bi-telephone-fill"
-                  style={{ color: "blue" }}></i>
-              </div>
-            </NextDescriptionLink>
+            <TargetContent targetOption={true} isNextDescriptionLink={true}>
+              <i className="bi bi-telephone-fill" style={{ color: "blue" }}></i>
+            </TargetContent>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import classes from "./AppMain.module.css";
 import UrlContext from "../../page_context/UrlContext";
-import NextDescriptionLink from "../AppDisplays/components/NextDescriptionLink";
+import TargetContent from "../AppDisplays/components/TargetContent";
 
 const MainApps = ({ navLinkTriger }) => {
   const { appName_kakaotalk, appName_call, appName_message } =
@@ -11,19 +11,23 @@ const MainApps = ({ navLinkTriger }) => {
     <section className={classes.layout}>
       <section className={classes.appLayout}>
         <div className={classes.app_row}>
-          <NextDescriptionLink nextOption={navLinkTriger === appName_kakaotalk}>
+          <TargetContent
+            targetOption={navLinkTriger === appName_kakaotalk}
+            isNextDescriptionLink={true}>
             <div>
               <i className="bi bi-chat-fill"></i>
             </div>
-          </NextDescriptionLink>
+          </TargetContent>
         </div>
       </section>
       <section className={classes.navAppLayout}>
-        <NextDescriptionLink nextOption={navLinkTriger === appName_call}>
+        <TargetContent
+          targetOption={navLinkTriger === appName_call}
+          isNextDescriptionLink={true}>
           <div>
             <i className="bi bi-telephone"></i>
           </div>
-        </NextDescriptionLink>
+        </TargetContent>
         <div>
           <i className="bi bi-camera"></i>
         </div>
@@ -33,11 +37,14 @@ const MainApps = ({ navLinkTriger }) => {
         <div>
           <i className="bi bi-browser-chrome"></i>
         </div>
-        <NextDescriptionLink nextOption={navLinkTriger === appName_message}>
+
+        <TargetContent
+          targetOption={navLinkTriger === appName_message}
+          isNextDescriptionLink={true}>
           <div>
             <i className="bi bi-chat-dots"></i>
           </div>
-        </NextDescriptionLink>
+        </TargetContent>
       </section>
     </section>
   );

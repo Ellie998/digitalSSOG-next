@@ -10,8 +10,7 @@ const NextDescriptionLink = ({ children, nextOption }) => {
       onClick={() => {
         nextOption &&
           setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
-      }}
-      tooltip={nextOption ? "클릭" : null}>
+      }}>
       {children}
     </div>
   );

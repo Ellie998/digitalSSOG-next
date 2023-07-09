@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 
 import classes from "./MessageAppMain.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
 import MakeList from "../../components/MakeList";
+import TargetContent from "../../components/TargetContent";
 
 function MessageAppMain() {
   const {
@@ -43,11 +43,13 @@ function MessageAppMain() {
           <div className={classes.appTitle}>Messages</div>
         )}
         {functionName === functionName_seeMessage && myMethodId === "2" && (
-          <div className={classes.appTitle} tooltip={`클릭!`}>
-            <NextDescriptionLink nextOption={true}>
+          <div className={classes.appTitle}>
+            <TargetContent
+              targetOption={functionName_seeMessage && myMethodId === "2"}
+              isNextDescriptionLink={true}>
               <div>읽지 않은 메시지 1개</div>
               <div className={classes.appTitle_btn}>보기</div>
-            </NextDescriptionLink>
+            </TargetContent>
           </div>
         )}
         <div className={classes.appETCLists}>
@@ -74,13 +76,14 @@ function MessageAppMain() {
           functionName === functionName_sendAudio ||
           functionName === functionName_sendPhoneNum) && (
           <div className={classes.contentLists}>
-            <NextDescriptionLink
-              nextOption={
+            <TargetContent
+              targetOption={
                 (functionName === functionName_sendMessage &&
                   myMethodId === "2") ||
                 functionName === functionName_resendMessage ||
                 (functionName === functionName_seeMessage && myMethodId === "1")
-              }>
+              }
+              isNextDescriptionLink={true}>
               <MakeList
                 listStyle="grid_twoLine"
                 item1={{
@@ -103,15 +106,25 @@ function MessageAppMain() {
                   className: "subInfo",
                   content: functionName === functionName_seeMessage ? "1" : "",
                 }}></MakeList>
-            </NextDescriptionLink>
+            </TargetContent>
           </div>
         )}
 
         {isXClicked && (
           <div className={classes.messagePlus}>
-            <i
-              className="bi bi-envelope-plus"
-              onClick={chatBtnClickHandler}></i>
+            <TargetContent
+              targetOption={
+                (functionName === functionName_sendMessage &&
+                  myMethodId === "1") ||
+                functionName === functionName_sendImg ||
+                functionName === functionName_sendAudio ||
+                functionName === functionName_sendImg ||
+                functionName === functionName_sendPhoneNum
+              }>
+              <i
+                className="bi bi-envelope-plus"
+                onClick={chatBtnClickHandler}></i>
+            </TargetContent>
           </div>
         )}
       </section>
@@ -120,50 +133,51 @@ function MessageAppMain() {
           <div
             className={classes.backdropLight}
             onClick={chatXBtnClickHandler}></div>
-          <section className={`${classes.wigetApps}`}>
-            <NextDescriptionLink
-              nextOption={
+          <div className={`${classes.wigetAppsWrap}`}>
+            <TargetContent
+              targetOption={
                 myAppName === appName_basic &&
                 (functionName === functionName_sendMessage ||
                   functionName === functionName_reserveMessage ||
                   functionName === functionName_sendImg ||
                   functionName === functionName_sendAudio ||
                   functionName === functionName_sendPhoneNum)
-              }>
+              }
+              isNextDescriptionLink={true}>
               <div className={classes.wigetAppWrap}>
                 <div>1:1 대화</div>
                 <div className={classes.wigetIconWrap}>
                   <i className="bi bi-chat"></i>
                 </div>
               </div>
-            </NextDescriptionLink>
-            <NextDescriptionLink>
+            </TargetContent>
+            <TargetContent targetOption={false} isNextDescriptionLink={true}>
               <div className={classes.wigetAppWrap}>
                 <div>그룹 채팅</div>
                 <div className={classes.wigetIconWrap}>
                   <i className="bi bi-people"></i>
                 </div>
               </div>
-            </NextDescriptionLink>
-            <NextDescriptionLink>
+            </TargetContent>
+            <TargetContent targetOption={false} isNextDescriptionLink={true}>
               <div className={classes.wigetAppWrap}>
                 <div>단체 문자</div>
                 <div className={classes.wigetIconWrap}>
                   <i className="bi bi-wechat"></i>
                 </div>
               </div>
-            </NextDescriptionLink>
-            <NextDescriptionLink>
+            </TargetContent>
+            <TargetContent targetOption={false} isNextDescriptionLink={true}>
               <div
                 className={classes.wigetAppWrap}
                 onClick={chatXBtnClickHandler}>
                 <div></div>
-                <div className={classes.wigetIconWrap}>
+                <div className={classes.wigetIconWrap_big}>
                   <i className="bi bi-x-lg"></i>
                 </div>
               </div>
-            </NextDescriptionLink>
-          </section>
+            </TargetContent>
+          </div>
         </>
       )}
     </>

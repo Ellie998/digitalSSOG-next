@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 
 import MakeList from "../components/MakeList";
-import NextDescriptionLink from "../components/NextDescriptionLink";
 
 import UrlContext from "../../../page_context/UrlContext";
 import classes from "./KakaoChatRoom.module.css";
+import TargetContent from "../components/TargetContent";
 
 function KakaoChatRoom({ inputLocked, navTriger }) {
   const {
@@ -20,16 +20,18 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
   const [isOvered, setIsOvered] = useState(false);
   // input nav
   const [enteredMessage, setEnteredMessage] = useState("");
-  const [plusClicked, setPlusClicked] = useState(false);
-  const [inputClicked, setInputClicked] = useState(false);
-  const [sendBtnClicked, setSendBtnClicked] = useState(false);
+  const [isPlusClicked, setIsPlusClicked] = useState(false);
+  const [isInputClicked, setIsInputClicked] = useState(false);
+  const [isSendBtnClicked, setIsSendBtnClicked] = useState(false);
   const [isInputLocked, setIsInputLocked] = useState(false);
+
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
   const [sendImgs, setSendImgs] = useState([]);
   // setting
-  const [menuBtnClicked, setMenuBtnClicked] = useState(false);
-  const [leaveBtnClicked, setLeaveBtnClicked] = useState(false);
+  const [isMenuBtnClicked, setIsMenuBtnClicked] = useState(false);
+  const [isLeaveBtnClicked, setIsLeaveBtnClicked] = useState(false);
+
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
   const [choicedModal, setChoicedModal] = useState("");
@@ -45,38 +47,38 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
 
   function backClickHandler() {
     setIsOvered(false);
-    setPlusClicked(false);
+    setIsPlusClicked(false);
   }
 
   function inputClickHandler(event) {
-    setInputClicked(true);
-    setSendBtnClicked(false);
+    setIsInputClicked(true);
+    setIsSendBtnClicked(false);
   }
   function sendBtnClickHandler(event) {
     setMessageContent(enteredMessage);
-    setSendBtnClicked(true);
+    setIsSendBtnClicked(true);
     setEnteredMessage("");
     setSendImgs([...choicedImgs]);
     setChoicedImgs([]);
   }
 
   function inputOutHandler(event) {
-    setInputClicked(false);
+    setIsInputClicked(false);
   }
   function inputChangeHandler(event) {
     setEnteredMessage(event.target.value);
   }
   function plusBtnClickHandler() {
-    setPlusClicked(true);
+    setIsPlusClicked(true);
     setChoicedImgs([]);
-    setSendBtnClicked(false);
+    setIsSendBtnClicked(false);
   }
   function menuBtnClickHandler() {
-    setMenuBtnClicked(true);
+    setIsMenuBtnClicked(true);
   }
   function backdropClickHandler() {
-    setMenuBtnClicked(false);
-    setLeaveBtnClicked(false);
+    setIsMenuBtnClicked(false);
+    setIsLeaveBtnClicked(false);
   }
 
   return (
@@ -100,7 +102,17 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
             },
             {
               className: "",
-              content: <i className="bi bi-list"></i>,
+              content: (
+                <TargetContent
+                  targetOption={
+                    (navTriger === "groubChatLeave_quietly" ||
+                      navTriger === "groubChatLeave_rejectInvitation" ||
+                      navTriger === "groubChatLock") &&
+                    !isMenuBtnClicked
+                  }>
+                  <i className="bi bi-list"></i>
+                </TargetContent>
+              ),
               onClick: menuBtnClickHandler,
             },
           ]}></MakeList>
@@ -108,7 +120,7 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
       {/* message List */}
       <div
         className={`${classes.messages} ${
-          plusClicked ? classes.messagesSmall : ""
+          isPlusClicked ? classes.messagesSmall : ""
         }`}
         onClick={backClickHandler}>
         <div className={classes.getMessageWrap}>
@@ -132,20 +144,20 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
               content: "오전 9:00",
             }}></MakeList>
         </div>
-        {!messageContent && sendBtnClicked && (
+        {!messageContent && isSendBtnClicked && (
           <div className={classes.sendMessageWrap}>
             <div className={classes.timeStamp}>오전 9:54</div>
             <div style={{ display: "none" }}></div>
             <div className={classes.imgBox}></div>
           </div>
         )}
-        {messageContent && sendImgs.length !== 0 && sendBtnClicked && (
+        {messageContent && sendImgs.length !== 0 && isSendBtnClicked && (
           <div className={classes.sendMessageWrap}>
             <div className={classes.imgBox}></div>
             <div style={{ display: "none" }}></div>
           </div>
         )}
-        {messageContent && sendBtnClicked && (
+        {messageContent && isSendBtnClicked && (
           <div className={classes.sendMessageWrap}>
             <div className={classes.timeStamp}>오전 9:54</div>
             <div className={classes.sendMessage}>{messageContent}</div>
@@ -158,14 +170,15 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
             <div>답장</div>
             <div>글자 복사</div>
             <div>텍스트 선택</div>
-
-            <NextDescriptionLink
-              nextOption={
+            <TargetContent
+              targetOption={
                 myAppName === appName_basic &&
                 functionName === functionName_resendMessage
-              }>
-              <div>전달</div>
-            </NextDescriptionLink>
+              }
+              isNextDescriptionLink={true}>
+              전달
+            </TargetContent>
+
             <div>공유</div>
             <div>별표하기</div>
           </div>
@@ -175,19 +188,19 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
       {!isInputLocked && (
         <div
           className={`${classes.appNav} ${
-            plusClicked ? classes.appNavSmall : ""
+            isPlusClicked ? classes.appNavSmall : ""
           }`}>
-          {!plusClicked && (
+          {!isPlusClicked && (
             <div className={classes.navOptions}>
               <div onClick={plusBtnClickHandler}>
                 <i className="bi bi-plus-lg"></i>
               </div>
             </div>
           )}
-          {plusClicked && (
+          {isPlusClicked && (
             <div
               className={classes.navOption}
-              onClick={() => setPlusClicked(false)}>
+              onClick={() => setIsPlusClicked(false)}>
               <i className="bi bi-x-lg"></i>
             </div>
           )}
@@ -197,7 +210,7 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
                 onFocus={inputClickHandler}
                 onBlur={inputOutHandler}
                 onChange={inputChangeHandler}
-                value={sendBtnClicked ? "" : enteredMessage}></input>
+                value={isSendBtnClicked ? "" : enteredMessage}></input>
             </div>
             <div>
               <i className="bi bi-emoji-smile"></i>
@@ -221,19 +234,19 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
       {isInputLocked && (
         <div
           className={`${classes.appNav} ${
-            plusClicked ? classes.appNavSmall : ""
+            isPlusClicked ? classes.appNavSmall : ""
           }`}>
-          {!plusClicked && (
+          {!isPlusClicked && (
             <div className={classes.navOptions}>
               <div>
                 <i className="bi bi-plus-lg"></i>
               </div>
             </div>
           )}
-          {plusClicked && (
+          {isPlusClicked && (
             <div
               className={classes.navOption}
-              onClick={() => setPlusClicked(false)}>
+              onClick={() => setIsPlusClicked(false)}>
               <i className="bi bi-x-lg"></i>
             </div>
           )}
@@ -242,16 +255,17 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
               대화에 주의가 필요한 방입니다.
             </div>
           </div>
-          <div
-            className={classes.sendIcon}
-            onClick={() => setIsInputLocked(false)}
-            data-tooltip="클릭!">
-            <i className="bi bi-lock"></i>
-          </div>
+          <TargetContent targetOption={isInputLocked}>
+            <div
+              className={classes.sendIcon}
+              onClick={() => setIsInputLocked(false)}>
+              <i className="bi bi-lock"></i>
+            </div>
+          </TargetContent>
         </div>
       )}
       {/* Option Box */}
-      {plusClicked && (
+      {isPlusClicked && (
         <div className={`${classes["optionBox"]} `}>
           <div className={classes.optionRow}>
             <div>
@@ -377,7 +391,7 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
         </div>
       )}
       {/* Side Menu */}
-      {menuBtnClicked && (
+      {isMenuBtnClicked && (
         <div className={classes.sideMenuWrap}>
           <div
             className={classes.backdrop}
@@ -449,12 +463,19 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
                   {
                     className: "",
                     content: (
-                      <i
-                        onClick={() => {
-                          setLeaveBtnClicked(true);
-                          setChoicedModal("leave");
-                        }}
-                        className="bi bi-box-arrow-right"></i>
+                      <TargetContent
+                        targetOption={
+                          isMenuBtnClicked &&
+                          navTriger === "groubChatLeave_quietly" &&
+                          choicedModal === ""
+                        }>
+                        <i
+                          onClick={() => {
+                            setIsLeaveBtnClicked(true);
+                            setChoicedModal("groubChatLeave_quietly");
+                          }}
+                          className="bi bi-box-arrow-right"></i>
+                      </TargetContent>
                     ),
                   },
                 ]}
@@ -470,9 +491,14 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
                   {
                     className: "",
                     content: (
-                      <NextDescriptionLink nextOption={navTriger === "setting"}>
+                      <TargetContent
+                        targetOption={
+                          navTriger === "groubChatLeave_rejectInvitation" ||
+                          navTriger === "groubChatLock"
+                        }
+                        isNextDescriptionLink={true}>
                         <i className="bi bi-gear"></i>
-                      </NextDescriptionLink>
+                      </TargetContent>
                     ),
                   },
                 ]}></MakeList>
@@ -493,27 +519,32 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
               <br />
               채팅 목록에서도 삭제됩니다.
             </div>
-            <label
-              className={`${classes.modalRadioWrap}`}
-              htmlFor="info_config">
-              <input
-                type="checkbox"
-                id="info_config"
-                onChange={(e) => {
-                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
-                }}></input>
-              <div className={classes.subTitle}>조용히 나가기</div>
-            </label>
+            <TargetContent targetOption={!isCheckbox}>
+              <label
+                className={`${classes.modalRadioWrap}`}
+                htmlFor="info_config">
+                <input
+                  type="checkbox"
+                  id="info_config"
+                  onChange={(e) => {
+                    isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
+                  }}></input>
+                <div className={classes.subTitle}>조용히 나가기</div>
+              </label>
+            </TargetContent>
             <div className={classes.modalNavWrap}>
               <div
                 className={classes["color_blue--bold"]}
                 onClick={() => setChoicedModal("")}>
                 취소
               </div>
-              <NextDescriptionLink
-                nextOption={isCheckbox && navTriger === "leave"}>
+              <TargetContent
+                targetOption={
+                  isCheckbox && navTriger === "groubChatLeave_quietly"
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes["color_grey--bold"]}>나가기</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
           </div>
         </div>

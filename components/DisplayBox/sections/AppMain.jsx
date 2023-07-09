@@ -43,7 +43,7 @@ function AppMain() {
     functionName_sendImg,
     functionName_sendAudio,
     functionName_sendPhoneNum,
-    functionName_kakaotalk_groubChatLeave_RejectInvitation,
+    functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
     //
@@ -65,7 +65,15 @@ function AppMain() {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <CallAppMain />;
+          if (methodId === "1") {
+            choicedComponent = <CallAppMain tab="키패드" />;
+          }
+          if (methodId === "2") {
+            choicedComponent = <CallAppMain tab="최근기록" />;
+          }
+          if (methodId === "3") {
+            choicedComponent = <CallAppMain tab="연락처" />;
+          }
         } else if (descriptionId === "2") {
           choicedComponent = <CallConnected />;
         } else {
@@ -111,7 +119,7 @@ function AppMain() {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <CallAppMain />;
+          choicedComponent = <CallAppMain tab="키패드" />;
         } else if (descriptionId === "2") {
           choicedComponent = <VideoCallConnected />;
         } else {
@@ -245,7 +253,7 @@ function AppMain() {
         }
       }
       break;
-    case functionName_kakaotalk_groubChatLeave_RejectInvitation:
+    case functionName_kakaotalk_groubChatLeave_rejectInvitation:
       if (descriptionId === "0") {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
@@ -254,11 +262,14 @@ function AppMain() {
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
-          <KakaoChatRoom inputLocked={false} navTriger={"setting"} />
+          <KakaoChatRoom
+            inputLocked={false}
+            navTriger={"groubChatLeave_rejectInvitation"}
+          />
         );
       } else if (descriptionId === "3") {
         choicedComponent = (
-          <KakaoSettingPage navTriger="leaveOutBtn_inviteReject" />
+          <KakaoSettingPage navTriger="groubChatLeave_rejectInvitation" />
         );
       } else if (descriptionId === "4") {
         choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
@@ -273,10 +284,10 @@ function AppMain() {
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
-          <KakaoChatRoom inputLocked={false} navTriger={"setting"} />
+          <KakaoChatRoom inputLocked={false} navTriger={"groubChatLock"} />
         );
       } else if (descriptionId === "3") {
-        choicedComponent = <KakaoSettingPage navTriger="backBtn" />;
+        choicedComponent = <KakaoSettingPage navTriger="groubChatLock" />;
       } else if (descriptionId === "4") {
         choicedComponent = <KakaoChatRoom inputLocked={true} />;
       }
@@ -287,14 +298,19 @@ function AppMain() {
       } else if (descriptionId === "1") {
         choicedComponent = <KakaoAppMain tab="ETC" navTriger="setting" />;
       } else if (descriptionId === "2") {
-        choicedComponent = <ETCSetting navTriger="leave_quietly"></ETCSetting>;
+        choicedComponent = (
+          <ETCSetting navTriger="groubChatLeave_quietly"></ETCSetting>
+        );
       } else if (descriptionId === "3") {
         choicedComponent = (
           <KakaoAppMain tab="chat" navTriger="chatList_group" />
         );
       } else if (descriptionId === "4") {
         choicedComponent = (
-          <KakaoChatRoom inputLocked={false} navTriger="leave" />
+          <KakaoChatRoom
+            inputLocked={false}
+            navTriger="groubChatLeave_quietly"
+          />
         );
       } else if (descriptionId === "5") {
         choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;

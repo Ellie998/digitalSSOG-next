@@ -1,20 +1,22 @@
 import { useState } from "react";
-import NextDescriptionLink from "../components/NextDescriptionLink";
-
 import MakeList from "../components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
+import TargetContent from "../components/TargetContent";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
-  const [isCheckbox, setIsCheckbox] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div className={classes.layout}>
       {choicedModal !== "" && (
         <div className={classes.modalWrap}>
           <div
             className={classes.backdrop}
-            onClick={() => setChoicedModal("")}></div>
+            onClick={() => {
+              setChoicedModal("");
+              setIsChecked(false);
+            }}></div>
           <div className={classes.modal}>
             <div className={classes.title}>초대 거부 및 나가기</div>
             <div className={classes.subTitle}>
@@ -24,31 +26,40 @@ function KakaoSettingPage({ navTriger }) {
               <br />
               대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
             </div>
-            <label
-              className={`${classes.modalRadioWrap}`}
-              htmlFor="info_config">
-              <input
-                type="checkbox"
-                id="info_config"
-                onChange={(event) => {
-                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
-                }}></input>
-              <div className={classes.subTitle}>
-                위 내용을 모두 확인하였습니다.
-              </div>
-            </label>
+            <TargetContent targetOption={!isChecked}>
+              <label
+                className={`${classes.modalRadioWrap}`}
+                htmlFor="info_config">
+                <input
+                  type="checkbox"
+                  id="info_config"
+                  onChange={(event) => {
+                    navTriger === "groubChatLeave_rejectInvitation" && isChecked
+                      ? setIsChecked(false)
+                      : setIsChecked(true);
+                  }}></input>
+                <div className={classes.subTitle}>
+                  위 내용을 모두 확인하였습니다.
+                </div>
+              </label>
+            </TargetContent>
             <div className={classes.modalNavWrap}>
               <div
                 className={classes["color_blue--bold"]}
-                onClick={() => setChoicedModal("")}>
+                onClick={() => {
+                  setChoicedModal("");
+                  navTriger === "groubChatLeave_rejectInvitation" &&
+                    setIsChecked(false);
+                }}>
                 취소
               </div>
-              <NextDescriptionLink
-                nextOption={
-                  isCheckbox && navTriger === "leaveOutBtn_inviteReject"
-                }>
+              <TargetContent
+                targetOption={
+                  isChecked && navTriger === "groubChatLeave_rejectInvitation"
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes["color_grey--bold"]}>나가기</div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
           </div>
         </div>
@@ -61,9 +72,11 @@ function KakaoSettingPage({ navTriger }) {
             {
               className: "title",
               content: (
-                <NextDescriptionLink nextOption={navTriger === "backBtn"}>
+                <TargetContent
+                  targetOption={isChecked && navTriger === "groubChatLock"}
+                  isNextDescriptionLink={true}>
                   <i className="bi bi-arrow-left"></i>
-                </NextDescriptionLink>
+                </TargetContent>
               ),
             },
             { className: "title--bold", content: "채팅방 설정" },
@@ -112,19 +125,30 @@ function KakaoSettingPage({ navTriger }) {
           <div className={classes.color_black}>현재 채팅방 알림음</div>
           <div className={classes.subTitle}>카톡</div>
         </div>
-        <div
-          className={`${classes.contentWrap} ${classes["display_flex--speaceBetween"]}`}>
-          <label className={`${classes.color_black} `} htmlFor="chatLock">
-            현재 채팅방 입력창 잠금
-          </label>
-          <input
-            type="checkbox"
-            id="chatLock"
-            className={classes.toggleInput}></input>
-          <label
-            className={` ${classes.toggleLabel}`}
-            htmlFor="chatLock"></label>
-        </div>
+        <TargetContent
+          targetOption={navTriger === "groubChatLock" && !isChecked}>
+          <div
+            className={`${classes.contentWrap} ${classes["display_flex--speaceBetween"]}`}>
+            <label className={`${classes.color_black} `} htmlFor="chatLock">
+              현재 채팅방 입력창 잠금
+            </label>
+            <input
+              type="checkbox"
+              id="chatLock"
+              className={classes.toggleInput}
+              onChange={() => {
+                navTriger === "groubChatLock" &&
+                  isChecked &&
+                  setIsChecked(false);
+                navTriger === "groubChatLock" &&
+                  !isChecked &&
+                  setIsChecked(true);
+              }}></input>
+            <label
+              className={` ${classes.toggleLabel}`}
+              htmlFor="chatLock"></label>
+          </div>
+        </TargetContent>
       </div>
       <div className={classes.border_bottom}>
         <div className={classes.subTitle}>채팅방 관리</div>
@@ -159,11 +183,14 @@ function KakaoSettingPage({ navTriger }) {
       </div>
       <div className={classes.buttonWrap}>
         <div className={classes.border_orange}>채팅방 나가기</div>
-        <div
-          className={classes.background_orange}
-          onClick={() => setChoicedModal("inviteRejectAndLeave")}>
-          초대거부 및 나가기
-        </div>
+        <TargetContent
+          targetOption={navTriger === "groubChatLeave_rejectInvitation"}>
+          <div
+            className={classes.background_orange}
+            onClick={() => setChoicedModal("groubChatLeave_rejectInvitation")}>
+            초대거부 및 나가기
+          </div>
+        </TargetContent>
       </div>
     </div>
   );

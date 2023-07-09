@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { PageContext } from "../../../sections/AppMain";
 
 import NavBar from "../../components/NavBar";
 import MakeList from "../../components/MakeList";
@@ -8,10 +7,10 @@ import classes from "./CallAppMain.module.css";
 import listClass from "../../components/MakeList.module.css";
 
 import UrlContext from "../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../components/NextDescriptionLink";
-NextDescriptionLink;
 
-function CallAppMain() {
+import TargetContent from "../../components/TargetContent";
+
+function CallAppMain({ tab }) {
   const {
     myAppName,
     functionName,
@@ -75,10 +74,11 @@ function CallAppMain() {
         {
           className: "iconWrapS_background--green",
           content: (
-            <NextDescriptionLink
-              nextOption={functionName === functionName_makeCall}>
+            <TargetContent
+              targetOption={functionName === functionName_makeCall}
+              isNextDescriptionLink={true}>
               <i className="bi bi-telephone-fill"></i>
-            </NextDescriptionLink>
+            </TargetContent>
           ),
         },
         {
@@ -189,6 +189,14 @@ function CallAppMain() {
       content3: "",
     },
     {
+      className1: "subTitle",
+      content1: "  ㅇ",
+      className2: "",
+      content2: "",
+      className3: "",
+      content3: "",
+    },
+    {
       onClickFunction: showListOption1,
       className1: "iconWrap_background--pink",
       content1: <i className="bi bi-person-fill"></i>,
@@ -204,6 +212,14 @@ function CallAppMain() {
           {optionlistContent}
         </div>
       ),
+    },
+    {
+      className1: "subTitle",
+      content1: "  ㅊ",
+      className2: "",
+      content2: "",
+      className3: "",
+      content3: "",
     },
     {
       onClickFunction: showListOption2,
@@ -252,25 +268,25 @@ function CallAppMain() {
             </div>
           </div>
           <div className={classes.navLayout}>
-            <NextDescriptionLink
-              nextOption={
-                myAppName === appName_basic &&
-                functionName === functionName_makeVideoCall
-              }>
+            <TargetContent
+              targetOption={
+                functionName === functionName_makeVideoCall && tab === "키패드"
+              }
+              isNextDescriptionLink={true}>
               <div>
                 <i className="bi bi-camera-video-fill"></i>
               </div>
-            </NextDescriptionLink>
+            </TargetContent>
             <div>
-              <NextDescriptionLink
-                nextOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_makeCall
-                }>
+              <TargetContent
+                targetOption={
+                  functionName === functionName_makeCall && tab === "키패드"
+                }
+                isNextDescriptionLink={true}>
                 <div className={classes.iconWrap_background}>
                   <i className="bi bi-telephone-fill"></i>
                 </div>
-              </NextDescriptionLink>
+              </TargetContent>
             </div>
             <div>
               <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
@@ -316,17 +332,28 @@ function CallAppMain() {
         <div
           onClick={changeTapHandler}
           className={clickedTapName === "키패드" ? classes.tap_clicked : ""}>
-          키패드
+          <TargetContent
+            targetOption={tab === "키패드" && clickedTapName !== "키패드"}>
+            키패드
+          </TargetContent>
         </div>
-        <div
-          onClick={changeTapHandler}
-          className={clickedTapName === "최근기록" ? classes.tap_clicked : ""}>
-          최근기록
-        </div>
+        <TargetContent
+          targetOption={tab === "최근기록" && clickedTapName !== "최근기록"}>
+          <div
+            onClick={changeTapHandler}
+            className={
+              clickedTapName === "최근기록" ? classes.tap_clicked : ""
+            }>
+            최근기록
+          </div>
+        </TargetContent>
         <div
           onClick={changeTapHandler}
           className={clickedTapName === "연락처" ? classes.tap_clicked : ""}>
-          연락처
+          <TargetContent
+            targetOption={tab === "연락처" && clickedTapName !== "연락처"}>
+            연락처
+          </TargetContent>
         </div>
       </div>
     </div>

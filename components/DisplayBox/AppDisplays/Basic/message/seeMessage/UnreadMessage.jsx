@@ -1,9 +1,10 @@
 import { useContext } from "react";
 
 import UrlContext from "../../../../../page_context/UrlContext";
-import NextDescriptionLink from "../../../components/NextDescriptionLink";
+
 import classes from "./UnreadMessage.module.css";
 import MakeList from "../../../components/MakeList";
+import TargetContent from "../../../components/TargetContent";
 
 function UnreadMessage() {
   const { myMethodId, functionName, functionName_seeMessage } =
@@ -20,12 +21,9 @@ function UnreadMessage() {
             </div>
           </div>
         )}
-
-        {/* <div className={classes.main_messageList}> */}
-        <NextDescriptionLink
-          nextOption={
-            functionName === functionName_seeMessage && myMethodId === "2"
-          }>
+        <TargetContent
+          targetOption={functionName === functionName_seeMessage}
+          isNextDescriptionLink={true}>
           <MakeList
             listStyle="grid_twoLine"
             item1={{
@@ -48,7 +46,8 @@ function UnreadMessage() {
               className: "subInfo",
               content: functionName === functionName_seeMessage ? "1" : "",
             }}></MakeList>
-        </NextDescriptionLink>
+        </TargetContent>
+
         {/* </div> */}
       </section>
     </>

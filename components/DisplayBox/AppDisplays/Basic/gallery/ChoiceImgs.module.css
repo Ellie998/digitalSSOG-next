@@ -1,7 +1,7 @@
 .mainLayout {
   display: grid;
   height: 300px;
-  width: 180px;
+  width: 174px;
   grid-template-rows: 1fr auto 1fr;
   overflow-y: scroll;
   -ms-overflow-style: none;
