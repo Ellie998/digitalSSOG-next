@@ -4,20 +4,6 @@
   text-align: center;
 }
 
-.title {
-  color: var(--grey-900);
-  word-break: keep-all;
-}
-.subTitle {
-  color: var(--grey-400);
-  font-size: 0.8rem;
-  width: 230px;
-  margin-bottom: 10px;
-  word-break: keep-all;
-}
-.subTitle:hover {
-  color: var(--grey-600);
-}
 .main_header > ul {
   margin: 2rem auto;
   display: grid;
@@ -41,13 +27,7 @@
   box-shadow: 0 4px 22px rgba(23, 23, 23, 0.157);
   transform: translateY(-15px);
 }
-.listBox li:hover {
-  text-decoration: underline;
-}
-.lineHeight {
-  line-height: 150%;
-  margin-top: 3px;
-}
+
 /*  */
 
 .main {

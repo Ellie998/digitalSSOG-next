@@ -1,5 +1,3 @@
-import classes from "./MakeDescriptionList.module.css";
-
 import { useContext } from "react";
 import UrlContext from "../page_context/UrlContext";
 
@@ -34,7 +32,7 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
     setMyDescriptionId(e.target.dataset.listOrder);
   }
   return (
-    <ol className={classes.listWrap}>
+    <ol className="break-keep mb-10">
       {functionMethod.methodContent?.map((methodDescription) => (
         <li
           key={methodDescription}
@@ -43,8 +41,8 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
             myAppName == dataAppName &&
             +myMethodId === dataMethodId &&
             myDescriptionId === num.toString()
-              ? classes.list_active
-              : classes.list
+              ? "ml-4 mb-2 font-bold leading-6 cursor-pointer"
+              : "ml-4 mb-2 leading-6 cursor-pointer"
           }
           onClick={changeUrlQueryStateHandler}>
           {numEmogi[num++]} {methodDescription}
@@ -53,5 +51,4 @@ function MakeDescriptionList({ functionMethod, dataAppName, dataMethodId }) {
     </ol>
   );
 }
-
 export default MakeDescriptionList;

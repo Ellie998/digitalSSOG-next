@@ -53,7 +53,8 @@ nav {
 summary {
   color: var(--grey-900);
 }
-details summary {
+details summary,
+a {
   cursor: pointer;
 }
 /* TOOLTIP */
@@ -69,13 +70,14 @@ details summary {
   transform: translateX(-50%);
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-size: 15px;
+  font-size: 12px;
   font-family: sans-serif;
   letter-spacing: -1px;
+  font-weight: bold;
 }
 [data-tooltip]:before {
   content: attr(data-tooltip);
-  height: 17px;
+  height: 24px;
   position: absolute;
   top: -20px;
   padding: 5px 10px;
@@ -114,16 +116,17 @@ details summary {
   transform: translateX(-50%);
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-size: 15px;
+  font-size: 12px;
   font-family: sans-serif;
   letter-spacing: -1px;
+  font-weight: bold;
 }
 [data-tooltip-left]:before {
   content: attr(data-tooltip-left);
-  height: 17px;
+  height: 24px;
   position: absolute;
   top: -20px;
-  padding: 5px 10px;
+  padding: 0px 10px;
   border-radius: 5px;
   color: #fff;
   background: #5684d6;
@@ -159,13 +162,14 @@ details summary {
   transform: translateX(-50%);
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-size: 15px;
+  font-size: 12px;
   font-family: sans-serif;
   letter-spacing: -1px;
+  font-weight: bold;
 }
 [data-tooltip-midleft]:before {
   content: attr(data-tooltip-midleft);
-  height: 17px;
+  height: 24px;
   position: absolute;
   top: -20px;
   padding: 5px 10px;

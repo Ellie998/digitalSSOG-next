@@ -8,8 +8,9 @@ function MakeAppList({ functionMethods }) {
 
   return (
     <ol className={classes.listWrap}>
-      <p className={classes.extraInfoWrap}>
-        <i className="bi bi-info-circle-fill"></i> 아래 글씨를 눌러보세요
+      <p className="subTitle hover:text-gray-700">
+        <i className="subTitle hover:text-gray-700 bi bi-info-circle-fill"></i>
+        아래 글씨를 눌러보세요
       </p>
       {functionMethods?.map((functionMethodObject) => (
         <li key={Math.random()}>
@@ -17,9 +18,7 @@ function MakeAppList({ functionMethods }) {
             open={
               myAppName === functionMethodObject.methodAppName ? true : false
             }>
-            <summary
-              data-tooltip-left="클릭!"
-              className={classes.fontSize_1_2rem}>
+            <summary data-tooltip-left="클릭!" className="text-xl">
               {functionMethodObject.methodAppName} 어플
             </summary>
             <MakeMethodList functionMethodObject={functionMethodObject} />

@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import MakeDescriptionList from "./MakeDescriptionList";
 import UrlContext from "../page_context/UrlContext";
-import classes from "./MakeMethodList.module.css";
 
 function MakeMethodList({ functionMethodObject }) {
   const { myAppName, myMethodId } = useContext(UrlContext);
   const methodAppName = functionMethodObject.methodAppName;
 
   return (
-    <ol className={classes.listWrap}>
+    <ol>
       {functionMethodObject.howto.length !== 1 &&
         functionMethodObject.howto?.map((functionMethod) => (
-          <li key={Math.random()}>
+          <li className="ml-4 mb-4" key={Math.random()}>
             <details
               open={
                 +myMethodId === functionMethod.methodNum &&
@@ -19,7 +18,7 @@ function MakeMethodList({ functionMethodObject }) {
                   ? true
                   : false
               }>
-              <summary>
+              <summary className="mb-1">
                 방법
                 {` ${functionMethod.methodNum}${
                   functionMethod.methodTitle
