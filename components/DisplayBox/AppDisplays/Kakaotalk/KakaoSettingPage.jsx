@@ -3,6 +3,8 @@ import MakeList from "../components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
 import TargetContent from "../components/TargetContent";
+import BackBtn from "../components/UI/BackBtn";
+import FlexContent from "../components/layout/FlexContent";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -72,11 +74,10 @@ function KakaoSettingPage({ navTriger }) {
             {
               className: "title",
               content: (
-                <TargetContent
+                <BackBtn
                   targetOption={isChecked && navTriger === "groubChatLock"}
-                  isNextDescriptionLink={true}>
-                  <i className="bi bi-arrow-left"></i>
-                </TargetContent>
+                  isNavTriger={true}
+                />
               ),
             },
             { className: "title--bold", content: "채팅방 설정" },

@@ -27,8 +27,8 @@
 }
 /* -------------------POSTIT------------------ */
 .postIt {
-  width: 20rem;
-  height: 19rem;
+  /* width: 20rem;
+  height: 19rem; */
   position: relative;
   background: #ffa;
   overflow: hidden;
@@ -56,18 +56,6 @@
   transform: skewX(25deg);
 }
 
-/* -------------------TEXT------------------ */
-.title {
-  color: var(--grey-900);
-  word-break: keep-all;
-}
-
-.subTitle {
-  color: var(--grey-400);
-  margin-bottom: 1rem;
-  word-break: keep-all;
-}
-
 /* -------------------LIST------------------ */
 .listWrap {
   display: flex;
@@ -88,12 +76,7 @@
   font-family: "Cafe24Shiningstar";
   font-weight: normal;
   font-size: 1.5rem;
-}
-
-.fontWeight_bold {
-  font-weight: bold;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
+  color: var(--grey-500);
 }
 
 @media (max-width: 900px) {
@@ -114,5 +97,18 @@
     max-width: 100%;
     padding: 8rem 0rem;
     min-width: 300px;
+  }
+}
+@media (max-width: 350px) {
+  .layout {
+    min-width: 100%;
+  }
+  .listWrap {
+    padding: 0.5rem 0.5rem;
+  }
+  .listWrap li {
+    width: 100%;
+    height: fit-content;
+    padding: 2rem 2rem 1.5rem 2rem;
   }
 }

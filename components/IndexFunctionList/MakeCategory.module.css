@@ -20,7 +20,6 @@
 }
 
 .layout a {
-  /* font-size: 0.9rem; */
   padding: 0px 8px;
   max-height: 40px;
   font-family: "Cafe24Shiningstar";
@@ -29,10 +28,6 @@
 }
 .layout a:hover {
   font-weight: 900;
-}
-.fontWidth_bold {
-  font-weight: bold;
-  font-size: 1.2rem;
 }
 
 .clicked {
@@ -63,5 +58,13 @@
 @media (max-width: 800px) {
   .layout {
     width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  .layout a {
+    font-size: 1.3rem;
+  }
+  .clicked {
+    font-size: 1.3rem;
   }
 }

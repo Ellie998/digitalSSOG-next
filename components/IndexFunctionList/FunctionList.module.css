@@ -38,21 +38,6 @@
   transform: skewX(25deg);
 }
 
-/* ------------------TEXT------------------- */
-.title {
-  color: var(--grey-900);
-  margin-top: 20px;
-  border-bottom: 1px solid #b9b9b986;
-  word-break: keep-all;
-}
-.subTitle {
-  height: 30px;
-  border-bottom: 1px solid #b9b9b986;
-  margin-top: 20px;
-  color: var(--grey-400);
-  word-break: keep-all;
-}
-
 /* ------------------NOTE------------------- */
 .noteContent {
   margin: 0 0 0 30px;
@@ -98,24 +83,38 @@
 @media (max-width: 600px) {
   .layout {
     padding: 4rem 2rem 2rem 2rem;
+  }
+  .noteContent {
+    margin: 0 0 0 10px;
+  }
+
+  .noteHoles {
+    width: 25px;
+  }
+}
+@media (max-width: 350px) {
+  .layout {
+    padding: 0;
     display: block;
   }
 
-  .title {
-    font-size: 1.7rem;
+  .note {
+    background-color: none;
+    box-shadow: none;
+    transition: none;
+    min-height: 800px;
+    max-width: 800px;
+  }
+  .note:hover {
+    box-shadow: none;
+    transform: none;
+  }
 
-    width: 90%;
-    margin: 0 auto;
-  }
-  .subTitle {
-    height: 60px;
-    margin: 0 auto;
-    width: 90%;
-  }
-  .noteHoles {
-    display: none;
-  }
   .noteContent {
     margin: 0 0 0 0px;
+  }
+
+  .noteHoles {
+    display: none;
   }
 }

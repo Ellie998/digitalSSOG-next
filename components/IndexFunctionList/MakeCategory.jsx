@@ -12,7 +12,7 @@ function MakeCategory({ FunctionOrApp, ListObjects, onLinkClick, tabName }) {
   return (
     <ul className={classes.layout}>
       <li>
-        <p className={classes.fontWidth_bold}>카테고리 : </p>
+        <p className="font-bold">카테고리 : </p>
       </li>
       {categorys.map((categoryName) => {
         let categoryRealName = categoryName.slice(3, categoryName.length);
