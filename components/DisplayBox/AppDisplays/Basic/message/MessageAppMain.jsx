@@ -112,6 +112,7 @@ function MessageAppMain() {
               targetOption={
                 (functionName === functionName_sendMessage &&
                   myMethodId === "1") ||
+                functionName === functionName_reserveMessage ||
                 functionName === functionName_sendImg ||
                 functionName === functionName_sendAudio ||
                 functionName === functionName_sendImg ||

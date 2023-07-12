@@ -3,14 +3,6 @@
   height: 305px;
 }
 
-.layout i {
-  border-radius: 18px;
-  padding: 2px 4px;
-  cursor: pointer;
-  height: fit-content;
-  font-size: 0.8rem;
-}
-
 /* ---------------------HEADER---------------------------- */
 .main_header {
   background-color: rgb(178, 198, 218);
@@ -27,30 +19,6 @@
 
 .messagesSmall {
   height: 140px;
-}
-.getMessageWrap,
-.sendMessageWrap {
-  max-width: 95%;
-  font-size: 0.8rem;
-  height: max-content;
-  margin-bottom: 10px;
-}
-
-.sendMessageWrap {
-  justify-content: flex-end;
-  display: flex;
-  align-items: flex-end;
-  margin-left: auto;
-}
-
-.sendMessage {
-  background-color: rgb(255, 235, 50);
-  border-radius: 8px;
-  padding: 4px 6px;
-}
-.timeStamp {
-  font-size: 0.6rem;
-  margin-right: 6px;
 }
 
 /* ---------------------OPTION INFO---------------------------- */
@@ -214,20 +182,20 @@
   height: 305px;
   width: 130px;
   animation: rightLeft 0.5s;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.sideTitle {
-  font-size: 0.7rem;
-  font-weight: bold;
-}
-.sideMenuContentWrap {
-  padding: 6px;
-  border-bottom: 1px solid rgb(245, 245, 245);
+
+.sideMenuBox::-webkit-scrollbar {
+  display: none;
 }
 .sideMenuNavWrap {
   padding: 3px;
   background-color: rgb(239, 239, 239);
-  position: relative;
-  bottom: -15px;
+  position: absolute;
+  bottom: 0px;
+  width: 130px;
 }
 
 /* ---------------------MODAL---------------------------- */
@@ -263,41 +231,6 @@
   display: flex;
   cursor: pointer;
   width: 100px;
-}
-
-/* ------------------COMMON-------------------- */
-.color_grey {
-  color: var(--grey-400);
-  font-size: 0.8rem;
-  margin-left: 5px;
-}
-.color_grey--bold {
-  color: var(--grey-400);
-  font-size: 0.8rem;
-  margin-left: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.color_blue--bold {
-  color: rgb(0, 119, 246);
-  font-weight: bold;
-  font-size: 0.8rem;
-  margin-left: 5px;
-  cursor: pointer;
-}
-.title {
-  font-size: 0.9rem;
-  color: var(--grey-900);
-  text-align: start;
-  margin-left: 5px;
-}
-.subTitle {
-  font-size: 0.5rem;
-  padding: 5px 0;
-  margin-left: 5px;
-  text-align: start;
-  color: var(--grey-400);
-  line-height: 140%;
 }
 
 /* ------------------ANIMAITION-------------------- */

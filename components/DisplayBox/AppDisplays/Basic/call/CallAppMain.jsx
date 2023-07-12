@@ -10,6 +10,7 @@ import UrlContext from "../../../../page_context/UrlContext";
 
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
+import FlexContent from "../../components/list/FlexContent";
 
 function CallAppMain({ tab }) {
   const {
@@ -69,32 +70,19 @@ function CallAppMain({ tab }) {
 
   // 연락처 누르면 생기는 옵션 elements
   const optionlistContent = (
-    <MakeList
-      listStyle={"flex_spaceBetween"}
-      leftFlexItem={[
-        {
-          className: "iconWrapS_background--green",
-          content: (
-            <TargetContent
-              targetOption={functionName === functionName_makeCall}
-              isNextDescriptionLink={true}>
-              <i className="bi bi-telephone-fill"></i>
-            </TargetContent>
-          ),
-        },
-        {
-          className: "iconWrapS_background--green",
-          content: <i className="bi bi-chat-fill"></i>,
-        },
-        {
-          className: "iconWrapS_background--green",
-          content: <i className="bi bi-camera-video-fill"></i>,
-        },
-        {
-          className: "iconWrapS_background--green",
-          content: <i className="bi bi-info-circle-fill"></i>,
-        },
-      ]}></MakeList>
+    <FlexContent
+      className=""
+      items={[
+        <TargetContent
+          targetOption={functionName === functionName_makeCall}
+          isNextDescriptionLink={true}>
+          <i className="text-green-600 bi bi-telephone-fill" />
+        </TargetContent>,
+        <i className="text-green-600 bi bi-chat-fill" />,
+        <i className="text-green-600 bi bi-camera-video-fill" />,
+        <i className="text-green-600 bi bi-info-circle-fill" />,
+      ]}
+    />
   );
 
   // list정보에 대한 prop 파라미터를 받아 list 만드는 함수

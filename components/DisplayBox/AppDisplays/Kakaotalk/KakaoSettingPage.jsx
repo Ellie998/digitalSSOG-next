@@ -1,9 +1,9 @@
 import { useState } from "react";
-import MakeList from "../components/MakeList";
 
 import classes from "./KakaoSettingPage.module.css";
 import TargetContent from "../components/TargetContent";
 import BackBtn from "../components/UI/BackBtn";
+import AppHeader from "../components/list/AppHeader";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -19,8 +19,8 @@ function KakaoSettingPage({ navTriger }) {
               setIsChecked(false);
             }}></div>
           <div className={classes.modal}>
-            <div className={classes.title}>초대 거부 및 나가기</div>
-            <div className={classes.subTitle}>
+            <div className="display_title">초대 거부 및 나가기</div>
+            <div className="display_subTitle--light">
               초대를 거부하고 채팅방을 나갑니다.
               <br />
               이후 이 채팅방에 다시 입장할 수 없습니다.
@@ -39,14 +39,14 @@ function KakaoSettingPage({ navTriger }) {
                       ? setIsChecked(false)
                       : setIsChecked(true);
                   }}></input>
-                <div className={classes.subTitle}>
+                <div className="display_subTitle--light">
                   위 내용을 모두 확인하였습니다.
                 </div>
               </label>
             </TargetContent>
             <div className={classes.modalNavWrap}>
               <div
-                className={classes["color_blue--bold"]}
+                className="display_title--bold text-blue-600 cursor-pointer"
                 onClick={() => {
                   setChoicedModal("");
                   navTriger === "groubChatLeave_rejectInvitation" &&
@@ -59,7 +59,7 @@ function KakaoSettingPage({ navTriger }) {
                   isChecked && navTriger === "groubChatLeave_rejectInvitation"
                 }
                 isNextDescriptionLink={true}>
-                <div className={classes["color_grey--bold"]}>나가기</div>
+                <div className="display_title--bold cursor-pointer">나가기</div>
               </TargetContent>
             </div>
           </div>
@@ -67,22 +67,19 @@ function KakaoSettingPage({ navTriger }) {
       )}
       {/* header nav */}
       <div className={classes.main_header}>
-        <MakeList
-          listStyle={"flex_spaceBetween"}
-          leftFlexItem={[
-            {
-              className: "title",
-              content: (
-                <BackBtn
-                  targetOption={isChecked && navTriger === "groubChatLock"}
-                  isNavTriger={true}
-                />
-              ),
-            },
-            { className: "title--bold", content: "채팅방 설정" },
-          ]}></MakeList>
+        <AppHeader
+          leftItem={[
+            <BackBtn
+              targetOption={isChecked && navTriger === "groubChatLock"}
+              isNavTriger={true}
+            />,
+          ]}
+          rightItem={[
+            <div className="display_title">채팅방 설정</div>,
+          ]}></AppHeader>
       </div>
-      <div className={classes.border_bottom}>
+      {/* main */}
+      <div className="border-solid border-b border-gray-200 mb-1">
         <div className={classes.groupProfileWrap}>
           <div className={classes["iconWrap_background--skyBlue"]}>
             <i className="bi bi-person-fill"></i>
@@ -98,38 +95,31 @@ function KakaoSettingPage({ navTriger }) {
           </div>
         </div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>채팅방 이름</div>
-          <div className={classes.subTitle}>그룹채팅방 1</div>
+          <div className="display_title">채팅방 이름</div>
+          <div className="display_subTitle--light">그룹채팅방 1</div>
         </div>
-        <div className={classes.subTitle}>
+        <div className="display_subTitle--light">
           내가 설정한 사진과 이름은 나에게만 보입니다.
         </div>
       </div>
-      <div className={classes.border_bottom}>
-        <div className={classes.subTitle}>채팅방 설정</div>
+      <div className="border-solid border-b border-gray-200 mb-1">
+        <div className="display_subTitle--light">채팅방 설정</div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>현재 채팅방 배경화면</div>
-          <div className={`${classes.subTitle} ${classes.display_flex}`}>
-            <div
-              style={{
-                width: "15px",
-                height: "20px",
-                backgroundColor: "rgb(178,197,217)",
-                borderRadius: "2px",
-                marginRight: "4px",
-              }}></div>
+          <div className="display_title">현재 채팅방 배경화면</div>
+          <div className={`display_subTitle--light flex align-center`}>
+            <div className="w-4 h-5 bg-kakaoBlue rounded-sm mr-1"></div>
             색상
           </div>
         </div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>현재 채팅방 알림음</div>
-          <div className={classes.subTitle}>카톡</div>
+          <div className="display_title">현재 채팅방 알림음</div>
+          <div className="display_subTitle--light">카톡</div>
         </div>
         <TargetContent
           targetOption={navTriger === "groubChatLock" && !isChecked}>
           <div
-            className={`${classes.contentWrap} ${classes["display_flex--speaceBetween"]}`}>
-            <label className={`${classes.color_black} `} htmlFor="chatLock">
+            className={`${classes.contentWrap} flex align-center justify-between`}>
+            <label className="display_title" htmlFor="chatLock">
               현재 채팅방 입력창 잠금
             </label>
             <input
@@ -150,35 +140,35 @@ function KakaoSettingPage({ navTriger }) {
           </div>
         </TargetContent>
       </div>
-      <div className={classes.border_bottom}>
-        <div className={classes.subTitle}>채팅방 관리</div>
-        <div className={`${classes.color_black} ${classes.contentWrap}`}>
+      <div className="border-solid border-b border-gray-200 mb-1">
+        <div className="display_subTitle--light">채팅방 관리</div>
+        <div className={`display_title ${classes.contentWrap}`}>
           홈 화면에 바로가기 추가
         </div>
-        <div className={`${classes.color_black} ${classes.contentWrap}`}>
+        <div className={`display_title ${classes.contentWrap}`}>
           대화 내용 내보내기
         </div>
-        <div className={`${classes.color_black} ${classes.contentWrap}`}>
+        <div className={`display_title ${classes.contentWrap}`}>
           대화 내용 모두 삭제
         </div>
       </div>
-      <div className={classes.border_bottom}>
-        <div className={classes.subTitle}>채팅방 용량 관리</div>
+      <div className="border-solid border-b border-gray-200 mb-1">
+        <div className="display_subTitle--light">채팅방 용량 관리</div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>사진 파일 삭제</div>
-          <div className={classes.subTitle}>0.49 GB</div>
+          <div className="display_title">사진 파일 삭제</div>
+          <div className="display_subTitle--light">0.49 GB</div>
         </div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>동영상 파일 삭제</div>
-          <div className={classes.subTitle}>1.23 GB</div>
+          <div className="display_title">동영상 파일 삭제</div>
+          <div className="display_subTitle--light">1.23 GB</div>
         </div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_grey}>음성 파일 삭제</div>
-          <div className={classes.subTitle}>0 bytes</div>
+          <div className="display_title text-gray-400">음성 파일 삭제</div>
+          <div className="display_subTitle--light">0 bytes</div>
         </div>
         <div className={classes.contentWrap}>
-          <div className={classes.color_black}>전체 파일 모두 삭제</div>
-          <div className={classes.subTitle}>1.72 GB</div>
+          <div className="display_title">전체 파일 모두 삭제</div>
+          <div className="display_subTitle--light">1.72 GB</div>
         </div>
       </div>
       <div className={classes.buttonWrap}>

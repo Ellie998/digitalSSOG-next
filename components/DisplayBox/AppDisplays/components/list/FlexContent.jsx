@@ -1,10 +1,12 @@
-import classes from "../MakeList.module.css";
-export default function FlexContent({ children, onClick }) {
+export default function FlexContent({ className, items, children, key }) {
   return (
-    <div
-      className={`${classes["layout_flex--spaceBetween"]}`}
-      onClick={onClick}>
+    <>
+      <div
+        key={key}
+        className={`flex justify-between align-middle items-center ${className}`}>
+        {items?.map((item) => item)}
+      </div>
       {children}
-    </div>
+    </>
   );
 }

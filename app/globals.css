@@ -15,11 +15,20 @@
   .profileIconWrap {
     @apply px-0.5 py-1 text-xs h-5 w-5 flex justify-center items-center align-middle text-center mx-auto rounded-2xl;
   }
+  .display_title {
+    @apply text-sm ml-2 text-neutral-800 text-start;
+  }
+  .display_title--bold {
+    @apply text-sm ml-2 font-bold text-neutral-800 text-start;
+  }
   .display_subTitle {
     @apply text-2xs ml-2 text-neutral-800 text-start;
   }
   .display_subTitle--bold {
     @apply text-2xs ml-3 font-bold text-neutral-800 text-start;
+  }
+  .display_subTitle--light {
+    @apply text-2xs ml-3  text-neutral-400 text-start leading-4;
   }
   .borderGray {
     @apply border border-stone-300 rounded-xl border-solid text-center hover:bg-black;

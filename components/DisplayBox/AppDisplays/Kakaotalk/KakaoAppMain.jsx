@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 
 import classes from "./KakaoAppMain.module.css";
-import MakeList from "../components/MakeList";
 import TargetContent from "../components/TargetContent";
 
 import StackedList_Profile from "../components/list/StackedList_Profile";
+import AppHeader from "../components/list/AppHeader";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
@@ -108,105 +108,55 @@ function KakaoAppMain({ navTriger, tab }) {
       <div className={classes.mainLayout}>
         <div className={classes.main_header}>
           {tabName === "friend" && (
-            <MakeList
-              listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ className: "title--bold", content: "친구" }]}
-              rightFlexItem={[
-                {
-                  className: "",
-                  content: <i className="bi bi-search"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-person-plus"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-music-note-beamed"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-gear"></i>,
-                },
-              ]}></MakeList>
+            <AppHeader
+              leftItem={[<div className="text-sm font-bold">친구</div>]}
+              rightItem={[
+                <i className="bi bi-search"></i>,
+                <i className="ml-2 bi bi-person-plus"></i>,
+                <i className="ml-2 bi bi-music-note-beamed"></i>,
+                <i className="ml-2 bi bi-gear"></i>,
+              ]}></AppHeader>
           )}
           {tabName === "chat" && (
-            <MakeList
-              listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ className: "title--bold", content: "채팅" }]}
-              rightFlexItem={[
-                {
-                  className: "",
-                  content: <i className="bi bi-search"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-plus-circle"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-gear"></i>,
-                },
-              ]}></MakeList>
+            <AppHeader
+              leftItem={[<div className="text-sm font-bold">채팅</div>]}
+              rightItem={[
+                <i className="bi bi-search"></i>,
+                <i className="ml-2 bi bi-plus-circle"></i>,
+
+                <i className="ml-2 bi bi-gear"></i>,
+              ]}></AppHeader>
           )}
           {tabName === "openChat" && (
-            <MakeList
-              listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ className: "title--bold", content: "오픈채팅" }]}
-              rightFlexItem={[
-                {
-                  className: "",
-                  content: <i className="bi bi-plus-circle"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-chat"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-gear"></i>,
-                },
-              ]}></MakeList>
+            <AppHeader
+              leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
+              rightItem={[
+                <i className=" bi bi-plus-circle"></i>,
+                <i className="ml-2 bi bi-chat"></i>,
+
+                <i className="ml-2 bi bi-gear"></i>,
+              ]}></AppHeader>
           )}
           {tabName === "shopping" && (
-            <MakeList
-              listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ className: "title--bold", content: "쇼핑" }]}
-              rightFlexItem={[
-                {
-                  className: "",
-                  content: <i className="bi bi-bag-check"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-gear"></i>,
-                },
-              ]}></MakeList>
+            <AppHeader
+              leftItem={[<div className="text-sm font-bold">쇼핑</div>]}
+              rightItem={[
+                <i className=" bi bi-bag-check"></i>,
+                <i className="ml-2 bi bi-gear"></i>,
+              ]}></AppHeader>
           )}
           {tabName === "ETC" && (
-            <MakeList
-              listStyle={"flex_spaceBetween"}
-              leftFlexItem={[{ className: "title--bold", content: "더보기" }]}
-              rightFlexItem={[
-                {
-                  className: "",
-                  content: <i className="bi bi-search"></i>,
-                },
-                {
-                  className: "",
-                  content: <i className="bi bi-upc-scan"></i>,
-                },
-                {
-                  className: "",
-                  content: (
-                    <TargetContent
-                      targetOption={tab === "ETC" && navTriger === "setting"}
-                      isNextDescriptionLink={true}>
-                      <i className="bi bi-gear"></i>
-                    </TargetContent>
-                  ),
-                },
-              ]}></MakeList>
+            <AppHeader
+              leftItem={[<div className="text-sm font-bold">더보기</div>]}
+              rightItem={[
+                <i className=" bi bi-search"></i>,
+                <i className="ml-2 bi bi-upc-scan"></i>,
+                <TargetContent
+                  targetOption={tab === "ETC" && navTriger === "setting"}
+                  isNextDescriptionLink={true}>
+                  <i className="ml-2 bi bi-gear"></i>
+                </TargetContent>,
+              ]}></AppHeader>
           )}
         </div>
         {/* main */}

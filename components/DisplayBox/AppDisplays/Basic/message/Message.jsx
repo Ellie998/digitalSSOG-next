@@ -152,7 +152,7 @@ function Message() {
             <div>{messageContent}</div>
           </div>
         )}
-
+        {/* message clicke option */}
         {isOvered && (
           <div className={classes.options}>
             <div>삭제</div>
@@ -173,6 +173,7 @@ function Message() {
           </div>
         )}
       </div>
+      {/* input nav */}
       <div
         className={`${classes.appNav} ${plusClicked ? classes.appNavSmall : ""}
         ${imgBtnClicked ? classes["appNavSmall--6to7"] : ""}`}>

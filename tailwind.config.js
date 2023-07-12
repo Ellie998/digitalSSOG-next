@@ -13,12 +13,16 @@ module.exports = {
         kakaoSkyblue: "#92e7ff8a",
         kakaoBlue: "#92caff8a",
         kakaoPurple: "#929dff8a",
+        kakaoYellow: "rgb(255, 235, 50)",
         kakaoIcon: "#ededed",
         greenyellow: "greenyellow",
         black: "rgb(208, 208, 208)",
       },
       spacing: {
         50: "170px",
+      },
+      maxWidth: {
+        "90p": "90%",
       },
     },
   },

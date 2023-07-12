@@ -9,6 +9,7 @@ const TargetContent = ({
   className,
   targetOption,
   isNextDescriptionLink,
+  onClick,
 }) => {
   const targetStyle = {
     border: "2px solid red",
@@ -22,6 +23,7 @@ const TargetContent = ({
     <>
       {!isNextDescriptionLink && (
         <div
+          onClick={onClick}
           className={className}
           data-tooltip={targetOption ? "클릭" : null}
           style={targetOption ? targetStyle : null}>
@@ -34,6 +36,7 @@ const TargetContent = ({
           data-tooltip={targetOption ? "클릭" : null}
           style={targetOption ? targetStyle : null}
           onClick={() => {
+            onClick;
             targetOption &&
               setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
           }}>
