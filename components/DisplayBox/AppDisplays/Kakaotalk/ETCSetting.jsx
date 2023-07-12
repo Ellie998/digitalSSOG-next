@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import MakeList from "../components/MakeList";
-
 import classes from "./ETCSetting.module.css";
 import TargetContent from "../components/TargetContent";
+import StackedList_Profile from "../components/list/StackedList_Profile";
 
 function ETCSetting({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -230,140 +229,140 @@ function ETCSetting({ navTriger }) {
             </TargetContent>
             <div>설정</div>
           </div>
+          {/* 나 */}
           <div className={classes.border_bottom}>
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_twoLine"}
-                item1={{
-                  className: "iconWrap_background--purple",
-                  content: <i className="bi bi-person-fill"></i>,
+              <StackedList_Profile
+                className="h-8"
+                profile={{
+                  className: "bg-kakaoPurple ",
+                  content: <i className="text-white bi bi-person-fill"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "ml-2",
                   content: "나",
                 }}
-                item3={{
-                  className: "subInfoFit_border--grey",
+                info={{
+                  className: "borderGray",
                   content: "프로필 관리",
                 }}
-                subItem2={{
-                  className: "subTitle",
+                subTitle={{
+                  className: "col-end-7 ml-2",
                   content: "+82 10-0000-0000",
-                }}></MakeList>
+                }}
+                subInfo={{}}></StackedList_Profile>
             </div>
           </div>
-          <div className={`${classes.border_bottom} `}>
+          <div className={classes.border_bottom}>
             {/*개인/보안 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-lock"></i>,
+                  content: <i className="text-base bi bi-lock"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "개인/보안",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*친구 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
-                  className: "",
-                  content: <i className="bi bi-person"></i>,
-                }}
-                item2={{
-                  className: "subTitle_color--blackB",
-                  content: "친구",
-                }}></MakeList>
+              <div className={classes.contentWrap}>
+                <StackedList_Profile
+                  className="h-8"
+                  profile={{
+                    className: "",
+                    content: <i className="text-base bi bi-person"></i>,
+                  }}
+                  title={{
+                    className: "text-xs display_subTitle",
+                    content: "친구",
+                  }}></StackedList_Profile>
+              </div>
             </div>
             {/*알림 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-bell"></i>,
+                  content: <i className="text-base bi bi-bell"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "알림",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*화면 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-brightness-low"></i>,
+                  content: <i className="text-base bi bi-brightness-low"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "화면",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/* 테마 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_twoLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-palette"></i>,
+                  content: <i className="text-base bi bi-palette"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
-                  content: "테마",
-                }}
-                subItem2={{
-                  className: "subTitle",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "기본테마",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*채팅 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-chat"></i>,
+                  content: <i className="text-base bi bi-chat"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "채팅",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*통화 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-telephone"></i>,
+                  content: <i className="text-base bi bi-telephone"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "통화",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/* 언어 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_twoLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-globe"></i>,
+                  content: <i className="text-base bi bi-globe"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "언어",
                 }}
-                subItem2={{
-                  className: "subTitle",
+                subTitle={{
+                  className: "ml-2",
                   content: "시스템 기본 언어",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*실험실 */}
             <TargetContent
@@ -373,88 +372,88 @@ function ETCSetting({ navTriger }) {
               <div
                 className={classes.contentWrap}
                 onClick={() => setChoicedSetting("experimentRoom")}>
-                <MakeList
-                  listStyle={"grid_oneLine"}
-                  item1={{
+                <StackedList_Profile
+                  className="h-8"
+                  profile={{
                     className: "",
-                    content: <i className="bi bi-lightbulb"></i>,
+                    content: <i className="text-base bi bi-lightbulb"></i>,
                   }}
-                  item2={{
-                    className: "subTitle_color--blackB",
+                  title={{
+                    className: "text-xs display_subTitle",
                     content: "실험실",
-                  }}></MakeList>
+                  }}></StackedList_Profile>
               </div>
             </TargetContent>
             {/*기타 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-three-dots"></i>,
+                  content: <i className="text-base bi bi-three-dots"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "기타",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
           </div>
           <div className={classes.border_bottom}>
             {/*공지사항 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-megaphone"></i>,
+                  content: <i className="text-base bi bi-megaphone"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "공지사항",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*카톡 안녕 가이드 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-emoji-smile"></i>,
+                  content: <i className="text-base bi bi-emoji-smile"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "카톡 안녕 가이드",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/*고객센터/운영정책 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_oneLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-question-circle"></i>,
+                  content: <i className="text-base bi bi-question-circle"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "고객센터/운영정책",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
             {/* 앱 관리 */}
             <div className={classes.contentWrap}>
-              <MakeList
-                listStyle={"grid_twoLine"}
-                item1={{
+              <StackedList_Profile
+                className="h-8"
+                profile={{
                   className: "",
-                  content: <i className="bi bi-info-circle"></i>,
+                  content: <i className="text-base bi bi-globe"></i>,
                 }}
-                item2={{
-                  className: "subTitle_color--blackB",
+                title={{
+                  className: "text-xs display_subTitle",
                   content: "앱 관리",
                 }}
-                subItem2={{
-                  className: "subTitle",
+                subTitle={{
+                  className: "ml-2",
                   content: "10.2.8",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </div>
           </div>
         </div>

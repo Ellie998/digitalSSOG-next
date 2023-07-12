@@ -4,7 +4,6 @@ import MakeList from "../components/MakeList";
 import classes from "./KakaoSettingPage.module.css";
 import TargetContent from "../components/TargetContent";
 import BackBtn from "../components/UI/BackBtn";
-import FlexContent from "../components/layout/FlexContent";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");

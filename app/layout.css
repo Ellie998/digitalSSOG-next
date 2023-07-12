@@ -19,7 +19,6 @@
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  font-size: 16px;
 }
 
 body {
@@ -32,9 +31,10 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
-h1 {
+/* h1 {
   font-size: 2rem;
   color: var(--grey-900);
 }
@@ -42,19 +42,9 @@ h1 {
 h2 {
   font-size: 1.5rem;
   color: var(--grey-800);
-}
+} */
 
-p,
-li,
-nav {
-  font-size: 1rem;
-}
-
-summary {
-  color: var(--grey-900);
-}
-details summary,
-a {
+details summary {
   cursor: pointer;
 }
 /* TOOLTIP */

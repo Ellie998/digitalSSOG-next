@@ -9,6 +9,7 @@ import listClass from "../../components/MakeList.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
 
 import TargetContent from "../../components/TargetContent";
+import StackedList_Profile from "../../components/list/StackedList_Profile";
 
 function CallAppMain({ tab }) {
   const {
@@ -98,65 +99,57 @@ function CallAppMain({ tab }) {
 
   // list정보에 대한 prop 파라미터를 받아 list 만드는 함수
   const makeListContent = (prop) => (
-    <MakeList
+    <StackedList_Profile
       key={Math.random()}
-      listStyle={"grid_oneLine"}
-      list={{ className: "" }}
-      listOnClick={prop.onClickFunction ? prop.onClickFunction : null}
-      item1={{
-        className: prop.className1,
+      className="h-8 mb-1"
+      onClick={prop.onClickFunction ? prop.onClickFunction : null}
+      profile={{
+        className: `${prop.className1}`,
         content: prop.content1,
       }}
-      item2={{
-        className: prop.className2,
-        content: prop.content2,
-      }}
-      item3={{
-        className: prop.className3,
+      title={{ className: prop.className2, content: prop.content2 }}
+      info={{
+        className: `${prop.className3}? text-end}`,
         content: prop.content3,
       }}>
       {prop.children ? prop.children : null}
-    </MakeList>
+    </StackedList_Profile>
   );
 
   // 최근기록 tap에 만들 list 정보
   const callHistoryListProps = [
     {
       onClickFunction: showListOption1,
-      className1: "iconWrap_color--green",
-      content1: <i className="bi bi-telephone-outbound-fill"></i>,
-      className2: "title",
+      className1: "",
+      content1: (
+        <i className="profileIconWrap text-green-700 bi bi-telephone-outbound-fill"></i>
+      ),
+      className2: "",
       content2: "영희",
-      className3: "subTitle",
+      className3: "",
       content3: "오후 7:38",
       children: isListClicked1 && (
         <div className={classes.listOptionWrap}>
-          <div className={listClass["subTitle_color--blackB"]}>
-            휴대전화 010-0000-0000
-          </div>
-          <div className={listClass["subTitle_color--black"]}>
-            발신전화, 0분 33초
-          </div>
+          <div className="display_subTitle--bold">휴대전화 010-0000-0000</div>
+          <div className={"display_subTitle"}>발신전화, 0분 33초</div>
           {optionlistContent}
         </div>
       ),
     },
     {
       onClickFunction: showListOption2,
-      className1: "iconWrap_color--green",
-      content1: <i className="bi bi-telephone-outbound-fill"></i>,
-      className2: "title",
+      className1: "",
+      content1: (
+        <i className="profileIconWrap text-green-700 bi bi-telephone-outbound-fill"></i>
+      ),
+      className2: "",
       content2: "철수",
-      className3: "subTitle",
-      content3: "오후 7:38",
+      className3: "",
+      content3: "오후 5:20",
       children: isListClicked2 && (
         <div className={classes.listOptionWrap}>
-          <div className={listClass["subTitle_color--blackB"]}>
-            휴대전화 010-0000-0000
-          </div>
-          <div className={listClass["subTitle_color--black"]}>
-            발신전화, 0분 33초
-          </div>
+          <div className="display_subTitle--bold">휴대전화 010-0000-0000</div>
+          <div className={"display_subTitle"}>발신전화, 0분 24초</div>
           {optionlistContent}
         </div>
       ),
@@ -164,80 +157,100 @@ function CallAppMain({ tab }) {
   ];
   // 연락처 tap에 만들 list 정보
   const contactListProps = [
-    {
-      className1: "iconWrap_background--pink",
-      content1: <i className="bi bi-person-fill"></i>,
-      className2: "title",
-      content2: "진수",
-      className3: "",
-      content3: "",
-    },
-    {
-      className1: "iconWrap_background--yellow",
-      content1: <i className="bi bi-star"></i>,
-      className2: "title",
-      content2: "즐겨찾는 연락처 추가",
-      className3: "",
-      content3: "",
-    },
-    {
-      className1: "iconWrap_background--grey",
-      content1: <i className="bi bi-people-fill"></i>,
-      className2: "title",
-      content2: "그룹",
-      className3: "",
-      content3: "",
-    },
-    {
-      className1: "subTitle",
-      content1: "  ㅇ",
-      className2: "",
-      content2: "",
-      className3: "",
-      content3: "",
-    },
-    {
-      onClickFunction: showListOption1,
-      className1: "iconWrap_background--pink",
-      content1: <i className="bi bi-person-fill"></i>,
-      className2: "title",
-      content2: "영희",
-      className3: "",
-      content3: "",
-      children: isListClicked1 && (
+    //진수
+    <StackedList_Profile
+      key={Math.random()}
+      className="h-8"
+      profile={{
+        className: "bg-pink-300 ",
+        content: <i className="text-white bi bi-person-fill"></i>,
+      }}
+      title={{
+        className: "",
+        content: "진수",
+      }}></StackedList_Profile>,
+    // 즐겨찾는 연락처 추가
+    <StackedList_Profile
+      key={Math.random()}
+      className="h-8"
+      profile={{
+        className: "bg-yellow-200",
+        content: <i className="text-white bi bi-star"></i>,
+      }}
+      title={{
+        className: "",
+        content: "즐겨찾는 연락처 추가",
+      }}></StackedList_Profile>,
+    //그룹
+    <StackedList_Profile
+      key={Math.random()}
+      className="h-8"
+      profile={{
+        className: "bg-gray-200",
+        content: <i className="text-white bi bi-people-fill"></i>,
+      }}
+      title={{
+        className: "",
+        content: "그룹",
+      }}></StackedList_Profile>,
+    // ㅇ
+    <StackedList_Profile
+      key={Math.random()}
+      className="h-3"
+      profile={{
+        className: "",
+        content: "",
+      }}
+      title={{
+        className: "text-gray-400 text-xs",
+        content: "ㅇ",
+      }}></StackedList_Profile>,
+    // 영희
+    <StackedList_Profile
+      key={Math.random()}
+      onClick={showListOption1}
+      className="h-8"
+      profile={{
+        className: "bg-pink-200",
+        content: <i className="iconWrap text-white bi bi-person-fill"></i>,
+      }}
+      title={{ className: "", content: "영희" }}>
+      {isListClicked1 && (
         <div className={classes.listOptionWrap}>
-          <div className={listClass["subTitle_color--blackB"]}>
-            휴대전화 010-1234-0000
-          </div>
+          <div className="display_subTitle--bold">휴대전화 010-1234-0000</div>
           {optionlistContent}
         </div>
-      ),
-    },
-    {
-      className1: "subTitle",
-      content1: "  ㅊ",
-      className2: "",
-      content2: "",
-      className3: "",
-      content3: "",
-    },
-    {
-      onClickFunction: showListOption2,
-      className1: "iconWrap_background--orange",
-      content1: <i className="bi bi-person-fill"></i>,
-      className2: "title",
-      content2: "철수",
-      className3: "",
-      content3: "",
-      children: isListClicked2 && (
+      )}
+    </StackedList_Profile>,
+    // ㅊ
+    <StackedList_Profile
+      key={Math.random()}
+      className="h-3"
+      profile={{
+        className: "",
+        content: "",
+      }}
+      title={{
+        className: "text-gray-400 text-xs",
+        content: "ㅊ",
+      }}></StackedList_Profile>,
+    //철수
+    <StackedList_Profile
+      key={Math.random()}
+      onClick={showListOption2}
+      className="h-8"
+      profile={{
+        className: "bg-orange-200",
+        content: <i className="text-white bi bi-person-fill"></i>,
+      }}
+      title={{ className: "", content: "철수" }}>
+      {isListClicked2 && (
         <div className={classes.listOptionWrap}>
-          <div className={listClass["subTitle_color--blackB"]}>
-            휴대전화 010-1234-0001
-          </div>
+          <div className="display_subTitle--bold">휴대전화 010-1234-0001</div>
           {optionlistContent}
         </div>
-      ),
-    },
+      )}
+    </StackedList_Profile>,
   ];
 
   return (
@@ -323,7 +336,7 @@ function CallAppMain({ tab }) {
           </div>
           <div>
             <div className={listClass["subTitle"]}>내 프로필</div>
-            {contactListProps.map((prop) => makeListContent(prop))}
+            {contactListProps.map((prop) => prop)}
           </div>
         </div>
       )}

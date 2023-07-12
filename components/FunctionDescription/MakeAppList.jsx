@@ -18,7 +18,7 @@ function MakeAppList({ functionMethods }) {
             open={
               myAppName === functionMethodObject.methodAppName ? true : false
             }>
-            <summary data-tooltip-left="클릭!" className="text-xl">
+            <summary className="text-xl" data-tooltip-left="클릭!">
               {functionMethodObject.methodAppName} 어플
             </summary>
             <MakeMethodList functionMethodObject={functionMethodObject} />

@@ -4,112 +4,103 @@ import classes from "./KakaoAppMain.module.css";
 import MakeList from "../components/MakeList";
 import TargetContent from "../components/TargetContent";
 
+import StackedList_Profile from "../components/list/StackedList_Profile";
+
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
 
   const friendListContents = [
-    <MakeList
-      listStyle={"grid_oneLine"}
-      item1={{
-        className: "iconWrap_background--skyBlue",
-        content: <i className="bi bi-person-fill"></i>,
+    <StackedList_Profile
+      className="h-8"
+      profile={{
+        className: "bg-kakaoSkyblue",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "진수",
+      title={{ content: "진수", className: "" }}
+      info={{
+        className: "borderGray",
+        content: "상태메시지 올리기.",
       }}
-      item3={{
-        className: "subInfo_border--grey",
-        content: "상태메시지 올리기",
-      }}></MakeList>,
-    <MakeList
-      listStyle={"grid_twoLine"}
-      item1={{
-        className: "iconWrap_background--purple",
-        content: <i className="bi bi-person-fill"></i>,
+    />,
+    <StackedList_Profile
+      className="h-8"
+      profile={{
+        className: "bg-kakaoPurple",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "영희",
+      title={{ content: "영희", className: "" }}
+      subTitle={{
+        className: "",
+        content: "행복하세요.",
       }}
-      subItem2={{
-        className: "subTitle",
-        content: "행복하세요",
-      }}></MakeList>,
-    <MakeList
-      listStyle={"grid_oneLine"}
-      item1={{
-        className: "iconWrap_background--blue",
-        content: <i className="bi bi-person-fill"></i>,
+    />,
+    <StackedList_Profile
+      className="h-8"
+      profile={{
+        className: "bg-kakaoBlue",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "철수",
-      }}
-      item3={{
-        className: "profile_musicBox",
+      title={{ content: "철수", className: "" }}
+      info={{
+        className: "borderGreenYellow",
         content: "밤이 깊었네-노..",
-      }}></MakeList>,
+      }}
+    />,
   ];
   const chatListContents = [
-    <MakeList
-      listStyle={"grid_twoLine"}
-      item1={{
-        className: "iconWrap_background--purple",
-        content: <i className="bi bi-people-fill"></i>,
+    <StackedList_Profile
+      className="h-8 mb-1"
+      profile={{
+        className: "bg-kakaoPurple",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "그룹채팅방1",
+      title={{ content: "그룹채팅방1", className: "col-end-7" }}
+      subTitle={{
+        className: "",
+        content: "퇴사합니다",
       }}
-      item3={{
-        className: "info",
+      info={{
+        className: "col-start-5 text-end text-neutral-400",
         content: "오전 8:09",
       }}
-      subItem2={{
-        className: "subTitle",
-        content: "퇴사합니다.",
-      }}></MakeList>,
-    <MakeList
-      listStyle={"grid_twoLine"}
-      item1={{
-        className: "iconWrap_background--purple",
-        content: <i className="bi bi-person-fill"></i>,
+      subInfo={{}}
+    />,
+    <StackedList_Profile
+      className="h-8 mb-1"
+      profile={{
+        className: "bg-kakaoPurple",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "영희",
-      }}
-      item3={{
-        className: "info",
-        content: "오후 2:05",
-      }}
-      subItem2={{
-        className: "subTitle",
+      title={{ content: "영희", className: "" }}
+      subTitle={{
+        className: "",
         content: "네.",
       }}
-      subItem3={{
-        className: "subInfo",
+      info={{
+        className: "col-start-5 text-end text-neutral-400",
+        content: "오후 2:05",
+      }}
+      subInfo={{
+        className: "col-start-5 text-center alert--yellow",
         content: "1",
-      }}></MakeList>,
-    <MakeList
-      listStyle={"grid_twoLine"}
-      item1={{
-        className: "iconWrap_background--purple",
-        content: <i className="bi bi-person-fill"></i>,
       }}
-      item2={{
-        className: "title",
-        content: "철수",
+    />,
+    <StackedList_Profile
+      className="h-8 mb-1"
+      profile={{
+        className: "bg-kakaoBlue",
+        content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
       }}
-      item3={{
-        className: "info",
+      title={{ content: "철수", className: "" }}
+      subTitle={{
+        className: "col-end-7",
+        content: "이모티콘을 보냈습니다.",
+      }}
+      info={{
+        className: "col-start-5 text-end text-neutral-400",
         content: "오전 9:42",
       }}
-      subItem2={{
-        className: "subTitle",
-        content: "아모티콘을 보냈습니다.",
-      }}></MakeList>,
+    />,
   ];
 
   return (

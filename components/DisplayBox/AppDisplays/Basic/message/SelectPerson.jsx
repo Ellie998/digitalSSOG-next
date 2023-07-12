@@ -4,6 +4,7 @@ import classes from "./SelectPerson.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
 
 import TargetContent from "../../components/TargetContent";
+import StackedList_Profile from "../../components/list/StackedList_Profile";
 
 function SelectPerson() {
   const {
@@ -40,9 +41,13 @@ function SelectPerson() {
           }
           isNextDescriptionLink={true}>
           <li>
-            <div className={classes.firstNameBox}>홍</div>
-            <div>홍길동</div>
-            <div className={classes.callNumber}>010-0000-0000</div>
+            <StackedList_Profile
+              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
+              title={{ className: "ml-1", content: "홍길동" }}
+              subTitle={{
+                className: "ml-1 col-end-6 text-neutral-700",
+                content: "010-0000-0000",
+              }}></StackedList_Profile>
           </li>
         </TargetContent>
 
@@ -54,9 +59,13 @@ function SelectPerson() {
           }
           isNextDescriptionLink={true}>
           <li>
-            <div className={classes.firstNameBox}>홍</div>
-            <div>홍길순</div>
-            <div className={classes.callNumber}>010-0000-0000</div>
+            <StackedList_Profile
+              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
+              title={{ className: "ml-1", content: "홍길순" }}
+              subTitle={{
+                className: "ml-1 col-end-6 text-neutral-700",
+                content: "010-0000-0000",
+              }}></StackedList_Profile>
           </li>
         </TargetContent>
       </ul>

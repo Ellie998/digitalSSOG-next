@@ -7,14 +7,6 @@
   align-self: center;
 }
 
-.layout i {
-  font-size: 0.9rem;
-  border-radius: 18px;
-  padding: 2px 4px;
-  cursor: pointer;
-  height: fit-content;
-}
-
 /* ------------------- LAYOUT ---------------------- */
 
 .mainLayout {

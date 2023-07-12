@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 
 import classes from "./MessageAppMain.module.css";
 import UrlContext from "../../../../page_context/UrlContext";
-import MakeList from "../../components/MakeList";
 import TargetContent from "../../components/TargetContent";
+import StackedList_Profile from "../../components/list/StackedList_Profile";
 
 function MessageAppMain() {
   const {
@@ -84,28 +84,24 @@ function MessageAppMain() {
                 (functionName === functionName_seeMessage && myMethodId === "1")
               }
               isNextDescriptionLink={true}>
-              <MakeList
-                listStyle="grid_twoLine"
-                item1={{
-                  className: "iconWrap_background--grey",
-                  content: "홍",
-                }}
-                item2={{
-                  className: "title",
-                  content: "홍길동",
-                }}
-                subItem2={{
-                  className: "subTitle",
-                  content: "결혼식 장소 정보입니다...",
-                }}
-                item3={{
-                  classeName: "info",
+              <StackedList_Profile
+                profile={{ className: "bg-gray-200", content: "홍" }}
+                title={{ className: "ml-1", content: "홍길동" }}
+                info={{
+                  className: "text-end",
                   content: "오전 8:03",
                 }}
-                subItem3={{
-                  className: "subInfo",
+                subTitle={{
+                  className: "ml-1 col-end-6",
+                  content: "결혼식 장소 정보입니다...",
+                }}
+                subInfo={{
+                  className:
+                    functionName === functionName_seeMessage
+                      ? "alert--yellow"
+                      : "",
                   content: functionName === functionName_seeMessage ? "1" : "",
-                }}></MakeList>
+                }}></StackedList_Profile>
             </TargetContent>
           </div>
         )}
