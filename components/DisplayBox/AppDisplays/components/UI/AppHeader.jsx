@@ -4,24 +4,30 @@ export default function AppHeader({
   midItem,
   rightItem,
   children,
-  key,
+  id,
 }) {
   return (
     <>
       <div
-        key={key}
+        key={id}
         className={`flex justify-between w-50 align-middle items-center ${className}`}>
         {/* left item */}
         <div className="ml-1 flex justify-between">
-          {leftItem?.map((item) => item)}
+          {leftItem?.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
         </div>
         {/* mid item */}
         <div className="flex justify-between">
-          {midItem?.map((item) => item)}
+          {midItem?.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
         </div>
         {/* right item */}
         <div className="flex justify-between">
-          {rightItem?.map((item) => item)}
+          {rightItem?.map((item, i) => (
+            <div key={i}>{item}</div>
+          ))}
         </div>
       </div>
       {children}

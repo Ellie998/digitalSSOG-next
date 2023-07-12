@@ -9,13 +9,12 @@ export default function ChatList({
   timeStamp,
   onClick,
   children,
-  key,
+  id,
 }) {
   return (
     <>
       {isGetList && (
         <div
-          key={key}
           className={`grid grid-cols-6 w-fit max-w-90p cursor-pointer ${className}`}
           onClick={onClick}>
           {/* profile */}
@@ -52,7 +51,6 @@ export default function ChatList({
       )}
       {isSendList && (
         <div
-          key={key}
           className={`ml-auto flex w-fit max-w-90p  cursor-pointer ${className}`}
           onClick={onClick}>
           {/* timeStamp */}

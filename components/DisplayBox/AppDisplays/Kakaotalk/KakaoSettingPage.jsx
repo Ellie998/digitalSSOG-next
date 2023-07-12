@@ -3,7 +3,7 @@ import { useState } from "react";
 import classes from "./KakaoSettingPage.module.css";
 import TargetContent from "../components/TargetContent";
 import BackBtn from "../components/UI/BackBtn";
-import AppHeader from "../components/list/AppHeader";
+import AppHeader from "../components/UI/AppHeader";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");

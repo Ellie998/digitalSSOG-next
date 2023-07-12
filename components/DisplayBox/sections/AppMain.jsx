@@ -57,7 +57,7 @@ function AppMain() {
   const methodId = myMethodId.toString();
   const descriptionId = myDescriptionId.toString();
 
-  let choicedComponent = <div></div>;
+  let choicedComponent = <MainApps />;
 
   switch (functionName) {
     case functionName_makeCall:

@@ -10,6 +10,7 @@ const TargetContent = ({
   targetOption,
   isNextDescriptionLink,
   onClick,
+  id,
 }) => {
   const targetStyle = {
     border: "2px solid red",
@@ -23,6 +24,7 @@ const TargetContent = ({
     <>
       {!isNextDescriptionLink && (
         <div
+          key={id}
           onClick={onClick}
           className={className}
           data-tooltip={targetOption ? "클릭" : null}
@@ -32,6 +34,7 @@ const TargetContent = ({
       )}
       {isNextDescriptionLink && (
         <div
+          key={id}
           className={className}
           data-tooltip={targetOption ? "클릭" : null}
           style={targetOption ? targetStyle : null}

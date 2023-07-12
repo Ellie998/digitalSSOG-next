@@ -7,12 +7,12 @@ export default function StackedList_Profile({
   subInfo,
   onClick,
   children,
-  key,
+  id,
 }) {
   return (
     <>
       <div
-        key={key}
+        key={id}
         className={`grid grid-cols-6 w-50 cursor-pointer ${className}`}
         onClick={onClick}>
         {/* profile */}

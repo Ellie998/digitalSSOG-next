@@ -24,6 +24,12 @@ module.exports = {
       maxWidth: {
         "90p": "90%",
       },
+      keyframes: {
+        underBar: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
+      },
     },
   },
   plugins: [],
