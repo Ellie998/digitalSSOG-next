@@ -3,11 +3,61 @@ import { useState } from "react";
 import classes from "./ETCSetting.module.css";
 import TargetContent from "../components/TargetContent";
 import StackedList_Profile from "../components/list/StackedList_Profile";
+import Switch from "../components/UI/Switch";
 
 function ETCSetting({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
   const [choicedSetting, setChoicedSetting] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+  const [checkedContent, setCheckedContent] = useState("");
+
+  const contentData = [
+    //      title: "실험실 이용하기",
+    {
+      theme: "#fff200",
+      title: "실험실 이용하기",
+    },
+    //       title: "톡 음성모드",
+    {
+      title: "톡 음성모드",
+      subTitle: "사용안함",
+    },
+    //       title: "말풍선 번역",
+    {
+      theme: "#fff200",
+      title: "말풍선 번역",
+      subTitle:
+        "카카오톡에서 사용하는 언어와 다른 언어의 말풍선을 길게 눌러 번역할 수 있습니다.",
+    },
+    //       title: "채팅방 조용히 나가기",
+    {
+      targetOption: navTriger === "groubChatLeave_quietly",
+      theme: "#fff200",
+      title: "채팅방 조용히 나가기",
+      subTitle: `그룹채팅방에서 나가기 시, 조용히 나가기를 선택할 수 있습니다.
+        조용히 나가는 경우 채팅방에 나간 기록이 표시되지 않습니다.`,
+    },
+    //      title: "빠른 공감하기",
+    {
+      theme: "#fff200",
+      title: "빠른 공감하기",
+      subTitle: `말풍선을 빠르게 두 번 탭해 하트 공감을 날릴 수 있습니다.`,
+    },
+    //       title: "인앱브라우저 앱 화면 분리",
+    {
+      theme: "#fff200",
+      title: "인앱브라우저 앱 화면 분리",
+      subTitle: `채팅방에 전달된 URL 확인 시 사용중인 채팅방과 분리된 화면으로
+      오픈됩니다. <br />
+      브라우저를 닫지 않고 화면 전환을 통해 채팅방의 대화 내용을
+      확인할 수 있어요.`,
+    },
+    //       title: "키워드 알림 모아보기",
+    {
+      theme: "#fff200",
+      title: "키워드 알림 모아보기",
+      subTitle: `등록된 키워드에 해당하는 메시지만 모아볼 수 있습니다.`,
+    },
+  ];
   return (
     <div className={classes.layout}>
       {choicedModal !== "" && (
@@ -30,7 +80,9 @@ function ETCSetting({ navTriger }) {
               <input
                 type="checkbox"
                 id="info_config"
-                onChange={(event) => setIsChecked(event.target.value)}></input>
+                onChange={(event) =>
+                  setCheckedContent(`${event.target.value}`)
+                }></input>
               <div className={classes.subTitle}>
                 위 내용을 모두 확인하였습니다.
               </div>
@@ -43,7 +95,7 @@ function ETCSetting({ navTriger }) {
               </div>
               <TargetContent
                 targetOption={
-                  isChecked && navTriger === "leaveOutBtn_inviteReject"
+                  checkedContent && navTriger === "leaveOutBtn_inviteReject"
                 }
                 isNextDescriptionLink={true}>
                 <div className={classes["color_grey--bold"]}>나가기</div>
@@ -55,7 +107,7 @@ function ETCSetting({ navTriger }) {
       {choicedSetting !== "" && (
         <div>
           <div className={classes.main_header}>
-            <TargetContent targetOption={isChecked}>
+            <TargetContent targetOption={checkedContent === "switch3"}>
               <div
                 onClick={() => {
                   setChoicedSetting("");
@@ -81,135 +133,24 @@ function ETCSetting({ navTriger }) {
               </div>
             </div>
           </div>
+
           <div className={classes.border_bottom}>
-            {/* 실험실 이용하기 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.title} `} htmlFor="set1">
-                  실험실 이용하기
-                </label>
-                <input
-                  type="checkbox"
-                  id="set1"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set1"></label>
-              </div>
-            </div>
-            {/* 톡 음성모드 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes.title} `}>톡 음성모드</div>
-              <div className={classes.subTitle}>사용안함</div>
-            </div>
-            {/* 말풍선 번역 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.color_black} `} htmlFor="set2">
-                  말풍선 번역
-                </label>
-                <input
-                  type="checkbox"
-                  id="set2"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set2"></label>
-              </div>
-              <div className={classes.subTitle}>
-                카카오톡에서 사용하는 언어와 다른 언어의 말풍선을 길게 눌러
-                번역할 수 있습니다.
-              </div>
-            </div>
-            {/* 채팅방 조용히 나가기 */}
-            <TargetContent
-              targetOption={
-                navTriger === "groubChatLeave_quietly" && !isChecked
-              }>
-              <div className={`${classes.contentWrap} `}>
-                <div className={`${classes["display_flex--speaceBetween"]}`}>
-                  <label className={`${classes.color_black} `} htmlFor="set3">
-                    채팅방 조용히 나가기
-                  </label>
-                  <input
-                    type="checkbox"
-                    id="set3"
-                    className={classes.toggleInput}
-                    onChange={() => {
-                      navTriger === "groubChatLeave_quietly" &&
-                        isChecked &&
-                        setIsChecked(false);
-                      navTriger === "groubChatLeave_quietly" &&
-                        !isChecked &&
-                        setIsChecked(true);
-                    }}></input>
-                  <label
-                    className={` ${classes.toggleLabel}`}
-                    htmlFor="set3"></label>
-                </div>
-                <div className={classes.subTitle}>
-                  그룹채팅방에서 나가기 시, 조용히 나가기를 선택할 수 있습니다.
-                  조용히 나가는 경우 채팅방에 나간 기록이 표시되지 않습니다.
-                </div>
-              </div>
-            </TargetContent>
-            {/* 빠른 공감하기 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.color_black} `} htmlFor="set4">
-                  빠른 공감하기
-                </label>
-                <input
-                  type="checkbox"
-                  id="set4"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set4"></label>
-              </div>
-              <div className={classes.subTitle}>
-                말풍선을 빠르게 두 번 탭해 하트 공감을 날릴 수 있습니다.
-              </div>
-            </div>
-            {/* 인앱브라우저 앱 화면 분리 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.color_black} `} htmlFor="set5">
-                  인앱브라우저 앱 화면 분리
-                </label>
-                <input
-                  type="checkbox"
-                  id="set5"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set5"></label>
-              </div>
-              <div className={classes.subTitle}>
-                채팅방에 전달된 URL 확인 시 사용중인 채팅방과 분리된 화면으로
-                오픈됩니다. <br />
-                브라우저를 닫지 않고 화면 전환을 통해 채팅방의 대화 내용을
-                확인할 수 있어요.
-              </div>
-            </div>
-            {/* 키워드 알림 모아보기 */}
-            <div className={`${classes.contentWrap} `}>
-              <div className={`${classes["display_flex--speaceBetween"]}`}>
-                <label className={`${classes.color_black} `} htmlFor="set6">
-                  키워드 알림 모아보기
-                </label>
-                <input
-                  type="checkbox"
-                  id="set6"
-                  className={classes.toggleInput}></input>
-                <label
-                  className={` ${classes.toggleLabel}`}
-                  htmlFor="set6"></label>
-              </div>
-              <div className={classes.subTitle}>
-                등록된 키워드에 해당하는 메시지만 모아볼 수 있습니다.
-              </div>
-            </div>
+            {contentData?.map((data, i) => (
+              <TargetContent
+                key={i}
+                targetOption={
+                  data.targetOption && checkedContent !== `switch${i}`
+                }
+                isWidthFull>
+                <Switch
+                  className=""
+                  theme={data.theme}
+                  title={data.title}
+                  subTitle={data.subTitle}
+                  setCheckedSwitch={data.targetOption && setCheckedContent}
+                  id={`switch${i}`}></Switch>
+              </TargetContent>
+            ))}
           </div>
           <div>
             <div className={classes.subTitle}>
@@ -223,7 +164,7 @@ function ETCSetting({ navTriger }) {
         <div>
           <div className={classes.main_header}>
             <TargetContent
-              targetOption={isChecked}
+              targetOption={checkedContent !== ""}
               isNextDescriptionLink={true}>
               <i className="bi bi-arrow-left"></i>
             </TargetContent>
@@ -367,7 +308,7 @@ function ETCSetting({ navTriger }) {
             {/*실험실 */}
             <TargetContent
               targetOption={
-                navTriger === "groubChatLeave_quietly" && !isChecked
+                navTriger === "groubChatLeave_quietly" && checkedContent === ""
               }>
               <div
                 className={classes.contentWrap}

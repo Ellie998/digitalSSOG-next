@@ -41,18 +41,16 @@ export default function Tab({
         textItems.map((item, i) => (
           <TargetContent
             key={i}
-            targetOption={defaultTab === item && clickedTab !== item}>
-            <div
-              onClick={(e) => {
-                setClickedTab(item);
-              }}
-              className={` ${
-                clickedTab === item
-                  ? `text-${theme} ${classes[`${clickEvent}`]}`
-                  : ""
-              }`}>
-              {item}
-            </div>
+            targetOption={defaultTab === item && clickedTab !== item}
+            className={` ${
+              clickedTab === item
+                ? `text-${theme} ${classes[`${clickEvent}`]}`
+                : ""
+            }`}
+            onClick={(e) => {
+              setClickedTab(item);
+            }}>
+            {item}
           </TargetContent>
         ))}
     </div>

@@ -4,6 +4,7 @@ import classes from "./KakaoSettingPage.module.css";
 import TargetContent from "../components/TargetContent";
 import BackBtn from "../components/UI/BackBtn";
 import AppHeader from "../components/UI/AppHeader";
+import Switch from "../components/UI/Switch";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -117,27 +118,12 @@ function KakaoSettingPage({ navTriger }) {
         </div>
         <TargetContent
           targetOption={navTriger === "groubChatLock" && !isChecked}>
-          <div
-            className={`${classes.contentWrap} flex align-center justify-between`}>
-            <label className="display_title" htmlFor="chatLock">
-              현재 채팅방 입력창 잠금
-            </label>
-            <input
-              type="checkbox"
-              id="chatLock"
-              className={classes.toggleInput}
-              onChange={() => {
-                navTriger === "groubChatLock" &&
-                  isChecked &&
-                  setIsChecked(false);
-                navTriger === "groubChatLock" &&
-                  !isChecked &&
-                  setIsChecked(true);
-              }}></input>
-            <label
-              className={` ${classes.toggleLabel}`}
-              htmlFor="chatLock"></label>
-          </div>
+          <Switch
+            className=""
+            theme={"#fff200"}
+            title={"현재 채팅방 입력창 잠금"}
+            setIsSwitchChecked={setIsChecked}
+            id={`chatLockSwitch`}></Switch>
         </TargetContent>
       </div>
       <div className="border-solid border-b border-gray-200 mb-1">

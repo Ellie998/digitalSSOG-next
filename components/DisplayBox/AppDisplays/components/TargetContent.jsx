@@ -5,6 +5,7 @@ import UrlContext from "../../../page_context/UrlContext";
 
 /**  make component border and tooltip */
 const TargetContent = ({
+  isWidthFull,
   children,
   className,
   targetOption,
@@ -14,7 +15,7 @@ const TargetContent = ({
 }) => {
   const targetStyle = {
     border: "2px solid red",
-    width: "fit-content",
+    width: isWidthFull ? "173px" : "fit-content",
     height: "fit-content",
     borderRadius: "2px",
   };
