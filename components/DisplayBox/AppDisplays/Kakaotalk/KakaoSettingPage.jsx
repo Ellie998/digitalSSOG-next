@@ -1,14 +1,16 @@
 import { useState } from "react";
-
 import classes from "./KakaoSettingPage.module.css";
+
 import TargetContent from "../components/TargetContent";
-import BackBtn from "../components/UI/BackBtn";
-import AppHeader from "../components/UI/AppHeader";
-import Switch from "../components/UI/Switch";
+import AppHeader from "../components/layout/AppHeader";
 import StackedListWrap from "../components/list/StackedListWrap";
 import StackedList from "../components/list/StackedList";
-import Button from "../components/UI/Button";
 import NoScrollBar from "../components/layout/NoScrollBar";
+import Modal_contents from "../components/layout/Modal_contents";
+import BackBtn from "../components/UI/BackBtn";
+import Switch from "../components/UI/Switch";
+import Button from "../components/UI/Button";
+import Checkbox from "../components/UI/Checkbox";
 
 function KakaoSettingPage({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
@@ -17,59 +19,43 @@ function KakaoSettingPage({ navTriger }) {
   return (
     <NoScrollBar height="305px">
       {choicedModal !== "" && (
-        <div className={classes.modalWrap}>
-          <div
-            className={classes.backdrop}
-            onClick={() => {
-              setChoicedModal("");
-              setIsChecked(false);
-            }}></div>
-          <div className={classes.modal}>
-            <div className="display_title">초대 거부 및 나가기</div>
-            <div className="display_subTitle--light">
-              초대를 거부하고 채팅방을 나갑니다.
-              <br />
-              이후 이 채팅방에 다시 입장할 수 없습니다.
-              <br />
-              대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
-            </div>
-            <TargetContent targetOption={!isChecked}>
-              <label
-                className={`${classes.modalRadioWrap}`}
-                htmlFor="info_config">
-                <input
-                  type="checkbox"
-                  id="info_config"
-                  onChange={(event) => {
-                    navTriger === "groubChatLeave_rejectInvitation" && isChecked
-                      ? setIsChecked(false)
-                      : setIsChecked(true);
-                  }}></input>
-                <div className="display_subTitle--light">
-                  위 내용을 모두 확인하였습니다.
-                </div>
-              </label>
-            </TargetContent>
-            <div className={classes.modalNavWrap}>
-              <div
-                className="display_title--bold text-blue-600 cursor-pointer"
-                onClick={() => {
-                  setChoicedModal("");
-                  navTriger === "groubChatLeave_rejectInvitation" &&
-                    setIsChecked(false);
-                }}>
-                취소
-              </div>
-              <TargetContent
-                targetOption={
-                  isChecked && navTriger === "groubChatLeave_rejectInvitation"
-                }
-                isNextDescriptionLink={true}>
-                <div className="display_title--bold cursor-pointer">나가기</div>
-              </TargetContent>
-            </div>
-          </div>
-        </div>
+        <Modal_contents
+          onClickBackDrop={() => {
+            setChoicedModal("");
+            setIsChecked(false);
+          }}
+          title={{ content: "초대 거부 및 나가기" }}
+          subTitle={{
+            content: (
+              <>
+                초대를 거부하고 채팅방을 나갑니다.
+                <br />
+                이후 이 채팅방에 다시 입장할 수 없습니다. <br />
+                대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
+              </>
+            ),
+          }}
+          cancelButton={{
+            content: "취소",
+            className: "text-blue-600",
+          }}
+          submitButton={{
+            targetOption:
+              isChecked && navTriger === "groubChatLeave_rejectInvitation",
+            isNextDescriptionLink: true,
+            content: "나가기",
+          }}>
+          <TargetContent targetOption={!isChecked}>
+            <Checkbox
+              id="info_config"
+              onChange={() => {
+                navTriger === "groubChatLeave_rejectInvitation" && isChecked
+                  ? setIsChecked(false)
+                  : setIsChecked(true);
+              }}
+              label={{ content: "위 내용을 모두 확인하였습니다." }}></Checkbox>
+          </TargetContent>
+        </Modal_contents>
       )}
       <>
         {/* header nav */}

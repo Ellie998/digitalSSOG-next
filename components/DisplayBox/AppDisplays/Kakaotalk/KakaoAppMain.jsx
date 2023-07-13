@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import classes from "./KakaoAppMain.module.css";
 import TargetContent from "../components/TargetContent";
 
 import StackedList_Profile from "../components/list/StackedList_Profile";
-import AppHeader from "../components/UI/AppHeader";
-import Tab from "../components/UI/Tab";
+import AppHeader from "../components/layout/AppHeader";
+import Tab from "../components/layout/Tab";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);

@@ -4,13 +4,20 @@ import classes from "./ETCSetting.module.css";
 import TargetContent from "../components/TargetContent";
 import StackedList_Profile from "../components/list/StackedList_Profile";
 import Switch from "../components/UI/Switch";
+import NoScrollBar from "../components/layout/NoScrollBar";
+import Modal_contents from "../components/layout/Modal_contents";
+import AppHeader from "../components/layout/AppHeader";
+import BackBtn from "../components/UI/BackBtn";
+
+import StackedList from "../components/list/StackedList";
+import StackedListWrap from "../components/list/StackedListWrap";
 
 function ETCSetting({ navTriger }) {
   const [choicedModal, setChoicedModal] = useState("");
   const [choicedSetting, setChoicedSetting] = useState("");
   const [checkedContent, setCheckedContent] = useState("");
 
-  const contentData = [
+  const laboratoryMenuContents = [
     //      title: "실험실 이용하기",
     {
       theme: "#fff200",
@@ -58,84 +65,164 @@ function ETCSetting({ navTriger }) {
       subTitle: `등록된 키워드에 해당하는 메시지만 모아볼 수 있습니다.`,
     },
   ];
+
+  const settingMenuContents1 = [
+    // 개인/보안
+    {
+      profile: "lock",
+      title: "개인/보안",
+    },
+    // 친구
+    {
+      profile: "person",
+      title: "친구",
+    },
+    // 알림
+    {
+      profile: "bell",
+      title: "알림",
+    },
+    // 화면
+    {
+      profile: "brightness-low",
+      title: "화면",
+    },
+    // 기본테마
+    {
+      profile: "palette",
+      title: "기본테마",
+    },
+    // 채팅
+    {
+      profile: "chat",
+      title: "채팅",
+    },
+    // 통화
+    {
+      profile: "telephone",
+      title: "통화",
+    },
+    // 언어
+    {
+      profile: "globe",
+      title: "언어",
+      subTitle: "시스템 기본 언어",
+    },
+    // 실험실
+    {
+      targetOption: navTriger === "groubChatLeave_quietly",
+      onClick: () => setChoicedSetting("experimentRoom"),
+      profile: "lightbulb",
+      title: "실험실",
+    },
+    // 기타
+    {
+      profile: "three-dots",
+      title: "기타",
+    },
+  ];
+  const settingMenuContents2 = [
+    // 공지사항
+    {
+      profile: "megaphone",
+      title: "공지사항",
+    },
+    // 카톡 안녕 가이드
+    {
+      profile: "emoji-smile",
+      title: "카톡 안녕 가이드",
+    },
+
+    // 고객센터/운영정책
+    {
+      profile: "question-circle",
+      title: "고객센터/운영정책",
+    },
+
+    // 언어
+    {
+      profile: "globe",
+      title: "앱 관리",
+      subTitle: "10.2.8",
+    },
+  ];
+
   return (
-    <div className={classes.layout}>
+    <NoScrollBar height="305px">
       {choicedModal !== "" && (
-        <div className={classes.modalWrap}>
-          <div
-            className={classes.backdrop}
-            onClick={() => setChoicedModal("")}></div>
-          <div className={classes.modal}>
-            <div className={classes.title}>초대 거부 및 나가기</div>
-            <div className={classes.subTitle}>
-              초대를 거부하고 채팅방을 나갑니다.
-              <br />
-              이후 이 채팅방에 다시 입장할 수 없습니다.
-              <br />
-              대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
-            </div>
-            <label
-              className={`${classes.modalRadioWrap}`}
-              htmlFor="info_config">
-              <input
-                type="checkbox"
-                id="info_config"
-                onChange={(event) =>
-                  setCheckedContent(`${event.target.value}`)
-                }></input>
-              <div className={classes.subTitle}>
-                위 내용을 모두 확인하였습니다.
-              </div>
-            </label>
-            <div className={classes.modalNavWrap}>
-              <div
-                className={classes["color_blue--bold"]}
-                onClick={() => setChoicedModal("")}>
-                취소
-              </div>
-              <TargetContent
-                targetOption={
-                  checkedContent && navTriger === "leaveOutBtn_inviteReject"
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes["color_grey--bold"]}>나가기</div>
-              </TargetContent>
-            </div>
-          </div>
-        </div>
+        <Modal_contents
+          onClickBackDrop={() => {
+            setChoicedModal("");
+            setIsChecked(false);
+          }}
+          title={{ content: "초대 거부 및 나가기" }}
+          subTitle={{
+            content: (
+              <>
+                초대를 거부하고 채팅방을 나갑니다.
+                <br />
+                이후 이 채팅방에 다시 입장할 수 없습니다. <br />
+                대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
+              </>
+            ),
+          }}
+          cancelButton={{
+            content: "취소",
+            className: "text-blue-600",
+          }}
+          submitButton={{
+            targetOption:
+              isChecked && navTriger === "groubChatLeave_rejectInvitation",
+            isNextDescriptionLink: true,
+            content: "나가기",
+          }}>
+          <TargetContent targetOption={!isChecked}>
+            <Checkbox
+              id="info_config"
+              onChange={() => {
+                navTriger === "groubChatLeave_rejectInvitation" && isChecked
+                  ? setIsChecked(false)
+                  : setIsChecked(true);
+              }}
+              label={{ content: "위 내용을 모두 확인하였습니다." }}></Checkbox>
+          </TargetContent>
+        </Modal_contents>
       )}
+      {/* 실험실 */}
       {choicedSetting !== "" && (
-        <div>
-          <div className={classes.main_header}>
-            <TargetContent targetOption={checkedContent === "switch3"}>
-              <div
+        <>
+          <AppHeader
+            leftItem={[
+              <BackBtn
+                targetOption={checkedContent === "switch3"}
                 onClick={() => {
                   setChoicedSetting("");
                   setChoicedModal("");
-                }}>
-                <i className="bi bi-arrow-left"></i>
-              </div>
-            </TargetContent>
-            <div>실험실</div>
-          </div>
-          <div>
-            <div className={classes.groupProfileWrap}>
-              <div className={classes["iconWrap_background--yellow"]}>
-                <i className="bi bi-lightbulb"></i>
-              </div>
-            </div>
-            <div className={classes.contentWrap_center}>
-              <div className={classes.color_black}>카카오 실험실</div>
-              <div className={classes.subTitle}>
-                출시 준비 중인 새로운 기능을 먼저 이용해 볼 수 있습니다.
-                <br />
-                실험실 기능은 원하실 때 끄고 켜실 수 있습니다.
-              </div>
+                }}></BackBtn>,
+              "실험실",
+            ]}
+          />
+          <div className={`${classes.groupProfileWrap} py-1`}>
+            <div className={classes["iconWrap_background--yellow"]}>
+              <i className="bi bi-lightbulb"></i>
             </div>
           </div>
+          <StackedList
+            className="border-none mb-2"
+            title={{ content: "카카오 실험실", className: "text-center py-2" }}
+            subTitle={{
+              className: "text-center",
+              content: (
+                <>
+                  출시 준비 중인 새로운 기능을 먼저 이용해 볼 수 있습니다.
+                  <br />
+                  실험실 기능은 원하실 때 끄고 켜실 수 있습니다.
+                </>
+              ),
+            }}></StackedList>
 
-          <div className={classes.border_bottom}>
-            {contentData?.map((data, i) => (
+          <StackedListWrap>
+            {laboratoryMenuContents?.map((data, i) => (
               <TargetContent
                 key={i}
                 targetOption={
@@ -151,255 +238,107 @@ function ETCSetting({ navTriger }) {
                   id={`switch${i}`}></Switch>
               </TargetContent>
             ))}
+          </StackedListWrap>
+
+          <div className="display_subTitle--light py-2">
+            실험실 기능은 바람처럼 나타났다 소리없이 사라질 수 있습니다.
           </div>
-          <div>
-            <div className={classes.subTitle}>
-              실험실 기능은 바람처럼 나타났다 소리없이 사라질 수 있습니다.
-            </div>
-          </div>
-        </div>
+        </>
       )}
       {/* setting page */}
       {choicedSetting === "" && (
-        <div>
-          <div className={classes.main_header}>
-            <TargetContent
-              targetOption={checkedContent !== ""}
-              isNextDescriptionLink={true}>
-              <i className="bi bi-arrow-left"></i>
-            </TargetContent>
-            <div>설정</div>
-          </div>
+        <>
+          <AppHeader
+            leftItem={[
+              <BackBtn
+                targetOption={checkedContent !== ""}
+                isNavTriger={true}
+                onClick={() => {
+                  setChoicedSetting("");
+                  setChoicedModal("");
+                }}></BackBtn>,
+              "설정",
+            ]}
+          />
           {/* 나 */}
-          <div className={classes.border_bottom}>
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "bg-kakaoPurple ",
-                  content: <i className="text-white bi bi-person-fill"></i>,
-                }}
-                title={{
-                  className: "ml-2",
-                  content: "나",
-                }}
-                info={{
-                  className: "borderGray",
-                  content: "프로필 관리",
-                }}
-                subTitle={{
-                  className: "col-end-7 ml-2",
-                  content: "+82 10-0000-0000",
-                }}
-                subInfo={{}}></StackedList_Profile>
-            </div>
-          </div>
-          <div className={classes.border_bottom}>
-            {/*개인/보안 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-lock"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "개인/보안",
-                }}></StackedList_Profile>
-            </div>
-            {/*친구 */}
-            <div className={classes.contentWrap}>
-              <div className={classes.contentWrap}>
+          <StackedListWrap>
+            <StackedList_Profile
+              className="h-8"
+              profile={{
+                className: "bg-kakaoPurple ",
+                content: <i className="text-white bi bi-person-fill"></i>,
+              }}
+              title={{
+                className: "ml-2",
+                content: "나",
+              }}
+              info={{
+                className: "borderGray",
+                content: "프로필 관리",
+              }}
+              subTitle={{
+                className: "col-end-7 ml-2",
+                content: "+82 10-0000-0000",
+              }}
+              subInfo={{}}></StackedList_Profile>
+          </StackedListWrap>
+          {/*  settingMenuContents1 */}
+          <StackedListWrap>
+            {settingMenuContents1?.map((menu, i) => (
+              <TargetContent
+                key={i}
+                targetOption={menu.targetOption && checkedContent === ""}
+                onClick={menu.onClick}>
                 <StackedList_Profile
-                  className="h-8"
+                  className="hover:bg-gray-100 h-10"
                   profile={{
                     className: "",
-                    content: <i className="text-base bi bi-person"></i>,
+                    content: (
+                      <i className={`text-base bi bi-${menu.profile}`}></i>
+                    ),
                   }}
                   title={{
                     className: "text-xs display_subTitle",
-                    content: "친구",
-                  }}></StackedList_Profile>
-              </div>
-            </div>
-            {/*알림 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-bell"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "알림",
-                }}></StackedList_Profile>
-            </div>
-            {/*화면 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-brightness-low"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "화면",
-                }}></StackedList_Profile>
-            </div>
-            {/* 테마 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-palette"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "기본테마",
-                }}></StackedList_Profile>
-            </div>
-            {/*채팅 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-chat"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "채팅",
-                }}></StackedList_Profile>
-            </div>
-            {/*통화 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-telephone"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "통화",
-                }}></StackedList_Profile>
-            </div>
-            {/* 언어 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-globe"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "언어",
-                }}
-                subTitle={{
-                  className: "ml-2",
-                  content: "시스템 기본 언어",
-                }}></StackedList_Profile>
-            </div>
-            {/*실험실 */}
-            <TargetContent
-              targetOption={
-                navTriger === "groubChatLeave_quietly" && checkedContent === ""
-              }>
-              <div
-                className={classes.contentWrap}
-                onClick={() => setChoicedSetting("experimentRoom")}>
+                    content: menu.title,
+                  }}
+                  subTitle={
+                    menu.subTitle
+                      ? { content: menu.subTitle, className: "ml-2" }
+                      : undefined
+                  }></StackedList_Profile>
+              </TargetContent>
+            ))}
+          </StackedListWrap>
+          {/*  settingMenuContents2 */}
+          <StackedListWrap>
+            {settingMenuContents2?.map((menu, i) => (
+              <TargetContent
+                key={i}
+                targetOption={menu.targetOption && checkedContent === ""}
+                onClick={menu.onClick}>
                 <StackedList_Profile
-                  className="h-8"
+                  className="hover:bg-gray-100 h-10"
                   profile={{
                     className: "",
-                    content: <i className="text-base bi bi-lightbulb"></i>,
+                    content: (
+                      <i className={`text-base bi bi-${menu.profile}`}></i>
+                    ),
                   }}
                   title={{
                     className: "text-xs display_subTitle",
-                    content: "실험실",
-                  }}></StackedList_Profile>
-              </div>
-            </TargetContent>
-            {/*기타 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-three-dots"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "기타",
-                }}></StackedList_Profile>
-            </div>
-          </div>
-          <div className={classes.border_bottom}>
-            {/*공지사항 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-megaphone"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "공지사항",
-                }}></StackedList_Profile>
-            </div>
-            {/*카톡 안녕 가이드 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-emoji-smile"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "카톡 안녕 가이드",
-                }}></StackedList_Profile>
-            </div>
-            {/*고객센터/운영정책 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-question-circle"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "고객센터/운영정책",
-                }}></StackedList_Profile>
-            </div>
-            {/* 앱 관리 */}
-            <div className={classes.contentWrap}>
-              <StackedList_Profile
-                className="h-8"
-                profile={{
-                  className: "",
-                  content: <i className="text-base bi bi-globe"></i>,
-                }}
-                title={{
-                  className: "text-xs display_subTitle",
-                  content: "앱 관리",
-                }}
-                subTitle={{
-                  className: "ml-2",
-                  content: "10.2.8",
-                }}></StackedList_Profile>
-            </div>
-          </div>
-        </div>
+                    content: menu.title,
+                  }}
+                  subTitle={
+                    menu.subTitle
+                      ? { content: menu.subTitle, className: "ml-2" }
+                      : undefined
+                  }></StackedList_Profile>
+              </TargetContent>
+            ))}
+          </StackedListWrap>
+        </>
       )}
-    </div>
+    </NoScrollBar>
   );
 }
 

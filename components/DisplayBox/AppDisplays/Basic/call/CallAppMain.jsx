@@ -8,7 +8,7 @@ import UrlContext from "../../../../page_context/UrlContext";
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
 import FlexContent from "../../components/list/FlexContent";
-import Tab from "../../components/UI/Tab";
+import Tab from "../../components/layout/Tab";
 
 function CallAppMain({ tab }) {
   const {

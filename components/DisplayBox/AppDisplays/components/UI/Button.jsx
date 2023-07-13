@@ -23,19 +23,3 @@ export default function Button({
     </div>
   );
 }
-// .border_orange {
-//   border: 1px solid orange;
-//   color: rgb(255, 115, 0);
-//   text-align: center;
-//   border-radius: 4px;
-//   padding: 2px;
-//   width: 160px;
-// }
-// .background_orange {
-//   background-color: rgb(255, 115, 0);
-//   color: white;
-//   text-align: center;
-//   border-radius: 4px;
-//   padding: 2px;
-//   width: 160px;
-// }

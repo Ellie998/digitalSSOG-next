@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import UrlContext from "../../../page_context/UrlContext";
 import classes from "./KakaoChatRoom.module.css";
 import TargetContent from "../components/TargetContent";
-import AppHeader from "../components/UI/AppHeader";
+import AppHeader from "../components/layout/AppHeader";
 import BackBtn from "../components/UI/BackBtn";
 import ChatList from "../components/UI/ChatList";
 import StackedList_Profile from "../components/list/StackedList_Profile";
