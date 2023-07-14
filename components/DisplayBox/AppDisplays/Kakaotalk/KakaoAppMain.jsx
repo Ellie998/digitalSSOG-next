@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-import classes from "./KakaoAppMain.module.css";
 import TargetContent from "../components/TargetContent";
 
 import StackedList_Profile from "../components/list/StackedList_Profile";
+import StackedListWrap from "../components/list/StackedListWrap";
 import AppHeader from "../components/layout/AppHeader";
 import Tab from "../components/layout/Tab";
+import NoScrollBar from "../components/layout/NoScrollBar";
+import Icon from "../components/Icon";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
@@ -106,95 +108,94 @@ function KakaoAppMain({ navTriger, tab }) {
 
   return (
     <>
-      <div className={classes.layout}>
-        <div className={classes.mainLayout}>
-          <div className={classes.main_header}>
-            {tabName === "friend" && (
-              <AppHeader
-                leftItem={[<div className="text-sm font-bold">친구</div>]}
-                rightItem={[
-                  <i className="bi bi-search" />,
-                  <i className="ml-2 bi bi-person-plus" />,
-                  <i className="ml-2 bi bi-music-note-beamed" />,
-                  <i className="ml-2 bi bi-gear" />,
-                ]}></AppHeader>
-            )}
-            {tabName === "chat" && (
-              <AppHeader
-                leftItem={[<div className="text-sm font-bold">채팅</div>]}
-                rightItem={[
-                  <i className="bi bi-search" />,
-                  <i key={Math.random()} className="ml-2 bi bi-plus-circle" />,
-                  <i className="ml-2 bi bi-gear" />,
-                ]}></AppHeader>
-            )}
-            {tabName === "openChat" && (
-              <AppHeader
-                leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
-                rightItem={[
-                  <i className=" bi bi-plus-circle" />,
-                  <i className="ml-2 bi bi-chat" />,
-
-                  <i className="ml-2 bi bi-gear" />,
-                ]}></AppHeader>
-            )}
-            {tabName === "shopping" && (
-              <AppHeader
-                leftItem={[<div className="text-sm font-bold">쇼핑</div>]}
-                rightItem={[
-                  <i className=" bi bi-bag-check" />,
-                  <i className="ml-2 bi bi-gear" />,
-                ]}></AppHeader>
-            )}
-            {tabName === "ETC" && (
-              <AppHeader
-                leftItem={[<div className="text-sm font-bold">더보기</div>]}
-                rightItem={[
-                  <i className=" bi bi-search" />,
-                  <i className="ml-2 bi bi-upc-scan" />,
-                  <TargetContent
-                    targetOption={tab === "ETC" && navTriger === "setting"}
-                    isNextDescriptionLink={true}>
-                    <i className="ml-2 bi bi-gear" />
-                  </TargetContent>,
-                ]}></AppHeader>
-            )}
-          </div>
-          {/* main */}
-          {tabName === "friend" && (
-            <div className={classes.list}>
-              <div className={classes.border_topbottom}>
-                {friendListContents[0]}
-              </div>
-              <div className={classes.profile_message}>친구 2</div>
+      <NoScrollBar height="240px">
+        {/* Header start */}
+        {tabName === "friend" && (
+          <AppHeader
+            leftItem={[<div className="text-sm font-bold">친구</div>]}
+            rightItem={[
+              <Icon name="search" className="text-sm" />,
+              <Icon name="person-plus" className="ml-1 text-sm" />,
+              <Icon name="music-note-beamed" className="ml-1 text-sm" />,
+              <Icon name="gear" className="ml-1 text-sm" />,
+            ]}></AppHeader>
+        )}
+        {tabName === "chat" && (
+          <AppHeader
+            leftItem={[<div className="text-sm font-bold">채팅</div>]}
+            rightItem={[
+              <Icon name="search" className="text-sm" />,
+              <Icon name="plus-circle" className="ml-1 text-sm" />,
+              <Icon name="gear" className="ml-1 text-sm" />,
+            ]}></AppHeader>
+        )}
+        {tabName === "openChat" && (
+          <AppHeader
+            leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
+            rightItem={[
+              <Icon name="plus-circle" className=" text-sm" />,
+              <Icon name="chat" className="ml-1 text-sm" />,
+              <Icon name="gear" className="ml-1 text-sm" />,
+            ]}></AppHeader>
+        )}
+        {tabName === "shopping" && (
+          <AppHeader
+            leftItem={[<div className="text-sm font-bold">쇼핑</div>]}
+            rightItem={[
+              <Icon name="bag-check" className="text-sm" />,
+              <Icon name="gear" className="ml-1 text-sm" />,
+            ]}></AppHeader>
+        )}
+        {tabName === "ETC" && (
+          <AppHeader
+            leftItem={[<div className="text-sm font-bold">더보기</div>]}
+            rightItem={[
+              <Icon name="search" className="text-sm" />,
+              <Icon name="upc-scan" className="ml-1 text-sm" />,
+              <TargetContent
+                targetOption={tab === "ETC" && navTriger === "setting"}
+                isNextDescriptionLink={true}>
+                <Icon name="gear" className="ml-1 text-sm" />
+              </TargetContent>,
+            ]}></AppHeader>
+        )}
+        {/* ------Header end---- */}
+        {/* main start */}
+        {tabName === "friend" && (
+          <>
+            <StackedListWrap>{friendListContents[0]}</StackedListWrap>
+            <StackedListWrap
+              className="border-none"
+              listTitle={{ content: "친구 2" }}>
               {friendListContents[1]}
-              {
-                <TargetContent
-                  targetOption={navTriger === "profile_friend"}
-                  isNextDescriptionLink={true}>
-                  {friendListContents[2]}
-                </TargetContent>
-              }
-            </div>
-          )}
-          {tabName === "chat" && (
-            <div className={classes.list}>
-              {navTriger === "chatList_group" && (
-                <TargetContent
-                  targetOption={navTriger === "chatList_group"}
-                  isNextDescriptionLink={true}>
-                  {chatListContents[0]}
-                </TargetContent>
-              )}
-              {chatListContents[1]}
-              {chatListContents[2]}
-            </div>
-          )}
-          {tabName === "openChat" && <div className={classes.list}></div>}
-          {tabName === "shopping" && <div className={classes.list}></div>}
-          {tabName === "ETC" && <div className={classes.list}></div>}
-        </div>
-      </div>
+              <TargetContent
+                targetOption={navTriger === "profile_friend"}
+                isNextDescriptionLink={true}>
+                {friendListContents[2]}
+              </TargetContent>
+            </StackedListWrap>
+          </>
+        )}
+        {tabName === "chat" && (
+          <>
+            {navTriger === "chatList_group" && (
+              <TargetContent
+                targetOption={navTriger === "chatList_group"}
+                isNextDescriptionLink={true}>
+                {chatListContents[0]}
+              </TargetContent>
+            )}
+            {chatListContents[1]}
+            {chatListContents[2]}
+          </>
+        )}
+        {tabName === "openChat" && <></>}
+        {tabName === "shopping" && <></>}
+        {tabName === "ETC" && <></>}
+        {/* -------main end------ */}
+      </NoScrollBar>
+
+      {/* tab start */}
       <Tab
         className="bg-neutral-100 shadow-sm"
         setClickedTab={setTabName}
@@ -227,6 +228,7 @@ function KakaoAppMain({ navTriger, tab }) {
             clickedContent: "bi bi-three-dots",
           },
         ]}></Tab>
+      {/* ------tab end------ */}
     </>
   );
 }

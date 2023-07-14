@@ -20,6 +20,7 @@ module.exports = {
       },
       spacing: {
         50: "170px",
+        "305px": "305px",
       },
       maxWidth: {
         "90p": "90%",
@@ -33,6 +34,13 @@ module.exports = {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
+        closeAnimation: {
+          "0%": { opacity: 1, background: "black" },
+          "100%": { opacity: 0, background: "white" },
+        },
+      },
+      transitionProperty: {
+        position: "position, bottom,transform, background, height, width",
       },
     },
   },

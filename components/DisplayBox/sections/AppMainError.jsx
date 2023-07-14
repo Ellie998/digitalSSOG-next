@@ -1,17 +1,24 @@
+import Button from "../AppDisplays/components/UI/Button";
+import Spinner from "../AppDisplays/components/UI/Spinner";
+import NoScrollBar from "../AppDisplays/components/layout/NoScrollBar";
+
 const AppMainError = () => {
   return (
-    <div>
-      <img
-        src={"/assets/images/work-hard.jpg"}
-        alt="work hard image"
-        width="170"
-        height="200"></img>
-      <div style={{ textAlign: "center", height: "60px" }}>
-        화면 제작중 <i className="bi bi-arrow-repeat"></i>
-        <br />
-        최대한 빨리 완성할게요
+    <NoScrollBar height="305px">
+      <Spinner className={"mx-auto mt-20 mb-10"}></Spinner>
+      <div className="mt-20 mb-5 text-center">
+        <p>화면 제작중 🙋‍♀️</p>
+        <p>최대한 빨리 완성할게요</p>
       </div>
-    </div>
+      <Button
+        className="hover:animate-pulse font-bold mx-auto"
+        btnColor="rgb(90, 162, 255)"
+        textColor="white"
+        content="다른 기능 보러가기"
+        onClick={(e) => {
+          history.back();
+        }}></Button>
+    </NoScrollBar>
   );
 };
 

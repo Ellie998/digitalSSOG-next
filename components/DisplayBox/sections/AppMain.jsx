@@ -25,8 +25,9 @@ import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
 import ETCSetting from "../AppDisplays/Kakaotalk/ETCSetting";
+import AppMain_default from "./AppMain_default";
 
-function AppMain() {
+function AppMain({}) {
   const {
     functionName,
     myAppName,
@@ -57,7 +58,7 @@ function AppMain() {
   const methodId = myMethodId.toString();
   const descriptionId = myDescriptionId.toString();
 
-  let choicedComponent = <MainApps />;
+  let choicedComponent = <AppMain_default />;
 
   switch (functionName) {
     case functionName_makeCall:

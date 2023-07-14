@@ -2,7 +2,7 @@ import styles from "./AppNav.module.css";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
 
-function AppNav() {
+function AppNav({ className }) {
   const { setMyDescriptionId, myDescriptionId } = useContext(UrlContext);
 
   function goToBack() {
@@ -15,7 +15,7 @@ function AppNav() {
     setMyDescriptionId("0");
   }
   return (
-    <section>
+    <section className={`${className} row-start-4 row-end-5`}>
       <ul className={styles.AppNav}>
         <li>
           <i className="bi bi-list"></i>
