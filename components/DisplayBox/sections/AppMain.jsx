@@ -67,13 +67,13 @@ function AppMain({}) {
           choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
           if (methodId === "1") {
-            choicedComponent = <CallAppMain tab="키패드" />;
+            choicedComponent = <CallAppMain targetTab="키패드" target_Call />;
           }
           if (methodId === "2") {
-            choicedComponent = <CallAppMain tab="최근기록" />;
+            choicedComponent = <CallAppMain targetTab="최근기록" target_Call />;
           }
           if (methodId === "3") {
-            choicedComponent = <CallAppMain tab="연락처" />;
+            choicedComponent = <CallAppMain targetTab="연락처" target_Call />;
           }
         } else if (descriptionId === "2") {
           choicedComponent = <CallConnected />;
@@ -120,7 +120,9 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_call} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <CallAppMain tab="키패드" />;
+          choicedComponent = (
+            <CallAppMain targetTab="키패드" target_videoCall />
+          );
         } else if (descriptionId === "2") {
           choicedComponent = <VideoCallConnected />;
         } else {

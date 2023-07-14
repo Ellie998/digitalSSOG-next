@@ -3,6 +3,7 @@
 }
 @tailwind components;
 @layer components {
+  /* PAGE */
   .title {
     @apply text-2xl font-bold text-neutral-800 sm:text-3xl;
   }
@@ -12,9 +13,8 @@
   .h2 {
     @apply text-xl font-bold text-neutral-800 sm:text-2xl;
   }
-  .profileIconWrap {
-    @apply px-0.5 py-1 text-xs h-5 w-5 flex justify-center items-center align-middle text-center mx-auto rounded-2xl;
-  }
+  /* DISPLAY */
+
   .display_title {
     @apply text-sm ml-2 text-neutral-800 text-start;
   }
@@ -30,11 +30,16 @@
   .display_subTitle--light {
     @apply text-2xs ml-2  text-neutral-400 text-start leading-4;
   }
+  /* BORDER */
   .borderGray {
     @apply border border-stone-300 rounded-xl border-solid text-center hover:bg-black;
   }
   .borderGreenYellow {
     @apply border border-greenyellow rounded-xl border-solid text-center hover:bg-black;
+  }
+  /* PROFILE LIST */
+  .profileIconWrap {
+    @apply px-0.5 py-1 text-xs h-5 w-5 flex justify-center items-center align-middle text-center mx-auto rounded-2xl;
   }
   .alert--yellow {
     @apply text-white font-bold bg-orange-500 w-4 rounded-full text-center justify-self-end;

@@ -36,8 +36,17 @@ module.exports = {
         },
         closeAnimation: {
           "0%": { opacity: 1, background: "black" },
-          "100%": { opacity: 0, background: "white" },
+          "100%": { opacity: 0, background: "black" },
         },
+        fadeInDown: {
+          "0%": { opacity: 0.5, transform: "translate3d(0, -10px, 0)" },
+          "90%": { opacity: 1 },
+          to: { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeInDown: " fadeInDown 0.5s",
+        closeAnimation: "closeAnimation 0.3s",
       },
       transitionProperty: {
         position: "position, bottom,transform, background, height, width",

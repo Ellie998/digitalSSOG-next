@@ -1,60 +1,32 @@
 import { useState, useContext } from "react";
 
-import classes from "./CallAppMain.module.css";
-import listClass from "../../components/MakeList.module.css";
-
 import UrlContext from "../../../../page_context/UrlContext";
 
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
 import FlexContent from "../../components/list/FlexContent";
 import Tab from "../../components/layout/Tab";
+import NoScrollBar from "../../components/layout/NoScrollBar";
+import CallKeypad from "../../components/UI/CallKeypad";
+import AppTitle_center from "../../components/layout/AppTitle_center";
+import Icon from "../../components/Icon";
+import StackedListWrap from "../../components/list/StackedListWrap";
+import ListOption from "../../components/list/ListOption";
 
-function CallAppMain({ tab }) {
+function CallAppMain({ targetTab, target_videoCall, target_Call }) {
   const {
-    myAppName,
     functionName,
     //
     functionName_makeCall,
     functionName_makeVideoCall,
     //
-    appName_basic,
   } = useContext(UrlContext);
+  const scrollElement = document.getElementById("component_NoScrollBar");
+
   const [clickedTapName, setClickedTapName] = useState("키패드");
-  const [clickedNum, changeNum] = useState("");
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
 
-  function onchangeClickNum(event) {
-    if (event.target.innerText && event.target.nodeName === "DIV") {
-      if (
-        (!clickedNum.includes("-") && clickedNum.length === 3) ||
-        clickedNum === "02"
-      ) {
-        changeNum(clickedNum + "-" + event.target.innerText);
-      } else if (
-        (clickedNum.length === 6 && clickedNum.slice(0, 2) === "02") ||
-        (clickedNum.length === 8 && clickedNum.slice(0, 2) === "01") ||
-        (clickedNum.length === 7 && clickedNum.slice(0, 2) !== "02")
-      ) {
-        changeNum(clickedNum + "-" + event.target.innerText);
-      } else if (clickedNum.length > 20) {
-        changeNum("");
-      } else {
-        changeNum(clickedNum + event.target.innerText);
-      }
-    }
-  }
-
-  function onDeleteNum() {
-    changeNum(clickedNum.slice(0, clickedNum.length - 1));
-  }
-
-  function changeTapHandler(event) {
-    setClickedTapName(event.target.innerText);
-    setIsListClicked1(false);
-    setIsListClicked2(false);
-  }
   const showListOption1 = () => {
     !isListClicked1 && setIsListClicked1(true);
     isListClicked1 && setIsListClicked1(false);
@@ -72,7 +44,7 @@ function CallAppMain({ tab }) {
       className=""
       items={[
         <TargetContent
-          targetOption={functionName === functionName_makeCall}
+          targetOption={targetTab === clickedTapName && target_Call}
           isNextDescriptionLink={true}>
           <i className="text-green-600 bi bi-telephone-fill" />
         </TargetContent>,
@@ -97,11 +69,11 @@ function CallAppMain({ tab }) {
       className3: "",
       content3: "오후 7:38",
       children: isListClicked1 && (
-        <div className={classes.listOptionWrap}>
-          <div className="display_subTitle--bold">휴대전화 010-0000-0000</div>
-          <div className={"display_subTitle"}>발신전화, 0분 33초</div>
+        <ListOption
+          title={{ content: "휴대전화 010-1234-0000" }}
+          subTitle={{ content: "휴대전화 발신전화, 0분 33초" }}>
           {optionlistContent}
-        </div>
+        </ListOption>
       ),
     },
     {
@@ -116,11 +88,11 @@ function CallAppMain({ tab }) {
       className3: "",
       content3: "오후 5:20",
       children: isListClicked2 && (
-        <div className={classes.listOptionWrap}>
-          <div className="display_subTitle--bold">휴대전화 010-0000-0000</div>
-          <div className={"display_subTitle"}>발신전화, 0분 24초</div>
+        <ListOption
+          title={{ content: "휴대전화 010-1234-0000" }}
+          subTitle={{ content: "휴대전화 발신전화, 0분 24초" }}>
           {optionlistContent}
-        </div>
+        </ListOption>
       ),
     },
   ];
@@ -184,7 +156,10 @@ function CallAppMain({ tab }) {
     // 영희
     {
       id: `contactList5`,
-      onClick: showListOption1,
+      onClick: () => {
+        showListOption1();
+        scrollElement.scroll(0, 315);
+      },
       className: "h-8",
       profile: {
         className: "bg-pink-200",
@@ -195,10 +170,9 @@ function CallAppMain({ tab }) {
         content: "영희",
       },
       children: isListClicked1 && (
-        <div className={classes.listOptionWrap}>
-          <div className="display_subTitle--bold">휴대전화 010-1234-0000</div>
+        <ListOption title={{ content: "휴대전화 010-1234-0000" }}>
           {optionlistContent}
-        </div>
+        </ListOption>
       ),
     },
 
@@ -218,7 +192,10 @@ function CallAppMain({ tab }) {
     //철수
     {
       id: `contactList7`,
-      onClick: showListOption2,
+      onClick: () => {
+        showListOption2();
+        scrollElement.scroll(0, 340);
+      },
       className: "h-8",
       profile: {
         className: "bg-orange-200",
@@ -229,96 +206,47 @@ function CallAppMain({ tab }) {
         content: "철수",
       },
       children: isListClicked2 && (
-        <div className={classes.listOptionWrap}>
-          <div className="display_subTitle--bold">휴대전화 010-1234-0001</div>
+        <ListOption title={{ content: "휴대전화 010-1234-0001" }}>
           {optionlistContent}
-        </div>
+        </ListOption>
       ),
     },
   ];
 
   return (
     <>
-      <div className={classes.layout}>
+      <NoScrollBar height="267px" className="text-center">
         {clickedTapName === "키패드" && (
-          <div>
-            <div className={classes.main_title}>{clickedNum}</div>
-            <div className={classes.main_optionBox} onClick={onchangeClickNum}>
-              <div className={classes.main_optionRow}>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-              </div>
-              <div className={classes.main_optionRow}>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-              </div>
-              <div className={classes.main_optionRow}>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-              </div>
-              <div className={classes.main_optionRow}>
-                <div>*</div>
-                <div>0</div>
-                <div>#</div>
-              </div>
-            </div>
-            <div className={classes.navLayout}>
-              <TargetContent
-                targetOption={
-                  functionName === functionName_makeVideoCall &&
-                  tab === "키패드"
-                }
-                isNextDescriptionLink={true}>
-                <div>
-                  <i className="bi bi-camera-video-fill"></i>
-                </div>
-              </TargetContent>
-              <div>
-                <TargetContent
-                  targetOption={
-                    functionName === functionName_makeCall && tab === "키패드"
-                  }
-                  isNextDescriptionLink={true}>
-                  <div className={classes.iconWrap_background}>
-                    <i className="bi bi-telephone-fill"></i>
-                  </div>
-                </TargetContent>
-              </div>
-              <div>
-                <i className="bi bi-arrow-left-short" onClick={onDeleteNum}></i>
-              </div>
-            </div>
-          </div>
+          <CallKeypad
+            button1={{
+              targetOption: targetTab === "키패드" && target_videoCall,
+            }}
+            button2={{
+              targetOption: targetTab === "키패드" && target_Call,
+            }}></CallKeypad> // <div>
         )}
         {clickedTapName === "최근기록" && (
-          <div>
-            <div>
-              <div className={classes.main_title}>전화</div>
-              <FlexContent
-                items={[
-                  <div />,
-                  <FlexContent
-                    items={[
-                      <i className="text-sm bi bi-filter" />,
-                      <i className="text-sm bi bi-search" />,
-                      <i className="text-sm bi bi-three-dots-vertical" />,
-                    ]}
-                  />,
-                ]}
-              />
-            </div>
-            <div
-              className={
-                isListClicked1 || isListClicked2 ? "" : classes.listWrap
-              }>
-              <div className={listClass["subTitle"]}>6월 17일</div>
+          <>
+            <AppTitle_center title={{ content: "전화" }}></AppTitle_center>
+            <FlexContent
+              items={[
+                <div />,
+                <FlexContent
+                  items={[
+                    <Icon name="filter" className={`text-sm`} />,
+                    <Icon name="search" className={`text-sm `} />,
+                    <Icon name="three-dots-vertical" className={`text-sm `} />,
+                  ]}
+                />,
+              ]}
+            />
+            <StackedListWrap
+              listTitle={{ content: "6월 17일" }}
+              className={`border-none`}>
               {callHistoryListProps.map((prop) => (
                 <StackedList_Profile
                   key={prop.id}
-                  className="h-8 mb-1"
+                  className="h-8"
                   onClick={prop.onClickFunction ? prop.onClickFunction : null}
                   profile={{
                     className: `${prop.className1}`,
@@ -335,33 +263,31 @@ function CallAppMain({ tab }) {
                   {prop.children ? prop.children : null}
                 </StackedList_Profile>
               ))}
-            </div>
-          </div>
+            </StackedListWrap>
+          </>
         )}
         {clickedTapName === "연락처" && (
-          <div>
-            <div>
-              <div className={classes["main_title--noMargin"]}>
-                전화
-                <div className={classes.main_subTitle}>
-                  전화번호가 저장된 연락처 2개
-                </div>
-              </div>
-              <FlexContent
-                items={[
-                  <div />,
-                  <FlexContent
-                    items={[
-                      <i className="text-sm bi bi-plus" />,
-                      <i className="text-sm bi bi-search" />,
-                      <i className="text-sm bi bi-three-dots-vertical" />,
-                    ]}
-                  />,
-                ]}
-              />
-            </div>
-            <div>
-              <div className={listClass["subTitle"]}>내 프로필</div>
+          <>
+            <AppTitle_center
+              title={{ content: "전화" }}
+              subTitle={{
+                content: "전화번호가 저장된 연락처 2개",
+              }}></AppTitle_center>
+            <FlexContent
+              items={[
+                <div />,
+                <FlexContent
+                  items={[
+                    <Icon name="plus" className={`text-sm`} />,
+                    <Icon name="search" className={`text-sm`} />,
+                    <Icon name="three-dots-vertical" className={`text-sm`} />,
+                  ]}
+                />,
+              ]}
+            />
+            <StackedListWrap
+              listTitle={{ content: "내 프로필" }}
+              className={`border-none`}>
               {contactListProps.map((prop) => (
                 <StackedList_Profile
                   key={prop.id}
@@ -372,14 +298,14 @@ function CallAppMain({ tab }) {
                   {prop.children}
                 </StackedList_Profile>
               ))}
-            </div>
-          </div>
+            </StackedListWrap>
+          </>
         )}
-      </div>
+      </NoScrollBar>
       <Tab
         className="shadow-sm"
         setClickedTab={setClickedTapName}
-        defaultTab={tab}
+        defaultTab={targetTab}
         clickedTab={clickedTapName}
         textItems={["키패드", "최근기록", "연락처"]}
         theme="green-600"

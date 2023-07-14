@@ -87,9 +87,11 @@ function FunctionDescriptionPage() {
         </h2>
         <MakeAppList functionMethods={detailFunctionObject.method} />
         <div className={classes.displayBox}>
-          <p className="subTitle w-56">
+          <p className="subTitle w-56 hover:text-gray-900">
             ❗️ 학습에 도움을 드리기 위해 실제 스마트폰의 모습을 본따 만든
             화면입니다.
+            <br />
+            ❗️ 스마트폰 기종에 따라 화면 모습에 차이가 있을 수 있습니다.
           </p>
           <DisplayBox></DisplayBox>
           <div className={classes.flexWrap}></div>

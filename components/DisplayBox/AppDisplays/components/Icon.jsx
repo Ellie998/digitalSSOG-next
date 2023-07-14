@@ -1,3 +1,3 @@
-export default function Icon({ name, className }) {
-  return <i className={`bi bi-${name} ${className}`}></i>;
+export default function Icon({ name, className, onClick }) {
+  return <i onClick={onClick} className={`bi bi-${name} ${className}`}></i>;
 }

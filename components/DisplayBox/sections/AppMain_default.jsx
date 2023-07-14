@@ -8,13 +8,16 @@ function AppMain_default({}) {
   const { setMyAppName, setMyMethodId, setMyDescriptionId } =
     useContext(UrlContext);
   const [isClicked, setIsClicked] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   const onClass = "gradient-background";
   const offClass = "bg-slate-950";
 
   return (
     <div
-      className={`w-44 relative h-[382px] bottom-9 rounded-xl p-4 transition duration-100 ease-in-out 
+      className={`w-44 relative h-[382px] bottom-9 rounded-xl p-4 transition duration-100 ease-in-out ${
+        startAnimation ? "animate-closeAnimation" : ""
+      }
       ${!isClicked ? offClass : onClass} 
       `}>
       {!isClicked && (
@@ -23,7 +26,10 @@ function AppMain_default({}) {
             className="relative mx-auto top-32"
             iconClassName=" hover:animate-bounce hover:animate-pulse"
             setIsClicked={() => {
-              setIsClicked(true);
+              setStartAnimation(true);
+              setTimeout(() => {
+                setIsClicked(true);
+              }, 300);
             }}></PowerSwitch>
 
           <div className="relative mx-auto top-40 text-center text-sm text-gray-200  hover:animate-pulse">
@@ -33,7 +39,7 @@ function AppMain_default({}) {
       )}
 
       {isClicked && (
-        <div className="my-auto ">
+        <div className="my-auto  ">
           <div className="display_title ml-0 bg-[#fbfbfb79] px-4 py-9 mt-12 rounded-lg">
             <div className={`hover:font-bold mb-2  text-gray-900 flex`}>
               <p className="mr-1">1️⃣ </p>
