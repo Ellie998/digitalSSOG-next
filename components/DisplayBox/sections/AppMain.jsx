@@ -135,7 +135,12 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = (
+            <MessageAppMain
+              target_sendMessage={methodId === "1"}
+              target_seeMessage={methodId === "2"}
+            />
+          );
         } else if (descriptionId === "2" && methodId === "1") {
           choicedComponent = <SelectPerson />;
         } else if (
@@ -152,7 +157,7 @@ function AppMain({}) {
           if (descriptionId === "0") {
             choicedComponent = <MainApps navLinkTriger={appName_message} />;
           } else if (descriptionId === "1") {
-            choicedComponent = <MessageAppMain />;
+            choicedComponent = <MessageAppMain target_seeMessage />;
           } else if (descriptionId === "2") {
             choicedComponent = <Message />;
           }
@@ -160,7 +165,7 @@ function AppMain({}) {
           if (descriptionId === "0") {
             choicedComponent = <MainApps navLinkTriger={appName_message} />;
           } else if (descriptionId === "1") {
-            choicedComponent = <MessageAppMain />;
+            choicedComponent = <MessageAppMain target_unreadMessage />;
           } else if (descriptionId === "2") {
             choicedComponent = <UnreadMessage />;
           } else if (descriptionId === "3") {
@@ -174,9 +179,9 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = <MessageAppMain target_seeMessage />;
         } else if (descriptionId === "2") {
-          choicedComponent = <Message />;
+          choicedComponent = <Message target_resend />;
         } else if (descriptionId === "3") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "4") {
@@ -191,11 +196,11 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = <MessageAppMain target_sendMessage />;
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message />;
+          choicedComponent = <Message target_reserveMessage />;
         } else if (descriptionId === "4") {
           choicedComponent = <SetReservation />;
         } else if (descriptionId === "5") {
@@ -208,11 +213,11 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = <MessageAppMain target_sendMessage />;
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message />;
+          choicedComponent = <Message target_sendImg />;
         } else if (descriptionId === "4" && methodId === "2") {
           choicedComponent = <SelectFile />;
         } else if (descriptionId === "5" && methodId === "2") {
@@ -227,11 +232,11 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = <MessageAppMain target_sendMessage />;
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message />;
+          choicedComponent = <Message target_sendAudio />;
         } else if (descriptionId === "4") {
           choicedComponent = <SelectFile />;
         } else if (descriptionId === "5") {
@@ -244,11 +249,11 @@ function AppMain({}) {
         if (descriptionId === "0") {
           choicedComponent = <MainApps navLinkTriger={appName_message} />;
         } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain />;
+          choicedComponent = <MessageAppMain target_sendMessage />;
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message />;
+          choicedComponent = <Message target_sendPhoneNum />;
         } else if (descriptionId === "4") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "5") {

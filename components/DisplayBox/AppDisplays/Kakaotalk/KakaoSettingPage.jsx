@@ -162,7 +162,7 @@ function KakaoSettingPage({ navTriger }) {
         {/* Buttons */}
         <div className="py-2 px-1 mx-auto">
           <Button
-            className="mb-1"
+            className="mb-1 text-sm"
             textColor="rgb(255, 115, 0)"
             borderColor="rgb(255, 115, 0)"
             content="채팅방 나가기"></Button>
@@ -172,6 +172,7 @@ function KakaoSettingPage({ navTriger }) {
               choicedModal !== "groubChatLeave_rejectInvitation"
             }>
             <Button
+              className={`text-sm`}
               btnColor="rgb(255, 115, 0)"
               textColor="white"
               content="초대거부 및 나가기"

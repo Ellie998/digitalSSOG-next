@@ -1,6 +1,4 @@
-import { useState, useContext } from "react";
-
-import UrlContext from "../../../../page_context/UrlContext";
+import { useState } from "react";
 
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
@@ -14,13 +12,6 @@ import StackedListWrap from "../../components/list/StackedListWrap";
 import ListOption from "../../components/list/ListOption";
 
 function CallAppMain({ targetTab, target_videoCall, target_Call }) {
-  const {
-    functionName,
-    //
-    functionName_makeCall,
-    functionName_makeVideoCall,
-    //
-  } = useContext(UrlContext);
   const scrollElement = document.getElementById("component_NoScrollBar");
 
   const [clickedTapName, setClickedTapName] = useState("키패드");

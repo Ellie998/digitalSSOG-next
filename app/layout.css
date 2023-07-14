@@ -207,6 +207,14 @@ details summary {
     font-size: 1.5rem;
   }
 }
+@keyframes opacity0to100 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 @media (max-width: 500px) {
   main {

@@ -1,180 +1,179 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import classes from "./MessageAppMain.module.css";
-import UrlContext from "../../../../page_context/UrlContext";
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
+import AppHeader from "../../components/layout/AppHeader";
+import Icon from "../../components/Icon";
+import AppTitle_center from "../../components/layout/AppTitle_center";
+import Button from "../../components/UI/Button";
+import NoScrollBar from "../../components/layout/NoScrollBar";
+import BlurModal from "../../components/UI/BlurModal";
+import FlexContent from "../../components/list/FlexContent";
 
-function MessageAppMain() {
-  const {
-    myAppName,
-    myMethodId,
-    functionName,
-    //
-    functionName_seeMessage,
-    functionName_sendImg,
-    functionName_sendMessage,
-    functionName_sendAudio,
-    functionName_sendPhoneNum,
-    functionName_resendMessage,
-    functionName_reserveMessage,
-    //
-    appName_basic,
-  } = useContext(UrlContext);
-  const [isClicked, setIsClicked] = useState(false);
-  const [isXClicked, setIsXClicked] = useState(true);
-
-  function chatBtnClickHandler() {
-    setIsClicked(true);
-    setIsXClicked(false);
-  }
-  function chatXBtnClickHandler() {
-    setIsClicked(false);
-    setIsXClicked(true);
-  }
+function MessageAppMain({
+  target_sendMessage,
+  target_seeMessage,
+  target_unreadMessage,
+}) {
+  const [isOptionOpened, setIsOptionOpened] = useState(false);
+  const iconStyle =
+    " rounded-full px-1 py-1  cursor-pointer hover:shadow-sm hover:bg-gray-200";
+  const iconStyleShadow = "rounded-full shadow-md  border-1 drop-shadow-2xl ";
 
   return (
     <>
-      <section className={classes.AppMain}>
-        {(functionName === functionName_sendMessage ||
-          functionName === functionName_sendImg ||
-          functionName === functionName_sendAudio ||
-          functionName === functionName_sendPhoneNum) && (
-          <div className={classes.appTitle}>Messages</div>
+      <NoScrollBar height={`${!isOptionOpened ? "305px" : "374px"}`}>
+        {/* title : message */}
+        {(target_sendMessage || target_seeMessage) && (
+          <AppTitle_center title={{ content: "Messages" }}></AppTitle_center>
         )}
-        {functionName === functionName_seeMessage && myMethodId === "2" && (
-          <div className={classes.appTitle}>
-            <TargetContent
-              targetOption={functionName_seeMessage && myMethodId === "2"}
-              isNextDescriptionLink={true}>
-              <div>읽지 않은 메시지 1개</div>
-              <div className={classes.appTitle_btn}>보기</div>
-            </TargetContent>
-          </div>
+        {/* title : 읽지않은 메시지 */}
+        {target_unreadMessage && (
+          <TargetContent
+            className={`mx-auto`}
+            targetOption={target_unreadMessage}
+            isNextDescriptionLink={true}>
+            <AppTitle_center
+              className={`h-fit text-center text-base `}
+              title={{ content: "읽지 않은 메시지 1개" }}
+              subTitle={{
+                content: (
+                  <Button
+                    className={`text-2xs px-1 py-0.5 h-fit rounded-xl`}
+                    btnColor={"#cdcdcd8a"}
+                    width={"max-content"}
+                    textColor={`var(--grey-600)`}
+                    content={"보기"}></Button>
+                ),
+              }}></AppTitle_center>
+          </TargetContent>
         )}
-        <div className={classes.appETCLists}>
-          <div>
-            <i className="bi bi-funnel-fill"></i>
-          </div>
-          <div>
-            <i className="bi bi-search"></i>
-          </div>
-          <div>
-            <i className="bi bi-three-dots-vertical"></i>
-          </div>
-        </div>
-        <div className={classes.appCategoryLists}>
-          <div>전체</div>
-          <div>
-            <i className="bi bi-plus"></i>
-          </div>
-        </div>
-        {(functionName === functionName_sendMessage ||
-          functionName === functionName_resendMessage ||
-          functionName === functionName_seeMessage ||
-          functionName === functionName_sendImg ||
-          functionName === functionName_sendAudio ||
-          functionName === functionName_sendPhoneNum) && (
-          <div className={classes.contentLists}>
-            <TargetContent
-              targetOption={
-                (functionName === functionName_sendMessage &&
-                  myMethodId === "2") ||
-                functionName === functionName_resendMessage ||
-                (functionName === functionName_seeMessage && myMethodId === "1")
-              }
-              isNextDescriptionLink={true}>
-              <StackedList_Profile
-                profile={{ className: "bg-gray-200", content: "홍" }}
-                title={{ className: "ml-1", content: "홍길동" }}
-                info={{
-                  className: "text-end",
-                  content: "오전 8:03",
-                }}
-                subTitle={{
-                  className: "ml-1 col-end-6",
-                  content: "결혼식 장소 정보입니다...",
-                }}
-                subInfo={{
-                  className:
-                    functionName === functionName_seeMessage
-                      ? "alert--yellow"
-                      : "",
-                  content: functionName === functionName_seeMessage ? "1" : "",
-                }}></StackedList_Profile>
-            </TargetContent>
-          </div>
+        <AppHeader
+          rightItem={[
+            <Icon name="funnel-fill" className={`${iconStyle} text-sm`} />,
+            <Icon name="search" className={`${iconStyle} text-sm`} />,
+            <Icon
+              name="three-dots-vertical"
+              className={`${iconStyle} text-sm`}
+            />,
+          ]}></AppHeader>
+        <AppHeader
+          leftItem={[
+            <div className="underline underline-offset-4 cursor-pointer">
+              전체
+            </div>,
+            <Icon name="plus" className={`${iconStyle}`} />,
+          ]}></AppHeader>
+        {/* message */}
+        <TargetContent
+          targetOption={target_seeMessage}
+          isNextDescriptionLink={true}>
+          <StackedList_Profile
+            profile={{ className: "bg-gray-200", content: "홍" }}
+            title={{ className: "ml-1", content: "홍길동" }}
+            info={{
+              className: "text-end",
+              content: "오전 8:03",
+            }}
+            subTitle={{
+              className: "ml-1 col-end-6",
+              content: "결혼식 장소 정보입니다...",
+            }}
+            subInfo={{
+              className:
+                target_seeMessage || target_unreadMessage
+                  ? "alert--yellow"
+                  : "",
+              content: target_seeMessage || target_unreadMessage ? "1" : "",
+            }}></StackedList_Profile>
+        </TargetContent>
+        {/* message plus btn */}
+        {!isOptionOpened && (
+          <TargetContent
+            className={`relative  left-32 top-24`}
+            targetOption={target_sendMessage}>
+            <Icon
+              name="envelope-plus"
+              className={`${iconStyle} ${iconStyleShadow} text-lg`}
+              onClick={() => {
+                setIsOptionOpened(true);
+              }}
+            />
+          </TargetContent>
         )}
-
-        {isXClicked && (
-          <div className={classes.messagePlus}>
-            <TargetContent
-              targetOption={
-                (functionName === functionName_sendMessage &&
-                  myMethodId === "1") ||
-                functionName === functionName_reserveMessage ||
-                functionName === functionName_sendImg ||
-                functionName === functionName_sendAudio ||
-                functionName === functionName_sendImg ||
-                functionName === functionName_sendPhoneNum
-              }>
-              <i
-                className="bi bi-envelope-plus"
-                onClick={chatBtnClickHandler}></i>
-            </TargetContent>
-          </div>
-        )}
-      </section>
-      {isClicked && (
+      </NoScrollBar>
+      {isOptionOpened && (
         <>
-          <div
-            className={classes.backdropLight}
-            onClick={chatXBtnClickHandler}></div>
-          <div className={`${classes.wigetAppsWrap}`}>
-            <TargetContent
-              targetOption={
-                myAppName === appName_basic &&
-                (functionName === functionName_sendMessage ||
-                  functionName === functionName_reserveMessage ||
-                  functionName === functionName_sendImg ||
-                  functionName === functionName_sendAudio ||
-                  functionName === functionName_sendPhoneNum)
-              }
-              isNextDescriptionLink={true}>
-              <div className={classes.wigetAppWrap}>
-                <div>1:1 대화</div>
-                <div className={classes.wigetIconWrap}>
-                  <i className="bi bi-chat"></i>
-                </div>
-              </div>
-            </TargetContent>
-            <TargetContent targetOption={false} isNextDescriptionLink={true}>
-              <div className={classes.wigetAppWrap}>
-                <div>그룹 채팅</div>
-                <div className={classes.wigetIconWrap}>
-                  <i className="bi bi-people"></i>
-                </div>
-              </div>
-            </TargetContent>
-            <TargetContent targetOption={false} isNextDescriptionLink={true}>
-              <div className={classes.wigetAppWrap}>
-                <div>단체 문자</div>
-                <div className={classes.wigetIconWrap}>
-                  <i className="bi bi-wechat"></i>
-                </div>
-              </div>
-            </TargetContent>
-            <TargetContent targetOption={false} isNextDescriptionLink={true}>
-              <div
-                className={classes.wigetAppWrap}
-                onClick={chatXBtnClickHandler}>
-                <div></div>
-                <div className={classes.wigetIconWrap_big}>
-                  <i className="bi bi-x-lg"></i>
-                </div>
-              </div>
-            </TargetContent>
-          </div>
+          <BlurModal
+            className={`left-[30%] bottom-8`}
+            onClickBackDrop={() => {
+              setIsOptionOpened(false);
+            }}>
+            <div>
+              <TargetContent
+                className={`mb-2`}
+                targetOption={target_sendMessage}
+                isNextDescriptionLink={true}>
+                <FlexContent
+                  className={`w-24`}
+                  items={[
+                    <div className={`cursor-pointer text-sm`}>1:1 대화</div>,
+                    <Icon
+                      name="chat"
+                      className={`${iconStyle} ${iconStyleShadow}`}
+                    />,
+                  ]}
+                />
+              </TargetContent>
+              <TargetContent
+                className={`mb-2`}
+                targetOption={false}
+                isNextDescriptionLink={true}>
+                <FlexContent
+                  className={`w-24`}
+                  items={[
+                    <div className={`cursor-pointer text-sm`}>그룹 채팅</div>,
+                    <Icon
+                      name="people"
+                      className={`${iconStyle} ${iconStyleShadow}`}
+                    />,
+                  ]}
+                />
+              </TargetContent>
+
+              <TargetContent
+                className={`mb-2`}
+                targetOption={false}
+                isNextDescriptionLink={true}>
+                <FlexContent
+                  className={`w-24`}
+                  items={[
+                    <div className={`cursor-pointer text-sm`}>단체 문자</div>,
+                    <Icon
+                      name="wechat"
+                      className={`${iconStyle} ${iconStyleShadow}`}
+                    />,
+                  ]}
+                />
+              </TargetContent>
+              <TargetContent
+                className={`mb-2`}
+                targetOption={false}
+                isNextDescriptionLink={true}>
+                <FlexContent
+                  className={`w-24`}
+                  items={[
+                    <div></div>,
+                    <Icon
+                      onClick={() => setIsOptionOpened(false)}
+                      name="x-lg"
+                      className={`${iconStyle} ${iconStyleShadow} text-lg`}
+                    />,
+                  ]}
+                />
+              </TargetContent>
+            </div>
+          </BlurModal>
         </>
       )}
     </>

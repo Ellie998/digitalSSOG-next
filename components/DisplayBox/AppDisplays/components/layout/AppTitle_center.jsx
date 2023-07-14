@@ -11,7 +11,7 @@ export default function AppTitle_center({
       }`}>
       {title && (
         <div
-          className={`font-medium text-xl ${
+          className={`font-medium text-lg ${
             title.className !== undefined ? title.className : ""
           }`}>
           {title.content}

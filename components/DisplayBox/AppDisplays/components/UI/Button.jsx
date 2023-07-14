@@ -9,7 +9,7 @@ export default function Button({
 }) {
   return (
     <div
-      className={`rounded p-1 text-center text-sm z-0 hover:cursor-pointer  ${className}`}
+      className={`rounded p-1 text-center z-0 hover:cursor-pointer mx-auto ${className}`}
       onClick={onClick}
       style={{
         width: width ? width : "160px",
