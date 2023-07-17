@@ -1,7 +1,7 @@
 import MainApps from "./MainApps";
 import AppMainError from "./AppMainError";
 // call
-import CallAppMain from "../AppDisplays/Basic/call/CallAppMain";
+import CallAppMain from "../AppDisplays/Basic/call/CallAppMain"; //
 import AnswerCall from "../AppDisplays/Basic/call/AnswerCall";
 import CallConnected from "../AppDisplays/Basic/call/CallConnected";
 import VideoCallConnected from "../AppDisplays/Basic/call/VideoCallConnected";
@@ -9,7 +9,7 @@ import VideoCallConnected from "../AppDisplays/Basic/call/VideoCallConnected";
 import KakaoAppMain from "../AppDisplays/Kakaotalk/KakaoAppMain";
 import KakaoProfileDetail from "../AppDisplays/Kakaotalk/KakaoProfileDetail";
 // message
-import MessageAppMain from "../AppDisplays/Basic/message/MessageAppMain";
+import MessageAppMain from "../AppDisplays/Basic/message/MessageAppMain"; //
 import Message from "../AppDisplays/Basic/message/Message";
 import MessageWithOption from "../AppDisplays/Basic/message/reserve-message/MessageWithOption";
 import UnreadMessage from "../AppDisplays/Basic/message/seeMessage/UnreadMessage";
@@ -200,7 +200,7 @@ function AppMain({}) {
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message target_reserveMessage />;
+          choicedComponent = <Message target_reserveMessage optionOpen />;
         } else if (descriptionId === "4") {
           choicedComponent = <SetReservation />;
         } else if (descriptionId === "5") {
@@ -217,7 +217,9 @@ function AppMain({}) {
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message target_sendImg />;
+          choicedComponent = (
+            <Message optionOpen={methodId === "2"} target_sendImg />
+          );
         } else if (descriptionId === "4" && methodId === "2") {
           choicedComponent = <SelectFile />;
         } else if (descriptionId === "5" && methodId === "2") {
@@ -236,7 +238,7 @@ function AppMain({}) {
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message target_sendAudio />;
+          choicedComponent = <Message optionOpen target_sendAudio />;
         } else if (descriptionId === "4") {
           choicedComponent = <SelectFile />;
         } else if (descriptionId === "5") {
@@ -253,7 +255,7 @@ function AppMain({}) {
         } else if (descriptionId === "2") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "3") {
-          choicedComponent = <Message target_sendPhoneNum />;
+          choicedComponent = <Message optionOpen target_sendPhoneNum />;
         } else if (descriptionId === "4") {
           choicedComponent = <SelectPerson />;
         } else if (descriptionId === "5") {

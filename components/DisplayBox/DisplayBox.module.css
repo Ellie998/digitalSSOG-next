@@ -7,7 +7,7 @@
   background-size: contain;
   border-radius: 34px;
   display: grid;
-  grid-template-rows: 15px auto auto 24px;
+  grid-template-rows: 20px auto auto auto 24px;
   justify-self: center;
   overflow: hidden;
 }

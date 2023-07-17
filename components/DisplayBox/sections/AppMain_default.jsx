@@ -15,7 +15,7 @@ function AppMain_default({}) {
 
   return (
     <div
-      className={`w-44 relative h-[382px] bottom-9 rounded-xl p-4 transition duration-100 ease-in-out ${
+      className={`w-44 relative h-[382px] bottom-10 rounded-xl p-4 transition duration-100 ease-in-out ${
         startAnimation ? "animate-closeAnimation" : ""
       }
       ${!isClicked ? offClass : onClass} 

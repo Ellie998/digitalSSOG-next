@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import UrlContext from "../../../page_context/UrlContext";
 import classes from "./KakaoChatRoom.module.css";
 import TargetContent from "../components/TargetContent";
 import AppHeader from "../components/layout/AppHeader";
@@ -8,16 +7,19 @@ import BackBtn from "../components/UI/BackBtn";
 import ChatList from "../components/UI/ChatList";
 import StackedList_Profile from "../components/list/StackedList_Profile";
 import FlexContent from "../components/list/FlexContent";
+import MessageSendLine from "../components/UI/MessageSendLine";
+import Icon from "../components/Icon";
+import NoScrollBar from "../components/layout/NoScrollBar";
+import Grid_4x4 from "../components/layout/Grid_4x4";
 
-function KakaoChatRoom({ inputLocked, navTriger }) {
-  const {
-    myAppName,
-    functionName,
-    //
-    functionName_resendMessage,
-    //
-    appName_basic,
-  } = useContext(UrlContext);
+function KakaoChatRoom({
+  inputLocked,
+  navTriger,
+  target_sendImg,
+  target_sendAudio,
+  target_sendPhoneNum,
+  target_resend,
+}) {
   //message
   const [messageContent, setMessageContent] = useState("");
   const [isOvered, setIsOvered] = useState(false);
@@ -84,297 +86,227 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
     setIsLeaveBtnClicked(false);
   }
 
+  const iconClassName = [
+    "bg-[#9bcb5c]",
+    "bg-[#668ecf]",
+    "bg-[#ef666c]",
+    "bg-[#53c575]",
+    "bg-[#58606b]",
+    "bg-[#907bee]",
+    "bg-[#4ea6f3]",
+    "bg-[#bd9e83]",
+    "bg-[#51b59f]",
+    "bg-[#f79955]",
+    "bg-[#6696f6]",
+    "bg-[#d68fe5]",
+    "bg-[#78be80]",
+    "bg-[#dd4453]",
+  ];
+
+  const gridContent = [
+    {
+      content: "앨범",
+      iconName: "image",
+    },
+    {
+      content: "카메라",
+      iconName: "camera",
+    },
+    {
+      content: "선물하기",
+      iconName: "box2-heart",
+    },
+    {
+      content: "통화하기",
+      iconName: "telephone",
+    },
+    {
+      content: "송금",
+      iconName: "cash-coin",
+    },
+    {
+      content: "예약 메시지",
+      iconName: "stopwatch",
+    },
+    {
+      content: "일정",
+      iconName: "calendar-date",
+    },
+    {
+      targetOption: target_sendImg,
+      isNextDescriptionLink: true,
+      content: "지도",
+      iconName: "geo-alt",
+    },
+    {
+      content: "캡처",
+      iconName: "fullscreen",
+    },
+    {
+      targetOption: target_sendAudio,
+      isNextDescriptionLink: true,
+      content: "음성메시지",
+      iconName: "mic",
+    },
+    {
+      targetOption: target_sendPhoneNum,
+      isNextDescriptionLink: true,
+      content: "연락처",
+      iconName: "person-badge",
+    },
+    {
+      content: "파일",
+      iconName: "paperclip",
+    },
+    {
+      content: "뮤직",
+      iconName: "music-note-beamed",
+    },
+    {
+      content: "라이브톡",
+      iconName: "broadcast-pin",
+    },
+  ];
+
   return (
-    <div className={classes.layout}>
-      {/* header nav */}
-      <div className={classes.main_header} onClick={backClickHandler}>
-        <AppHeader
-          leftItem={[
-            <BackBtn></BackBtn>,
-            <div className="text-sm ml-1 font-bold align-middle">그룹채팅</div>,
-            <div className="text-sm ml-1 align-middle">3</div>,
-          ]}
-          rightItem={[
-            <i className="text-sm m-1 bi bi-search align-middle"></i>,
-            <TargetContent
-              onClick={menuBtnClickHandler}
-              targetOption={
-                (navTriger === "groubChatLeave_quietly" ||
-                  navTriger === "groubChatLeave_rejectInvitation" ||
-                  navTriger === "groubChatLock") &&
-                !isMenuBtnClicked
-              }>
-              <i className="text-sm mx-1 bi bi-list align-middle"></i>
-            </TargetContent>,
-          ]}></AppHeader>
-      </div>
-      {/* message List */}
-      <div
-        className={`${classes.messages} ${
-          isPlusClicked ? classes.messagesSmall : ""
-        }`}
-        onClick={backClickHandler}>
-        <div className={classes.getMessageWrap}>
-          <ChatList
-            isGetList={true}
-            className=""
-            profile={{
-              className: "bg-kakaoSkyblue",
-              content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
-            }}
-            name={{ content: "김대리", className: "" }}
-            message={{
-              className: "bg-white",
-              content: "퇴사합니다.",
-            }}
-            timeStamp={{
-              className: "",
-              content: "오전 9:00",
-            }}
-          />
+    <>
+      <NoScrollBar height={`${!isPlusClicked ? "280px" : "150px"}`}>
+        {/* header nav */}
+        <div className={classes.main_header} onClick={backClickHandler}>
+          <AppHeader
+            leftItem={[
+              <BackBtn></BackBtn>,
+              <div className="text-sm ml-1 font-bold align-middle">
+                그룹채팅
+              </div>,
+              <div className="text-sm ml-1 align-middle">3</div>,
+            ]}
+            rightItem={[
+              <i className="text-sm m-1 bi bi-search align-middle"></i>,
+              <TargetContent
+                onClick={menuBtnClickHandler}
+                targetOption={
+                  (navTriger === "groubChatLeave_quietly" ||
+                    navTriger === "groubChatLeave_rejectInvitation" ||
+                    navTriger === "groubChatLock") &&
+                  !isMenuBtnClicked
+                }>
+                <i className="text-sm mx-1 bi bi-list align-middle"></i>
+              </TargetContent>,
+            ]}></AppHeader>
         </div>
-
-        {messageContent && isSendBtnClicked && (
-          <ChatList
-            isSendList={true}
-            className="mt-2"
-            message={{
-              className: "bg-kakaoYellow",
-              content: messageContent,
-            }}
-            timeStamp={{
-              className: "",
-              content: "오전 9:54",
-            }}
-          />
-        )}
-
-        {isOvered && (
-          <div className={classes.options}>
-            <div>삭제</div>
-            <div>답장</div>
-            <div>글자 복사</div>
-            <div>텍스트 선택</div>
-            <TargetContent
-              targetOption={
-                myAppName === appName_basic &&
-                functionName === functionName_resendMessage
-              }
-              isNextDescriptionLink={true}>
-              전달
-            </TargetContent>
-
-            <div>공유</div>
-            <div>별표하기</div>
-          </div>
-        )}
-      </div>
-      {/* Nav */}
-      {!isInputLocked && (
+        {/* message List */}
         <div
-          className={`${classes.appNav} ${
-            isPlusClicked ? classes.appNavSmall : ""
-          }`}>
-          {!isPlusClicked && (
-            <div className={classes.navOptions}>
-              <div onClick={plusBtnClickHandler}>
-                <i className="bi bi-plus-lg"></i>
-              </div>
-            </div>
-          )}
-          {isPlusClicked && (
-            <div
-              className={classes.navOption}
-              onClick={() => setIsPlusClicked(false)}>
-              <i className="bi bi-x-lg"></i>
-            </div>
-          )}
-          <div className={classes.inputBox}>
-            <div>
-              <input
-                onFocus={inputClickHandler}
-                onBlur={inputOutHandler}
-                onChange={inputChangeHandler}
-                value={isSendBtnClicked ? "" : enteredMessage}></input>
-            </div>
-            <div>
-              <i className="bi bi-emoji-smile"></i>
-            </div>
+          className={`${classes.messages} ${
+            isPlusClicked ? classes.messagesSmall : ""
+          }`}
+          onClick={backClickHandler}>
+          <div className={classes.getMessageWrap}>
+            <ChatList
+              isGetList={true}
+              className=""
+              profile={{
+                className: "bg-kakaoSkyblue",
+                content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
+              }}
+              name={{ content: "김대리", className: "" }}
+              message={{
+                className: "bg-white",
+                content: "퇴사합니다.",
+              }}
+              timeStamp={{
+                className: "",
+                content: "오전 9:00",
+              }}
+            />
           </div>
-          {!enteredMessage && choicedImgs.length === 0 && (
-            <div className={classes.soundIcon}>
-              <i className="bi bi-hash"></i>
-            </div>
+
+          {messageContent && isSendBtnClicked && (
+            <ChatList
+              isSendList={true}
+              className="mt-2"
+              message={{
+                className: "bg-kakaoYellow",
+                content: messageContent,
+              }}
+              timeStamp={{
+                className: "",
+                content: "오전 9:54",
+              }}
+            />
           )}
-          {(enteredMessage || choicedImgs.length !== 0) && (
-            <div
-              className={classes.sendIcon}
-              onClick={sendBtnClickHandler}
-              data-tooltip="클릭!">
-              <i className="bi bi-send-fill"></i>
+
+          {isOvered && (
+            <div className={classes.options}>
+              <div>삭제</div>
+              <div>답장</div>
+              <div>글자 복사</div>
+              <div>텍스트 선택</div>
+              <TargetContent
+                targetOption={target_resend}
+                isNextDescriptionLink={true}>
+                전달
+              </TargetContent>
+
+              <div>공유</div>
+              <div>별표하기</div>
             </div>
           )}
         </div>
+      </NoScrollBar>
+      {/* input line */}
+      {!isInputLocked && (
+        <MessageSendLine
+          navOption_focused={{
+            content: [
+              !isPlusClicked ? (
+                <Icon onClick={plusBtnClickHandler} name="plus-lg" />
+              ) : (
+                <Icon onClick={() => setIsPlusClicked(false)} name="x-lg" />
+              ),
+            ],
+          }}
+          input={{}}
+          setMessageContent={setMessageContent}
+          sendBtn={{ className: "send-fill bg-[#f7e540]" }}
+          sendBtn_default={{
+            content: <Icon name="hash" />,
+          }}></MessageSendLine>
       )}
       {isInputLocked && (
-        <div
-          className={`${classes.appNav} ${
-            isPlusClicked ? classes.appNavSmall : ""
-          }`}>
-          {!isPlusClicked && (
-            <div className={classes.navOptions}>
-              <div>
-                <i className="bi bi-plus-lg"></i>
-              </div>
-            </div>
-          )}
-          {isPlusClicked && (
-            <div
-              className={classes.navOption}
-              onClick={() => setIsPlusClicked(false)}>
-              <i className="bi bi-x-lg"></i>
-            </div>
-          )}
-          <div className={classes.inputBox}>
+        <FlexContent
+          items={[
+            !isPlusClicked ? (
+              <Icon name="plus-lg" />
+            ) : (
+              <Icon onClick={() => setIsPlusClicked(false)} name="x-lg" />
+            ),
             <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
               대화에 주의가 필요한 방입니다.
-            </div>
-          </div>
-          <TargetContent targetOption={isInputLocked}>
-            <div
-              className={classes.sendIcon}
-              onClick={() => setIsInputLocked(false)}>
-              <i className="bi bi-lock"></i>
-            </div>
-          </TargetContent>
-        </div>
+            </div>,
+            ,
+            <TargetContent targetOption={isInputLocked}>
+              <div
+                className={classes.sendIcon}
+                onClick={() => setIsInputLocked(false)}>
+                <Icon name="lock bg-[#f7e540]" />
+              </div>
+            </TargetContent>,
+          ]}
+        />
       )}
       {/* Option Box */}
       {isPlusClicked && (
-        <div className={`${classes["optionBox"]} `}>
-          <div className={classes.optionRow}>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(155,203,92)" }}>
-                <i className="bi bi-image"></i>
-              </div>
-              <div>앨범</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(102,142,207)" }}>
-                <i className="bi bi-camera"></i>
-              </div>
-              <div>카메라</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(239,102,108)" }}>
-                <i className="bi bi-box2-heart"></i>
-              </div>
-              <div>선물하기</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(83,197,117)" }}>
-                <i className="bi bi-telephone"></i>
-              </div>
-              <div>통화하기</div>
-            </div>
-          </div>
-          <div className={classes.optionRow}>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(88,96,107)" }}>
-                <i className="bi bi-cash-coin"></i>
-              </div>
-              <div>송금</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(144,123,238)" }}>
-                <i className="bi bi-stopwatch"></i>
-              </div>
-              <div>예약 메시지</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(78,166,243)" }}>
-                <i className="bi bi-calendar-date"></i>
-              </div>
-              <div>일정</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(189,158,131)" }}>
-                <i className="bi bi-geo-alt"></i>
-              </div>
-              <div>지도</div>
-            </div>
-          </div>
-          <div className={classes.optionRow}>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(81,181,159)" }}>
-                <i className="bi bi-fullscreen"></i>
-              </div>
-              <div>캡처</div>
-            </div>
-
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(247,153,85)" }}>
-                <i className="bi bi-mic"></i>
-              </div>
-              <div>음성메시지</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(102,150,246)" }}>
-                <i className="bi bi-person-badge"></i>
-              </div>
-              <div>연락처</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(214,143,229)" }}>
-                <i className="bi bi-paperclip"></i>
-              </div>
-              <div>파일</div>
-            </div>
-          </div>
-          <div className={classes.optionRow}>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(120,190,128)" }}>
-                <i className="bi bi-music-note-beamed"></i>
-              </div>
-              <div>뮤직</div>
-            </div>
-            <div>
-              <div
-                className={classes.iconWrap}
-                style={{ backgroundColor: "rgb(221,68,83)" }}>
-                <i className="bi bi-broadcast-pin"></i>
-              </div>
-              <div>라이브톡</div>
-            </div>
-          </div>
-        </div>
+        <NoScrollBar>
+          <Grid_4x4
+            className={"bg-[#efefef3e]"}
+            items={gridContent}
+            iconClassName_common={`rounded-full p-[6px] text-white `}
+            iconClassName={iconClassName}
+          />
+        </NoScrollBar>
       )}
+
       {/* Side Menu */}
       {isMenuBtnClicked && (
         <div className={classes.sideMenuWrap}>
@@ -531,7 +463,7 @@ function KakaoChatRoom({ inputLocked, navTriger }) {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

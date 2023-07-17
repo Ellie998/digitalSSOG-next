@@ -43,9 +43,20 @@ module.exports = {
           "90%": { opacity: 1 },
           to: { opacity: 1 },
         },
+        fadeInUp: {
+          "0%": {
+            opacity: "0.7",
+            transform: "translate3d(0, 100%, 0)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateZ(0)",
+          },
+        },
       },
       animation: {
         fadeInDown: " fadeInDown 0.5s",
+        fadeInUp: "fadeInUp 0.5s",
         closeAnimation: "closeAnimation 0.3s",
       },
       transitionProperty: {

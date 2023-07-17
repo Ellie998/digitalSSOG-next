@@ -18,7 +18,7 @@
 }
 
 .messagesSmall {
-  height: 140px;
+  height: 120px;
 }
 
 /* ---------------------OPTION INFO---------------------------- */
@@ -75,27 +75,6 @@
   animation: fadeInUp 0.2s;
 }
 
-.inputBox {
-  display: grid;
-  grid-template-columns: auto 16px;
-  background-color: white;
-  border-radius: 18px;
-  align-items: center;
-}
-
-.inputBox input {
-  width: 90%;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.sendIcon {
-  height: fit-content;
-  text-align: center;
-  cursor: pointer;
-  background-color: rgb(247, 229, 64);
-  margin-left: 4px;
-}
 .subTitle {
   font-size: 0.5rem;
   padding: 5px 0;
@@ -180,7 +159,7 @@
 .sideMenuBox {
   background-color: white;
   height: 305px;
-  width: 130px;
+  width: 125px;
   animation: rightLeft 0.5s;
   overflow: scroll;
   -ms-overflow-style: none;
@@ -195,7 +174,7 @@
   background-color: rgb(239, 239, 239);
   position: absolute;
   bottom: 0px;
-  width: 130px;
+  width: 125px;
 }
 
 /* ---------------------MODAL---------------------------- */

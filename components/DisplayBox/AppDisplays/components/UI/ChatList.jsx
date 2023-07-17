@@ -9,6 +9,7 @@ export default function ChatList({
   timeStamp,
   onClick,
   children,
+  onPointerDown,
   id,
 }) {
   return (
@@ -35,7 +36,15 @@ export default function ChatList({
           {/* message */}
           {message !== undefined && (
             <div
-              className={`text-xs w-fit text-gray-700 rounded-xl py-1 px-2 col-start-2  col-end-5 row-start-2 row-end-3 ${message.className}`}>
+              className={`text-xs w-fit text-gray-700 rounded-xl py-1 px-2  col-end-5  row-start-2 row-end-3 ${
+                message.className
+              }
+              ${
+                profile !== undefined && name !== undefined
+                  ? "col-start-2"
+                  : "col-start-1"
+              }`}
+              onPointerDown={onPointerDown}>
               {message.content}
             </div>
           )}
@@ -63,7 +72,8 @@ export default function ChatList({
           {/* message */}
           {message !== undefined && (
             <div
-              className={`text-xs w-fit text-gray-700 rounded-xl py-1 px-2 ${message.className}`}>
+              className={`text-xs w-fit text-gray-700 rounded-xl py-1 px-2 ${message.className}`}
+              onPointerDown={onPointerDown}>
               {message.content}
             </div>
           )}

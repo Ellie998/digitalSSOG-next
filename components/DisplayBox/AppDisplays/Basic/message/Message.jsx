@@ -1,33 +1,32 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceImg from "../../components/ChoiceImg";
-import UrlContext from "../../../../page_context/UrlContext";
-import TargetContent from "../../components/TargetContent";
 
-function Message() {
-  const {
-    myAppName,
-    myMethodId,
-    functionName,
-    //
-    functionName_resendMessage,
-    functionName_reserveMessage,
-    functionName_sendAudio,
-    functionName_sendPhoneNum,
-    functionName_sendImg,
-    //
-    appName_basic,
-  } = useContext(UrlContext);
-  const [inputClicked, setInputClicked] = useState(false);
+import TargetContent from "../../components/TargetContent";
+import NoScrollBar from "../../components/layout/NoScrollBar";
+import StackedList_Profile from "../../components/list/StackedList_Profile";
+import Icon from "../../components/Icon";
+import ChatList from "../../components/UI/ChatList";
+import MessageSendLine from "../../components/UI/MessageSendLine";
+import Grid_4x4 from "../../components/layout/Grid_4x4";
+
+function Message({
+  optionOpen,
+  target_sendImg,
+  target_resend,
+  target_reserveMessage,
+  target_sendAudio,
+  target_sendPhoneNum,
+}) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
-  const [enteredMessage, setEnteredMessage] = useState("");
+
+  const [sendImgs, setSendImgs] = useState([]);
   const [plusClicked, setPlusClicked] = useState(false);
   const [imgBtnClicked, setImgBtnClicked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
-  const [sendImgs, setSendImgs] = useState([]);
 
   function mouseOverHandler(event) {
     setTimeout(() => {
@@ -41,25 +40,6 @@ function Message() {
     setImgBtnClicked(false);
   }
 
-  function inputClickHandler(event) {
-    setInputClicked(true);
-    setSendBtnClicked(false);
-  }
-  function sendBtnClickHandler(event) {
-    setMessageContent(enteredMessage);
-    setSendBtnClicked(true);
-    setEnteredMessage("");
-    setImgBtnClicked(false);
-    setSendImgs([...choicedImgs]);
-    setChoicedImgs([]);
-  }
-
-  function inputOutHandler(event) {
-    setInputClicked(false);
-  }
-  function inputChangeHandler(event) {
-    setEnteredMessage(event.target.value);
-  }
   function plusBtnClickHandler() {
     setPlusClicked(true);
     setImgBtnClicked(false);
@@ -103,68 +83,146 @@ function Message() {
     }
   }
 
+  const gridContent = [
+    {
+      content: "Private Share",
+      iconName: "share",
+    },
+    {
+      content: "네이버지도 위치공유",
+      iconName: "map",
+    },
+    {
+      content: "신한 SOL송금",
+      iconName: "bank",
+    },
+    {
+      content: "Samsung Pay 선물",
+      iconName: "bank",
+    },
+    {
+      content: "토스 송금",
+      iconName: "bank",
+    },
+    {
+      content: "빠른 답장 문구",
+      iconName: "send",
+    },
+    {
+      targetOption: target_reserveMessage,
+      isNextDescriptionLink: true,
+      content: "메시지 예약",
+      iconName: "clock",
+    },
+    {
+      content: "제목",
+      iconName: "chat-left-dots",
+    },
+    {
+      content: "위치",
+      iconName: "geo-alt",
+    },
+    {
+      targetOption: target_sendImg && optionOpen,
+      isNextDescriptionLink: true,
+      content: "이미지",
+      iconName: "card-image",
+    },
+    {
+      targetOption: target_sendImg && optionOpen,
+      isNextDescriptionLink: true,
+      content: "동영상",
+      iconName: "play-btn",
+    },
+    {
+      targetOption: target_sendAudio,
+      isNextDescriptionLink: true,
+      content: "오디오",
+      iconName: "music-note",
+    },
+    {
+      targetOption: target_sendPhoneNum,
+      isNextDescriptionLink: true,
+      content: "연락처",
+      iconName: "person",
+    },
+    {
+      content: "캘린더",
+      iconName: "calendar-date",
+    },
+    {
+      content: "Samsung Notes",
+      iconName: "journal",
+    },
+    {
+      content: "음성녹음",
+      iconName: "mic",
+    },
+  ];
+
   return (
-    <div className={classes.layout}>
-      <div className={classes.main_header} onClick={backClickHandler}>
-        <div className={classes.firstNameBox}>홍</div>
-        <div className={classes.nameBox}>홍길동</div>
-        <div>
-          <i className="bi bi-three-dots-vertical"></i>
-        </div>
-      </div>
-      <div
-        className={`${classes.messages} ${
-          plusClicked ? classes.messagesSmall : ""
-        }
-        ${imgBtnClicked || inputClicked ? classes["messagesSmall--2to4"] : ""}`}
+    <>
+      <NoScrollBar
+        height={`${plusClicked || imgBtnClicked ? "150px" : "280px"}`}
+        className={""}
         onClick={backClickHandler}>
-        <div className={classes.getMessage}>
-          <div onPointerDown={mouseOverHandler}>
-            <TargetContent
-              targetOption={
-                !isOvered &&
-                sendImgs.length === "0" &&
-                myAppName === appName_basic &&
-                functionName === functionName_resendMessage
-              }>
-              결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
-              OO로 OOO번길 O, OOO 컨벤션
-            </TargetContent>
-          </div>
-          <div>오전 8:03</div>
+        <StackedList_Profile
+          className={`h-[30px]`}
+          profile={{ content: "홍", className: "bg-orange-200" }}
+          title={{ content: "홍길동", className: "" }}
+          info={{
+            content: (
+              <Icon name={`three-dots-vertical`} className={`text-sm`} />
+            ),
+            className: "justify-self-end",
+          }}></StackedList_Profile>
+        <ChatList
+          isGetList
+          onPointerDown={mouseOverHandler}
+          className={`mb-2`}
+          message={{
+            className: "bg-gray-200 ml-1",
+            content: (
+              <TargetContent targetOption={!isOvered && target_resend}>
+                결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
+                OO로 OOO번길 O, OOO 컨벤션
+              </TargetContent>
+            ),
+          }}
+          timeStamp={{
+            className: "",
+            content: "오전 8:03",
+          }}></ChatList>
+        {/* {!messageContent && sendBtnClicked && (
+        <div className={classes.sendMessage}>
+          <div>오전 9:54</div>
+          <div style={{ display: "none" }}></div>
+          <div className={classes.imgBox}></div>
         </div>
-        {!messageContent && sendBtnClicked && (
-          <div className={classes.sendMessage}>
-            <div>오전 9:54</div>
-            <div style={{ display: "none" }}></div>
-            <div className={classes.imgBox}></div>
-          </div>
+      )} */}
+        {/* {messageContent && sendImgs.length !== 0 && sendBtnClicked && (
+        <div className={classes.sendMessage}>
+          <div className={classes.imgBox}></div>
+          <div style={{ display: "none" }}></div>
+        </div>
+      )} */}
+        {messageContent && (
+          <ChatList
+            isSendList
+            message={{
+              content: messageContent,
+              className: "bg-[#4b8ce5] text-white",
+            }}
+            timeStamp={{ content: "오전 9:54" }}></ChatList>
         )}
-        {messageContent && sendImgs.length !== 0 && sendBtnClicked && (
-          <div className={classes.sendMessage}>
-            <div className={classes.imgBox}></div>
-            <div style={{ display: "none" }}></div>
-          </div>
-        )}
-        {messageContent && sendBtnClicked && (
-          <div className={classes.sendMessage}>
-            <div>오전 9:54</div>
-            <div>{messageContent}</div>
-          </div>
-        )}
-        {/* message clicke option */}
         {isOvered && (
           <div className={classes.options}>
             <div>삭제</div>
             <div>답장</div>
             <div>글자 복사</div>
             <div>텍스트 선택</div>
-            {/* 전달 */}
             <TargetContent
-              targetOption={
-                myAppName === appName_basic &&
-                functionName === functionName_resendMessage
-              }
+              targetOption={isOvered && target_resend}
               isNextDescriptionLink={true}>
               전달
             </TargetContent>
@@ -172,242 +230,79 @@ function Message() {
             <div>별표하기</div>
           </div>
         )}
-      </div>
-      {/* input nav */}
-      <div
-        className={`${classes.appNav} ${plusClicked ? classes.appNavSmall : ""}
-        ${imgBtnClicked ? classes["appNavSmall--6to7"] : ""}`}>
-        {!inputClicked && (
-          <div className={classes.navOptions}>
-            <div onClick={imgNavBtnClickHandler}>
-              <TargetContent
-                targetOption={
-                  !imgBtnClicked &&
-                  sendImgs.length === 0 &&
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendImg &&
-                  myMethodId === "1"
-                }>
-                <i className="bi bi-image"></i>
-              </TargetContent>
-            </div>
-            <div>
-              <i className="bi bi-camera"></i>
-            </div>
-            <div onClick={plusBtnClickHandler}>
-              <TargetContent
-                targetOption={
-                  !plusClicked &&
-                  myAppName === appName_basic &&
-                  (functionName === functionName_reserveMessage ||
-                    (functionName === functionName_sendImg &&
-                      myMethodId === "2") ||
-                    functionName == functionName_sendAudio ||
-                    functionName == functionName_sendPhoneNum)
-                }>
-                <i className="bi bi-plus"></i>
-              </TargetContent>
-            </div>
-          </div>
-        )}
-        {inputClicked && (
-          <div className={classes.navOption}>
-            <i className="bi bi-chevron-right"></i>
-          </div>
-        )}
-        <div className={classes.inputBox}>
-          <div>
-            <input
-              onFocus={inputClickHandler}
-              onBlur={inputOutHandler}
-              onChange={inputChangeHandler}
-              value={sendBtnClicked ? "" : enteredMessage}></input>
-          </div>
-          <div>
-            <i className="bi bi-emoji-smile"></i>
-          </div>
-        </div>
-        {!enteredMessage && choicedImgs.length === 0 && (
-          <div className={classes.soundIcon}>
-            <i className="bi bi-soundwave"></i>
-          </div>
-        )}
-        {(enteredMessage || choicedImgs.length !== 0) && (
-          <div className={classes.sendIcon} onClick={sendBtnClickHandler}>
-            <i className="bi bi-send"></i>
-          </div>
-        )}
-      </div>
-      {imgBtnClicked && choicedImgs.length >= 1 && (
-        <div className={classes.optionInfoWrap}>
-          {choicedImgs?.map((item) => (
-            <div className={classes.optionImgWrap} key={Math.random()}>
-              <div className={classes.imgBox}>{item.slice(3, 4)}</div>
-              <div
-                className={classes.deleteBtn}
-                onClick={deleteBtnHandler}
-                data-deleteitemid={item}>
-                <i className="bi bi-dash-circle"></i>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      {plusClicked && (
-        <div className={`${classes["optionBox_background--grey"]} `}>
-          <div className={classes.optionRow}>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-share"></i>
-              </div>
-              <div>Private Share</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-map"></i>
-              </div>
-              <div>네이버지도 위치공유</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-bank"></i>
-              </div>
-              <div>신한 SOL송금</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-bank"></i>
-              </div>
-              <div>Samsung Pay 선물</div>
-            </div>
-          </div>
-          <div className={classes.optionRow}>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-bank"></i>
-              </div>
-              <div>토스 송금</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-send"></i>
-              </div>
-              <div>빠른 답장 문구</div>
-            </div>
-            <div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_reserveMessage
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes.iconWrap}>
-                  <i className="bi bi-clock"></i>
+        {imgBtnClicked && choicedImgs.length >= 1 && (
+          <div className={classes.optionInfoWrap}>
+            {choicedImgs?.map((item) => (
+              <div className={classes.optionImgWrap} key={Math.random()}>
+                <div className={classes.imgBox}>{item.slice(3, 4)}</div>
+                <div
+                  className={classes.deleteBtn}
+                  onClick={deleteBtnHandler}
+                  data-deleteitemid={item}>
+                  <i className="bi bi-dash-circle"></i>
                 </div>
-                <div>메시지 예약</div>
-              </TargetContent>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-chat-left-dots"></i>
               </div>
-              <div>제목</div>
-            </div>
+            ))}
           </div>
-          <div className={classes.optionRow}>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-geo-alt"></i>
-              </div>
-              <div>위치</div>
-            </div>
+        )}
+      </NoScrollBar>
 
-            <div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendImg &&
-                  myMethodId === "2"
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes.iconWrap}>
-                  <i className="bi bi-card-image"></i>
-                </div>
-                <div>이미지</div>
-              </TargetContent>
-            </div>
-            <div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendImg &&
-                  myMethodId === "2"
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes.iconWrap}>
-                  <i className="bi bi-play-btn"></i>
-                </div>
-                <div>동영상</div>
-              </TargetContent>
-            </div>
-            <div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendAudio
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes.iconWrap}>
-                  <i className="bi bi-music-note"></i>
-                </div>
-                <div>오디오</div>
-              </TargetContent>
-            </div>
-          </div>
-          <div className={classes.optionRow}>
-            <div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendPhoneNum
-                }
-                isNextDescriptionLink={true}>
-                <div className={classes.iconWrap}>
-                  <i className="bi bi-person"></i>
-                </div>
-                <div>연락처</div>
-              </TargetContent>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-calendar-date"></i>
-              </div>
-              <div>캘린더</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-journal"></i>
-              </div>
-              <div>Samsung Notes</div>
-            </div>
-            <div>
-              <div className={classes.iconWrap}>
-                <i className="bi bi-mic"></i>
-              </div>
-              <div>음성녹음</div>
-            </div>
-          </div>
-        </div>
+      <MessageSendLine
+        className={`self-end`}
+        navOption_blured={{
+          content: [
+            // img btn
+            <TargetContent
+              onClick={imgNavBtnClickHandler}
+              targetOption={
+                !imgBtnClicked &&
+                sendImgs.length === 0 &&
+                !optionOpen &&
+                target_sendImg
+              }>
+              <Icon name="image" />
+            </TargetContent>,
+            // camera btn
+            <Icon name="camera" />,
+            // plus btn
+            <TargetContent
+              onClick={plusBtnClickHandler}
+              targetOption={!plusClicked && optionOpen}>
+              <Icon name="plus" />
+            </TargetContent>,
+          ],
+        }}
+        navOption_focused={{
+          content: [<Icon name="chevron-right" />],
+        }}
+        input={{
+          className: "bg-[#e3e3e3cc] rounded-xl",
+          onClick: backClickHandler,
+        }}
+        setMessageContent={setMessageContent}
+        sendBtn={{ className: "bg-[#b8b8b8cc]" }}
+        sendBtn_default={{
+          className: "bg-[#e3e3e3cc]",
+        }}
+        sendBtnTriger={choicedImgs.length !== 0}></MessageSendLine>
+      {plusClicked && (
+        <NoScrollBar>
+          <Grid_4x4
+            className={"bg-[#e3e3e3cc]"}
+            items={gridContent}
+            iconClassName_common={`bg-white rounded-full p-[6px]`}
+          />
+        </NoScrollBar>
       )}
       {imgBtnClicked && (
-        <div className={classes.optionBox}>
+        <NoScrollBar className={`ml-1`}>
           <ChoiceImg
             onImgCheckHandler={imgCheckHandler}
             choicedImgs={choicedImgs}
           />
-        </div>
+        </NoScrollBar>
       )}
-    </div>
+    </>
   );
 }
 

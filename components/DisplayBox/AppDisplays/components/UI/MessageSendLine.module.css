@@ -138,8 +138,6 @@
 .inputBox {
   display: grid;
   grid-template-columns: auto 16px;
-  background-color: rgba(227, 227, 227, 0.803);
-  border-radius: 18px;
   align-items: center;
 }
 
@@ -155,12 +153,6 @@
   margin: 0 0 0 3px;
   height: fit-content;
   text-align: center;
-}
-.soundIcon {
-  background-color: rgba(227, 227, 227, 0.803);
-}
-.sendIcon {
-  background-color: rgba(184, 184, 184, 0.803);
   cursor: pointer;
 }
 
@@ -180,4 +172,63 @@
 
 .options div {
   margin-bottom: 10px;
+}
+
+/*  */
+.optionBox {
+  /* padding: 10px; */
+  grid-row: 7/10;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: fadeInUp 0.5s;
+  background-color: rgba(239, 239, 239, 0.247);
+}
+.optionBox_background--grey {
+  padding: 10px;
+  grid-row: 6/10;
+  background-color: rgba(227, 227, 227, 0.803);
+  border-radius: 12px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: fadeInUp 0.5s;
+}
+
+.optionBox::-webkit-scrollbar,
+.optionBox_background--grey::-webkit-scrollbar {
+  display: none;
+}
+
+.optionRow {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.optionRow div {
+  font-size: 0.6rem;
+  margin: 0 auto;
+}
+
+.iconWrap {
+  background-color: white;
+  border-radius: 100%;
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 2px 6px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.7;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
 }
