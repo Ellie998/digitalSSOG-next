@@ -9,7 +9,7 @@ import Icon from "../../components/UI/Icon";
 import ChatList from "../../components/UI/ChatList";
 import MessageSendLine from "../../components/UI/MessageSendLine";
 import Grid_4x4 from "../../components/layout/Grid_4x4";
-import ImgBox from "../../components/UI/ImgBox";
+import ChoicedFile from "../../components/UI/ChoicedFile";
 
 function Message({
   optionOpen,
@@ -44,8 +44,9 @@ function Message({
   function plusBtnClickHandler() {
     setPlusClicked(true);
     setImgBtnClicked(false);
-    setChoicedImgs([]);
     setSendBtnClicked(false);
+    setChoicedImgs([]);
+    setSendImgs([]);
   }
   function imgNavBtnClickHandler() {
     setImgBtnClicked(true);
@@ -53,23 +54,7 @@ function Message({
     setMessageContent("");
     setSendBtnClicked(false);
     setChoicedImgs([]);
-  }
-
-  // OPTION IMG CLICKED
-  function deleteBtnHandler(event) {
-    if (event.target.tagName === "I") {
-      const deleteItem = event.target.parentNode.dataset.deleteitemid;
-      setChoicedImgs((prevObject) => {
-        prevObject = prevObject.filter((item) => item !== deleteItem);
-        return [...prevObject];
-      });
-    } else {
-      const deleteItem = event.target.dataset.deleteitemid;
-      setChoicedImgs((prevObject) => {
-        prevObject = prevObject.filter((item) => item !== deleteItem);
-        return [...prevObject];
-      });
-    }
+    setSendImgs([]);
   }
 
   const gridContent = [
@@ -149,14 +134,13 @@ function Message({
     },
   ];
 
-  console.log(choicedImgs);
   return (
     <>
       <NoScrollBar
-        height={`${plusClicked || imgBtnClicked ? "150px" : "280px"}`}
-        className={""}
-        onClick={backClickHandler}>
+        height={`${plusClicked || imgBtnClicked ? "170px" : "280px"}`}
+        className={""}>
         <StackedList_Profile
+          onClick={backClickHandler}
           className={`h-[30px]`}
           profile={{ content: "홍", className: "bg-orange-200" }}
           title={{ content: "홍길동", className: "" }}
@@ -167,6 +151,7 @@ function Message({
             className: "justify-self-end",
           }}></StackedList_Profile>
         <ChatList
+          onClick={backClickHandler}
           isGetList
           onPointerDown={mouseOverHandler}
           className={`mb-2`}
@@ -183,21 +168,39 @@ function Message({
             className: "",
             content: "오전 8:03",
           }}></ChatList>
-        {/* {!messageContent && sendBtnClicked && (
-        <div className={classes.sendMessage}>
-          <div>오전 9:54</div>
-          <div style={{ display: "none" }}></div>
-          <div className={classes.imgBox}></div>
-        </div>
-      )} */}
-        {/* {messageContent && sendImgs.length !== 0 && sendBtnClicked && (
-        <div className={classes.sendMessage}>
-          <div className={classes.imgBox}></div>
-          <div style={{ display: "none" }}></div>
-        </div>
-      )} */}
-        {messageContent && (
+
+        {!messageContent && sendImgs.length !== 0 && (
           <ChatList
+            onClick={backClickHandler}
+            isSendList
+            message={{
+              content: <div className={classes.imgBox}></div>,
+              className: "",
+            }}
+            timeStamp={{ content: "오전 9:54" }}></ChatList>
+        )}
+        {messageContent && sendImgs.length !== 0 && (
+          <>
+            <ChatList
+              onClick={backClickHandler}
+              isSendList
+              message={{
+                content: <div className={classes.imgBox}></div>,
+                className: "",
+              }}></ChatList>
+            <ChatList
+              onClick={backClickHandler}
+              isSendList
+              message={{
+                content: messageContent,
+                className: "bg-[#4b8ce5] text-white",
+              }}
+              timeStamp={{ content: "오전 9:54" }}></ChatList>
+          </>
+        )}
+        {messageContent && sendImgs.length === 0 && (
+          <ChatList
+            onClick={backClickHandler}
             isSendList
             message={{
               content: messageContent,
@@ -220,20 +223,13 @@ function Message({
             <div>별표하기</div>
           </div>
         )}
-        {imgBtnClicked && choicedImgs.length >= 1 && (
-          <div className={classes.optionInfoWrap}>
-            {choicedImgs?.map((item) => (
-              <div className={classes.optionImgWrap} key={Math.random()}>
-                <div className={classes.imgBox}>{item.slice(3, 4)}</div>
-                <div
-                  className={classes.deleteBtn}
-                  onClick={deleteBtnHandler}
-                  data-deleteitemid={item}>
-                  <i className="bi bi-dash-circle"></i>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* selected imgs */}
+        {choicedImgs.length !== 0 && (
+          <ChoicedFile
+            fileType_img
+            fileArray={choicedImgs}
+            setChoicedFileArray={setChoicedImgs}
+          />
         )}
       </NoScrollBar>
 
@@ -274,6 +270,11 @@ function Message({
         sendBtn_default={{
           className: "bg-[#e3e3e3cc]",
         }}
+        onSendBtnClickHandler={() => {
+          setImgBtnClicked(false);
+          setSendImgs([...choicedImgs]);
+          setChoicedImgs([]);
+        }}
         sendBtnTriger={choicedImgs.length !== 0}></MessageSendLine>
       {plusClicked && (
         <NoScrollBar>
@@ -289,7 +290,8 @@ function Message({
           <ChoiceFile
             fileType_img
             className={""}
-            setChoicedImgs={setChoicedImgs}
+            choiceFile={choicedImgs}
+            setChoicedFileArray={setChoicedImgs}
             num="7"
           />
         </NoScrollBar>

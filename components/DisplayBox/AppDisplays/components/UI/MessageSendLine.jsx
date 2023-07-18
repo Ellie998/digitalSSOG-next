@@ -13,6 +13,7 @@ export default function MessageSendLine({
   input,
   children,
   sendBtnTriger,
+  onSendBtnClickHandler,
   // setEnteredMessage,
   onClick,
 
@@ -21,11 +22,6 @@ export default function MessageSendLine({
   const [enteredMessage, setEnteredMessage] = useState("");
   const [inputClicked, setInputClicked] = useState(false);
 
-  const [sendImgs, setSendImgs] = useState([]);
-  const [plusClicked, setPlusClicked] = useState(false);
-
-  const [imgBtnClicked, setImgBtnClicked] = useState(false);
-
   function inputClickHandler(event) {
     setInputClicked(true);
     setMessageContent("");
@@ -33,9 +29,7 @@ export default function MessageSendLine({
   function sendBtnClickHandler(event) {
     setMessageContent(enteredMessage);
     setEnteredMessage("");
-    // setImgBtnClicked(false);
-    // setSendImgs([...choicedImgs]);
-    // setChoicedImgs([]);
+    onSendBtnClickHandler();
   }
 
   function inputOutHandler(event) {
@@ -77,7 +71,7 @@ export default function MessageSendLine({
           </>
         </div>
         {/* send btn changed */}
-        {!enteredMessage && (
+        {!enteredMessage && !sendBtnTriger && (
           <div
             className={`${classes.soundIcon} ${sendBtn_default.className}`}
             onClick={sendBtnClickHandler}>
