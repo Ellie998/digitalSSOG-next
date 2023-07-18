@@ -1,4 +1,4 @@
-import Icon from "../Icon";
+import Icon from "../UI/Icon";
 import TargetContent from "../TargetContent";
 
 function Grid_4x4({

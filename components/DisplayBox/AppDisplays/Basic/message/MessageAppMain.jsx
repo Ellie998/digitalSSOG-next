@@ -3,7 +3,7 @@ import { useState } from "react";
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
 import AppHeader from "../../components/layout/AppHeader";
-import Icon from "../../components/Icon";
+import Icon from "../../components/UI/Icon";
 import AppTitle_center from "../../components/layout/AppTitle_center";
 import Button from "../../components/UI/Button";
 import NoScrollBar from "../../components/layout/NoScrollBar";

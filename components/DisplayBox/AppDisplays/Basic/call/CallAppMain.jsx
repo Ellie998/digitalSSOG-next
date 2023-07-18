@@ -7,7 +7,7 @@ import Tab from "../../components/layout/Tab";
 import NoScrollBar from "../../components/layout/NoScrollBar";
 import CallKeypad from "../../components/UI/CallKeypad";
 import AppTitle_center from "../../components/layout/AppTitle_center";
-import Icon from "../../components/Icon";
+import Icon from "../../components/UI/Icon";
 import StackedListWrap from "../../components/list/StackedListWrap";
 import ListOption from "../../components/list/ListOption";
 

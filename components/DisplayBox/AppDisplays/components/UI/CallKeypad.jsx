@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./CallKeypad.module.css";
 import TargetContent from "../TargetContent";
-import Icon from "../Icon";
+import Icon from "./Icon";
 
 export default function CallKeypad({ button1, button2 }) {
   const [clickedNum, changeNum] = useState("");

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import classes from "./Message.module.css";
-import ChoiceImg from "../../components/ChoiceImg";
+import ChoiceFile from "../../components/layout/ChoiceFile";
 
 import TargetContent from "../../components/TargetContent";
 import NoScrollBar from "../../components/layout/NoScrollBar";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
-import Icon from "../../components/Icon";
+import Icon from "../../components/UI/Icon";
 import ChatList from "../../components/UI/ChatList";
 import MessageSendLine from "../../components/UI/MessageSendLine";
 import Grid_4x4 from "../../components/layout/Grid_4x4";
+import ImgBox from "../../components/UI/ImgBox";
 
 function Message({
   optionOpen,
@@ -55,18 +56,6 @@ function Message({
   }
 
   // OPTION IMG CLICKED
-  function imgCheckHandler(event) {
-    let updatedValue;
-    updatedValue = event.target.id;
-    event.target.checked === true &&
-      setChoicedImgs((prevObject) => [...prevObject, updatedValue]);
-
-    event.target.checked === false &&
-      setChoicedImgs((prevObject) => {
-        prevObject = prevObject.filter((item) => item !== updatedValue);
-        return [...prevObject];
-      });
-  }
   function deleteBtnHandler(event) {
     if (event.target.tagName === "I") {
       const deleteItem = event.target.parentNode.dataset.deleteitemid;
@@ -160,6 +149,7 @@ function Message({
     },
   ];
 
+  console.log(choicedImgs);
   return (
     <>
       <NoScrollBar
@@ -296,9 +286,11 @@ function Message({
       )}
       {imgBtnClicked && (
         <NoScrollBar className={`ml-1`}>
-          <ChoiceImg
-            onImgCheckHandler={imgCheckHandler}
-            choicedImgs={choicedImgs}
+          <ChoiceFile
+            fileType_img
+            className={""}
+            setChoicedImgs={setChoicedImgs}
+            num="7"
           />
         </NoScrollBar>
       )}

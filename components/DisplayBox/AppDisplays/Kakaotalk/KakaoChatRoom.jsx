@@ -8,7 +8,7 @@ import ChatList from "../components/UI/ChatList";
 import StackedList_Profile from "../components/list/StackedList_Profile";
 import FlexContent from "../components/list/FlexContent";
 import MessageSendLine from "../components/UI/MessageSendLine";
-import Icon from "../components/Icon";
+import Icon from "../components/UI/Icon";
 import NoScrollBar from "../components/layout/NoScrollBar";
 import Grid_4x4 from "../components/layout/Grid_4x4";
 

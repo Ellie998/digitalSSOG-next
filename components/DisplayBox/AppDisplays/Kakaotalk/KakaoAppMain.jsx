@@ -7,7 +7,7 @@ import StackedListWrap from "../components/list/StackedListWrap";
 import AppHeader from "../components/layout/AppHeader";
 import Tab from "../components/layout/Tab";
 import NoScrollBar from "../components/layout/NoScrollBar";
-import Icon from "../components/Icon";
+import Icon from "../components/UI/Icon";
 
 function KakaoAppMain({ navTriger, tab }) {
   const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);

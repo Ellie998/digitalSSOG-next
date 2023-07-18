@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FlexContent from "../list/FlexContent";
 import classes from "./MessageSendLine.module.css";
-import Icon from "../Icon";
+import Icon from "./Icon";
 
 export default function MessageSendLine({
   className,
