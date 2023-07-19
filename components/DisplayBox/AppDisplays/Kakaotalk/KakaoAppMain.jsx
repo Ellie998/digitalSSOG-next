@@ -217,27 +217,27 @@ function KakaoAppMain({
         clickedTab={clickedTabName}
         iconItems={[
           {
-            clickedTabName: "friend",
+            tabname: "friend",
             content: "bi bi-person",
             clickedContent: "bi bi-person-fill",
           },
           {
-            clickedTabName: "chat",
+            tabname: "chat",
             content: "bi bi-chat",
             clickedContent: "bi bi-chat-fill",
           },
           {
-            clickedTabName: "openChat",
+            tabname: "openChat",
             content: "bi bi-chat-heart",
             clickedContent: "bi bi-chat-heart-fill",
           },
           {
-            clickedTabName: "shopping",
+            tabname: "shopping",
             content: "bi bi-handbag",
             clickedContent: "bi bi-handbag-fill",
           },
           {
-            clickedTabName: "ETC",
+            tabname: "ETC",
             content: "bi bi-three-dots",
             clickedContent: "bi bi-three-dots",
           },

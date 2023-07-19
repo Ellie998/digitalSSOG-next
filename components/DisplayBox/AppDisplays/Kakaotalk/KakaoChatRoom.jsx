@@ -52,6 +52,7 @@ function KakaoChatRoom({
 
   // option setting
   const [optionInput, setOptionInput] = useState("");
+  const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   useEffect(() => {
@@ -123,6 +124,7 @@ function KakaoChatRoom({
     },
     {
       targetOption: target_reserveMessage,
+      isNextDescriptionLink: true,
       onClick: () => {
         setIsOptionSettingOpened(true);
         setIsPlusClicked(false);
@@ -281,11 +283,17 @@ function KakaoChatRoom({
             content: [
               !isPlusClicked ? (
                 <TargetContent
-                  targetOption={optionOpen && !isPlusClicked && !isAlertOpen}>
+                  targetOption={optionOpen && !isPlusClicked && !isAlertOpen}
+                  isNextDescriptionLink={true}>
                   <Icon onClick={plusBtnClickHandler} name="plus-lg" />
                 </TargetContent>
               ) : (
-                <Icon onClick={() => setIsPlusClicked(false)} name="x-lg" />
+                <Icon
+                  onClick={() => {
+                    setIsPlusClicked(false);
+                  }}
+                  name="x-lg"
+                />
               ),
             ],
           }}
@@ -479,7 +487,11 @@ function KakaoChatRoom({
             listTitle={{
               content: (
                 <TargetContent
-                  targetOption={target_reserveMessage && optionInput === ""}>
+                  targetOption={
+                    target_reserveMessage &&
+                    optionInput === "" &&
+                    !isOptionInputSubmit
+                  }>
                   <input
                     placeholder="메시지 입력"
                     className="w-full"
@@ -492,31 +504,35 @@ function KakaoChatRoom({
               className: "text-sm text-gray-300 font-bold cursor-pointer ",
             }}
           />
-          <FlexContent
-            className={`my-0.5`}
-            items={[
-              <div className={`text-xs text-gray-400`}>일시</div>,
-              <input
-                className={`text-2xs cursor-pointer`}
-                type="datetime-local"
-                defaultValue={today}
-              />,
-            ]}
-          />
-          <FlexContent
-            className={`my-0.5 py-0.5`}
-            items={[
-              <div className={`text-xs text-gray-400`}>발송 대상</div>,
-              <div className={`text-xs cursor-pointer`}>영희</div>,
-            ]}
-          />
-          <FlexContent
-            className={`my-0.5 py-0.5`}
-            items={[
-              <div className={`text-xs text-gray-400`}>미리 알림</div>,
-              <div className={`text-xs cursor-pointer`}>알림 받지 않음</div>,
-            ]}
-          />
+          <TargetContent
+            targetOption={optionInput !== "" && !isOptionInputSubmit}>
+            <FlexContent
+              className={`my-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>일시</div>,
+                <input
+                  className={`text-2xs cursor-pointer`}
+                  type="datetime-local"
+                  defaultValue={today}
+                />,
+              ]}
+            />
+            <FlexContent
+              className={`my-0.5 py-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>발송 대상</div>,
+                <div className={`text-xs cursor-pointer`}>영희</div>,
+              ]}
+            />
+            <FlexContent
+              className={`my-0.5 py-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>미리 알림</div>,
+                <div className={`text-xs cursor-pointer`}>알림 받지 않음</div>,
+              ]}
+            />
+          </TargetContent>
+
           <div className={`text-2xs text-gray-400 my-0.5`}>
             <Icon
               name="info-circle"
@@ -527,14 +543,20 @@ function KakaoChatRoom({
           <FlexContent
             className={`mb-1 mt-4`}
             items={[
-              <Button
-                btnColor={`#efefef`}
-                className={`text-2xs font-bold`}
-                width={`70px`}
-                content={"예약 목록 보기"}
-              />,
+              <TargetContent targetOption={isOptionInputSubmit}>
+                <Button
+                  btnColor={`#efefef`}
+                  className={`text-2xs font-bold`}
+                  width={`70px`}
+                  content={"예약 목록 보기"}
+                />
+              </TargetContent>,
               <TargetContent
-                targetOption={target_reserveMessage && optionInput !== ""}
+                targetOption={
+                  target_reserveMessage &&
+                  optionInput !== "" &&
+                  !isOptionInputSubmit
+                }
                 isNextDescriptionLink={true}>
                 <Button
                   btnColor={`${optionInput === "" ? "#fafafa" : "#fff200"}`}
@@ -543,6 +565,7 @@ function KakaoChatRoom({
                   textColor={`${optionInput === "" ? "#b7b7b7" : ""}`}
                   content={"예약하기"}
                   onClick={() => {
+                    setIsOptionInputSubmit(true);
                     setIsAlertOpen(true);
                     setIsOptionSettingOpened(false);
                   }}

@@ -3,48 +3,48 @@
 import { useContext } from "react";
 import UrlContext from "../../../page_context/UrlContext";
 
-/**  make component border and tooltip */
-const TargetContent = ({
-  isWidthFull,
-  children,
-  className,
-  targetOption,
-  isNextDescriptionLink,
-  onClick,
-  id,
-}) => {
+/**  make component border and tooltip
+ *
+ * isWidthFull,
+ * id,
+ * onClick,
+ * isNextDescriptionLink,
+ * targetOption,
+ * className,
+ * children
+ */
+const TargetContent = (prop) => {
   const targetStyle = {
     border: "2px solid red",
-    width: isWidthFull ? "173px" : "fit-content",
+    width: prop.isWidthFull ? "173px" : "fit-content",
     height: "fit-content",
     borderRadius: "2px",
   };
   const { setMyDescriptionId } = useContext(UrlContext);
-
   return (
     <>
-      {!isNextDescriptionLink && (
+      {!prop.isNextDescriptionLink && (
         <div
-          key={id}
-          onClick={onClick}
-          className={className}
-          data-tooltip={targetOption ? "클릭" : null}
-          style={targetOption ? targetStyle : null}>
-          {children}
+          key={prop.id}
+          onClick={prop.onClick}
+          className={prop.className}
+          data-tooltip={prop.targetOption ? "클릭" : null}
+          style={prop.targetOption ? targetStyle : null}>
+          {prop.children}
         </div>
       )}
-      {isNextDescriptionLink && (
+      {prop.isNextDescriptionLink && (
         <div
-          key={id}
-          className={className}
-          data-tooltip={targetOption ? "클릭" : null}
-          style={targetOption ? targetStyle : null}
+          key={prop.id}
+          className={prop.className}
+          data-tooltip={prop.targetOption ? "클릭" : null}
+          style={prop.targetOption ? targetStyle : null}
           onClick={() => {
-            onClick;
-            targetOption &&
+            prop.onClick ? prop.onClick() : null;
+            prop.targetOption &&
               setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
           }}>
-          {children}
+          {prop.children}
         </div>
       )}
     </>
