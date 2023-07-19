@@ -16,7 +16,8 @@ function Grid_4x4({
           className={`cursor-pointer`}
           key={i}
           targetOption={item.targetOption}
-          isNextDescriptionLink={item.isNextDescriptionLink}>
+          isNextDescriptionLink={item.isNextDescriptionLink}
+          onClick={item.onClick}>
           <Icon
             name={item.iconName}
             className={`${iconClassName_common} ${

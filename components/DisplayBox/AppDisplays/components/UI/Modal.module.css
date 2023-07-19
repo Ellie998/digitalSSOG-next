@@ -2,15 +2,15 @@
 .modalWrap {
   position: absolute;
   animation: opacity0to100 0.5s;
+  z-index: 100;
 }
 .backdrop {
   background-color: #2a2a2a6a;
-  width: 174px;
+  width: 175px;
   height: 305px;
   position: absolute;
 }
 .modal {
-  background-color: white;
   width: 150px;
   height: max-content;
   position: absolute;

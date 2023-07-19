@@ -85,7 +85,7 @@ function AppMain({}) {
           choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
         } else if (descriptionId === "1") {
           choicedComponent = (
-            <KakaoAppMain tab={"friend"} navTriger="profile_friend" />
+            <KakaoAppMain defaultTab={"friend"} target_profile />
           );
         } else if (descriptionId === "2") {
           choicedComponent = <KakaoProfileDetail />;
@@ -207,6 +207,31 @@ function AppMain({}) {
           choicedComponent = <MessageWithOption />;
         }
       }
+      if (appName === appName_kakaotalk) {
+        if (descriptionId === "0") {
+          choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
+        } else if (descriptionId === "1") {
+          choicedComponent = (
+            <KakaoAppMain defaultTab="chat" target_chat></KakaoAppMain>
+          );
+        } else {
+          // } else if (descriptionId === "2") {
+          choicedComponent = (
+            <KakaoChatRoom
+              inputLocked={false}
+              chatType_1to1
+              optionOpen
+              target_reserveMessage
+            />
+          );
+        }
+        // else if (descriptionId === "3") {
+        //   choicedComponent = (
+        //     <KakaoChatRoom inputLocked={false} chatType_1to1 />
+        //   );
+        // }
+        break;
+      }
       break;
     case functionName_sendImg:
       if (appName === appName_basic) {
@@ -268,13 +293,15 @@ function AppMain({}) {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
         choicedComponent = (
-          <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
+          <KakaoAppMain defaultTab="chat" target_groupChat></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
           <KakaoChatRoom
             inputLocked={false}
-            navTriger={"groubChatLeave_rejectInvitation"}
+            chatType_group
+            menuOpen
+            target_setting
           />
         );
       } else if (descriptionId === "3") {
@@ -282,7 +309,7 @@ function AppMain({}) {
           <KakaoSettingPage navTriger="groubChatLeave_rejectInvitation" />
         );
       } else if (descriptionId === "4") {
-        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
+        choicedComponent = <KakaoAppMain defaultTab="chat" />;
       }
       break;
     case functionName_kakaotalk_groubChatLock:
@@ -290,40 +317,45 @@ function AppMain({}) {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
         choicedComponent = (
-          <KakaoAppMain tab="chat" navTriger="chatList_group"></KakaoAppMain>
+          <KakaoAppMain defaultTab="chat" target_groupChat></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
-          <KakaoChatRoom inputLocked={false} navTriger={"groubChatLock"} />
+          <KakaoChatRoom
+            chatType_group
+            inputLocked={false}
+            menuOpen
+            target_setting
+          />
         );
       } else if (descriptionId === "3") {
         choicedComponent = <KakaoSettingPage navTriger="groubChatLock" />;
       } else if (descriptionId === "4") {
-        choicedComponent = <KakaoChatRoom inputLocked={true} />;
+        choicedComponent = <KakaoChatRoom chatType_group inputLocked={true} />;
       }
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
       if (descriptionId === "0") {
         choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
       } else if (descriptionId === "1") {
-        choicedComponent = <KakaoAppMain tab="ETC" navTriger="setting" />;
+        choicedComponent = <KakaoAppMain defaultTab="ETC" target_setting />;
       } else if (descriptionId === "2") {
         choicedComponent = (
           <ETCSetting navTriger="groubChatLeave_quietly"></ETCSetting>
         );
       } else if (descriptionId === "3") {
-        choicedComponent = (
-          <KakaoAppMain tab="chat" navTriger="chatList_group" />
-        );
+        choicedComponent = <KakaoAppMain defaultTab="chat" target_groupChat />;
       } else if (descriptionId === "4") {
         choicedComponent = (
           <KakaoChatRoom
+            chatType_group
             inputLocked={false}
-            navTriger="groubChatLeave_quietly"
+            menuOpen
+            target_leave_quietly
           />
         );
       } else if (descriptionId === "5") {
-        choicedComponent = <KakaoAppMain tab="chat" navTriger="" />;
+        choicedComponent = <KakaoAppMain defaultTab="chat" />;
       }
       break;
     default:

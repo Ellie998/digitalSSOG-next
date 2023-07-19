@@ -1,7 +1,8 @@
 import TargetContent from "../TargetContent";
+import DownUp from "../UI/DownUp";
 import Modal from "../UI/Modal";
 
-export default function Modal_contents({
+export default function Modal_downUp({
   className,
   onClickBackDrop,
   title,
@@ -12,9 +13,9 @@ export default function Modal_contents({
   modalClassName,
 }) {
   return (
-    <Modal
-      modalClassName={modalClassName}
-      className={`${className} bg-white`}
+    <DownUp
+      downUpClassName={modalClassName}
+      className={` ${className} `}
       onClickBackDrop={onClickBackDrop}>
       <div className={`display_title ${title.className}`}>{title.content}</div>
       <div className={`display_subTitle--light ${subTitle.className}`}>
@@ -36,8 +37,6 @@ export default function Modal_contents({
           </div>
         </TargetContent>
       </div>
-    </Modal>
+    </DownUp>
   );
 }
-
-// kakao cancel text color text-blue-600

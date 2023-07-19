@@ -7,7 +7,7 @@ export default function StackedListWrap({
   return (
     <div
       key={id}
-      className={`w-50 border-solid border-b border-gray-200 py-1  ${className}`}>
+      className={`w-full border-solid border-b border-gray-200 py-1  ${className}`}>
       {listTitle !== undefined && (
         <div className={`display_subTitle--light ${listTitle.className}`}>
           {listTitle.content}

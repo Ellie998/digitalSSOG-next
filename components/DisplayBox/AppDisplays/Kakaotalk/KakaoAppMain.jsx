@@ -9,15 +9,23 @@ import Tab from "../components/layout/Tab";
 import NoScrollBar from "../components/layout/NoScrollBar";
 import Icon from "../components/UI/Icon";
 
-function KakaoAppMain({ navTriger, tab }) {
-  const [tabName, setTabName] = useState(tab === "ETC" ? "friend" : tab);
+function KakaoAppMain({
+  defaultTab,
+  target_chat,
+  target_groupChat,
+  target_profile,
+  target_setting,
+}) {
+  const [clickedTabName, setClickedTabName] = useState(
+    defaultTab === "ETC" ? "friend" : defaultTab
+  );
 
   const friendListContents = [
     <StackedList_Profile
       className="h-8"
       profile={{
         className: "bg-kakaoSkyblue",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "진수", className: "" }}
       info={{
@@ -29,7 +37,7 @@ function KakaoAppMain({ navTriger, tab }) {
       className="h-8"
       profile={{
         className: "bg-kakaoPurple",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "영희", className: "" }}
       subTitle={{
@@ -41,7 +49,7 @@ function KakaoAppMain({ navTriger, tab }) {
       className="h-8"
       profile={{
         className: "bg-kakaoBlue",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "철수", className: "" }}
       info={{
@@ -55,7 +63,7 @@ function KakaoAppMain({ navTriger, tab }) {
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoPurple",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "그룹채팅방1", className: "col-end-7" }}
       subTitle={{
@@ -72,7 +80,7 @@ function KakaoAppMain({ navTriger, tab }) {
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoPurple",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "영희", className: "" }}
       subTitle={{
@@ -92,7 +100,7 @@ function KakaoAppMain({ navTriger, tab }) {
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoBlue",
-        content: <i className="text-kakaoIcon bi bi-person-fill" />,
+        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
       }}
       title={{ content: "철수", className: "" }}
       subTitle={{
@@ -110,7 +118,7 @@ function KakaoAppMain({ navTriger, tab }) {
     <>
       <NoScrollBar height="240px">
         {/* Header start */}
-        {tabName === "friend" && (
+        {clickedTabName === "friend" && (
           <AppHeader
             leftItem={[<div className="text-sm font-bold">친구</div>]}
             rightItem={[
@@ -120,7 +128,7 @@ function KakaoAppMain({ navTriger, tab }) {
               <Icon name="gear" className="ml-1 text-sm" />,
             ]}></AppHeader>
         )}
-        {tabName === "chat" && (
+        {clickedTabName === "chat" && (
           <AppHeader
             leftItem={[<div className="text-sm font-bold">채팅</div>]}
             rightItem={[
@@ -129,7 +137,7 @@ function KakaoAppMain({ navTriger, tab }) {
               <Icon name="gear" className="ml-1 text-sm" />,
             ]}></AppHeader>
         )}
-        {tabName === "openChat" && (
+        {clickedTabName === "openChat" && (
           <AppHeader
             leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
             rightItem={[
@@ -138,7 +146,7 @@ function KakaoAppMain({ navTriger, tab }) {
               <Icon name="gear" className="ml-1 text-sm" />,
             ]}></AppHeader>
         )}
-        {tabName === "shopping" && (
+        {clickedTabName === "shopping" && (
           <AppHeader
             leftItem={[<div className="text-sm font-bold">쇼핑</div>]}
             rightItem={[
@@ -146,14 +154,14 @@ function KakaoAppMain({ navTriger, tab }) {
               <Icon name="gear" className="ml-1 text-sm" />,
             ]}></AppHeader>
         )}
-        {tabName === "ETC" && (
+        {clickedTabName === "ETC" && (
           <AppHeader
             leftItem={[<div className="text-sm font-bold">더보기</div>]}
             rightItem={[
               <Icon name="search" className="text-sm" />,
               <Icon name="upc-scan" className="ml-1 text-sm" />,
               <TargetContent
-                targetOption={tab === "ETC" && navTriger === "setting"}
+                targetOption={defaultTab === "ETC" && target_setting}
                 isNextDescriptionLink={true}>
                 <Icon name="gear" className="ml-1 text-sm" />
               </TargetContent>,
@@ -161,7 +169,7 @@ function KakaoAppMain({ navTriger, tab }) {
         )}
         {/* ------Header end---- */}
         {/* main start */}
-        {tabName === "friend" && (
+        {clickedTabName === "friend" && (
           <>
             <StackedListWrap>{friendListContents[0]}</StackedListWrap>
             <StackedListWrap
@@ -169,61 +177,67 @@ function KakaoAppMain({ navTriger, tab }) {
               listTitle={{ content: "친구 2" }}>
               {friendListContents[1]}
               <TargetContent
-                targetOption={navTriger === "profile_friend"}
+                targetOption={target_profile}
                 isNextDescriptionLink={true}>
                 {friendListContents[2]}
               </TargetContent>
             </StackedListWrap>
           </>
         )}
-        {tabName === "chat" && (
+        {clickedTabName === "chat" && (
           <>
-            {navTriger === "chatList_group" && (
+            {target_groupChat && (
               <TargetContent
-                targetOption={navTriger === "chatList_group"}
+                targetOption={target_groupChat}
                 isNextDescriptionLink={true}>
                 {chatListContents[0]}
               </TargetContent>
             )}
-            {chatListContents[1]}
+            {target_chat && (
+              <TargetContent
+                targetOption={target_chat}
+                isNextDescriptionLink={true}>
+                {chatListContents[1]}
+              </TargetContent>
+            )}
             {chatListContents[2]}
           </>
         )}
-        {tabName === "openChat" && <></>}
-        {tabName === "shopping" && <></>}
-        {tabName === "ETC" && <></>}
+        {clickedTabName === "openChat" && <></>}
+        {clickedTabName === "shopping" && <></>}
+        {clickedTabName === "ETC" && <></>}
         {/* -------main end------ */}
       </NoScrollBar>
 
       {/* tab start */}
       <Tab
         className="bg-neutral-100 shadow-sm"
-        setClickedTab={setTabName}
-        defaultTab={tab}
-        clickedTab={tabName}
+        setClickedTab={setClickedTabName}
+        defaultTab={defaultTab}
+        clickedTab={clickedTabName}
         iconItems={[
           {
-            tabname: "friend",
+            clickedTabName: "friend",
             content: "bi bi-person",
             clickedContent: "bi bi-person-fill",
           },
           {
-            tabname: "chat",
+            clickedTabName: "chat",
             content: "bi bi-chat",
             clickedContent: "bi bi-chat-fill",
           },
           {
-            tabname: "openChat",
+            clickedTabName: "openChat",
             content: "bi bi-chat-heart",
             clickedContent: "bi bi-chat-heart-fill",
           },
           {
-            tabname: "shopping",
+            clickedTabName: "shopping",
             content: "bi bi-handbag",
             clickedContent: "bi bi-handbag-fill",
           },
           {
-            tabname: "ETC",
+            clickedTabName: "ETC",
             content: "bi bi-three-dots",
             clickedContent: "bi bi-three-dots",
           },

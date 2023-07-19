@@ -43,6 +43,10 @@ module.exports = {
           "90%": { opacity: 1 },
           to: { opacity: 1 },
         },
+        fadeOutDown: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0, transform: "translate3d(0, 100%, 0)" },
+        },
         fadeInUp: {
           "0%": {
             opacity: "0.7",
@@ -56,8 +60,10 @@ module.exports = {
       },
       animation: {
         fadeInDown: " fadeInDown 0.5s",
+        fadeOutDown: " fadeOutDown 0.5s",
         fadeInUp: "fadeInUp 0.5s",
         closeAnimation: "closeAnimation 0.3s",
+        opacity0to100: "opacity0to100 0.5s",
       },
       transitionProperty: {
         position: "position, bottom,transform, background, height, width",

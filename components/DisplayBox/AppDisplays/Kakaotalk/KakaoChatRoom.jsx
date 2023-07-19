@@ -11,28 +11,36 @@ import MessageSendLine from "../components/UI/MessageSendLine";
 import Icon from "../components/UI/Icon";
 import NoScrollBar from "../components/layout/NoScrollBar";
 import Grid_4x4 from "../components/layout/Grid_4x4";
+import StackedListWrap from "../components/list/StackedListWrap";
+import Modal_contents from "../components/layout/Modal_contents";
+import Checkbox from "../components/UI/Checkbox";
+
+import DownUp from "../components/UI/DownUp";
+import Button from "../components/UI/Button";
+import Alert from "../components/UI/Alert";
 
 function KakaoChatRoom({
   inputLocked,
-  navTriger,
   target_sendImg,
   target_sendAudio,
   target_sendPhoneNum,
   target_resend,
+  chatType_group,
+  chatType_1to1,
+  optionOpen,
+  menuOpen,
+  target_reserveMessage,
+  target_leave_quietly,
+  target_leave,
+  target_setting,
 }) {
   //message
   const [messageContent, setMessageContent] = useState("");
   const [isOvered, setIsOvered] = useState(false);
   // input nav
-  const [enteredMessage, setEnteredMessage] = useState("");
   const [isPlusClicked, setIsPlusClicked] = useState(false);
-  const [isInputClicked, setIsInputClicked] = useState(false);
-  const [isSendBtnClicked, setIsSendBtnClicked] = useState(false);
   const [isInputLocked, setIsInputLocked] = useState(false);
 
-  // Choice IMG
-  const [choicedImgs, setChoicedImgs] = useState([]);
-  const [sendImgs, setSendImgs] = useState([]);
   // setting
   const [isMenuBtnClicked, setIsMenuBtnClicked] = useState(false);
   const [isLeaveBtnClicked, setIsLeaveBtnClicked] = useState(false);
@@ -40,6 +48,11 @@ function KakaoChatRoom({
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
   const [choicedModal, setChoicedModal] = useState("");
+  const [isOptionSettingOpened, setIsOptionSettingOpened] = useState(false);
+
+  // option setting
+  const [optionInput, setOptionInput] = useState("");
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   useEffect(() => {
     inputLocked ? setIsInputLocked(true) : setIsInputLocked(false);
@@ -53,30 +66,14 @@ function KakaoChatRoom({
   function backClickHandler() {
     setIsOvered(false);
     setIsPlusClicked(false);
+    setIsOptionSettingOpened(false);
+    setOptionInput("");
   }
 
-  function inputClickHandler(event) {
-    setIsInputClicked(true);
-    setIsSendBtnClicked(false);
-  }
-  function sendBtnClickHandler(event) {
-    setMessageContent(enteredMessage);
-    setIsSendBtnClicked(true);
-    setEnteredMessage("");
-    setSendImgs([...choicedImgs]);
-    setChoicedImgs([]);
-  }
+  function sendBtnClickHandler(event) {}
 
-  function inputOutHandler(event) {
-    setIsInputClicked(false);
-  }
-  function inputChangeHandler(event) {
-    setEnteredMessage(event.target.value);
-  }
   function plusBtnClickHandler() {
     setIsPlusClicked(true);
-    setChoicedImgs([]);
-    setIsSendBtnClicked(false);
   }
   function menuBtnClickHandler() {
     setIsMenuBtnClicked(true);
@@ -125,6 +122,11 @@ function KakaoChatRoom({
       iconName: "cash-coin",
     },
     {
+      targetOption: target_reserveMessage,
+      onClick: () => {
+        setIsOptionSettingOpened(true);
+        setIsPlusClicked(false);
+      },
       content: "예약 메시지",
       iconName: "stopwatch",
     },
@@ -168,105 +170,127 @@ function KakaoChatRoom({
     },
   ];
 
+  let date = new Date();
+
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let hour = date.getHours();
+  let minute = date.getMonth();
+
+  if (month < 10) month = "0" + month;
+  if (day < 10) day = "0" + day;
+  if (hour < 10) hour = "0" + hour;
+  if (minute < 10) minute = "0" + minute;
+
+  let today = `${year}-${month}-${day}T${hour}:${minute}`;
+
   return (
     <>
-      <NoScrollBar height={`${!isPlusClicked ? "280px" : "150px"}`}>
-        {/* header nav */}
-        <div className={classes.main_header} onClick={backClickHandler}>
-          <AppHeader
-            leftItem={[
-              <BackBtn></BackBtn>,
-              <div className="text-sm ml-1 font-bold align-middle">
-                그룹채팅
-              </div>,
-              <div className="text-sm ml-1 align-middle">3</div>,
-            ]}
-            rightItem={[
-              <i className="text-sm m-1 bi bi-search align-middle"></i>,
-              <TargetContent
-                onClick={menuBtnClickHandler}
-                targetOption={
-                  (navTriger === "groubChatLeave_quietly" ||
-                    navTriger === "groubChatLeave_rejectInvitation" ||
-                    navTriger === "groubChatLock") &&
-                  !isMenuBtnClicked
-                }>
-                <i className="text-sm mx-1 bi bi-list align-middle"></i>
-              </TargetContent>,
-            ]}></AppHeader>
-        </div>
-        {/* message List */}
-        <div
-          className={`${classes.messages} ${
-            isPlusClicked ? classes.messagesSmall : ""
-          }`}
-          onClick={backClickHandler}>
-          <div className={classes.getMessageWrap}>
-            <ChatList
-              isGetList={true}
-              className=""
-              profile={{
-                className: "bg-kakaoSkyblue",
-                content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
-              }}
-              name={{ content: "김대리", className: "" }}
-              message={{
-                className: "bg-white",
-                content: "퇴사합니다.",
-              }}
-              timeStamp={{
-                className: "",
-                content: "오전 9:00",
-              }}
-            />
+      <NoScrollBar
+        height={`${!isPlusClicked ? "280px" : "150px"}`}
+        className={`bg-[#b2c6d9] p-1`}
+        onClick={backClickHandler}>
+        <AppHeader
+          onClick={backClickHandler}
+          className={`bg-[#b2c6da] h-[35px]`}
+          leftItem={[
+            <BackBtn></BackBtn>,
+            <div className="text-sm ml-1 font-bold align-middle">
+              {chatType_group && "그룹채팅"}
+              {chatType_1to1 && "영희"}
+            </div>,
+            <div className="text-sm ml-1 align-middle">
+              {chatType_group && "3"}
+            </div>,
+          ]}
+          rightItem={[
+            <Icon name="search" className={`text-sm m-1 align-middle`} />,
+            <TargetContent
+              onClick={menuBtnClickHandler}
+              targetOption={menuOpen && !isMenuBtnClicked}>
+              <Icon name="list" className={`text-sm mx-1 align-middle`} />
+            </TargetContent>,
+          ]}></AppHeader>
+        <ChatList
+          isGetList={true}
+          className=""
+          profile={{
+            className: "bg-kakaoSkyblue",
+            content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
+          }}
+          name={{ content: "김대리", className: "" }}
+          message={{
+            className: "bg-white",
+            content: "퇴사합니다.",
+          }}
+          timeStamp={{
+            className: "",
+            content: "오전 9:00",
+          }}
+        />
+        {messageContent && (
+          <ChatList
+            isSendList={true}
+            className="mt-2"
+            message={{
+              className: "bg-kakaoYellow",
+              content: messageContent,
+            }}
+            timeStamp={{
+              className: "",
+              content: "오전 9:54",
+            }}
+          />
+        )}
+
+        {isOvered && (
+          <div className={classes.options}>
+            <div>삭제</div>
+            <div>답장</div>
+            <div>글자 복사</div>
+            <div>텍스트 선택</div>
+            <TargetContent
+              targetOption={target_resend}
+              isNextDescriptionLink={true}>
+              전달
+            </TargetContent>
+
+            <div>공유</div>
+            <div>별표하기</div>
           </div>
-
-          {messageContent && isSendBtnClicked && (
-            <ChatList
-              isSendList={true}
-              className="mt-2"
-              message={{
-                className: "bg-kakaoYellow",
-                content: messageContent,
-              }}
-              timeStamp={{
-                className: "",
-                content: "오전 9:54",
-              }}
-            />
-          )}
-
-          {isOvered && (
-            <div className={classes.options}>
-              <div>삭제</div>
-              <div>답장</div>
-              <div>글자 복사</div>
-              <div>텍스트 선택</div>
-              <TargetContent
-                targetOption={target_resend}
-                isNextDescriptionLink={true}>
-                전달
-              </TargetContent>
-
-              <div>공유</div>
-              <div>별표하기</div>
-            </div>
-          )}
-        </div>
+        )}
+        {/* alert */}
+        {isAlertOpen && (
+          <Alert
+            setIsAlertOpen={setIsAlertOpen}
+            className={`top-[160px]`}
+            content="메시지를 예약했습니다."
+            icon={{
+              name: "chat-fill",
+              className: " bg-kakaoYellow text-[#3e3404]",
+            }}
+          />
+        )}
       </NoScrollBar>
+
       {/* input line */}
       {!isInputLocked && (
         <MessageSendLine
           navOption_focused={{
             content: [
               !isPlusClicked ? (
-                <Icon onClick={plusBtnClickHandler} name="plus-lg" />
+                <TargetContent
+                  targetOption={optionOpen && !isPlusClicked && !isAlertOpen}>
+                  <Icon onClick={plusBtnClickHandler} name="plus-lg" />
+                </TargetContent>
               ) : (
                 <Icon onClick={() => setIsPlusClicked(false)} name="x-lg" />
               ),
             ],
           }}
           input={{}}
+          onSendBtnClickHandler={sendBtnClickHandler}
           setMessageContent={setMessageContent}
           sendBtn={{ className: "send-fill bg-[#f7e540]" }}
           sendBtn_default={{
@@ -306,7 +330,6 @@ function KakaoChatRoom({
           />
         </NoScrollBar>
       )}
-
       {/* Side Menu */}
       {isMenuBtnClicked && (
         <div className={classes.sideMenuWrap}>
@@ -314,25 +337,26 @@ function KakaoChatRoom({
             className={classes.backdrop}
             onClick={backdropClickHandler}></div>
           <div className={classes.sideMenuBox}>
-            <div className={"p-1 border-b border-gray-100"}>
-              <div className="text-xs font-bold">채팅방 서랍</div>
-            </div>
-            <div className={"p-1 border-b border-gray-100"}>
-              <div className="text-xs font-bold">톡캘린더</div>
-            </div>
-            <div className={"p-1 border-b border-gray-100"}>
-              <div className="text-xs font-bold">뮤직</div>
-            </div>
-            <div className={"p-1 border-b border-gray-100"}>
-              <div className="text-xs font-bold">톡게시판</div>
-            </div>
-            <div className={"p-1 "}>
-              <div className="text-xs font-bold mb-2">대화상대</div>
+            {["채팅방 서랍", "톡캘린더", "뮤직", "톡게시판"].map((item, i) => (
+              <StackedListWrap
+                key={i}
+                listTitle={{
+                  content: item,
+                  className: "text-xs font-bold text-gray-700 ml-1",
+                }}
+              />
+            ))}
+            <StackedListWrap
+              className={`border-none`}
+              listTitle={{
+                content: "대화상대",
+                className: "text-xs font-bold text-gray-700 ml-1 mb-1",
+              }}>
               <StackedList_Profile
                 className="mb-2"
                 profile={{
                   className: "bg-gray-200",
-                  content: <i className="text-blue-600 bi bi-plus-lg"></i>,
+                  content: <Icon name="plus-lg" className={`text-blue-600`} />,
                 }}
                 title={{
                   className: "text-blue-600 text-xs",
@@ -343,7 +367,7 @@ function KakaoChatRoom({
                 className="mb-2"
                 profile={{
                   className: "bg-kakaoSkyblue",
-                  content: <i className="text-white bi bi-person-fill"></i>,
+                  content: <Icon name="person-fill" className={`text-white`} />,
                 }}
                 title={{
                   className: "text-xs",
@@ -354,7 +378,7 @@ function KakaoChatRoom({
                 className="mb-2"
                 profile={{
                   className: "bg-kakaoBlue",
-                  content: <i className="text-white bi bi-person-fill"></i>,
+                  content: <Icon name="person-fill" className={`text-white`} />,
                 }}
                 title={{
                   className: "text-xs",
@@ -365,14 +389,14 @@ function KakaoChatRoom({
                 className="mb-2"
                 profile={{
                   className: "bg-kakaoPurple",
-                  content: <i className="text-white bi bi-person-fill"></i>,
+                  content: <Icon name="person-fill" className={`text-white`} />,
                 }}
                 title={{
                   className: "text-xs",
                   content: "사장님",
                 }}
               />
-            </div>
+            </StackedListWrap>
             <div className={classes.sideMenuNavWrap}>
               <FlexContent
                 className=""
@@ -380,29 +404,26 @@ function KakaoChatRoom({
                   <TargetContent
                     targetOption={
                       isMenuBtnClicked &&
-                      navTriger === "groubChatLeave_quietly" &&
+                      (target_leave_quietly || target_leave) &&
                       choicedModal === ""
                     }>
-                    <i
+                    <Icon
                       onClick={() => {
                         setIsLeaveBtnClicked(true);
                         setChoicedModal("groubChatLeave_quietly");
                       }}
-                      className="m-1 bi bi-box-arrow-right"
+                      name="box-arrow-right"
                     />
                   </TargetContent>,
                   <FlexContent
                     className=""
                     items={[
-                      <i className="text-sm bi bi-bell-fill" />,
-                      <i className="text-sm m-1 bi bi-star" />,
+                      <Icon name="bell-fill" className={`text-sm `} />,
+                      <Icon name="star" className={`text-sm m-1`} />,
                       <TargetContent
-                        targetOption={
-                          navTriger === "groubChatLeave_rejectInvitation" ||
-                          navTriger === "groubChatLock"
-                        }
+                        targetOption={target_setting}
                         isNextDescriptionLink={true}>
-                        <i className="text-sm m-1 bi bi-gear" />
+                        <Icon name="gear" className={`text-sm m-1`} />
                       </TargetContent>,
                     ]}></FlexContent>,
                 ]}
@@ -413,55 +434,123 @@ function KakaoChatRoom({
       )}
       {/* Modal */}
       {choicedModal !== "" && (
-        <div className={classes.modalWrap}>
-          <div
-            className={classes.backdrop_modal}
-            onClick={() => setChoicedModal("")}></div>
-          <div className={classes.modal}>
-            <div className="text-sm text-gray-800 font-medium text-start ml-1">
-              채팅방 나가기
-            </div>
-            <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
-              나가기를 하면 대화내용이 모두 삭제되고
-              <br />
-              채팅 목록에서도 삭제됩니다.
-            </div>
+        <Modal_contents
+          modalClassName={`mt-5`}
+          className={`mt-10`}
+          onClickBackDrop={() => setChoicedModal("")}
+          title={{ content: "채팅방 나가기" }}
+          subTitle={{
+            content: (
+              <>
+                나가기를 하면 대화내용이 모두 삭제되고
+                <br />
+                채팅 목록에서도 삭제됩니다.
+              </>
+            ),
+          }}
+          cancelButton={{ content: "취소", className: "text-blue-500" }}
+          submitButton={{
+            content: "나가기",
+            className: "text-blue-500",
+            targetOption: isCheckbox && (target_leave_quietly || target_leave),
+            isNextDescriptionLink: true,
+          }}>
+          {target_leave_quietly && (
             <TargetContent className="my-1" targetOption={!isCheckbox}>
-              <label
-                className={`${classes.modalRadioWrap} p-1`}
-                htmlFor="info_config">
-                <input
-                  type="checkbox"
-                  id="info_config"
-                  onChange={(e) => {
-                    isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
-                  }}></input>
-                <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
-                  조용히 나가기
-                </div>
-              </label>
+              <Checkbox
+                label={{ content: "조용히 나가기" }}
+                onChange={(e) => {
+                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
+                }}
+                id="info_config"
+              />
             </TargetContent>
-            <div className={classes.modalNavWrap}>
-              <div
-                className="text-blue-500 text-xs ml-1 font-bold cursor-pointer"
-                onClick={() => setChoicedModal("")}>
-                취소
-              </div>
-              <TargetContent
-                targetOption={
-                  isCheckbox && navTriger === "groubChatLeave_quietly"
-                }
-                isNextDescriptionLink={true}>
-                <div
-                  className={
-                    "text-gray-400 text-xs ml-1 font-bold cursor-pointer"
-                  }>
-                  나가기
-                </div>
-              </TargetContent>
-            </div>
+          )}
+        </Modal_contents>
+      )}
+      {/* setting option */}
+      {isOptionSettingOpened && (
+        <DownUp
+          downUpClassName={`mt-[20px]`}
+          className={``}
+          onClickBackDrop={backClickHandler}>
+          <StackedListWrap
+            className={``}
+            listTitle={{
+              content: (
+                <TargetContent
+                  targetOption={target_reserveMessage && optionInput === ""}>
+                  <input
+                    placeholder="메시지 입력"
+                    className="w-full"
+                    onChange={(e) => {
+                      setOptionInput(e.target.value);
+                    }}
+                  />
+                </TargetContent>
+              ),
+              className: "text-sm text-gray-300 font-bold cursor-pointer ",
+            }}
+          />
+          <FlexContent
+            className={`my-0.5`}
+            items={[
+              <div className={`text-xs text-gray-400`}>일시</div>,
+              <input
+                className={`text-2xs cursor-pointer`}
+                type="datetime-local"
+                defaultValue={today}
+              />,
+            ]}
+          />
+          <FlexContent
+            className={`my-0.5 py-0.5`}
+            items={[
+              <div className={`text-xs text-gray-400`}>발송 대상</div>,
+              <div className={`text-xs cursor-pointer`}>영희</div>,
+            ]}
+          />
+          <FlexContent
+            className={`my-0.5 py-0.5`}
+            items={[
+              <div className={`text-xs text-gray-400`}>미리 알림</div>,
+              <div className={`text-xs cursor-pointer`}>알림 받지 않음</div>,
+            ]}
+          />
+          <div className={`text-2xs text-gray-400 my-0.5`}>
+            <Icon
+              name="info-circle"
+              className={`text-2xs text-gray-400 mr-1`}
+            />
+            예약 메시지가 많을 경우, 약간의 시간 오차가 발생할 수 있습니다.
           </div>
-        </div>
+          <FlexContent
+            className={`mb-1 mt-4`}
+            items={[
+              <Button
+                btnColor={`#efefef`}
+                className={`text-2xs font-bold`}
+                width={`70px`}
+                content={"예약 목록 보기"}
+              />,
+              <TargetContent
+                targetOption={target_reserveMessage && optionInput !== ""}
+                isNextDescriptionLink={true}>
+                <Button
+                  btnColor={`${optionInput === "" ? "#fafafa" : "#fff200"}`}
+                  className={`text-2xs font-bold`}
+                  width={`70px`}
+                  textColor={`${optionInput === "" ? "#b7b7b7" : ""}`}
+                  content={"예약하기"}
+                  onClick={() => {
+                    setIsAlertOpen(true);
+                    setIsOptionSettingOpened(false);
+                  }}
+                />
+              </TargetContent>,
+            ]}
+          />
+        </DownUp>
       )}
     </>
   );
