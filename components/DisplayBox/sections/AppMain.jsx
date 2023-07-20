@@ -64,259 +64,163 @@ function AppMain({}) {
   switch (functionName) {
     case functionName_makeCall:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_call} />;
-        } else if (descriptionId === "1") {
-          if (methodId === "1") {
-            choicedComponent = <CallAppMain targetTab="키패드" target_Call />;
-          }
-          if (methodId === "2") {
-            choicedComponent = <CallAppMain targetTab="최근기록" target_Call />;
-          }
-          if (methodId === "3") {
-            choicedComponent = <CallAppMain targetTab="연락처" target_Call />;
-          }
-        } else if (descriptionId === "2") {
-          choicedComponent = <CallConnected />;
-        } else {
-          choicedComponent = <div></div>;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_call} />,
+          <CallAppMain
+            targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
+            target_Call
+          />,
+          <CallConnected />,
+        ][descriptionId];
       } else if (appName === appName_kakaotalk) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <KakaoAppMain defaultTab_friend target_profile />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <KakaoProfileDetail />;
-        } else if (descriptionId === "3") {
-          choicedComponent = <CallConnected />;
-        } else {
-          choicedComponent = <div></div>;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <KakaoAppMain defaultTab_friend target_profile />,
+          <KakaoProfileDetail />,
+          <CallConnected />,
+        ][descriptionId];
       }
       break;
     case functionName_getCall:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <AnswerCall />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <CallConnected></CallConnected>;
-        }
+        choicedComponent = [<AnswerCall />, <CallConnected />][descriptionId];
       } else if (appName === appName_kakaotalk) {
-        if (descriptionId === "0") {
-          choicedComponent = (
-            <AnswerCall
-              appName={appName}
-              functionName={functionName}></AnswerCall>
-          );
-        } else if (descriptionId === "1") {
-          choicedComponent = <CallConnected></CallConnected>;
-        }
+        choicedComponent = [
+          <AnswerCall appName={appName} functionName={functionName} />,
+          <CallConnected />,
+        ][descriptionId];
       }
       break;
     case functionName_makeVideoCall:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_call} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = (
-            <CallAppMain targetTab="키패드" target_videoCall />
-          );
-        } else if (descriptionId === "2") {
-          choicedComponent = <VideoCallConnected />;
-        } else {
-          choicedComponent = <div></div>;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_call} />,
+          <CallAppMain targetTab="키패드" target_videoCall />,
+          <VideoCallConnected />,
+        ][descriptionId];
       }
       break;
     case functionName_sendMessage:
-      if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = (
-            <MessageAppMain
-              target_sendMessage={methodId === "1"}
-              target_seeMessage={methodId === "2"}
-            />
-          );
-        } else if (descriptionId === "2" && methodId === "1") {
-          choicedComponent = <SelectPerson />;
-        } else if (
-          (descriptionId === "3" && methodId === "1") ||
-          (descriptionId === "2" && methodId === "2")
-        ) {
-          choicedComponent = <Message></Message>;
-        }
-      }
+      choicedComponent =
+        methodId === "1"
+          ? [
+              <MainApps navLinkTriger={appName_message} />,
+              <MessageAppMain target_sendMessage />,
+              <SelectPerson />,
+              <Message />,
+            ][descriptionId]
+          : [
+              <MainApps navLinkTriger={appName_message} />,
+              <MessageAppMain target_seeMessage />,
+              <Message />,
+            ][descriptionId];
       break;
     case functionName_seeMessage:
       if (appName === appName_basic) {
-        if (methodId === "1") {
-          if (descriptionId === "0") {
-            choicedComponent = <MainApps navLinkTriger={appName_message} />;
-          } else if (descriptionId === "1") {
-            choicedComponent = <MessageAppMain target_seeMessage />;
-          } else if (descriptionId === "2") {
-            choicedComponent = <Message />;
-          }
-        } else if (methodId === "2") {
-          if (descriptionId === "0") {
-            choicedComponent = <MainApps navLinkTriger={appName_message} />;
-          } else if (descriptionId === "1") {
-            choicedComponent = <MessageAppMain target_unreadMessage />;
-          } else if (descriptionId === "2") {
-            choicedComponent = <UnreadMessage />;
-          } else if (descriptionId === "3") {
-            choicedComponent = <Message />;
-          }
-        }
+        choicedComponent =
+          methodId === "1"
+            ? [
+                <MainApps navLinkTriger={appName_message} />,
+                <MessageAppMain target_seeMessage />,
+                <Message />,
+              ][descriptionId]
+            : [
+                <MainApps navLinkTriger={appName_message} />,
+                <MessageAppMain target_unreadMessage />,
+                <UnreadMessage />,
+                <Message />,
+              ][descriptionId];
       }
       break;
     case functionName_resendMessage:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain target_seeMessage />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <Message target_resend />;
-        } else if (descriptionId === "3") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "4") {
-          choicedComponent = <SendResend></SendResend>;
-        } else if (descriptionId === "5") {
-          choicedComponent = <ResendSuccess></ResendSuccess>;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_message} />,
+          <MessageAppMain target_seeMessage />,
+          <Message target_resend />,
+          <SelectPerson />,
+          <SendResend />,
+          <ResendSuccess />,
+        ][descriptionId];
       }
       break;
     case functionName_reserveMessage:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain target_sendMessage />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "3") {
-          choicedComponent = <Message target_reserveMessage optionOpen />;
-        } else if (descriptionId === "4") {
-          choicedComponent = <SetReservation />;
-        } else if (descriptionId === "5") {
-          choicedComponent = <MessageWithOption />;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_message} />,
+          <MessageAppMain target_sendMessage />,
+          <SelectPerson />,
+          <Message target_reserveMessage optionOpen />,
+          <SetReservation />,
+          <MessageWithOption />,
+        ][descriptionId];
       }
       if (appName === appName_kakaotalk) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <KakaoAppMain defaultTab_chat target_chat />;
-        } else if (descriptionId === "2") {
-          choicedComponent = (
-            <KakaoChatRoom inputLocked={false} chatType_1to1 target_optionBtn />
-          );
-        } else if (descriptionId === "3") {
-          choicedComponent = (
-            <KakaoChatRoom
-              inputLocked={false}
-              chatType_1to1
-              optionOpen
-              target_reserveMessage
-            />
-          );
-        } else if (descriptionId === "4") {
-          choicedComponent = (
-            <KakaoChatRoom
-              inputLocked={false}
-              chatType_1to1
-              optionSettingOpen
-              target_reserveMessage
-            />
-          );
-        } else if (descriptionId === "5") {
-          choicedComponent = (
-            <KakaoChatRoom
-              inputLocked={false}
-              chatType_1to1
-              alertOpen
-              target_optionBtn
-            />
-          );
-        } else if (descriptionId === "6") {
-          choicedComponent = (
-            <KakaoChatRoom
-              inputLocked={false}
-              chatType_1to1
-              optionOpen
-              target_reserveMessage
-            />
-          );
-        } else if (descriptionId === "7") {
-          choicedComponent = (
-            <KakaoChatRoom
-              inputLocked={false}
-              chatType_1to1
-              target_reserveMessage
-              optionSetting_reopen
-            />
-          );
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <KakaoAppMain defaultTab_chat target_chat />,
+          <KakaoChatRoom chatType_1to1 target_optionBtn />,
+          <KakaoChatRoom chatType_1to1 optionOpen target_reserveMessage />,
+          <KakaoChatRoom
+            chatType_1to1
+            optionSettingOpen
+            target_reserveMessage
+          />,
+          <KakaoChatRoom chatType_1to1 alertOpen target_optionBtn />,
+          <KakaoChatRoom chatType_1to1 optionOpen target_reserveMessage />,
+          <KakaoChatRoom
+            chatType_1to1
+            target_reserveMessage
+            optionSetting_reopen
+          />,
+        ][descriptionId];
+
         break;
       }
       break;
     case functionName_sendImg:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain target_sendMessage />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "3") {
-          choicedComponent = (
-            <Message optionOpen={methodId === "2"} target_sendImg />
-          );
-        } else if (descriptionId === "4" && methodId === "2") {
-          choicedComponent = <SelectFile />;
-        } else if (descriptionId === "5" && methodId === "2") {
-          choicedComponent = <ChoiceImgs />;
-        } else if (descriptionId === "6" && methodId === "2") {
-          choicedComponent = <MessageWithOption></MessageWithOption>;
-        }
+        choicedComponent =
+          methodId === "1"
+            ? [
+                <MainApps navLinkTriger={appName_message} />,
+                <MessageAppMain target_sendMessage />,
+                <SelectPerson />,
+                <Message target_sendImg />,
+              ][descriptionId]
+            : [
+                <MainApps navLinkTriger={appName_message} />,
+                <MessageAppMain target_sendMessage />,
+                <SelectPerson />,
+                <Message optionOpen={methodId === "2"} target_sendImg />,
+                <SelectFile />,
+                <ChoiceImgs />,
+                <MessageWithOption />,
+              ][descriptionId];
       }
       break;
     case functionName_sendAudio:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain target_sendMessage />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "3") {
-          choicedComponent = <Message optionOpen target_sendAudio />;
-        } else if (descriptionId === "4") {
-          choicedComponent = <SelectFile />;
-        } else if (descriptionId === "5") {
-          choicedComponent = <MessageWithOption />;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_message} />,
+          <MessageAppMain target_sendMessage />,
+          <SelectPerson />,
+          <Message target_sendAudio optionOpen />,
+          <SelectFile />,
+          <MessageWithOption />,
+        ][descriptionId];
       }
       break;
     case functionName_sendPhoneNum:
       if (appName === appName_basic) {
-        if (descriptionId === "0") {
-          choicedComponent = <MainApps navLinkTriger={appName_message} />;
-        } else if (descriptionId === "1") {
-          choicedComponent = <MessageAppMain target_sendMessage />;
-        } else if (descriptionId === "2") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "3") {
-          choicedComponent = <Message optionOpen target_sendPhoneNum />;
-        } else if (descriptionId === "4") {
-          choicedComponent = <SelectPerson />;
-        } else if (descriptionId === "5") {
-          choicedComponent = <MessageWithOption />;
-        }
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_message} />,
+          <MessageAppMain target_sendMessage />,
+          <SelectPerson />,
+          <Message target_sendPhoneNum optionOpen />,
+          <SelectPerson />,
+          <MessageWithOption />,
+        ][descriptionId];
       }
       break;
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
@@ -337,21 +241,14 @@ function AppMain({}) {
       break;
     case functionName_kakaotalk_groubChatLock:
       if (descriptionId === "0") {
-        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
-      } else if (descriptionId === "1") {
-        choicedComponent = <KakaoAppMain defaultTab_chat target_groupChat />;
-      } else if (descriptionId === "2") {
-        choicedComponent = <KakaoChatRoom chatType_group target_menu />;
-      } else if (descriptionId === "3") {
-        choicedComponent = (
-          <KakaoChatRoom chatType_group menuOpen target_setting />
-        );
-      } else if (descriptionId === "4") {
-        choicedComponent = (
-          <KakaoChatRoom_setting target_groubChatLock target_backBtn />
-        );
-      } else if (descriptionId === "5") {
-        choicedComponent = <KakaoChatRoom chatType_group inputLocked={true} />;
+        choicedComponent = [
+          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <KakaoAppMain defaultTab_chat target_groupChat />,
+          <KakaoChatRoom chatType_group target_menu />,
+          <KakaoChatRoom chatType_group menuOpen target_setting />,
+          <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
+          <KakaoChatRoom chatType_group inputLocked={true} />,
+        ][descriptionId];
       }
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
