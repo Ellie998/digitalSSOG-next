@@ -65,7 +65,7 @@ function AppMain({}) {
     case functionName_makeCall:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_call} />,
+          <MainApps appName_call />,
           <CallAppMain
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
             target_Call
@@ -74,7 +74,7 @@ function AppMain({}) {
         ][descriptionId];
       } else if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <MainApps appName_kakaotalk />,
           <KakaoAppMain defaultTab_friend target_profile />,
           <KakaoProfileDetail />,
           <CallConnected appName_kakaotalk />,
@@ -97,7 +97,7 @@ function AppMain({}) {
     case functionName_makeVideoCall:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_call} />,
+          <MainApps appName_call />,
           <CallAppMain targetTab="키패드" target_videoCall />,
           <VideoCallConnected />,
         ][descriptionId];
@@ -107,13 +107,13 @@ function AppMain({}) {
       choicedComponent =
         methodId === "1"
           ? [
-              <MainApps navLinkTriger={appName_message} />,
+              <MainApps appName_message />,
               <MessageAppMain target_sendMessage />,
               <SelectPerson />,
               <Message />,
             ][descriptionId]
           : [
-              <MainApps navLinkTriger={appName_message} />,
+              <MainApps appName_message />,
               <MessageAppMain target_seeMessage />,
               <Message />,
             ][descriptionId];
@@ -123,12 +123,12 @@ function AppMain({}) {
         choicedComponent =
           methodId === "1"
             ? [
-                <MainApps navLinkTriger={appName_message} />,
+                <MainApps appName_message />,
                 <MessageAppMain target_seeMessage />,
                 <Message />,
               ][descriptionId]
             : [
-                <MainApps navLinkTriger={appName_message} />,
+                <MainApps appName_message />,
                 <MessageAppMain target_unreadMessage />,
                 <UnreadMessage />,
                 <Message />,
@@ -138,7 +138,7 @@ function AppMain({}) {
     case functionName_resendMessage:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_message} />,
+          <MainApps appName_message />,
           <MessageAppMain target_seeMessage />,
           <Message target_resend />,
           <SelectPerson />,
@@ -150,7 +150,7 @@ function AppMain({}) {
     case functionName_reserveMessage:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_message} />,
+          <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson />,
           <Message target_reserveMessage optionOpen />,
@@ -160,7 +160,7 @@ function AppMain({}) {
       }
       if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <MainApps appName_kakaotalk />,
           <KakaoAppMain defaultTab_chat target_chat />,
           <KakaoChatRoom chatType_1to1 target_optionBtn />,
           <KakaoChatRoom chatType_1to1 optionOpen target_reserveMessage />,
@@ -186,13 +186,13 @@ function AppMain({}) {
         choicedComponent =
           methodId === "1"
             ? [
-                <MainApps navLinkTriger={appName_message} />,
+                <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
                 <SelectPerson />,
                 <Message target_sendImg />,
               ][descriptionId]
             : [
-                <MainApps navLinkTriger={appName_message} />,
+                <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
                 <SelectPerson />,
                 <Message optionOpen={methodId === "2"} target_sendImg />,
@@ -205,7 +205,7 @@ function AppMain({}) {
     case functionName_sendAudio:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_message} />,
+          <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson />,
           <Message target_sendAudio optionOpen />,
@@ -217,7 +217,7 @@ function AppMain({}) {
     case functionName_sendPhoneNum:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_message} />,
+          <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson />,
           <Message target_sendPhoneNum optionOpen />,
@@ -228,7 +228,7 @@ function AppMain({}) {
       break;
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
       choicedComponent = [
-        <MainApps navLinkTriger={appName_kakaotalk} />,
+        <MainApps appName_kakaotalk />,
         <KakaoAppMain defaultTab_chat target_groupChat />,
         <KakaoChatRoom chatType_group target_menu />,
         <KakaoChatRoom chatType_group menuOpen target_setting />,
@@ -245,7 +245,7 @@ function AppMain({}) {
     case functionName_kakaotalk_groubChatLock:
       if (descriptionId === "0") {
         choicedComponent = [
-          <MainApps navLinkTriger={appName_kakaotalk} />,
+          <MainApps appName_kakaotalk />,
           <KakaoAppMain defaultTab_chat target_groupChat />,
           <KakaoChatRoom chatType_group target_menu />,
           <KakaoChatRoom chatType_group menuOpen target_setting />,
@@ -256,7 +256,7 @@ function AppMain({}) {
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
       choicedComponent = [
-        <MainApps navLinkTriger={appName_kakaotalk} />,
+        <MainApps appName_kakaotalk />,
         <KakaoAppMain defaultTab_ETC target_setting />,
         <ETCSetting target_lab />,
         <ETCSetting_lab target_groubChatLeave_quietly />,
