@@ -18,6 +18,7 @@ import Checkbox from "../components/UI/Checkbox";
 import DownUp from "../components/UI/DownUp";
 import Button from "../components/UI/Button";
 import Alert from "../components/UI/Alert";
+import GetDate from "../components/GetDate";
 
 function KakaoChatRoom({
   inputLocked,
@@ -147,21 +148,6 @@ function KakaoChatRoom({
       iconName: "broadcast-pin",
     },
   ];
-
-  let date = new Date();
-
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let hour = date.getHours();
-  let minute = date.getMonth();
-
-  if (month < 10) month = "0" + month;
-  if (day < 10) day = "0" + day;
-  if (hour < 10) hour = "0" + hour;
-  if (minute < 10) minute = "0" + minute;
-
-  let today = `${year}-${month}-${day}T${hour}:${minute}`;
 
   return (
     <>
@@ -470,7 +456,7 @@ function KakaoChatRoom({
                 <input
                   className={`text-2xs cursor-pointer`}
                   type="datetime-local"
-                  defaultValue={today}
+                  defaultValue={GetDate().y_m_d_h_plus1_m}
                 />,
               ]}
             />

@@ -17,6 +17,7 @@ export default function Input({
         id={id}
         className={`indent-1  ${input.className}`}
         type={input.type}
+        defaultValue={input.defaultValue}
         onChange={(e) => {
           onChangeHandler && onChangeHandler(e.target.value);
         }}

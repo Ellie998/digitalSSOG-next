@@ -13,6 +13,7 @@ import ChoicedFile from "../../components/UI/ChoicedFile";
 import Modal_contents from "../../components/layout/Modal_contents";
 import Input from "../../components/UI/Input";
 import Checkbox from "../../components/UI/Checkbox";
+import GetDate from "../../components/GetDate";
 
 function Message({
   optionOpen,
@@ -168,6 +169,7 @@ function Message({
             input={{
               type: "date",
               className: `border-transparent bg-[#dcdcdc6f] rounded-lg`,
+              defaultValue: GetDate().y_m_d,
             }}
             label={{ content: "날짜" }}
           />
@@ -176,6 +178,7 @@ function Message({
             input={{
               type: "time",
               className: `border-transparent bg-[#dcdcdc6f] rounded-lg w-[93px]`,
+              defaultValue: GetDate().h_plus1_m,
             }}
             label={{ content: "시각" }}
           />
@@ -195,7 +198,9 @@ function Message({
       className: `mt-[150px]`,
       title: {},
       subTitle: {
-        content: "이 메시지는 7월 20일 (목) 오후 6:56에 전송됩니다.",
+        content: `이 메시지는 ${GetDate().m_d} ${
+          GetDate().h_plus1_m
+        } 에 전송됩니다.`,
         className: "text-gray-700 text-xs",
       },
       button: [
@@ -207,7 +212,7 @@ function Message({
   ];
   const optionInfoContent = [
     {
-      content: "예약 전송: 2023년 06월 11일 (일) 오후 2:00",
+      content: `예약 전송: 2023년 ${GetDate().m_d} ${GetDate().h_plus1_m}`,
     },
     {
       content: (
