@@ -70,24 +70,27 @@ function AppMain({}) {
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
             target_Call
           />,
-          <CallConnected />,
+          <CallConnected appName_basic />,
         ][descriptionId];
       } else if (appName === appName_kakaotalk) {
         choicedComponent = [
           <MainApps navLinkTriger={appName_kakaotalk} />,
           <KakaoAppMain defaultTab_friend target_profile />,
           <KakaoProfileDetail />,
-          <CallConnected />,
+          <CallConnected appName_kakaotalk />,
         ][descriptionId];
       }
       break;
     case functionName_getCall:
       if (appName === appName_basic) {
-        choicedComponent = [<AnswerCall />, <CallConnected />][descriptionId];
+        choicedComponent = [
+          <AnswerCall appName_basic />,
+          <CallConnected appName_basic />,
+        ][descriptionId];
       } else if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <AnswerCall appName={appName} functionName={functionName} />,
-          <CallConnected />,
+          <AnswerCall appName_kakaotalk />,
+          <CallConnected appName_kakaotalk />,
         ][descriptionId];
       }
       break;

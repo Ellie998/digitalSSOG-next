@@ -11,7 +11,7 @@ export default function AppHeader({
     <>
       <div
         key={id}
-        className={`flex justify-between w-full align-middle items-center ${className}`}
+        className={`flex justify-between w-full align-middle items-center mr-1  ${className}`}
         onClick={onClick}>
         {/* left item */}
         <div className="flex justify-between">
@@ -30,7 +30,7 @@ export default function AppHeader({
         {/* right item */}
         <div className="flex justify-between">
           {rightItem?.map((item, i) => (
-            <div key={i} className="ml-1">
+            <div key={i} className="mr-1">
               {item}
             </div>
           ))}

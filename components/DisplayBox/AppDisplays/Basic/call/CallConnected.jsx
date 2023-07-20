@@ -1,22 +1,18 @@
-import { useContext } from "react";
+import AppHeader from "../../components/layout/AppHeader";
+import AppTitle_center from "../../components/layout/AppTitle_center";
 import classes from "./CallConnected.module.css";
-import UrlContext from "../../../../page_context/UrlContext";
 
-const CallConnected = () => {
-  const { myAppName, appName_basic, appName_kakaotalk } =
-    useContext(UrlContext);
+const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
   return (
     <>
-      {myAppName === appName_basic && (
-        <section className={classes.layout}>
-          <div className={classes.headerNav}>...</div>
-          <div
-            className={`${classes.content_title} ${classes["marginTop--40"]}`}>
-            <div>010-0000-0000</div>
-          </div>
+      {appName_basic && (
+        <section className={`text-center w-full`}>
+          <AppHeader rightItem={["..."]} className={`text-lg font-bold`} />
+          <AppTitle_center
+            title={{ content: "010-0000-0000", className: "text-sm" }}
+          />
 
-          <div
-            className={`${classes.main_optionBox} ${classes["marginTop--30"]} `}>
+          <div className={`${classes.main_optionBox} mt-[30px] `}>
             <div>
               <i className="bi bi-cassette-fill"></i> <div>녹음</div>
             </div>
@@ -44,10 +40,9 @@ const CallConnected = () => {
           </div>
         </section>
       )}
-      {myAppName === appName_kakaotalk && (
-        <section className={classes.layout}>
-          <div
-            className={`${classes["profileBox"]} ${classes["marginTop--10"]}`}>
+      {appName_kakaotalk && (
+        <section className={`text-center w-full`}>
+          <div className={`${classes["profileBox"]} mt-[10px]}`}>
             <div>
               <i className="bi bi-person-fill"></i>
             </div>
@@ -57,8 +52,7 @@ const CallConnected = () => {
             <div>철수</div>
           </div>
           <div className={classes["content_sub"]}>00:04</div>
-          <div
-            className={`${classes["main_optionBox--kakao"]} ${classes["marginTop--10"]}`}>
+          <div className={`${classes["main_optionBox--kakao"]} mt-[10px]}`}>
             <div>
               <div className={classes["main_optionIcon--border"]}>
                 <i className="bi bi-mic-mute-fill"></i>

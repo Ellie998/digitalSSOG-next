@@ -1,54 +1,50 @@
-import { useContext } from "react";
-import UrlContext from "../../../../page_context/UrlContext";
-import classes from "./AnswerCall.module.css";
 import TargetContent from "../../components/TargetContent";
+import Icon from "../../components/UI/Icon";
 
-const AnswerCall = () => {
-  const { myAppName, appName_basic, appName_kakaotalk } =
-    useContext(UrlContext);
+const AnswerCall = ({ appName_basic, appName_kakaotalk }) => {
+  const profileStyle = ` bg-kakaoBlue w-[40px] h-[40px] rounded-2xl mt-[50px] mx-auto flex justify-center items-end overflow-hidden`;
   return (
     <>
-      {myAppName === appName_basic && (
-        <div className={classes.layout}>
-          <div className={`${classes.content_title} ${classes.marginTop}`}>
-            이름
-          </div>
-          <div className={classes.content_sub}>010-0000-0000</div>
-          <div className={classes.btns_basic}>
+      {appName_basic && (
+        <div className={` text-center w-full`}>
+          <div className={` mt-[40px]`}>이름</div>
+          <div className={`text-xs`}>010-0000-0000</div>
+          <div className={`mt-[100px] text-base flex justify-around  `}>
             <TargetContent targetOption={true} isNextDescriptionLink={true}>
-              <i className="bi bi-telephone-fill" style={{ color: "blue" }}></i>
+              <Icon
+                name="telephone-fill"
+                className={` w-[40px] h-[40px] shadow-xl rounded-full  text-blue-600 flex  flex-col justify-center m-1`}
+              />
             </TargetContent>
-            <div>
-              <i
-                className="bi bi-telephone-x-fill"
-                style={{ color: "red" }}></i>
-            </div>
+
+            <Icon
+              name="telephone-x-fill"
+              className={` w-[40px] h-[40px] shadow-xl rounded-full  text-red-600 flex  flex-col justify-center m-1`}
+            />
           </div>
-          <div className={classes.message}>
+          <div className={`mt-[20px]`}>
             <p>문자 보내기</p>
           </div>
         </div>
       )}
-      {myAppName === appName_kakaotalk && (
-        <div className={classes.layout}>
-          <div className={classes["profileBox"]}>
-            <div>
-              <i className="bi bi-person-fill"></i>
-            </div>
+      {appName_kakaotalk && (
+        <div className={` text-center w-full`}>
+          <div className={`${profileStyle}`}>
+            <Icon name="person-fill" className={`text-[#e5f5ff] text-2xl`} />
           </div>
-          <div className={classes.content_title}>철수</div>
-          <div
-            className={`${classes["content_sub"]} ${classes["font_color--light"]}`}>
-            보이스톡 해요.
-          </div>
-          <div className={classes.btns}>
-            <div>
-              <i
-                className="bi bi-telephone-x-fill"
-                style={{ color: "red" }}></i>
-            </div>
+          <div>철수</div>
+          <div className={`text-xs text-gray-400`}>보이스톡 해요.</div>
+          <div className={`mt-[80px] text-base flex justify-around `}>
+            <Icon
+              name="telephone-x-fill"
+              className={` w-[40px] h-[40px] shadow-xl rounded-full  text-red-600 flex  flex-col justify-center m-1`}
+            />
+
             <TargetContent targetOption={true} isNextDescriptionLink={true}>
-              <i className="bi bi-telephone-fill" style={{ color: "blue" }}></i>
+              <Icon
+                name="telephone-fill"
+                className={` w-[40px] h-[40px] shadow-xl rounded-full  text-blue-600 flex  flex-col justify-center m-1`}
+              />
             </TargetContent>
           </div>
         </div>
