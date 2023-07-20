@@ -32,7 +32,9 @@ function KakaoChatRoom({
   optionSetting_reopen,
   menuOpen,
   alertOpen,
+  modalOpen,
   target_optionBtn,
+  target_menu,
   target_reserveMessage,
   target_leave_quietly,
   target_leave,
@@ -211,7 +213,8 @@ function KakaoChatRoom({
             <Icon name="search" className={`text-sm m-1 align-middle`} />,
             <TargetContent
               onClick={menuBtnClickHandler}
-              targetOption={menuOpen && !isMenuBtnClicked}>
+              targetOption={target_menu}
+              isNextDescriptionLink>
               <Icon name="list" className={`text-sm mx-1 align-middle`} />
             </TargetContent>,
           ]}></AppHeader>
@@ -335,7 +338,7 @@ function KakaoChatRoom({
         </NoScrollBar>
       )}
       {/* Side Menu */}
-      {isMenuBtnClicked && (
+      {menuOpen && (
         <div className={classes.sideMenuWrap}>
           <div
             className={classes.backdrop}
@@ -406,11 +409,8 @@ function KakaoChatRoom({
                 className=""
                 items={[
                   <TargetContent
-                    targetOption={
-                      isMenuBtnClicked &&
-                      (target_leave_quietly || target_leave) &&
-                      choicedModal === ""
-                    }>
+                    isNextDescriptionLink
+                    targetOption={target_leave_quietly || target_leave}>
                     <Icon
                       onClick={() => {
                         setIsLeaveBtnClicked(true);
@@ -437,7 +437,7 @@ function KakaoChatRoom({
         </div>
       )}
       {/* Modal */}
-      {choicedModal !== "" && (
+      {modalOpen && (
         <Modal_contents
           modalClassName={`mt-5`}
           className={`mt-10`}

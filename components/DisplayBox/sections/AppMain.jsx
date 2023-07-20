@@ -331,6 +331,10 @@ function AppMain({}) {
         );
       } else if (descriptionId === "2") {
         choicedComponent = (
+          <KakaoChatRoom inputLocked={false} chatType_group target_menu />
+        );
+      } else if (descriptionId === "3") {
+        choicedComponent = (
           <KakaoChatRoom
             inputLocked={false}
             chatType_group
@@ -338,11 +342,11 @@ function AppMain({}) {
             target_setting
           />
         );
-      } else if (descriptionId === "3") {
+      } else if (descriptionId === "4") {
         choicedComponent = (
           <KakaoSettingPage navTriger="groubChatLeave_rejectInvitation" />
         );
-      } else if (descriptionId === "4") {
+      } else if (descriptionId === "5") {
         choicedComponent = <KakaoAppMain defaultTab="chat" />;
       }
       break;
@@ -354,17 +358,14 @@ function AppMain({}) {
           <KakaoAppMain defaultTab="chat" target_groupChat></KakaoAppMain>
         );
       } else if (descriptionId === "2") {
-        choicedComponent = (
-          <KakaoChatRoom
-            chatType_group
-            inputLocked={false}
-            menuOpen
-            target_setting
-          />
-        );
+        choicedComponent = <KakaoChatRoom chatType_group target_menu />;
       } else if (descriptionId === "3") {
-        choicedComponent = <KakaoSettingPage navTriger="groubChatLock" />;
+        choicedComponent = (
+          <KakaoChatRoom chatType_group menuOpen target_setting />
+        );
       } else if (descriptionId === "4") {
+        choicedComponent = <KakaoSettingPage navTriger="groubChatLock" />;
+      } else if (descriptionId === "5") {
         choicedComponent = <KakaoChatRoom chatType_group inputLocked={true} />;
       }
       break;
@@ -380,15 +381,16 @@ function AppMain({}) {
       } else if (descriptionId === "3") {
         choicedComponent = <KakaoAppMain defaultTab="chat" target_groupChat />;
       } else if (descriptionId === "4") {
-        choicedComponent = (
-          <KakaoChatRoom
-            chatType_group
-            inputLocked={false}
-            menuOpen
-            target_leave_quietly
-          />
-        );
+        choicedComponent = <KakaoChatRoom chatType_group target_menu />;
       } else if (descriptionId === "5") {
+        choicedComponent = (
+          <KakaoChatRoom chatType_group menuOpen target_leave_quietly />
+        );
+      } else if (descriptionId === "6") {
+        choicedComponent = (
+          <KakaoChatRoom chatType_group modalOpen target_leave_quietly />
+        );
+      } else if (descriptionId === "7") {
         choicedComponent = <KakaoAppMain defaultTab="chat" />;
       }
       break;
