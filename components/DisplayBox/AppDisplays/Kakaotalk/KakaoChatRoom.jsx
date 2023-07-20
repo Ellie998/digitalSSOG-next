@@ -28,7 +28,11 @@ function KakaoChatRoom({
   chatType_group,
   chatType_1to1,
   optionOpen,
+  optionSettingOpen,
+  optionSetting_reopen,
   menuOpen,
+  alertOpen,
+  target_optionBtn,
   target_reserveMessage,
   target_leave_quietly,
   target_leave,
@@ -38,7 +42,9 @@ function KakaoChatRoom({
   const [messageContent, setMessageContent] = useState("");
   const [isOvered, setIsOvered] = useState(false);
   // input nav
-  const [isPlusClicked, setIsPlusClicked] = useState(false);
+  const [isPlusClicked, setIsPlusClicked] = useState(
+    optionOpen ? optionOpen : false
+  );
   const [isInputLocked, setIsInputLocked] = useState(false);
 
   // setting
@@ -53,7 +59,7 @@ function KakaoChatRoom({
   // option setting
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(alertOpen);
 
   useEffect(() => {
     inputLocked ? setIsInputLocked(true) : setIsInputLocked(false);
@@ -71,11 +77,6 @@ function KakaoChatRoom({
     setOptionInput("");
   }
 
-  function sendBtnClickHandler(event) {}
-
-  function plusBtnClickHandler() {
-    setIsPlusClicked(true);
-  }
   function menuBtnClickHandler() {
     setIsMenuBtnClicked(true);
   }
@@ -190,7 +191,7 @@ function KakaoChatRoom({
   return (
     <>
       <NoScrollBar
-        height={`${!isPlusClicked ? "280px" : "150px"}`}
+        height={`${!optionOpen || optionSettingOpen ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>
         <AppHeader
@@ -263,7 +264,7 @@ function KakaoChatRoom({
           </div>
         )}
         {/* alert */}
-        {isAlertOpen && (
+        {alertOpen && (
           <Alert
             setIsAlertOpen={setIsAlertOpen}
             className={`top-[160px]`}
@@ -281,24 +282,19 @@ function KakaoChatRoom({
         <MessageSendLine
           navOption_focused={{
             content: [
-              !isPlusClicked ? (
+              !optionOpen || !optionSettingOpen ? (
                 <TargetContent
-                  targetOption={optionOpen && !isPlusClicked && !isAlertOpen}
+                  targetOption={target_optionBtn}
                   isNextDescriptionLink={true}>
-                  <Icon onClick={plusBtnClickHandler} name="plus-lg" />
+                  <Icon name="plus-lg" />
                 </TargetContent>
               ) : (
-                <Icon
-                  onClick={() => {
-                    setIsPlusClicked(false);
-                  }}
-                  name="x-lg"
-                />
+                <Icon name="x-lg" />
               ),
             ],
           }}
           input={{}}
-          onSendBtnClickHandler={sendBtnClickHandler}
+          onSendBtnClickHandler={null}
           setMessageContent={setMessageContent}
           sendBtn={{ className: "send-fill bg-[#f7e540]" }}
           sendBtn_default={{
@@ -328,7 +324,7 @@ function KakaoChatRoom({
         />
       )}
       {/* Option Box */}
-      {isPlusClicked && (
+      {optionOpen && (
         <NoScrollBar>
           <Grid_4x4
             className={"bg-[#efefef3e]"}
@@ -477,7 +473,7 @@ function KakaoChatRoom({
         </Modal_contents>
       )}
       {/* setting option */}
-      {isOptionSettingOpened && (
+      {(optionSettingOpen || optionSetting_reopen) && (
         <DownUp
           downUpClassName={`mt-[20px]`}
           className={``}
@@ -488,6 +484,7 @@ function KakaoChatRoom({
               content: (
                 <TargetContent
                   targetOption={
+                    optionSettingOpen &&
                     target_reserveMessage &&
                     optionInput === "" &&
                     !isOptionInputSubmit
@@ -543,7 +540,7 @@ function KakaoChatRoom({
           <FlexContent
             className={`mb-1 mt-4`}
             items={[
-              <TargetContent targetOption={isOptionInputSubmit}>
+              <TargetContent targetOption={optionSetting_reopen}>
                 <Button
                   btnColor={`#efefef`}
                   className={`text-2xs font-bold`}

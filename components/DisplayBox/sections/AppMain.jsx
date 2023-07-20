@@ -214,8 +214,11 @@ function AppMain({}) {
           choicedComponent = (
             <KakaoAppMain defaultTab="chat" target_chat></KakaoAppMain>
           );
-        } else {
-          // } else if (descriptionId === "2") {
+        } else if (descriptionId === "2") {
+          choicedComponent = (
+            <KakaoChatRoom inputLocked={false} chatType_1to1 target_optionBtn />
+          );
+        } else if (descriptionId === "3") {
           choicedComponent = (
             <KakaoChatRoom
               inputLocked={false}
@@ -224,12 +227,43 @@ function AppMain({}) {
               target_reserveMessage
             />
           );
+        } else if (descriptionId === "4") {
+          choicedComponent = (
+            <KakaoChatRoom
+              inputLocked={false}
+              chatType_1to1
+              optionSettingOpen
+              target_reserveMessage
+            />
+          );
+        } else if (descriptionId === "5") {
+          choicedComponent = (
+            <KakaoChatRoom
+              inputLocked={false}
+              chatType_1to1
+              alertOpen
+              target_optionBtn
+            />
+          );
+        } else if (descriptionId === "6") {
+          choicedComponent = (
+            <KakaoChatRoom
+              inputLocked={false}
+              chatType_1to1
+              optionOpen
+              target_reserveMessage
+            />
+          );
+        } else if (descriptionId === "7") {
+          choicedComponent = (
+            <KakaoChatRoom
+              inputLocked={false}
+              chatType_1to1
+              target_reserveMessage
+              optionSetting_reopen
+            />
+          );
         }
-        // else if (descriptionId === "3") {
-        //   choicedComponent = (
-        //     <KakaoChatRoom inputLocked={false} chatType_1to1 />
-        //   );
-        // }
         break;
       }
       break;
