@@ -109,7 +109,7 @@ function AppMain({}) {
           ? [
               <MainApps appName_message />,
               <MessageAppMain target_sendMessage />,
-              <SelectPerson />,
+              <SelectPerson target_person1 />,
               <Message />,
             ][descriptionId]
           : [
@@ -141,7 +141,7 @@ function AppMain({}) {
           <MainApps appName_message />,
           <MessageAppMain target_seeMessage />,
           <Message target_resend />,
-          <SelectPerson />,
+          <SelectPerson target_person2 />,
           <SendResend />,
           <ResendSuccess />,
         ][descriptionId];
@@ -152,7 +152,7 @@ function AppMain({}) {
         choicedComponent = [
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
-          <SelectPerson />,
+          <SelectPerson target_person1 />,
           <Message target_reserveMessage optionOpen />,
           <SetReservation />,
           <MessageWithOption />,
@@ -188,13 +188,13 @@ function AppMain({}) {
             ? [
                 <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
-                <SelectPerson />,
+                <SelectPerson target_person1 />,
                 <Message target_sendImg />,
               ][descriptionId]
             : [
                 <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
-                <SelectPerson />,
+                <SelectPerson target_person1 />,
                 <Message optionOpen={methodId === "2"} target_sendImg />,
                 <SelectFile />,
                 <ChoiceImgs />,
@@ -207,7 +207,7 @@ function AppMain({}) {
         choicedComponent = [
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
-          <SelectPerson />,
+          <SelectPerson target_person1 />,
           <Message target_sendAudio optionOpen />,
           <SelectFile />,
           <MessageWithOption />,
@@ -219,9 +219,9 @@ function AppMain({}) {
         choicedComponent = [
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
-          <SelectPerson />,
+          <SelectPerson target_person1 />,
           <Message target_sendPhoneNum optionOpen />,
-          <SelectPerson />,
+          <SelectPerson target_person2 />,
           <MessageWithOption />,
         ][descriptionId];
       }

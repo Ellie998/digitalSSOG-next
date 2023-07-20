@@ -1,75 +1,52 @@
-import { useContext } from "react";
-
-import classes from "./SelectPerson.module.css";
-import UrlContext from "../../../../page_context/UrlContext";
-
 import TargetContent from "../../components/TargetContent";
 import StackedList_Profile from "../../components/list/StackedList_Profile";
+import NoScrollBar from "../../components/layout/NoScrollBar";
+import AppHeader from "../../components/layout/AppHeader";
+import StackedListWrap from "../../components/list/StackedListWrap";
 
-function SelectPerson() {
-  const {
-    myAppName,
-    myDescriptionId,
-    functionName,
-    //
-    functionName_sendMessage,
-    functionName_sendImg,
-    functionName_reserveMessage,
-    functionName_resendMessage,
-    functionName_sendAudio,
-    functionName_sendPhoneNum,
-    //
-    appName_basic,
-  } = useContext(UrlContext);
+function SelectPerson({ target_person1, target_person2 }) {
   return (
-    <section className={classes.appMain}>
-      <div className={classes.appHeader}>대화 멤버 선택</div>
-      <div className={classes.searchBox}>
-        <p>받는 사람</p>
-        <input type="text" placeholder="이름 또는 번호 입력"></input>
-      </div>
-      <ul className={classes.numLists}>
+    <NoScrollBar className={`bg-[#f1f1f1] w-[174px]`} height={`305px`}>
+      <AppHeader leftItem={["대화 멤버 선택"]} className={`py-1`} />
+      <StackedListWrap
+        listTitle={{ content: "받는 사람", className: "text-gray-700" }}
+        className={`border-none`}>
+        <input
+          type="text"
+          placeholder="이름 또는 번호 입력"
+          className={`text-sm  w-full rounded-2xl border-transparent bg-gray-300 indent-3`}></input>
+      </StackedListWrap>
+
+      <div className={`mt-[10px] bg-white rounded-xl h-max`}>
         <TargetContent
-          targetOption={
-            functionName === functionName_sendMessage ||
-            functionName === functionName_sendImg ||
-            functionName === functionName_reserveMessage ||
-            functionName === functionName_sendAudio ||
-            (functionName === functionName_sendPhoneNum &&
-              myDescriptionId === "2") ||
-            functionName === functionName_resendMessage
-          }
-          isNextDescriptionLink={true}>
-          <li>
-            <StackedList_Profile
-              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
-              title={{ className: "ml-1", content: "홍길동" }}
-              subTitle={{
-                className: "ml-1 col-end-6 text-neutral-700",
-                content: "010-0000-0000",
-              }}></StackedList_Profile>
-          </li>
+          targetOption={target_person1}
+          isNextDescriptionLink={true}
+          className={`p-1 border-b border-gray-200 mb-1`}
+          isWidthFull>
+          <StackedList_Profile
+            profile={{ className: "bg-orange-400 text-white", content: "홍" }}
+            title={{ className: "ml-1", content: "홍길동" }}
+            subTitle={{
+              className: "ml-1 col-end-6 text-neutral-700",
+              content: "010-0000-0000",
+            }}></StackedList_Profile>
         </TargetContent>
 
         <TargetContent
-          targetOption={
-            myAppName === appName_basic &&
-            functionName === functionName_sendPhoneNum &&
-            myDescriptionId === "4"
-          }
-          isNextDescriptionLink={true}>
-          <li>
-            <StackedList_Profile
-              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
-              title={{ className: "ml-1", content: "홍길순" }}
-              subTitle={{
-                className: "ml-1 col-end-6 text-neutral-700",
-                content: "010-0000-0000",
-              }}></StackedList_Profile>
-          </li>
+          isWidthFull
+          targetOption={target_person2}
+          isNextDescriptionLink={true}
+          className={`p-1  mb-1 `}>
+          <StackedList_Profile
+            profile={{ className: "bg-orange-400 text-white", content: "홍" }}
+            title={{ className: "ml-1", content: "홍길순" }}
+            subTitle={{
+              className: "ml-1 col-end-6 text-neutral-700",
+              content: "010-0000-0000",
+            }}></StackedList_Profile>
         </TargetContent>
-      </ul>
-    </section>
+      </div>
+    </NoScrollBar>
   );
 }
 
