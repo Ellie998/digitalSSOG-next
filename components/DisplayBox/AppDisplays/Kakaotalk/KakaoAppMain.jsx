@@ -10,16 +10,29 @@ import NoScrollBar from "../components/layout/NoScrollBar";
 import Icon from "../components/UI/Icon";
 
 function KakaoAppMain({
-  defaultTab,
+  defaultTab_friend,
+  defaultTab_chat,
+  defaultTab_openChat,
+  defaultTab_shopping,
+  defaultTab_ETC,
   target_chat,
   target_groupChat,
   target_profile,
   target_setting,
 }) {
-  const [clickedTabName, setClickedTabName] = useState(
-    defaultTab === "ETC" ? "friend" : defaultTab
-  );
+  function matchDefaultTabName() {
+    if (defaultTab_friend) return "friend";
+    if (defaultTab_chat) return "chat";
+    if (defaultTab_openChat) return "openChat";
+    if (defaultTab_shopping) return "shopping";
+    if (defaultTab_ETC) return "ETC";
+    else return "friend";
+  }
 
+  const defaultTabName = matchDefaultTabName();
+  const [clickedTabName, setClickedTabName] = useState(
+    defaultTabName === "ETC" ? "friend" : defaultTabName
+  );
   const friendListContents = [
     <StackedList_Profile
       className="h-8"
@@ -161,7 +174,7 @@ function KakaoAppMain({
               <Icon name="search" className="text-sm" />,
               <Icon name="upc-scan" className="ml-1 text-sm" />,
               <TargetContent
-                targetOption={defaultTab === "ETC" && target_setting}
+                targetOption={target_setting}
                 isNextDescriptionLink={true}>
                 <Icon name="gear" className="ml-1 text-sm" />
               </TargetContent>,
@@ -213,7 +226,7 @@ function KakaoAppMain({
       <Tab
         className="bg-neutral-100 shadow-sm"
         setClickedTab={setClickedTabName}
-        defaultTab={defaultTab}
+        defaultTab={defaultTabName}
         clickedTab={clickedTabName}
         iconItems={[
           {
