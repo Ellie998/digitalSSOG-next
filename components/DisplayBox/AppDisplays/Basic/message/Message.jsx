@@ -10,9 +10,13 @@ import ChatList from "../../components/UI/ChatList";
 import MessageSendLine from "../../components/UI/MessageSendLine";
 import Grid_4x4 from "../../components/layout/Grid_4x4";
 import ChoicedFile from "../../components/UI/ChoicedFile";
+import Modal_contents from "../../components/layout/Modal_contents";
+import Input from "../../components/UI/Input";
+import Checkbox from "../../components/UI/Checkbox";
 
 function Message({
   optionOpen,
+  modalOpen,
   target_sendImg,
   target_resend,
   target_reserveMessage,
@@ -133,9 +137,73 @@ function Message({
       iconName: "mic",
     },
   ];
+  const modalContent = [
+    // target_reserveMessage
+    {
+      modalClassName: `mt-[18px]`,
+      className: `mt-[100px]`,
+      title: { content: "메시지 예약 전송" },
+      subTitle: {},
+      ButtonWrapStyle: "flex justify-around",
+      cancelButton: {
+        content: "취소",
+        goBackDescription: true,
+      },
+      submitButton: {
+        content: "완료",
+        isNextDescriptionLink: true,
+        targetOption: true,
+      },
+      children: (
+        <>
+          <Input
+            className={`text-xs mt-2`}
+            input={{
+              type: "date",
+              className: `border-transparent bg-[#dcdcdc6f] rounded-lg`,
+            }}
+            label={{ content: "날짜" }}
+          />
+          <Input
+            className={`text-xs mt-1 mb-3`}
+            input={{
+              type: "time",
+              className: `border-transparent bg-[#dcdcdc6f] rounded-lg w-[93px]`,
+            }}
+            label={{ content: "시각" }}
+          />
+
+          <Checkbox
+            id={"reserveLater"}
+            label={{
+              content: "전송 시간을 나중에 예약",
+              className: "text-gray-800",
+            }}
+          />
+        </>
+      ),
+    },
+  ];
+  let modalNum;
+  function findModalOrder() {
+    if (target_reserveMessage) return 0;
+  }
+  modalNum = findModalOrder();
 
   return (
     <>
+      {modalOpen && (
+        <Modal_contents
+          modalClassName={modalContent[modalNum].modalClassName}
+          className={modalContent[modalNum].className}
+          title={modalContent[modalNum].title}
+          subTitle={modalContent[modalNum].subTitle}
+          ButtonWrapStyle={modalContent[modalNum].ButtonWrapStyle}
+          cancelButton={modalContent[modalNum].cancelButton}
+          submitButton={modalContent[modalNum].submitButton}>
+          {modalContent[modalNum].children}
+        </Modal_contents>
+      )}
       <NoScrollBar
         height={`${plusClicked || imgBtnClicked ? "170px" : "280px"}`}
         className={""}>
@@ -276,6 +344,7 @@ function Message({
           setChoicedImgs([]);
         }}
         sendBtnTriger={choicedImgs.length !== 0}></MessageSendLine>
+      {/* options */}
       {plusClicked && (
         <NoScrollBar>
           <Grid_4x4
@@ -285,6 +354,7 @@ function Message({
           />
         </NoScrollBar>
       )}
+      {/* imgs */}
       {imgBtnClicked && (
         <NoScrollBar className={`ml-1`}>
           <ChoiceFile

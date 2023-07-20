@@ -423,7 +423,7 @@ function KakaoChatRoom({
             <TargetContent className="my-1" targetOption={!isCheckbox}>
               <Checkbox
                 label={{ content: "조용히 나가기" }}
-                onChange={(e) => {
+                onChangeHandler={(e) => {
                   isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
                 }}
                 id="info_config"

@@ -7,6 +7,7 @@ export default function Modal_contents({
   title,
   subTitle,
   children,
+  ButtonWrapStyle,
   cancelButton,
   submitButton,
   modalClassName,
@@ -21,7 +22,8 @@ export default function Modal_contents({
         {subTitle.content}
       </div>
       {children}
-      <div className={`flex justify-end`}>
+      <div
+        className={`${ButtonWrapStyle ? ButtonWrapStyle : "flex justify-end"}`}>
         <TargetContent
           className={`display_title--bold cursor-pointer ${cancelButton.className}`}
           onClick={onClickBackDrop}

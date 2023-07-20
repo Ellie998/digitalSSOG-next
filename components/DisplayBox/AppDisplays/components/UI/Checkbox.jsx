@@ -1,7 +1,13 @@
 import { useState } from "react";
 
 /** insert color rgb og rgba of #... into theme prop */
-export default function Checkbox({ className, title, onChange, label, id }) {
+export default function Checkbox({
+  className,
+  title,
+  onChangeHandler,
+  label,
+  id,
+}) {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <div className={`hover:bg-gray-100 ${className}`}>
@@ -15,7 +21,7 @@ export default function Checkbox({ className, title, onChange, label, id }) {
           type="checkbox"
           id={id}
           onChange={() => {
-            onChange();
+            onChangeHandler && onChangeHandler();
             isChecked && setIsChecked(false);
             !isChecked && setIsChecked(true);
           }}></input>

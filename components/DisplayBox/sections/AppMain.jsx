@@ -16,7 +16,6 @@ import UnreadMessage from "../AppDisplays/Basic/message/seeMessage/UnreadMessage
 import SelectPerson from "../AppDisplays/Basic/message/SelectPerson";
 import ResendSuccess from "../AppDisplays/Basic/message/resend-message/ResendSuccess";
 import SendResend from "../AppDisplays/Basic/message/resend-message/SendResend";
-import SetReservation from "../AppDisplays/Basic/message/reserve-message/SetReservation";
 //file
 import SelectFile from "../AppDisplays/Basic/file/SelectFile";
 import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
@@ -154,7 +153,7 @@ function AppMain({}) {
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
           <Message target_reserveMessage optionOpen />,
-          <SetReservation />,
+          <Message modalOpen target_reserveMessage />,
           <MessageWithOption />,
         ][descriptionId];
       }

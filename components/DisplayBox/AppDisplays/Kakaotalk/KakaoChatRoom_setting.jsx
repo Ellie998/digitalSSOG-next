@@ -51,7 +51,7 @@ function KakaoChatRoom_setting({
           <TargetContent targetOption={!isChecked}>
             <Checkbox
               id="info_config"
-              onChange={() => {
+              onChangeHandler={() => {
                 target_groubChatLeave_rejectInvitation && isChecked
                   ? setIsChecked(false)
                   : setIsChecked(true);
