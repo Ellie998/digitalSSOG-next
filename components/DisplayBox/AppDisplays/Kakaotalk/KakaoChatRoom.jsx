@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import classes from "./KakaoChatRoom.module.css";
 import TargetContent from "../components/TargetContent";
@@ -43,29 +43,16 @@ function KakaoChatRoom({
   //message
   const [messageContent, setMessageContent] = useState("");
   const [isOvered, setIsOvered] = useState(false);
-  // input nav
-  const [isPlusClicked, setIsPlusClicked] = useState(
-    optionOpen ? optionOpen : false
-  );
-  const [isInputLocked, setIsInputLocked] = useState(false);
 
-  // setting
-  const [isMenuBtnClicked, setIsMenuBtnClicked] = useState(false);
-  const [isLeaveBtnClicked, setIsLeaveBtnClicked] = useState(false);
+  const [isInputLocked, setIsInputLocked] = useState(inputLocked);
 
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
-  const [choicedModal, setChoicedModal] = useState("");
-  const [isOptionSettingOpened, setIsOptionSettingOpened] = useState(false);
 
   // option setting
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
-  const [isAlertOpen, setIsAlertOpen] = useState(alertOpen);
 
-  useEffect(() => {
-    inputLocked ? setIsInputLocked(true) : setIsInputLocked(false);
-  }, [inputLocked]);
   function mouseOverHandler(event) {
     setTimeout(() => {
       setIsOvered(true);
@@ -74,17 +61,7 @@ function KakaoChatRoom({
 
   function backClickHandler() {
     setIsOvered(false);
-    setIsPlusClicked(false);
-    setIsOptionSettingOpened(false);
     setOptionInput("");
-  }
-
-  function menuBtnClickHandler() {
-    setIsMenuBtnClicked(true);
-  }
-  function backdropClickHandler() {
-    setIsMenuBtnClicked(false);
-    setIsLeaveBtnClicked(false);
   }
 
   const iconClassName = [
@@ -128,10 +105,6 @@ function KakaoChatRoom({
     {
       targetOption: target_reserveMessage,
       isNextDescriptionLink: true,
-      onClick: () => {
-        setIsOptionSettingOpened(true);
-        setIsPlusClicked(false);
-      },
       content: "예약 메시지",
       iconName: "stopwatch",
     },
@@ -211,10 +184,7 @@ function KakaoChatRoom({
           ]}
           rightItem={[
             <Icon name="search" className={`text-sm m-1 align-middle`} />,
-            <TargetContent
-              onClick={menuBtnClickHandler}
-              targetOption={target_menu}
-              isNextDescriptionLink>
+            <TargetContent targetOption={target_menu} isNextDescriptionLink>
               <Icon name="list" className={`text-sm mx-1 align-middle`} />
             </TargetContent>,
           ]}></AppHeader>
@@ -269,7 +239,6 @@ function KakaoChatRoom({
         {/* alert */}
         {alertOpen && (
           <Alert
-            setIsAlertOpen={setIsAlertOpen}
             className={`top-[160px]`}
             content="메시지를 예약했습니다."
             icon={{
@@ -285,7 +254,7 @@ function KakaoChatRoom({
         <MessageSendLine
           navOption_focused={{
             content: [
-              !optionOpen || !optionSettingOpen ? (
+              !optionOpen ? (
                 <TargetContent
                   targetOption={target_optionBtn}
                   isNextDescriptionLink={true}>
@@ -307,11 +276,7 @@ function KakaoChatRoom({
       {isInputLocked && (
         <FlexContent
           items={[
-            !isPlusClicked ? (
-              <Icon name="plus-lg" />
-            ) : (
-              <Icon onClick={() => setIsPlusClicked(false)} name="x-lg" />
-            ),
+            <Icon name="plus-lg" />,
             <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
               대화에 주의가 필요한 방입니다.
             </div>,
@@ -340,9 +305,7 @@ function KakaoChatRoom({
       {/* Side Menu */}
       {menuOpen && (
         <div className={classes.sideMenuWrap}>
-          <div
-            className={classes.backdrop}
-            onClick={backdropClickHandler}></div>
+          <div className={classes.backdrop}></div>
           <div className={classes.sideMenuBox}>
             {["채팅방 서랍", "톡캘린더", "뮤직", "톡게시판"].map((item, i) => (
               <StackedListWrap
@@ -411,13 +374,7 @@ function KakaoChatRoom({
                   <TargetContent
                     isNextDescriptionLink
                     targetOption={target_leave_quietly || target_leave}>
-                    <Icon
-                      onClick={() => {
-                        setIsLeaveBtnClicked(true);
-                        setChoicedModal("groubChatLeave_quietly");
-                      }}
-                      name="box-arrow-right"
-                    />
+                    <Icon name="box-arrow-right" />
                   </TargetContent>,
                   <FlexContent
                     className=""
@@ -441,7 +398,6 @@ function KakaoChatRoom({
         <Modal_contents
           modalClassName={`mt-5`}
           className={`mt-10`}
-          onClickBackDrop={() => setChoicedModal("")}
           title={{ content: "채팅방 나가기" }}
           subTitle={{
             content: (
@@ -563,8 +519,6 @@ function KakaoChatRoom({
                   content={"예약하기"}
                   onClick={() => {
                     setIsOptionInputSubmit(true);
-                    setIsAlertOpen(true);
-                    setIsOptionSettingOpened(false);
                   }}
                 />
               </TargetContent>,

@@ -10,9 +10,10 @@ export default function Alert({
   width,
   onClick,
   content,
-  setIsAlertOpen,
+  // setIsAlertOpen,
 }) {
   const [closeTriger, setCloseTriger] = useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(true);
   setTimeout(() => {
     setCloseTriger(true);
   }, 2000);
@@ -22,24 +23,28 @@ export default function Alert({
   }, 2500);
 
   return (
-    <div
-      className={` relative text-xs rounded-xl py-1 px-2 text-center hover:cursor-pointer animate-fadeInUp mx-auto ${className} ${
-        closeTriger ? "animate-fadeOutDown" : ""
-      }`}
-      onClick={onClick}
-      style={{
-        width: width ? width : "max-content",
-        backgroundColor: bgColor ? bgColor : "rgba(40, 40, 40, 0.51)",
-        color: textColor ? textColor : "rgb(255, 255, 255)",
-        border: borderColor
-          ? `1px solid ${borderColor}`
-          : "1px solid transparent",
-      }}>
-      <Icon
-        name={`${icon.name}`}
-        className={`mr-1 rounded-lg p-0.5 ${icon.className}`}
-      />
-      {content}
-    </div>
+    <>
+      {isAlertOpen && (
+        <div
+          className={` relative text-xs rounded-xl py-1 px-2 text-center hover:cursor-pointer animate-fadeInUp mx-auto ${className} ${
+            closeTriger ? "animate-fadeOutDown" : ""
+          }`}
+          onClick={onClick}
+          style={{
+            width: width ? width : "max-content",
+            backgroundColor: bgColor ? bgColor : "rgba(40, 40, 40, 0.51)",
+            color: textColor ? textColor : "rgb(255, 255, 255)",
+            border: borderColor
+              ? `1px solid ${borderColor}`
+              : "1px solid transparent",
+          }}>
+          <Icon
+            name={`${icon.name}`}
+            className={`mr-1 rounded-lg p-0.5 ${icon.className}`}
+          />
+          {content}
+        </div>
+      )}
+    </>
   );
 }
