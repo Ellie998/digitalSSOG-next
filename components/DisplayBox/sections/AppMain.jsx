@@ -26,6 +26,7 @@ import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
 import ETCSetting from "../AppDisplays/Kakaotalk/ETCSetting";
 import AppMain_default from "./AppMain_default";
+import ETCSetting_lab from "../AppDisplays/Kakaotalk/ETCSetting_lab";
 
 function AppMain({}) {
   const {
@@ -370,29 +371,19 @@ function AppMain({}) {
       }
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
-      if (descriptionId === "0") {
-        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
-      } else if (descriptionId === "1") {
-        choicedComponent = <KakaoAppMain defaultTab="ETC" target_setting />;
-      } else if (descriptionId === "2") {
-        choicedComponent = (
-          <ETCSetting navTriger="groubChatLeave_quietly"></ETCSetting>
-        );
-      } else if (descriptionId === "3") {
-        choicedComponent = <KakaoAppMain defaultTab="chat" target_groupChat />;
-      } else if (descriptionId === "4") {
-        choicedComponent = <KakaoChatRoom chatType_group target_menu />;
-      } else if (descriptionId === "5") {
-        choicedComponent = (
-          <KakaoChatRoom chatType_group menuOpen target_leave_quietly />
-        );
-      } else if (descriptionId === "6") {
-        choicedComponent = (
-          <KakaoChatRoom chatType_group modalOpen target_leave_quietly />
-        );
-      } else if (descriptionId === "7") {
-        choicedComponent = <KakaoAppMain defaultTab="chat" />;
-      }
+      choicedComponent = [
+        <MainApps navLinkTriger={appName_kakaotalk} />,
+        <KakaoAppMain defaultTab="ETC" target_setting />,
+        <ETCSetting target_lab />,
+        <ETCSetting_lab target_groubChatLeave_quietly />,
+        <ETCSetting target_backBtn />,
+        //
+        <KakaoAppMain defaultTab="chat" target_groupChat />,
+        <KakaoChatRoom chatType_group target_menu />,
+        <KakaoChatRoom chatType_group menuOpen target_leave_quietly />,
+        <KakaoChatRoom chatType_group modalOpen target_leave_quietly />,
+        <KakaoAppMain defaultTab="chat" />,
+      ][descriptionId];
       break;
     default:
       choicedComponent = <AppMainError />;
