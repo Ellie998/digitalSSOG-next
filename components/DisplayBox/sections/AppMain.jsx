@@ -11,7 +11,6 @@ import KakaoProfileDetail from "../AppDisplays/Kakaotalk/KakaoProfileDetail";
 // message
 import MessageAppMain from "../AppDisplays/Basic/message/MessageAppMain"; //
 import Message from "../AppDisplays/Basic/message/Message";
-import MessageWithOption from "../AppDisplays/Basic/message/reserve-message/MessageWithOption";
 import UnreadMessage from "../AppDisplays/Basic/message/seeMessage/UnreadMessage";
 import SelectPerson from "../AppDisplays/Basic/message/SelectPerson";
 import ResendSuccess from "../AppDisplays/Basic/message/resend-message/ResendSuccess";
@@ -154,7 +153,8 @@ function AppMain({}) {
           <SelectPerson target_person1 />,
           <Message target_reserveMessage optionOpen />,
           <Message modalOpen target_reserveMessage />,
-          <MessageWithOption />,
+          <Message optionInfoOpen target_reserveMessage />,
+          <Message modalOpen optionSettingModal target_reserveMessage />,
         ][descriptionId];
       }
       if (appName === appName_kakaotalk) {
@@ -197,7 +197,7 @@ function AppMain({}) {
                 <Message optionOpen={methodId === "2"} target_sendImg />,
                 <SelectFile target_sendImg />,
                 <ChoiceImgs />,
-                <MessageWithOption />,
+                <Message optionInfoOpen target_sendImg />,
               ][descriptionId];
       }
       break;
@@ -209,7 +209,7 @@ function AppMain({}) {
           <SelectPerson target_person1 />,
           <Message target_sendAudio optionOpen />,
           <SelectFile target_sendAudio />,
-          <MessageWithOption />,
+          <Message optionInfoOpen target_sendAudio />,
         ][descriptionId];
       }
       break;
@@ -221,7 +221,7 @@ function AppMain({}) {
           <SelectPerson target_person1 />,
           <Message target_sendPhoneNum optionOpen />,
           <SelectPerson target_person2 />,
-          <MessageWithOption />,
+          <Message optionInfoOpen target_sendPhoneNum />,
         ][descriptionId];
       }
       break;

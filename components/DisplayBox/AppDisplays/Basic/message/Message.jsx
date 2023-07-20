@@ -16,7 +16,9 @@ import Checkbox from "../../components/UI/Checkbox";
 
 function Message({
   optionOpen,
+  optionInfoOpen,
   modalOpen,
+  optionSettingModal,
   target_sendImg,
   target_resend,
   target_reserveMessage,
@@ -43,6 +45,7 @@ function Message({
     setIsOvered(false);
     setPlusClicked(false);
     setImgBtnClicked(false);
+    setSendBtnClicked(false);
   }
 
   function plusBtnClickHandler() {
@@ -60,7 +63,11 @@ function Message({
     setChoicedImgs([]);
     setSendImgs([]);
   }
+  const [deleteOptionClicked, setDeleteOptionClicked] = useState(false);
 
+  function deleteOptionHandler() {
+    setDeleteOptionClicked(true);
+  }
   const gridContent = [
     {
       content: "Private Share",
@@ -183,12 +190,73 @@ function Message({
         </>
       ),
     },
+    {
+      modalClassName: `mt-[18px]`,
+      className: `mt-[150px]`,
+      title: {},
+      subTitle: {
+        content: "이 메시지는 7월 20일 (목) 오후 6:56에 전송됩니다.",
+        className: "text-gray-700 text-xs",
+      },
+      button: [
+        { content: "지금 보내기" },
+        { content: "삭제" },
+        { content: "편집" },
+      ],
+    },
   ];
-  let modalNum;
+  const optionInfoContent = [
+    {
+      content: "예약 전송: 2023년 06월 11일 (일) 오후 2:00",
+    },
+    {
+      content: (
+        <div
+          className={` bg-[antiquewhite] self-center justify-self-center w-[36px] h-[36px] ml-[20px]`}>
+          img
+        </div>
+      ),
+    },
+    {
+      grayBox: true,
+      content: (
+        <StackedList_Profile
+          className={`w-fit`}
+          profile={{
+            content: <Icon name="play" className={` text-[16px]`} />,
+          }}
+          title={{ content: "audio.mp3" }}
+        />
+      ),
+    },
+    {
+      grayBox: true,
+      content: (
+        <StackedList_Profile
+          className={`w-fit`}
+          profile={{
+            content: <Icon name="person-fill" className={` text-[16px]`} />,
+          }}
+          title={{ content: "홍길순" }}
+          subTitle={{ content: "010-0000-0000" }}
+        />
+      ),
+    },
+  ];
+
+  let modalNum, optionInfoNum;
   function findModalOrder() {
+    if (target_reserveMessage && !optionSettingModal) return 0;
+    if (target_reserveMessage && optionSettingModal) return 1;
+  }
+  function findOptionInfoOrder() {
     if (target_reserveMessage) return 0;
+    if (target_sendImg) return 1;
+    if (target_sendAudio) return 2;
+    if (target_sendPhoneNum) return 3;
   }
   modalNum = findModalOrder();
+  optionInfoNum = findOptionInfoOrder();
 
   return (
     <>
@@ -200,7 +268,8 @@ function Message({
           subTitle={modalContent[modalNum].subTitle}
           ButtonWrapStyle={modalContent[modalNum].ButtonWrapStyle}
           cancelButton={modalContent[modalNum].cancelButton}
-          submitButton={modalContent[modalNum].submitButton}>
+          submitButton={modalContent[modalNum].submitButton}
+          button={modalContent[modalNum].button}>
           {modalContent[modalNum].children}
         </Modal_contents>
       )}
@@ -237,23 +306,98 @@ function Message({
             content: "오전 8:03",
           }}></ChatList>
 
-        {!messageContent && sendImgs.length !== 0 && (
-          <ChatList
-            onClick={backClickHandler}
-            isSendList
-            message={{
-              content: <div className={classes.imgBox}></div>,
-              className: "",
-            }}
-            timeStamp={{ content: "오전 9:54" }}></ChatList>
-        )}
-        {messageContent && sendImgs.length !== 0 && (
+        {!messageContent &&
+          (sendImgs.length !== 0 ||
+            (sendBtnClicked && !target_reserveMessage && (
+              <ChatList
+                onClick={backClickHandler}
+                isSendList
+                message={{
+                  content: (
+                    <>
+                      {target_sendImg && <div className={classes.imgBox}></div>}
+                      {target_sendAudio && (
+                        <StackedList_Profile
+                          className={`w-[90px] bg-gray-200 rounded-md py-1`}
+                          profile={{
+                            content: (
+                              <Icon
+                                name="play"
+                                className={` text-[16px] mx-1`}
+                              />
+                            ),
+                          }}
+                          title={{
+                            content: "audio.mp3",
+                            className: "text-center",
+                          }}
+                        />
+                      )}
+                      {target_sendPhoneNum && (
+                        <StackedList_Profile
+                          className={`w-[65px]  bg-gray-200 rounded-md py-1`}
+                          profile={{
+                            content: (
+                              <Icon
+                                name="person-fill"
+                                className={` text-[16px] mx-2`}
+                              />
+                            ),
+                          }}
+                          title={{
+                            content: "홍길순",
+                            className: "text-center",
+                          }}
+                        />
+                      )}
+                    </>
+                  ),
+                  className: "",
+                }}
+                timeStamp={{ content: "오전 9:54" }}></ChatList>
+            )))}
+        {messageContent && (sendImgs.length !== 0 || sendBtnClicked) && (
           <>
             <ChatList
               onClick={backClickHandler}
               isSendList
               message={{
-                content: <div className={classes.imgBox}></div>,
+                content: (
+                  <>
+                    {target_sendImg && <div className={classes.imgBox}></div>}
+                    {target_sendAudio && (
+                      <StackedList_Profile
+                        className={`w-[90px] bg-gray-200 rounded-md py-1`}
+                        profile={{
+                          content: (
+                            <Icon name="play" className={` text-[16px] mx-1`} />
+                          ),
+                        }}
+                        title={{
+                          content: "audio.mp3",
+                          className: "text-center",
+                        }}
+                      />
+                    )}
+                    {target_sendPhoneNum && (
+                      <StackedList_Profile
+                        className={`w-[65px]  bg-gray-200 rounded-md py-1`}
+                        profile={{
+                          content: (
+                            <Icon
+                              name="person-fill"
+                              className={` text-[16px] mx-2`}
+                            />
+                          ),
+                        }}
+                        title={{
+                          content: "홍길순",
+                          className: "text-center",
+                        }}
+                      />
+                    )}
+                  </>
+                ),
                 className: "",
               }}></ChatList>
             <ChatList
@@ -263,19 +407,34 @@ function Message({
                 content: messageContent,
                 className: "bg-[#4b8ce5] text-white",
               }}
-              timeStamp={{ content: "오전 9:54" }}></ChatList>
+              timeStamp={{
+                content: target_reserveMessage ? (
+                  <TargetContent isNextDescriptionLink targetOption={true}>
+                    <Icon name="clock" />
+                  </TargetContent>
+                ) : (
+                  "오전 9:54"
+                ),
+              }}></ChatList>
           </>
         )}
-        {messageContent && sendImgs.length === 0 && (
-          <ChatList
-            onClick={backClickHandler}
-            isSendList
-            message={{
-              content: messageContent,
-              className: "bg-[#4b8ce5] text-white",
-            }}
-            timeStamp={{ content: "오전 9:54" }}></ChatList>
-        )}
+        {messageContent &&
+          sendImgs.length === 0 &&
+          !target_reserveMessage &&
+          !target_sendImg &&
+          !target_sendAudio &&
+          !target_sendPhoneNum && (
+            <ChatList
+              onClick={backClickHandler}
+              isSendList
+              message={{
+                content: messageContent,
+                className: "bg-[#4b8ce5] text-white",
+              }}
+              timeStamp={{ content: "오전 9:54" }}></ChatList>
+          )}
+        {/*  */}
+
         {isOvered && (
           <div className={classes.options}>
             <div>삭제</div>
@@ -299,6 +458,25 @@ function Message({
             setChoicedFileArray={setChoicedImgs}
           />
         )}
+        {optionInfoOpen && !sendBtnClicked && (
+          <div
+            className={`h-[65px] mt-[100px] p-1 text-xs py-[5px] border-t flex  items-start border-t-gray-200`}>
+            <div
+              className={`mx-auto ${
+                optionInfoContent[optionInfoNum].grayBox
+                  ? "w-fit px-2 py-1 bg-[#e0e0e0] border border-[#e0e0e0] rounded-lg"
+                  : ""
+              }`}>
+              {optionInfoContent[optionInfoNum].content}
+            </div>
+            <div className={`self-end mb-1`} onClick={deleteOptionHandler}>
+              <Icon
+                name="dash-circle-fill"
+                className={` text-[#fd2828be] cursor-pointer`}
+              />
+            </div>
+          </div>
+        )}
       </NoScrollBar>
 
       <MessageSendLine
@@ -312,6 +490,7 @@ function Message({
                 !imgBtnClicked &&
                 sendImgs.length === 0 &&
                 !optionOpen &&
+                !optionInfoOpen &&
                 target_sendImg
               }>
               <Icon name="image" />
@@ -342,8 +521,13 @@ function Message({
           setImgBtnClicked(false);
           setSendImgs([...choicedImgs]);
           setChoicedImgs([]);
+          setSendBtnClicked(true);
         }}
-        sendBtnTriger={choicedImgs.length !== 0}></MessageSendLine>
+        sendBtnTriger={
+          !sendBtnClicked &&
+          (choicedImgs.length !== 0 ||
+            (optionInfoOpen && !target_reserveMessage))
+        }></MessageSendLine>
       {/* options */}
       {plusClicked && (
         <NoScrollBar>
