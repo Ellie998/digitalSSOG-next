@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import classes from "./ChoiceImgs.module.css";
-import UrlContext from "../../../../page_context/UrlContext";
+
 import TargetContent from "../../components/TargetContent";
 
 function ChoiceImgs() {
-  const { myAppName, functionName, functionName_sendImg, appName_basic } =
-    useContext(UrlContext);
   const [choicedImgs, setChoicedImgs] = useState([]);
 
   const numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -52,12 +50,7 @@ function ChoiceImgs() {
           {choicedImgs.length !== 0 && (
             <div>
               <div>{choicedImgs.length}/10</div>
-              <TargetContent
-                targetOption={
-                  myAppName === appName_basic &&
-                  functionName === functionName_sendImg
-                }
-                isNextDescriptionLink={true}>
+              <TargetContent targetOption={true} isNextDescriptionLink={true}>
                 <div>완료</div>
               </TargetContent>
             </div>

@@ -1,17 +1,9 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
-import NextDescriptionLink from "../../components/NextDescriptionLink";
-import UrlContext from "../../../../page_context/UrlContext";
 import classes from "./SelectFile.module.css";
 import TargetContent from "../../components/TargetContent";
 
-function SelectFile() {
-  const {
-    myAppName,
-    functionName,
-    functionName_sendImg,
-    functionName_sendAudio,
-  } = useContext(UrlContext);
+function SelectFile({ target_sendImg, target_sendAudio }) {
   const [isFolderClicked, setFolderClicked] = useState(false);
   const [clickedFileId, setClickedFileId] = useState("");
   const checkboxes = document.getElementsByName("audio");
@@ -36,7 +28,7 @@ function SelectFile() {
 
   return (
     <>
-      {functionName === functionName_sendImg && (
+      {target_sendImg && (
         <section className={classes.layout}>
           <div className={classes["header--grid4"]}>
             <div>
@@ -85,10 +77,7 @@ function SelectFile() {
               </div>
               <div>
                 <TargetContent
-                  targetOption={
-                    myAppName === "기본" &&
-                    functionName === functionName_sendImg
-                  }
+                  targetOption={target_sendImg}
                   isNextDescriptionLink={true}>
                   <div>
                     <i className="bi bi-flower3"></i>
@@ -128,7 +117,7 @@ function SelectFile() {
           </div>
         </section>
       )}
-      {functionName === functionName_sendAudio && (
+      {target_sendAudio && (
         <section className={classes.layout}>
           <div className={classes.header}>
             <div className={classes["header_title"]}>오디오 파일 선택</div>
@@ -231,9 +220,7 @@ function SelectFile() {
           </div>
           {clickedFileId && (
             <TargetContent
-              targetOption={
-                myAppName === "기본" && functionName === functionName_sendAudio
-              }
+              targetOption={target_sendAudio}
               isNextDescriptionLink={true}>
               <div className={classes["button_done"]}>완료</div>
             </TargetContent>

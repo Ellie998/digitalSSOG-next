@@ -195,7 +195,7 @@ function AppMain({}) {
                 <MessageAppMain target_sendMessage />,
                 <SelectPerson target_person1 />,
                 <Message optionOpen={methodId === "2"} target_sendImg />,
-                <SelectFile />,
+                <SelectFile target_sendImg />,
                 <ChoiceImgs />,
                 <MessageWithOption />,
               ][descriptionId];
@@ -208,7 +208,7 @@ function AppMain({}) {
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
           <Message target_sendAudio optionOpen />,
-          <SelectFile />,
+          <SelectFile target_sendAudio />,
           <MessageWithOption />,
         ][descriptionId];
       }
