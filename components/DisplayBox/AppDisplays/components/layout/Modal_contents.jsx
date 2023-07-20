@@ -22,11 +22,12 @@ export default function Modal_contents({
       </div>
       {children}
       <div className={`flex justify-end`}>
-        <div
+        <TargetContent
           className={`display_title--bold cursor-pointer ${cancelButton.className}`}
-          onClick={onClickBackDrop}>
+          onClick={onClickBackDrop}
+          goBackDescription={cancelButton.goBackDescription}>
           {cancelButton.content}
-        </div>
+        </TargetContent>
         <TargetContent
           targetOption={submitButton.targetOption}
           isNextDescriptionLink={submitButton.isNextDescriptionLink}>

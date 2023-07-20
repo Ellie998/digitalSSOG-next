@@ -305,7 +305,7 @@ function KakaoChatRoom({
       {/* Side Menu */}
       {menuOpen && (
         <div className={classes.sideMenuWrap}>
-          <div className={classes.backdrop}></div>
+          <TargetContent className={classes.backdrop} goBackDescription />
           <div className={classes.sideMenuBox}>
             {["채팅방 서랍", "톡캘린더", "뮤직", "톡게시판"].map((item, i) => (
               <StackedListWrap
@@ -408,7 +408,11 @@ function KakaoChatRoom({
               </>
             ),
           }}
-          cancelButton={{ content: "취소", className: "text-blue-500" }}
+          cancelButton={{
+            content: "취소",
+            className: "text-blue-500",
+            goBackDescription: true,
+          }}
           submitButton={{
             content: "나가기",
             className: "text-blue-500",

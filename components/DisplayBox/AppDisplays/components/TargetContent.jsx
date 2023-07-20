@@ -9,6 +9,7 @@ import UrlContext from "../../../page_context/UrlContext";
  * id,
  * onClick,
  * isNextDescriptionLink,
+ * goBackDescription,
  * targetOption,
  * className,
  * children
@@ -23,7 +24,7 @@ const TargetContent = (prop) => {
   const { setMyDescriptionId } = useContext(UrlContext);
   return (
     <>
-      {!prop.isNextDescriptionLink && (
+      {!prop.isNextDescriptionLink && !prop.goBackDescription && (
         <div
           key={prop.id}
           onClick={prop.onClick}
@@ -47,16 +48,21 @@ const TargetContent = (prop) => {
           {prop.children}
         </div>
       )}
+      {prop.goBackDescription && (
+        <div
+          key={prop.id}
+          className={prop.className}
+          data-tooltip={prop.targetOption ? "클릭" : null}
+          style={prop.targetOption ? targetStyle : null}
+          onClick={() => {
+            prop.onClick ? prop.onClick() : null;
+            setMyDescriptionId((prevValue) => (+prevValue - 1).toString());
+          }}>
+          {prop.children}
+        </div>
+      )}
     </>
   );
 };
 
 export default TargetContent;
-
-{
-  /* <TargetContent
-targetOption={navTriger === "chatList_group"}
-isNextDescriptionLink={true}>
-{chatListContents[0]}
-</TargetContent>  */
-}

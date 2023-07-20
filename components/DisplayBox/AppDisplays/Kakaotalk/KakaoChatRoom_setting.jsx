@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "./KakaoSettingPage.module.css";
+import classes from "./KakaoChatRoom_setting.module.css";
 
 import TargetContent from "../components/TargetContent";
 import AppHeader from "../components/layout/AppHeader";
@@ -12,16 +12,20 @@ import Switch from "../components/UI/Switch";
 import Button from "../components/UI/Button";
 import Checkbox from "../components/UI/Checkbox";
 
-function KakaoSettingPage({ navTriger }) {
-  const [choicedModal, setChoicedModal] = useState("");
+function KakaoChatRoom_setting({
+  target_groubChatLeave_rejectInvitation,
+  target_groubChatLock,
+  target_groubChatLeave,
+  target_backBtn,
+  openModal,
+}) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <NoScrollBar height="305px">
-      {choicedModal !== "" && (
+      {openModal && (
         <Modal_contents
           onClickBackDrop={() => {
-            setChoicedModal("");
             setIsChecked(false);
           }}
           title={{ content: "초대 거부 및 나가기" }}
@@ -40,8 +44,7 @@ function KakaoSettingPage({ navTriger }) {
             className: "text-blue-600",
           }}
           submitButton={{
-            targetOption:
-              isChecked && navTriger === "groubChatLeave_rejectInvitation",
+            targetOption: isChecked && target_groubChatLeave_rejectInvitation,
             isNextDescriptionLink: true,
             content: "나가기",
           }}>
@@ -49,7 +52,7 @@ function KakaoSettingPage({ navTriger }) {
             <Checkbox
               id="info_config"
               onChange={() => {
-                navTriger === "groubChatLeave_rejectInvitation" && isChecked
+                target_groubChatLeave_rejectInvitation && isChecked
                   ? setIsChecked(false)
                   : setIsChecked(true);
               }}
@@ -62,7 +65,7 @@ function KakaoSettingPage({ navTriger }) {
         <AppHeader
           leftItem={[
             <BackBtn
-              targetOption={isChecked && navTriger === "groubChatLock"}
+              targetOption={isChecked && target_backBtn}
               isNavTriger={true}
             />,
           ]}
@@ -114,7 +117,7 @@ function KakaoSettingPage({ navTriger }) {
           {/* title={"현재 채팅방 입력창 잠금"} */}
           <TargetContent
             isWidthFull
-            targetOption={navTriger === "groubChatLock" && !isChecked}>
+            targetOption={target_groubChatLock && !isChecked}>
             <Switch
               className=""
               theme={"#fff200"}
@@ -161,24 +164,23 @@ function KakaoSettingPage({ navTriger }) {
 
         {/* Buttons */}
         <div className="py-2 px-1 mx-auto">
-          <Button
-            className="mb-1 text-sm"
-            textColor="rgb(255, 115, 0)"
-            borderColor="rgb(255, 115, 0)"
-            content="채팅방 나가기"></Button>
           <TargetContent
-            targetOption={
-              navTriger === "groubChatLeave_rejectInvitation" &&
-              choicedModal !== "groubChatLeave_rejectInvitation"
-            }>
+            isNextDescriptionLink
+            targetOption={target_groubChatLeave}>
+            <Button
+              className="mb-1 text-sm"
+              textColor="rgb(255, 115, 0)"
+              borderColor="rgb(255, 115, 0)"
+              content="채팅방 나가기"></Button>
+          </TargetContent>
+          <TargetContent
+            isNextDescriptionLink
+            targetOption={target_groubChatLeave_rejectInvitation}>
             <Button
               className={`text-sm`}
               btnColor="rgb(255, 115, 0)"
               textColor="white"
-              content="초대거부 및 나가기"
-              onClick={() =>
-                setChoicedModal("groubChatLeave_rejectInvitation")
-              }></Button>
+              content="초대거부 및 나가기"></Button>
           </TargetContent>
         </div>
       </>
@@ -186,4 +188,4 @@ function KakaoSettingPage({ navTriger }) {
   );
 }
 
-export default KakaoSettingPage;
+export default KakaoChatRoom_setting;

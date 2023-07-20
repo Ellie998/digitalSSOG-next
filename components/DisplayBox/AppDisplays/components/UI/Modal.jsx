@@ -1,3 +1,4 @@
+import TargetContent from "../TargetContent";
 import classes from "./Modal.module.css";
 
 export default function Modal({
@@ -8,7 +9,10 @@ export default function Modal({
 }) {
   return (
     <div className={`${classes.modalWrap} ${modalClassName}`}>
-      <div className={classes.backdrop} onClick={onClickBackDrop}></div>
+      <TargetContent
+        className={classes.backdrop}
+        onClick={onClickBackDrop}
+        goBackDescription></TargetContent>
       <div className={`${classes.modal} ${className}`}>{children}</div>
     </div>
   );

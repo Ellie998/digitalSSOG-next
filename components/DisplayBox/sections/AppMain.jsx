@@ -21,12 +21,12 @@ import SetReservation from "../AppDisplays/Basic/message/reserve-message/SetRese
 import SelectFile from "../AppDisplays/Basic/file/SelectFile";
 import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
 import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
-import KakaoSettingPage from "../AppDisplays/Kakaotalk/KakaoSettingPage";
 import { useContext } from "react";
 import UrlContext from "../../page_context/UrlContext";
 import ETCSetting from "../AppDisplays/Kakaotalk/ETCSetting";
 import AppMain_default from "./AppMain_default";
 import ETCSetting_lab from "../AppDisplays/Kakaotalk/ETCSetting_lab";
+import KakaoChatRoom_setting from "../AppDisplays/Kakaotalk/KakaoChatRoom_setting";
 
 function AppMain({}) {
   const {
@@ -57,7 +57,7 @@ function AppMain({}) {
 
   const appName = myAppName;
   const methodId = myMethodId.toString();
-  const descriptionId = myDescriptionId.toString();
+  const descriptionId = myDescriptionId;
 
   let choicedComponent = <AppMain_default />;
 
@@ -324,32 +324,20 @@ function AppMain({}) {
       }
       break;
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
-      if (descriptionId === "0") {
-        choicedComponent = <MainApps navLinkTriger={appName_kakaotalk} />;
-      } else if (descriptionId === "1") {
-        choicedComponent = (
-          <KakaoAppMain defaultTab="chat" target_groupChat></KakaoAppMain>
-        );
-      } else if (descriptionId === "2") {
-        choicedComponent = (
-          <KakaoChatRoom inputLocked={false} chatType_group target_menu />
-        );
-      } else if (descriptionId === "3") {
-        choicedComponent = (
-          <KakaoChatRoom
-            inputLocked={false}
-            chatType_group
-            menuOpen
-            target_setting
-          />
-        );
-      } else if (descriptionId === "4") {
-        choicedComponent = (
-          <KakaoSettingPage navTriger="groubChatLeave_rejectInvitation" />
-        );
-      } else if (descriptionId === "5") {
-        choicedComponent = <KakaoAppMain defaultTab="chat" />;
-      }
+      choicedComponent = [
+        <MainApps navLinkTriger={appName_kakaotalk} />,
+        <KakaoAppMain defaultTab="chat" target_groupChat />,
+        <KakaoChatRoom chatType_group target_menu />,
+        <KakaoChatRoom chatType_group menuOpen target_setting />,
+        <KakaoChatRoom_setting target_groubChatLeave_rejectInvitation />,
+        <KakaoChatRoom_setting
+          target_groubChatLeave_rejectInvitation
+          openModal
+        />,
+        //
+        <KakaoAppMain defaultTab="chat" />,
+      ][descriptionId];
+
       break;
     case functionName_kakaotalk_groubChatLock:
       if (descriptionId === "0") {
@@ -365,7 +353,9 @@ function AppMain({}) {
           <KakaoChatRoom chatType_group menuOpen target_setting />
         );
       } else if (descriptionId === "4") {
-        choicedComponent = <KakaoSettingPage navTriger="groubChatLock" />;
+        choicedComponent = (
+          <KakaoChatRoom_setting target_groubChatLock target_backBtn />
+        );
       } else if (descriptionId === "5") {
         choicedComponent = <KakaoChatRoom chatType_group inputLocked={true} />;
       }
