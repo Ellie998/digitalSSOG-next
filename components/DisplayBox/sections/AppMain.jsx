@@ -151,11 +151,11 @@ function AppMain({}) {
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
-          <Message optionOpen target_reserveMessage />,
-          <Message modalOpen target_reserveMessage />,
+          <Message open_option target_reserveMessage />,
+          <Message open_modal target_reserveMessage />,
           //
-          <Message optionInfoOpen target_reserveMessage />,
-          <Message modalOpen optionSettingModal target_reserveMessage />,
+          <Message open_optionInfo target_reserveMessage />,
+          <Message open_modal modal_optionSetting target_reserveMessage />,
         ][descriptionId];
       }
       if (appName === appName_kakaotalk) {
@@ -196,10 +196,10 @@ function AppMain({}) {
                 <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
                 <SelectPerson target_person1 />,
-                <Message optionOpen={methodId === "2"} target_sendImg />,
+                <Message open_option={methodId === "2"} target_sendImg />,
                 <SelectFile target_sendImg />,
                 <ChoiceImgs />,
-                <Message optionInfoOpen target_sendImg />,
+                <Message open_optionInfo target_sendImg />,
               ][descriptionId];
       }
       break;
@@ -209,9 +209,9 @@ function AppMain({}) {
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
-          <Message target_sendAudio optionOpen />,
+          <Message open_option target_sendAudio />,
           <SelectFile target_sendAudio />,
-          <Message optionInfoOpen target_sendAudio />,
+          <Message open_optionInfo target_sendAudio />,
         ][descriptionId];
       }
       break;
@@ -221,9 +221,9 @@ function AppMain({}) {
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
-          <Message target_sendPhoneNum optionOpen />,
+          <Message open_option target_sendPhoneNum />,
           <SelectPerson target_person2 />,
-          <Message optionInfoOpen target_sendPhoneNum />,
+          <Message open_optionInfo target_sendPhoneNum />,
         ][descriptionId];
       }
       break;

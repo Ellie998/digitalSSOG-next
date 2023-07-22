@@ -16,11 +16,11 @@ import Checkbox from "../../components/UI/Checkbox";
 import GetDate from "../../components/GetDate";
 
 function Message({
-  optionOpen,
-  optionInfoOpen,
+  open_option,
+  open_optionInfo,
   open_imgOption,
-  modalOpen,
-  optionSettingModal,
+  open_modal,
+  modal_optionSetting,
   target_sendImg,
   target_sendImgBtn,
   target_resend,
@@ -38,7 +38,7 @@ function Message({
     setMessageContent("");
     setSendBtnClicked(false);
     setPlusClicked(false);
-  }, [optionOpen, optionInfoOpen, modalOpen, open_imgOption]);
+  }, [open_option, open_optionInfo, open_modal, open_imgOption]);
 
   function mouseOverHandler(event) {
     setTimeout(() => {
@@ -108,13 +108,13 @@ function Message({
       iconName: "geo-alt",
     },
     {
-      targetOption: target_sendImg && optionOpen,
+      targetOption: target_sendImg && open_option,
       isNextDescriptionLink: true,
       content: "이미지",
       iconName: "card-image",
     },
     {
-      targetOption: target_sendImg && optionOpen,
+      targetOption: target_sendImg && open_option,
       isNextDescriptionLink: true,
       content: "동영상",
       iconName: "play-btn",
@@ -251,8 +251,8 @@ function Message({
   let modalNum, optionInfoNum;
 
   function findModalOrder() {
-    if (target_reserveMessage && !optionSettingModal) return 0;
-    if (target_reserveMessage && optionSettingModal) return 1;
+    if (target_reserveMessage && !modal_optionSetting) return 0;
+    if (target_reserveMessage && modal_optionSetting) return 1;
   }
   function findOptionInfoOrder() {
     if (target_reserveMessage) return 0;
@@ -265,7 +265,7 @@ function Message({
 
   return (
     <>
-      {modalOpen && (
+      {open_modal && (
         <Modal_contents
           modalClassName={modalContent[modalNum].modalClassName}
           className={modalContent[modalNum].className}
@@ -449,7 +449,7 @@ function Message({
             setChoicedFileArray={setChoicedImgs}
           />
         )}
-        {optionInfoOpen && !sendBtnClicked && (
+        {open_optionInfo && !sendBtnClicked && (
           <div
             className={`h-[65px] mt-[100px] p-1 text-xs py-[5px] border-t flex  items-start border-t-gray-200`}>
             <div
@@ -486,7 +486,7 @@ function Message({
             // plus btn
             <TargetContent
               onClick={plusBtnClickHandler}
-              targetOption={!plusClicked && optionOpen}>
+              targetOption={!plusClicked && open_option}>
               <Icon name="plus" />
             </TargetContent>,
           ],
@@ -510,10 +510,10 @@ function Message({
         sendBtnTriger={
           !sendBtnClicked &&
           (choicedImgs.length !== 0 ||
-            (optionInfoOpen && !target_reserveMessage))
+            (open_optionInfo && !target_reserveMessage))
         }></MessageSendLine>
       {/* options */}
-      {optionOpen && (
+      {open_option && (
         <NoScrollBar className={`animate-fadeInUp `}>
           <Grid_4x4
             className={"bg-[#e3e3e3cc]"}
