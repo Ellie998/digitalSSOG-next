@@ -221,7 +221,8 @@ function SelectFile({ target_sendImg, target_sendAudio }) {
           {clickedFileId && (
             <TargetContent
               targetOption={target_sendAudio}
-              isNextDescriptionLink={true}>
+              isNextDescriptionLink={true}
+              className={`mx-auto`}>
               <div className={classes["button_done"]}>완료</div>
             </TargetContent>
           )}

@@ -45,8 +45,6 @@ function KakaoChatRoom({
   const [messageContent, setMessageContent] = useState("");
   const [isOvered, setIsOvered] = useState(false);
 
-  const [isInputLocked, setIsInputLocked] = useState(inputLocked);
-
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
 
@@ -236,7 +234,7 @@ function KakaoChatRoom({
       </NoScrollBar>
 
       {/* input line */}
-      {!isInputLocked && (
+      {!inputLocked && (
         <MessageSendLine
           navOption_focused={{
             content: [
@@ -259,7 +257,7 @@ function KakaoChatRoom({
             content: <Icon name="hash" />,
           }}></MessageSendLine>
       )}
-      {isInputLocked && (
+      {inputLocked && (
         <FlexContent
           items={[
             <Icon name="plus-lg" />,
@@ -267,10 +265,8 @@ function KakaoChatRoom({
               대화에 주의가 필요한 방입니다.
             </div>,
             ,
-            <TargetContent targetOption={isInputLocked}>
-              <div
-                className={classes.sendIcon}
-                onClick={() => setIsInputLocked(false)}>
+            <TargetContent targetOption={inputLocked} isNextDescriptionLink>
+              <div className={classes.sendIcon}>
                 <Icon name="lock bg-[#f7e540]" />
               </div>
             </TargetContent>,

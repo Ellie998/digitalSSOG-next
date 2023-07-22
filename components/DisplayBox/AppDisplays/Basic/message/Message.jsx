@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceFile from "../../components/layout/ChoiceFile";
 
@@ -18,9 +18,11 @@ import GetDate from "../../components/GetDate";
 function Message({
   optionOpen,
   optionInfoOpen,
+  open_imgOption,
   modalOpen,
   optionSettingModal,
   target_sendImg,
+  target_sendImgBtn,
   target_resend,
   target_reserveMessage,
   target_sendAudio,
@@ -28,13 +30,15 @@ function Message({
 }) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
-
-  const [sendImgs, setSendImgs] = useState([]);
   const [plusClicked, setPlusClicked] = useState(false);
-  const [imgBtnClicked, setImgBtnClicked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
+  useEffect(() => {
+    setMessageContent("");
+    setSendBtnClicked(false);
+    setPlusClicked(false);
+  }, [optionOpen, optionInfoOpen, modalOpen, open_imgOption]);
 
   function mouseOverHandler(event) {
     setTimeout(() => {
@@ -45,24 +49,19 @@ function Message({
   function backClickHandler() {
     setIsOvered(false);
     setPlusClicked(false);
-    setImgBtnClicked(false);
     setSendBtnClicked(false);
   }
 
   function plusBtnClickHandler() {
     setPlusClicked(true);
-    setImgBtnClicked(false);
     setSendBtnClicked(false);
     setChoicedImgs([]);
-    setSendImgs([]);
   }
   function imgNavBtnClickHandler() {
-    setImgBtnClicked(true);
     setPlusClicked(false);
     setMessageContent("");
     setSendBtnClicked(false);
     setChoicedImgs([]);
-    setSendImgs([]);
   }
   const [deleteOptionClicked, setDeleteOptionClicked] = useState(false);
 
@@ -250,6 +249,7 @@ function Message({
   ];
 
   let modalNum, optionInfoNum;
+
   function findModalOrder() {
     if (target_reserveMessage && !optionSettingModal) return 0;
     if (target_reserveMessage && optionSettingModal) return 1;
@@ -279,7 +279,9 @@ function Message({
         </Modal_contents>
       )}
       <NoScrollBar
-        height={`${plusClicked || imgBtnClicked ? "170px" : "280px"}`}
+        height={`${
+          plusClicked || (open_imgOption && !sendBtnClicked) ? "170px" : "280px"
+        }`}
         className={""}>
         <StackedList_Profile
           onClick={backClickHandler}
@@ -311,58 +313,56 @@ function Message({
             content: "오전 8:03",
           }}></ChatList>
 
-        {!messageContent &&
-          (sendImgs.length !== 0 ||
-            (sendBtnClicked && !target_reserveMessage && (
-              <ChatList
-                onClick={backClickHandler}
-                isSendList
-                message={{
-                  content: (
-                    <>
-                      {target_sendImg && <div className={classes.imgBox}></div>}
-                      {target_sendAudio && (
-                        <StackedList_Profile
-                          className={`w-[90px] bg-gray-200 rounded-md py-1`}
-                          profile={{
-                            content: (
-                              <Icon
-                                name="play"
-                                className={` text-[16px] mx-1`}
-                              />
-                            ),
-                          }}
-                          title={{
-                            content: "audio.mp3",
-                            className: "text-center",
-                          }}
-                        />
-                      )}
-                      {target_sendPhoneNum && (
-                        <StackedList_Profile
-                          className={`w-[65px]  bg-gray-200 rounded-md py-1`}
-                          profile={{
-                            content: (
-                              <Icon
-                                name="person-fill"
-                                className={` text-[16px] mx-2`}
-                              />
-                            ),
-                          }}
-                          title={{
-                            content: "홍길순",
-                            className: "text-center",
-                          }}
-                        />
-                      )}
-                    </>
-                  ),
-                  className: "",
-                }}
-                timeStamp={{ content: "오전 9:54" }}></ChatList>
-            )))}
-        {messageContent && (sendImgs.length !== 0 || sendBtnClicked) && (
-          <>
+        {!messageContent && sendBtnClicked && !target_reserveMessage && (
+          <ChatList
+            onClick={backClickHandler}
+            isSendList
+            message={{
+              content: (
+                <>
+                  {target_sendImg && <div className={classes.imgBox}></div>}
+                  {target_sendAudio && (
+                    <StackedList_Profile
+                      className={`w-[90px] bg-gray-200 rounded-md py-1`}
+                      profile={{
+                        content: (
+                          <Icon name="play" className={` text-[16px] mx-1`} />
+                        ),
+                      }}
+                      title={{
+                        content: "audio.mp3",
+                        className: "text-center",
+                      }}
+                    />
+                  )}
+                  {target_sendPhoneNum && (
+                    <StackedList_Profile
+                      className={`w-[65px]  bg-gray-200 rounded-md py-1`}
+                      profile={{
+                        content: (
+                          <Icon
+                            name="person-fill"
+                            className={` text-[16px] mx-2`}
+                          />
+                        ),
+                      }}
+                      title={{
+                        content: "홍길순",
+                        className: "text-center",
+                      }}
+                    />
+                  )}
+                </>
+              ),
+              className: "",
+            }}
+            timeStamp={{ content: "오전 9:54" }}></ChatList>
+        )}
+        {messageContent &&
+          (target_reserveMessage ||
+            target_sendImg ||
+            target_sendAudio ||
+            target_sendPhoneNum) && (
             <ChatList
               onClick={backClickHandler}
               isSendList
@@ -405,39 +405,25 @@ function Message({
                 ),
                 className: "",
               }}></ChatList>
-            <ChatList
-              onClick={backClickHandler}
-              isSendList
-              message={{
-                content: messageContent,
-                className: "bg-[#4b8ce5] text-white",
-              }}
-              timeStamp={{
-                content: target_reserveMessage ? (
-                  <TargetContent isNextDescriptionLink targetOption={true}>
-                    <Icon name="clock" />
-                  </TargetContent>
-                ) : (
-                  "오전 9:54"
-                ),
-              }}></ChatList>
-          </>
-        )}
-        {messageContent &&
-          sendImgs.length === 0 &&
-          !target_reserveMessage &&
-          !target_sendImg &&
-          !target_sendAudio &&
-          !target_sendPhoneNum && (
-            <ChatList
-              onClick={backClickHandler}
-              isSendList
-              message={{
-                content: messageContent,
-                className: "bg-[#4b8ce5] text-white",
-              }}
-              timeStamp={{ content: "오전 9:54" }}></ChatList>
           )}
+        {messageContent && (
+          <ChatList
+            onClick={backClickHandler}
+            isSendList
+            message={{
+              content: messageContent,
+              className: "bg-[#4b8ce5] text-white",
+            }}
+            timeStamp={{
+              content: target_reserveMessage ? (
+                <TargetContent isNextDescriptionLink targetOption={true}>
+                  <Icon name="clock" />
+                </TargetContent>
+              ) : (
+                "오전 9:54"
+              ),
+            }}></ChatList>
+        )}
         {/*  */}
 
         {isOvered && (
@@ -491,13 +477,8 @@ function Message({
             // img btn
             <TargetContent
               onClick={imgNavBtnClickHandler}
-              targetOption={
-                !imgBtnClicked &&
-                sendImgs.length === 0 &&
-                !optionOpen &&
-                !optionInfoOpen &&
-                target_sendImg
-              }>
+              targetOption={target_sendImgBtn}
+              isNextDescriptionLink>
               <Icon name="image" />
             </TargetContent>,
             // camera btn
@@ -523,8 +504,6 @@ function Message({
           className: "bg-[#e3e3e3cc]",
         }}
         onSendBtnClickHandler={() => {
-          setImgBtnClicked(false);
-          setSendImgs([...choicedImgs]);
           setChoicedImgs([]);
           setSendBtnClicked(true);
         }}
@@ -534,8 +513,8 @@ function Message({
             (optionInfoOpen && !target_reserveMessage))
         }></MessageSendLine>
       {/* options */}
-      {plusClicked && (
-        <NoScrollBar>
+      {optionOpen && (
+        <NoScrollBar className={`animate-fadeInUp `}>
           <Grid_4x4
             className={"bg-[#e3e3e3cc]"}
             items={gridContent}
@@ -544,7 +523,7 @@ function Message({
         </NoScrollBar>
       )}
       {/* imgs */}
-      {imgBtnClicked && (
+      {open_imgOption && !sendBtnClicked && (
         <NoScrollBar className={`ml-1`}>
           <ChoiceFile
             fileType_img

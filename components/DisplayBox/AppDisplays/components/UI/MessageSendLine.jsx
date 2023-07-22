@@ -29,7 +29,7 @@ export default function MessageSendLine({
   function sendBtnClickHandler(event) {
     setMessageContent(enteredMessage);
     setEnteredMessage("");
-    onSendBtnClickHandler();
+    onSendBtnClickHandler && onSendBtnClickHandler();
   }
 
   function inputOutHandler(event) {

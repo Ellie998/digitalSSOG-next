@@ -151,8 +151,9 @@ function AppMain({}) {
           <MainApps appName_message />,
           <MessageAppMain target_sendMessage />,
           <SelectPerson target_person1 />,
-          <Message target_reserveMessage optionOpen />,
+          <Message optionOpen target_reserveMessage />,
           <Message modalOpen target_reserveMessage />,
+          //
           <Message optionInfoOpen target_reserveMessage />,
           <Message modalOpen optionSettingModal target_reserveMessage />,
         ][descriptionId];
@@ -188,7 +189,8 @@ function AppMain({}) {
                 <MainApps appName_message />,
                 <MessageAppMain target_sendMessage />,
                 <SelectPerson target_person1 />,
-                <Message target_sendImg />,
+                <Message target_sendImgBtn />,
+                <Message open_imgOption target_sendImg />,
               ][descriptionId]
             : [
                 <MainApps appName_message />,
@@ -242,16 +244,16 @@ function AppMain({}) {
 
       break;
     case functionName_kakaotalk_groubChatLock:
-      if (descriptionId === "0") {
-        choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_chat target_groupChat />,
-          <KakaoChatRoom chatType_group target_menu />,
-          <KakaoChatRoom chatType_group menuOpen target_setting />,
-          <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
-          <KakaoChatRoom chatType_group inputLocked={true} />,
-        ][descriptionId];
-      }
+      choicedComponent = [
+        <MainApps appName_kakaotalk />,
+        <KakaoAppMain defaultTab_chat target_groupChat />,
+        <KakaoChatRoom chatType_group target_menu />,
+        <KakaoChatRoom chatType_group menuOpen target_setting />,
+        <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
+        <KakaoChatRoom chatType_group inputLocked={true} />,
+        <KakaoChatRoom chatType_group />,
+      ][descriptionId];
+
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
       choicedComponent = [
