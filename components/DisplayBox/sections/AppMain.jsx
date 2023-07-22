@@ -163,18 +163,18 @@ function AppMain({}) {
           <MainApps appName_kakaotalk />,
           <KakaoAppMain defaultTab_chat target_chat />,
           <KakaoChatRoom chatType_1to1 target_optionBtn />,
-          <KakaoChatRoom chatType_1to1 optionOpen target_reserveMessage />,
+          <KakaoChatRoom open_option chatType_1to1 target_reserveMessage />,
           <KakaoChatRoom
             chatType_1to1
             optionSettingOpen
             target_reserveMessage
           />,
-          <KakaoChatRoom chatType_1to1 alertOpen target_optionBtn />,
-          <KakaoChatRoom chatType_1to1 optionOpen target_reserveMessage />,
+          <KakaoChatRoom chatType_1to1 open_alert target_optionBtn />,
+          <KakaoChatRoom chatType_1to1 open_option target_reserveMessage />,
           <KakaoChatRoom
             chatType_1to1
             target_reserveMessage
-            optionSetting_reopen
+            reopen_optionSetting
           />,
         ][descriptionId];
 
@@ -228,47 +228,52 @@ function AppMain({}) {
       }
       break;
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
-      choicedComponent = [
-        <MainApps appName_kakaotalk />,
-        <KakaoAppMain defaultTab_chat target_groupChat />,
-        <KakaoChatRoom chatType_group target_menu />,
-        <KakaoChatRoom chatType_group menuOpen target_setting />,
-        <KakaoChatRoom_setting target_groubChatLeave_rejectInvitation />,
-        <KakaoChatRoom_setting
-          target_groubChatLeave_rejectInvitation
-          openModal
-        />,
-        //
-        <KakaoAppMain defaultTab_chat />,
-      ][descriptionId];
+      if (appName === appName_kakaotalk) {
+        choicedComponent = [
+          <MainApps appName_kakaotalk />,
+          <KakaoAppMain defaultTab_chat target_groupChat />,
+          <KakaoChatRoom chatType_group target_menu />,
+          <KakaoChatRoom chatType_group open_menu target_setting />,
+          <KakaoChatRoom_setting target_groubChatLeave_rejectInvitation />,
+          <KakaoChatRoom_setting
+            target_groubChatLeave_rejectInvitation
+            open_modal
+          />,
+          //
+          <KakaoAppMain defaultTab_chat />,
+        ][descriptionId];
+      }
 
       break;
     case functionName_kakaotalk_groubChatLock:
-      choicedComponent = [
-        <MainApps appName_kakaotalk />,
-        <KakaoAppMain defaultTab_chat target_groupChat />,
-        <KakaoChatRoom chatType_group target_menu />,
-        <KakaoChatRoom chatType_group menuOpen target_setting />,
-        <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
-        <KakaoChatRoom chatType_group inputLocked={true} />,
-        <KakaoChatRoom chatType_group />,
-      ][descriptionId];
-
+      if (appName === appName_kakaotalk) {
+        choicedComponent = [
+          <MainApps appName_kakaotalk />,
+          <KakaoAppMain defaultTab_chat target_groupChat />,
+          <KakaoChatRoom chatType_group target_menu />,
+          <KakaoChatRoom chatType_group open_menu target_setting />,
+          <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
+          <KakaoChatRoom chatType_group inputLocked={true} />,
+          <KakaoChatRoom chatType_group />,
+        ][descriptionId];
+      }
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
-      choicedComponent = [
-        <MainApps appName_kakaotalk />,
-        <KakaoAppMain defaultTab_ETC target_setting />,
-        <ETCSetting target_lab />,
-        <ETCSetting_lab target_groubChatLeave_quietly />,
-        <ETCSetting target_backBtn />,
-        //
-        <KakaoAppMain defaultTab_chat target_groupChat />,
-        <KakaoChatRoom chatType_group target_menu />,
-        <KakaoChatRoom chatType_group menuOpen target_leave_quietly />,
-        <KakaoChatRoom chatType_group modalOpen target_leave_quietly />,
-        <KakaoAppMain defaultTab_chat />,
-      ][descriptionId];
+      if (appName === appName_kakaotalk) {
+        choicedComponent = [
+          <MainApps appName_kakaotalk />,
+          <KakaoAppMain defaultTab_ETC target_setting />,
+          <ETCSetting target_lab />,
+          <ETCSetting_lab target_groubChatLeave_quietly />,
+          <ETCSetting target_backBtn />,
+          //
+          <KakaoAppMain defaultTab_chat target_groupChat />,
+          <KakaoChatRoom chatType_group target_menu />,
+          <KakaoChatRoom open_menu chatType_group target_leave_quietly />,
+          <KakaoChatRoom open_modal chatType_group target_leave_quietly />,
+          <KakaoAppMain defaultTab_chat />,
+        ][descriptionId];
+      }
       break;
     default:
       choicedComponent = <AppMainError />;

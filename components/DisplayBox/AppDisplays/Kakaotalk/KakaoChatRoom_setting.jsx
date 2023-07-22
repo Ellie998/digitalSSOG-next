@@ -17,13 +17,13 @@ function KakaoChatRoom_setting({
   target_groubChatLock,
   target_groubChatLeave,
   target_backBtn,
-  openModal,
+  open_modal,
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <NoScrollBar height="305px">
-      {openModal && (
+      {open_modal && (
         <Modal_contents
           onClickBackDrop={() => {
             setIsChecked(false);

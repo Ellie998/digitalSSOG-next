@@ -22,18 +22,18 @@ import GetDate from "../components/GetDate";
 
 function KakaoChatRoom({
   inputLocked,
+  chatType_group,
+  chatType_1to1,
+  open_option,
+  open_optionSetting,
+  open_menu,
+  open_alert,
+  open_modal,
+  reopen_optionSetting,
   target_sendImg,
   target_sendAudio,
   target_sendPhoneNum,
   target_resend,
-  chatType_group,
-  chatType_1to1,
-  optionOpen,
-  optionSettingOpen,
-  optionSetting_reopen,
-  menuOpen,
-  alertOpen,
-  modalOpen,
   target_optionBtn,
   target_menu,
   target_reserveMessage,
@@ -150,7 +150,7 @@ function KakaoChatRoom({
   return (
     <>
       <NoScrollBar
-        height={`${!optionOpen || optionSettingOpen ? "280px" : "150px"}`}
+        height={`${!open_option || open_optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>
         <AppHeader
@@ -221,7 +221,7 @@ function KakaoChatRoom({
           </div>
         )}
         {/* alert */}
-        {alertOpen && (
+        {open_alert && (
           <Alert
             className={`top-[160px]`}
             content="메시지를 예약했습니다."
@@ -238,7 +238,7 @@ function KakaoChatRoom({
         <MessageSendLine
           navOption_focused={{
             content: [
-              !optionOpen ? (
+              !open_option ? (
                 <TargetContent
                   targetOption={target_optionBtn}
                   isNextDescriptionLink={true}>
@@ -274,7 +274,7 @@ function KakaoChatRoom({
         />
       )}
       {/* Option Box */}
-      {optionOpen && (
+      {open_option && (
         <NoScrollBar>
           <Grid_4x4
             className={"bg-[#efefef3e]"}
@@ -285,7 +285,7 @@ function KakaoChatRoom({
         </NoScrollBar>
       )}
       {/* Side Menu */}
-      {menuOpen && (
+      {open_menu && (
         <div className={classes.sideMenuWrap}>
           <TargetContent className={classes.backdrop} goBackDescription />
           <div className={classes.sideMenuBox}>
@@ -376,7 +376,7 @@ function KakaoChatRoom({
         </div>
       )}
       {/* Modal */}
-      {modalOpen && (
+      {open_modal && (
         <Modal_contents
           modalClassName={`mt-5`}
           className={`mt-10`}
@@ -415,7 +415,7 @@ function KakaoChatRoom({
         </Modal_contents>
       )}
       {/* setting option */}
-      {(optionSettingOpen || optionSetting_reopen) && (
+      {(open_optionSetting || reopen_optionSetting) && (
         <DownUp
           downUpClassName={`mt-[20px]`}
           className={``}
@@ -426,7 +426,7 @@ function KakaoChatRoom({
               content: (
                 <TargetContent
                   targetOption={
-                    optionSettingOpen &&
+                    open_optionSetting &&
                     target_reserveMessage &&
                     optionInput === "" &&
                     !isOptionInputSubmit
@@ -482,7 +482,7 @@ function KakaoChatRoom({
           <FlexContent
             className={`mb-1 mt-4`}
             items={[
-              <TargetContent targetOption={optionSetting_reopen}>
+              <TargetContent targetOption={reopen_optionSetting}>
                 <Button
                   btnColor={`#efefef`}
                   className={`text-2xs font-bold`}
