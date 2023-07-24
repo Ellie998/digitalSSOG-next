@@ -23,7 +23,6 @@ import GetDate from "../components/GetDate";
 function KakaoChatRoom({
   inputLocked,
   chatType_group,
-  chatType_1to1,
   open_option,
   open_optionSetting,
   open_menu,
@@ -159,8 +158,7 @@ function KakaoChatRoom({
           leftItem={[
             <BackBtn></BackBtn>,
             <div className="text-sm ml-1 font-bold align-middle">
-              {chatType_group && "그룹채팅"}
-              {chatType_1to1 && "영희"}
+              {chatType_group ? "그룹채팅" : "영희"}
             </div>,
             <div className="text-sm ml-1 align-middle">
               {chatType_group && "3"}

@@ -160,20 +160,13 @@ function AppMain({}) {
         choicedComponent = [
           <MainApps appName_kakaotalk />,
           <KakaoAppMain defaultTab_chat target_chat />,
-          <KakaoChatRoom chatType_1to1 target_optionBtn />,
-          <KakaoChatRoom open_option chatType_1to1 target_reserveMessage />,
-          <KakaoChatRoom
-            chatType_1to1
-            optionSettingOpen
-            target_reserveMessage
-          />,
-          <KakaoChatRoom chatType_1to1 open_alert target_optionBtn />,
-          <KakaoChatRoom chatType_1to1 open_option target_reserveMessage />,
-          <KakaoChatRoom
-            chatType_1to1
-            target_reserveMessage
-            reopen_optionSetting
-          />,
+          <KakaoChatRoom target_optionBtn />,
+          <KakaoChatRoom open_option target_reserveMessage />,
+          <KakaoChatRoom open_optionSetting target_reserveMessage />,
+          //
+          <KakaoChatRoom open_alert target_optionBtn />,
+          <KakaoChatRoom open_option target_reserveMessage />,
+          <KakaoChatRoom reopen_optionSetting target_reserveMessage />,
         ][descriptionId];
 
         break;
