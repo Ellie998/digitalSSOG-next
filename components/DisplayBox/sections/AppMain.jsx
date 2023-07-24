@@ -11,10 +11,9 @@ import KakaoProfileDetail from "../AppDisplays/Kakaotalk/KakaoProfileDetail";
 // message
 import MessageAppMain from "../AppDisplays/Basic/message/MessageAppMain"; //
 import Message from "../AppDisplays/Basic/message/Message";
-import UnreadMessage from "../AppDisplays/Basic/message/seeMessage/UnreadMessage";
+import UnreadMessage from "../AppDisplays/Basic/message/UnreadMessage";
 import SelectPerson from "../AppDisplays/Basic/message/SelectPerson";
-import ResendSuccess from "../AppDisplays/Basic/message/resend-message/ResendSuccess";
-import SendResend from "../AppDisplays/Basic/message/resend-message/SendResend";
+
 //file
 import SelectFile from "../AppDisplays/Basic/file/SelectFile";
 import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
@@ -140,8 +139,7 @@ function AppMain({}) {
           <MessageAppMain target_seeMessage />,
           <Message target_resend />,
           <SelectPerson target_person2 />,
-          <SendResend />,
-          <ResendSuccess />,
+          <Message target_resend message_fill />,
         ][descriptionId];
       }
       break;

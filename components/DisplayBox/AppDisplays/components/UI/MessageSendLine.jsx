@@ -14,12 +14,14 @@ export default function MessageSendLine({
   children,
   sendBtnTriger,
   onSendBtnClickHandler,
-  // setEnteredMessage,
+  defaultEnteredMessage,
   onClick,
 
   id,
 }) {
-  const [enteredMessage, setEnteredMessage] = useState("");
+  const [enteredMessage, setEnteredMessage] = useState(
+    defaultEnteredMessage ? defaultEnteredMessage : ""
+  );
   const [inputClicked, setInputClicked] = useState(false);
 
   function inputClickHandler(event) {

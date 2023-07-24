@@ -27,6 +27,7 @@ function Message({
   target_reserveMessage,
   target_sendAudio,
   target_sendPhoneNum,
+  message_fill,
 }) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
@@ -302,7 +303,8 @@ function Message({
           message={{
             className: "bg-gray-200 ml-1",
             content: (
-              <TargetContent targetOption={!isOvered && target_resend}>
+              <TargetContent
+                targetOption={!isOvered && !message_fill && target_resend}>
                 결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
                 OO로 OOO번길 O, OOO 컨벤션
               </TargetContent>
@@ -494,6 +496,11 @@ function Message({
         navOption_focused={{
           content: [<Icon name="chevron-right" />],
         }}
+        defaultEnteredMessage={
+          message_fill && target_resend
+            ? "결혼식 주소입니다. OO특별시 OO구 OO로 OOO번길 O, OOO 컨벤션"
+            : ""
+        }
         input={{
           className: "bg-[#e3e3e3cc] rounded-xl",
           onClick: backClickHandler,
