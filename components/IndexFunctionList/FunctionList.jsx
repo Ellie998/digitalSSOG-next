@@ -73,7 +73,7 @@ function FunctionList() {
         <div></div>
       </div>
       <div className={classes.noteContent}>
-        <h1 className="title">스마트 기기로 사용 가능한 기능들</h1>
+        <h2 className="title">스마트 기기로 사용 가능한 기능들</h2>
         <div className="subTitle">
           카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다.
         </div>
