@@ -36,7 +36,7 @@ export default function sitemap() {
     },
     {
       // <!--문자 전달-->
-      url: "https://ssog.pages.dev/description/문자-전달C",
+      url: "https://ssog.pages.dev/description/문자-전달",
       lastModified: new Date(),
     },
     {
