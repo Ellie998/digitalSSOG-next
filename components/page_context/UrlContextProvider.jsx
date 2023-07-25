@@ -34,7 +34,9 @@ function urlChangeDetecter() {
 export default function UrlContextProvider({ children }) {
   const router = useRouter();
   const params = useParams();
-  const functionNameTemp = decodeURI(params.functionName.replace("%2C", ","));
+  const functionNameTemp = decodeURI(
+    params.functionName.replace("%2C", ",")
+  ).replaceAll(" ", "-");
   function functionNameFilter() {
     if (functionNameTemp.split("/").length !== 1) {
       return functionNameTemp.split("/")[0];

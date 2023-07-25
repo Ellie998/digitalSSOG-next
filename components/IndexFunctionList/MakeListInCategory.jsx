@@ -12,7 +12,7 @@ function MakeListInCategory({ FunctionOrApp, tabName }) {
     data.forEach((categoryObject) => {
       setSelectedCategoryObject({});
       data.forEach((categoryObject) => {
-        if (categoryObject.category === tabName.replace("-", " ")) {
+        if (categoryObject.category === tabName?.replaceAll("-", " ")) {
           setSelectedCategoryObject(categoryObject);
         }
       });
@@ -24,7 +24,11 @@ function MakeListInCategory({ FunctionOrApp, tabName }) {
       <ol className={classes.MakeListInCategory}>
         {selectedCategoryObject.objects?.map((functionObject) => (
           <li key={Math.random()}>
-            <Link href={"/description/" + functionObject.name.slice(2)}>
+            <Link
+              href={
+                "/description/" +
+                functionObject.name.slice(2).replaceAll(" ", "-")
+              }>
               <p>{functionObject.name.slice(2)}</p>
             </Link>
           </li>

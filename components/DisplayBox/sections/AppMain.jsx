@@ -58,7 +58,7 @@ function AppMain({}) {
 
   let choicedComponent = <AppMain_default />;
 
-  switch (functionName) {
+  switch (functionName.replaceAll("-", " ")) {
     case functionName_makeCall:
       if (appName === appName_basic) {
         choicedComponent = [
