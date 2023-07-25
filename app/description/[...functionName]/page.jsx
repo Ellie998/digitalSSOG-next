@@ -7,7 +7,7 @@ export const runtime = "edge";
 
 // or Dynamic metadata
 export async function generateMetadata({ params }) {
-  const functionName = decodeURI(params.functionName);
+  const functionName = decodeURI(params.functionName).replaceAll("-", " ");
 
   return {
     // metadataBase: "/",
