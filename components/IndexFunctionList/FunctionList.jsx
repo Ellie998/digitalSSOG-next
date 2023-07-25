@@ -14,7 +14,8 @@ function FunctionList() {
   /**function for change query in home page */
   function linkClickHandler(e) {
     e.preventDefault();
-    const tabName = e.target.id.slice(3);
+    const tabName = e.target.id.replace(" ", "-");
+    // const tabName = e.target.id.slice(3);
     history.pushState("", "", `/?tab=${tabName}`);
     setTabName(tabName);
   }

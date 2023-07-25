@@ -12,7 +12,7 @@ function MakeListInCategory({ FunctionOrApp, tabName }) {
     data.forEach((categoryObject) => {
       setSelectedCategoryObject({});
       data.forEach((categoryObject) => {
-        if (categoryObject.category === tabName) {
+        if (categoryObject.category === tabName.replace("-", " ")) {
           setSelectedCategoryObject(categoryObject);
         }
       });
