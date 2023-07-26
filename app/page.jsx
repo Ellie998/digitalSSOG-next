@@ -1,14 +1,10 @@
 // app/page.jsx
+import Script from "next/script";
 import Index from "../components/layout/Index";
 import MyLayout from "../components/layout/MyLayout";
 
 export const runtime = "edge";
 
-{
-  /*   
-<meta itemprop="image" content="http://ssog.pages.dev/metaIMG.png" />
-*/
-}
 export const metadata = {
   // metadataBase: "/",
   charset: "utf-8",
@@ -56,7 +52,24 @@ export const metadata = {
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
     url: "https://ssog.pages.dev",
-    image: "/assets/metaIMG.png",
+    image: (
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#fff",
+          fontSize: 60,
+          fontWeight: 600,
+        }}>
+        <div>
+          디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
+        </div>
+      </div>
+    ),
   },
   twitter: {
     title: "디지털쏙",
@@ -64,14 +77,43 @@ export const metadata = {
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
     url: "https://ssog.pages.dev",
-    image: "/assets/metaIMG.png",
+    image: (
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#fff",
+          fontSize: 60,
+          fontWeight: 600,
+        }}>
+        <div>
+          디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
+        </div>
+      </div>
+    ),
   },
 };
 
 export default function Page() {
   return (
-    <MyLayout>
-      <Index></Index>
-    </MyLayout>
+    <>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-NRN6NT762E" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'G-NRN6NT762E');
+          `}
+      </Script>
+      <MyLayout>
+        <Index></Index>
+      </MyLayout>
+    </>
   );
 }

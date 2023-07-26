@@ -8,6 +8,7 @@ export const runtime = "edge";
 // or Dynamic metadata
 export async function generateMetadata({ params }) {
   const functionName = decodeURI(params.functionName).replaceAll("-", " ");
+  console.log(functionName);
 
   return {
     // metadataBase: "/",
@@ -54,14 +55,52 @@ export async function generateMetadata({ params }) {
       description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
       url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
-      image: "/assets/metaIMG.png",
+      image: (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#fff",
+            fontSize: 40,
+            fontWeight: 600,
+          }}>
+          <div style={{ marginBottom: "10px", fontSize: "20" }}>
+            디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
+          </div>
+          <div>{functionName} 기능 사용법 </div>
+        </div>
+      ),
+      // image: "/assets/metaIMG.png",
     },
     twitter: {
       title: `${functionName} 기능 사용법 - 디지털쏙`,
       description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
       url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
-      image: "/assets/metaIMG.png",
+      image: (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#fff",
+            fontSize: 40,
+            fontWeight: 600,
+          }}>
+          <div style={{ marginBottom: "10px", fontSize: "20" }}>
+            디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
+          </div>
+          <div>{functionName} 기능 사용법 </div>
+        </div>
+      ),
+      // image: "/assets/metaIMG.png",
     },
   };
 }

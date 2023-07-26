@@ -5,6 +5,7 @@ import MakeAppList from "./MakeAppList";
 import DisplayBox from "../DisplayBox/DisplayBox";
 import UrlContext from "../page_context/UrlContext";
 import classes from "./FunctionDescriptionPage.module.css";
+import ShareContainer from "../share/ShareContainer";
 
 const data = require("/public/data/functionData.json");
 
@@ -98,6 +99,7 @@ function FunctionDescriptionPage() {
           <div className={classes.flexWrap}></div>
         </div>
       </section>
+      <ShareContainer />
     </main>
   );
 }
