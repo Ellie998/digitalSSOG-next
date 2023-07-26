@@ -52,24 +52,7 @@ export const metadata = {
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
     url: "https://ssog.pages.dev",
-    image: (
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#fff",
-          fontSize: 60,
-          fontWeight: 600,
-        }}>
-        <div>
-          디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
-        </div>
-      </div>
-    ),
+    image: "/assets/metaIMG.png",
   },
   twitter: {
     title: "디지털쏙",
@@ -77,24 +60,7 @@ export const metadata = {
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
     url: "https://ssog.pages.dev",
-    image: (
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#fff",
-          fontSize: 60,
-          fontWeight: 600,
-        }}>
-        <div>
-          디지털<span style={{ color: "#4b8ce5" }}>쏙</span>
-        </div>
-      </div>
-    ),
+    image: "/assets/metaIMG.png",
   },
 };
 
