@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: "https://ssog.pages.dev/assets/metaIMG.png",
+          url: "https://ssog.pages.dev/assets/ogTitle.png",
           width: 800,
           height: 400,
         },
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: "https://ssog.pages.dev/assets/metaIMG.png",
+          url: "https://ssog.pages.dev/assets/ogTitle.png",
           width: 800,
           height: 400,
         },

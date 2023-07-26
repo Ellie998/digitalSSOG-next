@@ -54,7 +54,7 @@ export const metadata = {
     url: "https://ssog.pages.dev",
     images: [
       {
-        url: "https://ssog.pages.dev/assets/metaIMG.png",
+        url: "https://ssog.pages.dev/assets/ogTitle.png",
         width: 800,
         height: 400,
       },
@@ -68,7 +68,7 @@ export const metadata = {
     url: "https://ssog.pages.dev",
     images: [
       {
-        url: "https://ssog.pages.dev/assets/metaIMG.png",
+        url: "https://ssog.pages.dev/assets/ogTitle.png",
         width: 800,
         height: 400,
       },
