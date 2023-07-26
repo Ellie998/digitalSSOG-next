@@ -55,14 +55,14 @@ export async function generateMetadata({ params }) {
       description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
       url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
-      image: "/assets/metaIMG.png",
+      image: "https://ssog.pages.dev/assets/metaIMG.png",
     },
     twitter: {
       title: `${functionName} 기능 사용법 - 디지털쏙`,
       description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
       url: `https://ssog.pages.dev/description/${functionName}`,
       type: "website",
-      image: "/assets/metaIMG.png",
+      image: "https://ssog.pages.dev/assets/metaIMG.png",
     },
   };
 }
