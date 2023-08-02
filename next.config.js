@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+
   // images: {
   //   domains: ["ssog.pages.dev"], // Add any other domains from which you'll fetch images
   // },

@@ -76,7 +76,9 @@ function ShareContainer() {
         </KakaoShareButton>
       </div>
       {isCopied ? (
-        <span className="text-red-600 font-bold">Copied!</span>
+        <span className="text-red-600 font-bold bg-gray-100 border-2 border-red-600 px-2 py-1 rounded-lg">
+          Copied!
+        </span>
       ) : null}
     </div>
   );

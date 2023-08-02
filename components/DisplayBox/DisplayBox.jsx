@@ -4,11 +4,11 @@ import AppNav from "./sections/AppNav";
 
 import classes from "./DisplayBox.module.css";
 
-function DisplayBox() {
+function DisplayBox({ children }) {
   return (
     <div className={classes.DisplayBox}>
       <AppHeader />
-      <AppMain />
+      {!children ? <AppMain /> : children}
       <AppNav />
     </div>
   );
