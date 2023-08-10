@@ -68,96 +68,121 @@ export default function Page() {
   ];
 
   const [clickedName, setClickedName] = useState("");
-  let component;
+  let component = [];
   switch (clickedName) {
     case "MainApps":
-      component = <MainApps />;
+      component = [];
+      component.push(<MainApps />);
       break;
 
     case "CallAppMain":
-      component = <CallAppMain />;
+      component = [];
+      component.push(<CallAppMain />);
       break;
 
     case "AnswerCall":
-      component = <AnswerCall />;
+      component = [];
+      component.push(
+        <AnswerCall appName_basic />,
+        <AnswerCall appName_kakaotalk />
+      );
 
       break;
 
     case "CallConnected":
-      component = <CallConnected />;
+      component = [];
+      component.push(
+        <CallConnected appName_basic />,
+        <CallConnected appName_kakaotalk />
+      );
 
       break;
 
     case "VideoCallConnected":
-      component = <VideoCallConnected />;
+      component = [];
+      component.push(<VideoCallConnected />);
 
       break;
 
     case "KakaoAppMain":
-      component = <KakaoAppMain />;
+      component = [];
+      component.push(<KakaoAppMain />);
 
       break;
 
     case "KakaoProfileDetail":
-      component = <KakaoProfileDetail />;
+      component = [];
+      component.push(<KakaoProfileDetail />);
 
       break;
 
     case "KakaoChatRoom":
-      component = <KakaoChatRoom />;
+      component = [];
+      component.push(<KakaoChatRoom />);
 
       break;
     case "KakaoChatRoom_setting":
-      component = <KakaoChatRoom_setting />;
+      component = [];
+      component.push(<KakaoChatRoom_setting />);
 
       break;
     case "ETCSetting":
-      component = <ETCSetting />;
+      component = [];
+      component.push(<ETCSetting />);
 
       break;
 
     case "ETCSetting_lab":
-      component = <ETCSetting_lab />;
+      component = [];
+      component.push(<ETCSetting_lab />);
 
       break;
 
     case "MessageAppMain":
-      component = <MessageAppMain />;
+      component = [];
+      component.push(<MessageAppMain />);
 
       break;
 
     case "Message":
-      component = <Message />;
+      component = [];
+      component.push(<Message />);
 
       break;
 
     case "UnreadMessage":
-      component = <UnreadMessage />;
+      component = [];
+      component.push(<UnreadMessage />);
 
       break;
 
     case "SelectPerson":
-      component = <SelectPerson />;
+      component = [];
+      component.push(<SelectPerson />);
 
       break;
 
     case "SelectFile":
-      component = <SelectFile />;
+      component = [];
+      component.push(<SelectFile />);
 
       break;
 
     case "ChoiceImgs":
-      component = <ChoiceImgs />;
+      component = [];
+      component.push(<ChoiceImgs />);
 
       break;
 
     case "AppMainError":
-      component = <AppMainError />;
+      component = [];
+      component.push(<AppMainError />);
 
       break;
 
     case "AppMain_default":
-      component = <AppMain_default />;
+      component = [];
+      component.push(<AppMain_default />);
 
       break;
 
@@ -182,7 +207,12 @@ export default function Page() {
           )
         )}
       </div>
-      <DisplayBox>{component}</DisplayBox>
+
+      <div className="flex justify-between mt-20">
+        {component.length === 1 && <DisplayBox>{component[0]}</DisplayBox>}
+        {component.length !== 1 &&
+          component.map((item) => <DisplayBox>{item}</DisplayBox>)}
+      </div>
     </div>
   );
 }
