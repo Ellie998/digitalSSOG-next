@@ -1,4 +1,5 @@
 "use client";
+
 import { useContext, useEffect, useState } from "react";
 
 import MakeAppList from "./MakeAppList";
@@ -7,6 +8,7 @@ import UrlContext from "../page_context/UrlContext";
 import classes from "./FunctionDescriptionPage.module.css";
 import ShareContainer from "../share/ShareContainer";
 
+// eslint-disable-next-line no-undef
 const data = require("/public/data/functionData.json");
 
 function FunctionDescriptionPage() {
