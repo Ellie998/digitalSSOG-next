@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import classes from "./KakaoChatRoom_setting.module.css";
 

@@ -34,7 +34,7 @@ a {
   cursor: pointer;
 }
 
-/* h1 {
+h1 {
   font-size: 2rem;
   color: var(--grey-900);
 }
@@ -42,7 +42,7 @@ a {
 h2 {
   font-size: 1.5rem;
   color: var(--grey-800);
-} */
+}
 
 details summary {
   cursor: pointer;

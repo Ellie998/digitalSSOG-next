@@ -1,6 +1,8 @@
+import React from "react";
 import UrlContext from "./UrlContext";
 import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { PropTypes } from "prop-types";
 
 const appName_basic = "기본";
 const appName_call = "전화";
@@ -31,6 +33,7 @@ function urlChangeDetecter() {
   return { appName: appName, methodId: methodId, descriptionId: descriptionId };
 }
 
+// eslint-disable-next-line react/prop-types
 export default function UrlContextProvider({ children }) {
   const router = useRouter();
   const params = useParams();
@@ -68,7 +71,7 @@ export default function UrlContextProvider({ children }) {
     }, [myDescriptionId, myAppName, myMethodId]);
   // when back or forehead btn clicked, function trigered in root page
   useEffect(() => {
-    window.onpopstate = function (e) {
+    window.onpopstate = function () {
       // http://localhost:3000/?tab=새로운 기능
       const url = decodeURI(window.location);
 
@@ -112,3 +115,9 @@ export default function UrlContextProvider({ children }) {
     </UrlContext.Provider>
   );
 }
+UrlContextProvider.propsTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};

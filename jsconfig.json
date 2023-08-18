@@ -1,8 +1,13 @@
-/** @type .Config */
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "components/*": ["./components/*"],
+      "displayBox/*": ["./components/DisplayBox/*"],
+      "appDisplays/*": ["./components/DisplayBox/AppDisplays/*"],
+      "stories": ["./stories/*"]
     }
-  }
+  },
+  // "includes": ["components/**/*"],
+  "exclude": ["node_modules"]
 }

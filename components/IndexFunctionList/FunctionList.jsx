@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import MakeCategory from "./MakeCategory";
 import MakeListInCategory from "./MakeListInCategory";
 import classes from "./FunctionList.module.css";
+import H2 from "stories/page/atoms/H2";
+import SubTitle from "stories/page/atoms/SubTitle";
 
 function FunctionList() {
   const router = useRouter();
@@ -19,23 +21,9 @@ function FunctionList() {
     history.pushState("", "", `/?tab=${tabName}`);
     setTabName(tabName);
   }
-  // when back or forehead btn clicked, function trigered in descriotion page
-  // window.onpopstate = function (e) {
-  //   const url = decodeURI(window.location);
-  //   if (temp === 1) {
-  //     return;
-  //   }
-  //   if (url.includes("=")) {
-  //     const tabNameFromUrl = url.split("=");
-  //     setTabName(tabNameFromUrl[1]);
-  //   } else {
-  //     router.push(url, { scroll: false });
-  //   }
-  //   temp++;
-  // };
 
   useEffect(() => {
-    window.onpopstate = function (e) {
+    window.onpopstate = function () {
       const url = decodeURI(window.location);
       if (temp === 1) {
         return;
@@ -52,8 +40,6 @@ function FunctionList() {
 
   return (
     <section className={`${classes.layout} ${classes.note}`}>
-      {/* <HeadMeta></HeadMeta> */}
-
       <div className={classes.noteHoles}>
         <div></div>
         <div></div>
@@ -74,10 +60,10 @@ function FunctionList() {
         <div></div>
       </div>
       <div className={classes.noteContent}>
-        <h2 className="title">스마트 기기로 사용 가능한 기능들</h2>
-        <div className="subTitle">
+        <H2>스마트 기기로 사용 가능한 기능들</H2>
+        <SubTitle>
           카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다.
-        </div>
+        </SubTitle>
         <div className={`${classes.postIt_note}`}>
           <MakeCategory
             onLinkClick={linkClickHandler}

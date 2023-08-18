@@ -1,6 +1,7 @@
 import classes from "./AppMain.module.css";
 import TargetContent from "../AppDisplays/components/TargetContent";
 
+// eslint-disable-next-line react/prop-types
 const MainApps = ({ appName_kakaotalk, appName_call, appName_message }) => {
   return (
     <section className={classes.layout}>

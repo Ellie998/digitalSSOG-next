@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import classes from "./KakaoChatRoom.module.css";
@@ -51,11 +53,11 @@ function KakaoChatRoom({
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
 
-  function mouseOverHandler(event) {
-    setTimeout(() => {
-      setIsOvered(true);
-    }, 1000);
-  }
+  // function mouseOverHandler(event) {
+  //   setTimeout(() => {
+  //     setIsOvered(true);
+  //   }, 1000);
+  // }
 
   function backClickHandler() {
     setIsOvered(false);
@@ -262,7 +264,6 @@ function KakaoChatRoom({
             <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
               대화에 주의가 필요한 방입니다.
             </div>,
-            ,
             <TargetContent targetOption={inputLocked} isNextDescriptionLink>
               <div className={classes.sendIcon}>
                 <Icon name="lock bg-[#f7e540]" />
@@ -403,7 +404,7 @@ function KakaoChatRoom({
             <TargetContent className="my-1" targetOption={!isCheckbox}>
               <Checkbox
                 label={{ content: "조용히 나가기" }}
-                onChangeHandler={(e) => {
+                onChangeHandler={() => {
                   isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
                 }}
                 id="info_config"

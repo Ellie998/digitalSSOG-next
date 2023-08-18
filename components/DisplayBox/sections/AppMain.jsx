@@ -1,31 +1,32 @@
-import MainApps from "./MainApps";
-import AppMainError from "./AppMainError";
+import MainApps from "displayBox/sections/MainApps";
+import AppMainError from "displayBox/sections/AppMainError";
+
 // call
-import CallAppMain from "../AppDisplays/Basic/call/CallAppMain"; //
-import AnswerCall from "../AppDisplays/Basic/call/AnswerCall";
-import CallConnected from "../AppDisplays/Basic/call/CallConnected";
-import VideoCallConnected from "../AppDisplays/Basic/call/VideoCallConnected";
+import CallAppMain from "displayBox/AppDisplays/Basic/call/CallAppMain"; //
+import AnswerCall from "displayBox/AppDisplays/Basic/call/AnswerCall";
+import CallConnected from "displayBox/AppDisplays/Basic/call/CallConnected";
+import VideoCallConnected from "displayBox/AppDisplays/Basic/call/VideoCallConnected";
 //kakao
-import KakaoAppMain from "../AppDisplays/Kakaotalk/KakaoAppMain";
-import KakaoProfileDetail from "../AppDisplays/Kakaotalk/KakaoProfileDetail";
+import KakaoAppMain from "displayBox/AppDisplays/Kakaotalk/KakaoAppMain";
+import KakaoProfileDetail from "displayBox/AppDisplays/Kakaotalk/KakaoProfileDetail";
 // message
-import MessageAppMain from "../AppDisplays/Basic/message/MessageAppMain"; //
-import Message from "../AppDisplays/Basic/message/Message";
-import UnreadMessage from "../AppDisplays/Basic/message/UnreadMessage";
-import SelectPerson from "../AppDisplays/Basic/message/SelectPerson";
+import MessageAppMain from "displayBox/AppDisplays/Basic/message/MessageAppMain"; //
+import Message from "displayBox/AppDisplays/Basic/message/Message";
+import UnreadMessage from "displayBox/AppDisplays/Basic/message/UnreadMessage";
+import SelectPerson from "displayBox/AppDisplays/Basic/message/SelectPerson";
 
 //file
-import SelectFile from "../AppDisplays/Basic/file/SelectFile";
-import ChoiceImgs from "../AppDisplays/Basic/gallery/ChoiceImgs";
-import KakaoChatRoom from "../AppDisplays/Kakaotalk/KakaoChatRoom";
+import SelectFile from "displayBox/AppDisplays/Basic/file/SelectFile";
+import ChoiceImgs from "displayBox/AppDisplays/Basic/gallery/ChoiceImgs";
+import KakaoChatRoom from "displayBox/AppDisplays/Kakaotalk/KakaoChatRoom";
 import { useContext } from "react";
-import UrlContext from "../../page_context/UrlContext";
-import ETCSetting from "../AppDisplays/Kakaotalk/ETCSetting";
-import AppMain_default from "./AppMain_default";
-import ETCSetting_lab from "../AppDisplays/Kakaotalk/ETCSetting_lab";
-import KakaoChatRoom_setting from "../AppDisplays/Kakaotalk/KakaoChatRoom_setting";
+import UrlContext from "components/page_context/UrlContext";
+import ETCSetting from "displayBox/AppDisplays/Kakaotalk/ETCSetting";
+import AppMain_default from "displayBox/sections/AppMain_default";
+import ETCSetting_lab from "displayBox/AppDisplays/Kakaotalk/ETCSetting_lab";
+import KakaoChatRoom_setting from "displayBox/AppDisplays/Kakaotalk/KakaoChatRoom_setting";
 
-function AppMain({}) {
+function AppMain() {
   const {
     functionName,
     myAppName,
@@ -48,8 +49,8 @@ function AppMain({}) {
     //
     appName_basic,
     appName_kakaotalk,
-    appName_message,
-    appName_call,
+    // appName_message,
+    // appName_call,
   } = useContext(UrlContext);
 
   const appName = myAppName;
@@ -62,41 +63,42 @@ function AppMain({}) {
     case functionName_makeCall:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_call />,
+          <MainApps key="mainApps" appName_call />,
           <CallAppMain
+            key="callAppMain"
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
             target_Call
           />,
-          <CallConnected appName_basic />,
+          <CallConnected key="callConnected" appName_basic />,
         ][descriptionId];
       } else if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_friend target_profile />,
-          <KakaoProfileDetail />,
-          <CallConnected appName_kakaotalk />,
+          <MainApps key="mainApps" appName_kakaotalk />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_friend target_profile />,
+          <KakaoProfileDetail key="kakaoProfileDetail" />,
+          <CallConnected key="callConnected" appName_kakaotalk />,
         ][descriptionId];
       }
       break;
     case functionName_getCall:
       if (appName === appName_basic) {
         choicedComponent = [
-          <AnswerCall appName_basic />,
-          <CallConnected appName_basic />,
+          <AnswerCall key="answerCall" appName_basic />,
+          <CallConnected key="callConnected" appName_basic />,
         ][descriptionId];
       } else if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <AnswerCall appName_kakaotalk />,
-          <CallConnected appName_kakaotalk />,
+          <AnswerCall key="answerCall" appName_kakaotalk />,
+          <CallConnected key="callConnected" appName_kakaotalk />,
         ][descriptionId];
       }
       break;
     case functionName_makeVideoCall:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_call />,
-          <CallAppMain targetTab="키패드" target_videoCall />,
-          <VideoCallConnected />,
+          <MainApps key="mainApps" appName_call />,
+          <CallAppMain key="callAppMain" targetTab="키패드" target_videoCall />,
+          <VideoCallConnected key="callConnected" />,
         ][descriptionId];
       }
       break;
@@ -104,15 +106,15 @@ function AppMain({}) {
       choicedComponent =
         methodId === "1"
           ? [
-              <MainApps appName_message />,
-              <MessageAppMain target_sendMessage />,
-              <SelectPerson target_person1 />,
-              <Message />,
+              <MainApps key="mainApps" appName_message />,
+              <MessageAppMain key="MessageAppMain" target_sendMessage />,
+              <SelectPerson key="SelectPerson" target_person1 />,
+              <Message key="Message" />,
             ][descriptionId]
           : [
-              <MainApps appName_message />,
-              <MessageAppMain target_seeMessage />,
-              <Message />,
+              <MainApps key="mainApps" appName_message />,
+              <MessageAppMain key="MessageAppMain" target_seeMessage />,
+              <Message key="Message" />,
             ][descriptionId];
       break;
     case functionName_seeMessage:
@@ -120,53 +122,74 @@ function AppMain({}) {
         choicedComponent =
           methodId === "1"
             ? [
-                <MainApps appName_message />,
-                <MessageAppMain target_seeMessage />,
-                <Message />,
+                <MainApps key="mainApps" appName_message />,
+                <MessageAppMain key="MessageAppMain" target_seeMessage />,
+                <Message key="Message" />,
               ][descriptionId]
             : [
-                <MainApps appName_message />,
-                <MessageAppMain target_unreadMessage />,
-                <UnreadMessage />,
-                <Message />,
+                <MainApps key="mainApps" appName_message />,
+                <MessageAppMain key="MessageAppMain" target_unreadMessage />,
+                <UnreadMessage key="UnreadMessage" />,
+                <Message key="Message" />,
               ][descriptionId];
       }
       break;
     case functionName_resendMessage:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_message />,
-          <MessageAppMain target_seeMessage />,
-          <Message target_resend />,
-          <SelectPerson target_person2 />,
-          <Message target_resend message_fill />,
+          <MainApps key="mainApps" appName_message />,
+          <MessageAppMain key="MessageAppMain" target_seeMessage />,
+          <Message key="Message" target_resend />,
+          <SelectPerson key="SelectPerson" target_person2 />,
+          <Message key="Message" target_resend message_fill />,
         ][descriptionId];
       }
       break;
     case functionName_reserveMessage:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_message />,
-          <MessageAppMain target_sendMessage />,
-          <SelectPerson target_person1 />,
-          <Message open_option target_reserveMessage />,
-          <Message open_modal target_reserveMessage />,
+          <MainApps key="mainApps" appName_message />,
+          <MessageAppMain key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson" target_person1 />,
+          <Message key="Message" open_option target_reserveMessage />,
+          <Message key="Message" open_modal target_reserveMessage />,
           //
-          <Message open_optionInfo target_reserveMessage />,
-          <Message open_modal modal_optionSetting target_reserveMessage />,
+          <Message key="Message" open_optionInfo target_reserveMessage />,
+          <Message
+            key="Message"
+            open_modal
+            modal_optionSetting
+            target_reserveMessage
+          />,
         ][descriptionId];
       }
       if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_chat target_chat />,
-          <KakaoChatRoom target_optionBtn />,
-          <KakaoChatRoom open_option target_reserveMessage />,
-          <KakaoChatRoom open_optionSetting target_reserveMessage />,
+          <MainApps key="mainApps" appName_kakaotalk />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_chat target_chat />,
+          <KakaoChatRoom key="KakaoChatRoom1" target_optionBtn />,
+          <KakaoChatRoom
+            key="KakaoChatRoom2"
+            open_option
+            target_reserveMessage
+          />,
+          <KakaoChatRoom
+            key="KakaoChatRoom3"
+            open_optionSetting
+            target_reserveMessage
+          />,
           //
-          <KakaoChatRoom open_alert target_optionBtn />,
-          <KakaoChatRoom open_option target_reserveMessage />,
-          <KakaoChatRoom reopen_optionSetting target_reserveMessage />,
+          <KakaoChatRoom key="KakaoChatRoom4" open_alert target_optionBtn />,
+          <KakaoChatRoom
+            key="KakaoChatRoom5"
+            open_option
+            target_reserveMessage
+          />,
+          <KakaoChatRoom
+            key="KakaoChatRoom6"
+            reopen_optionSetting
+            target_reserveMessage
+          />,
         ][descriptionId];
 
         break;
@@ -177,61 +200,74 @@ function AppMain({}) {
         choicedComponent =
           methodId === "1"
             ? [
-                <MainApps appName_message />,
-                <MessageAppMain target_sendMessage />,
-                <SelectPerson target_person1 />,
-                <Message target_sendImgBtn />,
-                <Message open_imgOption target_sendImg />,
+                <MainApps key="mainApps" appName_message />,
+                <MessageAppMain key="MessageAppMain" target_sendMessage />,
+                <SelectPerson key="SelectPerson" target_person1 />,
+                <Message key="Message1" target_sendImgBtn />,
+                <Message key="Message2" open_imgOption target_sendImg />,
               ][descriptionId]
             : [
-                <MainApps appName_message />,
-                <MessageAppMain target_sendMessage />,
-                <SelectPerson target_person1 />,
-                <Message open_option={methodId === "2"} target_sendImg />,
-                <SelectFile target_sendImg />,
-                <ChoiceImgs />,
-                <Message open_optionInfo target_sendImg />,
+                <MainApps key="mainApps" appName_message />,
+                <MessageAppMain key="MessageAppMain" target_sendMessage />,
+                <SelectPerson key="SelectPerson" target_person1 />,
+                <Message
+                  key="Message1"
+                  open_option={methodId === "2"}
+                  target_sendImg
+                />,
+                <SelectFile key="SelectFile" target_sendImg />,
+                <ChoiceImgs key="ChoiceImgs" />,
+                <Message key="Message2" open_optionInfo target_sendImg />,
               ][descriptionId];
       }
       break;
     case functionName_sendAudio:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_message />,
-          <MessageAppMain target_sendMessage />,
-          <SelectPerson target_person1 />,
-          <Message open_option target_sendAudio />,
-          <SelectFile target_sendAudio />,
-          <Message open_optionInfo target_sendAudio />,
+          <MainApps key="mainApps" appName_message />,
+          <MessageAppMain key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson" target_person1 />,
+          <Message key="Message" open_option target_sendAudio />,
+          <SelectFile key="SelectFile" target_sendAudio />,
+          <Message key="Message" open_optionInfo target_sendAudio />,
         ][descriptionId];
       }
       break;
     case functionName_sendPhoneNum:
       if (appName === appName_basic) {
         choicedComponent = [
-          <MainApps appName_message />,
-          <MessageAppMain target_sendMessage />,
-          <SelectPerson target_person1 />,
-          <Message open_option target_sendPhoneNum />,
-          <SelectPerson target_person2 />,
-          <Message open_optionInfo target_sendPhoneNum />,
+          <MainApps key="mainApps" appName_message />,
+          <MessageAppMain key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson1" target_person1 />,
+          <Message key="Message1" open_option target_sendPhoneNum />,
+          <SelectPerson key="SelectPerson2" target_person2 />,
+          <Message key="Message2" open_optionInfo target_sendPhoneNum />,
         ][descriptionId];
       }
       break;
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
       if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_chat target_groupChat />,
-          <KakaoChatRoom chatType_group target_menu />,
-          <KakaoChatRoom chatType_group open_menu target_setting />,
-          <KakaoChatRoom_setting target_groubChatLeave_rejectInvitation />,
+          <MainApps key="mainApps" appName_kakaotalk />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_chat target_groupChat />,
+          <KakaoChatRoom key="KakaoChatRoom1" chatType_group target_menu />,
+          <KakaoChatRoom
+            key="KakaoChatRoom2"
+            chatType_group
+            open_menu
+            target_setting
+          />,
           <KakaoChatRoom_setting
+            key="KakaoChatRoom_setting1"
+            target_groubChatLeave_rejectInvitation
+          />,
+          <KakaoChatRoom_setting
+            key="KakaoChatRoom_setting2"
             target_groubChatLeave_rejectInvitation
             open_modal
           />,
           //
-          <KakaoAppMain defaultTab_chat />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_chat />,
         ][descriptionId];
       }
 
@@ -239,30 +275,53 @@ function AppMain({}) {
     case functionName_kakaotalk_groubChatLock:
       if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_chat target_groupChat />,
-          <KakaoChatRoom chatType_group target_menu />,
-          <KakaoChatRoom chatType_group open_menu target_setting />,
-          <KakaoChatRoom_setting target_groubChatLock target_backBtn />,
-          <KakaoChatRoom chatType_group inputLocked={true} />,
-          <KakaoChatRoom chatType_group />,
+          <MainApps key="mainApps" appName_kakaotalk />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_chat target_groupChat />,
+          <KakaoChatRoom key="KakaoChatRoom1" chatType_group target_menu />,
+          <KakaoChatRoom
+            key="KakaoChatRoom2"
+            chatType_group
+            open_menu
+            target_setting
+          />,
+          <KakaoChatRoom_setting
+            key="KakaoChatRoom_setting"
+            target_groubChatLock
+            target_backBtn
+          />,
+          <KakaoChatRoom
+            key="KakaoChatRoom4"
+            chatType_group
+            inputLocked={true}
+          />,
+          <KakaoChatRoom key="KakaoChatRoom5" chatType_group />,
         ][descriptionId];
       }
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
       if (appName === appName_kakaotalk) {
         choicedComponent = [
-          <MainApps appName_kakaotalk />,
-          <KakaoAppMain defaultTab_ETC target_setting />,
-          <ETCSetting target_lab />,
-          <ETCSetting_lab target_groubChatLeave_quietly />,
-          <ETCSetting target_backBtn />,
+          <MainApps key="mainApps" appName_kakaotalk />,
+          <KakaoAppMain key="KakaoAppMain" defaultTab_ETC target_setting />,
+          <ETCSetting key="ETCSetting1" target_lab />,
+          <ETCSetting_lab key="ETCSetting_lab" target_groubChatLeave_quietly />,
+          <ETCSetting key="ETCSetting2" target_backBtn />,
           //
-          <KakaoAppMain defaultTab_chat target_groupChat />,
-          <KakaoChatRoom chatType_group target_menu />,
-          <KakaoChatRoom open_menu chatType_group target_leave_quietly />,
-          <KakaoChatRoom open_modal chatType_group target_leave_quietly />,
-          <KakaoAppMain defaultTab_chat />,
+          <KakaoAppMain key="KakaoAppMain1" defaultTab_chat target_groupChat />,
+          <KakaoChatRoom key="KakaoChatRoom1" chatType_group target_menu />,
+          <KakaoChatRoom
+            key="KakaoChatRoom2"
+            open_menu
+            chatType_group
+            target_leave_quietly
+          />,
+          <KakaoChatRoom
+            key="KakaoChatRoom3"
+            open_modal
+            chatType_group
+            target_leave_quietly
+          />,
+          <KakaoAppMain key="KakaoAppMain2" defaultTab_chat />,
         ][descriptionId];
       }
       break;

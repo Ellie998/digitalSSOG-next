@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceFile from "../../components/layout/ChoiceFile";
@@ -41,7 +43,7 @@ function Message({
     setPlusClicked(false);
   }, [open_option, open_optionInfo, open_modal, open_imgOption]);
 
-  function mouseOverHandler(event) {
+  function mouseOverHandler() {
     setTimeout(() => {
       setIsOvered(true);
     }, 1000);
@@ -64,10 +66,10 @@ function Message({
     setSendBtnClicked(false);
     setChoicedImgs([]);
   }
-  const [deleteOptionClicked, setDeleteOptionClicked] = useState(false);
+  // const [deleteOptionClicked, setDeleteOptionClicked] = useState(false);
 
   function deleteOptionHandler() {
-    setDeleteOptionClicked(true);
+    // setDeleteOptionClicked(true);
   }
   const gridContent = [
     {

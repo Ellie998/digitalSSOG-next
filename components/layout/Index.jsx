@@ -1,18 +1,20 @@
-import FunctionList from "../IndexFunctionList/FunctionList";
+"use client";
+import H1 from "stories/page/atoms/H1";
+import SubTitle from "stories/page/atoms/SubTitle";
+import FunctionList from "components/IndexFunctionList/FunctionList";
 
 import classes from "./Index.module.css";
 function Index() {
   return (
     <main>
       <section className={classes.layout}>
-        <h1 className="title">
+        <H1>
           안녕하세요 💁🏻‍♀️ <br />
           디지털쏙 페이지 입니다.
-        </h1>
-        <p className="subTitle ">
+        </H1>
+        <SubTitle>
           사용중인 스마트 기기로 무엇을 할 수 있는지 알고 계시나요?
-        </p>
-        {/* <div className=" text-left mx-auto w-fit mt-[30px] mb-20"> */}
+        </SubTitle>
 
         <ul className={`${classes.listWrap}`}>
           <li className={`${classes.postIt} ${classes.boxShadow}`}>

@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import TargetContent from "../../components/TargetContent";

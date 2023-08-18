@@ -15,7 +15,7 @@ const AppMainError = () => {
         btnColor="rgb(90, 162, 255)"
         textColor="white"
         content="다른 기능 보러가기"
-        onClick={(e) => {
+        onClick={() => {
           history.back();
         }}></Button>
     </NoScrollBar>

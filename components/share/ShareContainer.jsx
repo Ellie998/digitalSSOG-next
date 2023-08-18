@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, useState, useEffect } from "react";
 import {
   FacebookShareButton,
@@ -60,6 +61,7 @@ function ShareContainer() {
         </TwitterShareButton>
         <CopyToClipboard
           text={currentUrl}
+          // eslint-disable-next-line no-unused-vars
           onCopy={(result) => {
             setIsCopied(true);
             setTimeout(() => {

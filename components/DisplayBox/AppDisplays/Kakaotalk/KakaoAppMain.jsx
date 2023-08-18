@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import TargetContent from "../components/TargetContent";
@@ -10,9 +12,11 @@ import NoScrollBar from "../components/layout/NoScrollBar";
 import Icon from "../components/UI/Icon";
 
 function KakaoAppMain({
+  // eslint-disable-next-line react/prop-types
   defaultTab_friend,
   defaultTab_chat,
   defaultTab_openChat,
+  // eslint-disable-next-line react/prop-types
   defaultTab_shopping,
   defaultTab_ETC,
   target_chat,

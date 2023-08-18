@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import TargetContent from "../components/TargetContent";
 import StackedList_Profile from "../components/list/StackedList_Profile";
 
