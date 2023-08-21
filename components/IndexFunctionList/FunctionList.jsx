@@ -13,15 +13,6 @@ function FunctionList() {
   const [tabName, setTabName] = useState(searchParams.get("tab"));
   let temp = 0;
 
-  /**function for change query in home page */
-  function linkClickHandler(e) {
-    e.preventDefault();
-    const tabName = e.target.id.replace(" ", "-");
-    // const tabName = e.target.id.slice(3);
-    history.pushState("", "", `/?tab=${tabName}`);
-    setTabName(tabName);
-  }
-
   useEffect(() => {
     window.onpopstate = function () {
       const url = decodeURI(window.location);
@@ -66,7 +57,7 @@ function FunctionList() {
         </SubTitle>
         <div className={`${classes.postIt_note}`}>
           <MakeCategory
-            onLinkClick={linkClickHandler}
+            setTabName={setTabName}
             tabName={tabName}
             FunctionOrApp={"function"}></MakeCategory>
 

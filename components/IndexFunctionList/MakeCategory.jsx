@@ -1,7 +1,9 @@
-import Link from "next/link";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import classes from "./MakeCategory.module.css";
+import CategoryName from "stories/page/atoms/CategoryName";
 
-function MakeCategory({ FunctionOrApp, ListObjects, onLinkClick, tabName }) {
+function MakeCategory({ FunctionOrApp, ListObjects, setTabName, tabName }) {
   const categorys = [
     "🌱 새로운 기능",
     "🔥 인기있는 기능",
@@ -16,26 +18,17 @@ function MakeCategory({ FunctionOrApp, ListObjects, onLinkClick, tabName }) {
       <li>
         <p className="font-bold">카테고리 : </p>
       </li>
-      {categoryNames.map((categoryName, i) => {
-        return (
-          <li key={categoryName}>
-            <Link
-              scroll={false}
-              onClick={onLinkClick}
-              href={{ query: { tab: categoryName.replace(" ", "-") } }}
-              className={
-                tabName === categoryName.replace(" ", "-")
-                  ? classes.clicked
-                  : ""
-              }
-              id={categoryName.replace("%20", "-")}>
-              {categoryName !== categoryNames[categoryNames.length - 1]
-                ? `${icons[i]} ${categoryName} ,`
-                : `${icons[i]} ${categoryName}`}
-            </Link>
-          </li>
-        );
-      })}
+      {categoryNames.map((categoryName, i) => (
+        <CategoryName
+          key={categoryName}
+          name={categoryName.replace(" ", "-")}
+          setTabName={setTabName}
+          tabName={tabName}>
+          {categoryName !== categoryNames[categoryNames.length - 1]
+            ? `${icons[i]} ${categoryName} ,`
+            : `${icons[i]} ${categoryName}`}
+        </CategoryName>
+      ))}
     </ul>
   );
 }
