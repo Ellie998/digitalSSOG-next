@@ -6,37 +6,6 @@
   display: grid;
   grid-template-columns: 30px auto;
 }
-.postIt_note {
-  position: relative;
-  margin-top: 60px;
-  background: rgb(255, 255, 209);
-  box-shadow: 0 8px 8px rgba(23, 23, 23, 0.077);
-  overflow: hidden;
-  box-shadow: inset 0 -40px 40px rgba(0, 0, 0, 0.05),
-    inset 0 25px 10px rgba(0, 0, 0, 0.034);
-  line-height: 1.5rem;
-  transition: 0.5s;
-  max-width: 800px;
-}
-.postIt_note:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.124);
-}
-
-.postIt_note:before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: rgb(255, 255, 209);
-  box-shadow: -3px -2px 10px rgba(0, 0, 0, 0.196),
-    inset -15px -15px 15px rgba(0, 0, 0, 0.093);
-  right: -15px;
-  top: 0;
-  z-index: 2;
-  transform: skewX(25deg);
-}
 
 /* ------------------NOTE------------------- */
 .noteContent {
@@ -64,7 +33,8 @@
   height: 20px;
   background-color: rgb(255, 255, 255);
   border-radius: 100%;
-  box-shadow: inset 2px 4px 3px rgba(166, 166, 166, 0.187),
+  box-shadow:
+    inset 2px 4px 3px rgba(166, 166, 166, 0.187),
     0 0px 3px rgba(0, 0, 0, 0.333);
 }
 .note:hover {
@@ -75,11 +45,6 @@
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.333);
 }
 
-@media (max-width: 800px) {
-  .postIt_note_note {
-    width: 100%;
-  }
-}
 @media (max-width: 600px) {
   .layout {
     padding: 4rem 2rem 2rem 2rem;

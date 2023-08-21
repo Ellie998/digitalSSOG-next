@@ -1,26 +1,26 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import classes from "./MakeCategory.module.css";
+import styled from "@emotion/styled";
 import CategoryName from "stories/page/atoms/CategoryName";
 
-function MakeCategory({ FunctionOrApp, ListObjects, setTabName, tabName }) {
-  const categorys = [
-    "🌱 새로운 기능",
-    "🔥 인기있는 기능",
-    "📞 전화와 문자",
-    "❤️ sns",
-  ];
+const ListIndex = styled.p`
+  font-weight: bold;
+  padding: 0 0 10px 0;
+  display: inline-block;
+  margin-left: 0.5rem;
+  min-width: max-content;
+  transition: 0.1s;
+`;
+
+// eslint-disable-next-line react/prop-types
+const CategoryList = ({ setTabName, tabName }) => {
   const icons = ["🌱", "🔥", "📞", "❤️"];
   const categoryNames = ["새로운 기능", "인기있는 기능", "전화와 문자", "sns"];
 
   return (
-    <ul className={classes.layout}>
-      <li>
-        <p className="font-bold">카테고리 : </p>
-      </li>
+    <ul>
+      <ListIndex>카테고리 : </ListIndex>
       {categoryNames.map((categoryName, i) => (
         <CategoryName
-          key={categoryName}
+          key={i}
           name={categoryName.replace(" ", "-")}
           setTabName={setTabName}
           tabName={tabName}>
@@ -31,6 +31,6 @@ function MakeCategory({ FunctionOrApp, ListObjects, setTabName, tabName }) {
       ))}
     </ul>
   );
-}
+};
 
-export default MakeCategory;
+export default CategoryList;

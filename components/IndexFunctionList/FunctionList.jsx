@@ -1,11 +1,12 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import MakeCategory from "./MakeCategory";
-import MakeListInCategory from "./MakeListInCategory";
+
 import classes from "./FunctionList.module.css";
 import H2 from "stories/page/atoms/H2";
 import SubTitle from "stories/page/atoms/SubTitle";
+
+import IndexFunctionsPostit from "stories/page/organisms/IndexFunctionsPostit";
 
 function FunctionList() {
   const router = useRouter();
@@ -55,16 +56,7 @@ function FunctionList() {
         <SubTitle>
           카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다.
         </SubTitle>
-        <div className={`${classes.postIt_note}`}>
-          <MakeCategory
-            setTabName={setTabName}
-            tabName={tabName}
-            FunctionOrApp={"function"}></MakeCategory>
-
-          <MakeListInCategory
-            tabName={tabName}
-            FunctionOrApp={"function"}></MakeListInCategory>
-        </div>
+        <IndexFunctionsPostit tabName={tabName} setTabName={setTabName} />
       </div>
     </section>
   );

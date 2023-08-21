@@ -21,6 +21,7 @@ const Container = styled.li`
 
   padding: 0px 8px;
   max-height: 40px;
+
   font-family: "Cafe24Shiningstar";
   font-size: 1.5rem;
   font-weight: ${(props) => (props.isClicked ? "900" : "normal")};
