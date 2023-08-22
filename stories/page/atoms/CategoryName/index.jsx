@@ -19,12 +19,11 @@ const Container = styled.li`
   min-width: max-content;
   transition: 0.1s;
 
-  padding: 0px 8px;
   max-height: 40px;
 
   font-family: "Cafe24Shiningstar";
   font-size: 1.5rem;
-  font-weight: ${(props) => (props.isClicked ? "900" : "normal")};
+  font-weight: ${(props) => (props.isClicked ? "bold" : "normal")};
   position: ${(props) => (props.isClicked ? "relative" : "block")};
 
   &:hover {
@@ -51,7 +50,7 @@ const Container = styled.li`
       width: 0%;
     }
     100% {
-      width: 105%;
+      width: 95%;
     }
   }
 `;

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import Footer from "./Footer";
 import Header from "./Header";
 import classes from "./MyLayout.module.css";

@@ -9,7 +9,6 @@ const Container = styled.section`
   padding: 8rem 3rem;
 
   @media (max-width: 500px) {
-    max-width: 100%;
     padding: 8rem 0rem;
     min-width: 300px;
   }

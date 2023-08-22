@@ -11,7 +11,6 @@ const Container = styled.div`
     inset 0 25px 10px rgba(0, 0, 0, 0.034);
   line-height: 1.5rem;
   transition: 0.5s;
-  max-width: 800px;
 
   &:hover {
     transform: translateY(-10px);
@@ -33,22 +32,12 @@ const Container = styled.div`
     z-index: 2;
     transform: skewX(25deg);
   }
-  @media (max-width: 800px) {
-    width: 100%;
-  }
 `;
 const Title = styled.div`
   padding: 0 0 10px 0;
   font-weight: bold;
-  min-width: max-content;
   text-align: center;
-  display: inline-block;
-
-  width: 90%;
   margin: 80px auto 0 auto;
-  @media (max-width: 800px) {
-    width: 90%;
-  }
 `;
 const Content = styled.div`
   margin: 0 auto;
