@@ -19,5 +19,6 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ["../public", "../node_modules/bootstrap-icons/font"],
 };
 export default config;

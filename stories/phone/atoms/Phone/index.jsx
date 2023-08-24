@@ -6,7 +6,6 @@ const Container = styled.div`
   height: 400px;
   padding: 30px 14px 25px 11px;
   background-image: url("/assets/images/cellphone.png");
-
   background-size: contain;
   border-radius: 34px;
   display: grid;
