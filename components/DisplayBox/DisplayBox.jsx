@@ -1,16 +1,18 @@
-import AppHeader from "./sections/AppHeader";
-import AppMain from "./sections/AppMain";
-import AppNav from "./sections/AppNav";
+/* eslint-disable react/prop-types */
 
-import classes from "./DisplayBox.module.css";
+import AppMain from "./sections/AppMain";
+
+import Header from "stories/phone/organisms/Header";
+import Nav from "stories/phone/organisms/Nav";
+import Phone from "stories/phone/atoms/Phone";
 
 function DisplayBox({ children }) {
   return (
-    <div className={classes.DisplayBox}>
-      <AppHeader />
+    <Phone>
+      <Header />
       {!children ? <AppMain /> : children}
-      <AppNav />
-    </div>
+      <Nav />
+    </Phone>
   );
 }
 

@@ -38,11 +38,6 @@ const H1Container = styled.div`
   text-align: center;
   padding: 0.5rem 0;
 `;
-const FlexWrap = styled.div`
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-`;
 
 // eslint-disable-next-line react/prop-types
 const FunctionMain = ({ detailFunctionObject }) => {
@@ -74,7 +69,6 @@ const FunctionMain = ({ detailFunctionObject }) => {
         </IconTextLine>
 
         <DisplayBox></DisplayBox>
-        <FlexWrap></FlexWrap>
       </DisplayContainer>
     </Container>
   );

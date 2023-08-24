@@ -8,7 +8,7 @@ const IconContainer = styled.i((props) => ({
   margin: props.styles.margin ? props.styles.margin : "0 0 0 0" /* 8px */,
 }));
 
-export default function Icon({
+const Icon = ({
   id,
   name,
   styles = {
@@ -16,14 +16,15 @@ export default function Icon({
     color: "var(--grey-800)",
     margin: "0 0 0 0 ",
   },
-  className,
+
   onClick,
-}) {
+}) => {
   return (
     <IconContainer
       styles={styles}
       id={id}
       onClick={onClick}
-      className={`bi bi-${name}  ${className}`}></IconContainer>
+      className={`bi bi-${name}`}></IconContainer>
   );
-}
+};
+export default Icon;

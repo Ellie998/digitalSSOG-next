@@ -14,16 +14,10 @@ const FlexItem = styled.div`
 `;
 
 /* eslint-disable react/prop-types */
-export default function FlexContent({
-  className,
-  items,
-  styles = { width: "100%" },
-  children,
-  id,
-}) {
+const Flex = ({ items, styles = { width: "100%" }, children }) => {
   return (
     <>
-      <Container key={id} className={`${className}`} styles={styles}>
+      <Container styles={styles}>
         {items?.map((item, i) => (
           <FlexItem key={`flexItem${i}`}>{item}</FlexItem>
         ))}
@@ -31,4 +25,5 @@ export default function FlexContent({
       {children}
     </>
   );
-}
+};
+export default Flex;
