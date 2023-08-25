@@ -1,7 +1,12 @@
 // components/TargetContent.jsx
+import styled from "@emotion/styled";
 
 import { useContext } from "react";
 import UrlContext from "../../../page_context/UrlContext";
+
+const Container = styled.div`
+  ${(props) => (props.styles ? props.styles : null)}
+`;
 
 /**  make component border and tooltip
  *
@@ -23,7 +28,7 @@ const TargetContent = (prop) => {
   };
   const { setMyDescriptionId } = useContext(UrlContext);
   return (
-    <>
+    <Container styles={prop.style}>
       {!prop.isNextDescriptionLink && !prop.goBackDescription && (
         <div
           key={prop.id}
@@ -61,7 +66,7 @@ const TargetContent = (prop) => {
           {prop.children}
         </div>
       )}
-    </>
+    </Container>
   );
 };
 

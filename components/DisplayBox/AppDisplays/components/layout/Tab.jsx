@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import TargetContent from "../TargetContent";
 import classes from "./Tab.module.css";
 /**iconItems is object contain tabname, clickedContent, content
@@ -43,7 +44,7 @@ export default function Tab({
                 ? `text-${theme} ${classes[`${clickEvent}`]}`
                 : ""
             }`}
-            onClick={(e) => {
+            onClick={() => {
               setClickedTab(item);
             }}>
             {item}

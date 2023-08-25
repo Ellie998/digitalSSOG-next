@@ -1,7 +1,7 @@
-import Phone from ".";
+import PhoneBackground from ".";
 
 export default {
-  component: Phone,
+  component: PhoneBackground,
 };
 
 export const Primary = {

@@ -4,7 +4,7 @@ import Button from "../AppDisplays/components/UI/Button";
 
 import PowerSwitch from "../AppDisplays/components/UI/PowerSwitch";
 
-function AppMain_default({}) {
+function AppMain_default() {
   const { setMyAppName, setMyMethodId, setMyDescriptionId } =
     useContext(UrlContext);
   const [isClicked, setIsClicked] = useState(false);
