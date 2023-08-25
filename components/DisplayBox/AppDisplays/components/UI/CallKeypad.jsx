@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import classes from "./CallKeypad.module.css";
+
 import TargetContent from "../TargetContent";
 import Icon from "./Icon";
+import Keypad from "stories/phone/molecules/Keypad";
 
 export default function CallKeypad({ button1, button2 }) {
   const [clickedNum, changeNum] = useState("");
@@ -34,28 +36,8 @@ export default function CallKeypad({ button1, button2 }) {
   return (
     <div>
       <div className={`mt-5 h-16 font-500 text-lg`}>{clickedNum}</div>
-      <div className={`h-[136px]`} onClick={onchangeClickNum}>
-        <div className={classes.optionRow}>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-        </div>
-        <div className={classes.optionRow}>
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-        </div>
-        <div className={classes.optionRow}>
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-        </div>
-        <div className={classes.optionRow}>
-          <div>*</div>
-          <div>0</div>
-          <div>#</div>
-        </div>
-      </div>
+      <Keypad onClick={onchangeClickNum} />
+
       <div className={`h-[30px] my-[10px] flex justify-around`}>
         <TargetContent
           targetOption={button1.targetOption}
