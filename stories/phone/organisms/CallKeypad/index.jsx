@@ -2,9 +2,9 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 
-import TargetContent from "../TargetContent";
-import Icon from "./Icon";
 import Keypad from "stories/phone/molecules/Keypad";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 
 const ClickedNumContainer = styled.div`
   margin-top: 1.25rem /* 20px */;
@@ -20,7 +20,7 @@ const BtnsContainer = styled.div`
   justify-content: space-around;
 `;
 
-export default function CallKeypad({ button1, button2 }) {
+const CallKeypad = ({ button1, button2 }) => {
   const [clickedNum, changeNum] = useState("");
 
   function onchangeClickNum(event) {
@@ -49,14 +49,18 @@ export default function CallKeypad({ button1, button2 }) {
   }
 
   return (
-    <div>
+    <>
       <ClickedNumContainer>{clickedNum}</ClickedNumContainer>
       <Keypad onClick={onchangeClickNum} />
       <BtnsContainer>
         <TargetContent
           targetOption={button1.targetOption}
           isNextDescriptionLink={true}>
-          <Icon name="camera-video-fill"></Icon>
+          <Icon
+            style={{
+              padding: "0.5rem",
+            }}
+            name="camera-video-fill"></Icon>
         </TargetContent>
         <TargetContent
           targetOption={button2.targetOption}
@@ -75,6 +79,7 @@ export default function CallKeypad({ button1, button2 }) {
           name="arrow-left-short"
           onClick={onDeleteNum}></Icon>
       </BtnsContainer>
-    </div>
+    </>
   );
-}
+};
+export default CallKeypad;

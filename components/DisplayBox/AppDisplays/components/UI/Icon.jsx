@@ -3,25 +3,32 @@ import styled from "@emotion/styled";
 
 const IconContainer = styled.i((props) => ({
   cursor: "pointer",
-  fontSize: props.styles.fontSize ? props.styles.fontSize : "0.875rem",
-  color: props.styles.color ? props.styles.color : "var(--grey-800)",
-  margin: props.styles.margin ? props.styles.margin : "0 0 0 0" /* 8px */,
+  fontSize: props.style.fontSize ? props.style.fontSize : "0.875rem",
+  color: props.style.color ? props.style.color : "var(--grey-800)",
+  margin: props.style.margin ? props.style.margin : "0 0 0 0" /* 8px */,
+  padding: props.style.padding ? props.style.padding : null,
+  borderRadius: "9999px",
+  backgroundColor: props.style.backgroundColor
+    ? props.style.backgroundColor
+    : null,
 }));
 
 export default function Icon({
   id,
   name,
-  styles = {
+  style = {
     fontSize: "0.875rem",
     color: "var(--grey-800)",
     margin: "0 0 0 0 ",
+    padding: null,
+    backgroundColor: null,
   },
   className,
   onClick,
 }) {
   return (
     <IconContainer
-      styles={styles}
+      style={style}
       id={id}
       onClick={onClick}
       className={`bi bi-${name}  ${className}`}></IconContainer>

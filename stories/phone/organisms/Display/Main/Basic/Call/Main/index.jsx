@@ -1,5 +1,5 @@
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import CallKeypad from "components/DisplayBox/AppDisplays/components/UI/CallKeypad";
+
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 import AppTitle_center from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
@@ -11,6 +11,7 @@ import StackedList_Profile from "components/DisplayBox/AppDisplays/components/li
 import { useState } from "react";
 import CallTab from "stories/phone/organisms/CallTab";
 import Phone from "stories/phone/molecules/Phone";
+import CallKeypad from "stories/phone/organisms/CallKeypad";
 
 // eslint-disable-next-line react/prop-types
 const Main = ({ targetTab, target_videoCall, target_Call }) => {
