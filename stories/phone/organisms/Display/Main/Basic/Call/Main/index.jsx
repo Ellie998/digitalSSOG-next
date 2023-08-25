@@ -9,7 +9,7 @@ import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOp
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import { useState } from "react";
-import Tab from "stories/phone/atoms/Tab";
+import CallTab from "stories/phone/organisms/CallTab";
 import Phone from "stories/phone/molecules/Phone";
 
 // eslint-disable-next-line react/prop-types
@@ -307,13 +307,10 @@ const Main = ({ targetTab, target_videoCall, target_Call }) => {
           </>
         )}
       </NoScrollBar>
-      <Tab
-        items={[{ id: "키패드" }, { id: "최근기록" }, { id: "연락처" }]}
+      <CallTab
+        setClickedTapName={setClickedTapName}
         targetTab={targetTab}
-        clickedTab={clickedTapName}
-        setClickedTab={setClickedTapName}
-        clickedColor="rgb(22, 163, 74)"
-        clickEvent="underBar"
+        clickedTapName={clickedTapName}
       />
     </Phone>
   );
