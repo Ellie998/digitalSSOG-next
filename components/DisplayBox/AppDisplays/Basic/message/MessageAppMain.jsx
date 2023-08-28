@@ -2,15 +2,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-import TargetContent from "../../components/TargetContent";
-import StackedList_Profile from "../../components/list/StackedList_Profile";
-import AppHeader from "../../components/layout/AppHeader";
-import Icon from "../../components/UI/Icon";
-import AppTitle_center from "../../components/layout/AppTitle_center";
-import Button from "../../components/UI/Button";
-import NoScrollBar from "../../components/layout/NoScrollBar";
-import BlurModal from "../../components/UI/BlurModal";
-import FlexContent from "../../components/list/FlexContent";
+import { NoScrollBar } from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import { AppTitle_center } from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
+import { TargetContent } from "components/DisplayBox/AppDisplays/components/TargetContent";
+import { Button } from "components/DisplayBox/AppDisplays/components/UI/Button";
+import { AppHeader } from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import { StackedList_Profile } from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import BlurModal from "components/DisplayBox/AppDisplays/components/UI/BlurModal";
+import { FlexContent } from "components/DisplayBox/AppDisplays/components/list/FlexContent";
+import { Icon } from "stories/phone/atoms/Icon";
 
 function MessageAppMain({
   target_sendMessage,

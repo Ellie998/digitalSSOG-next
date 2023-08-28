@@ -3,24 +3,24 @@
 import { useState } from "react";
 
 import classes from "./KakaoChatRoom.module.css";
-import TargetContent from "../components/TargetContent";
-import AppHeader from "../components/layout/AppHeader";
-import BackBtn from "../components/UI/BackBtn";
-import ChatList from "../components/UI/ChatList";
-import StackedList_Profile from "../components/list/StackedList_Profile";
-import FlexContent from "../components/list/FlexContent";
-import MessageSendLine from "../components/UI/MessageSendLine";
-import Icon from "../components/UI/Icon";
-import NoScrollBar from "../components/layout/NoScrollBar";
-import Grid_4x4 from "../components/layout/Grid_4x4";
-import StackedListWrap from "../components/list/StackedListWrap";
-import Modal_contents from "../components/layout/Modal_contents";
-import Checkbox from "../components/UI/Checkbox";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
+import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
+import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
+import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
+import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
+import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 
-import DownUp from "../components/UI/DownUp";
-import Button from "../components/UI/Button";
-import Alert from "../components/UI/Alert";
-import GetDate from "../components/GetDate";
+import DownUp from "components/DisplayBox/AppDisplays/components/UI/DownUp";
+import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
+import Alert from "components/DisplayBox/AppDisplays/components/UI/Alert";
+import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
 
 function KakaoChatRoom({
   inputLocked,

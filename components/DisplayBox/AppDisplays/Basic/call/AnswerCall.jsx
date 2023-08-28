@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import TargetContent from "../../components/TargetContent";
 import Icon from "../../components/UI/Icon";
 

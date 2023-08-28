@@ -1,15 +1,13 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-
-import TargetContent from "../components/TargetContent";
-
-import StackedList_Profile from "../components/list/StackedList_Profile";
-import StackedListWrap from "../components/list/StackedListWrap";
-import AppHeader from "../components/layout/AppHeader";
-import Tab from "../components/layout/Tab";
-import NoScrollBar from "../components/layout/NoScrollBar";
-import Icon from "../components/UI/Icon";
+import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import Icon from "stories/phone/atoms/Icon";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import Tab from "stories/phone/atoms/Tab";
 
 function KakaoAppMain({
   // eslint-disable-next-line react/prop-types

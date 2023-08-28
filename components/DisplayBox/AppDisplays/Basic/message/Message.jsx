@@ -2,20 +2,20 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import classes from "./Message.module.css";
-import ChoiceFile from "../../components/layout/ChoiceFile";
+import ChoiceFile from "components/DisplayBox/AppDisplays/components/layout/ChoiceFile";
 
-import TargetContent from "../../components/TargetContent";
-import NoScrollBar from "../../components/layout/NoScrollBar";
-import StackedList_Profile from "../../components/list/StackedList_Profile";
-import Icon from "../../components/UI/Icon";
-import ChatList from "../../components/UI/ChatList";
-import MessageSendLine from "../../components/UI/MessageSendLine";
-import Grid_4x4 from "../../components/layout/Grid_4x4";
-import ChoicedFile from "../../components/UI/ChoicedFile";
-import Modal_contents from "../../components/layout/Modal_contents";
-import Input from "../../components/UI/Input";
-import Checkbox from "../../components/UI/Checkbox";
-import GetDate from "../../components/GetDate";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
+import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
+import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
+import ChoicedFile from "components/DisplayBox/AppDisplays/components/UI/ChoicedFile";
+import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
+import Input from "components/DisplayBox/AppDisplays/components/UI/Input";
+import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
+import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
 
 function Message({
   open_option,

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 
-import DisplayBox from "components/DisplayBox/DisplayBox";
+// import DisplayBox from "components/DisplayBox/DisplayBox";
+import DisplayBox from "stories/phone/templates/DisplayBox";
 import IconTextLine from "stories/page/molecules/IconTextLine";
 import H1 from "stories/page/atoms/H1";
 import FunctionDescriptionBox from "stories/page/templates/FunctionDescriptionBox";

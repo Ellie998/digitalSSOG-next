@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import TargetContent from "../../components/TargetContent";
-import StackedList_Profile from "../../components/list/StackedList_Profile";
-import NoScrollBar from "../../components/layout/NoScrollBar";
-import AppHeader from "../../components/layout/AppHeader";
-import StackedListWrap from "../../components/list/StackedListWrap";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 
 function SelectPerson({ target_person1, target_person2 }) {
   return (

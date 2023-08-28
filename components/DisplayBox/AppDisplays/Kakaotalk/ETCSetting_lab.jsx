@@ -3,15 +3,15 @@
 import { useState } from "react";
 
 import classes from "./ETCSetting.module.css";
-import TargetContent from "../components/TargetContent";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 
-import Switch from "../components/UI/Switch";
-import NoScrollBar from "../components/layout/NoScrollBar";
-import AppHeader from "../components/layout/AppHeader";
-import BackBtn from "../components/UI/BackBtn";
+import Switch from "components/DisplayBox/AppDisplays/components/UI/Switch";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 
-import StackedList from "../components/list/StackedList";
-import StackedListWrap from "../components/list/StackedListWrap";
+import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
+import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 
 function ETCSetting_lab({ target_groubChatLeave_quietly }) {
   const [checkedContent, setCheckedContent] = useState("");

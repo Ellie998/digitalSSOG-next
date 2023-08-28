@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import classes from "./SelectFile.module.css";
-import TargetContent from "../../components/TargetContent";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 
 function SelectFile({ target_sendImg, target_sendAudio }) {
   const [isFolderClicked, setFolderClicked] = useState(false);

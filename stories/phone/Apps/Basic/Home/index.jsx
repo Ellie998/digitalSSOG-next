@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const Home = ({ kakaotalk, call, message }) => {
+const Home = ({ appName_kakaotalk, appName_call, appName_message }) => {
   return (
     <Phone>
       <Container>
@@ -23,14 +23,16 @@ const Home = ({ kakaotalk, call, message }) => {
         {/*  */}
         <AppLine />
         <AppLine />
-        <AppLine appList={[{ name: "chat-fill", targetOption: kakaotalk }]} />
+        <AppLine
+          appList={[{ name: "chat-fill", targetOption: appName_kakaotalk }]}
+        />
         <AppLine
           appList={[
-            { name: "telephone", targetOption: call },
+            { name: "telephone", targetOption: appName_call },
             { name: "camera", targetOption: false },
             { name: "clock", targetOption: false },
             { name: "browser-chrome", targetOption: false },
-            { name: "chat-dots", targetOption: message },
+            { name: "chat-dots", targetOption: appName_message },
           ]}
         />
       </Container>

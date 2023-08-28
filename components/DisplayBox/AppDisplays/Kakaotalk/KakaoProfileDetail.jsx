@@ -1,6 +1,5 @@
 import classes from "./KakaoProfileDetail.module.css";
-
-import TargetContent from "../components/TargetContent";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 
 function KakaoProfileDetail() {
   return (

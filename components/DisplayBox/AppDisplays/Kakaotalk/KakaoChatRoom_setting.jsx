@@ -3,16 +3,16 @@
 import { useState } from "react";
 import classes from "./KakaoChatRoom_setting.module.css";
 
-import TargetContent from "../components/TargetContent";
-import AppHeader from "../components/layout/AppHeader";
-import StackedListWrap from "../components/list/StackedListWrap";
-import StackedList from "../components/list/StackedList";
-import NoScrollBar from "../components/layout/NoScrollBar";
-import Modal_contents from "../components/layout/Modal_contents";
-import BackBtn from "../components/UI/BackBtn";
-import Switch from "../components/UI/Switch";
-import Button from "../components/UI/Button";
-import Checkbox from "../components/UI/Checkbox";
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
+import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
+import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import Switch from "components/DisplayBox/AppDisplays/components/UI/Switch";
+import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
+import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 
 function KakaoChatRoom_setting({
   target_groubChatLeave_rejectInvitation,

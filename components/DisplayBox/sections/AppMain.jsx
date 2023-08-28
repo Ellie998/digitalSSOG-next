@@ -2,7 +2,8 @@ import MainApps from "displayBox/sections/MainApps";
 import AppMainError from "displayBox/sections/AppMainError";
 
 // call
-import CallAppMain from "displayBox/AppDisplays/Basic/call/CallAppMain"; //
+// import CallAppMain from "displayBox/AppDisplays/Basic/call/CallAppMain"; //
+import { default as CallAppMain } from "stories";
 import AnswerCall from "displayBox/AppDisplays/Basic/call/AnswerCall";
 import CallConnected from "displayBox/AppDisplays/Basic/call/CallConnected";
 import VideoCallConnected from "displayBox/AppDisplays/Basic/call/VideoCallConnected";

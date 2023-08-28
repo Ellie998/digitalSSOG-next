@@ -1,6 +1,7 @@
 import classes from "./UnreadMessage.module.css";
-import TargetContent from "../../components/TargetContent";
-import StackedList_Profile from "../../components/list/StackedList_Profile";
+
+import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 
 function UnreadMessage() {
   return (

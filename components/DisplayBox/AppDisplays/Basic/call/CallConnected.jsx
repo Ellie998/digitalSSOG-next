@@ -1,10 +1,13 @@
-import AppHeader from "../../components/layout/AppHeader";
-import AppTitle_center from "../../components/layout/AppTitle_center";
+/* eslint-disable react/prop-types */
+
+import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import classes from "./CallConnected.module.css";
+import { AppTitle_center } from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
+import { Phone } from "stories/phone/molecules/Phone";
 
 const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
   return (
-    <>
+    <Phone>
       {appName_basic && (
         <section className={`text-center w-full`}>
           <AppHeader rightItem={["..."]} className={`text-lg font-bold`} />
@@ -96,7 +99,7 @@ const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
           </div>
         </section>
       )}
-    </>
+    </Phone>
   );
 };
 
