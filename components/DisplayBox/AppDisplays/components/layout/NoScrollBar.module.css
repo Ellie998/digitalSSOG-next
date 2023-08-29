@@ -1,8 +1,0 @@
-.layout {
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.layout::-webkit-scrollbar {
-  display: none;
-}

@@ -5,7 +5,9 @@
       "components/*": ["./components/*"],
       "displayBox/*": ["./components/DisplayBox/*"],
       "appDisplays/*": ["./components/DisplayBox/AppDisplays/*"],
-      "stories": ["./stories/*"]
+      "stories": ["./stories/*"],
+      "phone": ["./stories/phone/*"],
+      "page": ["./stories/page/*"]
     }
   },
   // "includes": ["components/**/*"],

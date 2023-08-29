@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import AppTitle_center from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
-import Icon from "stories/phone/atoms/Icon";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import Icon from "stories/phone/atoms/Icon";
+import Top from "stories/phone/atoms/Top";
+import FlexInFlex from "stories/phone/atoms/FlexInFlex";
+
+import StackedListWrap from "stories/phone/molecules/StackedListWrap";
+import ContactLine from "stories/phone/Apps/Basic/molecules/ContactLine";
 
 // eslint-disable-next-line react/prop-types
 const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
@@ -59,26 +61,24 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     //진수
     {
       id: `contactList1`,
-      className: "h-8",
+      style: { height: "2rem" },
       profile: {
-        className: "bg-pink-300 ",
-        content: <i className="text-white bi bi-person-fill"></i>,
+        style: { backgroundColor: "rgb(249 168 212)", color: "white" },
+        content: "person-fill",
       },
       title: {
-        className: "",
         content: "진수",
       },
     },
     // 즐겨찾는 연락처 추가
     {
       id: `contactList2`,
-      className: "h-8",
+      style: { height: "2rem" },
       profile: {
-        className: "bg-yellow-200",
-        content: <i className="text-white bi bi-star"></i>,
+        style: { backgroundColor: "rgb(254 240 138)", color: "white" },
+        name: "star",
       },
       title: {
-        className: "",
         content: "즐겨찾는 연락처 추가",
       },
     },
@@ -86,13 +86,12 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     //그룹
     {
       id: `contactList3`,
-      className: "h-8",
+      style: { height: "2rem" },
       profile: {
-        className: "bg-gray-200",
-        content: <i className="text-white bi bi-people-fill"></i>,
+        style: { color: "white", backgroundColor: "rgb(229 231 235)" },
+        name: "people-fill",
       },
       title: {
-        className: "",
         content: "그룹",
       },
     },
@@ -100,13 +99,10 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     // ㅇ
     {
       id: `contactList4`,
-      className: "h-3",
-      profile: {
-        className: "",
-        content: "",
-      },
+      style: { height: "12px" },
+      profile: { name: "" },
       title: {
-        className: "text-gray-400 text-xs",
+        style: { fontSize: "0.75rem", color: "rgb(156 163 175)" },
         content: "ㅇ",
       },
     },
@@ -118,13 +114,16 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
         showListOption1();
         scrollElement.scroll(0, 315);
       },
-      className: "h-8",
+      style: { height: "2rem" },
       profile: {
-        className: "bg-pink-200",
-        content: <i className="iconWrap text-white bi bi-person-fill"></i>,
+        style: {
+          color: "white",
+          backgroundColor: "rgb(251 207 232)",
+          padding: "4px 4px",
+        },
+        name: "person-fill",
       },
       title: {
-        className: "",
         content: "영희",
       },
       children: isListClicked1 && (
@@ -137,13 +136,10 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     // ㅊ
     {
       id: `contactList6`,
-      className: "h-3",
-      profile: {
-        className: "",
-        content: "",
-      },
+      style: { height: "12px" },
+      profile: { name: "" },
       title: {
-        className: "text-gray-400 text-xs",
+        style: { color: "rgb(156 163 175)", fontSize: "0.75rem" },
         content: "ㅊ",
       },
     },
@@ -154,13 +150,12 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
         showListOption2();
         scrollElement.scroll(0, 340);
       },
-      className: "h-8",
+      style: { height: "2rem" },
       profile: {
-        className: "bg-orange-200",
-        content: <i className="text-white bi bi-person-fill"></i>,
+        style: { color: "white", backgroundColor: "rgb(254 215 170)" },
+        name: "person-fill",
       },
       title: {
-        className: "",
         content: "철수",
       },
       children: isListClicked2 && (
@@ -172,40 +167,35 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
   ];
   return (
     <>
-      <AppTitle_center
+      <Top
         title={{ content: "전화" }}
         subTitle={{
           content: "전화번호가 저장된 연락처 2개",
-        }}></AppTitle_center>
-      <FlexContent
-        items={[
-          // eslint-disable-next-line react/jsx-key
-          <div />,
-          // eslint-disable-next-line react/jsx-key
-          <FlexContent
-            items={[
-              // eslint-disable-next-line react/jsx-key
-              <Icon name="plus" className={`text-sm`} />,
-              // eslint-disable-next-line react/jsx-key
-              <Icon name="search" className={`text-sm`} />,
-              // eslint-disable-next-line react/jsx-key
-              <Icon name="three-dots-vertical" className={`text-sm`} />,
-            ]}
+        }}
+      />
+      <FlexInFlex
+        rightItem={[
+          <Icon key="plus" name="plus" style={{ fontSize: "0.875rem" }} />,
+          <Icon key="search" name="search" style={{ fontSize: "0.875rem" }} />,
+          <Icon
+            key="dots"
+            name="three-dots-vertical"
+            style={{ fontSize: "0.875rem" }}
           />,
         ]}
       />
       <StackedListWrap
-        listTitle={{ content: "내 프로필" }}
-        className={`border-none`}>
+        style={{ border: "none" }}
+        listTitle={{ content: "내 프로필" }}>
         {contactListProps.map((prop) => (
-          <StackedList_Profile
+          <ContactLine
             key={prop.id}
             onClick={prop.onClick}
-            className={prop.className}
+            style={prop.style}
             profile={prop.profile}
             title={prop.title}>
             {prop.children}
-          </StackedList_Profile>
+          </ContactLine>
         ))}
       </StackedListWrap>
     </>

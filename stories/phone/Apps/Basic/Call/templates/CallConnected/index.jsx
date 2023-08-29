@@ -153,6 +153,7 @@ const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
+                    hover: { backgroundColor: "rgb(207, 207, 207)" },
                   },
                 }}
                 description={{ content: content.description }}

@@ -17,8 +17,8 @@ export const Target최근기록Tab = {
   args: { targetTab: "최근기록" },
 };
 export const target_videoCall = {
-  args: { target_videoCall: true },
+  args: { target_videoCall: true, targetTab: "키패드" },
 };
 export const target_Call = {
-  args: { target_Call: true },
+  args: { target_Call: true, targetTab: "키패드" },
 };

@@ -14,10 +14,11 @@ const ClickedNumContainer = styled.div`
 `;
 const BtnsContainer = styled.div`
   height: 30px;
-  margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  text-align: center;
 `;
 
 const CallKeypad = ({ button1, button2 }) => {
@@ -58,7 +59,11 @@ const CallKeypad = ({ button1, button2 }) => {
           isNextDescriptionLink={true}>
           <Icon
             style={{
-              padding: "0.5rem",
+              fontSize: "1rem",
+              padding: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             name="camera-video-fill"></Icon>
         </TargetContent>
@@ -68,14 +73,23 @@ const CallKeypad = ({ button1, button2 }) => {
           <Icon
             style={{
               color: "rgb(255 255 255)",
-              padding: "0.5rem",
               backgroundColor: "#29b840",
+              padding: "1rem",
+              fontSize: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             name="telephone-fill"></Icon>
         </TargetContent>
-
         <Icon
-          style={{ fontSize: "1.25rem" }}
+          style={{
+            fontSize: "1.25rem",
+            padding: "1rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
           name="arrow-left-short"
           onClick={onDeleteNum}></Icon>
       </BtnsContainer>

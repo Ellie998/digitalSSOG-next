@@ -12,7 +12,7 @@ const Main = ({ targetTab, target_videoCall, target_Call }) => {
 
   return (
     <Phone>
-      <NoScrollBar height="267px" className="text-center">
+      <NoScrollBar height="267px" style={{ textAlign: "center" }}>
         {clickedTapName === "키패드" && (
           <CallKeypad
             button1={{

@@ -1,3 +1,13 @@
+/* eslint-disable react/prop-types */
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: 170px;
+  cursor: pointer;
+`;
+
 export default function StackedList_Profile({
   className,
   profile,
@@ -11,10 +21,7 @@ export default function StackedList_Profile({
 }) {
   return (
     <>
-      <div
-        key={id}
-        className={`grid grid-cols-6 w-50 cursor-pointer ${className}`}
-        onClick={onClick}>
+      <Container key={id} className={`${className}`} onClick={onClick}>
         {/* profile */}
         <div
           className={`col-start-1 col-end-2 row-start-1 row-end-3 self-center profileIconWrap ${profile.className}`}>
@@ -55,7 +62,7 @@ export default function StackedList_Profile({
             {subInfo.content}
           </div>
         )}
-      </div>
+      </Container>
       {children}
     </>
   );

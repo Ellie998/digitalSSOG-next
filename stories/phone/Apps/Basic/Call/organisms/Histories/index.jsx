@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import AppTitle_center from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
 import Icon from "stories/phone/atoms/Icon";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import ProfileIcon from "stories/phone/atoms/ProfileIcon";
+
+import Top from "stories/phone/atoms/Top";
+import FlexInFlex from "stories/phone/atoms/FlexInFlex";
+import RecentHistoryLine from "stories/phone/Apps/Basic/molecules/RecentHistoryLine";
+import StackedListWrap from "stories/phone/molecules/StackedListWrap";
 
 // eslint-disable-next-line react/prop-types
 const Histories = ({ targetTab, clickedTapName, target_Call }) => {
@@ -26,7 +27,6 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
   };
   const optionlistContent = (
     <FlexContent
-      className=""
       items={[
         <TargetContent
           key="telephone"
@@ -56,17 +56,12 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
     {
       id: `callHistoryList1`,
       onClickFunction: showListOption1,
-      className1: "",
-      content1: (
-        <ProfileIcon
-          name="telephone-outbound-fill"
-          style={{ color: "rgb(21 128 61" }}
-        />
-      ),
-      className2: "",
-      content2: "영희",
-      className3: "",
-      content3: "오후 7:38",
+      profile: {
+        name: "telephone-outbound-fill",
+        style: { color: "rgb(21 128 61)" },
+      },
+      title: { content: "영희" },
+      info: { content: "오후 7:38" },
       children: isListClicked1 && (
         <ListOption
           title={{ content: "휴대전화 010-1234-0000" }}
@@ -78,14 +73,13 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
     {
       id: `callHistoryList2`,
       onClickFunction: showListOption2,
-      className1: "",
-      content1: (
-        <i className="profileIconWrap text-green-700 bi bi-telephone-outbound-fill"></i>
-      ),
-      className2: "",
-      content2: "철수",
-      className3: "",
-      content3: "오후 5:20",
+
+      profile: {
+        name: "telephone-outbound-fill",
+        style: { color: "rgb(21 128 61)" },
+      },
+      title: { content: "철수" },
+      info: { content: "오후 5:20" },
       children: isListClicked2 && (
         <ListOption
           title={{ content: "휴대전화 010-1234-0000" }}
@@ -97,47 +91,37 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
   ];
   return (
     <>
-      <AppTitle_center title={{ content: "전화" }}></AppTitle_center>
-      <FlexContent
-        items={[
-          // eslint-disable-next-line react/jsx-key
-          <div />,
-          // eslint-disable-next-line react/jsx-key
-          <FlexContent
-            items={[
-              <Icon key="1" name="filter" className={`text-sm`} />,
-              <Icon key="2" name="search" className={`text-sm `} />,
-              <Icon
-                key="3"
-                name="three-dots-vertical"
-                className={`text-sm `}
-              />,
-            ]}
+      <Top title={{ content: "전화" }} />
+      <FlexInFlex
+        rightItem={[
+          <Icon key="1" name="filter" style={{ fontSize: "0.875rem" }} />,
+          <Icon key="2" name="search" style={{ fontSize: "0.875rem" }} />,
+          <Icon
+            key="3"
+            name="three-dots-vertical"
+            style={{ fontSize: "0.875rem" }}
           />,
         ]}
       />
       <StackedListWrap
-        listTitle={{ content: "6월 17일" }}
-        className={`border-none`}>
+        style={{ border: "none" }}
+        listTitle={{ content: "6월 17일" }}>
         {callHistoryListProps.map((prop) => (
-          <StackedList_Profile
+          <RecentHistoryLine
             key={prop.id}
-            className="h-8"
-            onClick={prop.onClickFunction ? prop.onClickFunction : null}
             profile={{
-              className: `${prop.className1}`,
-              content: prop.content1,
+              name: prop.profile.name,
+              style: prop.profile.style,
             }}
             title={{
-              className: prop.className2,
-              content: prop.content2,
+              content: prop.title.content,
             }}
             info={{
-              className: `${prop.className3} text-end`,
-              content: prop.content3,
-            }}>
+              content: prop.info.content,
+            }}
+            onClick={prop.onClickFunction ? prop.onClickFunction : null}>
             {prop.children ? prop.children : null}
-          </StackedList_Profile>
+          </RecentHistoryLine>
         ))}
       </StackedListWrap>
     </>

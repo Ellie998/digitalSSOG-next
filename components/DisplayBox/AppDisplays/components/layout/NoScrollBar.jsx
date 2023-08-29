@@ -1,13 +1,32 @@
-import classes from "./NoScrollBar.module.css";
+/* eslint-disable react/prop-types */
+import styled from "@emotion/styled";
 
-export default function NoScrollBar({ className, children, height, onClick }) {
+const Container = styled.div`
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  height: ${(props) => (props.height ? props.height : "auto")};
+  ${(props) => (props.style ? props.style : null)};
+`;
+
+export default function NoScrollBar({
+  className,
+  children,
+  height,
+  onClick,
+  style,
+}) {
   return (
-    <div
+    <Container
       onClick={onClick}
-      id="component_NoScrollBar"
-      className={`${classes.layout} ${className}`}
-      style={{ height: height ? height : "auto" }}>
+      id="NoScrollBar"
+      className={` ${className}`}
+      height={height}
+      style={style}>
       {children}
-    </div>
+    </Container>
   );
 }

@@ -5,7 +5,6 @@ const Container = styled.div`
   justify-content: space-between;
   vertical-align: middle;
   align-items: center;
-  width: ${(props) => (props.style.width ? props.style.width : "100%")};
   ${(props) => props.style}
 `;
 const FlexContainer = styled.div`
