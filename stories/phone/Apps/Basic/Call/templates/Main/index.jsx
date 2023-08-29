@@ -1,10 +1,11 @@
 import { useState } from "react";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+
 import CallTab from "stories/phone/Apps/Basic/Call/organisms/CallTab";
 import CallKeypad from "stories/phone/Apps/Basic/Call/organisms/CallKeypad";
 import Phone from "stories/phone/molecules/Phone";
 import Histories from "stories/phone/Apps/Basic/Call/organisms/Histories";
 import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar";
 
 // eslint-disable-next-line react/prop-types
 const Main = ({ targetTab, target_videoCall, target_Call }) => {
@@ -12,7 +13,7 @@ const Main = ({ targetTab, target_videoCall, target_Call }) => {
 
   return (
     <Phone>
-      <NoScrollBar height="267px" style={{ textAlign: "center" }}>
+      <NoScrollbar height="267px" style={{ textAlign: "center" }}>
         {clickedTapName === "키패드" && (
           <CallKeypad
             button1={{
@@ -30,7 +31,7 @@ const Main = ({ targetTab, target_videoCall, target_Call }) => {
           />
         )}
         {clickedTapName === "연락처" && <Contacts />}
-      </NoScrollBar>
+      </NoScrollbar>
       <CallTab
         setClickedTapName={setClickedTapName}
         targetTab={targetTab}
