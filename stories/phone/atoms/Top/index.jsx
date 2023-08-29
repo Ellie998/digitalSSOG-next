@@ -2,7 +2,8 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
-  margin-top: 1.25rem /* 20px */;
+  margin-top: ${(props) =>
+    props.style.marginTop ? props.style.marginTop : "1.25rem"};
   text-align: center;
   vertical-align: middle;
   ${(props) => (props.style ? props.style : null)}
@@ -22,7 +23,13 @@ const SubTitle = styled.div`
   ${(props) => (props.style ? props.style : null)}
 `;
 
-const Top = ({ title, subTitle, childrenTop, children, style }) => {
+const Top = ({
+  title,
+  subTitle,
+  childrenTop,
+  children,
+  style = { marginTop: "1.25rem" },
+}) => {
   return (
     <Container style={style}>
       {childrenTop}
