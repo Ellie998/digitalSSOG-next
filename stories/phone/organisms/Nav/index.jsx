@@ -19,11 +19,12 @@ function Nav() {
   }
   return (
     <Flex
-      styles={{
+      style={{
         width: "170px",
         zIndex: "1",
         fontSize: "0.7rem",
         gridRow: "5/6",
+        padding: "0 10px",
       }}
       items={[
         <Icon key="list" name="list" />,

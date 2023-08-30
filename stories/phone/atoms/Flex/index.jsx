@@ -5,8 +5,8 @@ const Container = styled.div`
   justify-content: space-between;
   vertical-align: middle;
   align-items: center;
-  width: ${(props) => (props.styles.width ? props.styles.width : "100%")};
-  ${(props) => props.styles}
+  width: ${(props) => (props.style.width ? props.style.width : "100%")};
+  ${(props) => props.style}
 `;
 
 const FlexItem = styled.div`
@@ -14,10 +14,10 @@ const FlexItem = styled.div`
 `;
 
 /* eslint-disable react/prop-types */
-const Flex = ({ items, styles = { width: "100%" }, children }) => {
+const Flex = ({ items, style = { width: "100%" }, children }) => {
   return (
     <>
-      <Container styles={styles}>
+      <Container style={style}>
         {items?.map((item, i) => (
           <FlexItem key={`flexItem${i}`}>{item}</FlexItem>
         ))}

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
   vertical-align: middle;
   align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 57px);
   ${(props) => props.style}
 `;
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  margin: 0 auto;
 `;
 
 const FlexItem = styled.div`

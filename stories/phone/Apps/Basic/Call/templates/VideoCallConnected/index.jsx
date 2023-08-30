@@ -1,61 +1,134 @@
+import styled from "@emotion/styled";
+import { useState } from "react";
+
 import Phone from "stories/phone/molecules/Phone";
-import classes from "./VideoCallConnected.module.css";
+import FlexInFlex from "stories/phone/atoms/FlexInFlex";
+import Top from "stories/phone/atoms/Top";
+import Icon from "stories/phone/atoms/Icon";
+import Flex from "stories/phone/atoms/Flex";
+import IconBottom from "stories/phone/molecules/IconBottom";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: repeat(7, 42px);
+  text-align: center;
+`;
+
+const IconContainer = styled.div`
+  background-color: rgba(196, 196, 196, 0.428);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border-radius: 90%;
+  ${(props) => (props.style ? props.style : null)}
+`;
+
+const OptionContainer = styled.div`
+  grid-row: 7/8;
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  column-gap: 2px;
+  background-color: rgba(196, 196, 196, 0.428);
+  border-radius: 10px;
+  margin: 0 5px 0 5px;
+  font-size: 0.5rem;
+`;
 
 const VideoCallConnected = () => {
+  const [time, setTime] = useState(0);
+
+  setTimeout(() => {
+    setTime(time + 1);
+  }, 1000);
   return (
     <Phone>
-      <section className={classes.layout}>
-        <div className={classes.headerNav}>
-          <div>
-            <i className="bi bi-camera-video-fill"></i>
-            00:12
-          </div>
-          <div>
-            <i className="bi bi-telephone-fill"></i>
-          </div>
-          <div>
-            <i className="bi bi-three-dots-vertical"></i>
-          </div>
-        </div>
-        <div className={classes.phoneNum}>
-          <div>010-0000-0000</div>
-        </div>
-        <div className={classes.main_center}>☺</div>
-        <div className={classes["main_subOptionLayout"]}>
-          <div className={classes["main_subOption"]}>
-            {/* <i className="bi bi-lock"></i> */}
-            <i className="bi bi-unlock"></i>
-          </div>
-          <div className={classes["main_subOption"]}>
-            AR 효과
-            <div>
-              <i className="bi bi-chevron-up"></i>
-            </div>
-          </div>
-          <div className={classes["main_subOption"]}>
-            <i className="bi bi-arrows-angle-contract"></i>
-          </div>
-        </div>
-        <div className={classes.main_optionBox}>
-          <div className={classes["main_optionIcon--selected"]}>
-            <i className="bi bi-camera-video-fill"></i> <p>카메라</p>
-            {/* <i className="bi bi-camera-video-off"></i> */}
-          </div>
-          <div>
-            <i className="bi bi-arrow-repeat"></i> <p>전환</p>
-          </div>
+      <Container>
+        <FlexInFlex
+          centerItem={[
+            <div style={{ fontSize: "0.75rem" }} key="center">
+              <Icon name="camera-video-fill" style={{ marginRight: "4px" }} />
+              {time > 9 ? `00:${time}` : `00:0${time}`}
+            </div>,
+          ]}
+          rightItem={[
+            <Icon key="call" name="telephone-fill" />,
+            <Icon key="dots" name="three-dots-vertical" />,
+          ]}
+        />
+        <Top
+          style={{ marginTop: "10px" }}
+          title={{ content: "010-0000-0000" }}
+        />
 
-          <div className={classes["main_optionIcon--redBack"]}>
-            <i className="bi bi-telephone-x"></i>
-          </div>
-          <div>
-            <i className="bi bi-mic-mute"></i> <p>내 소리 차단</p>
-          </div>
-          <div className={classes["main_optionIcon--selected"]}>
-            <i className="bi bi-volume-up-fill"></i> <p>스피커</p>
-          </div>
-        </div>
-      </section>
+        <Flex
+          style={{
+            width: "170px",
+            gridRow: "6/7",
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: "0.7rem",
+            alignItems: "center",
+          }}
+          items={[
+            <IconContainer key="unlock">
+              <Icon name="unlock" />
+            </IconContainer>,
+            <IconContainer
+              key="chevron-up"
+              style={{ borderRadius: "8px", padding: "3px 6px" }}>
+              AR 효과
+              <Icon name="chevron-up" />
+            </IconContainer>,
+            <IconContainer key="arrows-angle-contract">
+              <Icon name="arrows-angle-contract" />
+            </IconContainer>,
+          ]}
+        />
+
+        <OptionContainer>
+          <IconBottom
+            icon={{
+              name: "camera-video-fill",
+              style: { color: "rgb(0, 190, 114)", fontWeight: "900" },
+            }}
+            description={{ content: "카메라" }}
+          />
+
+          <IconBottom
+            icon={{ name: "arrow-repeat" }}
+            description={{ content: "전환" }}
+          />
+
+          <Icon
+            style={{
+              backgroundColor: "red",
+              width: "30px",
+              height: "30px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "100%",
+              margin: "0 auto",
+              color: "white",
+            }}
+            name={"telephone-x-fill"}
+          />
+
+          <IconBottom
+            icon={{ name: "mic-mute" }}
+            description={{ content: "내 소리 차단" }}
+          />
+
+          <IconBottom
+            icon={{
+              name: "volume-up-fill",
+              style: { color: "rgb(0, 190, 114)", fontWeight: "900" },
+            }}
+            description={{ content: "스피커" }}
+          />
+        </OptionContainer>
+      </Container>
     </Phone>
   );
 };
