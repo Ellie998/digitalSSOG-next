@@ -8,6 +8,7 @@ import PhoneBackground from "stories/phone/atoms/PhoneBackground";
 
 const MainContainer = styled.div`
   height: 300px;
+  overflow: hidden;
   width: 175px;
 `;
 

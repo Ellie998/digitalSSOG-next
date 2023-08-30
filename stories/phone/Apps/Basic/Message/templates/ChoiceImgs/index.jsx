@@ -3,6 +3,7 @@ import { useState } from "react";
 import classes from "./index.module.css";
 
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import Phone from "stories/phone/molecules/Phone";
 
 function ChoiceImgs() {
   const [choicedImgs, setChoicedImgs] = useState([]);
@@ -43,7 +44,7 @@ function ChoiceImgs() {
   }
 
   return (
-    <>
+    <Phone>
       <section className={classes.mainLayout}>
         <div className={classes.headerLayout}>
           {choicedImgs.length === 0 && <div>항목 선택</div>}
@@ -102,7 +103,7 @@ function ChoiceImgs() {
           <div>앨범</div>
         </div>
       </section>
-    </>
+    </Phone>
   );
 }
 

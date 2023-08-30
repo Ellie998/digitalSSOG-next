@@ -152,8 +152,9 @@ function Chat({
   const modalContent = [
     // target_reserveMessage
     {
-      modalClassName: `mt-[18px]`,
-      className: `mt-[100px]`,
+      style: { marginTop: "120px" },
+      modalClassName: ``,
+      className: ``,
       title: { content: "메시지 예약 전송" },
       subTitle: {},
       ButtonWrapStyle: "flex justify-around",
@@ -198,8 +199,9 @@ function Chat({
       ),
     },
     {
-      modalClassName: `mt-[18px]`,
-      className: `mt-[150px]`,
+      style: { top: "200px" },
+      modalClassName: ``,
+      className: ``,
       title: {},
       subTitle: {
         content: `이 메시지는 ${GetDate().m_d} ${
@@ -230,7 +232,7 @@ function Chat({
       grayBox: true,
       content: (
         <StackedList_Profile
-          className={`w-fit`}
+          style={{ width: "fit-content" }}
           profile={{
             content: <Icon name="play" className={` text-[16px]`} />,
           }}
@@ -242,7 +244,7 @@ function Chat({
       grayBox: true,
       content: (
         <StackedList_Profile
-          className={`w-fit`}
+          style={{ width: "fit-content" }}
           profile={{
             content: <Icon name="person-fill" className={` text-[16px]`} />,
           }}
@@ -272,6 +274,7 @@ function Chat({
     <Phone>
       {open_modal && (
         <Modal_contents
+          style={modalContent[modalNum].style}
           modalClassName={modalContent[modalNum].modalClassName}
           className={modalContent[modalNum].className}
           title={modalContent[modalNum].title}
@@ -283,10 +286,14 @@ function Chat({
           {modalContent[modalNum].children}
         </Modal_contents>
       )}
-      <NoScrollbar
-        height={`${
-          plusClicked || (open_imgOption && !sendBtnClicked) ? "170px" : "280px"
-        }`}>
+      <div
+        style={{
+          height: `${
+            plusClicked || (open_imgOption && !sendBtnClicked)
+              ? "170px"
+              : "275px"
+          }`,
+        }}>
         <StackedList_Profile
           onClick={backClickHandler}
           profile={{
@@ -298,7 +305,7 @@ function Chat({
             content: (
               <Icon name={`three-dots-vertical`} className={`text-sm`} />
             ),
-            style: { justifyContent: "end" },
+            style: { gridColumnStart: "6" },
           }}></StackedList_Profile>
         <ChatList
           onClick={backClickHandler}
@@ -330,32 +337,37 @@ function Chat({
                   {target_sendImg && <div className={classes.imgBox}></div>}
                   {target_sendAudio && (
                     <StackedList_Profile
-                      className={`w-[90px] bg-gray-200 rounded-md py-1`}
+                      style={{
+                        width: "90px",
+                        backgroundColor: "rgb(229 231 235)",
+                        borderRadius: "0.375rem",
+                        padding: "4px 0",
+                      }}
                       profile={{
-                        content: (
-                          <Icon name="play" className={` text-[16px] mx-1`} />
-                        ),
+                        name: "play",
+                        style: { fontSize: "16px", margin: "0 4px" },
                       }}
                       title={{
                         content: "audio.mp3",
-                        className: "text-center",
+                        style: { textAlign: "center" },
                       }}
                     />
                   )}
                   {target_sendPhoneNum && (
                     <StackedList_Profile
-                      className={`w-[65px]  bg-gray-200 rounded-md py-1`}
+                      style={{
+                        width: "65px",
+                        backgroundColor: "rgb(229 231 235)",
+                        borderRadius: "0.375rem",
+                        padding: "4px 0",
+                      }}
                       profile={{
-                        content: (
-                          <Icon
-                            name="person-fill"
-                            className={` text-[16px] mx-2`}
-                          />
-                        ),
+                        name: "person-fill",
+                        style: { fontSize: "16px", margin: "0 4px" },
                       }}
                       title={{
                         content: "홍길순",
-                        className: "text-center",
+                        style: { textAlign: "center" },
                       }}
                     />
                   )}
@@ -379,32 +391,37 @@ function Chat({
                     {target_sendImg && <div className={classes.imgBox}></div>}
                     {target_sendAudio && (
                       <StackedList_Profile
-                        className={`w-[90px] bg-gray-200 rounded-md py-1`}
+                        style={{
+                          width: "90px",
+                          backgroundColor: "rgb(229 231 235)",
+                          borderRadius: "0.375rem",
+                          padding: "4px 0",
+                        }}
                         profile={{
-                          content: (
-                            <Icon name="play" className={` text-[16px] mx-1`} />
-                          ),
+                          name: "play",
+                          style: { fontSize: "16px", margin: "0 4px" },
                         }}
                         title={{
                           content: "audio.mp3",
-                          className: "text-center",
+                          style: { textAlign: "center" },
                         }}
                       />
                     )}
                     {target_sendPhoneNum && (
                       <StackedList_Profile
-                        className={`w-[65px]  bg-gray-200 rounded-md py-1`}
+                        style={{
+                          width: "65px",
+                          backgroundColor: "rgb(229 231 235)",
+                          borderRadius: "0.375rem",
+                          padding: "4px 0",
+                        }}
                         profile={{
-                          content: (
-                            <Icon
-                              name="person-fill"
-                              className={` text-[16px] mx-2`}
-                            />
-                          ),
+                          name: "person-fill",
+                          style: { fontSize: "16px", margin: "0 4px" },
                         }}
                         title={{
                           content: "홍길순",
-                          className: "text-center",
+                          style: { textAlign: "center" },
                         }}
                       />
                     )}
@@ -424,7 +441,7 @@ function Chat({
             timeStamp={{
               content: target_reserveMessage ? (
                 <TargetContent isNextDescriptionLink targetOption={true}>
-                  <Icon name="clock" />
+                  <Icon name="clock" className={"p-1"} />
                 </TargetContent>
               ) : (
                 "오전 9:54"
@@ -475,7 +492,7 @@ function Chat({
             </div>
           </div>
         )}
-      </NoScrollbar>
+      </div>
 
       <MessageSendLine
         className={`self-end`}
@@ -511,7 +528,7 @@ function Chat({
           onClick: backClickHandler,
         }}
         setMessageContent={setMessageContent}
-        sendBtn={{ className: "bg-[#b8b8b8cc]" }}
+        sendBtn={{ className: "bg-[#b8b8b8cc] " }}
         sendBtn_default={{
           className: "bg-[#e3e3e3cc]",
         }}
@@ -525,13 +542,9 @@ function Chat({
             (open_optionInfo && !target_reserveMessage))
         }></MessageSendLine>
       {/* options */}
-      {open_option && (
-        <NoScrollbar className={`animate-fadeInUp `}>
-          <Grid_4x4
-            className={"bg-[#e3e3e3cc]"}
-            items={gridContent}
-            iconClassName_common={`bg-white rounded-full p-[6px]`}
-          />
+      {open_option && plusClicked && (
+        <NoScrollbar height={"100px"}>
+          <Grid_4x4 className={"bg-[#e3e3e3cc]"} items={gridContent} />
         </NoScrollbar>
       )}
       {/* imgs */}

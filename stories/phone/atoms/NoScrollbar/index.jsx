@@ -2,6 +2,7 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
+  width: 175px;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -10,8 +10,9 @@ import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHe
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import BlurModal from "components/DisplayBox/AppDisplays/components/UI/BlurModal";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import Icon from "stories/phone/atoms/Icon";
+
 import Phone from "stories/phone/molecules/Phone";
+import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 
 function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
   const [isOptionOpened, setIsOptionOpened] = useState(false);
@@ -20,8 +21,9 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
   const iconStyleShadow = "rounded-full shadow-md  border-1 drop-shadow-2xl ";
 
   return (
+    // "374px"
     <Phone>
-      <NoScrollBar height={`${!isOptionOpened ? "305px" : "374px"}`}>
+      <NoScrollBar height={`${!isOptionOpened ? "300px" : "300px"}`}>
         {/* title : message */}
         {(target_sendMessage || target_seeMessage) && (
           <AppTitle_center title={{ content: "Messages" }}></AppTitle_center>
@@ -87,7 +89,7 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
             }}></StackedList_Profile>
         </TargetContent>
         {/* message plus btn */}
-        {!isOptionOpened && (
+        {!isOptionOpened && target_sendMessage && (
           <TargetContent
             className={`relative  left-32 top-24`}
             targetOption={target_sendMessage}>
@@ -102,78 +104,77 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
         )}
       </NoScrollBar>
       {isOptionOpened && (
-        <>
-          <BlurModal
-            className={`left-[30%] bottom-8`}
-            onClickBackDrop={() => {
-              setIsOptionOpened(false);
-            }}>
-            <div>
-              <TargetContent
-                className={`mb-2`}
-                targetOption={target_sendMessage}
-                isNextDescriptionLink={true}>
-                <FlexContent
-                  className={`w-24`}
-                  items={[
-                    <div className={`cursor-pointer text-sm`}>1:1 대화</div>,
-                    <Icon
-                      name="chat"
-                      className={`${iconStyle} ${iconStyleShadow}`}
-                    />,
-                  ]}
-                />
-              </TargetContent>
-              <TargetContent
-                className={`mb-2`}
-                targetOption={false}
-                isNextDescriptionLink={true}>
-                <FlexContent
-                  className={`w-24`}
-                  items={[
-                    <div className={`cursor-pointer text-sm`}>그룹 채팅</div>,
-                    <Icon
-                      name="people"
-                      className={`${iconStyle} ${iconStyleShadow}`}
-                    />,
-                  ]}
-                />
-              </TargetContent>
+        <BlurModal
+          style={{ bottom: "390px" }}
+          className={`left-[30%] `}
+          onClickBackDrop={() => {
+            setIsOptionOpened(false);
+          }}>
+          <div>
+            <TargetContent
+              className={`mb-2`}
+              targetOption={target_sendMessage}
+              isNextDescriptionLink={true}>
+              <FlexContent
+                className={`w-24`}
+                items={[
+                  <div className={`cursor-pointer text-sm`}>1:1 대화</div>,
+                  <Icon
+                    name="chat"
+                    className={`${iconStyle} ${iconStyleShadow}`}
+                  />,
+                ]}
+              />
+            </TargetContent>
+            <TargetContent
+              className={`mb-2`}
+              targetOption={false}
+              isNextDescriptionLink={true}>
+              <FlexContent
+                className={`w-24`}
+                items={[
+                  <div className={`cursor-pointer text-sm`}>그룹 채팅</div>,
+                  <Icon
+                    name="people"
+                    className={`${iconStyle} ${iconStyleShadow}`}
+                  />,
+                ]}
+              />
+            </TargetContent>
 
-              <TargetContent
-                className={`mb-2`}
-                targetOption={false}
-                isNextDescriptionLink={true}>
-                <FlexContent
-                  className={`w-24`}
-                  items={[
-                    <div className={`cursor-pointer text-sm`}>단체 문자</div>,
-                    <Icon
-                      name="wechat"
-                      className={`${iconStyle} ${iconStyleShadow}`}
-                    />,
-                  ]}
-                />
-              </TargetContent>
-              <TargetContent
-                className={`mb-2`}
-                targetOption={false}
-                isNextDescriptionLink={true}>
-                <FlexContent
-                  className={`w-24`}
-                  items={[
-                    <div></div>,
-                    <Icon
-                      onClick={() => setIsOptionOpened(false)}
-                      name="x-lg"
-                      className={`${iconStyle} ${iconStyleShadow} text-lg`}
-                    />,
-                  ]}
-                />
-              </TargetContent>
-            </div>
-          </BlurModal>
-        </>
+            <TargetContent
+              className={`mb-2`}
+              targetOption={false}
+              isNextDescriptionLink={true}>
+              <FlexContent
+                className={`w-24`}
+                items={[
+                  <div className={`cursor-pointer text-sm`}>단체 문자</div>,
+                  <Icon
+                    name="wechat"
+                    className={`${iconStyle} ${iconStyleShadow}`}
+                  />,
+                ]}
+              />
+            </TargetContent>
+            <TargetContent
+              className={`mb-2`}
+              targetOption={false}
+              isNextDescriptionLink={true}>
+              <FlexContent
+                className={`w-24`}
+                items={[
+                  <div></div>,
+                  <Icon
+                    onClick={() => setIsOptionOpened(false)}
+                    name="x-lg"
+                    className={`${iconStyle} ${iconStyleShadow} text-lg`}
+                  />,
+                ]}
+              />
+            </TargetContent>
+          </div>
+        </BlurModal>
       )}
     </Phone>
   );

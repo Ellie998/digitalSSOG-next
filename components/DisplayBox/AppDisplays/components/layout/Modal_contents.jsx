@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import TargetContent from "../TargetContent";
 import Modal from "../UI/Modal";
 
 export default function Modal_contents({
+  style,
   className,
   onClickBackDrop,
   title,
@@ -15,6 +17,7 @@ export default function Modal_contents({
 }) {
   return (
     <Modal
+      style={style}
       modalClassName={modalClassName}
       className={`${className} bg-white`}
       onClickBackDrop={onClickBackDrop}>

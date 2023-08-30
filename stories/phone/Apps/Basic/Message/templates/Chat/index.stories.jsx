@@ -5,6 +5,15 @@ export default {
 };
 
 export const Default = {
+  args: {},
+};
+
+export const OptionOpen = {
+  args: {
+    open_option: true,
+  },
+};
+export const test = {
   args: {
     open_option: false,
     open_optionInfo: false,

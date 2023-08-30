@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import Keypad from "stories/phone/molecules/Keypad";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+import Icon from "stories/phone/atoms/Icon";
 
 const ClickedNumContainer = styled.div`
   margin-top: 1.25rem /* 20px */;
@@ -60,7 +60,7 @@ const CallKeypad = ({ button1, button2 }) => {
           <Icon
             style={{
               fontSize: "1rem",
-              padding: "1rem",
+              padding: "10px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -74,7 +74,7 @@ const CallKeypad = ({ button1, button2 }) => {
             style={{
               color: "rgb(255 255 255)",
               backgroundColor: "#29b840",
-              padding: "1rem",
+              padding: "10px",
               fontSize: "1rem",
               display: "flex",
               justifyContent: "center",
@@ -85,7 +85,7 @@ const CallKeypad = ({ button1, button2 }) => {
         <Icon
           style={{
             fontSize: "1.25rem",
-            padding: "1rem",
+            padding: "10px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

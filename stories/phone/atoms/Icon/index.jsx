@@ -2,12 +2,14 @@
 import styled from "@emotion/styled";
 
 const IconContainer = styled.i`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   cursor: pointer;
+  border-radius: 999px;
   font-size: ${(props) =>
     props.style.fontSize ? props.style.fontSize : "0.875rem"};
-  color: ${(props) =>
-    props.style.color ? props.style.color : "var(--grey-800)"};
-  margin: ${(props) => (props.style.margin ? props.style.margin : "0 0 0 0")};
   &:hover {
     ${(props) => (props.style.hover ? props.style.hover : null)}
   }
@@ -19,8 +21,6 @@ const Icon = ({
   name,
   style = {
     fontSize: "0.875rem",
-    color: "var(--grey-800)",
-    margin: "0 0 0 0 ",
   },
 
   onClick,

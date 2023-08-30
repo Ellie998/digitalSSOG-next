@@ -6,6 +6,10 @@ import Icon from "stories/phone/atoms/Icon";
 const Container = styled.div`
   cursor: pointer;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   ${(props) => (props.style ? props.style : null)}
 `;
 const DescriptionContainer = styled.div`

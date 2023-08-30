@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import FlexContent from "../list/FlexContent";
+
 import classes from "./MessageSendLine.module.css";
-import Icon from "./Icon";
+
+import Flex from "stories/phone/atoms/Flex";
+import Icon from "stories/phone/atoms/Icon";
 
 export default function MessageSendLine({
   className,
@@ -46,15 +50,15 @@ export default function MessageSendLine({
       <div className={`flex h-[24px]`}>
         {/* navOption_blured  */}
         {!inputClicked && navOption_blured && (
-          <FlexContent
-            items={navOption_blured.content}
-            className="text-sm"></FlexContent>
+          <Flex
+            style={{ fontSize: "0.875rem", width: "fit-content" }}
+            items={navOption_blured.content}></Flex>
         )}
         {/* navOption_focused */}
         {(inputClicked || !navOption_blured) && (
-          <FlexContent
-            items={navOption_focused.content}
-            className="text-sm"></FlexContent>
+          <Flex
+            style={{ fontSize: "0.875rem", width: "fit-content" }}
+            items={navOption_focused.content}></Flex>
         )}
         {/* input */}
         <div className={`${classes.inputBox} ${input.className}`}>
@@ -77,7 +81,9 @@ export default function MessageSendLine({
           <div
             className={`${classes.soundIcon} ${sendBtn_default.className}`}
             onClick={sendBtnClickHandler}>
-            {!sendBtn_default.content && <Icon name="soundwave"></Icon>}
+            {!sendBtn_default.content && (
+              <Icon name="soundwave" style={{ padding: "4px" }}></Icon>
+            )}
             {sendBtn_default.content && sendBtn_default.content}
           </div>
         )}
@@ -86,7 +92,9 @@ export default function MessageSendLine({
           <div
             className={`${classes.sendIcon} ${sendBtn.className}`}
             onClick={sendBtnClickHandler}>
-            {!sendBtn.content && <Icon name="send"></Icon>}
+            {!sendBtn.content && (
+              <Icon name="send" style={{ padding: "4px " }}></Icon>
+            )}
             {sendBtn.content && sendBtn.content}
           </div>
         )}
