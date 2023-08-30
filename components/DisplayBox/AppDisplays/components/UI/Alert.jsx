@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import Icon from "./Icon";
+import Icon from "stories/phone/atoms/Icon";
 
 export default function Alert({
   icon,
@@ -26,7 +27,7 @@ export default function Alert({
     <>
       {isAlertOpen && (
         <div
-          className={` relative text-xs rounded-xl py-1 px-2 text-center hover:cursor-pointer animate-fadeInUp mx-auto ${className} ${
+          className={`flex relative text-xs rounded-xl py-1 px-2 text-center hover:cursor-pointer animate-fadeInUp mx-auto ${className} ${
             closeTriger ? "animate-fadeOutDown" : ""
           }`}
           onClick={onClick}
@@ -40,7 +41,12 @@ export default function Alert({
           }}>
           <Icon
             name={`${icon.name}`}
-            className={`mr-1 rounded-lg p-0.5 ${icon.className}`}
+            style={{
+              marginRight: "0.25rem",
+              borderRadius: "0.5rem",
+              padding: "0.125rem",
+              ...icon.style,
+            }}
           />
           {content}
         </div>

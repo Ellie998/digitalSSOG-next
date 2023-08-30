@@ -19,9 +19,12 @@ function Grid_4x4({ className, items, iconClassName_common, iconClassName }) {
               name: item.iconName,
               style: {
                 fontSize: "0.5rem",
-                backgroundColor: "white",
+                backgroundColor: item.backgroundColor
+                  ? item.backgroundColor
+                  : "white",
                 padding: "6px",
                 width: "fit-content",
+                color: item.color ? item.color : "black",
               },
             }}
             description={{

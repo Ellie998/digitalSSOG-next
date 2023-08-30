@@ -86,66 +86,94 @@ function Chat({
     {
       content: "앨범",
       iconName: "image",
+      backgroundColor: "#9bcb5c",
+      color: "white",
     },
     {
       content: "카메라",
       iconName: "camera",
+      backgroundColor: "#668ecf",
+      color: "white",
     },
     {
       content: "선물하기",
       iconName: "box2-heart",
+      backgroundColor: "#53c575",
+      color: "white",
     },
     {
       content: "통화하기",
-      iconName: "telephone",
+      iconName: "telephone-fill",
+      backgroundColor: "#ef666c",
+      color: "white",
     },
     {
       content: "송금",
       iconName: "cash-coin",
+      backgroundColor: "#58606b",
+      color: "white",
     },
     {
       targetOption: target_reserveMessage,
       isNextDescriptionLink: true,
       content: "예약 메시지",
       iconName: "stopwatch",
+      backgroundColor: "#907bee",
+      color: "white",
     },
     {
       content: "일정",
       iconName: "calendar-date",
+      backgroundColor: "#bd9e83",
+      color: "white",
     },
     {
       targetOption: target_sendImg,
       isNextDescriptionLink: true,
       content: "지도",
       iconName: "geo-alt",
+      backgroundColor: "#4ea6f3",
+      color: "white",
     },
     {
       content: "캡처",
       iconName: "fullscreen",
+      backgroundColor: "#51b59f",
+      color: "white",
     },
     {
       targetOption: target_sendAudio,
       isNextDescriptionLink: true,
       content: "음성메시지",
       iconName: "mic",
+      backgroundColor: "#f79955",
+      color: "white",
     },
     {
       targetOption: target_sendPhoneNum,
       isNextDescriptionLink: true,
       content: "연락처",
       iconName: "person-badge",
+      backgroundColor: "#d68fe5",
+      color: "white",
     },
     {
       content: "파일",
       iconName: "paperclip",
+      backgroundColor: "#6696f6",
+      color: "white",
     },
     {
       content: "뮤직",
       iconName: "music-note-beamed",
+      backgroundColor: "#78be80",
+      color: "white",
     },
     {
       content: "라이브톡",
       iconName: "broadcast-pin",
+      backgroundColor: "#dd4453",
+      color: "white",
     },
   ];
 
@@ -228,7 +256,10 @@ function Chat({
             content="메시지를 예약했습니다."
             icon={{
               name: "chat-fill",
-              className: " bg-kakaoYellow text-[#3e3404]",
+              style: {
+                backgroundColor: "var(--kakao-yellow",
+                color: "#3e3404",
+              },
             }}
           />
         )}
@@ -275,7 +306,7 @@ function Chat({
       )}
       {/* Option Box */}
       {open_option && (
-        <NoScrollBar>
+        <NoScrollBar height={"120px"}>
           <Grid_4x4
             className={"bg-[#efefef3e]"}
             items={gridContent}
@@ -379,7 +410,7 @@ function Chat({
       {open_modal && (
         <Modal_contents
           modalClassName={`mt-5`}
-          className={`mt-10`}
+          className={``}
           title={{ content: "채팅방 나가기" }}
           subTitle={{
             content: (
