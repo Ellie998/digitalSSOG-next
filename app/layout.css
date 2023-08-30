@@ -11,7 +11,17 @@
   --grey-400: #999;
   --grey-300: #b9b9b9;
   --grey-200: #d6d6d6;
+  /*  */
   --main-color: #5684d6;
+  --greenyellow: greenyellow;
+  --black: rgb(208, 208, 208);
+  /*  */
+  --kakao-profilePerson: rgb(237 237 237);
+  --kakao-skyblue: #92e7ff8a;
+  --kakao-blue: #92caff8a;
+  --kakao-purple: #929dff8a;
+  --kakao-yellow: rgb(255, 235, 50);
+  --kakao-icon: #ededed;
   font-family: sans-serif;
   color: var(--grey-700);
 }

@@ -42,7 +42,12 @@ function Main({
       className="h-8"
       profile={{
         className: "bg-kakaoSkyblue",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "진수", className: "" }}
       info={{
@@ -54,7 +59,12 @@ function Main({
       className="h-8"
       profile={{
         className: "bg-kakaoPurple",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "영희", className: "" }}
       subTitle={{
@@ -66,7 +76,12 @@ function Main({
       className="h-8"
       profile={{
         className: "bg-kakaoBlue",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "철수", className: "" }}
       info={{
@@ -80,7 +95,12 @@ function Main({
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoPurple",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "그룹채팅방1", className: "col-end-7" }}
       subTitle={{
@@ -97,7 +117,12 @@ function Main({
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoPurple",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "영희", className: "" }}
       subTitle={{
@@ -117,7 +142,12 @@ function Main({
       className="h-8 mb-1"
       profile={{
         className: "bg-kakaoBlue",
-        content: <Icon name="person-fill" className={`text-kakaoIcon`} />,
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
       }}
       title={{ content: "철수", className: "" }}
       subTitle={{
