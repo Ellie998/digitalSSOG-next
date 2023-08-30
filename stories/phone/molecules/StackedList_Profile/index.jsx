@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 170px;
   cursor: pointer;
   align-items: center;
-
+  height: 30px;
   ${(props) => (props.style ? props.style : null)}
 `;
 
@@ -47,9 +47,9 @@ const SubTitleContainer = styled.div`
 const InfoContainer = styled.div`
   font-size: 0.5rem /* 14px */;
   color: rgb(115 115 115);
-  text-align: left;
+  text-align: end;
   height: 1rem /* 16px */;
-  grid-column-start: 4;
+  grid-column-start: 5;
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: ${(props) => (props.subInfo !== undefined ? "2" : "3")};
@@ -59,9 +59,9 @@ const InfoContainer = styled.div`
 
 const SubInfoContainer = styled.div`
   font-size: 0.5rem /* 8px */;
-  text-align: left;
+  text-align: end;
   height: 1rem /* 16px */;
-  grid-column-start: 4;
+  grid-column-start: 5;
   grid-column-end: 7;
   grid-row-start: 2;
   grid-row-end: 3;
@@ -83,8 +83,9 @@ export default function StackedList_Profile({
     <>
       <Container key={id} style={style} onClick={onClick}>
         <ProfileContainer>
-          <ProfileIcon name={profile.name} style={profile.style}></ProfileIcon>
-          {profile.content ? profile.content : null}
+          <ProfileIcon name={profile.name} style={profile.style}>
+            {profile.content ? profile.content : null}
+          </ProfileIcon>
         </ProfileContainer>
 
         <TitleContainer style={title.style} info={info} subTitle={subTitle}>

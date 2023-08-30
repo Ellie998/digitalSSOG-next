@@ -15,7 +15,7 @@ const RecentHistoryLine = ({ profile, title, info, onClick, children }) => {
       }}
       info={{
         content: info.content,
-        style: { textAlign: "end", gridColumn: "5/7" },
+        style: info.style,
       }}
       onClick={onClick}>
       {children ? children : null}

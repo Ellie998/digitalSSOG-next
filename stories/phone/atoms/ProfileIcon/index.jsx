@@ -2,6 +2,7 @@
 import styled from "@emotion/styled";
 
 const ProfileIconContainer = styled.i`
+  font-style: normal;
   padding-left: 0.125rem /* 2px */;
   padding-right: 0.125rem /* 2px */;
   padding-top: 0.25rem /* 4px */;
@@ -21,11 +22,13 @@ const ProfileIconContainer = styled.i`
   ${(props) => (props.style ? props.style : null)}
 `;
 
-const ProfileIcon = ({ name, style }) => {
+const ProfileIcon = ({ name, style, children }) => {
   return (
     <ProfileIconContainer
       style={style}
-      className={`bi bi-${name}`}></ProfileIconContainer>
+      className={name ? `bi bi-${name}` : null}>
+      {children}
+    </ProfileIconContainer>
   );
 };
 export default ProfileIcon;

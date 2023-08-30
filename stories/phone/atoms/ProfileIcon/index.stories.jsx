@@ -1,7 +1,7 @@
-import AppIcon from ".";
+import ProfileIcon from ".";
 
 export default {
-  component: AppIcon,
+  component: ProfileIcon,
 };
 
 export const Default = {
@@ -9,6 +9,7 @@ export const Default = {
     id: "",
     name: "chat-fill",
     targetOption: false,
+    children: "",
   },
 };
 export const Target = {
@@ -16,5 +17,14 @@ export const Target = {
     id: "",
     name: "chat-fill",
     targetOption: true,
+    children: "",
+  },
+};
+export const Content = {
+  args: {
+    id: "",
+    name: "",
+    targetOption: true,
+    children: "홍",
   },
 };

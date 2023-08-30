@@ -4,11 +4,11 @@ import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOp
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
 import Icon from "stories/phone/atoms/Icon";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-
 import Top from "stories/phone/atoms/Top";
 import FlexInFlex from "stories/phone/atoms/FlexInFlex";
-import RecentHistoryLine from "stories/phone/Apps/Basic/molecules/RecentHistoryLine";
 import StackedListWrap from "stories/phone/molecules/StackedListWrap";
+
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 
 // eslint-disable-next-line react/prop-types
 const Histories = ({ targetTab, clickedTapName, target_Call }) => {
@@ -107,7 +107,7 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
         style={{ border: "none" }}
         listTitle={{ content: "6월 17일" }}>
         {callHistoryListProps.map((prop) => (
-          <RecentHistoryLine
+          <StackedList_Profile
             key={prop.id}
             profile={{
               name: prop.profile.name,
@@ -121,7 +121,7 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
             }}
             onClick={prop.onClickFunction ? prop.onClickFunction : null}>
             {prop.children ? prop.children : null}
-          </RecentHistoryLine>
+          </StackedList_Profile>
         ))}
       </StackedListWrap>
     </>

@@ -8,7 +8,8 @@ import Top from "stories/phone/atoms/Top";
 import FlexInFlex from "stories/phone/atoms/FlexInFlex";
 
 import StackedListWrap from "stories/phone/molecules/StackedListWrap";
-import ContactLine from "stories/phone/Apps/Basic/molecules/ContactLine";
+
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 
 // eslint-disable-next-line react/prop-types
 const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
@@ -100,7 +101,7 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     {
       id: `contactList4`,
       style: { height: "12px" },
-      profile: { name: "" },
+      profile: {},
       title: {
         style: { fontSize: "0.75rem", color: "rgb(156 163 175)" },
         content: "ㅇ",
@@ -121,7 +122,7 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
           backgroundColor: "rgb(251 207 232)",
           padding: "4px 4px",
         },
-        name: "person-fill",
+        content: "영",
       },
       title: {
         content: "영희",
@@ -153,7 +154,7 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
       style: { height: "2rem" },
       profile: {
         style: { color: "white", backgroundColor: "rgb(254 215 170)" },
-        name: "person-fill",
+        content: "철",
       },
       title: {
         content: "철수",
@@ -188,14 +189,14 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
         style={{ border: "none" }}
         listTitle={{ content: "내 프로필" }}>
         {contactListProps.map((prop) => (
-          <ContactLine
+          <StackedList_Profile
             key={prop.id}
             onClick={prop.onClick}
             style={prop.style}
             profile={prop.profile}
             title={prop.title}>
             {prop.children}
-          </ContactLine>
+          </StackedList_Profile>
         ))}
       </StackedListWrap>
     </>

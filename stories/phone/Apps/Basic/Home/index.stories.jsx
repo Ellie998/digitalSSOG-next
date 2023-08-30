@@ -8,11 +8,11 @@ export const Default = {
   args: {},
 };
 export const Kakaotalk = {
-  args: { kakaotalk: true },
+  args: { appName_kakaotalk: true },
 };
 export const Call = {
-  args: { call: true },
+  args: { appName_call: true },
 };
 export const Message = {
-  args: { message: true },
+  args: { appName_message: true },
 };

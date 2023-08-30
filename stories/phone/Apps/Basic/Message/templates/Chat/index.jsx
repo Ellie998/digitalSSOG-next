@@ -5,8 +5,7 @@ import classes from "./index.module.css";
 import ChoiceFile from "components/DisplayBox/AppDisplays/components/layout/ChoiceFile";
 
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
 import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
@@ -17,6 +16,8 @@ import Input from "components/DisplayBox/AppDisplays/components/UI/Input";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
 import Phone from "stories/phone/molecules/Phone";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 
 function Chat({
   open_option,
@@ -282,27 +283,28 @@ function Chat({
           {modalContent[modalNum].children}
         </Modal_contents>
       )}
-      <NoScrollBar
+      <NoScrollbar
         height={`${
           plusClicked || (open_imgOption && !sendBtnClicked) ? "170px" : "280px"
-        }`}
-        className={""}>
+        }`}>
         <StackedList_Profile
           onClick={backClickHandler}
-          className={`h-[30px]`}
-          profile={{ content: "홍", className: "bg-orange-200" }}
-          title={{ content: "홍길동", className: "" }}
+          profile={{
+            content: "홍",
+            style: { backgroundColor: "rgb(254 215 170)" },
+          }}
+          title={{ content: "홍길동" }}
           info={{
             content: (
               <Icon name={`three-dots-vertical`} className={`text-sm`} />
             ),
-            className: "justify-self-end",
+            style: { justifyContent: "end" },
           }}></StackedList_Profile>
         <ChatList
           onClick={backClickHandler}
           isGetList
           onPointerDown={mouseOverHandler}
-          className={`mb-2`}
+          className={`mb-2 `}
           message={{
             className: "bg-gray-200 ml-1",
             content: (
@@ -473,7 +475,7 @@ function Chat({
             </div>
           </div>
         )}
-      </NoScrollBar>
+      </NoScrollbar>
 
       <MessageSendLine
         className={`self-end`}
@@ -524,17 +526,17 @@ function Chat({
         }></MessageSendLine>
       {/* options */}
       {open_option && (
-        <NoScrollBar className={`animate-fadeInUp `}>
+        <NoScrollbar className={`animate-fadeInUp `}>
           <Grid_4x4
             className={"bg-[#e3e3e3cc]"}
             items={gridContent}
             iconClassName_common={`bg-white rounded-full p-[6px]`}
           />
-        </NoScrollBar>
+        </NoScrollbar>
       )}
       {/* imgs */}
       {open_imgOption && !sendBtnClicked && (
-        <NoScrollBar className={`ml-1`}>
+        <NoScrollbar className={`ml-1`}>
           <ChoiceFile
             fileType_img
             className={""}
@@ -542,7 +544,7 @@ function Chat({
             setChoicedFileArray={setChoicedImgs}
             num="7"
           />
-        </NoScrollBar>
+        </NoScrollbar>
       )}
     </Phone>
   );
