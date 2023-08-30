@@ -5,7 +5,7 @@ import { useContext } from "react";
 import UrlContext from "../../../page_context/UrlContext";
 
 const Container = styled.div`
-  ${(props) => (props.styles ? props.styles : null)}
+  ${(props) => (props.style ? props.style : null)}
 `;
 
 /**  make component border and tooltip
@@ -28,7 +28,7 @@ const TargetContent = (prop) => {
   };
   const { setMyDescriptionId } = useContext(UrlContext);
   return (
-    <Container styles={prop.style}>
+    <Container style={prop.style}>
       {!prop.isNextDescriptionLink && !prop.goBackDescription && (
         <div
           key={prop.id}

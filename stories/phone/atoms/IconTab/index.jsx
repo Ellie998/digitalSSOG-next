@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import classes from "./index.module.css";
+import Icon from "stories/phone/atoms/Icon";
 /* eslint-disable react/prop-types */
 
 const Container = styled.div`
@@ -20,36 +20,28 @@ const Container = styled.div`
   ${(props) => props.style};
 `;
 
-const Tab = ({
-  items,
-  style,
-  setClickedTab,
-  targetTab,
-  clickedTab,
-  clickEvent,
-  clickedColor,
-}) => {
+const IconTab = ({ items, style, setClickedTab, targetTab, clickedTab }) => {
   return (
     <Container style={style}>
       {items?.map((item, i) => (
         <TargetContent
           targetOption={targetTab === item.id && clickedTab !== item.id}
           key={`tab${i}`}
-          className={clickedTab === item.id ? classes[clickEvent] : ""}
-          onClick={() => {
-            setClickedTab(item.id);
-          }}
-          style={clickedTab === item.id ? { color: clickedColor } : null}>
-          {clickedTab === item.id
-            ? item.clicked
-              ? item.clicked
-              : item.content
-              ? item.content
-              : item.id
-            : item.id}
+          onClick={() => setClickedTab(item.id)}>
+          {clickedTab === item.id ? (
+            <Icon
+              name={item.clicked}
+              style={{ ...item.style, padding: "4px" }}
+            />
+          ) : (
+            <Icon
+              name={item.content}
+              style={{ ...item.style, padding: "4px" }}
+            />
+          )}
         </TargetContent>
       ))}
     </Container>
   );
 };
-export default Tab;
+export default IconTab;

@@ -7,8 +7,9 @@ import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoS
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import Tab from "stories/phone/atoms/Tab";
+
 import Phone from "stories/phone/molecules/Phone";
+import KakaoTab from "stories/phone/Apps/KakaoTalk/organisms/kakaoTab";
 
 function Main({
   // eslint-disable-next-line react/prop-types
@@ -226,38 +227,11 @@ function Main({
       </NoScrollBar>
 
       {/* tab start */}
-      <Tab
-        className="bg-neutral-100 shadow-sm"
+      <KakaoTab
         setClickedTab={setClickedTabName}
-        defaultTab={defaultTabName}
+        targetTab={defaultTabName}
         clickedTab={clickedTabName}
-        iconItems={[
-          {
-            tabname: "friend",
-            content: "bi bi-person",
-            clickedContent: "bi bi-person-fill",
-          },
-          {
-            tabname: "chat",
-            content: "bi bi-chat",
-            clickedContent: "bi bi-chat-fill",
-          },
-          {
-            tabname: "openChat",
-            content: "bi bi-chat-heart",
-            clickedContent: "bi bi-chat-heart-fill",
-          },
-          {
-            tabname: "shopping",
-            content: "bi bi-handbag",
-            clickedContent: "bi bi-handbag-fill",
-          },
-          {
-            tabname: "ETC",
-            content: "bi bi-three-dots",
-            clickedContent: "bi bi-three-dots",
-          },
-        ]}></Tab>
+      />
       {/* ------tab end------ */}
     </Phone>
   );
