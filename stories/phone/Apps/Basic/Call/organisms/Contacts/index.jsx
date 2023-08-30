@@ -12,7 +12,7 @@ import ContactLine from "stories/phone/Apps/Basic/molecules/ContactLine";
 
 // eslint-disable-next-line react/prop-types
 const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
-  const scrollElement = document.getElementById("component_NoScrollBar");
+  const scrollElement = document.getElementById("NoScrollbar");
 
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
@@ -64,7 +64,7 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
       style: { height: "2rem" },
       profile: {
         style: { backgroundColor: "rgb(249 168 212)", color: "white" },
-        content: "person-fill",
+        name: "person-fill",
       },
       title: {
         content: "진수",
@@ -76,7 +76,7 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
       style: { height: "2rem" },
       profile: {
         style: { backgroundColor: "rgb(254 240 138)", color: "white" },
-        name: "star",
+        name: "star-fill",
       },
       title: {
         content: "즐겨찾는 연락처 추가",
