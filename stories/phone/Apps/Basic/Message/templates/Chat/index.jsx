@@ -11,13 +11,17 @@ import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
 import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
 import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
 import ChoicedFile from "components/DisplayBox/AppDisplays/components/UI/ChoicedFile";
-import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
 import Input from "components/DisplayBox/AppDisplays/components/UI/Input";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
 import Phone from "stories/phone/molecules/Phone";
 import NoScrollbar from "stories/phone/atoms/NoScrollbar";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
+import Modal from "stories/phone/molecules/Modal";
+import ModalContents from "stories/phone/organisms/ModalContents";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn";
+import CancelBtn from "stories/phone/atoms/CancelBtn";
+import Button from "stories/phone/atoms/Button";
 
 function Chat({
   open_option,
@@ -152,20 +156,19 @@ function Chat({
   const modalContent = [
     // target_reserveMessage
     {
-      style: { marginTop: "120px" },
-      modalClassName: ``,
-      className: ``,
+      modalStyle: { top: "90px" },
       title: { content: "메시지 예약 전송" },
       subTitle: {},
-      ButtonWrapStyle: "flex justify-around",
-      cancelButton: {
-        content: "취소",
-        goBackDescription: true,
-      },
-      submitButton: {
-        content: "완료",
-        isNextDescriptionLink: true,
-        targetOption: true,
+      buttons: {
+        style: { justifyContent: "space-around" },
+        content: [
+          <CancelBtn key="cancel" condition={true}>
+            취소
+          </CancelBtn>,
+          <SubmitBtn key="submit" condition={true}>
+            완료
+          </SubmitBtn>,
+        ],
       },
       children: (
         <>
@@ -199,21 +202,37 @@ function Chat({
       ),
     },
     {
-      style: { top: "200px" },
-      modalClassName: ``,
-      className: ``,
+      modalStyle: { top: "180px" },
       title: {},
       subTitle: {
         content: `이 메시지는 ${GetDate().m_d} ${
           GetDate().h_plus1_m
         } 에 전송됩니다.`,
-        className: "text-gray-700 text-xs",
       },
-      button: [
-        { content: "지금 보내기" },
-        { content: "삭제" },
-        { content: "편집" },
-      ],
+      buttons: {
+        style: { justifyContent: "space-around" },
+        content: [
+          <Button
+            key="btn1"
+            id="btn1"
+            style={{
+              borderRight: "1px solid #e3e3e3",
+            }}>
+            지금 보내기
+          </Button>,
+          <Button
+            key="btn2"
+            id="btn2"
+            style={{
+              borderRight: "1px solid #e3e3e3",
+            }}>
+            삭제
+          </Button>,
+          <Button key="btn3" id="btn3" style={{}}>
+            편집
+          </Button>,
+        ],
+      },
     },
   ];
   const optionInfoContent = [
@@ -273,18 +292,14 @@ function Chat({
   return (
     <Phone>
       {open_modal && (
-        <Modal_contents
-          style={modalContent[modalNum].style}
-          modalClassName={modalContent[modalNum].modalClassName}
-          className={modalContent[modalNum].className}
-          title={modalContent[modalNum].title}
-          subTitle={modalContent[modalNum].subTitle}
-          ButtonWrapStyle={modalContent[modalNum].ButtonWrapStyle}
-          cancelButton={modalContent[modalNum].cancelButton}
-          submitButton={modalContent[modalNum].submitButton}
-          button={modalContent[modalNum].button}>
-          {modalContent[modalNum].children}
-        </Modal_contents>
+        <Modal modalStyle={modalContent[modalNum].modalStyle}>
+          <ModalContents
+            title={modalContent[modalNum].title}
+            subTitle={modalContent[modalNum].subTitle}
+            buttons={modalContent[modalNum].buttons}>
+            {modalContent[modalNum].children}
+          </ModalContents>
+        </Modal>
       )}
       <div
         style={{
