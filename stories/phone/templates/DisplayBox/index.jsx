@@ -66,7 +66,7 @@ function DisplayBox() {
           <CallAppMain
             key="callAppMain"
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
-            target_Call
+            target_call
           />,
           <CallConnected key="callConnected" appName_basic />,
         ][descriptionId];

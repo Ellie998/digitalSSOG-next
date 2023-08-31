@@ -38,18 +38,22 @@ const OptionContainer = styled.div`
 const VideoCallConnected = () => {
   const [time, setTime] = useState(0);
 
-  setTimeout(() => {
+  const timer = setTimeout(() => {
     setTime(time + 1);
   }, 1000);
+  if (time === 9) clearTimeout(timer);
   return (
     <Phone>
       <Container>
         <FlexInFlex
+          style={{ fontSize: "0.75rem" }}
           centerItem={[
-            <div style={{ fontSize: "0.75rem" }} key="center">
-              <Icon name="camera-video-fill" style={{ marginRight: "4px" }} />
-              {time > 9 ? `00:${time}` : `00:0${time}`}
-            </div>,
+            <Icon
+              key="videoIcon"
+              name="camera-video-fill"
+              style={{ marginRight: "1px" }}
+            />,
+            <>{`00:0${time}`}</>,
           ]}
           rightItem={[
             <Icon key="call" name="telephone-fill" />,

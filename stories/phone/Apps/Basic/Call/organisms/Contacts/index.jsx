@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+
 import Icon from "stories/phone/atoms/Icon";
 import Top from "stories/phone/atoms/Top";
 import FlexInFlex from "stories/phone/atoms/FlexInFlex";
@@ -10,9 +10,10 @@ import FlexInFlex from "stories/phone/atoms/FlexInFlex";
 import StackedListWrap from "stories/phone/molecules/StackedListWrap";
 
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
+import TargetBox from "stories/phone/atoms/TargetBox";
 
 // eslint-disable-next-line react/prop-types
-const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
+const Contacts = ({ targetTab, clickedTapName, target_call }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
   const [isListClicked1, setIsListClicked1] = useState(false);
@@ -33,12 +34,12 @@ const Contacts = ({ targetTab, clickedTapName, target_Call }) => {
     <FlexContent
       className=""
       items={[
-        <TargetContent
+        <TargetBox
           key="telephone"
-          targetOption={targetTab === clickedTapName && target_Call}
-          isNextDescriptionLink={true}>
+          condition={targetTab === clickedTapName && target_call}
+          isNextTriger={true}>
           <Icon style={{ color: "rgb(22 163 74)" }} name="telephone-fill" />
-        </TargetContent>,
+        </TargetBox>,
         <Icon
           key="chat"
           style={{ color: "rgb(22 163 74)" }}

@@ -44,9 +44,10 @@ const BtnContainer = styled.div`
 const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
   const [time, setTime] = useState(0);
 
-  setTimeout(() => {
+  const timer = setTimeout(() => {
     setTime(time + 1);
   }, 1000);
+  if (time === 9) clearTimeout(timer);
 
   const iconContents = [
     { name: "mic-mute-fill", description: "음소거" },
@@ -132,9 +133,7 @@ const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
               content: "철수",
               style: { fontSize: "0.875rem" },
             }}>
-            <div style={{ fontSize: "0.7rem" }}>
-              {time > 9 ? `00:${time.toString()}` : `00:0${time.toString()}`}
-            </div>
+            <div style={{ fontSize: "0.7rem" }}>{`00:0${time.toString()}`}</div>
           </Top>
           <IconsContainer_kakaoTalk>
             {iconContents_kakaoTalk?.map((content, i) => (

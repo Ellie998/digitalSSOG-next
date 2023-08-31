@@ -8,7 +8,7 @@ import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts";
 import NoScrollbar from "stories/phone/atoms/NoScrollbar";
 
 // eslint-disable-next-line react/prop-types
-const Main = ({ targetTab, target_videoCall, target_Call }) => {
+const Main = ({ targetTab, target_videoCall, target_call }) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 
   return (
@@ -20,17 +20,23 @@ const Main = ({ targetTab, target_videoCall, target_Call }) => {
               targetOption: targetTab === "키패드" && target_videoCall,
             }}
             button2={{
-              targetOption: targetTab === "키패드" && target_Call,
+              targetOption: targetTab === "키패드" && target_call,
             }}></CallKeypad>
         )}
         {clickedTapName === "최근기록" && (
           <Histories
             targetTab={targetTab}
             clickedTapName={clickedTapName}
-            target_Call={target_Call}
+            target_call={target_call}
           />
         )}
-        {clickedTapName === "연락처" && <Contacts />}
+        {clickedTapName === "연락처" && (
+          <Contacts
+            targetTab={targetTab}
+            clickedTapName={clickedTapName}
+            target_call={target_call}
+          />
+        )}
       </NoScrollbar>
       <CallTab
         setClickedTapName={setClickedTapName}
