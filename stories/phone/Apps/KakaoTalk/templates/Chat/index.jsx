@@ -14,7 +14,6 @@ import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 
 import DownUp from "components/DisplayBox/AppDisplays/components/UI/DownUp";
@@ -22,6 +21,10 @@ import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Alert from "components/DisplayBox/AppDisplays/components/UI/Alert";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
 import Phone from "stories/phone/molecules/Phone";
+import Modal from "stories/phone/molecules/Modal";
+import ModalContents from "stories/phone/organisms/ModalContents";
+import CancelBtn from "stories/phone/atoms/CancelBtn";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn";
 
 function Chat({
   inputLocked,
@@ -179,6 +182,53 @@ function Chat({
 
   return (
     <Phone>
+      {/* Modal */}
+      {open_modal && (
+        <Modal modalStyle={{ top: "80px" }}>
+          <ModalContents
+            title={{ content: "채팅방 나가기" }}
+            subTitle={{
+              content: (
+                <>
+                  나가기를 하면 대화내용이 모두 삭제되고
+                  <br />
+                  채팅 목록에서도 삭제됩니다.
+                </>
+              ),
+            }}
+            buttons={{
+              style: { justifyContent: "end" },
+              content: [
+                <CancelBtn
+                  key="btn1"
+                  condition={true}
+                  style={{ color: "rgb(59 130 246)" }}>
+                  취소
+                </CancelBtn>,
+                <SubmitBtn
+                  key="btn2"
+                  style={{ color: "rgb(59 130 246)" }}
+                  condition={
+                    isCheckbox && (target_leave_quietly || target_leave)
+                  }>
+                  나가기
+                </SubmitBtn>,
+              ],
+            }}>
+            {target_leave_quietly && (
+              <TargetContent className="my-1" targetOption={!isCheckbox}>
+                <Checkbox
+                  label={{ content: "조용히 나가기" }}
+                  onChangeHandler={() => {
+                    isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
+                  }}
+                  id="info_config"
+                />
+              </TargetContent>
+            )}
+          </ModalContents>
+        </Modal>
+      )}
       <NoScrollBar
         height={`${!open_option || open_optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
@@ -293,7 +343,7 @@ function Chat({
         <FlexContent
           items={[
             <Icon name="plus-lg" />,
-            <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
+            <div className="text-2xs text-start text-gray-400 leading-4">
               대화에 주의가 필요한 방입니다.
             </div>,
             <TargetContent targetOption={inputLocked} isNextDescriptionLink>
@@ -406,45 +456,7 @@ function Chat({
           </div>
         </div>
       )}
-      {/* Modal */}
-      {open_modal && (
-        <Modal_contents
-          modalClassName={`mt-5`}
-          className={``}
-          title={{ content: "채팅방 나가기" }}
-          subTitle={{
-            content: (
-              <>
-                나가기를 하면 대화내용이 모두 삭제되고
-                <br />
-                채팅 목록에서도 삭제됩니다.
-              </>
-            ),
-          }}
-          cancelButton={{
-            content: "취소",
-            className: "text-blue-500",
-            goBackDescription: true,
-          }}
-          submitButton={{
-            content: "나가기",
-            className: "text-blue-500",
-            targetOption: isCheckbox && (target_leave_quietly || target_leave),
-            isNextDescriptionLink: true,
-          }}>
-          {target_leave_quietly && (
-            <TargetContent className="my-1" targetOption={!isCheckbox}>
-              <Checkbox
-                label={{ content: "조용히 나가기" }}
-                onChangeHandler={() => {
-                  isCheckbox ? setIsCheckbox(false) : setIsCheckbox(true);
-                }}
-                id="info_config"
-              />
-            </TargetContent>
-          )}
-        </Modal_contents>
-      )}
+
       {/* setting option */}
       {(open_optionSetting || reopen_optionSetting) && (
         <DownUp

@@ -3,17 +3,21 @@
 import { useState } from "react";
 import classes from "./index.module.css";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import Modal_contents from "components/DisplayBox/AppDisplays/components/layout/Modal_contents";
+
 import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 import Switch from "components/DisplayBox/AppDisplays/components/UI/Switch";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 import Phone from "stories/phone/molecules/Phone";
+import ModalContents from "stories/phone/organisms/ModalContents";
+import Modal from "stories/phone/molecules/Modal";
+import TargetBox from "stories/phone/atoms/TargetBox";
+import CancelBtn from "stories/phone/atoms/CancelBtn";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn";
 
 function KakaoChatRoom_setting({
   target_groubChatLeave_rejectInvitation,
@@ -28,50 +32,62 @@ function KakaoChatRoom_setting({
     <Phone>
       <NoScrollBar height="305px">
         {open_modal && (
-          <Modal_contents
+          <Modal
+            modalStyle={{ top: "50px" }}
             onClickBackDrop={() => {
               setIsChecked(false);
-            }}
-            title={{ content: "초대 거부 및 나가기" }}
-            subTitle={{
-              content: (
-                <>
-                  초대를 거부하고 채팅방을 나갑니다.
-                  <br />
-                  이후 이 채팅방에 다시 입장할 수 없습니다. <br />
-                  대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
-                </>
-              ),
-            }}
-            cancelButton={{
-              content: "취소",
-              className: "text-blue-600",
-            }}
-            submitButton={{
-              targetOption: isChecked && target_groubChatLeave_rejectInvitation,
-              isNextDescriptionLink: true,
-              content: "나가기",
             }}>
-            <TargetContent targetOption={!isChecked}>
-              <Checkbox
-                id="info_config"
-                onChangeHandler={() => {
-                  target_groubChatLeave_rejectInvitation && isChecked
-                    ? setIsChecked(false)
-                    : setIsChecked(true);
-                }}
-                label={{
-                  content: "위 내용을 모두 확인하였습니다.",
-                }}></Checkbox>
-            </TargetContent>
-          </Modal_contents>
+            <ModalContents
+              title={{ content: "초대 거부 및 나가기" }}
+              subTitle={{
+                content: (
+                  <>
+                    초대를 거부하고 채팅방을 나갑니다.
+                    <br />
+                    이후 이 채팅방에 다시 입장할 수 없습니다. <br />
+                    대화 내용을 포함한 채팅방의 정보는 모두 삭제됩니다.
+                  </>
+                ),
+              }}
+              buttons={{
+                style: { justifyContent: "end" },
+                content: [
+                  <CancelBtn
+                    key="btn1"
+                    style={{ color: "rgb(59 130 246)" }}
+                    condition={true}>
+                    취소
+                  </CancelBtn>,
+                  <SubmitBtn
+                    key="btn2"
+                    condition={
+                      isChecked && target_groubChatLeave_rejectInvitation
+                    }>
+                    나가기
+                  </SubmitBtn>,
+                ],
+              }}>
+              <TargetBox isNextTriger={false} condition={!isChecked}>
+                <Checkbox
+                  id="info_config"
+                  onChangeHandler={() => {
+                    target_groubChatLeave_rejectInvitation && isChecked
+                      ? setIsChecked(false)
+                      : setIsChecked(true);
+                  }}
+                  label={{
+                    content: "위 내용을 모두 확인하였습니다.",
+                  }}></Checkbox>
+              </TargetBox>
+            </ModalContents>
+          </Modal>
         )}
         <>
           {/* header nav */}
           <AppHeader
             leftItem={[
               <BackBtn
-                targetOption={isChecked && target_backBtn}
+                condition={isChecked && target_backBtn}
                 isNavTriger={true}
               />,
             ]}
@@ -121,16 +137,17 @@ function KakaoChatRoom_setting({
                 content: "카톡",
               }}></StackedList>
             {/* title={"현재 채팅방 입력창 잠금"} */}
-            <TargetContent
-              isWidthFull
-              targetOption={target_groubChatLock && !isChecked}>
+            <TargetBox
+              style={{ witdh: "170px" }}
+              isNextTriger={false}
+              condition={target_groubChatLock && !isChecked}>
               <Switch
                 className=""
                 theme={"#fff200"}
                 title={"현재 채팅방 입력창 잠금"}
                 setIsSwitchChecked={setIsChecked}
                 id={`chatLockSwitch`}></Switch>
-            </TargetContent>
+            </TargetBox>
           </StackedListWrap>
           <StackedListWrap listTitle={{ content: "채팅방 관리" }}>
             {/* title={{ content: "홈 화면에 바로가기 추가" }} */}
@@ -172,24 +189,20 @@ function KakaoChatRoom_setting({
 
           {/* Buttons */}
           <div className="py-2 px-1 mx-auto">
-            <TargetContent
-              isNextDescriptionLink
-              targetOption={target_groubChatLeave}>
+            <TargetBox condition={target_groubChatLeave}>
               <Button
                 className="mb-1 text-sm"
                 textColor="rgb(255, 115, 0)"
                 borderColor="rgb(255, 115, 0)"
                 content="채팅방 나가기"></Button>
-            </TargetContent>
-            <TargetContent
-              isNextDescriptionLink
-              targetOption={target_groubChatLeave_rejectInvitation}>
+            </TargetBox>
+            <TargetBox condition={target_groubChatLeave_rejectInvitation}>
               <Button
                 className={`text-sm`}
                 btnColor="rgb(255, 115, 0)"
                 textColor="white"
                 content="초대거부 및 나가기"></Button>
-            </TargetContent>
+            </TargetBox>
           </div>
         </>
       </NoScrollBar>

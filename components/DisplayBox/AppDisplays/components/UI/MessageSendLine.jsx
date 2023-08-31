@@ -47,7 +47,7 @@ export default function MessageSendLine({
 
   return (
     <div className={`mt-auto ${className}`}>
-      <div className={`flex h-[24px]`}>
+      <div className={`flex h-[24px] items-center`}>
         {/* navOption_blured  */}
         {!inputClicked && navOption_blured && (
           <Flex

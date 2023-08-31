@@ -1,12 +1,15 @@
-import TargetContent from "../TargetContent";
+/* eslint-disable react/prop-types */
 
-export default function BackBtn({ targetOption, isNavTriger, onClick }) {
+import TargetBox from "stories/phone/atoms/TargetBox";
+import Icon from "stories/phone/atoms/Icon";
+
+export default function BackBtn({ condition, isNextTriger, onClick }) {
   return (
-    <TargetContent
+    <TargetBox
       onClick={onClick}
-      targetOption={targetOption}
-      isNextDescriptionLink={isNavTriger}>
-      <i className="bi bi-arrow-left"></i>
-    </TargetContent>
+      condition={condition}
+      isNextTriger={isNextTriger}>
+      <Icon name="arrow-left" />
+    </TargetBox>
   );
 }

@@ -6,6 +6,15 @@ const Container = styled.div`
   position: absolute;
   animation: opacity0to100 0.5s;
   z-index: 100;
+  ${(props) => (props.style ? props.style : null)}
+  @keyframes opacity0to100 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 const ModalContainer = styled.div`
   width: 150px;
@@ -14,19 +23,22 @@ const ModalContainer = styled.div`
   padding: 10px;
   z-index: 100;
   border-radius: 4px;
-
   left: 10px;
+  background-color: ${(props) =>
+    props.style.backgroundColor ? props.style.backgroundColor : "white"};
+  ${(props) => (props.style ? props.style : null)}
 `;
 
 export default function Modal({
-  style,
-  onClickBackDrop,
+  style = {},
+  onClickBackDrop = () => {},
   children,
-  modalStyle,
+  modalStyle = { backgroundColor: "white" },
 }) {
   return (
-    <Container className={`modalWrap`} style={style}>
+    <Container id="modalWrap" style={style}>
       <TargetBox
+        id="modal_backdrop"
         style={{
           backgroundColor: "#2a2a2a6a",
           width: "175px",
@@ -35,8 +47,9 @@ export default function Modal({
         }}
         onClick={onClickBackDrop}
         isBackTriger={true}
-        isNextTriger={false}></TargetBox>
-      <ModalContainer className={`modal`} style={modalStyle}>
+        isNextTriger={false}
+        condition={true}></TargetBox>
+      <ModalContainer id={`modal`} style={modalStyle}>
         {children}
       </ModalContainer>
     </Container>
