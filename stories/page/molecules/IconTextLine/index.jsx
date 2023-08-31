@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
   font-size: ${(prop) => (prop.fontSize ? prop.fontSize : "1rem")};
   color: ${(prop) => (prop.color ? prop.color : "var(--grey-800)")};
   width: ${(prop) => (prop.width ? prop.width : "fix-content")};

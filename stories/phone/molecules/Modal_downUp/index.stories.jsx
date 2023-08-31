@@ -5,5 +5,5 @@ export default {
 };
 
 export const Primary = {
-  args: {},
+  args: { children: <div>content</div>, top: "200px" },
 };
