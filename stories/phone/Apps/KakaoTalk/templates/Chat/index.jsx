@@ -16,7 +16,6 @@ import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 
-import DownUp from "components/DisplayBox/AppDisplays/components/UI/DownUp";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Alert from "components/DisplayBox/AppDisplays/components/UI/Alert";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
@@ -25,6 +24,8 @@ import Modal from "stories/phone/molecules/Modal";
 import ModalContents from "stories/phone/organisms/ModalContents";
 import CancelBtn from "stories/phone/atoms/CancelBtn";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn";
+
+import Modal_downUp from "stories/phone/molecules/Modal_downUp";
 
 function Chat({
   inputLocked,
@@ -459,10 +460,11 @@ function Chat({
 
       {/* setting option */}
       {(open_optionSetting || reopen_optionSetting) && (
-        <DownUp
-          downUpClassName={`mt-[20px]`}
-          className={``}
-          onClickBackDrop={backClickHandler}>
+        <Modal_downUp onClickBackDrop={backClickHandler}>
+          {/* // <DownUp
+        //   downUpClassName={``}
+        //   className={``}
+        //   onClickBackDrop={backClickHandler}> */}
           <StackedListWrap
             className={``}
             listTitle={{
@@ -515,7 +517,7 @@ function Chat({
             />
           </TargetContent>
 
-          <div className={`text-2xs text-gray-400 my-0.5`}>
+          <div className={`text-2xs text-gray-400 my-0.5 flex`}>
             <Icon
               name="info-circle"
               className={`text-2xs text-gray-400 mr-1`}
@@ -553,7 +555,9 @@ function Chat({
               </TargetContent>,
             ]}
           />
-        </DownUp>
+
+          {/* </DownUp> */}
+        </Modal_downUp>
       )}
     </Phone>
   );

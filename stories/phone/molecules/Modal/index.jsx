@@ -21,7 +21,7 @@ const ModalContainer = styled.div`
   height: max-content;
   position: absolute;
   padding: 10px;
-  z-index: 100;
+  z-index: 101;
   border-radius: 4px;
   left: 10px;
   background-color: ${(props) =>
