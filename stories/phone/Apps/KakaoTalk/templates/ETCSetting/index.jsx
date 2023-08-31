@@ -102,9 +102,8 @@ function ETCSetting({ target_lab, target_backBtn }) {
           <AppHeader
             leftItem={[
               <BackBtn
-                targetOption={target_backBtn}
-                isNavTriger={true}
-                onClick={() => {}}></BackBtn>,
+                condition={target_backBtn}
+                isNextTriger={true}></BackBtn>,
               "설정",
             ]}
           />

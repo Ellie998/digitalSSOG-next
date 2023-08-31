@@ -74,8 +74,8 @@ function ETCSetting_lab({ target_groubChatLeave_quietly }) {
           <AppHeader
             leftItem={[
               <BackBtn
-                targetOption={checkedContent === "switch3"}
-                isNavTriger></BackBtn>,
+                condition={checkedContent === "switch3"}
+                isNextTriger={true}></BackBtn>,
               "실험실",
             ]}
           />
