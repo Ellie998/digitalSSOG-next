@@ -11,7 +11,7 @@ import StackedListWrap from "stories/phone/molecules/StackedListWrap";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 
 // eslint-disable-next-line react/prop-types
-const Histories = ({ targetTab, clickedTapName, target_Call }) => {
+const Histories = ({ targetTab, clickedTapName, target = { call: false } }) => {
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
 
@@ -30,7 +30,7 @@ const Histories = ({ targetTab, clickedTapName, target_Call }) => {
       items={[
         <TargetContent
           key="telephone"
-          targetOption={targetTab === clickedTapName && target_Call}
+          targetOption={targetTab === clickedTapName && target.call}
           isNextDescriptionLink={true}>
           <Icon style={{ color: "rgb(22 163 74)" }} name="telephone-fill" />
         </TargetContent>,

@@ -10,7 +10,10 @@ import NoScrollbar from "stories/phone/atoms/NoScrollbar";
 
 /** targetTab option "키패드","최근기록","연락처" */
 // eslint-disable-next-line react/prop-types
-const Main = ({ targetTab, target_videoCall, target_call, target }) => {
+const Main = ({
+  targetTab,
+  target = { videoCall: false, call: false, chat: false },
+}) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 
   return (
@@ -19,17 +22,17 @@ const Main = ({ targetTab, target_videoCall, target_call, target }) => {
         {clickedTapName === "키패드" && (
           <CallKeypad
             button1={{
-              targetOption: targetTab === "키패드" && target_videoCall,
+              targetOption: targetTab === "키패드" && target.videoCall,
             }}
             button2={{
-              targetOption: targetTab === "키패드" && target_call,
+              targetOption: targetTab === "키패드" && target.call,
             }}></CallKeypad>
         )}
         {clickedTapName === "최근기록" && (
           <Histories
             targetTab={targetTab}
             clickedTapName={clickedTapName}
-            target_call={target_call}
+            target={target}
           />
         )}
         {clickedTapName === "연락처" && (
@@ -37,7 +40,6 @@ const Main = ({ targetTab, target_videoCall, target_call, target }) => {
             targetTab={targetTab}
             clickedTapName={clickedTapName}
             target={target}
-            target_call={target_call}
           />
         )}
       </NoScrollbar>

@@ -17,8 +17,7 @@ import TargetBox from "stories/phone/atoms/TargetBox";
 const Contacts = ({
   targetTab,
   clickedTapName,
-  target_call,
-  target = { chat: false },
+  target = { call: false, chat: false },
 }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
@@ -42,7 +41,7 @@ const Contacts = ({
       items={[
         <TargetBox
           key="telephone"
-          condition={targetTab === clickedTapName && target_call}
+          condition={targetTab === clickedTapName && target.call}
           isNextTriger={true}>
           <Icon style={{ color: "rgb(22 163 74)" }} name="telephone-fill" />
         </TargetBox>,

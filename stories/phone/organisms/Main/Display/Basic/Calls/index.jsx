@@ -24,7 +24,7 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Main
           key="callAppMain"
           targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
-          target_call
+          target={{ call: true }}
         />,
         <CallConnected key="callConnected" appName_basic />,
       ][descriptionId];
@@ -40,7 +40,11 @@ function Calls({ functionName, methodId, descriptionId }) {
     case functionName_makeVideoCall:
       choicedComponent = [
         <Home key="mainApps" appName_call />,
-        <Main key="callAppMain" targetTab="키패드" target_videoCall />,
+        <Main
+          key="callAppMain"
+          targetTab="키패드"
+          target={{ videoCall: true }}
+        />,
         <VideoCallConnected key="callConnected" />,
       ][descriptionId];
 
