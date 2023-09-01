@@ -65,8 +65,10 @@ const CallConnected = () => {
         />
         <Top
           title={{
-            content: "010-0000-0000",
-            style: { fontSize: "0.875rem" },
+            content: "홍길동",
+          }}
+          subTitle={{
+            content: "휴대전화 010-0000-0000",
           }}
         />
         <IconsContainer>

@@ -8,6 +8,9 @@ import Main from "stories/phone/Apps/Basic/Call/templates/Main";
 import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall";
 import CallConnected from "stories/phone/Apps/Basic/Call/templates/CallConnected";
 import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCallConnected";
+// chat
+import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main";
+import Chat from "stories/phone/Apps/Basic/Message/templates/Chat";
 
 function Calls({ functionName, methodId, descriptionId }) {
   //
@@ -19,15 +22,29 @@ function Calls({ functionName, methodId, descriptionId }) {
 
   switch (functionName) {
     case functionName_makeCall:
-      choicedComponent = [
-        <Home key="mainApps" appName_call />,
-        <Main
-          key="callAppMain"
-          targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
-          target={{ call: true }}
-        />,
-        <CallConnected key="callConnected" />,
-      ][descriptionId];
+      if (methodId === "1" || methodId === "2" || methodId === "3") {
+        choicedComponent = [
+          <Home key="mainApps" appName_call />,
+          <Main
+            key="callAppMain"
+            targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
+            target={{ call: true }}
+          />,
+          <CallConnected key="callConnected" />,
+        ][descriptionId];
+      }
+      if (methodId === "4") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <ChatMain key="MessageMain" target_seeMessage />,
+          <Chat
+            key="Message"
+            target={{ call: true }}
+            open={{ profile: true }}
+          />,
+          <CallConnected key="callConnected" />,
+        ][descriptionId];
+      }
 
       break;
     case functionName_getCall:

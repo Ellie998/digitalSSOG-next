@@ -21,6 +21,7 @@ const Icon = ({
   name,
   style = {
     fontSize: "0.875rem",
+    padding: "2px",
   },
 
   onClick,

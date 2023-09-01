@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
@@ -22,6 +23,7 @@ import ModalContents from "stories/phone/organisms/ModalContents";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn";
 import CancelBtn from "stories/phone/atoms/CancelBtn";
 import Button from "stories/phone/atoms/Button";
+import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader";
 
 function Chat({
   open_option,
@@ -36,11 +38,14 @@ function Chat({
   target_sendAudio,
   target_sendPhoneNum,
   message_fill,
+  target = { call: false },
+  open = { profile: false },
 }) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
   const [isOvered, setIsOvered] = useState(false);
+
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
   useEffect(() => {
@@ -309,19 +314,12 @@ function Chat({
               : "275px"
           }`,
         }}>
-        <StackedList_Profile
+        <ChatHeader
           onClick={backClickHandler}
-          profile={{
-            content: "홍",
-            style: { backgroundColor: "rgb(254 215 170)" },
-          }}
-          title={{ content: "홍길동" }}
-          info={{
-            content: (
-              <Icon name={`three-dots-vertical`} className={`text-sm`} />
-            ),
-            style: { gridColumnStart: "6" },
-          }}></StackedList_Profile>
+          open={open.profile}
+          target={target}
+        />
+
         <ChatList
           onClick={backClickHandler}
           isGetList

@@ -33,22 +33,26 @@ export default function Modal({
   style = {},
   onClickBackDrop = () => {},
   children,
+  backdrop = { isBackTriger: true, condition: true },
   modalStyle = { backgroundColor: "white" },
+  backdropStyle = {
+    backgroundColor: "#2a2a2a6a",
+  },
 }) {
   return (
     <Container id="modalWrap" style={style}>
       <TargetBox
         id="modal_backdrop"
         style={{
-          backgroundColor: "#2a2a2a6a",
           width: "175px",
           height: "305px",
           position: "absolute",
+          ...backdropStyle,
         }}
         onClick={onClickBackDrop}
-        isBackTriger={true}
+        isBackTriger={backdrop.isBackTriger}
         isNextTriger={false}
-        condition={true}></TargetBox>
+        condition={backdrop.condition}></TargetBox>
       <ModalContainer id={`modal`} style={modalStyle}>
         {children}
       </ModalContainer>

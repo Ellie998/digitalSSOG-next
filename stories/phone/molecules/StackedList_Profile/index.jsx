@@ -83,12 +83,19 @@ export default function StackedList_Profile({
     <>
       <Container key={id} style={style} onClick={onClick}>
         <ProfileContainer>
-          <ProfileIcon name={profile.name} style={profile.style}>
+          <ProfileIcon
+            name={profile.name}
+            style={profile.style}
+            onClick={profile.onClick}>
             {profile.content ? profile.content : null}
           </ProfileIcon>
         </ProfileContainer>
 
-        <TitleContainer style={title.style} info={info} subTitle={subTitle}>
+        <TitleContainer
+          style={title.style}
+          info={info}
+          subTitle={subTitle}
+          onClick={title.onClick}>
           {title.content}
         </TitleContainer>
         {/* subTitle */}
@@ -99,7 +106,10 @@ export default function StackedList_Profile({
         )}
         {/* info */}
         {info !== undefined && (
-          <InfoContainer style={info.style} subInfo={subInfo}>
+          <InfoContainer
+            style={info.style}
+            subInfo={subInfo}
+            onClick={info.onClick}>
             {info.content}
           </InfoContainer>
         )}
