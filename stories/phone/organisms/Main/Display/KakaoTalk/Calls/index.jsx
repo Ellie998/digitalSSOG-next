@@ -7,7 +7,7 @@ import Default from "stories/phone/organisms/Main/Default";
 // call
 
 import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall";
-import CallConnected from "stories/phone/Apps/Basic/Call/templates/CallConnected";
+import CallConnected from "stories/phone/Apps/KakaoTalk/templates/CallConnected";
 
 import Main from "stories/phone/Apps/KakaoTalk/templates/Main";
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile";
@@ -25,14 +25,14 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Home key="mainApps" appName_kakaotalk />,
         <Main key="KakaoAppMain" defaultTab_friend target_profile />,
         <Profile key="Profile" />,
-        <CallConnected key="callConnected" appName_kakaotalk />,
+        <CallConnected key="callConnected" />,
       ][descriptionId];
 
       break;
     case functionName_getCall:
       choicedComponent = [
         <AnswerCall key="answerCall" appName_kakaotalk />,
-        <CallConnected key="callConnected" appName_kakaotalk />,
+        <CallConnected key="callConnected" />,
       ][descriptionId];
 
       break;

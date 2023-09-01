@@ -26,14 +26,14 @@ function Calls({ functionName, methodId, descriptionId }) {
           targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
           target={{ call: true }}
         />,
-        <CallConnected key="callConnected" appName_basic />,
+        <CallConnected key="callConnected" />,
       ][descriptionId];
 
       break;
     case functionName_getCall:
       choicedComponent = [
         <AnswerCall key="answerCall" appName_basic />,
-        <CallConnected key="callConnected" appName_basic />,
+        <CallConnected key="callConnected" />,
       ][descriptionId];
 
       break;
