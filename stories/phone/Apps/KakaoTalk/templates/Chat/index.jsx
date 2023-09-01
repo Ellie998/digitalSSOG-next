@@ -460,7 +460,9 @@ function Chat({
 
       {/* setting option */}
       {(open_optionSetting || reopen_optionSetting) && (
-        <Modal_downUp onClickBackDrop={backClickHandler}>
+        <Modal_downUp
+          onClickBackDrop={backClickHandler}
+          style={{ bottom: "-192px" }}>
           {/* // <DownUp
         //   downUpClassName={``}
         //   className={``}

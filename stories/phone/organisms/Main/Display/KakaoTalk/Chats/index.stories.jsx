@@ -1,5 +1,6 @@
 import Chats from ".";
 
+const functionName_reserveMessage = "예약 문자 발송";
 const functionName_kakaotalk_groubChatLeave_rejectInvitation =
   "그룹채팅방 초대거부 및 나가기";
 const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
@@ -24,6 +25,11 @@ export default {
   },
 };
 
+export const reserveMessage = {
+  args: {
+    functionName: functionName_reserveMessage,
+  },
+};
 export const groubChatLeave_rejectInvitation = {
   args: {
     functionName: functionName_kakaotalk_groubChatLeave_rejectInvitation,
