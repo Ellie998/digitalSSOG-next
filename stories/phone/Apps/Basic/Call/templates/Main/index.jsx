@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import CallTab from "stories/phone/Apps/Basic/Call/organisms/CallTab";
@@ -7,8 +8,9 @@ import Histories from "stories/phone/Apps/Basic/Call/organisms/Histories";
 import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts";
 import NoScrollbar from "stories/phone/atoms/NoScrollbar";
 
+/** targetTab option "키패드","최근기록","연락처" */
 // eslint-disable-next-line react/prop-types
-const Main = ({ targetTab, target_videoCall, target_call }) => {
+const Main = ({ targetTab, target_videoCall, target_call, target }) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 
   return (
@@ -34,6 +36,7 @@ const Main = ({ targetTab, target_videoCall, target_call }) => {
           <Contacts
             targetTab={targetTab}
             clickedTapName={clickedTapName}
+            target={target}
             target_call={target_call}
           />
         )}

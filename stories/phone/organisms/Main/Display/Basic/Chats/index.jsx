@@ -10,6 +10,8 @@ import Unread from "stories/phone/Apps/Basic/Message/templates/Unread";
 import SelectPerson from "stories/phone/Apps/Basic/Message/templates/SelectPerson";
 import SelectFile from "stories/phone/Apps/Basic/Message/templates/SelectFile";
 import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs";
+//
+import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main";
 
 function Chats({ functionName, methodId, descriptionId }) {
   const functionName_sendMessage = "문자 발신";
@@ -24,19 +26,33 @@ function Chats({ functionName, methodId, descriptionId }) {
 
   switch (functionName) {
     case functionName_sendMessage:
-      choicedComponent =
-        methodId === "1"
-          ? [
-              <Home key="mainApps" appName_message />,
-              <Main key="MessageAppMain" target_sendMessage />,
-              <SelectPerson key="SelectPerson" target_person1 />,
-              <Chat key="Message" />,
-            ][descriptionId]
-          : [
-              <Home key="mainApps" appName_message />,
-              <Main key="MessageAppMain" target_seeMessage />,
-              <Chat key="Message" />,
-            ][descriptionId];
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson" target_person1 />,
+          <Chat key="Message" />,
+        ][descriptionId];
+      }
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_seeMessage />,
+          <Chat key="Message" />,
+        ][descriptionId];
+      }
+      if (methodId === "3") {
+        choicedComponent = [
+          <Home key="mainApps" appName_call />,
+          <CallMain
+            key="CallMain"
+            targetTab={"연락처"}
+            target={{ chat: true }}
+          />,
+          <Chat key="Message" />,
+        ][descriptionId];
+      }
+
       break;
     case functionName_seeMessage:
       choicedComponent =

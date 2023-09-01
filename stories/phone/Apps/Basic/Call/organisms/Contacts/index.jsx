@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
@@ -13,7 +14,12 @@ import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 import TargetBox from "stories/phone/atoms/TargetBox";
 
 // eslint-disable-next-line react/prop-types
-const Contacts = ({ targetTab, clickedTapName, target_call }) => {
+const Contacts = ({
+  targetTab,
+  clickedTapName,
+  target_call,
+  target = { chat: false },
+}) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
   const [isListClicked1, setIsListClicked1] = useState(false);
@@ -40,11 +46,16 @@ const Contacts = ({ targetTab, clickedTapName, target_call }) => {
           isNextTriger={true}>
           <Icon style={{ color: "rgb(22 163 74)" }} name="telephone-fill" />
         </TargetBox>,
-        <Icon
+        <TargetBox
           key="chat"
-          style={{ color: "rgb(22 163 74)" }}
-          name="chat-fill"
-        />,
+          condition={targetTab === clickedTapName && target.chat}
+          isNextTriger={true}>
+          <Icon
+            key="chat"
+            style={{ color: "rgb(22 163 74)" }}
+            name="chat-fill"
+          />
+        </TargetBox>,
         <Icon
           key="camera"
           style={{ color: "rgb(22 163 74)" }}
