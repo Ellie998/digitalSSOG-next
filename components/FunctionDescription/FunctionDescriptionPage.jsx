@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 import UrlContext from "../page_context/UrlContext";
 
-import ShareContainer from "../share/ShareContainer";
+// import ShareContainer from "../share/ShareContainer";
 
 import FunctionIntro from "stories/page/templates/FunctionIntro";
 import FunctionMain from "stories/page/templates/FunctionMain";
@@ -45,7 +45,7 @@ function FunctionDescriptionPage() {
         setMyDescriptionId={setMyDescriptionId}
       />
       <FunctionMain detailFunctionObject={detailFunctionObject} />
-      <ShareContainer />
+      {/* <ShareContainer /> */}
     </main>
   );
 }

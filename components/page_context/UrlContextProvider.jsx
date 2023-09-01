@@ -82,7 +82,7 @@ export default function UrlContextProvider({ children }) {
   return (
     <UrlContext.Provider
       value={{
-        functionName: functionName,
+        functionName: functionName.replaceAll("-", " "),
         myAppName: myAppName,
         myMethodId: myMethodId,
         myDescriptionId: myDescriptionId,
