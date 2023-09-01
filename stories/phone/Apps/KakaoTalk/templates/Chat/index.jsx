@@ -230,6 +230,101 @@ function Chat({
           </ModalContents>
         </Modal>
       )}
+      {/* setting option */}
+      {(open_optionSetting || reopen_optionSetting) && (
+        <Modal_downUp onClickBackDrop={backClickHandler}>
+          <StackedListWrap
+            className={``}
+            listTitle={{
+              content: (
+                <TargetContent
+                  targetOption={
+                    open_optionSetting &&
+                    target_reserveMessage &&
+                    optionInput === "" &&
+                    !isOptionInputSubmit
+                  }>
+                  <input
+                    placeholder="메시지 입력"
+                    className="w-full"
+                    onChange={(e) => {
+                      setOptionInput(e.target.value);
+                    }}
+                  />
+                </TargetContent>
+              ),
+              className: "text-sm text-gray-300 font-bold cursor-pointer ",
+            }}
+          />
+          <TargetContent
+            targetOption={optionInput !== "" && !isOptionInputSubmit}>
+            <FlexContent
+              className={`my-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>일시</div>,
+                <input
+                  className={`text-2xs cursor-pointer`}
+                  type="datetime-local"
+                  defaultValue={GetDate().y_m_d_h_plus1_m}
+                />,
+              ]}
+            />
+            <FlexContent
+              className={`my-0.5 py-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>발송 대상</div>,
+                <div className={`text-xs cursor-pointer`}>영희</div>,
+              ]}
+            />
+            <FlexContent
+              className={`my-0.5 py-0.5`}
+              items={[
+                <div className={`text-xs text-gray-400`}>미리 알림</div>,
+                <div className={`text-xs cursor-pointer`}>알림 받지 않음</div>,
+              ]}
+            />
+          </TargetContent>
+
+          <div className={`text-2xs text-gray-400 my-0.5 flex`}>
+            <Icon
+              name="info-circle"
+              className={`text-2xs text-gray-400 mr-1`}
+            />
+            예약 메시지가 많을 경우, 약간의 시간 오차가 발생할 수 있습니다.
+          </div>
+          <FlexContent
+            className={`mb-1 mt-4`}
+            items={[
+              <TargetContent targetOption={reopen_optionSetting}>
+                <Button
+                  btnColor={`#efefef`}
+                  className={`text-2xs font-bold`}
+                  width={`70px`}
+                  content={"예약 목록 보기"}
+                />
+              </TargetContent>,
+              <TargetContent
+                targetOption={
+                  target_reserveMessage &&
+                  optionInput !== "" &&
+                  !isOptionInputSubmit
+                }
+                isNextDescriptionLink={true}>
+                <Button
+                  btnColor={`${optionInput === "" ? "#fafafa" : "#fff200"}`}
+                  className={`text-2xs font-bold`}
+                  width={`70px`}
+                  textColor={`${optionInput === "" ? "#b7b7b7" : ""}`}
+                  content={"예약하기"}
+                  onClick={() => {
+                    setIsOptionInputSubmit(true);
+                  }}
+                />
+              </TargetContent>,
+            ]}
+          />
+        </Modal_downUp>
+      )}
       <NoScrollBar
         height={`${!open_option || open_optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
@@ -458,109 +553,7 @@ function Chat({
         </div>
       )}
 
-      {/* setting option */}
-      {(open_optionSetting || reopen_optionSetting) && (
-        <Modal_downUp
-          onClickBackDrop={backClickHandler}
-          style={{ bottom: "-192px" }}>
-          {/* // <DownUp
-        //   downUpClassName={``}
-        //   className={``}
-        //   onClickBackDrop={backClickHandler}> */}
-          <StackedListWrap
-            className={``}
-            listTitle={{
-              content: (
-                <TargetContent
-                  targetOption={
-                    open_optionSetting &&
-                    target_reserveMessage &&
-                    optionInput === "" &&
-                    !isOptionInputSubmit
-                  }>
-                  <input
-                    placeholder="메시지 입력"
-                    className="w-full"
-                    onChange={(e) => {
-                      setOptionInput(e.target.value);
-                    }}
-                  />
-                </TargetContent>
-              ),
-              className: "text-sm text-gray-300 font-bold cursor-pointer ",
-            }}
-          />
-          <TargetContent
-            targetOption={optionInput !== "" && !isOptionInputSubmit}>
-            <FlexContent
-              className={`my-0.5`}
-              items={[
-                <div className={`text-xs text-gray-400`}>일시</div>,
-                <input
-                  className={`text-2xs cursor-pointer`}
-                  type="datetime-local"
-                  defaultValue={GetDate().y_m_d_h_plus1_m}
-                />,
-              ]}
-            />
-            <FlexContent
-              className={`my-0.5 py-0.5`}
-              items={[
-                <div className={`text-xs text-gray-400`}>발송 대상</div>,
-                <div className={`text-xs cursor-pointer`}>영희</div>,
-              ]}
-            />
-            <FlexContent
-              className={`my-0.5 py-0.5`}
-              items={[
-                <div className={`text-xs text-gray-400`}>미리 알림</div>,
-                <div className={`text-xs cursor-pointer`}>알림 받지 않음</div>,
-              ]}
-            />
-          </TargetContent>
 
-          <div className={`text-2xs text-gray-400 my-0.5 flex`}>
-            <Icon
-              name="info-circle"
-              className={`text-2xs text-gray-400 mr-1`}
-            />
-            예약 메시지가 많을 경우, 약간의 시간 오차가 발생할 수 있습니다.
-          </div>
-          <FlexContent
-            className={`mb-1 mt-4`}
-            items={[
-              <TargetContent targetOption={reopen_optionSetting}>
-                <Button
-                  btnColor={`#efefef`}
-                  className={`text-2xs font-bold`}
-                  width={`70px`}
-                  content={"예약 목록 보기"}
-                />
-              </TargetContent>,
-              <TargetContent
-                targetOption={
-                  target_reserveMessage &&
-                  optionInput !== "" &&
-                  !isOptionInputSubmit
-                }
-                isNextDescriptionLink={true}>
-                <Button
-                  btnColor={`${optionInput === "" ? "#fafafa" : "#fff200"}`}
-                  className={`text-2xs font-bold`}
-                  width={`70px`}
-                  textColor={`${optionInput === "" ? "#b7b7b7" : ""}`}
-                  content={"예약하기"}
-                  onClick={() => {
-                    setIsOptionInputSubmit(true);
-                  }}
-                />
-              </TargetContent>,
-            ]}
-          />
-
-          {/* </DownUp> */}
-        </Modal_downUp>
-      )}
     </Phone>
   );
 }

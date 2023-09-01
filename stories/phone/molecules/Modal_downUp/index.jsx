@@ -19,15 +19,9 @@ const ModalBar = styled.div`
   border-radius: 0.125rem /* 2px */;
 `;
 
-const Modal_downUp = ({
-  children,
-  onClickBackDrop,
-  top = "92px",
-  style = { bottom: "0px" },
-}) => {
+const Modal_downUp = ({ children, onClickBackDrop, top = "92px" }) => {
   return (
     <Modal
-      style={style}
       onClickBackDrop={onClickBackDrop}
       modalStyle={{
         top: top,
