@@ -24,7 +24,7 @@ function Calls({ functionName, methodId, descriptionId }) {
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
         <Main key="KakaoAppMain" defaultTab_friend target_profile />,
-        <Profile key="Profile" />,
+        <Profile key="Profile" target={{ call: true }} />,
         <CallConnected key="callConnected" />,
       ][descriptionId];
 

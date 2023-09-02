@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import classes from "./index.module.css";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 
 import Phone from "stories/phone/molecules/Phone";
 import IconBottom from "stories/phone/molecules/IconBottom";
+import TargetBox from "stories/phone/atoms/TargetBox";
 
-function Profile() {
+function Profile({ target = { call: false, chat: false } }) {
   return (
     <Phone>
       <section className={classes.layout}>
@@ -34,24 +35,26 @@ function Profile() {
         </section>
 
         <div className={classes.listLayout}>
-          <IconBottom
-            icon={{
-              name: "chat-fill",
-              style: {
-                color: "white",
-                fontSize: "16px",
-              },
-            }}
-            description={{
-              content: "1:1채팅",
-              style: {
-                color: "white",
-                fontSize: "8px",
-                fontWeight: "bold",
-              },
-            }}
-          />
-          <TargetContent targetOption={true} isNextDescriptionLink={true}>
+          <TargetBox condition={target.chat} isNextTriger={true}>
+            <IconBottom
+              icon={{
+                name: "chat-fill",
+                style: {
+                  color: "white",
+                  fontSize: "16px",
+                },
+              }}
+              description={{
+                content: "1:1채팅",
+                style: {
+                  color: "white",
+                  fontSize: "8px",
+                  fontWeight: "bold",
+                },
+              }}
+            />
+          </TargetBox>
+          <TargetBox condition={target.call} isNextTriger={true}>
             <IconBottom
               style={{ padding: "2px" }}
               icon={{
@@ -70,7 +73,7 @@ function Profile() {
                 },
               }}
             />
-          </TargetContent>
+          </TargetBox>
           <IconBottom
             icon={{
               name: "camera-video-fill",

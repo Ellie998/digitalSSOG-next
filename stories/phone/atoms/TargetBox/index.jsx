@@ -26,7 +26,6 @@ const TargetBox = ({
   children,
 }) => {
   const { setMyDescriptionId } = useContext(UrlContext);
-  console.log(condition);
   return (
     <Container
       id={id}

@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
+import UrlContext from "components/page_context/UrlContext";
 
 import Home from "stories/phone/Apps/Basic/Home";
 import Error from "stories/phone/organisms/Main/Error";
@@ -10,21 +12,39 @@ import Chat from "stories/phone/Apps/KakaoTalk/templates/Chat";
 import ETCSetting from "stories/phone/Apps/KakaoTalk/templates/ETCSetting";
 import ETCSetting_lab from "stories/phone/Apps/KakaoTalk/templates/ETCSetting_lab";
 import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting";
+import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
-
-  const functionName_reserveMessage = "예약 문자 발송";
-  const functionName_kakaotalk_groubChatLeave_rejectInvitation =
-    "그룹채팅방 초대거부 및 나가기";
-  const functionName_kakaotalk_groubChatLock =
-    "그룹채팅방 채팅 입력창 잠금하기";
-  const functionName_kakaotalk_groubChatLeave_quietly =
-    "그룹채팅방 조용히 나가기";
+  const {
+    functionName_sendMessage,
+    functionName_reserveMessage,
+    functionName_kakaotalk_groubChatLeave_rejectInvitation,
+    functionName_kakaotalk_groubChatLock,
+    functionName_kakaotalk_groubChatLeave_quietly,
+  } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
 
   switch (functionName.replaceAll("-", " ")) {
+    case functionName_sendMessage:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="KakaoAppMain" defaultTab_friend target_profile />,
+          <Profile key="Profile" target={{ chat: true }} />,
+          <Chat key="chat" />,
+        ][descriptionId];
+      }
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="KakaoAppMain" defaultTab_chat target_chat />,
+          <Chat key="chat" />,
+        ][descriptionId];
+      }
+
+      break;
     case functionName_reserveMessage:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
@@ -39,7 +59,6 @@ function Chats({ functionName, methodId, descriptionId }) {
       ][descriptionId];
 
       break;
-
     case functionName_kakaotalk_groubChatLeave_rejectInvitation:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
