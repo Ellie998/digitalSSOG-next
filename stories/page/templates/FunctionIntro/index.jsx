@@ -31,7 +31,7 @@ const FunctionIntro = ({
         <b>{detailFunctionObject.name}</b> 기능 소개
       </H2>
       <FunctionIntroBoxList
-        char={detailFunctionObject.charateristic}
+        char={detailFunctionObject.characteristic}
         app={detailFunctionObject.app}
         setMyAppName={setMyAppName}
         setMyMethodId={setMyMethodId}

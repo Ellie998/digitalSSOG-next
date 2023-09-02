@@ -5,7 +5,7 @@
       {
         "name": "📞전화받기(수신)",
         "app": ["기본", "카카오톡"],
-        "charateristic": "전화를 받을 수 있다.",
+        "characteristic": "전화를 받을 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -37,7 +37,7 @@
       {
         "name": "📞전화걸기(발신)",
         "app": ["기본", "카카오톡", "instargram"],
-        "charateristic": "전화를 걸 수 있다.",
+        "characteristic": "전화를 걸 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -101,7 +101,7 @@
       {
         "name": "🤳영상통화 발신",
         "app": ["기본", "카카오톡"],
-        "charateristic": "영상통화를 걸 수 있다.",
+        "characteristic": "영상통화를 걸 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -122,7 +122,7 @@
       {
         "name": "💬문자 발신",
         "app": ["기본", "카카오톡"],
-        "charateristic": "특정 사람에게 문자를 보낸다.",
+        "characteristic": "특정 사람에게 문자를 보낸다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -189,7 +189,7 @@
       {
         "name": "💬문자 수신",
         "app": ["기본", "카카오톡"],
-        "charateristic": "수신된 문자를 확인한다.",
+        "characteristic": "수신된 문자를 확인한다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -220,7 +220,7 @@
       {
         "name": "✉️예약 문자 발송",
         "app": ["기본", "카카오톡"],
-        "charateristic": "사용자가 설정한 시간에 자동으로 문자를 보내도록 할 수 있다.",
+        "characteristic": "사용자가 설정한 시간에 자동으로 문자를 보내도록 할 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -264,7 +264,7 @@
       {
         "name": "✉️문자 전달",
         "app": ["기본", "카카오톡"],
-        "charateristic": "선택한 문자를 그대로 전달할 수 있다.",
+        "characteristic": "선택한 문자를 그대로 전달할 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -286,7 +286,7 @@
       {
         "name": "📁이미지, 동영상 전송",
         "app": ["기본", "카카오톡"],
-        "charateristic": "상대방에게 휴대폰에 저장된 사진과 이미지를 공유할 수 있다.",
+        "characteristic": "상대방에게 휴대폰에 저장된 사진과 이미지를 공유할 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -328,7 +328,7 @@
       {
         "name": "📁오디오 전송",
         "app": ["기본", "카카오톡"],
-        "charateristic": "오디오 파일을 선택한 사람에게 공유할 수 있다.",
+        "characteristic": "오디오 파일을 선택한 사람에게 공유할 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -352,7 +352,7 @@
       {
         "name": "☎️연락처 공유",
         "app": ["기본", "카카오톡"],
-        "charateristic": "연락처를 선택한 사람에게 공유할 수 있다.",
+        "characteristic": "연락처를 선택한 사람에게 공유할 수 있다.",
         "method": [
           {
             "methodAppName": "기본",
@@ -382,6 +382,7 @@
         "date": "2023-09-02",
         "name": "🙋그룹 채팅하기",
         "app": ["기본", "카카오톡"],
+
         "characteristic": "여러명(2명 이상)과 문자로 대화를 주고받을 수 있다. 이미지, 동영상, 파일, 음성 파일 등의 파일을 여러명에게 보낼 수 있다.",
         "method": [
           {
@@ -404,7 +405,7 @@
       {
         "name": "🙋그룹채팅방 초대거부 및 나가기",
         "app": ["카카오톡"],
-        "charateristic": "그룹채팅방에서 나가며, 그 그룹채팅방에 다시 초대받지 않을 수 있는 기능이다.",
+        "characteristic": "그룹채팅방에서 나가며, 그 그룹채팅방에 다시 초대받지 않을 수 있는 기능이다.",
         "method": [
           {
             "methodAppName": "카카오톡",
@@ -429,7 +430,7 @@
       {
         "name": "⛔️그룹채팅방 채팅 입력창 잠금하기",
         "app": ["카카오톡"],
-        "charateristic": "채팅에 주의를 해야 하는 그룹채팅방의 채팅창을 잠가서 실수를 막을 수 있다.",
+        "characteristic": "채팅에 주의를 해야 하는 그룹채팅방의 채팅창을 잠가서 실수를 막을 수 있다.",
         "method": [
           {
             "methodAppName": "카카오톡",
@@ -454,7 +455,7 @@
       {
         "name": "🤫그룹채팅방 조용히 나가기",
         "app": ["카카오톡"],
-        "charateristic": [
+        "characteristic": [
           "그룹채팅방에서 나갔다는 문구 없이 조용히 나갈 수 있다.",
           "카카오톡 버전 10.2.0 이상만 사용 가능하다."
         ],
@@ -490,7 +491,7 @@
       {
         "name": "🙋그룹채팅방 초대거부 및 나가기",
         "app": ["카카오톡"],
-        "charateristic": "그룹채팅방에서 나가며, 그 그룹채팅방에 다시 초대받지 않을 수 있는 기능이다.",
+        "characteristic": "그룹채팅방에서 나가며, 그 그룹채팅방에 다시 초대받지 않을 수 있는 기능이다.",
         "method": [
           {
             "methodAppName": "카카오톡",
@@ -515,7 +516,7 @@
       {
         "name": "⛔️그룹채팅방 채팅 입력창 잠금하기",
         "app": ["카카오톡"],
-        "charateristic": "채팅에 주의를 해야 하는 그룹채팅방의 채팅창을 잠가서 실수를 막을 수 있다.",
+        "characteristic": "채팅에 주의를 해야 하는 그룹채팅방의 채팅창을 잠가서 실수를 막을 수 있다.",
         "method": [
           {
             "methodAppName": "카카오톡",
@@ -540,7 +541,7 @@
       {
         "name": "🤫그룹채팅방 조용히 나가기",
         "app": ["카카오톡"],
-        "charateristic": [
+        "characteristic": [
           "그룹채팅방에서 나갔다는 문구 없이 조용히 나갈 수 있다.",
           "카카오톡 버전 10.2.0 이상만 사용 가능하다."
         ],
@@ -577,7 +578,7 @@
       {
         "name": "",
         "app": [""],
-        "charateristic": "",
+        "characteristic": "",
         "method": [
           {
             "methodAppName": "",
