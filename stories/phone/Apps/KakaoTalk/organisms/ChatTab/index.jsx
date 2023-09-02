@@ -6,8 +6,13 @@ import Icon from "stories/phone/atoms/Icon";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import TargetBox from "stories/phone/atoms/TargetBox";
+import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader";
 
-const ChatTab = ({ target = { chat: false, groupChat: false } }) => {
+const ChatTab = ({
+  target = { chat: false, groupChat: false, chatPlus: false },
+  open = { topModal: false },
+}) => {
   const chatListContents = [
     <StackedList_Profile
       className="h-8 mb-1"
@@ -80,33 +85,29 @@ const ChatTab = ({ target = { chat: false, groupChat: false } }) => {
   ];
 
   return (
-    <NoScrollBar height="240px">
-      <AppHeader
-        leftItem={[<div className="text-sm font-bold">채팅</div>]}
-        rightItem={[
-          <Icon name="search" className="text-sm" />,
-          <Icon name="plus-circle" className="ml-1 text-sm" />,
-          <Icon name="gear" className="ml-1 text-sm" />,
-        ]}></AppHeader>
+    <>
+      <NoScrollBar height="240px">
+        <ChatHeader target={{ chatPlus: true }} open={open}></ChatHeader>
 
-      <>
-        {target.groupChat && (
-          <TargetContent
-            targetOption={target.groupChat}
-            isNextDescriptionLink={true}>
-            {chatListContents[0]}
-          </TargetContent>
-        )}
-        {target.chat && (
-          <TargetContent
-            targetOption={target.chat}
-            isNextDescriptionLink={true}>
-            {chatListContents[1]}
-          </TargetContent>
-        )}
-        {chatListContents[2]}
-      </>
-    </NoScrollBar>
+        <>
+          {target.groupChat && (
+            <TargetContent
+              targetOption={target.groupChat}
+              isNextDescriptionLink={true}>
+              {chatListContents[0]}
+            </TargetContent>
+          )}
+          {target.chat && (
+            <TargetContent
+              targetOption={target.chat}
+              isNextDescriptionLink={true}>
+              {chatListContents[1]}
+            </TargetContent>
+          )}
+          {chatListContents[2]}
+        </>
+      </NoScrollBar>
+    </>
   );
 };
 

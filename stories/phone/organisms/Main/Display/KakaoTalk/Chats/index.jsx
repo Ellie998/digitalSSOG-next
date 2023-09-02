@@ -13,6 +13,8 @@ import ETCSetting from "stories/phone/Apps/KakaoTalk/templates/ETCSetting";
 import ETCSetting_lab from "stories/phone/Apps/KakaoTalk/templates/ETCSetting_lab";
 import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting";
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile";
+import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson";
+import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -108,11 +110,26 @@ function Chats({ functionName, methodId, descriptionId }) {
       ][descriptionId];
       break;
     case functionName_groupChat:
-      choicedComponent = [
-        <Home key="mainApps" appName_kakaotalk />,
-        <Main key="Main" tab={{ chat: true }} target={{ groupChat: true }} />,
-        <Chat key="Chat" chatType_group />,
-      ][descriptionId];
+      if (methodId === "1")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target={{ groupChat: true }} />,
+          <Chat key="Chat" chatType_group />,
+        ][descriptionId];
+      if (methodId === "2")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target={{ chatPlus: true }} />,
+          <Main
+            key="Main"
+            tab={{ chat: true }}
+            target={{ chatPlus: true }}
+            open={{ topModal: true }}
+          />,
+          <SelectPerson key="selectPerson" />,
+          <SettingChatRoom_NameImg key="setting_chat_name_img" />,
+          <Chat key="Chat" chatType_group />,
+        ][descriptionId];
 
       break;
     default:

@@ -552,8 +552,6 @@ function Chat({
           </div>
         </div>
       )}
-
-
     </Phone>
   );
 }

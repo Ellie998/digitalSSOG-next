@@ -11,6 +11,7 @@ import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab";
 import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab";
 
 function Main({
+  open = { topModal: false },
   target = { profile: false, chat: false, groupChat: false, setting: false },
   tab = {
     friend: false,
@@ -37,7 +38,7 @@ function Main({
   return (
     <Phone>
       {clickedTabName === "friend" && <FriendTab target={target} />}
-      {clickedTabName === "chat" && <ChatTab target={target} />}
+      {clickedTabName === "chat" && <ChatTab target={target} open={open} />}
       {clickedTabName === "openChat" && <OpenChatTab target={target} />}
       {clickedTabName === "shopping" && <ShoppingTab target={target} />}
       {clickedTabName === "ETC" && <ETCTab target={target} />}
