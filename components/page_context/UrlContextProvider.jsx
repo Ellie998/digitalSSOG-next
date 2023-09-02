@@ -19,6 +19,7 @@ const functionName_reserveMessage = "예약 문자 발송";
 const functionName_sendImg = "이미지, 동영상 전송";
 const functionName_sendAudio = "오디오 전송";
 const functionName_sendPhoneNum = "연락처 공유";
+const functionName_groupChat = "그룹 채팅하기";
 const functionName_kakaotalk_groubChatLeave_rejectInvitation =
   "그룹채팅방 초대거부 및 나가기";
 const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 잠금하기";
@@ -101,6 +102,8 @@ export default function UrlContextProvider({ children }) {
         functionName_sendImg,
         functionName_sendAudio,
         functionName_sendPhoneNum,
+        //
+        functionName_groupChat,
         //
         functionName_kakaotalk_groubChatLeave_rejectInvitation,
         functionName_kakaotalk_groubChatLock,

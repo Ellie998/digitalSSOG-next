@@ -22,6 +22,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
+    functionName_groupChat,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -92,18 +93,11 @@ function Chats({ functionName, methodId, descriptionId }) {
 
       break;
     case functionName_kakaotalk_groubChatLeave_quietly:
+    case functionName_groupChat:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="KakaoAppMain" defaultTab_ETC target_setting />,
-        <ETCSetting key="ETCSetting1" target_lab />,
-        <ETCSetting_lab key="ETCSetting_lab" target_groubChatLeave_quietly />,
-        <ETCSetting key="ETCSetting2" target_backBtn />,
-        //
-        <Main key="KakaoAppMain1" defaultTab_chat target_groupChat />,
-        <Chat key="Chat1" chatType_group target_menu />,
-        <Chat key="Chat2" open_menu chatType_group target_leave_quietly />,
-        <Chat key="Chat3" open_modal chatType_group target_leave_quietly />,
-        <Main key="KakaoAppMain2" defaultTab_chat />,
+        <Main key="KakaoAppMain" defaultTab_chat target_groupChat />,
+        <Chat key="Chat" chatType_group />,
       ][descriptionId];
 
       break;
