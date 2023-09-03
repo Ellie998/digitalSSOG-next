@@ -16,18 +16,21 @@ const ListInfoContainer = styled.div`
   color: rgb(163 163 163);
   text-align: start;
   line-height: 1rem /* 16px */;
+  ${(props) => (props.style ? props.style : null)}
 `;
 
 export default function StackedListWrap({
-  className,
+  style,
   listTitle,
   children,
-  style,
+  className,
 }) {
   return (
     <Container style={style} className={className}>
       {listTitle !== undefined && (
-        <ListInfoContainer className={` ${listTitle.className}`}>
+        <ListInfoContainer
+          style={listTitle.style}
+          className={` ${listTitle.className}`}>
           {listTitle.content}
         </ListInfoContainer>
       )}

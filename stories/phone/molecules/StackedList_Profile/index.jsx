@@ -27,7 +27,7 @@ const TitleContainer = styled.div`
   height: 1rem /* 16px */;
   grid-column-start: 2;
   grid-row-start: 1;
-  grid-column-end: ${(props) => (props.info !== undefined ? "4" : "7")};
+  grid-column-end: ${(props) => (props.info !== undefined ? "5" : "7")};
   grid-row-end: ${(props) => (props.subTitle !== undefined ? "2" : "3")};
   ${(props) => (props.style ? props.style : null)}
 `;
@@ -40,21 +40,24 @@ const SubTitleContainer = styled.div`
   grid-column-start: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  grid-column-end: ${(props) => (props.info !== undefined ? "4" : "7")};
+  grid-column-end: ${(props) => (props.info !== undefined ? "5" : "7")};
   ${(props) => (props.style ? props.style : null)}
 `;
 
 const InfoContainer = styled.div`
   font-size: 0.5rem /* 14px */;
   color: rgb(115 115 115);
-  text-align: end;
   height: 1rem /* 16px */;
+  text-align: end;
   grid-column-start: 5;
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: ${(props) => (props.subInfo !== undefined ? "2" : "3")};
   align-self: ${(props) => (props.subInfo === undefined ? "center" : null)};
   ${(props) => (props.style ? props.style : null)}
+  &:hover {
+    ${(props) => (props.hover ? props.hover : null)}
+  }
 `;
 
 const SubInfoContainer = styled.div`
@@ -108,6 +111,7 @@ export default function StackedList_Profile({
         {info !== undefined && (
           <InfoContainer
             style={info.style}
+            hover={info.hover}
             subInfo={subInfo}
             onClick={info.onClick}>
             {info.content}

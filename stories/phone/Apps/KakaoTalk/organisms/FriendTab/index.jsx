@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 import Icon from "stories/phone/atoms/Icon";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
@@ -13,9 +13,9 @@ function FriendTab({
 }) {
   const friendListContents = [
     <StackedList_Profile
-      className="h-8"
+      key="jinsu"
       profile={{
-        className: "bg-kakaoSkyblue",
+        style: { backgroundColor: "var(--kakao-skyblue)" },
         content: (
           <Icon
             name="person-fill"
@@ -25,14 +25,24 @@ function FriendTab({
       }}
       title={{ content: "진수", className: "" }}
       info={{
-        className: "borderGray",
+        style: {
+          border: "1px solid rgb(233,233,233)",
+          borderRadius: "0.75rem",
+          padding: "0px 3px",
+          textAlign: "center",
+          overflow: "hidden",
+          gridColumnStart: "4",
+        },
+        hover: {
+          backgroundColor: "rgb(208 208 208)",
+        },
         content: "상태메시지 올리기.",
       }}
     />,
     <StackedList_Profile
-      className="h-8"
+      key="younghee"
       profile={{
-        className: "bg-kakaoPurple",
+        style: { backgroundColor: "var(--kakao-purple)" },
         content: (
           <Icon
             name="person-fill"
@@ -47,9 +57,9 @@ function FriendTab({
       }}
     />,
     <StackedList_Profile
-      className="h-8"
+      key="cherlsu"
       profile={{
-        className: "bg-kakaoBlue",
+        style: { backgroundColor: "var(--kakao-blue)" },
         content: (
           <Icon
             name="person-fill"
@@ -59,8 +69,17 @@ function FriendTab({
       }}
       title={{ content: "철수", className: "" }}
       info={{
-        className: "borderGreenYellow",
-        content: "밤이 깊었네-노..",
+        style: {
+          border: "1px solid  rgb(173 255 47)",
+          borderRadius: "0.75rem",
+          padding: "0px 3px",
+          textAlign: "center",
+          overflow: "hidden",
+        },
+        hover: {
+          backgroundColor: "rgb(208 208 208)",
+        },
+        content: "애상 - 쿨",
       }}
     />,
   ];

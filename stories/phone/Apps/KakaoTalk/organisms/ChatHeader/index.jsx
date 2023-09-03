@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
 import Icon from "stories/phone/atoms/Icon";
-import { useState } from "react";
+
 import Modal from "stories/phone/molecules/Modal";
 import Flex from "stories/phone/atoms/Flex";
 import TargetBox from "stories/phone/atoms/TargetBox";

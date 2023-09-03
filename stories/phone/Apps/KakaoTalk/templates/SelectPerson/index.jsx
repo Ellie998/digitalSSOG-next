@@ -1,55 +1,162 @@
 /* eslint-disable react/prop-types */
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Phone from "stories/phone/molecules/Phone";
 
-function SelectPerson({ target_person1, target_person2 }) {
+// import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
+import Phone from "stories/phone/molecules/Phone";
+import Icon from "stories/phone/atoms/Icon";
+import TargetBox from "stories/phone/atoms/TargetBox";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar";
+import SearchInput from "stories/phone/Apps/KakaoTalk/atoms/SearchInput";
+import StackedListWrap from "stories/phone/molecules/StackedListWrap";
+import { useState } from "react";
+
+function SelectPerson() {
+  const [isChecked1, setIsChecked1] = useState(false);
+  const [isChecked2, setIsChecked2] = useState(false);
+  const friendListContents1 = [
+    <StackedList_Profile
+      onClick={() => {
+        setIsChecked1(true);
+      }}
+      key="younghee"
+      profile={{
+        style: { backgroundColor: "var(--kakao-purple)" },
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
+      }}
+      title={{ content: "영희", className: "" }}
+      info={{
+        content: <input type="checkbox" name="group" id="person1" />,
+      }}
+    />,
+    <StackedList_Profile
+      onClick={() => {
+        setIsChecked2(true);
+      }}
+      key="cherlsu"
+      profile={{
+        style: { backgroundColor: "var(--kakao-blue)" },
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
+      }}
+      title={{ content: "철수", className: "" }}
+      info={{
+        content: <input type="checkbox" name="group" id="person2" />,
+      }}
+    />,
+  ];
+  const friendListContents2 = [
+    <StackedList_Profile
+      key="jiye"
+      profile={{
+        style: { backgroundColor: "var(--kakao-skyblue)" },
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
+      }}
+      title={{ content: "김지예", className: "" }}
+      info={{
+        content: <input type="checkbox" name="group" />,
+      }}
+    />,
+    <StackedList_Profile
+      key="yehong"
+      profile={{
+        style: { backgroundColor: "var(--kakao-blue)" },
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
+      }}
+      title={{ content: "안예홍", className: "" }}
+      info={{
+        content: <input type="checkbox" name="group" />,
+      }}
+    />,
+    <StackedList_Profile
+      key="daeri"
+      profile={{
+        style: { backgroundColor: "var(--kakao-purple)" },
+        content: (
+          <Icon
+            name="person-fill"
+            style={{ color: "var(--kakao-profilePerson)" }}
+          />
+        ),
+      }}
+      title={{ content: "김대리", className: "" }}
+      info={{
+        content: <input type="checkbox" name="group" />,
+      }}
+    />,
+  ];
   return (
     <Phone>
-      <NoScrollBar className={`bg-[#f1f1f1] w-[174px]`} height={`305px`}>
-        <AppHeader leftItem={["대화 멤버 선택"]} className={`py-1`} />
-        <StackedListWrap
-          listTitle={{ content: "받는 사람", className: "text-gray-700" }}
-          className={`border-none`}>
-          <input
-            type="text"
-            placeholder="이름 또는 번호 입력"
-            className={`text-sm  w-full rounded-2xl border-transparent bg-gray-300 indent-3`}></input>
+      {/* 305px */}
+      <NoScrollbar>
+        <StackedList_Profile
+          profile={{
+            content: <Icon name="arrow-left" />,
+          }}
+          title={{
+            content: "대화상대 초대",
+            style: { fontWeight: "bold" },
+          }}
+          info={{
+            content: (
+              <TargetBox
+                style={{
+                  color: "rgb(143, 143, 143)",
+                  marginLeft: "auto",
+                  fontSize: "0.8rem",
+                }}
+                condition={isChecked1 && isChecked2}>
+                확인
+              </TargetBox>
+            ),
+          }}
+        />
+
+        <SearchInput
+          placeholder={"이름(초성), 전화번호 검색"}
+          style={{
+            display: "block",
+            margin: "0 auto",
+            width: "160px",
+            backgroundColor: "rgb(239, 239, 239)",
+            borderRadius: "4px",
+            padding: "4px 12px",
+            fontSize: "0.8rem",
+            fontWeight: "bold",
+          }}
+        />
+
+        <StackedListWrap listTitle={{ content: "즐겨찾기" }}>
+          {friendListContents1.map((list, i) => (
+            <TargetBox key={i}>
+              <label htmlFor={`person${i + 1}`}>{list}</label>
+            </TargetBox>
+          ))}
         </StackedListWrap>
-
-        <div className={`mt-[10px] bg-white rounded-xl h-max`}>
-          <TargetContent
-            targetOption={target_person1}
-            isNextDescriptionLink={true}
-            className={`p-1 border-b border-gray-200 mb-1`}
-            isWidthFull>
-            <StackedList_Profile
-              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
-              title={{ className: "ml-1", content: "홍길동" }}
-              subTitle={{
-                className: "ml-1 col-end-6 text-neutral-700",
-                content: "010-0000-0000",
-              }}></StackedList_Profile>
-          </TargetContent>
-
-          <TargetContent
-            isWidthFull
-            targetOption={target_person2}
-            isNextDescriptionLink={true}
-            className={`p-1  mb-1 `}>
-            <StackedList_Profile
-              profile={{ className: "bg-orange-400 text-white", content: "홍" }}
-              title={{ className: "ml-1", content: "홍길순" }}
-              subTitle={{
-                className: "ml-1 col-end-6 text-neutral-700",
-                content: "010-0000-0000",
-              }}></StackedList_Profile>
-          </TargetContent>
-        </div>
-      </NoScrollBar>
+        <StackedListWrap
+          listTitle={{ content: "친구" }}
+          style={{ borderBottom: "none" }}>
+          {friendListContents2.map((list) => list)}
+        </StackedListWrap>
+      </NoScrollbar>
     </Phone>
   );
 }
