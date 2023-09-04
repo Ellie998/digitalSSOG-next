@@ -22,7 +22,7 @@ const TargetBox = ({
   onClick,
   condition,
   isNextTriger = true,
-  isBackTriger,
+  isBackTriger = false,
   children,
 }) => {
   const { setMyDescriptionId } = useContext(UrlContext);

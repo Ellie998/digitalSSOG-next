@@ -7,12 +7,11 @@ import TargetContent from "components/DisplayBox/AppDisplays/components/TargetCo
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
 import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 
@@ -26,6 +25,8 @@ import CancelBtn from "stories/phone/atoms/CancelBtn/index";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 
 import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
+import ChatOptionBox from "../../organisms/ChatOptionBox/index";
+import ChatSideMenu from "../../organisms/ChatSideMenu/index";
 
 function Chat({
   inputLocked,
@@ -59,128 +60,10 @@ function Chat({
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
 
-  // function mouseOverHandler(event) {
-  //   setTimeout(() => {
-  //     setIsOvered(true);
-  //   }, 1000);
-  // }
-
   function backClickHandler() {
     setIsOvered(false);
     setOptionInput("");
   }
-
-  const iconClassName = [
-    "bg-[#9bcb5c]",
-    "bg-[#668ecf]",
-    "bg-[#ef666c]",
-    "bg-[#53c575]",
-    "bg-[#58606b]",
-    "bg-[#907bee]",
-    "bg-[#4ea6f3]",
-    "bg-[#bd9e83]",
-    "bg-[#51b59f]",
-    "bg-[#f79955]",
-    "bg-[#6696f6]",
-    "bg-[#d68fe5]",
-    "bg-[#78be80]",
-    "bg-[#dd4453]",
-  ];
-
-  const gridContent = [
-    {
-      content: "앨범",
-      iconName: "image",
-      backgroundColor: "#9bcb5c",
-      color: "white",
-    },
-    {
-      content: "카메라",
-      iconName: "camera",
-      backgroundColor: "#668ecf",
-      color: "white",
-    },
-    {
-      content: "선물하기",
-      iconName: "box2-heart",
-      backgroundColor: "#53c575",
-      color: "white",
-    },
-    {
-      content: "통화하기",
-      iconName: "telephone-fill",
-      backgroundColor: "#ef666c",
-      color: "white",
-    },
-    {
-      content: "송금",
-      iconName: "cash-coin",
-      backgroundColor: "#58606b",
-      color: "white",
-    },
-    {
-      targetOption: target_reserveMessage,
-      isNextDescriptionLink: true,
-      content: "예약 메시지",
-      iconName: "stopwatch",
-      backgroundColor: "#907bee",
-      color: "white",
-    },
-    {
-      content: "일정",
-      iconName: "calendar-date",
-      backgroundColor: "#bd9e83",
-      color: "white",
-    },
-    {
-      targetOption: target_sendImg,
-      isNextDescriptionLink: true,
-      content: "지도",
-      iconName: "geo-alt",
-      backgroundColor: "#4ea6f3",
-      color: "white",
-    },
-    {
-      content: "캡처",
-      iconName: "fullscreen",
-      backgroundColor: "#51b59f",
-      color: "white",
-    },
-    {
-      targetOption: target_sendAudio,
-      isNextDescriptionLink: true,
-      content: "음성메시지",
-      iconName: "mic",
-      backgroundColor: "#f79955",
-      color: "white",
-    },
-    {
-      targetOption: target_sendPhoneNum,
-      isNextDescriptionLink: true,
-      content: "연락처",
-      iconName: "person-badge",
-      backgroundColor: "#d68fe5",
-      color: "white",
-    },
-    {
-      content: "파일",
-      iconName: "paperclip",
-      backgroundColor: "#6696f6",
-      color: "white",
-    },
-    {
-      content: "뮤직",
-      iconName: "music-note-beamed",
-      backgroundColor: "#78be80",
-      color: "white",
-    },
-    {
-      content: "라이브톡",
-      iconName: "broadcast-pin",
-      backgroundColor: "#dd4453",
-      color: "white",
-    },
-  ];
 
   return (
     <Phone>
@@ -326,6 +209,16 @@ function Chat({
           />
         </Modal_downUp>
       )}
+      {/* Side Menu */}
+      {open_menu && (
+        <ChatSideMenu
+          target={{
+            setting: target_setting,
+            leave: target_leave,
+            leave_quietly: target_leave_quietly,
+          }}
+        />
+      )}
       <NoScrollBar
         height={`${!open_option || open_optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
@@ -455,105 +348,14 @@ function Chat({
       )}
       {/* Option Box */}
       {open_option && (
-        <NoScrollBar height={"120px"}>
-          <Grid_4x4
-            className={"bg-[#efefef3e]"}
-            items={gridContent}
-            iconClassName_common={`rounded-full p-[6px] text-white `}
-            iconClassName={iconClassName}
-          />
-        </NoScrollBar>
-      )}
-      {/* Side Menu */}
-      {open_menu && (
-        <div className={classes.sideMenuWrap}>
-          <TargetContent className={classes.backdrop} goBackDescription />
-          <div className={classes.sideMenuBox}>
-            {["채팅방 서랍", "톡캘린더", "뮤직", "톡게시판"].map((item, i) => (
-              <StackedListWrap
-                key={i}
-                listTitle={{
-                  content: item,
-                  className: "text-xs font-bold text-gray-700 ml-1",
-                }}
-              />
-            ))}
-            <StackedListWrap
-              className={`border-none`}
-              listTitle={{
-                content: "대화상대",
-                className: "text-xs font-bold text-gray-700 ml-1 mb-1",
-              }}>
-              <StackedList_Profile
-                className="mb-2"
-                profile={{
-                  className: "bg-gray-200",
-                  content: <Icon name="plus-lg" className={`text-blue-600`} />,
-                }}
-                title={{
-                  className: "text-blue-600 text-xs",
-                  content: "대화 상대 초대",
-                }}
-              />
-              <StackedList_Profile
-                className="mb-2"
-                profile={{
-                  className: "bg-kakaoSkyblue",
-                  content: <Icon name="person-fill" className={`text-white`} />,
-                }}
-                title={{
-                  className: "text-xs",
-                  content: "나",
-                }}
-              />
-              <StackedList_Profile
-                className="mb-2"
-                profile={{
-                  className: "bg-kakaoBlue",
-                  content: <Icon name="person-fill" className={`text-white`} />,
-                }}
-                title={{
-                  className: "text-xs",
-                  content: "김대리",
-                }}
-              />
-              <StackedList_Profile
-                className="mb-2"
-                profile={{
-                  className: "bg-kakaoPurple",
-                  content: <Icon name="person-fill" className={`text-white`} />,
-                }}
-                title={{
-                  className: "text-xs",
-                  content: "사장님",
-                }}
-              />
-            </StackedListWrap>
-            <div className={classes.sideMenuNavWrap}>
-              <FlexContent
-                className=""
-                items={[
-                  <TargetContent
-                    isNextDescriptionLink
-                    targetOption={target_leave_quietly || target_leave}>
-                    <Icon name="box-arrow-right" />
-                  </TargetContent>,
-                  <FlexContent
-                    className=""
-                    items={[
-                      <Icon name="bell-fill" className={`text-sm `} />,
-                      <Icon name="star" className={`text-sm m-1`} />,
-                      <TargetContent
-                        targetOption={target_setting}
-                        isNextDescriptionLink={true}>
-                        <Icon name="gear" className={`text-sm m-1`} />
-                      </TargetContent>,
-                    ]}></FlexContent>,
-                ]}
-              />
-            </div>
-          </div>
-        </div>
+        <ChatOptionBox
+          target={{
+            reserveMessage: target_reserveMessage,
+            sendImg: target_sendImg,
+            sendAudio: target_sendAudio,
+            sendPhoneNum: target_sendPhoneNum,
+          }}
+        />
       )}
     </Phone>
   );
