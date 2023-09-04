@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import classes from "./MessageSendLine.module.css";
 
-import Flex from "stories/phone/atoms/Flex";
-import Icon from "stories/phone/atoms/Icon";
+import Flex from "stories/phone/atoms/Flex/index";
+import Icon from "stories/phone/atoms/Icon/index";
 
 export default function MessageSendLine({
   className,

@@ -19,13 +19,13 @@ import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Alert from "components/DisplayBox/AppDisplays/components/UI/Alert";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
-import Phone from "stories/phone/molecules/Phone";
-import Modal from "stories/phone/molecules/Modal";
-import ModalContents from "stories/phone/organisms/ModalContents";
-import CancelBtn from "stories/phone/atoms/CancelBtn";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn";
+import Phone from "stories/phone/molecules/Phone/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import CancelBtn from "stories/phone/atoms/CancelBtn/index";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 
-import Modal_downUp from "stories/phone/molecules/Modal_downUp";
+import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
 
 function Chat({
   inputLocked,
