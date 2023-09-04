@@ -31,23 +31,27 @@ import ChatSideMenu from "../../organisms/ChatSideMenu/index";
 function Chat({
   inputLocked,
   chatType_group,
-  open_option,
-  open_optionSetting,
-  open_menu,
-  open_alert,
-  open_modal,
-  reopen_optionSetting,
-  target_sendImg,
-  target_sendAudio,
-  target_sendPhoneNum,
-  target_resend,
-  target_optionBtn,
-  target_menu,
-  target_reserveMessage,
-  target_leave_quietly,
-  target_leave,
-  target_setting,
-  open = { message: true },
+
+  target = {
+    sendImg: false,
+    sendPhoneNum: false,
+    resend: false,
+    optionBtn: false,
+    menu: false,
+    reserveMessage: false,
+    leave_quietly: false,
+    leave: false,
+    setting: false,
+  },
+  open = {
+    message: true,
+    option: false,
+    optionSetting: false,
+    menu: false,
+    alert: false,
+    modal: false,
+  },
+  reopen = { optionSetting: false },
 }) {
   //message
   const [messageContent, setMessageContent] = useState("");
@@ -68,7 +72,7 @@ function Chat({
   return (
     <Phone>
       {/* Modal */}
-      {open_modal && (
+      {open.modal && (
         <Modal modalStyle={{ top: "80px" }}>
           <ModalContents
             title={{ content: "채팅방 나가기" }}
@@ -94,13 +98,13 @@ function Chat({
                   key="btn2"
                   style={{ color: "rgb(59 130 246)" }}
                   condition={
-                    isCheckbox && (target_leave_quietly || target_leave)
+                    isCheckbox && (target.leave_quietly || target.leave)
                   }>
                   나가기
                 </SubmitBtn>,
               ],
             }}>
-            {target_leave_quietly && (
+            {target.leave_quietly && (
               <TargetContent className="my-1" targetOption={!isCheckbox}>
                 <Checkbox
                   label={{ content: "조용히 나가기" }}
@@ -115,7 +119,7 @@ function Chat({
         </Modal>
       )}
       {/* setting option */}
-      {(open_optionSetting || reopen_optionSetting) && (
+      {(open.optionSetting || reopen.optionSetting) && (
         <Modal_downUp onClickBackDrop={backClickHandler}>
           <StackedListWrap
             className={``}
@@ -123,8 +127,8 @@ function Chat({
               content: (
                 <TargetContent
                   targetOption={
-                    open_optionSetting &&
-                    target_reserveMessage &&
+                    open.optionSetting &&
+                    target.reserveMessage &&
                     optionInput === "" &&
                     !isOptionInputSubmit
                   }>
@@ -179,7 +183,7 @@ function Chat({
           <FlexContent
             className={`mb-1 mt-4`}
             items={[
-              <TargetContent targetOption={reopen_optionSetting}>
+              <TargetContent targetOption={reopen.optionSetting}>
                 <Button
                   btnColor={`#efefef`}
                   className={`text-2xs font-bold`}
@@ -189,7 +193,7 @@ function Chat({
               </TargetContent>,
               <TargetContent
                 targetOption={
-                  target_reserveMessage &&
+                  target.reserveMessage &&
                   optionInput !== "" &&
                   !isOptionInputSubmit
                 }
@@ -210,17 +214,9 @@ function Chat({
         </Modal_downUp>
       )}
       {/* Side Menu */}
-      {open_menu && (
-        <ChatSideMenu
-          target={{
-            setting: target_setting,
-            leave: target_leave,
-            leave_quietly: target_leave_quietly,
-          }}
-        />
-      )}
+      {open.menu && <ChatSideMenu target={target} />}
       <NoScrollBar
-        height={`${!open_option || open_optionSetting ? "280px" : "150px"}`}
+        height={`${!open.option || open.optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>
         <AppHeader
@@ -237,7 +233,7 @@ function Chat({
           ]}
           rightItem={[
             <Icon name="search" className={`text-sm m-1 align-middle`} />,
-            <TargetContent targetOption={target_menu} isNextDescriptionLink>
+            <TargetContent targetOption={target.menu} isNextDescriptionLink>
               <Icon name="list" className={`text-sm mx-1 align-middle`} />
             </TargetContent>,
           ]}></AppHeader>
@@ -249,14 +245,17 @@ function Chat({
               className: "bg-kakaoSkyblue",
               content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
             }}
-            name={{ content: "김대리", className: "" }}
+            name={{
+              content: chatType_group ? "김대리" : "영희",
+              className: "",
+            }}
             message={{
               className: "bg-white",
-              content: "퇴사합니다.",
+              content: chatType_group ? "퇴사합니다." : "좋은 아침^^",
             }}
             timeStamp={{
               className: "",
-              content: "오전 9:00",
+              content: chatType_group ? "오전 9:00" : "오후 2:05",
             }}
           />
         )}
@@ -282,7 +281,7 @@ function Chat({
             <div>글자 복사</div>
             <div>텍스트 선택</div>
             <TargetContent
-              targetOption={target_resend}
+              targetOption={target.resend}
               isNextDescriptionLink={true}>
               전달
             </TargetContent>
@@ -292,7 +291,7 @@ function Chat({
           </div>
         )}
         {/* alert */}
-        {open_alert && (
+        {open.alert && (
           <Alert
             className={`top-[160px]`}
             content="메시지를 예약했습니다."
@@ -312,9 +311,9 @@ function Chat({
         <MessageSendLine
           navOption_focused={{
             content: [
-              !open_option ? (
+              !open.option ? (
                 <TargetContent
-                  targetOption={target_optionBtn}
+                  targetOption={target.optionBtn}
                   isNextDescriptionLink={true}>
                   <Icon name="plus-lg" />
                 </TargetContent>
@@ -347,16 +346,7 @@ function Chat({
         />
       )}
       {/* Option Box */}
-      {open_option && (
-        <ChatOptionBox
-          target={{
-            reserveMessage: target_reserveMessage,
-            sendImg: target_sendImg,
-            sendAudio: target_sendAudio,
-            sendPhoneNum: target_sendPhoneNum,
-          }}
-        />
-      )}
+      {open.option && <ChatOptionBox target={target} />}
     </Phone>
   );
 }

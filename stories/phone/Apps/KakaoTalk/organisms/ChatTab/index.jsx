@@ -2,15 +2,15 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Icon from "stories/phone/atoms/Icon";
+import Icon from "stories/phone/atoms/Icon/index";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import TargetBox from "stories/phone/atoms/TargetBox";
-import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader/index";
 
 const ChatTab = ({
-  target = { chat: false, groupChat: false, chatPlus: false },
+  target = { chat: false, groupChat: false, newChat: false },
   open = { topModal: false },
 }) => {
   const chatListContents = [
@@ -50,7 +50,7 @@ const ChatTab = ({
       title={{ content: "영희", className: "" }}
       subTitle={{
         className: "",
-        content: "네.",
+        content: "좋은 아침^^",
       }}
       info={{
         className: "col-start-5 text-end text-neutral-400",
@@ -87,7 +87,7 @@ const ChatTab = ({
   return (
     <>
       <NoScrollBar height="240px">
-        <ChatHeader target={{ chatPlus: true }} open={open}></ChatHeader>
+        <ChatHeader target={target} open={open}></ChatHeader>
 
         <>
           {target.groupChat && (

@@ -2,17 +2,23 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-import Phone from "stories/phone/molecules/Phone";
-import KakaoTab from "stories/phone/Apps/KakaoTalk/organisms/kakaoTab";
-import FriendTab from "stories/phone/Apps/KakaoTalk/organisms/FriendTab";
-import ChatTab from "stories/phone/Apps/KakaoTalk/organisms/ChatTab";
-import OpenChatTab from "stories/phone/Apps/KakaoTalk/organisms/OpenChatTab";
-import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab";
-import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab";
+import Phone from "stories/phone/molecules/Phone/index";
+import KakaoTab from "stories/phone/Apps/KakaoTalk/organisms/kakaoTab/index";
+import FriendTab from "stories/phone/Apps/KakaoTalk/organisms/FriendTab/index";
+import ChatTab from "stories/phone/Apps/KakaoTalk/organisms/ChatTab/index";
+import OpenChatTab from "stories/phone/Apps/KakaoTalk/organisms/OpenChatTab/index";
+import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab/index";
+import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab/index";
 
 function Main({
   open = { topModal: false },
-  target = { profile: false, chat: false, groupChat: false, setting: false },
+  target = {
+    profile: false,
+    chat: false,
+    groupChat: false,
+    setting: false,
+    newChat: false,
+  },
   tab = {
     friend: false,
     chat: false,

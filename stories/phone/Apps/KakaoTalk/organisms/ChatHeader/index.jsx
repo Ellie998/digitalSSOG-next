@@ -21,7 +21,7 @@ const BtnContainer = styled.div`
 
 const ChatHeader = ({
   onClick,
-  target = { chatPlus: false },
+  target = { newChat: false },
   open = { topModal: false },
 }) => {
   return (
@@ -37,7 +37,7 @@ const ChatHeader = ({
             <Icon key="search_icon" name="search" />,
             <TargetBox
               key="chat_add_icon"
-              condition={target.chatPlus}
+              condition={target.newChat}
               idNextTriger={true}>
               <Icon name="plus-circle" className="ml-1 text-sm" />
             </TargetBox>,
@@ -71,7 +71,7 @@ const ChatHeader = ({
               items={[
                 <TargetBox
                   key="btn1"
-                  condition={open.topModal && target.chatPlus}>
+                  condition={open.topModal && target.newChat}>
                   <IconBottom
                     style={{ padding: "4px" }}
                     icon={{ name: "chat", style: {} }}

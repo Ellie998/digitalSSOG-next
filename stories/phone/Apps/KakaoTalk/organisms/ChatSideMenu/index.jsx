@@ -16,7 +16,7 @@ const BackdropContainer = styled.div`
   background-color: rgba(6, 6, 6, 0.235);
   width: 50px;
   height: 300px;
-  animation: opacity0to100 0.7s;
+  animation: opacity0to100 0.8s;
   @keyframes opacity0to100 {
     0% {
       opacity: 0;
