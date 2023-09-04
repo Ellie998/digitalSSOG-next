@@ -1,7 +1,7 @@
-import SearchInput from ".";
+import Input_TextLength from ".";
 
 export default {
-  component: SearchInput,
+  component: Input_TextLength,
 };
 
 export const Default = {

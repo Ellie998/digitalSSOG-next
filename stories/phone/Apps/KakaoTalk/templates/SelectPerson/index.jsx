@@ -11,22 +11,16 @@ import StackedListWrap from "stories/phone/molecules/StackedListWrap";
 import { useState } from "react";
 
 function SelectPerson() {
-  const [isChecked1, setIsChecked1] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
+  const [isTarget1Clicked, setIsTarget1Clicked] = useState(false);
+  const [isTarget2Clicked, setIsTarget2Clicked] = useState(false);
+
   const friendListContents1 = [
     <StackedList_Profile
-      onClick={() => {
-        setIsChecked1(true);
-      }}
       key="younghee"
+      onClick={() => {}}
       profile={{
         style: { backgroundColor: "var(--kakao-purple)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "영희", className: "" }}
       info={{
@@ -34,18 +28,11 @@ function SelectPerson() {
       }}
     />,
     <StackedList_Profile
-      onClick={() => {
-        setIsChecked2(true);
-      }}
       key="cherlsu"
+      onClick={() => {}}
       profile={{
         style: { backgroundColor: "var(--kakao-blue)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "철수", className: "" }}
       info={{
@@ -55,53 +42,41 @@ function SelectPerson() {
   ];
   const friendListContents2 = [
     <StackedList_Profile
+      onClick={() => {}}
       key="jiye"
       profile={{
         style: { backgroundColor: "var(--kakao-skyblue)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "김지예", className: "" }}
       info={{
-        content: <input type="checkbox" name="group" />,
+        content: <input type="checkbox" name="group" id="person3" />,
       }}
     />,
-    <StackedList_Profile
-      key="yehong"
-      profile={{
-        style: { backgroundColor: "var(--kakao-blue)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
-      }}
-      title={{ content: "안예홍", className: "" }}
-      info={{
-        content: <input type="checkbox" name="group" />,
-      }}
-    />,
-    <StackedList_Profile
-      key="daeri"
-      profile={{
-        style: { backgroundColor: "var(--kakao-purple)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
-      }}
-      title={{ content: "김대리", className: "" }}
-      info={{
-        content: <input type="checkbox" name="group" />,
-      }}
-    />,
+    <TargetBox key="ceo" condition={!isTarget1Clicked} isNextTriger={false}>
+      <StackedList_Profile
+        profile={{
+          style: { backgroundColor: "var(--kakao-purple)" },
+          content: <Icon name="person-fill" style={{ color: "white" }} />,
+        }}
+        title={{ content: "사장님", className: "" }}
+        info={{
+          content: <input type="checkbox" name="group" id="person4" />,
+        }}
+      />
+    </TargetBox>,
+    <TargetBox key="daeri" condition={!isTarget2Clicked} isNextTriger={false}>
+      <StackedList_Profile
+        profile={{
+          style: { backgroundColor: "var(--kakao-blue)" },
+          content: <Icon name="person-fill" style={{ color: "white" }} />,
+        }}
+        title={{ content: "김대리", className: "" }}
+        info={{
+          content: <input type="checkbox" name="group" id="person5" />,
+        }}
+      />
+    </TargetBox>,
   ];
   return (
     <Phone>
@@ -119,11 +94,15 @@ function SelectPerson() {
             content: (
               <TargetBox
                 style={{
-                  color: "rgb(143, 143, 143)",
+                  color:
+                    isTarget1Clicked && isTarget2Clicked
+                      ? "rgb(23,23,23)"
+                      : "rgb(143, 143, 143)",
                   marginLeft: "auto",
                   fontSize: "0.8rem",
+                  fontWeight: "bold",
                 }}
-                condition={isChecked1 && isChecked2}>
+                condition={isTarget1Clicked && isTarget2Clicked}>
                 확인
               </TargetBox>
             ),
@@ -146,15 +125,25 @@ function SelectPerson() {
 
         <StackedListWrap listTitle={{ content: "즐겨찾기" }}>
           {friendListContents1.map((list, i) => (
-            <TargetBox key={i}>
-              <label htmlFor={`person${i + 1}`}>{list}</label>
-            </TargetBox>
+            <label key={i} htmlFor={`person${i + 1}`}>
+              {list}
+            </label>
           ))}
         </StackedListWrap>
         <StackedListWrap
           listTitle={{ content: "친구" }}
           style={{ borderBottom: "none" }}>
-          {friendListContents2.map((list) => list)}
+          {friendListContents2.map((list, i) => (
+            <label
+              key={i}
+              htmlFor={`person${i + 3}`}
+              onChange={() => {
+                i === 1 && setIsTarget1Clicked(!isTarget1Clicked);
+                i === 2 && setIsTarget2Clicked(!isTarget2Clicked);
+              }}>
+              {list}
+            </label>
+          ))}
         </StackedListWrap>
       </NoScrollbar>
     </Phone>

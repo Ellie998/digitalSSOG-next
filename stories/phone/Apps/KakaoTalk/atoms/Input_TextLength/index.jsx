@@ -50,9 +50,10 @@ const Input_TextLength = ({
         name="x"
         style={{
           color: "white",
-          backgroundColor: "rgb(233,233,233)",
+          backgroundColor: "rgb(201, 201, 201)",
           width: "15px",
           height: "15px",
+          fontWeight: "bold",
         }}
         onClick={() => {
           setTextLength ? setTextLength(0) : setMyTextLength(0);

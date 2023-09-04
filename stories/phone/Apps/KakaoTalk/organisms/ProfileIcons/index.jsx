@@ -23,7 +23,7 @@ const ProfileIcons = ({ style, onClick, btn = { name: "camera-fill" } }) => {
           margin: "0 auto",
           gridColumn: "1/3",
           gridRow: "1/2",
-          color: "#f9f9f9",
+          color: "white",
           fontSize: "16px",
         }}
       />
@@ -37,7 +37,7 @@ const ProfileIcons = ({ style, onClick, btn = { name: "camera-fill" } }) => {
           margin: "0 auto",
           gridColumn: "1/2",
           gridRow: " 2/3",
-          color: "#ededed",
+          color: "white",
           fontSize: "16px",
         }}
       />
@@ -51,7 +51,7 @@ const ProfileIcons = ({ style, onClick, btn = { name: "camera-fill" } }) => {
           margin: "0 auto",
           gridColumn: "2/3",
           gridRow: "2/3",
-          color: "#f9f9f9",
+          color: "white",
           fontSize: "16px",
         }}
       />

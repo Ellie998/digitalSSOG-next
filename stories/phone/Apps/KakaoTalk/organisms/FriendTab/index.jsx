@@ -16,12 +16,7 @@ function FriendTab({
       key="jinsu"
       profile={{
         style: { backgroundColor: "var(--kakao-skyblue)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "진수", className: "" }}
       info={{
@@ -43,12 +38,7 @@ function FriendTab({
       key="younghee"
       profile={{
         style: { backgroundColor: "var(--kakao-purple)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "영희", className: "" }}
       subTitle={{
@@ -60,12 +50,7 @@ function FriendTab({
       key="cherlsu"
       profile={{
         style: { backgroundColor: "var(--kakao-blue)" },
-        content: (
-          <Icon
-            name="person-fill"
-            style={{ color: "var(--kakao-profilePerson)" }}
-          />
-        ),
+        content: <Icon name="person-fill" style={{ color: "white" }} />,
       }}
       title={{ content: "철수", className: "" }}
       info={{
