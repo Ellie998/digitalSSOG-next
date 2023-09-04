@@ -46,6 +46,7 @@ function Chat({
   target_leave_quietly,
   target_leave,
   target_setting,
+  open = { message: true },
 }) {
   //message
   const [messageContent, setMessageContent] = useState("");
@@ -347,23 +348,25 @@ function Chat({
               <Icon name="list" className={`text-sm mx-1 align-middle`} />
             </TargetContent>,
           ]}></AppHeader>
-        <ChatList
-          isGetList={true}
-          className=""
-          profile={{
-            className: "bg-kakaoSkyblue",
-            content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
-          }}
-          name={{ content: "김대리", className: "" }}
-          message={{
-            className: "bg-white",
-            content: "퇴사합니다.",
-          }}
-          timeStamp={{
-            className: "",
-            content: "오전 9:00",
-          }}
-        />
+        {open.message && (
+          <ChatList
+            isGetList={true}
+            className=""
+            profile={{
+              className: "bg-kakaoSkyblue",
+              content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
+            }}
+            name={{ content: "김대리", className: "" }}
+            message={{
+              className: "bg-white",
+              content: "퇴사합니다.",
+            }}
+            timeStamp={{
+              className: "",
+              content: "오전 9:00",
+            }}
+          />
+        )}
         {messageContent && (
           <ChatList
             isSendList={true}

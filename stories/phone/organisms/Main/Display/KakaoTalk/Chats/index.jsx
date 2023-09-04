@@ -128,7 +128,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           />,
           <SelectPerson key="selectPerson" />,
           <SettingChatRoom_NameImg key="setting_chat_name_img" />,
-          <Chat key="Chat" chatType_group />,
+          <Chat key="Chat" chatType_group open={{ message: false }} />,
         ][descriptionId];
 
       break;
