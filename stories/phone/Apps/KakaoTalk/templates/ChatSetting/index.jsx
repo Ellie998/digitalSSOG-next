@@ -12,12 +12,12 @@ import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 import Switch from "components/DisplayBox/AppDisplays/components/UI/Switch";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
-import Phone from "stories/phone/molecules/Phone";
-import ModalContents from "stories/phone/organisms/ModalContents";
-import Modal from "stories/phone/molecules/Modal";
-import TargetBox from "stories/phone/atoms/TargetBox";
-import CancelBtn from "stories/phone/atoms/CancelBtn";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn";
+import Phone from "stories/phone/molecules/Phone/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import CancelBtn from "stories/phone/atoms/CancelBtn/index";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 
 function KakaoChatRoom_setting({
   target_groubChatLeave_rejectInvitation,

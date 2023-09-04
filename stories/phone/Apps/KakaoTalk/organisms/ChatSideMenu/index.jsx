@@ -16,8 +16,8 @@ const BackdropContainer = styled.div`
   background-color: rgba(6, 6, 6, 0.235);
   width: 50px;
   height: 300px;
-  animation: opacity0to100 0.8s;
-  @keyframes opacity0to100 {
+  animation: BackdropContainer 0.8s;
+  @keyframes BackdropContainer {
     0% {
       opacity: 0;
       transform: scaleX(7);
@@ -32,14 +32,14 @@ const SideMenuContainer = styled.div`
   background-color: white;
   height: 300px;
   width: 125px;
-  animation: rightLeft 0.7s;
+  animation: SideMenuContainer 0.7s;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
-  @keyframes rightLeft {
+  @keyframes SideMenuContainer {
     0% {
       transform: translate3d(100%, 0, 0);
     }

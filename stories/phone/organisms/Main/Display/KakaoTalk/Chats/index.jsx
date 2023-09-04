@@ -91,12 +91,12 @@ function Chats({ functionName, methodId, descriptionId }) {
         />,
         <ChatSetting
           key="ChatSetting1"
-          target={{ groubChatLeave_rejectInvitation: true }}
+          target_groubChatLeave_rejectInvitation
         />,
         <ChatSetting
           key="ChatSetting2"
-          target={{ groubChatLeave_rejectInvitation: true }}
-          open={{ modal: true }}
+          target_groubChatLeave_rejectInvitation
+          open_modal
         />,
         //
         <Main key="Main" tab={{ chat: true }} />,

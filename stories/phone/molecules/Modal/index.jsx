@@ -7,6 +7,7 @@ const Container = styled.div`
   animation: opacity0to100 0.5s;
   z-index: 100;
   ${(props) => (props.style ? props.style : null)}
+
   @keyframes opacity0to100 {
     0% {
       opacity: 0;
