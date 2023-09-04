@@ -15,6 +15,7 @@ import TargetBox from "stories/phone/atoms/TargetBox";
 
 import ProfileIcons from "stories/phone/Apps/KakaoTalk/organisms/ProfileIcons";
 import SubTitle from "stories/phone/atoms/SubTitle";
+import Input_TextLength from "stories/phone/Apps/KakaoTalk/atoms/Input_TextLength";
 
 function SettingChatRoom_NameImg({
   target_backBtn,
@@ -84,15 +85,9 @@ function SettingChatRoom_NameImg({
           {/* main */}
 
           <ProfileIcons onClick={() => setIsImgSettingClicked(true)} />
-          <input
-            type="text"
-            style={{
-              borderBottom: "1px solid rgb(13,13,13)",
-              display: "block",
-              margin: "0 auto",
-              fontSize: "0.9rem",
-            }}
-            value={"그룹채팅"}
+          <Input_TextLength
+            style={{ margin: "0 8px" }}
+            placeholder={"그룹채팅"}
           />
           <SubTitle style={{ marginTop: "8px", fontSize: "0.8rem" }}>
             채팅시작 전, 내가 설정한 그룹채팅방의 사진과 이름은 다른 모든
