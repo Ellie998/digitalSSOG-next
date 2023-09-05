@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import classes from "./index.module.css";
 
-import Phone from "stories/phone/molecules/Phone";
-import IconBottom from "stories/phone/molecules/IconBottom";
-import TargetBox from "stories/phone/atoms/TargetBox";
+import Phone from "stories/phone/molecules/Phone/index";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 function Profile({ target = { call: false, chat: false } }) {
   return (

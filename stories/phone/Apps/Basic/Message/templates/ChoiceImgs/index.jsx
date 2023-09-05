@@ -3,7 +3,7 @@ import { useState } from "react";
 import classes from "./index.module.css";
 
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Phone from "stories/phone/molecules/Phone";
+import Phone from "stories/phone/molecules/Phone/index";
 
 function ChoiceImgs() {
   const [choicedImgs, setChoicedImgs] = useState([]);

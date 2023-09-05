@@ -12,7 +12,7 @@ import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 
 import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import Phone from "stories/phone/molecules/Phone";
+import Phone from "stories/phone/molecules/Phone/index";
 
 function ETCSetting_lab({ target_groubChatLeave_quietly }) {
   const [checkedContent, setCheckedContent] = useState("");

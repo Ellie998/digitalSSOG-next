@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import IntroBoxTitle from "stories/page/atoms/IntroBoxTitle";
+import IntroBoxTitle from "stories/page/atoms/IntroBoxTitle/index";
 
 const Container = styled.li`
   list-style: none;

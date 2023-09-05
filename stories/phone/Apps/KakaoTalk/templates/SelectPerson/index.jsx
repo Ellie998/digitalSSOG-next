@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 
-// import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
-import Phone from "stories/phone/molecules/Phone";
-import Icon from "stories/phone/atoms/Icon";
-import TargetBox from "stories/phone/atoms/TargetBox";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar";
-import SearchInput from "stories/phone/Apps/KakaoTalk/atoms/SearchInput";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap";
 import { useState } from "react";
+
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import Phone from "stories/phone/molecules/Phone/index";
+import Icon from "stories/phone/atoms/Icon/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import SearchInput from "stories/phone/Apps/KakaoTalk/atoms/SearchInput/index";
+import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 
 function SelectPerson() {
   const [isTarget1Clicked, setIsTarget1Clicked] = useState(false);

@@ -2,20 +2,18 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
-
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-
 import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 
-import Phone from "stories/phone/molecules/Phone";
-import ModalContents from "stories/phone/organisms/ModalContents";
-import Modal from "stories/phone/molecules/Modal";
-import TargetBox from "stories/phone/atoms/TargetBox";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import Phone from "stories/phone/molecules/Phone/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
-import ProfileIcons from "stories/phone/Apps/KakaoTalk/organisms/ProfileIcons";
-import SubTitle from "stories/phone/atoms/SubTitle";
-import Input_TextLength from "stories/phone/Apps/KakaoTalk/atoms/Input_TextLength";
+import ProfileIcons from "stories/phone/Apps/KakaoTalk/organisms/ProfileIcons/index";
+import SubTitle from "stories/phone/atoms/SubTitle/index";
+import Input_TextLength from "stories/phone/Apps/KakaoTalk/atoms/Input_TextLength/index";
 
 function SettingChatRoom_NameImg({
   target_backBtn,

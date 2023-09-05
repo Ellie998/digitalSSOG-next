@@ -1,8 +1,8 @@
+import { useContext, useState } from "react";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import PowerSwitch from "components/DisplayBox/AppDisplays/components/UI/PowerSwitch";
 import UrlContext from "components/page_context/UrlContext";
-import { useContext, useState } from "react";
-import PhoneBackground from "stories/phone/atoms/PhoneBackground";
+import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
 
 function Default() {
   const { setMyAppName, setMyMethodId, setMyDescriptionId } =

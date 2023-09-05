@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Postit from "stories/page/molecules/Postit";
+import Postit from "stories/page/molecules/Postit/index";
 
 const Container = styled.ul`
   display: flex;

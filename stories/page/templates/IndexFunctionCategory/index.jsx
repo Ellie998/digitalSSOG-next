@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import IndexFunctionNote from "stories/page/organisms/IndexFunctionNote";
+import IndexFunctionNote from "stories/page/organisms/IndexFunctionNote/index";
 
 function IndexFunctionCategory({ tabName, setTabName }) {
   return (

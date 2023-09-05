@@ -2,8 +2,8 @@
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 
-import DescriptionList from "stories/page/molecules/DescriptionList";
-import DescriptionListInDetail from "stories/page/molecules/DescriptionListInDetail";
+import DescriptionList from "stories/page/molecules/DescriptionList/index";
+import DescriptionListInDetail from "stories/page/molecules/DescriptionListInDetail/index";
 
 function FunctionMethodDetails({ functionMethodObject }) {
   const { myAppName, myMethodId } = useContext(UrlContext);

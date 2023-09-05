@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import PostitContent from "stories/page/atoms/PostItContent";
-import PostitTitle from "stories/page/atoms/PostitTitle";
+import PostitContent from "stories/page/atoms/PostItContent/index";
+import PostitTitle from "stories/page/atoms/PostitTitle/index";
 
 const Container = styled.li`
   list-style: none;

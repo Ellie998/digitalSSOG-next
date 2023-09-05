@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import styled from "@emotion/styled";
 import UrlContext from "components/page_context/UrlContext";
-import { useContext } from "react";
-import DescriptionLine from "stories/page/molecules/DescriptionLine";
+import DescriptionLine from "stories/page/molecules/DescriptionLine/index";
 //
 
 const Container = styled.ol`

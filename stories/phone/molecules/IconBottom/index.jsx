@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 
-import Icon from "stories/phone/atoms/Icon";
+import Icon from "stories/phone/atoms/Icon/index";
 
 const Container = styled.div`
   cursor: pointer;

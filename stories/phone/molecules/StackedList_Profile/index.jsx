@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
-import ProfileIcon from "stories/phone/atoms/ProfileIcon";
+import ProfileIcon from "stories/phone/atoms/ProfileIcon/index";
 
 const Container = styled.div`
   display: grid;

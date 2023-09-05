@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 
-import Home from "stories/phone/Apps/Basic/Home";
-import Error from "stories/phone/organisms/Main/Error";
-import Default from "stories/phone/organisms/Main/Default";
+import Home from "stories/phone/Apps/Basic/Home/index";
+import Error from "stories/phone/organisms/Main/Error/index";
+import Default from "stories/phone/organisms/Main/Default/index";
 // message
-import Main from "stories/phone/Apps/Basic/Message/templates/Main";
-import Chat from "stories/phone/Apps/Basic/Message/templates/Chat";
-import Unread from "stories/phone/Apps/Basic/Message/templates/Unread";
-import SelectPerson from "stories/phone/Apps/Basic/Message/templates/SelectPerson";
-import SelectFile from "stories/phone/Apps/Basic/Message/templates/SelectFile";
-import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs";
+import Main from "stories/phone/Apps/Basic/Message/templates/Main/index";
+import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
+import Unread from "stories/phone/Apps/Basic/Message/templates/Unread/index";
+import SelectPerson from "stories/phone/Apps/Basic/Message/templates/SelectPerson/index";
+import SelectFile from "stories/phone/Apps/Basic/Message/templates/SelectFile/index";
+import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs/index";
 //
-import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main";
+import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   const functionName_sendMessage = "문자 발신";

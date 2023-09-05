@@ -4,9 +4,7 @@
 import { useEffect, useState } from "react";
 import classes from "./index.module.css";
 import ChoiceFile from "components/DisplayBox/AppDisplays/components/layout/ChoiceFile";
-
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
 import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
@@ -15,14 +13,15 @@ import ChoicedFile from "components/DisplayBox/AppDisplays/components/UI/Choiced
 import Input from "components/DisplayBox/AppDisplays/components/UI/Input";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
 import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
-import Phone from "stories/phone/molecules/Phone";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
-import Modal from "stories/phone/molecules/Modal";
-import ModalContents from "stories/phone/organisms/ModalContents";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn";
-import CancelBtn from "stories/phone/atoms/CancelBtn";
-import Button from "stories/phone/atoms/Button";
+//
+import Phone from "stories/phone/molecules/Phone/index";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
+import CancelBtn from "stories/phone/atoms/CancelBtn/index";
+import Button from "stories/phone/atoms/Button/index";
 import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader/index";
 
 function Chat({

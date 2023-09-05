@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 
-import H2 from "stories/page/atoms/H2";
-import FunctionIntroBoxList from "stories/page/organisms/FunctionIntroBoxList";
+import H2 from "stories/page/atoms/H2/index";
+import FunctionIntroBoxList from "stories/page/organisms/FunctionIntroBoxList/index";
 
 const Container = styled.section`
   width: 80%;

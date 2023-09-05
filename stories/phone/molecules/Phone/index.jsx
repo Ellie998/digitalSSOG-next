@@ -2,9 +2,9 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 
-import Header from "stories/phone/organisms/Header";
-import Nav from "stories/phone/organisms/Nav";
-import PhoneBackground from "stories/phone/atoms/PhoneBackground";
+import Header from "stories/phone/organisms/Header/index";
+import Nav from "stories/phone/organisms/Nav/index";
+import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
 
 const MainContainer = styled.div`
   height: 300px;

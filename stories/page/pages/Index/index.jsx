@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import IndexIntro from "stories/page/templates/IndexIntro";
-import IndexFunctionCategory from "stories/page/templates/IndexFunctionCategory";
+import IndexIntro from "stories/page/templates/IndexIntro/index";
+import IndexFunctionCategory from "stories/page/templates/IndexFunctionCategory/index";
 
 function Index({ tabName, setTabName }) {
   return (

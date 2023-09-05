@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Phone from "stories/phone/molecules/Phone";
-import AppLine from "stories/phone/molecules/AppLine";
+import Phone from "stories/phone/molecules/Phone/index";
+import AppLine from "stories/phone/molecules/AppLine/index";
 
 const Container = styled.div`
   height: 300px;

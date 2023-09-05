@@ -10,7 +10,7 @@ import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 
-import Phone from "stories/phone/molecules/Phone";
+import Phone from "stories/phone/molecules/Phone/index";
 
 function ETCSetting({ target_lab, target_backBtn }) {
   const settingMenuContents1 = [

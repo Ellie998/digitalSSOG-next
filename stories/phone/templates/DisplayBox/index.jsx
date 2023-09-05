@@ -1,4 +1,4 @@
-import Display from "stories/phone/organisms/Main/Display";
+import Display from "stories/phone/organisms/Main/Display/index";
 
 function DisplayBox() {
   return <Display />;

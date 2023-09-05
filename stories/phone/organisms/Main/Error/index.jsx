@@ -2,7 +2,7 @@ import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Spinner from "components/DisplayBox/AppDisplays/components/UI/Spinner";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 
-import PhoneBackground from "stories/phone/atoms/PhoneBackground";
+import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
 
 const Error = () => {
   return (

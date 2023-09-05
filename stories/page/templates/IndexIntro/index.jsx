@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import H1 from "stories/page/atoms/H1";
-import SubTitle from "stories/page/atoms/SubTitle";
-import PostitDescriptions from "stories/page/organisms/PostitDescriptions";
+import H1 from "stories/page/atoms/H1/index";
+import SubTitle from "stories/page/atoms/SubTitle/index";
+import PostitDescriptions from "stories/page/organisms/PostitDescriptions/index";
 
 const Container = styled.section`
   margin: 0rem auto 10rem auto;

@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-import CallTab from "stories/phone/Apps/Basic/Call/organisms/CallTab";
-import CallKeypad from "stories/phone/Apps/Basic/Call/organisms/CallKeypad";
-import Phone from "stories/phone/molecules/Phone";
-import Histories from "stories/phone/Apps/Basic/Call/organisms/Histories";
-import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar";
+import CallTab from "stories/phone/Apps/Basic/Call/organisms/CallTab/index";
+import CallKeypad from "stories/phone/Apps/Basic/Call/organisms/CallKeypad/index";
+import Phone from "stories/phone/molecules/Phone/index";
+import Histories from "stories/phone/Apps/Basic/Call/organisms/Histories/index";
+import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts/index";
+import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
 
 /** targetTab option "키패드","최근기록","연락처" */
 // eslint-disable-next-line react/prop-types

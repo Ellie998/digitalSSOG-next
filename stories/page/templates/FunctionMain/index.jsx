@@ -2,10 +2,10 @@
 import styled from "@emotion/styled";
 
 // import DisplayBox from "components/DisplayBox/DisplayBox";
-import DisplayBox from "stories/phone/templates/DisplayBox";
-import IconTextLine from "stories/page/molecules/IconTextLine";
-import H1 from "stories/page/atoms/H1";
-import FunctionDescriptionBox from "stories/page/templates/FunctionDescriptionBox";
+import DisplayBox from "stories/phone/templates/DisplayBox/index";
+import IconTextLine from "stories/page/molecules/IconTextLine/index";
+import H1 from "stories/page/atoms/H1/index";
+import FunctionDescriptionBox from "stories/page/templates/FunctionDescriptionBox/index";
 
 const Container = styled.section`
   padding: 6rem 0 6rem 10%;

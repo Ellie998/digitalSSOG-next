@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { default as StoryIndex } from "stories/page/pages/Index";
+import { default as StoryIndex } from "stories/page/pages/Index/index";
 
 function Index() {
   const router = useRouter();

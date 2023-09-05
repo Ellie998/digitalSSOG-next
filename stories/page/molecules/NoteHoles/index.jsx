@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import NoteHole from "stories/page/atoms/NoteHole";
+import NoteHole from "stories/page/atoms/NoteHole/index";
 
 const Container = styled.div`
   /* width: 30px; */

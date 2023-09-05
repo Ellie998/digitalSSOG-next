@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import Icon from "stories/phone/atoms/Icon";
-import Flex from "stories/phone/atoms/Flex";
+import Icon from "stories/phone/atoms/Icon/index";
+import Flex from "stories/phone/atoms/Flex/index";
 
 const Header = () => {
   return (

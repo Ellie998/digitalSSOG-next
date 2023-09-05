@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import TargetBox from "stories/phone/atoms/TargetBox";
-import Icon from "stories/phone/atoms/Icon";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Icon from "stories/phone/atoms/Icon/index";
 
 export default function BackBtn({
   condition,

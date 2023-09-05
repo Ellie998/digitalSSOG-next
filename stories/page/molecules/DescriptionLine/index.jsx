@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import NumIcon from "stories/page/atoms/NumIcon";
-import IconTextLine from "stories/page/molecules/IconTextLine";
+import NumIcon from "stories/page/atoms/NumIcon/index";
+import IconTextLine from "stories/page/molecules/IconTextLine/index";
 
 const Container = styled.li`
   list-style: none;

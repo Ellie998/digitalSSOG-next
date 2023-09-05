@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import AppIcon from "stories/phone/atoms/AppIcon";
+import AppIcon from "stories/phone/atoms/AppIcon/index";
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 

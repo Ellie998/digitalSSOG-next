@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
-import TargetBox from "stories/phone/atoms/TargetBox";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 const Container = styled.div`
   position: absolute;

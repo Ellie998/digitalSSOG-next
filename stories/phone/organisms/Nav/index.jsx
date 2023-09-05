@@ -2,8 +2,8 @@
 // import styles from "./Nav.module.css";
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
-import Icon from "stories/phone/atoms/Icon";
-import Flex from "stories/phone/atoms/Flex";
+import Icon from "stories/phone/atoms/Icon/index";
+import Flex from "stories/phone/atoms/Flex/index";
 
 function Nav() {
   const { setMyDescriptionId, myDescriptionId } = useContext(UrlContext);

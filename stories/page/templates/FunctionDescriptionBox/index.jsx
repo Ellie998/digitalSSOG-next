@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import FunctionAppDetails from "stories/page/organisms/FunctionAppDetails";
-import IconTextLine from "stories/page/molecules/IconTextLine";
-import Icon from "stories/phone/atoms/Icon";
+import FunctionAppDetails from "stories/page/organisms/FunctionAppDetails/index";
+import IconTextLine from "stories/page/molecules/IconTextLine/index";
+import Icon from "stories/phone/atoms/Icon/index";
 
 // eslint-disable-next-line react/prop-types
 const FunctionDescriptionBox = ({ functionMethods }) => {

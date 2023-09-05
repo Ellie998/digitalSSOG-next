@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 /* eslint-disable react/prop-types */
-import FunctionIntroAppBox from "stories/page/organisms/FunctionIntroAppBox";
-import FunctionIntroCharBox from "stories/page/organisms/FunctionIntroCharBox";
+import FunctionIntroAppBox from "stories/page/organisms/FunctionIntroAppBox/index";
+import FunctionIntroCharBox from "stories/page/organisms/FunctionIntroCharBox/index";
 
 const Container = styled.ul`
   margin: 2rem auto;

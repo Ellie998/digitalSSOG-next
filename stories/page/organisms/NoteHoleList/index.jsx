@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import NoteHoles from "stories/page/molecules/NoteHoles";
+import NoteHoles from "stories/page/molecules/NoteHoles/index";
 
 const Container = styled.div`
   padding: 30px 0;

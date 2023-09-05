@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 
 import UrlContext from "components/page_context/UrlContext";
-import { useContext } from "react";
-import FunctionMethodDetails from "stories/page/organisms/FunctionMethodDetails";
-import Details from "stories/page/atoms/Details";
+
+import FunctionMethodDetails from "stories/page/organisms/FunctionMethodDetails/index";
+import Details from "stories/page/atoms/Details/index";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const FunctionAppDetails = ({ functionMethods }) => {

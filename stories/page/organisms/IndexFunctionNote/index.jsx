@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import IndexFunctionsPostit from "stories/page/organisms/IndexFunctionsPostit";
-import Note from "stories/page/molecules/Note";
+import IndexFunctionsPostit from "stories/page/organisms/IndexFunctionsPostit/index";
+import Note from "stories/page/molecules/Note/index";
 
 const Container = styled.section`
   margin: 0 auto;

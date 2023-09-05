@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
-import DescriptionList from "stories/page/molecules/DescriptionList";
-import Details from "stories/page/atoms/Details";
+import DescriptionList from "stories/page/molecules/DescriptionList/index";
+import Details from "stories/page/atoms/Details/index";
 
 //
 

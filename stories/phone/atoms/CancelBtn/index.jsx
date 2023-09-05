@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import TargetBox from "stories/phone/atoms/TargetBox";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 const CancelBtn = ({
   id = "cancel_btn",

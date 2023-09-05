@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import NoteHoleList from "stories/page/organisms/NoteHoleList";
-import NoteContent from "stories/page/molecules/NoteContent";
+import NoteHoleList from "stories/page/organisms/NoteHoleList/index";
+import NoteContent from "stories/page/molecules/NoteContent/index";
 
 const Container = styled.div`
   display: grid;

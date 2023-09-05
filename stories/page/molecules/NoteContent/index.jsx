@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import H2 from "stories/page/atoms/H2";
+import H2 from "stories/page/atoms/H2/index";
 
-import SubTitle from "stories/page/atoms/SubTitle";
+import SubTitle from "stories/page/atoms/SubTitle/index";
 
 const Container = styled.div`
   padding-top: 50px;

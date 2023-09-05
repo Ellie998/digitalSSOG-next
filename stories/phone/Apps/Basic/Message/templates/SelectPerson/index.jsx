@@ -4,7 +4,7 @@ import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHe
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Phone from "stories/phone/molecules/Phone";
+import Phone from "stories/phone/molecules/Phone/index";
 
 function SelectPerson({ target_person1, target_person2 }) {
   return (

@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 
-import Home from "stories/phone/Apps/Basic/Home";
-import Error from "stories/phone/organisms/Main/Error";
-import Default from "stories/phone/organisms/Main/Default";
+import Home from "stories/phone/Apps/Basic/Home/index";
+import Error from "stories/phone/organisms/Main/Error/index";
+import Default from "stories/phone/organisms/Main/Default/index";
 // call
-import Main from "stories/phone/Apps/Basic/Call/templates/Main";
-import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall";
-import CallConnected from "stories/phone/Apps/Basic/Call/templates/CallConnected";
-import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCallConnected";
+import Main from "stories/phone/Apps/Basic/Call/templates/Main/index";
+import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall/index";
+import CallConnected from "stories/phone/Apps/Basic/Call/templates/CallConnected/index";
+import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCallConnected/index";
 // chat
-import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main";
-import Chat from "stories/phone/Apps/Basic/Message/templates/Chat";
+import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main/index";
+import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   //

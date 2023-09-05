@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
-import Title from "stories/phone/atoms/Title";
-import SubTitle from "stories/phone/atoms/SubTitle";
+import Title from "stories/phone/atoms/Title/index";
+import SubTitle from "stories/phone/atoms/SubTitle/index";
 
 const Container = styled.div`
   ${(props) => (props.style ? props.style : null)}

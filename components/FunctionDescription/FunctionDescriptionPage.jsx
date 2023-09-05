@@ -6,8 +6,8 @@ import UrlContext from "../page_context/UrlContext";
 
 // import ShareContainer from "../share/ShareContainer";
 
-import FunctionIntro from "stories/page/templates/FunctionIntro";
-import FunctionMain from "stories/page/templates/FunctionMain";
+import FunctionIntro from "stories/page/templates/FunctionIntro/index";
+import FunctionMain from "stories/page/templates/FunctionMain/index";
 
 // eslint-disable-next-line no-undef
 const data = require("/public/data/functionData.json");

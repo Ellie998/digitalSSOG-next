@@ -3,12 +3,12 @@
 import UrlContext from "components/page_context/UrlContext";
 import { useContext } from "react";
 
-import Default from "stories/phone/organisms/Main/Default";
+import Default from "stories/phone/organisms/Main/Default/index";
 
-import { default as Calls_Basic } from "stories/phone/organisms/Main/Display/Basic/Calls";
-import { default as Chats_Basic } from "stories/phone/organisms/Main/Display/Basic/Chats";
-import { default as Calls_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Calls";
-import { default as Chats_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Chats";
+import { default as Calls_Basic } from "stories/phone/organisms/Main/Display/Basic/Calls/index";
+import { default as Chats_Basic } from "stories/phone/organisms/Main/Display/Basic/Chats/index";
+import { default as Calls_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Calls/index";
+import { default as Chats_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Chats/index";
 
 function Display() {
   const {

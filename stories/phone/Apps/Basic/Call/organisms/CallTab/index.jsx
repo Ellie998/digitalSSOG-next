@@ -1,4 +1,4 @@
-import Tab from "stories/phone/atoms/Tab";
+import Tab from "stories/phone/atoms/Tab/index";
 
 // eslint-disable-next-line react/prop-types
 const CallTab = ({ targetTab, clickedTapName, setClickedTapName }) => {

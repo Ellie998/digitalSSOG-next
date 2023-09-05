@@ -10,9 +10,9 @@ import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHe
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import BlurModal from "components/DisplayBox/AppDisplays/components/UI/BlurModal";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-
-import Phone from "stories/phone/molecules/Phone";
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+
+import Phone from "stories/phone/molecules/Phone/index";
 
 function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
   const [isOptionOpened, setIsOptionOpened] = useState(false);

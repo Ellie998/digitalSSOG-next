@@ -2,13 +2,12 @@ import { useState } from "react";
 
 import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import Icon from "stories/phone/atoms/Icon";
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Top from "stories/phone/atoms/Top";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap";
-
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
+import Top from "stories/phone/atoms/Top/index";
+import Icon from "stories/phone/atoms/Icon/index";
+import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
+import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 
 // eslint-disable-next-line react/prop-types
 const Histories = ({ targetTab, clickedTapName, target = { call: false } }) => {
