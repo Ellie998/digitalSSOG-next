@@ -3,7 +3,7 @@ import ImgBox_CheckBox from "./ImgBox_CheckBox";
 
 function ChoicedFile({
   fileType_img,
-  className,
+
   fileArray,
   setChoicedFileArray,
 }) {

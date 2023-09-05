@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 "use client";
 // app/page.jsx
 
@@ -29,7 +30,7 @@ import ChoiceImgs from "components/DisplayBox/AppDisplays/Basic/gallery/ChoiceIm
 //
 import AppMain_default from "components/DisplayBox/sections/AppMain_default";
 import AppMainError from "components/DisplayBox/sections/AppMainError";
-import MyLayout from "../../components/layout/MyLayout";
+
 import DisplayBox from "../../components/DisplayBox/DisplayBox";
 import { useState } from "react";
 

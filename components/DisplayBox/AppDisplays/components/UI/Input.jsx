@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 /** insert color rgb og rgba of #... into theme prop */
 export default function Input({
   className,

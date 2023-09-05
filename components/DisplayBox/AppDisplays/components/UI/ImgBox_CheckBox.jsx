@@ -2,12 +2,12 @@ import Icon from "./Icon";
 
 export default function ImgBox_CheckBox({
   className,
-  btnColor,
-  textColor,
-  borderColor,
-  width,
-  onClick,
-  content,
+  // btnColor,
+  // textColor,
+  // borderColor,
+  // width,
+  // onClick,
+  // content,
   onChangeHandler,
   onIconClickHandler,
   choicedImgs,
