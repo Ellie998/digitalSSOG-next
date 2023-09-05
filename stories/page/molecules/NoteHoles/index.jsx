@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import NoteHole from "stories/page/atoms/NoteHole/index";
 
 const Container = styled.div`
-  /* width: 30px; */
   width: 100%;
   height: 100%;
   display: flex;

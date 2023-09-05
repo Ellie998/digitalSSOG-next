@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import Phone from "stories/phone/molecules/Phone";
-import AppMain from "./sections/AppMain";
+import Phone from "stories/phone/molecules/Phone/index";
+import AppMain from "components/DisplayBox/sections/AppMain";
 
 function DisplayBox({ children }) {
   return <Phone main={<AppMain />} />;

@@ -1,9 +1,9 @@
+import { useContext } from "react";
 import MainApps from "displayBox/sections/MainApps";
 import AppMainError from "displayBox/sections/AppMainError";
 
 // call
-// import CallAppMain from "displayBox/AppDisplays/Basic/call/CallAppMain"; //
-import { default as CallAppMain } from "stories";
+import CallAppMain from "components/DisplayBox/AppDisplays/Basic/call/CallAppMain";
 import AnswerCall from "displayBox/AppDisplays/Basic/call/AnswerCall";
 import CallConnected from "displayBox/AppDisplays/Basic/call/CallConnected";
 import VideoCallConnected from "displayBox/AppDisplays/Basic/call/VideoCallConnected";
@@ -20,7 +20,6 @@ import SelectPerson from "displayBox/AppDisplays/Basic/message/SelectPerson";
 import SelectFile from "displayBox/AppDisplays/Basic/file/SelectFile";
 import ChoiceImgs from "displayBox/AppDisplays/Basic/gallery/ChoiceImgs";
 import KakaoChatRoom from "displayBox/AppDisplays/Kakaotalk/KakaoChatRoom";
-import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 import ETCSetting from "displayBox/AppDisplays/Kakaotalk/ETCSetting";
 import AppMain_default from "displayBox/sections/AppMain_default";
