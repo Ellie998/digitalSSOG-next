@@ -28,7 +28,7 @@ function Profile({ target = { call: false, chat: false } }) {
               },
             }}
             description={{
-              content: "철수",
+              content: "영희",
               style: { color: "white", fontSize: "1rem" },
             }}
           />

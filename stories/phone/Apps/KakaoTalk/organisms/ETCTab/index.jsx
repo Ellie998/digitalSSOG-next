@@ -5,21 +5,20 @@
 import Icon from "stories/phone/atoms/Icon";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 
-const ETCTab = ({ target = { setting: false } }) => {
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+
+const ETCTab = ({ target = { setting: false }, tab }) => {
   return (
-    <NoScrollBar height="240px">
+    <NoScrollBar height="260px">
       <AppHeader
         leftItem={[<div className="text-sm font-bold">더보기</div>]}
         rightItem={[
           <Icon name="search" className="text-sm" />,
           <Icon name="upc-scan" className="ml-1 text-sm" />,
-          <TargetContent
-            targetOption={target.setting}
-            isNextDescriptionLink={true}>
+          <TargetBox condition={target.setting && tab}>
             <Icon name="gear" className="ml-1 text-sm" />
-          </TargetContent>,
+          </TargetBox>,
         ]}></AppHeader>
     </NoScrollBar>
   );

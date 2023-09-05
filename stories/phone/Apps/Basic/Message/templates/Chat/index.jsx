@@ -23,7 +23,7 @@ import ModalContents from "stories/phone/organisms/ModalContents";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn";
 import CancelBtn from "stories/phone/atoms/CancelBtn";
 import Button from "stories/phone/atoms/Button";
-import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader";
+import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader/index";
 
 function Chat({
   open_option,
@@ -318,27 +318,29 @@ function Chat({
           onClick={backClickHandler}
           open={open.profile}
           target={target}
+          name={message_fill ? "홍길순" : "홍길동"}
         />
 
-        <ChatList
-          onClick={backClickHandler}
-          isGetList
-          onPointerDown={mouseOverHandler}
-          className={`mb-2 `}
-          message={{
-            className: "bg-gray-200 ml-1",
-            content: (
-              <TargetContent
-                targetOption={!isOvered && !message_fill && target_resend}>
-                결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
-                OO로 OOO번길 O, OOO 컨벤션
-              </TargetContent>
-            ),
-          }}
-          timeStamp={{
-            className: "",
-            content: "오전 8:03",
-          }}></ChatList>
+        {!message_fill && (
+          <ChatList
+            onClick={backClickHandler}
+            isGetList
+            onPointerDown={mouseOverHandler}
+            className={`mb-2 `}
+            message={{
+              className: "bg-gray-200 ml-1",
+              content: (
+                <TargetContent targetOption={!isOvered && target_resend}>
+                  결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
+                  OO로 OOO번길 O, OOO 컨벤션
+                </TargetContent>
+              ),
+            }}
+            timeStamp={{
+              className: "",
+              content: "오전 8:03",
+            }}></ChatList>
+        )}
 
         {!messageContent && sendBtnClicked && !target_reserveMessage && (
           <ChatList

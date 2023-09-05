@@ -27,6 +27,7 @@ import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
 import ChatOptionBox from "../../organisms/ChatOptionBox/index";
 import ChatSideMenu from "../../organisms/ChatSideMenu/index";
+import ChatContentOptionModal from "../../organisms/ChatContentOptionModal/index";
 
 function Chat({
   inputLocked,
@@ -63,6 +64,12 @@ function Chat({
   // option setting
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
+
+  function mouseOverHandler() {
+    setTimeout(() => {
+      setIsOvered(true);
+    }, 1000);
+  }
 
   function backClickHandler() {
     setIsOvered(false);
@@ -214,7 +221,17 @@ function Chat({
         </Modal_downUp>
       )}
       {/* Side Menu */}
-      {open.menu && <ChatSideMenu target={target} />}
+      {open.menu && (
+        <ChatSideMenu onClickBackDrop={backClickHandler} target={target} />
+      )}
+      {/* chat content option */}
+      {isOvered && (
+        <ChatContentOptionModal
+          onClickBackDrop={backClickHandler}
+          target={target}
+        />
+      )}
+      {/* messages */}
       <NoScrollBar
         height={`${!open.option || open.optionSetting ? "280px" : "150px"}`}
         className={`bg-[#b2c6d9] p-1`}
@@ -240,6 +257,7 @@ function Chat({
         {open.message && (
           <ChatList
             isGetList={true}
+            onClick={mouseOverHandler}
             className=""
             profile={{
               className: "bg-kakaoSkyblue",
@@ -273,27 +291,10 @@ function Chat({
             }}
           />
         )}
-
-        {isOvered && (
-          <div className={classes.options}>
-            <div>삭제</div>
-            <div>답장</div>
-            <div>글자 복사</div>
-            <div>텍스트 선택</div>
-            <TargetContent
-              targetOption={target.resend}
-              isNextDescriptionLink={true}>
-              전달
-            </TargetContent>
-
-            <div>공유</div>
-            <div>별표하기</div>
-          </div>
-        )}
         {/* alert */}
         {open.alert && (
           <Alert
-            className={`top-[160px]`}
+            style={{ top: "200px" }}
             content="메시지를 예약했습니다."
             icon={{
               name: "chat-fill",

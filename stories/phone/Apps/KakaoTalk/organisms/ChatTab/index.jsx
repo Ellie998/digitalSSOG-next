@@ -86,7 +86,7 @@ const ChatTab = ({
 
   return (
     <>
-      <NoScrollBar height="240px">
+      <NoScrollBar height="260px">
         <ChatHeader target={target} open={open}></ChatHeader>
 
         <>

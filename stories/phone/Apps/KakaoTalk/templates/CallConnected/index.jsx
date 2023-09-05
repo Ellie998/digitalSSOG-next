@@ -72,7 +72,7 @@ const CallConnected = () => {
             />
           }
           title={{
-            content: "철수",
+            content: "영희",
             style: { fontSize: "0.875rem" },
           }}>
           <div style={{ fontSize: "0.7rem" }}>

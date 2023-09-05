@@ -16,7 +16,12 @@ const BtnContainer = styled.div`
   text-align: center;
 `;
 
-const ChatHeader = ({ onClick, target = { call: false }, open }) => {
+const ChatHeader = ({
+  onClick,
+  target = { call: false },
+  open,
+  name = "홍길동",
+}) => {
   const [isHeaderOptionOpen, setIsHeaderOptionOpen] = useState(false);
   return (
     <>
@@ -24,7 +29,7 @@ const ChatHeader = ({ onClick, target = { call: false }, open }) => {
         <StackedList_Profile
           onClick={onClick}
           profile={{
-            content: "홍",
+            content: name.slice(0, 1),
             style: { backgroundColor: "rgb(254 215 170)" },
             onClick: () => setIsHeaderOptionOpen(true),
           }}
@@ -35,7 +40,7 @@ const ChatHeader = ({ onClick, target = { call: false }, open }) => {
                 style={{ display: "flex" }}
                 isNextTriger={false}
                 condition={open}>
-                <div style={{ marginRight: "4px" }}>홍길동</div>
+                <div style={{ marginRight: "4px" }}>{name}</div>
                 <Icon name="chevron-down" />
               </TargetBox>
             ),
@@ -79,7 +84,7 @@ const ChatHeader = ({ onClick, target = { call: false }, open }) => {
             <StackedList_Profile
               style={{ margin: "2px 2px 6px 2px" }}
               profile={{
-                content: "홍",
+                content: name.slice(0, 1),
                 style: {
                   backgroundColor: "rgb(254, 215, 170)",
                   padding: "20px",
@@ -89,7 +94,7 @@ const ChatHeader = ({ onClick, target = { call: false }, open }) => {
                 },
               }}
               title={{
-                content: "홍길동",
+                content: name,
                 style: { marginLeft: "4px", gridColumnStart: "3" },
               }}
               subTitle={{

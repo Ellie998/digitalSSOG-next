@@ -6,7 +6,7 @@ import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHe
 
 const OpenChatTab = () => {
   return (
-    <NoScrollBar height="240px">
+    <NoScrollBar height="260px">
       <AppHeader
         leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
         rightItem={[

@@ -64,7 +64,11 @@ function Chats({ functionName, methodId, descriptionId }) {
           target={{ reserveMessage: true }}
         />,
         //
-        <Chat key="Chat4" open_alert target={{ optionBox: true }} />,
+        <Chat
+          key="Chat4"
+          open={{ alert: true }}
+          target={{ optionBtn: true }}
+        />,
         <Chat
           key="Chat5"
           open={{ option: true }}
@@ -72,7 +76,7 @@ function Chats({ functionName, methodId, descriptionId }) {
         />,
         <Chat
           key="Chat6"
-          open={{ optionSetting: true }}
+          reopen={{ optionSetting: true }}
           target={{ reserveMessage: true }}
         />,
       ][descriptionId];
@@ -159,7 +163,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ chat: true }}
-            target={{ chatPlus: true }}
+            target={{ newChat: true }}
             open={{ topModal: true }}
           />,
           <SelectPerson key="selectPerson" />,

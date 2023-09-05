@@ -27,7 +27,7 @@ const AnswerCall = ({ appName_basic, appName_kakaotalk }) => {
         <Container>
           <Top
             style={{ marginTop: "40px" }}
-            title={{ content: "이름" }}
+            title={{ content: "홍길동" }}
             subTitle={{ content: "010-0000-0000" }}
           />
           <BtnContainer>

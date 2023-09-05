@@ -43,11 +43,19 @@ function Main({
 
   return (
     <Phone>
-      {clickedTabName === "friend" && <FriendTab target={target} />}
-      {clickedTabName === "chat" && <ChatTab target={target} open={open} />}
-      {clickedTabName === "openChat" && <OpenChatTab target={target} />}
-      {clickedTabName === "shopping" && <ShoppingTab target={target} />}
-      {clickedTabName === "ETC" && <ETCTab target={target} />}
+      {clickedTabName === "friend" && (
+        <FriendTab target={target} tab={tab.friend} />
+      )}
+      {clickedTabName === "chat" && (
+        <ChatTab target={target} open={open} tab={tab.chat} />
+      )}
+      {clickedTabName === "openChat" && (
+        <OpenChatTab target={target} tab={tab.openChat} />
+      )}
+      {clickedTabName === "shopping" && (
+        <ShoppingTab target={target} tab={tab.shopping} />
+      )}
+      {clickedTabName === "ETC" && <ETCTab target={target} tab={tab.ETC} />}
 
       <KakaoTab
         setClickedTab={setClickedTabName}

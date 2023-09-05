@@ -56,11 +56,12 @@ const SideMenuNavContainer = styled.div`
   width: 125px;
 `;
 const ChatSideMenu = ({
+  onClickBackDrop,
   target = { setting: false, leave: false, leave_quietly: false },
 }) => {
   return (
     <Container>
-      <BackdropContainer>
+      <BackdropContainer onClick={onClickBackDrop}>
         <TargetBox isBackTriger={true} isNextTriger={false} />
       </BackdropContainer>
       <SideMenuContainer>

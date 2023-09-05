@@ -1,15 +1,16 @@
-/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
-import Icon from "stories/phone/atoms/Icon";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import Icon from "stories/phone/atoms/Icon/index";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 function FriendTab({
   // eslint-disable-next-line react/prop-types
   target = { profile: false },
+  tab,
 }) {
   const friendListContents = [
     <StackedList_Profile
@@ -70,14 +71,18 @@ function FriendTab({
   ];
 
   return (
-    <NoScrollBar height="240px">
+    <NoScrollBar height="260px">
       <AppHeader
-        leftItem={[<div className="text-sm font-bold">친구</div>]}
+        leftItem={[
+          <div key="header_title" className="text-sm font-bold">
+            친구
+          </div>,
+        ]}
         rightItem={[
-          <Icon name="search" className="text-sm" />,
-          <Icon name="person-plus" className="ml-1 text-sm" />,
-          <Icon name="music-note-beamed" className="ml-1 text-sm" />,
-          <Icon name="gear" className="ml-1 text-sm" />,
+          <Icon key="search_icon" name="search" />,
+          <Icon key="add_friend_icon" name="person-plus" />,
+          <Icon key="music_icon" name="music-note-beamed" />,
+          <Icon key="setting_icon" name="gear" />,
         ]}></AppHeader>
 
       <>
@@ -85,12 +90,10 @@ function FriendTab({
         <StackedListWrap
           className="border-none"
           listTitle={{ content: "친구 2" }}>
-          {friendListContents[1]}
-          <TargetContent
-            targetOption={target.profile}
-            isNextDescriptionLink={true}>
-            {friendListContents[2]}
-          </TargetContent>
+          <TargetBox condition={target.profile && tab}>
+            {friendListContents[1]}
+          </TargetBox>
+          {friendListContents[2]}
         </StackedListWrap>
       </>
     </NoScrollBar>
