@@ -1,7 +1,7 @@
-import NoteHole from ".";
+import NoteHoleOne from ".";
 
 export default {
-  component: NoteHole,
+  component: NoteHoleOne,
 };
 
 export const Primary = {

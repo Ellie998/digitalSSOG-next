@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import NoteHole from "stories/page/atoms/NoteHole/index";
+import NoteHoleOne from "stories/page/atoms/NoteHoleOne/index";
 
 const Container = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const NoteHoles = ({ number }) => {
   return (
     <Container>
       {noteHoleComponents.map((i) => (
-        <NoteHole key={i} />
+        <NoteHoleOne key={i} />
       ))}
     </Container>
   );

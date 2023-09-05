@@ -18,8 +18,8 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const NoteHole = () => {
+const NoteHoleOne = () => {
   return <Container></Container>;
 };
 
-export default NoteHole;
+export default NoteHoleOne;
