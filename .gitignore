@@ -10,8 +10,7 @@ node_modules/
 /coverage
 
 # production
-
-.next/
+/.next
 
 # misc
 .DS_Store
@@ -32,3 +31,5 @@ data.js
 
 src/generateSitemap.js
 src/sitemapRoutes.js
+
+/.git
