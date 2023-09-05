@@ -1,5 +1,4 @@
 // app/description/[functionName]/page.jsx
-import Script from "next/script";
 
 import FunctionDescriptionProvider from "../../../components/FunctionDescription/FunctionDescriptionProvider";
 import MyLayout from "../../../components/layout/MyLayout";
@@ -83,16 +82,6 @@ export async function generateMetadata({ params }) {
 export default function Page() {
   return (
     <MyLayout>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-NRN6NT762E" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          
-          gtag('config', 'G-NRN6NT762E');
-          `}
-      </Script>
       <FunctionDescriptionProvider></FunctionDescriptionProvider>
     </MyLayout>
   );
