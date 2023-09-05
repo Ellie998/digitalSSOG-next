@@ -69,5 +69,10 @@ export default function sitemap() {
       url: "https://ssog.pages.dev/description/그룹채팅방-조용히-나가기",
       lastModified: new Date(),
     },
+    {
+      // <!--그룹-채팅하기-->
+      url: "https://ssog.pages.dev/description/그룹-채팅하기",
+      lastModified: new Date(),
+    },
   ];
 }
