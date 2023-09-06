@@ -11,12 +11,15 @@ import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCal
 // chat
 import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main/index";
 import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
+import { useContext } from "react";
+import UrlContext from "components/page_context/UrlContext";
 
 function Calls({ functionName, methodId, descriptionId }) {
-  //
-  const functionName_makeCall = "전화걸기(발신)";
-  const functionName_getCall = "전화받기(수신)";
-  const functionName_makeVideoCall = "영상통화 발신";
+  const {
+    functionName_makeCall,
+    functionName_getCall,
+    functionName_makeVideoCall,
+  } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
 

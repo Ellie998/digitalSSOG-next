@@ -19,6 +19,7 @@ import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/Sett
 function Chats({ functionName, methodId, descriptionId }) {
   //
   const {
+    functionName_seeMessage,
     functionName_sendMessage,
     functionName_reserveMessage,
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
@@ -30,6 +31,15 @@ function Chats({ functionName, methodId, descriptionId }) {
   let choicedComponent = <Default />;
 
   switch (functionName.replaceAll("-", " ")) {
+    case functionName_seeMessage:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Chat key="chat" />,
+        ][descriptionId];
+      }
+      break;
     case functionName_sendMessage:
       if (methodId === "1") {
         choicedComponent = [

@@ -12,15 +12,19 @@ import SelectFile from "stories/phone/Apps/Basic/Message/templates/SelectFile/in
 import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs/index";
 //
 import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main/index";
+import { useContext } from "react";
+import UrlContext from "components/page_context/UrlContext";
 
 function Chats({ functionName, methodId, descriptionId }) {
-  const functionName_sendMessage = "문자 발신";
-  const functionName_seeMessage = "문자 수신";
-  const functionName_resendMessage = "문자 전달";
-  const functionName_reserveMessage = "예약 문자 발송";
-  const functionName_sendImg = "이미지, 동영상 전송";
-  const functionName_sendAudio = "오디오 전송";
-  const functionName_sendPhoneNum = "연락처 공유";
+  const {
+    functionName_sendMessage,
+    functionName_seeMessage,
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    functionName_sendImg,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+  } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
 
