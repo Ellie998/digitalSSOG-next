@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Sitemap: https://ssog.pages.dev/sitemap.xml
+Sitemap: https://digitalssog/sitemap.xml
 Allow: /api/og/*
