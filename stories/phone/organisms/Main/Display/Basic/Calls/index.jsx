@@ -14,6 +14,7 @@ import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 import ContactInfo from "stories/phone/Apps/Basic/Call/templates/ContactInfo/index";
+import Edit_ContactInfo from "stories/phone/Apps/Basic/Call/templates/Edit_ContactInfo/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   const {
@@ -76,6 +77,7 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Home key="mainApps" appName_call />,
         <Main key="callAppMain" targetTab="연락처" target={{ info: true }} />,
         <ContactInfo key="contactInfo" target={{ edit: true }} />,
+        <Edit_ContactInfo key="edit_info" />,
       ][descriptionId];
 
       break;
