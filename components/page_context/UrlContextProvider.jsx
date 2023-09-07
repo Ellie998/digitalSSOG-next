@@ -12,6 +12,8 @@ const appName_kakaotalk = "카카오톡";
 const functionName_makeCall = "전화걸기(발신)";
 const functionName_getCall = "전화받기(수신)";
 const functionName_makeVideoCall = "영상통화 발신";
+const functionName_changeName = "저장된 연락처(친구) 이름 바꾸기";
+//
 const functionName_sendMessage = "문자 발신";
 const functionName_seeMessage = "문자 수신";
 const functionName_resendMessage = "문자 전달";
@@ -96,6 +98,8 @@ export default function UrlContextProvider({ children }) {
         functionName_makeCall,
         functionName_getCall,
         functionName_makeVideoCall,
+        functionName_changeName,
+        //
         functionName_sendMessage,
         functionName_seeMessage,
         functionName_resendMessage,

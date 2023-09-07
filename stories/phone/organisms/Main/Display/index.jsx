@@ -23,6 +23,7 @@ function Display() {
     functionName_makeCall,
     functionName_getCall,
     functionName_makeVideoCall,
+    functionName_changeName,
     //
     functionName_sendMessage,
     functionName_seeMessage,
@@ -48,7 +49,8 @@ function Display() {
     if (
       functionName === functionName_getCall ||
       functionName === functionName_makeCall ||
-      functionName === functionName_makeVideoCall
+      functionName === functionName_makeVideoCall ||
+      functionName === functionName_changeName
     )
       return "Calls";
     if (

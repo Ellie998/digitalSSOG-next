@@ -13,12 +13,14 @@ import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/
 import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
+import ContactInfo from "stories/phone/Apps/Basic/Call/templates/ContactInfo/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   const {
     functionName_makeCall,
     functionName_getCall,
     functionName_makeVideoCall,
+    functionName_changeName,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -66,6 +68,14 @@ function Calls({ functionName, methodId, descriptionId }) {
           target={{ videoCall: true }}
         />,
         <VideoCallConnected key="callConnected" />,
+      ][descriptionId];
+
+      break;
+    case functionName_changeName:
+      choicedComponent = [
+        <Home key="mainApps" appName_call />,
+        <Main key="callAppMain" targetTab="연락처" target={{ info: true }} />,
+        <ContactInfo key="contactInfo" target={{ edit: true }} />,
       ][descriptionId];
 
       break;

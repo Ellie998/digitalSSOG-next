@@ -15,8 +15,11 @@ import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 
 function Calls({ functionName, methodId, descriptionId }) {
-  const { functionName_makeCall, functionName_getCall } =
-    useContext(UrlContext);
+  const {
+    functionName_makeCall,
+    functionName_getCall,
+    functionName_changeName,
+  } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
 

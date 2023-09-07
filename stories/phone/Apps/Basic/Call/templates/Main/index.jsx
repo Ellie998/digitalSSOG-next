@@ -12,7 +12,12 @@ import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
 // eslint-disable-next-line react/prop-types
 const Main = ({
   targetTab,
-  target = { videoCall: false, call: false, chat: false },
+  target = {
+    videoCall: false,
+    call: false,
+    chat: false,
+    info: false,
+  },
 }) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 

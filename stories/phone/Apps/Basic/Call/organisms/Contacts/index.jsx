@@ -17,7 +17,7 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 const Contacts = ({
   targetTab,
   clickedTapName,
-  target = { call: false, chat: false },
+  target = { call: false, chat: false, info: false },
 }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
@@ -43,7 +43,14 @@ const Contacts = ({
           key="telephone"
           condition={targetTab === clickedTapName && target.call}
           isNextTriger={true}>
-          <Icon style={{ color: "rgb(22 163 74)" }} name="telephone-fill" />
+          <Icon
+            style={{
+              backgroundColor: "rgb(22, 163, 74)",
+              color: "white",
+              padding: "4px",
+            }}
+            name="telephone-fill"
+          />
         </TargetBox>,
         <TargetBox
           key="chat"
@@ -51,25 +58,42 @@ const Contacts = ({
           isNextTriger={true}>
           <Icon
             key="chat"
-            style={{ color: "rgb(22 163 74)" }}
+            style={{
+              backgroundColor: "rgb(69, 127, 243)",
+              color: "white",
+              padding: "4px",
+            }}
             name="chat-fill"
           />
         </TargetBox>,
         <Icon
           key="camera"
-          style={{ color: "rgb(22 163 74)" }}
+          style={{
+            backgroundColor: "rgb(22 ,163 ,74)",
+            color: "white",
+            padding: "4px",
+          }}
           name="camera-video-fill"
         />,
-        <Icon
+        <TargetBox
           key="info"
-          style={{ color: "rgb(22 163 74)" }}
-          name="info-circle-fill"
-        />,
+          condition={targetTab === clickedTapName && target.info}
+          isNextTriger={true}>
+          <Icon
+            key="info"
+            style={{
+              backgroundColor: "rgb(97, 97, 97)",
+              color: "white",
+              padding: "4px",
+            }}
+            name="info"
+          />
+        </TargetBox>,
       ]}
     />
   );
   // 연락처 tap에 만들 list 정보
-  const contactListProps = [
+  const contactContents1 = [
     //진수
     {
       id: `contactList1`,
@@ -107,7 +131,8 @@ const Contacts = ({
         content: "그룹",
       },
     },
-
+  ];
+  const contactContents2 = [
     // ㅇ
     {
       id: `contactList4`,
@@ -199,7 +224,7 @@ const Contacts = ({
       <StackedListWrap
         style={{ border: "none" }}
         listTitle={{ content: "내 프로필" }}>
-        {contactListProps.map((prop) => (
+        {contactContents1.map((prop) => (
           <StackedList_Profile
             key={prop.id}
             onClick={prop.onClick}
@@ -208,6 +233,20 @@ const Contacts = ({
             title={prop.title}>
             {prop.children}
           </StackedList_Profile>
+        ))}
+        {contactContents2.map((prop, i) => (
+          <TargetBox
+            key={prop.id}
+            condition={i === 1 && !isListClicked1}
+            isNextTriger={false}>
+            <StackedList_Profile
+              onClick={prop.onClick}
+              style={prop.style}
+              profile={prop.profile}
+              title={prop.title}>
+              {prop.children}
+            </StackedList_Profile>
+          </TargetBox>
         ))}
       </StackedListWrap>
     </>
