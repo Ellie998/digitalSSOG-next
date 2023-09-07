@@ -14,7 +14,7 @@ export const metadata = {
   title: "디지털쏙",
   description:
     "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
-  url: "https://ssog.pages.dev",
+  url: "https://digitalssog.com",
   verification: {
     naver: "55145f147d68935311d0493b0428d0a9843e5eb9",
   },
@@ -50,10 +50,10 @@ export const metadata = {
     description:
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
-    url: "https://ssog.pages.dev",
+    url: "https://digitalssog.com",
     images: [
       {
-        url: "https://ssog.pages.dev/assets/ogTitle.png",
+        url: "https://digitalssog.com/assets/ogTitle.png",
         width: 800,
         height: 400,
       },
@@ -64,10 +64,10 @@ export const metadata = {
     description:
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
     type: "website",
-    url: "https://ssog.pages.dev",
+    url: "https://digitalssog.com",
     images: [
       {
-        url: "https://ssog.pages.dev/assets/ogTitle.png",
+        url: "https://digitalssog.com/assets/ogTitle.png",
         width: 800,
         height: 400,
       },
