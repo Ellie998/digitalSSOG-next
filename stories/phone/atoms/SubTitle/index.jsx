@@ -4,7 +4,7 @@ const Container = styled.div`
   line-height: 1rem /* 16px */;
   font-size: 0.5rem /* 8px */;
   margin-left: 0.5rem /* 8px */;
-  color: rgb(163 163 163);
+  color: rgb(133, 133, 133);
   text-align: start;
   ${(props) => (props.style ? props.style : null)}
 `;

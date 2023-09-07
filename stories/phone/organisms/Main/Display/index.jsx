@@ -33,6 +33,8 @@ function Display() {
     functionName_sendPhoneNum,
     //
     functionName_groupChat,
+    functionName_leaveChat,
+    //
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
@@ -60,7 +62,8 @@ function Display() {
       functionName === functionName_kakaotalk_groubChatLeave_rejectInvitation ||
       functionName === functionName_kakaotalk_groubChatLock ||
       functionName === functionName_kakaotalk_groubChatLeave_quietly ||
-      functionName === functionName_groupChat
+      functionName === functionName_groupChat ||
+      functionName === functionName_leaveChat
     )
       return "Chats";
   };

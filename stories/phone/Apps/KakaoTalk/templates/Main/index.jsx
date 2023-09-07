@@ -11,13 +11,14 @@ import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab/inde
 import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab/index";
 
 function Main({
-  open = { topModal: false },
+  open = { topModal: false, optionModal: false },
   target = {
     profile: false,
     chat: false,
     groupChat: false,
     setting: false,
     newChat: false,
+    leaveChat: false,
   },
   tab = {
     friend: false,

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
+import styled from "@emotion/styled";
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import Icon from "stories/phone/atoms/Icon/index";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
@@ -8,10 +9,19 @@ import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoS
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
 import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import Button from "stories/phone/atoms/Button/index";
 
 const ChatTab = ({
-  target = { chat: false, groupChat: false, newChat: false },
-  open = { topModal: false },
+  target = {
+    chat: false,
+    groupChat: false,
+    newChat: false,
+    leaveChat: false,
+    modal: false,
+  },
+  open = { topModal: false, optionModal: false },
 }) => {
   const chatListContents = [
     <StackedList_Profile
@@ -83,10 +93,75 @@ const ChatTab = ({
       }}
     />,
   ];
+  const optionListContents = [
+    { content: "채팅방 이름 설정" },
+    { content: "즐겨찾기에 추가" },
+    { content: "채팅방 상단 고정" },
+    { content: "채팅방 알림 끄기" },
+    { content: "홈 화면에 바로가기 추가" },
+    { content: "나가기", target: target.leaveChat, isNextTriger: true },
+  ];
 
   return (
     <>
       <NoScrollBar height="260px">
+        {open.optionModal && (
+          <Modal modalStyle={{ top: "50px" }}>
+            <ModalContents
+              title={{ content: "그룹채팅방1", style: { fontWeight: "bold" } }}>
+              {optionListContents.map((item, i) => (
+                <TargetBox
+                  style={{ fontSize: "0.8rem", padding: "4px 0 2px 8px" }}
+                  key={i}
+                  condition={item.target}
+                  isNextTriger={item.isNextTriger}>
+                  {item.content}
+                </TargetBox>
+              ))}
+            </ModalContents>
+          </Modal>
+        )}
+        {open.modal && (
+          <Modal modalStyle={{ top: "80px" }}>
+            <ModalContents
+              title={{
+                content: "채팅방 나가기",
+                style: { fontWeight: "bold" },
+              }}
+              subTitle={{
+                content:
+                  "나가기를 하면 대화 내용이 모두 삭제되고 채팅목록에서도 삭제됩니다.",
+                style: { padding: "4px 0 2px 0", fontSize: "0.7rem" },
+              }}
+              buttons={{
+                style: { justifyItems: "flex-end" },
+                content: [
+                  <Button
+                    key={"btn1"}
+                    style={{
+                      color: "rgb(86, 116, 235)",
+                      fontWeight: "bold",
+                      fontSize: "0.85rem",
+                    }}
+                    condition={true}
+                    isBackTriger={true}>
+                    취소
+                  </Button>,
+                  <Button
+                    key={"btn2"}
+                    style={{
+                      color: "rgb(86, 116, 235)",
+                      fontWeight: "bold",
+                      fontSize: "0.85rem",
+                    }}
+                    condition={target.leaveChat}
+                    isNextTriger={true}>
+                    나가기
+                  </Button>,
+                ],
+              }}></ModalContents>
+          </Modal>
+        )}
         <ChatHeader target={target} open={open}></ChatHeader>
 
         <>

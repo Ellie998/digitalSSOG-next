@@ -2,7 +2,15 @@
 
 import TargetBox from "stories/phone/atoms/TargetBox/index";
 
-const Button = ({ id = "button", style, onClick, children }) => {
+const Button = ({
+  id = "button",
+  style,
+  onClick,
+  children,
+  isNextTriger = false,
+  isBackTriger = false,
+  condition = false,
+}) => {
   return (
     <TargetBox
       id={id}
@@ -17,9 +25,9 @@ const Button = ({ id = "button", style, onClick, children }) => {
         ...style,
       }}
       onClick={onClick}
-      isNextTriger={false}
-      isBackTriger={false}
-      condition={false}>
+      isNextTriger={isNextTriger}
+      isBackTriger={isBackTriger}
+      condition={condition}>
       {children}
     </TargetBox>
   );

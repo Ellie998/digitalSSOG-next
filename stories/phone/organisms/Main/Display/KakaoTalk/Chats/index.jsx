@@ -14,7 +14,6 @@ import ETCSetting_lab from "stories/phone/Apps/KakaoTalk/templates/ETCSetting_la
 import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting/index";
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
 import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/index";
-import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -28,6 +27,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
     functionName_groupChat,
+    functionName_leaveChat,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -283,45 +283,32 @@ function Chats({ functionName, methodId, descriptionId }) {
       ][descriptionId];
       break;
     case functionName_groupChat:
+    case functionName_leaveChat:
       if (methodId === "1")
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ groupChat: true }} />,
-          <Chat
-            key="Chat"
-            content={{
-              name: "김대리",
-              chat: "퇴사합니다.",
-              num: "3",
-              chatName: "그룹채팅",
-            }}
-          />,
-        ][descriptionId];
-      if (methodId === "2")
-        choicedComponent = [
-          <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ newChat: true }} />,
           <Main
-            key="Main"
+            key="Main1"
             tab={{ chat: true }}
-            target={{ newChat: true }}
-            open={{ topModal: true }}
+            target={{ groupChat: true }}
           />,
-          <SelectPerson key="selectPerson" target={{ twoPerson: true }} />,
-          <SettingChatRoom_NameImg key="setting_chat_name_img" />,
-          <Chat
-            key="Chat"
-            content={{
-              name: "김대리",
-              chat: "퇴사합니다.",
-              num: "3",
-              chatName: "그룹채팅",
-            }}
-            open={{ message: false }}
+          <Main
+            key="Main2"
+            tab={{ chat: true }}
+            target={{ groupChat: true, leaveChat: true }}
+            open={{ optionModal: true }}
           />,
+          <Main
+            key="Main3"
+            tab={{ chat: true }}
+            target={{ groupChat: true, leaveChat: true }}
+            open={{ modal: true }}
+          />,
+          <Main key="Main4" tab={{ chat: true }} />,
         ][descriptionId];
 
       break;
+
     default:
       choicedComponent = <Error />;
   }
