@@ -28,6 +28,7 @@ const OptionContainer = styled.div`
 
 const ChatContentOptionModal = ({
   onClickBackDrop,
+  closeChatOption,
   target = { resend: false },
 }) => {
   return (
@@ -111,8 +112,8 @@ const ChatContentOptionModal = ({
         <OptionContainer>답장</OptionContainer>
         <OptionContainer>
           <TargetBox
+            onClick={closeChatOption}
             condition={target.resend}
-            isNextTriger={true}
             style={{ width: "100%" }}>
             전달
           </TargetBox>

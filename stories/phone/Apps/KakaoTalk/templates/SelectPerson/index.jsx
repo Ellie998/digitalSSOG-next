@@ -10,9 +10,13 @@ import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
 import SearchInput from "stories/phone/Apps/KakaoTalk/atoms/SearchInput/index";
 import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 
-function SelectPerson() {
-  const [isTarget1Clicked, setIsTarget1Clicked] = useState(false);
-  const [isTarget2Clicked, setIsTarget2Clicked] = useState(false);
+function SelectPerson({
+  header = "대화상대 초대",
+  target = { person2: false, twoPerson: false },
+}) {
+  const [isPerson2Clicked, setIsPerson2Clicked] = useState(false);
+  const [isTwoPerson1Clicked, setIsTwoPerson1Clicked] = useState(false);
+  const [isTwoPerson2Clicked, setIsTwoPerson2Clicked] = useState(false);
 
   const friendListContents1 = [
     <StackedList_Profile
@@ -27,18 +31,22 @@ function SelectPerson() {
         content: <input type="checkbox" name="group" id="person1" />,
       }}
     />,
-    <StackedList_Profile
+    <TargetBox
       key="cherlsu"
-      onClick={() => {}}
-      profile={{
-        style: { backgroundColor: "var(--kakao-blue)" },
-        content: <Icon name="person-fill" style={{ color: "white" }} />,
-      }}
-      title={{ content: "철수", className: "" }}
-      info={{
-        content: <input type="checkbox" name="group" id="person2" />,
-      }}
-    />,
+      condition={!isPerson2Clicked && target.person2}
+      isNextTriger={false}>
+      <StackedList_Profile
+        key="cherlsu"
+        profile={{
+          style: { backgroundColor: "var(--kakao-blue)" },
+          content: <Icon name="person-fill" style={{ color: "white" }} />,
+        }}
+        title={{ content: "철수", className: "" }}
+        info={{
+          content: <input type="checkbox" name="group" id="person2" />,
+        }}
+      />
+    </TargetBox>,
   ];
   const friendListContents2 = [
     <StackedList_Profile
@@ -53,7 +61,10 @@ function SelectPerson() {
         content: <input type="checkbox" name="group" id="person3" />,
       }}
     />,
-    <TargetBox key="ceo" condition={!isTarget1Clicked} isNextTriger={false}>
+    <TargetBox
+      key="ceo"
+      condition={!isTwoPerson1Clicked && target.twoPerson}
+      isNextTriger={false}>
       <StackedList_Profile
         profile={{
           style: { backgroundColor: "var(--kakao-purple)" },
@@ -65,7 +76,10 @@ function SelectPerson() {
         }}
       />
     </TargetBox>,
-    <TargetBox key="daeri" condition={!isTarget2Clicked} isNextTriger={false}>
+    <TargetBox
+      key="daeri"
+      condition={!isTwoPerson2Clicked && target.twoPerson}
+      isNextTriger={false}>
       <StackedList_Profile
         profile={{
           style: { backgroundColor: "var(--kakao-blue)" },
@@ -87,7 +101,7 @@ function SelectPerson() {
             content: <Icon name="arrow-left" />,
           }}
           title={{
-            content: "대화상대 초대",
+            content: header,
             style: { fontWeight: "bold" },
           }}
           info={{
@@ -95,14 +109,22 @@ function SelectPerson() {
               <TargetBox
                 style={{
                   color:
-                    isTarget1Clicked && isTarget2Clicked
+                    (target.twoPerson &&
+                      isTwoPerson1Clicked &&
+                      isTwoPerson2Clicked) ||
+                    (target.person2 && isPerson2Clicked)
                       ? "rgb(23,23,23)"
                       : "rgb(143, 143, 143)",
                   marginLeft: "auto",
                   fontSize: "0.8rem",
                   fontWeight: "bold",
                 }}
-                condition={isTarget1Clicked && isTarget2Clicked}>
+                condition={
+                  (target.twoPerson &&
+                    isTwoPerson1Clicked &&
+                    isTwoPerson2Clicked) ||
+                  (target.person2 && isPerson2Clicked)
+                }>
                 확인
               </TargetBox>
             ),
@@ -125,7 +147,14 @@ function SelectPerson() {
 
         <StackedListWrap listTitle={{ content: "즐겨찾기" }}>
           {friendListContents1.map((list, i) => (
-            <label key={i} htmlFor={`person${i + 1}`}>
+            <label
+              key={i}
+              htmlFor={`person${i + 1}`}
+              onChange={() => {
+                i === 1 &&
+                  target.person2 &&
+                  setIsPerson2Clicked(!isPerson2Clicked);
+              }}>
               {list}
             </label>
           ))}
@@ -138,8 +167,12 @@ function SelectPerson() {
               key={i}
               htmlFor={`person${i + 3}`}
               onChange={() => {
-                i === 1 && setIsTarget1Clicked(!isTarget1Clicked);
-                i === 2 && setIsTarget2Clicked(!isTarget2Clicked);
+                i === 1 &&
+                  target.twoPerson &&
+                  setIsTwoPerson1Clicked(!isTwoPerson1Clicked);
+                i === 2 &&
+                  target.twoPerson &&
+                  setIsTwoPerson2Clicked(!isTwoPerson2Clicked);
               }}>
               {list}
             </label>

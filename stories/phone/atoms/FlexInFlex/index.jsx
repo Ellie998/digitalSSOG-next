@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
+  display: grid;
   vertical-align: middle;
   align-items: center;
-  display: grid;
   grid-template-columns: repeat(3, 57px);
   ${(props) => props.style}
 `;
@@ -24,24 +24,25 @@ const FlexInFlex = ({
   children,
   onClick,
   style,
+  flexStyle,
 }) => {
   return (
     <>
       <Container style={style} onClick={onClick}>
         {/* left item */}
-        <FlexContainer>
+        <FlexContainer style={flexStyle}>
           {leftItem?.map((item, i) => (
             <FlexItem key={`left${i}`}>{item}</FlexItem>
           ))}
         </FlexContainer>
         {/* mid item */}
-        <FlexContainer>
+        <FlexContainer style={flexStyle}>
           {centerItem?.map((item, i) => (
             <div key={`center${i}`}>{item}</div>
           ))}
         </FlexContainer>
         {/* right item */}
-        <FlexContainer>
+        <FlexContainer style={flexStyle}>
           {rightItem?.map((item, i) => (
             <FlexItem key={`right${i}`}>{item}</FlexItem>
           ))}

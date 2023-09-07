@@ -16,10 +16,10 @@ const DescriptionContainer = styled.div`
   ${(props) => (props.style ? props.style : null)}
 `;
 
-const IconBottom = ({ icon, description, style }) => {
+const IconBottom = ({ icon, description, style, onClick }) => {
   return (
-    <Container style={style}>
-      <Icon name={icon.name} style={icon.style} />
+    <Container style={style} onClick={onClick}>
+      <Icon name={icon.name} style={icon.style} content={icon.content} />
       <DescriptionContainer style={description.style}>
         {description.content}
       </DescriptionContainer>

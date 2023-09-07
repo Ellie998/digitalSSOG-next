@@ -25,14 +25,24 @@ import CancelBtn from "stories/phone/atoms/CancelBtn/index";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 
 import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
-import ChatOptionBox from "../../organisms/ChatOptionBox/index";
-import ChatSideMenu from "../../organisms/ChatSideMenu/index";
-import ChatContentOptionModal from "../../organisms/ChatContentOptionModal/index";
+import ChatOptionBox from "stories/phone/Apps/KakaoTalk/organisms/ChatOptionBox/index";
+import ChatSideMenu from "stories/phone/Apps/KakaoTalk/organisms/ChatSideMenu/index";
+import ChatContentOptionModal from "stories/phone/Apps/KakaoTalk/organisms/ChatContentOptionModal/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import ShareModalContent_Default from "stories/phone/organisms/ShareModalContent_Default/index";
+import ShareModalContent from "stories/phone/Apps/KakaoTalk/organisms/ShareModalContent/index";
 
 function Chat({
+  content = {
+    name: "영희",
+    chat: "좋은 아침 ^^",
+    num: null,
+    chatName: "영희",
+    sendChatContent: null,
+  },
   inputLocked,
-  chatType_group,
-
   target = {
     sendImg: false,
     sendPhoneNum: false,
@@ -43,20 +53,26 @@ function Chat({
     leave_quietly: false,
     leave: false,
     setting: false,
+    chatOption: false,
   },
   open = {
-    message: true,
+    chat: true,
+    sendedChat: false,
     option: false,
     optionSetting: false,
     menu: false,
     alert: false,
+    topAlert: false,
     modal: false,
+    shareModal: false,
+    shareModal_default: false,
   },
+  share = { friend2: false, shareOut: false },
   reopen = { optionSetting: false },
 }) {
   //message
   const [messageContent, setMessageContent] = useState("");
-  const [isOvered, setIsOvered] = useState(false);
+  const [isChatOptionOpen, setIsChatOptionOpen] = useState(false);
 
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
@@ -65,14 +81,16 @@ function Chat({
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
 
-  function mouseOverHandler() {
+  function openChatOption() {
     setTimeout(() => {
-      setIsOvered(true);
+      setIsChatOptionOpen(true);
     }, 1000);
+  }
+  function closeChatOption() {
+    setIsChatOptionOpen(false);
   }
 
   function backClickHandler() {
-    setIsOvered(false);
     setOptionInput("");
   }
 
@@ -123,6 +141,36 @@ function Chat({
               </TargetContent>
             )}
           </ModalContents>
+        </Modal>
+      )}
+      {open.topAlert && (
+        <Modal
+          backdropStyle={{ backgroundColor: "transparent" }}
+          modalStyle={{
+            left: "0",
+            width: "175px",
+            backgroundColor: "rgb(97, 97, 97)",
+            borderRadius: "0",
+            padding: "2px",
+            height: "70px",
+          }}>
+          <StackedList_Profile
+            profile={{
+              name: "person-fill",
+              style: {
+                color: "white",
+                backgroundColor: "var(--kakao-skyblue)",
+              },
+            }}
+            title={{
+              content: "철수 채팅방에 메시지를 전달하였습니다.",
+              style: { color: "white", fontSize: "0.7rem" },
+            }}
+            info={{
+              content: "채팅방 이동",
+              style: { color: "yellow", fontSize: "0.7rem" },
+            }}
+          />
         </Modal>
       )}
       {/* setting option */}
@@ -225,11 +273,39 @@ function Chat({
         <ChatSideMenu onClickBackDrop={backClickHandler} target={target} />
       )}
       {/* chat content option */}
-      {isOvered && (
+      {isChatOptionOpen && (
         <ChatContentOptionModal
           onClickBackDrop={backClickHandler}
           target={target}
+          closeChatOption={closeChatOption}
         />
+      )}
+      {open.shareModal && (
+        <Modal
+          modalStyle={{
+            width: "175px",
+            left: "0",
+            borderRadius: "0",
+            top: "134px",
+          }}>
+          <ShareModalContent
+            target={{ shareOut: share.shareOut, friend2: share.friend2 }}
+          />
+        </Modal>
+      )}
+      {open.shareModal_default && (
+        <Modal_downUp
+          modalStyle={{
+            width: "175px",
+            left: "0",
+            borderRadius: "0",
+            top: "134px",
+          }}>
+          <ShareModalContent_Default
+            content={"좋은 아침^^"}
+            target={{ kakaotalk: true }}
+          />
+        </Modal_downUp>
       )}
       {/* messages */}
       <NoScrollBar
@@ -242,11 +318,9 @@ function Chat({
           leftItem={[
             <BackBtn></BackBtn>,
             <div className="text-sm ml-1 font-bold align-middle">
-              {chatType_group ? "그룹채팅" : "영희"}
+              {content.chatName}
             </div>,
-            <div className="text-sm ml-1 align-middle">
-              {chatType_group && "3"}
-            </div>,
+            <div className="text-sm ml-1 align-middle">{content.num}</div>,
           ]}
           rightItem={[
             <Icon name="search" className={`text-sm m-1 align-middle`} />,
@@ -254,36 +328,43 @@ function Chat({
               <Icon name="list" className={`text-sm mx-1 align-middle`} />
             </TargetContent>,
           ]}></AppHeader>
-        {open.message && (
+        {open.chat && (
           <ChatList
             isGetList={true}
-            onClick={mouseOverHandler}
             className=""
             profile={{
               className: "bg-kakaoSkyblue",
               content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
             }}
             name={{
-              content: chatType_group ? "김대리" : "영희",
+              content: content.name,
               className: "",
             }}
             message={{
               className: "bg-white",
-              content: chatType_group ? "퇴사합니다." : "좋은 아침^^",
+              content: (
+                <TargetBox
+                  condition={target.chatOption && !isChatOptionOpen}
+                  isNextTriger={false}
+                  onClick={openChatOption}>
+                  {content.chat}
+                </TargetBox>
+              ),
             }}
             timeStamp={{
               className: "",
-              content: chatType_group ? "오전 9:00" : "오후 2:05",
+              content: "오후 2:05",
             }}
           />
         )}
-        {messageContent && (
+        {(messageContent || open.sendedChat) && (
           <ChatList
             isSendList={true}
             className="mt-2"
             message={{
               className: "bg-kakaoYellow",
-              content: messageContent,
+              content:
+                messageContent || (open.sendedChat && content.sendChatContent),
             }}
             timeStamp={{
               className: "",
