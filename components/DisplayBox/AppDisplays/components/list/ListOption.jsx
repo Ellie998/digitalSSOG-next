@@ -1,29 +1,56 @@
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: fadeInDown 0.5s;
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0.5;
+      transform: translate3d(0, -10px, 0);
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  ${(props) => (props.style ? props.style : null)}
+`;
+
+const TitleContainer = styled.div`
+  font-size: 0.5rem /* 8px */;
+  font-weight: 700;
+  ${(props) => (props.style ? props.style : null)}
+`;
+const SubTitleContainer = styled.div`
+  font-size: 0.5rem /* 8px */;
+  font-weight: 700;
+  ${(props) => (props.style ? props.style : null)}
+`;
+
 export default function ListOption({
-  className,
   title,
   subTitle,
   onClick,
   children,
-  id,
+  style,
 }) {
   return (
-    <div
-      key={id}
-      className={`hover:bg-gray-100 py-[10px] px-[20px] animate-fadeInDown ${className}`}
-      onClick={onClick}>
+    <Container onClick={onClick} style={style}>
       {/* title */}
       {title !== undefined && (
-        <div className={`text-2xs font-bold ${title.className}`}>
-          {title.content}
-        </div>
+        <TitleContainer style={title.style}>{title.content}</TitleContainer>
       )}
       {/* subTitle */}
       {subTitle !== undefined && (
-        <div className={`text-2xs ${subTitle.className}`}>
+        <SubTitleContainer style={subTitle.style}>
           {subTitle.content}
-        </div>
+        </SubTitleContainer>
       )}
       {children}
-    </div>
+    </Container>
   );
 }

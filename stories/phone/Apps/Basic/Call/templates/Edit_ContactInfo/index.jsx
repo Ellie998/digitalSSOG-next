@@ -12,19 +12,24 @@ import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 
 const NavContainer = styled.div`
-  background: rgb(254, 254, 254);
+  background: rgb(244, 244, 244);
   display: flex;
   justify-content: space-around;
   position: relative;
   z-index: 100;
-  top: -30px;
+  top: -34px;
   font-size: 0.85rem;
+  padding: 8px;
+  font-weight: bold;
 `;
 
 // eslint-disable-next-line react/prop-types
-const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
+const Edit_ContactInfo = ({
+  content = { name: "영희" },
+  state = { name: null, setName: () => {} },
+}) => {
   return (
-    <Phone>
+    <Phone backgroundColor={"rgb(244,244,244)"}>
       <NoScrollbar height={"300px"}>
         <Icon
           name="camera-fill"
@@ -38,19 +43,36 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
           }}
         />
         <StackedList_Profile
+          style={{
+            padding: "4px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderRadius: "12px",
+          }}
           profile={{ name: "person", style: { color: "rgb(44, 106, 221)" } }}
           title={{
             content: (
               <input
                 type="text"
-                placeholder={content.name}
+                placeholder={state.name || content.name}
+                onChange={(e) => {
+                  state.setName(e.target.value);
+                }}
+                value={undefined || state.name}
                 style={{ width: "100px" }}
               />
             ),
           }}
           info={{ content: <Icon name="chevron-down" /> }}
         />
-        <StackedListWrap style={{ margin: "10px 0 0 0", padding: "10px 0" }}>
+        <StackedListWrap
+          style={{
+            padding: "8px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+          }}>
           <StackedList_Profile
             profile={{
               name: "telephone",
@@ -73,10 +95,14 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
               ),
             }}
             subTitle={{
+              style: {
+                gridColumn: "2/6",
+              },
               content: (
                 <input
                   type="text"
                   value={"010-1234-0000"}
+                  readOnly
                   style={{
                     width: "110px",
                     fontSize: "0.85rem",
@@ -84,7 +110,6 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
                   }}
                 />
               ),
-              style: { gridColumn: "2/6" },
             }}
             info={{
               content: <Icon name="dash-lg" style={{ color: "red" }} />,
@@ -92,7 +117,11 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
             }}
           />
         </StackedListWrap>
-        <StackedListWrap style={{ margin: "0 0 0 0", padding: "10px 0" }}>
+        <StackedListWrap
+          style={{
+            padding: "8px 0",
+            backgroundColor: "white",
+          }}>
           <StackedList_Profile
             style={{ margin: "0 0" }}
             profile={{ name: "" }}
@@ -117,6 +146,7 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
                 <input
                   type="text"
                   value={"+82 10-1234-0000"}
+                  readOnly
                   style={{
                     width: "110px",
                     fontSize: "0.85rem",
@@ -132,7 +162,13 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
             }}
           />
         </StackedListWrap>{" "}
-        <StackedListWrap style={{ margin: "0 0 0 0", padding: "4px 0" }}>
+        <StackedListWrap
+          style={{
+            padding: "4px 0",
+            backgroundColor: "white",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px",
+          }}>
           <StackedList_Profile
             style={{ margin: "0 0" }}
             profile={{ name: "plus" }}
@@ -152,7 +188,14 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
           />
         </StackedListWrap>
         {/*  */}
-        <StackedListWrap style={{ margin: "20px 0 0 0", padding: "4px 0" }}>
+        <StackedListWrap
+          style={{
+            border: "none",
+            padding: "4px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderRadius: "12px",
+          }}>
           <StackedList_Profile
             style={{ margin: "0 0" }}
             profile={{ name: "envelope" }}
@@ -172,7 +215,14 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
           />
         </StackedListWrap>
         {/*  */}
-        <StackedListWrap style={{ margin: "20px 0 10px 0", padding: "4px 0" }}>
+        <StackedListWrap
+          style={{
+            border: "none",
+            padding: "4px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderRadius: "12px",
+          }}>
           <StackedList_Profile
             style={{ margin: "0 0" }}
             profile={{ name: "people", style: { color: "rgb(44, 106, 221)" } }}
@@ -192,7 +242,7 @@ const Edit_ContactInfo = ({ content = { name: "영희" } }) => {
         </StackedListWrap>
         <div
           style={{
-            margin: "0 auto 50px auto",
+            margin: "10px auto 50px auto",
             display: "flex",
             justifyContent: "center",
             fontSize: "0.85rem",

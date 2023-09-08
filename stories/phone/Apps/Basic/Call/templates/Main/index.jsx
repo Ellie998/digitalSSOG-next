@@ -17,12 +17,18 @@ const Main = ({
     call: false,
     chat: false,
     info: false,
+    person1: false,
   },
 }) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 
   return (
-    <Phone>
+    <Phone
+      backgroundColor={
+        clickedTapName === "최근기록" || clickedTapName === "연락처"
+          ? "rgb(244,244,244)"
+          : "white"
+      }>
       <NoScrollbar height="267px" style={{ textAlign: "center" }}>
         {clickedTapName === "키패드" && (
           <CallKeypad

@@ -10,13 +10,17 @@ const MainContainer = styled.div`
   height: 300px;
   overflow: hidden;
   width: 175px;
+  background-color: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : "white"};
 `;
 
-function Phone({ children, main }) {
+function Phone({ children, main, backgroundColor }) {
   return (
     <PhoneBackground>
-      <Header />
-      <MainContainer>{children ? children : main}</MainContainer>
+      <Header backgroundColor={backgroundColor} />
+      <MainContainer backgroundColor={backgroundColor}>
+        {children ? children : main}
+      </MainContainer>
       <Nav />
     </PhoneBackground>
   );

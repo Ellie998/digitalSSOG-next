@@ -13,13 +13,14 @@ import Phone from "stories/phone/molecules/Phone/index";
 import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 
 const NavContainer = styled.div`
-  background: rgb(254, 254, 254);
+  background: rgb(244, 244, 244);
   display: flex;
   justify-content: space-between;
   position: relative;
   z-index: 100;
   top: -40px;
   font-size: 0.75rem;
+  padding: 4px;
 `;
 
 // eslint-disable-next-line react/prop-types
@@ -28,13 +29,19 @@ const ContactInfo = ({
   target = { edit: false },
 }) => {
   return (
-    <Phone>
+    <Phone backgroundColor={"rgb(244,244,244)"}>
       <NoScrollbar height={"300px"}>
+        <Icon name="chevron-left" style={{ width: "30px" }} />
         <Top
+          style={{
+            backgroundColor: "white",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+          }}
           title={{ content: content.name }}
           subTitle={{
             content: (
-              <div style={{ display: "flex", margin: "4px auto 4px 10px" }}>
+              <div style={{ display: "flex", padding: "4px auto 4px 10px" }}>
                 <div style={{ color: "rgb(144,144,144)" }}>휴대전화</div>
                 <div style={{ fontSize: "0.9rem" }}>010-1234-0000</div>
                 <Icon
@@ -62,7 +69,14 @@ const ContactInfo = ({
             />
           }></Top>
         <Flex
-          style={{ width: "130px", margin: "6px auto" }}
+          style={{
+            padding: "6px 0px",
+            width: "175px",
+            justifyContent: "space-around",
+            backgroundColor: "white",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px",
+          }}
           items={[
             <Icon
               key="call_icon"
@@ -96,8 +110,18 @@ const ContactInfo = ({
 
         <StackedListWrap
           listTitle={{ content: "휴대전화" }}
-          style={{ padding: "14px 0 0 0" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          style={{
+            padding: "4px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+          }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}>
             <div style={{ fontSize: "0.8rem" }}>+82 10-1234-0000</div>
             <Flex
               style={{ width: "70px", margin: "6px auto" }}
@@ -132,7 +156,13 @@ const ContactInfo = ({
         </StackedListWrap>
         <StackedListWrap
           listTitle={{ content: "그룹" }}
-          style={{ padding: "0 0 0 0", border: "none" }}>
+          style={{
+            border: "none",
+            padding: "4px 0",
+            backgroundColor: "white",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px",
+          }}>
           <div style={{ fontSize: "0.8rem", padding: "0 8px" }}>
             긴급 연락처
           </div>
@@ -140,7 +170,13 @@ const ContactInfo = ({
         {/*  */}
         <StackedListWrap
           listTitle={{ content: "선물하기" }}
-          style={{ padding: "24px 0 0 0" }}>
+          style={{
+            padding: "4px 0",
+            marginTop: "10px",
+            backgroundColor: "white",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+          }}>
           <div
             style={{
               display: "flex",
@@ -161,7 +197,13 @@ const ContactInfo = ({
         </StackedListWrap>
         <StackedListWrap
           listTitle={{ content: "송금하기" }}
-          style={{ border: "none", margin: "0 0 24px 0" }}>
+          style={{
+            border: "none",
+            padding: "4px 0",
+            backgroundColor: "white",
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px",
+          }}>
           <div
             style={{
               display: "flex",
@@ -179,7 +221,7 @@ const ContactInfo = ({
             />
           </div>
         </StackedListWrap>
-        <div style={{ margin: "0 0 50px 0" }}>
+        <div style={{ margin: "10px 0 50px 0" }}>
           <Button
             style={{
               backgroundColor: "rgb(233,233,233)",

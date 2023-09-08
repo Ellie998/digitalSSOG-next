@@ -16,6 +16,6 @@ const Container = styled.div`
 
 /* eslint-disable react/prop-types */
 const PhoneBackground = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <Container id="phone_bg">{children}</Container>;
 };
 export default PhoneBackground;

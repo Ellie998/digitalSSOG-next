@@ -11,7 +11,7 @@ import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCal
 // chat
 import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main/index";
 import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UrlContext from "components/page_context/UrlContext";
 import ContactInfo from "stories/phone/Apps/Basic/Call/templates/ContactInfo/index";
 import Edit_ContactInfo from "stories/phone/Apps/Basic/Call/templates/Edit_ContactInfo/index";
@@ -24,6 +24,8 @@ function Calls({ functionName, methodId, descriptionId }) {
     functionName_changeName,
   } = useContext(UrlContext);
 
+  const [name, setName] = useState("영희");
+
   let choicedComponent = <Default />;
 
   switch (functionName) {
@@ -34,7 +36,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key="callAppMain"
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
-            target={{ call: true }}
+            target={{ call: true, person1: true }}
           />,
           <CallConnected key="callConnected" />,
         ][descriptionId];
@@ -75,9 +77,17 @@ function Calls({ functionName, methodId, descriptionId }) {
     case functionName_changeName:
       choicedComponent = [
         <Home key="mainApps" appName_call />,
-        <Main key="callAppMain" targetTab="연락처" target={{ info: true }} />,
+        <Main
+          key="callAppMain"
+          targetTab="연락처"
+          target={{ info: true, person1: true }}
+        />,
         <ContactInfo key="contactInfo" target={{ edit: true }} />,
-        <Edit_ContactInfo key="edit_info" />,
+        <Edit_ContactInfo
+          key="edit_info"
+          state={{ setName: setName, name: name }}
+        />,
+        <ContactInfo key="contactInfo" content={{ name: name }} />,
       ][descriptionId];
 
       break;

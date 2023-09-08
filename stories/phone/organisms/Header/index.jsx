@@ -2,10 +2,10 @@
 import Icon from "stories/phone/atoms/Icon/index";
 import Flex from "stories/phone/atoms/Flex/index";
 
-const Header = () => {
+const Header = ({ backgroundColor = "white" }) => {
   return (
     <Flex
-      style={{ width: "170px" }}
+      style={{ width: "170px", backgroundColor: backgroundColor }}
       items={[
         <Icon key="left" name={"brightness-high"} />,
         <Flex

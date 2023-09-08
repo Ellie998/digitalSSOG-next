@@ -51,7 +51,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <CallMain
             key="CallMain"
             targetTab={"연락처"}
-            target={{ chat: true }}
+            target={{ chat: true, person1: true }}
           />,
           <Chat key="Message" />,
         ][descriptionId];

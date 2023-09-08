@@ -17,7 +17,7 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 const Contacts = ({
   targetTab,
   clickedTapName,
-  target = { call: false, chat: false, info: false },
+  target = { call: false, chat: false, info: false, person1: false },
 }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
@@ -57,7 +57,6 @@ const Contacts = ({
           condition={targetTab === clickedTapName && target.chat}
           isNextTriger={true}>
           <Icon
-            key="chat"
             style={{
               backgroundColor: "rgb(69, 127, 243)",
               color: "white",
@@ -132,76 +131,7 @@ const Contacts = ({
       },
     },
   ];
-  const contactContents2 = [
-    // ㅇ
-    {
-      id: `contactList4`,
-      style: { height: "12px" },
-      profile: {},
-      title: {
-        style: { fontSize: "0.75rem", color: "rgb(156 163 175)" },
-        content: "ㅇ",
-      },
-    },
 
-    // 영희
-    {
-      id: `contactList5`,
-      onClick: () => {
-        showListOption1();
-        scrollElement.scroll(0, 315);
-      },
-      style: { height: "2rem" },
-      profile: {
-        style: {
-          color: "white",
-          backgroundColor: "rgb(251 207 232)",
-          padding: "4px 4px",
-        },
-        content: "영",
-      },
-      title: {
-        content: "영희",
-      },
-      children: isListClicked1 && (
-        <ListOption title={{ content: "휴대전화 010-1234-0000" }}>
-          {optionlistContent}
-        </ListOption>
-      ),
-    },
-
-    // ㅊ
-    {
-      id: `contactList6`,
-      style: { height: "12px" },
-      profile: { name: "" },
-      title: {
-        style: { color: "rgb(156 163 175)", fontSize: "0.75rem" },
-        content: "ㅊ",
-      },
-    },
-    //철수
-    {
-      id: `contactList7`,
-      onClick: () => {
-        showListOption2();
-        scrollElement.scroll(0, 340);
-      },
-      style: { height: "2rem" },
-      profile: {
-        style: { color: "white", backgroundColor: "rgb(254 215 170)" },
-        content: "철",
-      },
-      title: {
-        content: "철수",
-      },
-      children: isListClicked2 && (
-        <ListOption title={{ content: "휴대전화 010-1234-0001" }}>
-          {optionlistContent}
-        </ListOption>
-      ),
-    },
-  ];
   return (
     <>
       <Top
@@ -228,26 +158,110 @@ const Contacts = ({
           <StackedList_Profile
             key={prop.id}
             onClick={prop.onClick}
-            style={prop.style}
+            style={{
+              backgroundColor: "white",
+              marginBottom: "8px",
+              borderRadius: "12px",
+              ...prop.style,
+            }}
             profile={prop.profile}
             title={prop.title}>
             {prop.children}
           </StackedList_Profile>
         ))}
-        {contactContents2.map((prop, i) => (
-          <TargetBox
-            key={prop.id}
-            condition={i === 1 && !isListClicked1}
-            isNextTriger={false}>
-            <StackedList_Profile
-              onClick={prop.onClick}
-              style={prop.style}
-              profile={prop.profile}
-              title={prop.title}>
-              {prop.children}
-            </StackedList_Profile>
-          </TargetBox>
-        ))}
+      </StackedListWrap>
+      <StackedListWrap
+        listTitle={{ content: "ㅇ" }}
+        style={{
+          border: "none",
+        }}>
+        <TargetBox
+          condition={target.person1 && !isListClicked1}
+          isNextTriger={false}>
+          <StackedList_Profile
+            onClick={() => {
+              showListOption1();
+              scrollElement.scroll(0, 315);
+            }}
+            style={{
+              height: "2rem",
+              backgroundColor: "white",
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
+              borderBottomLeftRadius: !isListClicked1 && "12px",
+              borderBottomRightRadius: !isListClicked1 && "12px",
+            }}
+            //
+            profile={{
+              style: {
+                color: "white",
+                backgroundColor: "rgb(251 207 232)",
+                padding: "4px 4px",
+              },
+              content: "영",
+            }}
+            title={{
+              content: "영희",
+            }}>
+            {isListClicked1 && (
+              <ListOption
+                title={{
+                  content: "휴대전화 010-1234-0000",
+                  style: { color: "rgb(22, 163, 74)" },
+                }}
+                style={{
+                  backgroundColor: "white",
+                  borderBottomLeftRadius: "12px",
+                  borderBottomRightRadius: "12px",
+                }}>
+                {optionlistContent}
+              </ListOption>
+            )}
+          </StackedList_Profile>
+        </TargetBox>
+      </StackedListWrap>
+      <StackedListWrap listTitle={{ content: "ㅊ" }} style={{ border: "none" }}>
+        <TargetBox condition={false} isNextTriger={false}>
+          <StackedList_Profile
+            onClick={() => {
+              showListOption2();
+              scrollElement.scroll(0, 340);
+            }}
+            style={{
+              height: "2rem",
+              backgroundColor: "white",
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
+              borderBottomLeftRadius: !isListClicked2 && "12px",
+              borderBottomRightRadius: !isListClicked2 && "12px",
+            }} //
+            profile={{
+              style: {
+                color: "white",
+                backgroundColor: "rgb(254 215 170)",
+                padding: "4px 4px",
+              },
+              content: "철",
+            }}
+            title={{
+              content: "철수",
+            }}>
+            {isListClicked2 && (
+              <ListOption
+                style={{
+                  backgroundColor: "white",
+                  borderBottomLeftRadius: "12px",
+                  borderBottomRightRadius: "12px",
+                }}
+                title={{
+                  content: "휴대전화 010-1234-0001",
+                  style: { color: "rgb(22, 163, 74)" },
+                }}>
+                {optionlistContent}
+              </ListOption>
+            )}
+          </StackedList_Profile>
+        </TargetBox>
       </StackedListWrap>
     </>
   );
