@@ -1,24 +1,34 @@
 /* eslint-disable react/prop-types */
-import styled from "@emotion/styled";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
+import TargetBox from "../TargetBox/index";
 
-const AppIconContainer = styled.i`
-  box-shadow: 0px 0px 2px rgba(48, 48, 48, 0.652);
-  border-radius: 18px;
-  padding: 2px 4px;
-  cursor: pointer;
-  height: fit-content;
-  font-size: 16px;
-  &:hover {
-    background-color: #cdcdcd8a;
-  }
-`;
-
-const AppIcon = ({ id, name, targetOption }) => {
+const AppIcon = ({ id, name, condition, style, content, description }) => {
   return (
-    <TargetContent targetOption={targetOption} isNextDescriptionLink={true}>
-      <AppIconContainer id={id} className={`bi bi-${name}`}></AppIconContainer>
-    </TargetContent>
+    <TargetBox condition={condition} style={{}}>
+      <IconBottom
+        style={{
+          width: "30px",
+          height: "fit-content",
+          fontSize: "12px",
+          letterSpacing: "-1px",
+          wordSpacing: "0px",
+        }}
+        id={id}
+        icon={{
+          name: null || name,
+          content: null || content,
+          style: {
+            width: "24px",
+            height: "24px",
+            fontSize: "16px",
+            padding: "4px",
+            borderRadius: "10px",
+            ...style,
+          },
+        }}
+        description={description && { content: description, style: {} }}
+      />
+    </TargetBox>
   );
 };
 export default AppIcon;

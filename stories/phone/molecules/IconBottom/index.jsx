@@ -20,8 +20,8 @@ const IconBottom = ({ icon, description, style, onClick }) => {
   return (
     <Container style={style} onClick={onClick}>
       <Icon name={icon.name} style={icon.style} content={icon.content} />
-      <DescriptionContainer style={description.style}>
-        {description.content}
+      <DescriptionContainer style={description && description.style}>
+        {description && description.content}
       </DescriptionContainer>
     </Container>
   );

@@ -6,9 +6,9 @@ import AppLine from "stories/phone/molecules/AppLine/index";
 const Container = styled.div`
   height: 300px;
   display: grid;
-  grid-template-rows: repeat(8, 37px);
+  grid-template-rows: repeat(7, 43px);
   font-size: 0.8rem;
-  align-self: center;
+  align-items: center;
   padding: 0 5px;
 `;
 
@@ -70,20 +70,63 @@ const Home = ({ appName_kakaotalk, appName_call, appName_message }) => {
         <AppLine />
         <AppLine />
         <AppLine />
-        <AppLine />
         {/*  */}
         <AppLine />
         <AppLine />
         <AppLine
-          appList={[{ name: "chat-fill", targetOption: appName_kakaotalk }]}
+          appList={[
+            {
+              name: "chat-fill",
+              condition: appName_kakaotalk,
+              description: "카카오톡",
+              style: {
+                backgroundColor: "rgb(255, 225, 0)",
+                color: "rgb(36, 25, 4)",
+              },
+            },
+            {
+              content: "N",
+              description: "NAVER",
+              style: {
+                backgroundColor: "rgb(123, 226, 59)",
+                color: "white",
+              },
+            },
+          ]}
         />
         <AppLine
           appList={[
-            { name: "telephone", targetOption: appName_call },
-            { name: "camera", targetOption: false },
-            { name: "clock", targetOption: false },
-            { name: "browser-chrome", targetOption: false },
-            { name: "chat-dots", targetOption: appName_message },
+            {
+              name: "telephone-fill",
+              condition: appName_call,
+              style: { backgroundColor: "rgb(22, 163, 74)", color: "white" },
+            },
+            {
+              name: "camera-fill",
+              condition: false,
+              style: { backgroundColor: "rgb(220, 58, 76)", color: "white" },
+            },
+            {
+              name: "clock-fill",
+              condition: false,
+              style: { backgroundColor: "rgb(43, 22, 163)", color: "white" },
+            },
+            {
+              name: "browser-chrome",
+              condition: false,
+              style: {
+                backgroundColor: "rgb(229, 229, 229)",
+                color: "rgb(255, 79, 52)",
+              },
+            },
+            {
+              name: "chat-dots-fill",
+              condition: appName_message,
+              style: {
+                backgroundColor: "rgb(26, 95, 255)",
+                color: "rgb(255, 255, 255)",
+              },
+            },
           ]}
         />
       </Container>
