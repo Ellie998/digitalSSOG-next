@@ -6,13 +6,13 @@ import Error from "stories/phone/organisms/Main/Error/index";
 import Default from "stories/phone/organisms/Main/Default/index";
 // call
 
-import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall/index";
 import CallConnected from "stories/phone/Apps/KakaoTalk/templates/CallConnected/index";
 
 import Main from "stories/phone/Apps/KakaoTalk/templates/Main/index";
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UrlContext from "components/page_context/UrlContext";
+import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   const {
@@ -22,6 +22,7 @@ function Calls({ functionName, methodId, descriptionId }) {
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
+  const [name, setName] = useState("영희");
 
   switch (functionName.replaceAll("-", " ")) {
     case functionName_makeCall:
@@ -34,10 +35,19 @@ function Calls({ functionName, methodId, descriptionId }) {
 
       break;
     case functionName_getCall:
-      choicedComponent = [
-        <AnswerCall key="answerCall" appName_kakaotalk />,
-        <CallConnected key="callConnected" />,
-      ][descriptionId];
+    case functionName_changeName:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key={"1"} appName_kakaotalk={true} />,
+          <Main key={"2"} tab={{ friend: true }} target={{ profile: true }} />,
+          <Profile key={"3"} target={{ name: true }} />,
+          <Setting_ProfileName
+            key="4"
+            content={{ name: name, setName: setName }}
+          />,
+          <Profile key={"5"} content={{ name: name }} />,
+        ][descriptionId];
+      }
 
       break;
 

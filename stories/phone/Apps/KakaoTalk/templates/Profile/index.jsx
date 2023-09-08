@@ -4,8 +4,12 @@ import classes from "./index.module.css";
 import Phone from "stories/phone/molecules/Phone/index";
 import IconBottom from "stories/phone/molecules/IconBottom/index";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Icon from "stories/phone/atoms/Icon/index";
 
-function Profile({ target = { call: false, chat: false } }) {
+function Profile({
+  target = { call: false, chat: false, name: false },
+  content = { name: "영희" },
+}) {
   return (
     <Phone>
       <section className={classes.layout}>
@@ -28,7 +32,21 @@ function Profile({ target = { call: false, chat: false } }) {
               },
             }}
             description={{
-              content: "영희",
+              content: (
+                <TargetBox
+                  style={{ color: "white", padding: "4px", display: "flex" }}
+                  condition={target.name}>
+                  {content.name}
+                  <Icon
+                    name="pencil"
+                    style={{
+                      color: "white",
+                      fontSize: "10px",
+                      marginLeft: "3px",
+                    }}
+                  />
+                </TargetBox>
+              ),
               style: { color: "white", fontSize: "1rem" },
             }}
           />

@@ -1,4 +1,19 @@
 /* eslint-disable react/prop-types */
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  align-items: center;
+  margin-right: 0.25rem /* 4px */;
+  ${(props) => (props.style ? props.style : null)}
+`;
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export default function AppHeader({
   className,
   leftItem,
@@ -6,37 +21,34 @@ export default function AppHeader({
   rightItem,
   children,
   onClick,
-  id,
+  style,
 }) {
   return (
     <>
-      <div
-        key={id}
-        className={`flex justify-between w-full align-middle items-center mr-1  ${className}`}
-        onClick={onClick}>
+      <Container style={style} className={className} onClick={onClick}>
         {/* left item */}
-        <div className="flex justify-between">
+        <FlexContainer>
           {leftItem?.map((item, i) => (
-            <div key={i} className="ml-1">
+            <div key={i} style={{ marginLeft: "4px" }}>
               {item}
             </div>
           ))}
-        </div>
+        </FlexContainer>
         {/* mid item */}
-        <div className="flex justify-between">
+        <FlexContainer>
           {midItem?.map((item, i) => (
             <div key={i}>{item}</div>
           ))}
-        </div>
+        </FlexContainer>
         {/* right item */}
-        <div className="flex justify-between">
+        <FlexContainer>
           {rightItem?.map((item, i) => (
-            <div key={i} className="mr-1">
+            <div key={i} style={{ marginRight: "4px" }}>
               {item}
             </div>
           ))}
-        </div>
-      </div>
+        </FlexContainer>
+      </Container>
       {children}
     </>
   );
