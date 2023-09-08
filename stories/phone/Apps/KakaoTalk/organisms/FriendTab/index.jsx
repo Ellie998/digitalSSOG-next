@@ -6,12 +6,18 @@ import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHe
 
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
+import { useState } from "react";
 
 function FriendTab({
   // eslint-disable-next-line react/prop-types
-  target = { profile: false },
+  target = { profile: false, person1: false, modal_nameChange: false },
   tab,
+  open = { friendModal: false },
 }) {
+  const [isPerson1Overed, setIsPerson1Overed] = useState(false);
+
   const friendListContents = [
     <StackedList_Profile
       key="jinsu"
@@ -71,32 +77,59 @@ function FriendTab({
   ];
 
   return (
-    <NoScrollBar height="260px">
-      <AppHeader
-        leftItem={[
-          <div key="header_title" className="text-sm font-bold">
-            친구
-          </div>,
-        ]}
-        rightItem={[
-          <Icon key="search_icon" name="search" />,
-          <Icon key="add_friend_icon" name="person-plus" />,
-          <Icon key="music_icon" name="music-note-beamed" />,
-          <Icon key="setting_icon" name="gear" />,
-        ]}></AppHeader>
+    <>
+      {open.friendModal && (
+        <Modal modalStyle={{ top: "80px" }}>
+          <ModalContents
+            title={{ content: "영희", style: { fontWeight: "bold" } }}>
+            <div
+              id="modal_wrap"
+              style={{ fontSize: "0.85rem", marginLeft: "8px" }}>
+              <TargetBox style={{ padding: "2px 0" }}>
+                즐겨찾기에 추가
+              </TargetBox>
+              <TargetBox
+                condition={target.modal_nameChange}
+                style={{ padding: "2px 0" }}>
+                이름 변경
+              </TargetBox>
+              <TargetBox style={{ padding: "2px 0" }}>숨김</TargetBox>
+              <TargetBox style={{ padding: "2px 0" }}>차단</TargetBox>
+            </div>
+          </ModalContents>
+        </Modal>
+      )}
+      <NoScrollBar height="260px">
+        <AppHeader
+          leftItem={[
+            <div key="header_title" className="text-sm font-bold">
+              친구
+            </div>,
+          ]}
+          rightItem={[
+            <Icon key="search_icon" name="search" />,
+            <Icon key="add_friend_icon" name="person-plus" />,
+            <Icon key="music_icon" name="music-note-beamed" />,
+            <Icon key="setting_icon" name="gear" />,
+          ]}></AppHeader>
 
-      <>
-        <StackedListWrap>{friendListContents[0]}</StackedListWrap>
-        <StackedListWrap
-          className="border-none"
-          listTitle={{ content: "친구 2" }}>
-          <TargetBox condition={target.profile && tab}>
-            {friendListContents[1]}
-          </TargetBox>
-          {friendListContents[2]}
-        </StackedListWrap>
-      </>
-    </NoScrollBar>
+        <>
+          <StackedListWrap>{friendListContents[0]}</StackedListWrap>
+          <StackedListWrap
+            className="border-none"
+            listTitle={{ content: "친구 2" }}>
+            <TargetBox
+              onMouseDown={target.person1 && (() => setIsPerson1Overed(true))}
+              condition={
+                (target.profile || (target.person1 && !isPerson1Overed)) && tab
+              }>
+              {friendListContents[1]}
+            </TargetBox>
+            {friendListContents[2]}
+          </StackedListWrap>
+        </>
+      </NoScrollBar>
+    </>
   );
 }
 

@@ -74,5 +74,10 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/그룹-채팅하기",
       lastModified: new Date(),
     },
+    {
+      // <!--저장된-연락처(친구)-이름-바꾸기-->
+      url: "https://digitalssog.com/description/저장된-연락처(친구)-이름-바꾸기",
+      lastModified: new Date(),
+    },
   ];
 }

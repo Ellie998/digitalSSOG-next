@@ -48,7 +48,27 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Profile key={"5"} content={{ name: name }} />,
         ][descriptionId];
       }
-
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key={"1"} appName_kakaotalk={true} />,
+          <Main
+            key={"2"}
+            tab={{ friend: true }}
+            friendTarget={{ person1: true }}
+          />,
+          <Main
+            key={"2"}
+            tab={{ friend: true }}
+            friendTarget={{ modal_nameChange: true }}
+            friendOpen={{ friendModal: true }}
+          />,
+          <Setting_ProfileName
+            key="4"
+            content={{ name: name, setName: setName }}
+          />,
+          <Profile key={"5"} content={{ name: name }} />,
+        ][descriptionId];
+      }
       break;
 
     default:

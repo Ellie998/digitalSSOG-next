@@ -79,12 +79,17 @@ export default function StackedList_Profile({
   info,
   subInfo,
   onClick,
+  onMouseDown,
   children,
   id,
 }) {
   return (
     <>
-      <Container key={id} style={style} onClick={onClick}>
+      <Container
+        key={id}
+        style={style}
+        onClick={onClick}
+        onMouseDown={onMouseDown}>
         <ProfileContainer>
           <ProfileIcon
             name={profile.name}

@@ -24,6 +24,7 @@ const TargetBox = ({
   isNextTriger = true,
   isBackTriger = false,
   children,
+  onMouseDown,
 }) => {
   const { setMyDescriptionId } = useContext(UrlContext);
   return (
@@ -31,13 +32,34 @@ const TargetBox = ({
       id={id}
       style={style}
       condition={condition && !isBackTriger}
-      data-tooltip={condition && !isBackTriger ? "클릭" : null}
+      data-tooltip={
+        condition && !isBackTriger
+          ? onMouseDown
+            ? "1초 이상 누르고 있기"
+            : "클릭"
+          : null
+      }
+      onMouseDown={() => {
+        onMouseDown ? onMouseDown() : null;
+        onMouseDown &&
+          setTimeout(() => {
+            isNextTriger &&
+              condition &&
+              setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
+
+            isBackTriger &&
+              condition &&
+              setMyDescriptionId((prevValue) => (+prevValue - 1).toString());
+          }, 1000);
+      }}
       onClick={() => {
-        isNextTriger &&
+        !onMouseDown &&
+          isNextTriger &&
           condition &&
           setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
         onClick ? onClick() : null;
-        isBackTriger &&
+        !onMouseDown &&
+          isBackTriger &&
           condition &&
           setMyDescriptionId((prevValue) => (+prevValue - 1).toString());
       }}>

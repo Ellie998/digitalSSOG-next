@@ -20,6 +20,8 @@ function Main({
     newChat: false,
     leaveChat: false,
   },
+  friendTarget = { person1: false, modal_nameChange: false },
+  friendOpen = { friendModal: false },
   tab = {
     friend: false,
     chat: false,
@@ -45,7 +47,11 @@ function Main({
   return (
     <Phone>
       {clickedTabName === "friend" && (
-        <FriendTab target={target} tab={tab.friend} />
+        <FriendTab
+          target={{ ...target, ...friendTarget }}
+          open={friendOpen}
+          tab={tab.friend}
+        />
       )}
       {clickedTabName === "chat" && (
         <ChatTab target={target} open={open} tab={tab.chat} />
