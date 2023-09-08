@@ -13,12 +13,14 @@ export default function RootLayout({ children }) {
 
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-RZYK6J2QZ2" />
         <Script id="google-analytics">
-          {`
+          {`const host = window.location.hostname;
+          if(host != "localhost"){
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           
           gtag('config', 'G-RZYK6J2QZ2');
+        }
           `}
         </Script>
       </head>
