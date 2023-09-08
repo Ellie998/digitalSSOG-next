@@ -6,7 +6,6 @@ import StackedList_Profile from "components/DisplayBox/AppDisplays/components/li
 import Icon from "stories/phone/atoms/Icon/index";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
 import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader/index";
 import Modal from "stories/phone/molecules/Modal/index";
@@ -20,6 +19,7 @@ const ChatTab = ({
     newChat: false,
     leaveChat: false,
     modal: false,
+    onMouseDown: false,
   },
   open = { topModal: false, optionModal: false },
 }) => {
@@ -166,18 +166,16 @@ const ChatTab = ({
 
         <>
           {target.groupChat && (
-            <TargetContent
-              targetOption={target.groupChat}
-              isNextDescriptionLink={true}>
+            <TargetBox
+              condition={target.groupChat}
+              onMouseDown={
+                target.onMouseDown && target.groupChat && (() => {})
+              }>
               {chatListContents[0]}
-            </TargetContent>
+            </TargetBox>
           )}
           {target.chat && (
-            <TargetContent
-              targetOption={target.chat}
-              isNextDescriptionLink={true}>
-              {chatListContents[1]}
-            </TargetContent>
+            <TargetBox condition={target.chat}>{chatListContents[1]}</TargetBox>
           )}
           {chatListContents[2]}
         </>

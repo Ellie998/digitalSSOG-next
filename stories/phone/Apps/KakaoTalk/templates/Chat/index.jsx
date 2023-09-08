@@ -57,6 +57,7 @@ function Chat({
   },
   open = {
     chat: true,
+    contentOption: false,
     sendedChat: false,
     option: false,
     optionSetting: false,
@@ -72,7 +73,6 @@ function Chat({
 }) {
   //message
   const [messageContent, setMessageContent] = useState("");
-  const [isChatOptionOpen, setIsChatOptionOpen] = useState(false);
 
   // modal
   const [isCheckbox, setIsCheckbox] = useState(false);
@@ -80,15 +80,6 @@ function Chat({
   // option setting
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
-
-  function openChatOption() {
-    setTimeout(() => {
-      setIsChatOptionOpen(true);
-    }, 1000);
-  }
-  function closeChatOption() {
-    setIsChatOptionOpen(false);
-  }
 
   function backClickHandler() {
     setOptionInput("");
@@ -273,11 +264,10 @@ function Chat({
         <ChatSideMenu onClickBackDrop={backClickHandler} target={target} />
       )}
       {/* chat content option */}
-      {isChatOptionOpen && (
+      {open.contentOption && (
         <ChatContentOptionModal
           onClickBackDrop={backClickHandler}
           target={target}
-          closeChatOption={closeChatOption}
         />
       )}
       {open.shareModal && (
@@ -344,9 +334,8 @@ function Chat({
               className: "bg-white",
               content: (
                 <TargetBox
-                  condition={target.chatOption && !isChatOptionOpen}
-                  isNextTriger={false}
-                  onClick={openChatOption}>
+                  condition={target.chatOption && !open.contentOption}
+                  onMouseDown={target.chatOption && (() => {})}>
                   {content.chat}
                 </TargetBox>
               ),

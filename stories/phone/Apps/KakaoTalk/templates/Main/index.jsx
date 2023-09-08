@@ -19,6 +19,7 @@ function Main({
     setting: false,
     newChat: false,
     leaveChat: false,
+    onMouseDown: false,
   },
   friendTarget = { person1: false, modal_nameChange: false },
   friendOpen = { friendModal: false },

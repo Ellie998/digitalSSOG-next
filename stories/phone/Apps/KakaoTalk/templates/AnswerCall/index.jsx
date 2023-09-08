@@ -2,7 +2,8 @@
 import styled from "@emotion/styled";
 
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+import Icon from "stories/phone/atoms/Icon/index";
+
 import Top from "stories/phone/atoms/Top";
 import Phone from "stories/phone/molecules/Phone";
 
@@ -16,13 +17,13 @@ const BtnContainer = styled.div`
   margin-top: 60px;
 `;
 
-const AnswerCall = () => {
+const AnswerCall = ({ content = { name: "철수" } }) => {
   return (
     <Phone>
       <Container>
         <Top
           style={{ marginTop: "40px" }}
-          title={{ content: "철수" }}
+          title={{ content: content.name }}
           subTitle={{ content: "보이스톡 해요." }}
           childrenTop={
             <Icon

@@ -38,7 +38,13 @@ function Calls({ functionName, methodId, descriptionId }) {
             targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
             target={{ call: true, person1: true }}
           />,
-          <CallConnected key="callConnected" />,
+          <CallConnected
+            key="callConnected"
+            content={{
+              name: methodId !== "1" ? "영희" : "홍길동",
+              num: "010-0000-0000",
+            }}
+          />,
         ][descriptionId];
       }
       if (methodId === "4") {

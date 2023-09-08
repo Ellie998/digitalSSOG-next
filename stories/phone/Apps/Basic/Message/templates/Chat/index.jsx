@@ -23,6 +23,7 @@ import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 import CancelBtn from "stories/phone/atoms/CancelBtn/index";
 import Button from "stories/phone/atoms/Button/index";
 import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 function Chat({
   open_option,
@@ -38,7 +39,8 @@ function Chat({
   target_sendPhoneNum,
   message_fill,
   target = { call: false },
-  open = { profile: false },
+  open = { profile: false, contentOption: false },
+  content = { name: "홍길동" },
 }) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
@@ -53,14 +55,7 @@ function Chat({
     setPlusClicked(false);
   }, [open_option, open_optionInfo, open_modal, open_imgOption]);
 
-  function mouseOverHandler() {
-    setTimeout(() => {
-      setIsOvered(true);
-    }, 1000);
-  }
-
   function backClickHandler() {
-    setIsOvered(false);
     setPlusClicked(false);
     setSendBtnClicked(false);
   }
@@ -317,22 +312,23 @@ function Chat({
           onClick={backClickHandler}
           open={open.profile}
           target={target}
-          name={message_fill ? "홍길순" : "홍길동"}
+          name={message_fill ? "홍길순" : content.name}
         />
 
         {!message_fill && (
           <ChatList
             onClick={backClickHandler}
             isGetList
-            onPointerDown={mouseOverHandler}
             className={`mb-2 `}
             message={{
               className: "bg-gray-200 ml-1",
               content: (
-                <TargetContent targetOption={!isOvered && target_resend}>
+                <TargetBox
+                  condition={!open.contentOption && target_resend}
+                  onMouseDown={() => {}}>
                   결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
                   OO로 OOO번길 O, OOO 컨벤션
-                </TargetContent>
+                </TargetBox>
               ),
             }}
             timeStamp={{
@@ -464,17 +460,13 @@ function Chat({
         )}
         {/*  */}
 
-        {isOvered && (
+        {open.contentOption && (
           <div className={classes.options}>
             <div>삭제</div>
             <div>답장</div>
             <div>글자 복사</div>
             <div>텍스트 선택</div>
-            <TargetContent
-              targetOption={isOvered && target_resend}
-              isNextDescriptionLink={true}>
-              전달
-            </TargetContent>
+            <TargetBox condition={target_resend}>전달</TargetBox>
             <div>공유</div>
             <div>별표하기</div>
           </div>

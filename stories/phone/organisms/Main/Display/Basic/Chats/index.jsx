@@ -53,7 +53,18 @@ function Chats({ functionName, methodId, descriptionId }) {
             targetTab={"연락처"}
             target={{ chat: true, person1: true }}
           />,
-          <Chat key="Message" />,
+          <Chat key="Message" content={{ name: "영희" }} />,
+        ][descriptionId];
+      }
+      if (methodId === "4") {
+        choicedComponent = [
+          <Home key="mainApps" appName_call />,
+          <CallMain
+            key="CallMain"
+            targetTab={"최근기록"}
+            target={{ chat: true, person1: true }}
+          />,
+          <Chat key="Message" content={{ name: "영희" }} />,
         ][descriptionId];
       }
 
@@ -79,6 +90,7 @@ function Chats({ functionName, methodId, descriptionId }) {
         <Home key="mainApps" appName_message />,
         <Main key="MessageAppMain" target_seeMessage />,
         <Chat key="Message" target_resend />,
+        <Chat key="Message" target_resend open={{ contentOption: true }} />,
         <SelectPerson key="SelectPerson" target_person2 />,
         <Chat key="Message" target_resend message_fill />,
       ][descriptionId];

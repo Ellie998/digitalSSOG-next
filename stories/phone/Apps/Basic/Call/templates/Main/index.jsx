@@ -19,6 +19,7 @@ const Main = ({
     info: false,
     person1: false,
   },
+  content = { setPhoneNum: () => {}, phoneNum: "010-0000-0000" },
 }) => {
   const [clickedTapName, setClickedTapName] = useState("키패드");
 
@@ -32,6 +33,7 @@ const Main = ({
       <NoScrollbar height="267px" style={{ textAlign: "center" }}>
         {clickedTapName === "키패드" && (
           <CallKeypad
+            content={content}
             button1={{
               targetOption: targetTab === "키패드" && target.videoCall,
             }}

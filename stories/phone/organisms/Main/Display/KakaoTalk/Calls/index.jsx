@@ -13,6 +13,7 @@ import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
 import { useContext, useState } from "react";
 import UrlContext from "components/page_context/UrlContext";
 import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
+import AnswerCall from "stories/phone/Apps/KakaoTalk/templates/AnswerCall/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   const {
@@ -35,6 +36,11 @@ function Calls({ functionName, methodId, descriptionId }) {
 
       break;
     case functionName_getCall:
+      choicedComponent = [
+        <AnswerCall key="1" content={{ name: "영희" }} />,
+        <CallConnected key="callConnected" />,
+      ][descriptionId];
+      break;
     case functionName_changeName:
       if (methodId === "1") {
         choicedComponent = [

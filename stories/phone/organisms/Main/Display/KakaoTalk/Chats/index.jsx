@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UrlContext from "components/page_context/UrlContext";
 
 import Home from "stories/phone/Apps/Basic/Home/index";
@@ -14,6 +14,7 @@ import ETCSetting_lab from "stories/phone/Apps/KakaoTalk/templates/ETCSetting_la
 import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting/index";
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
 import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/index";
+import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -31,6 +32,7 @@ function Chats({ functionName, methodId, descriptionId }) {
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
+  const [groupName, setGroupName] = useState("그룹채팅");
 
   switch (functionName.replaceAll("-", " ")) {
     case functionName_seeMessage:
@@ -101,15 +103,20 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
           <Chat
             key="chat1"
-            target={{ chatOption: true, resend: true }}
+            target={{ chatOption: true }}
             open={{ chat: true }}
           />,
           <Chat
             key="chat2"
+            target={{ resend: true }}
+            open={{ chat: true, contentOption: true }}
+          />,
+          <Chat
+            key="chat3"
             open={{ shareModal: true, chat: true }}
             share={{ friend2: true }}
           />,
-          <Chat key="chat3" open={{ topAlert: true, chat: true }} />,
+          <Chat key="chat4" open={{ topAlert: true, chat: true }} />,
         ][descriptionId];
       }
       if (methodId === "2") {
@@ -282,7 +289,57 @@ function Chats({ functionName, methodId, descriptionId }) {
         <Main key="Main2" tab={{ chat: true }} />,
       ][descriptionId];
       break;
+
     case functionName_groupChat:
+      if (methodId === "1")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="KakaoAppMain"
+            tab={{ chat: true }}
+            target={{ groupChat: true }}
+          />,
+          <Chat
+            key="Chat"
+            content={{
+              chatName: "그룹채팅",
+              num: "3",
+              name: "김대리",
+              chat: "퇴사합니다.",
+            }}
+          />,
+        ][descriptionId];
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="KakaoAppMain"
+            tab={{ chat: true }}
+            target={{ newChat: true }}
+          />,
+          <Main
+            key="KakaoAppMain"
+            tab={{ chat: true }}
+            target={{ newChat: true }}
+            open={{ topModal: true }}
+          />,
+          <SelectPerson key="4" target={{ twoPerson: true }} />,
+          <SettingChatRoom_NameImg
+            key="5"
+            content={{ name: groupName, setName: setGroupName }}
+          />,
+          <Chat
+            key="Chat"
+            content={{
+              chatName: groupName,
+              num: "3",
+            }}
+            open={{ chat: false }}
+          />,
+        ][descriptionId];
+      }
+
+      break;
     case functionName_leaveChat:
       if (methodId === "1")
         choicedComponent = [
@@ -290,7 +347,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main1"
             tab={{ chat: true }}
-            target={{ groupChat: true }}
+            target={{ groupChat: true, onMouseDown: true }}
           />,
           <Main
             key="Main2"

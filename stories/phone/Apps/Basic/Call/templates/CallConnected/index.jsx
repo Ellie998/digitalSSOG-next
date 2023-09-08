@@ -35,7 +35,9 @@ const BtnContainer = styled.div`
   margin: 0 auto;
 `;
 
-const CallConnected = () => {
+const CallConnected = ({
+  content = { name: "홍길동", num: "010-0000-0000" },
+}) => {
   const [time, setTime] = useState(0);
 
   const timer = setTimeout(() => {
@@ -65,10 +67,10 @@ const CallConnected = () => {
         />
         <Top
           title={{
-            content: "홍길동",
+            content: content.name,
           }}
           subTitle={{
-            content: "휴대전화 010-0000-0000",
+            content: content.num,
           }}
         />
         <IconsContainer>
