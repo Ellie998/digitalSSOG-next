@@ -5,7 +5,11 @@ import Flex from "stories/phone/atoms/Flex/index";
 const Header = ({ backgroundColor = "white" }) => {
   return (
     <Flex
-      style={{ width: "170px", backgroundColor: backgroundColor }}
+      style={{
+        width: "175px",
+        backgroundColor: backgroundColor,
+        paddingRight: "5px",
+      }}
       items={[
         <Icon key="left" name={"brightness-high"} />,
         <Flex

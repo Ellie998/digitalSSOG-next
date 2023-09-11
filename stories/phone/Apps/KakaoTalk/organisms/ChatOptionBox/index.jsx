@@ -8,6 +8,7 @@ const ChatOptionBox = ({
     sendImg: false,
     sendAudio: false,
     sendPhoneNum: false,
+    option_call: false,
   },
 }) => {
   const iconClassName = [
@@ -47,6 +48,8 @@ const ChatOptionBox = ({
       color: "white",
     },
     {
+      targetOption: target.option_call,
+      isNextDescriptionLink: true,
       content: "통화하기",
       iconName: "telephone-fill",
       backgroundColor: "#ef666c",

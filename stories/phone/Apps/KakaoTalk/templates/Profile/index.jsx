@@ -7,7 +7,7 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 import Icon from "stories/phone/atoms/Icon/index";
 
 function Profile({
-  target = { call: false, chat: false, name: false },
+  target = { call: false, chat: false, name: false, videoCall: false },
   content = { name: "영희" },
 }) {
   return (
@@ -92,23 +92,25 @@ function Profile({
               }}
             />
           </TargetBox>
-          <IconBottom
-            icon={{
-              name: "camera-video-fill",
-              style: {
-                color: "white",
-                fontSize: "16px",
-              },
-            }}
-            description={{
-              content: "페이스톡",
-              style: {
-                color: "white",
-                fontSize: "8px",
-                fontWeight: "bold",
-              },
-            }}
-          />
+          <TargetBox condition={target.videoCall}>
+            <IconBottom
+              icon={{
+                name: "camera-video-fill",
+                style: {
+                  color: "white",
+                  fontSize: "16px",
+                },
+              }}
+              description={{
+                content: "페이스톡",
+                style: {
+                  color: "white",
+                  fontSize: "8px",
+                  fontWeight: "bold",
+                },
+              }}
+            />
+          </TargetBox>
           <IconBottom
             icon={{
               name: "quote",

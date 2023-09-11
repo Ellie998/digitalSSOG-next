@@ -54,6 +54,8 @@ function Chat({
     leave: false,
     setting: false,
     chatOption: false,
+    option_call: false,
+    option_videoCall: false,
   },
   open = {
     chat: true,
@@ -91,9 +93,12 @@ function Chat({
       {open.modal && (
         <Modal modalStyle={{ top: "80px" }}>
           <ModalContents
-            title={{ content: "채팅방 나가기" }}
+            title={{
+              content: target.option_videoCall ? "통화하기" : "채팅방 나가기",
+              style: { fontWeight: "bold" },
+            }}
             subTitle={{
-              content: (
+              content: !target.option_videoCall && (
                 <>
                   나가기를 하면 대화내용이 모두 삭제되고
                   <br />
@@ -101,25 +106,27 @@ function Chat({
                 </>
               ),
             }}
-            buttons={{
-              style: { justifyContent: "end" },
-              content: [
-                <CancelBtn
-                  key="btn1"
-                  condition={true}
-                  style={{ color: "rgb(59 130 246)" }}>
-                  취소
-                </CancelBtn>,
-                <SubmitBtn
-                  key="btn2"
-                  style={{ color: "rgb(59 130 246)" }}
-                  condition={
-                    isCheckbox && (target.leave_quietly || target.leave)
-                  }>
-                  나가기
-                </SubmitBtn>,
-              ],
-            }}>
+            buttons={
+              !target.option_videoCall && {
+                style: { justifyContent: "end" },
+                content: [
+                  <CancelBtn
+                    key="btn1"
+                    condition={true}
+                    style={{ color: "rgb(59 130 246)" }}>
+                    취소
+                  </CancelBtn>,
+                  <SubmitBtn
+                    key="btn2"
+                    style={{ color: "rgb(59 130 246)" }}
+                    condition={
+                      isCheckbox && (target.leave_quietly || target.leave)
+                    }>
+                    나가기
+                  </SubmitBtn>,
+                ],
+              }
+            }>
             {target.leave_quietly && (
               <TargetContent className="my-1" targetOption={!isCheckbox}>
                 <Checkbox
@@ -130,6 +137,20 @@ function Chat({
                   id="info_config"
                 />
               </TargetContent>
+            )}
+            {(target.option_videoCall || target.option_call) && (
+              <div style={{ fontSize: "0.8rem", marginLeft: "5px" }}>
+                <TargetBox
+                  condition={target.option_call}
+                  style={{ padding: "3px 2px" }}>
+                  보이스톡
+                </TargetBox>
+                <TargetBox
+                  condition={target.option_videoCall}
+                  style={{ padding: "3px 2px" }}>
+                  페이스톡
+                </TargetBox>
+              </div>
             )}
           </ModalContents>
         </Modal>

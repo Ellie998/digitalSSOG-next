@@ -14,12 +14,15 @@ import { useContext, useState } from "react";
 import UrlContext from "components/page_context/UrlContext";
 import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
 import AnswerCall from "stories/phone/Apps/KakaoTalk/templates/AnswerCall/index";
+import Chat from "stories/phone/Apps/KakaoTalk/templates/Chat/index";
+import VideoCallConnected from "stories/phone/Apps/KakaoTalk/templates/VideoCallConnected/index";
 
 function Calls({ functionName, methodId, descriptionId }) {
   const {
     functionName_makeCall,
     functionName_getCall,
     functionName_changeName,
+    functionName_makeVideoCall,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -29,7 +32,11 @@ function Calls({ functionName, methodId, descriptionId }) {
     case functionName_makeCall:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="KakaoAppMain" defaultTab_friend target_profile />,
+        <Main
+          key="KakaoAppMain"
+          tab={{ friend: true }}
+          target={{ profile: true }}
+        />,
         <Profile key="Profile" target={{ call: true }} />,
         <CallConnected key="callConnected" />,
       ][descriptionId];
@@ -40,6 +47,44 @@ function Calls({ functionName, methodId, descriptionId }) {
         <AnswerCall key="1" content={{ name: "영희" }} />,
         <CallConnected key="callConnected" />,
       ][descriptionId];
+      break;
+    case functionName_makeVideoCall:
+      if (methodId === "1")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="KakaoAppMain"
+            tab={{ friend: true }}
+            target={{ profile: true }}
+          />,
+          <Profile key="Profile" target={{ videoCall: true }} />,
+          <VideoCallConnected key="connected1" open={{ modal: true }} />,
+          <VideoCallConnected key="connected2" />,
+        ][descriptionId];
+
+      if (methodId === "2")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="KakaoAppMain"
+            tab={{ chat: true }}
+            target={{ chat: true }}
+          />,
+          <Chat key="chat1" target={{ optionBtn: true }} />,
+          <Chat
+            key="chat2"
+            target={{ option_call: true }}
+            open={{ option: true, chat: true }}
+          />,
+          <Chat
+            key="chat3"
+            target={{ option_videoCall: true }}
+            open={{ modal: true, chat: true }}
+          />,
+          <VideoCallConnected key="connected1" open={{ modal: true }} />,
+          <VideoCallConnected key="connected2" />,
+        ][descriptionId];
+
       break;
     case functionName_changeName:
       if (methodId === "1") {
