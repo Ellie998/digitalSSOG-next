@@ -17,7 +17,13 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 const Contacts = ({
   targetTab,
   clickedTapName,
-  target = { call: false, chat: false, info: false, person1: false },
+  target = {
+    call: false,
+    videoCall: false,
+    chat: false,
+    info: false,
+    person1: false,
+  },
 }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
@@ -65,15 +71,19 @@ const Contacts = ({
             name="chat-fill"
           />
         </TargetBox>,
-        <Icon
+        <TargetBox
           key="camera"
-          style={{
-            backgroundColor: "rgb(22 ,163 ,74)",
-            color: "white",
-            padding: "4px",
-          }}
-          name="camera-video-fill"
-        />,
+          condition={targetTab === clickedTapName && target.videoCall}
+          isNextTriger={true}>
+          <Icon
+            style={{
+              backgroundColor: "rgb(22 ,163 ,74)",
+              color: "white",
+              padding: "4px",
+            }}
+            name="camera-video-fill"
+          />
+        </TargetBox>,
         <TargetBox
           key="info"
           condition={targetTab === clickedTapName && target.info}

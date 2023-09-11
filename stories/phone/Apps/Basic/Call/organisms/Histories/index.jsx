@@ -14,7 +14,7 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 const Histories = ({
   targetTab,
   clickedTapName,
-  target = { call: false, person1: false },
+  target = { call: false, person1: false, videoCall: false },
 }) => {
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
@@ -58,15 +58,19 @@ const Histories = ({
             name="chat-fill"
           />
         </TargetBox>,
-        <Icon
+        <TargetBox
           key="camera"
-          style={{
-            backgroundColor: "rgb(22 ,163 ,74)",
-            color: "white",
-            padding: "4px",
-          }}
-          name="camera-video-fill"
-        />,
+          condition={targetTab === clickedTapName && target.videoCall}
+          isNextTriger={true}>
+          <Icon
+            style={{
+              backgroundColor: "rgb(22 ,163 ,74)",
+              color: "white",
+              padding: "4px",
+            }}
+            name="camera-video-fill"
+          />
+        </TargetBox>,
         <TargetBox
           key="info"
           condition={targetTab === clickedTapName && target.info}

@@ -73,8 +73,8 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Home key="mainApps" appName_call />,
         <Main
           key="callAppMain"
-          targetTab="키패드"
-          target={{ videoCall: true }}
+          targetTab={["", "키패드", "최근기록", "연락처"][methodId]}
+          target={{ videoCall: true, person1: true }}
         />,
         <VideoCallConnected key="callConnected" />,
       ][descriptionId];
