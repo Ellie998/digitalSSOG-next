@@ -235,6 +235,18 @@ function Chats({ functionName, methodId, descriptionId }) {
             key="chat1"
             target={{ chatOption: true }}
             open={{ chat: true }}
+            content={{
+              name: "영희",
+              chatName: "영희",
+              chat: (
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: "rgb(250,235,215)",
+                  }}></div>
+              ),
+            }}
           />,
           <Chat
             key="chat2"
@@ -246,7 +258,22 @@ function Chats({ functionName, methodId, descriptionId }) {
             open={{ shareModal: true, chat: true }}
             share={{ friend2: true }}
           />,
-          <Chat key="chat4" open={{ topAlert: true, chat: true }} />,
+          <Chat
+            key="chat4"
+            open={{ topAlert: true, chat: true }}
+            content={{
+              name: "영희",
+              chatName: "영희",
+              chat: (
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: "rgb(250,235,215)",
+                  }}></div>
+              ),
+            }}
+          />,
         ][descriptionId];
       }
       if (methodId === "4") {
