@@ -15,6 +15,7 @@ import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting/inde
 import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
 import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/index";
 import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
+import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -198,11 +199,32 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Chat key="chat1" target={{ optionBtn: true }} />,
           <Chat
             key="chat2"
-            target={{ option_gallery: true }}
+            target_option={{ gallery: true }}
             open={{ option: true }}
           />,
-          <Chat key="chat3" open={{ imgOption: true }} />,
-          <Chat key="chat4" open={{ chat: true }} />,
+          <Chat
+            key="chat3"
+            open={{ imgOption: true }}
+            target_option={{ img_totalBtn: true }}
+          />,
+          <SelectFile key="selectFile" target={{ send: true }} />,
+          <Chat
+            key="chat4"
+            open={{ chat: true, sendedChat: true }}
+            content={{
+              name: "영희",
+              chat: "좋은 아침 ^^",
+              chatName: "영희",
+              sendChatContent: (
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: "rgb(250,235,215)",
+                  }}></div>
+              ),
+            }}
+          />,
         ][descriptionId];
       }
       if (methodId === "3") {

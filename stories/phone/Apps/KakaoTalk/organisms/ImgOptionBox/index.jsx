@@ -5,13 +5,19 @@ import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
 import Icon from "stories/phone/atoms/Icon/index";
 import ImgSelectBox from "stories/phone/Apps/KakaoTalk/atoms/ImgSelectBox/index";
 import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 const ImgsContainer = styled.div`
   display: flex;
   width: max-content;
 `;
 
-const ImgOptionBox = ({ onIconClickHandler, setChoicedImgs, choicedImgs }) => {
+const ImgOptionBox = ({
+  onIconClickHandler,
+  setChoicedImgs,
+  choicedImgs,
+  target = { totalBtn: false },
+}) => {
   const imgNum = [0, 1, 2, 3, 4, 5, 6];
   function imgCheckHandler(event) {
     let updatedValue;
@@ -44,7 +50,18 @@ const ImgOptionBox = ({ onIconClickHandler, setChoicedImgs, choicedImgs }) => {
       </NoScrollbar>
 
       <FlexInFlex
-        leftItem={[<Icon key={"1"} name="grid-fill" />, "전체"]}
+        leftItem={[
+          <TargetBox
+            key="1"
+            condition={target.totalBtn}
+            style={{
+              display: "flex",
+              fontSize: "0.9rem",
+            }}>
+            <Icon name="grid-fill" />
+            <div>전체</div>
+          </TargetBox>,
+        ]}
         rightItem={[
           <Icon key="1" name="magic" />,
           <Icon key="2" name="three-dots" />,

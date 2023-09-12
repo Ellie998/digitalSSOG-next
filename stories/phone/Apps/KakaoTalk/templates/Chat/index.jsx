@@ -60,6 +60,7 @@ function Chat({
   },
   target_option = {
     gallery: false,
+    img_totalBtn: false,
   },
   open = {
     chat: true,
@@ -458,6 +459,7 @@ function Chat({
       )}
       {open.imgOption && (
         <ImgOptionBox
+          target={{ totalBtn: target_option.img_totalBtn }}
           setChoicedImgs={setChoicedImgs}
           choicedImgs={choicedImgs}
         />
