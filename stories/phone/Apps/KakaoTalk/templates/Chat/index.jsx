@@ -33,6 +33,7 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 import ShareModalContent_Default from "stories/phone/organisms/ShareModalContent_Default/index";
 import ShareModalContent from "stories/phone/Apps/KakaoTalk/organisms/ShareModalContent/index";
+import ImgOptionBox from "../../organisms/ImgOptionBox/index";
 
 function Chat({
   content = {
@@ -57,6 +58,9 @@ function Chat({
     option_call: false,
     option_videoCall: false,
   },
+  target_option = {
+    gallery: false,
+  },
   open = {
     chat: true,
     contentOption: false,
@@ -69,6 +73,7 @@ function Chat({
     modal: false,
     shareModal: false,
     shareModal_default: false,
+    imgOption: false,
   },
   share = { friend2: false, shareOut: false },
   reopen = { optionSetting: false },
@@ -82,6 +87,8 @@ function Chat({
   // option setting
   const [optionInput, setOptionInput] = useState("");
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
+  //
+  const [choicedImgs, setChoicedImgs] = useState([]);
 
   function backClickHandler() {
     setOptionInput("");
@@ -320,7 +327,11 @@ function Chat({
       )}
       {/* messages */}
       <NoScrollBar
-        height={`${!open.option || open.optionSetting ? "280px" : "150px"}`}
+        height={`${
+          open.option || open.optionSetting || open.imgOption
+            ? "150px"
+            : "280px"
+        }`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>
         <AppHeader
@@ -415,9 +426,13 @@ function Chat({
             ],
           }}
           input={{}}
-          onSendBtnClickHandler={null}
+          onSendBtnClickHandler={() => {}}
           setMessageContent={setMessageContent}
-          sendBtn={{ className: "send-fill bg-[#f7e540]" }}
+          sendBtnTriger={choicedImgs.length >= 1 ? true : false}
+          sendBtn={{
+            className: "send-fill bg-[#f7e540]",
+            condition: choicedImgs.length >= 1,
+          }}
           sendBtn_default={{
             content: <Icon name="hash" />,
           }}></MessageSendLine>
@@ -438,7 +453,15 @@ function Chat({
         />
       )}
       {/* Option Box */}
-      {open.option && <ChatOptionBox target={target} />}
+      {open.option && (
+        <ChatOptionBox target={{ ...target, ...target_option }} />
+      )}
+      {open.imgOption && (
+        <ImgOptionBox
+          setChoicedImgs={setChoicedImgs}
+          choicedImgs={choicedImgs}
+        />
+      )}
     </Phone>
   );
 }

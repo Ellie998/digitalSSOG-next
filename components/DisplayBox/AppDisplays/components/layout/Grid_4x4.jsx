@@ -9,7 +9,7 @@ function Grid_4x4({ className, items, iconClassName_common, iconClassName }) {
       className={`${className} mt-1 mx-1 grid grid-cols-4 gap-y-1 rounded-lg p-2 animate-fadeInUp text-center`}>
       {items?.map((item, i) => (
         <TargetContent
-          className={`cursor-pointer`}
+          className={`cursor-pointer mx-auto`}
           key={i}
           targetOption={item.targetOption}
           isNextDescriptionLink={item.isNextDescriptionLink}

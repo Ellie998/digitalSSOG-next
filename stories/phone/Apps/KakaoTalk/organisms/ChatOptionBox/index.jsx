@@ -9,6 +9,7 @@ const ChatOptionBox = ({
     sendAudio: false,
     sendPhoneNum: false,
     option_call: false,
+    gallery: false,
   },
 }) => {
   const iconClassName = [
@@ -30,6 +31,8 @@ const ChatOptionBox = ({
 
   const gridContent = [
     {
+      targetOption: target.gallery,
+      isNextDescriptionLink: true,
       content: "앨범",
       iconName: "image",
       backgroundColor: "#9bcb5c",

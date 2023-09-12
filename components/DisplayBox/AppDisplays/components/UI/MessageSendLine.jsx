@@ -7,12 +7,13 @@ import classes from "./MessageSendLine.module.css";
 import Flex from "stories/phone/atoms/Flex/index";
 import Icon from "stories/phone/atoms/Icon/index";
 
+import TargetContent from "../TargetContent";
+
 export default function MessageSendLine({
   className,
   navOption_focused,
   navOption_blured,
   setMessageContent,
-  sendBtn,
   sendBtn_default,
   input,
   children,
@@ -20,7 +21,7 @@ export default function MessageSendLine({
   onSendBtnClickHandler,
   defaultEnteredMessage,
   onClick,
-
+  sendBtn = { condition: false, className: "", content: "" },
   id,
 }) {
   const [enteredMessage, setEnteredMessage] = useState(
@@ -89,14 +90,16 @@ export default function MessageSendLine({
         )}
         {/* send btn default */}
         {(enteredMessage || sendBtnTriger) && (
-          <div
+          <TargetContent
+            isNextDescriptionLink={sendBtn.condition ? true : false}
+            targetOption={sendBtn.condition}
             className={`${classes.sendIcon} ${sendBtn.className}`}
             onClick={sendBtnClickHandler}>
             {!sendBtn.content && (
               <Icon name="send" style={{ padding: "4px " }}></Icon>
             )}
             {sendBtn.content && sendBtn.content}
-          </div>
+          </TargetContent>
         )}
       </div>
       {children}

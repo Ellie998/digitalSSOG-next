@@ -23,6 +23,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_sendMessage,
     functionName_reserveMessage,
     functionName_resendMessage,
+    functionName_sendImg,
     //
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
@@ -96,6 +97,7 @@ function Chats({ functionName, methodId, descriptionId }) {
       ][descriptionId];
 
       break;
+
     case functionName_resendMessage:
       if (methodId === "1") {
         choicedComponent = [
@@ -134,6 +136,114 @@ function Chats({ functionName, methodId, descriptionId }) {
             share={{ shareOut: true }}
           />,
           <Chat key="chat3" open={{ shareModal_default: true, chat: true }} />,
+          <SelectPerson
+            key="selectPerson"
+            header={"공유 대상 선택"}
+            target={{ person2: true }}
+          />,
+          <Chat
+            key="chat4"
+            content={{ chatName: "철수", sendChatContent: "좋은 아침^^" }}
+            open={{ chat: false, sendedChat: true }}
+          />,
+        ][descriptionId];
+      }
+      break;
+    //
+    case functionName_sendImg:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main"
+            tab={{ friend: true }}
+            friendTarget={{ profile: true }}
+          />,
+          <Profile key="profile" target={{ chat: true }} />,
+          <Chat key="chat1" target={{ optionBtn: true }} />,
+          <Chat
+            key="chat2"
+            target_option={{ gallery: true }}
+            open={{ option: true }}
+          />,
+          <Chat key="chat3" open={{ imgOption: true }} />,
+          <Chat
+            key="chat4"
+            open={{ chat: true, sendedChat: true }}
+            content={{
+              name: "영희",
+              chat: "좋은 아침 ^^",
+              chatName: "영희",
+              sendChatContent: (
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: "rgb(250,235,215)",
+                  }}></div>
+              ),
+            }}
+          />,
+        ][descriptionId];
+      }
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main"
+            tab={{ friend: true }}
+            friendTarget={{ profile: true }}
+          />,
+          <Profile key="profile" target={{ chat: true }} />,
+          <Chat key="chat1" target={{ optionBtn: true }} />,
+          <Chat
+            key="chat2"
+            target={{ option_gallery: true }}
+            open={{ option: true }}
+          />,
+          <Chat key="chat3" open={{ imgOption: true }} />,
+          <Chat key="chat4" open={{ chat: true }} />,
+        ][descriptionId];
+      }
+      if (methodId === "3") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Chat
+            key="chat1"
+            target={{ chatOption: true }}
+            open={{ chat: true }}
+          />,
+          <Chat
+            key="chat2"
+            target={{ resend: true }}
+            open={{ chat: true, contentOption: true }}
+          />,
+          <Chat
+            key="chat3"
+            open={{ shareModal: true, chat: true }}
+            share={{ friend2: true }}
+          />,
+          <Chat key="chat4" open={{ topAlert: true, chat: true }} />,
+        ][descriptionId];
+      }
+      if (methodId === "4") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main"
+            tab={{ friend: true }}
+            friendTarget={{ person1: true }}
+          />,
+          <Profile key="profile" target={{ chat: true }} />,
+          <Chat key="chat1" target={{ optionBtn: true }} />,
+          <Chat
+            key="chat2"
+            target={{ option_gallery: true }}
+            open={{ option: true }}
+          />,
+          <Chat key="chat3" open={{ imgOption: true }} />,
+          <Chat key="chat4" open={{ chat: true }} />,
           <SelectPerson
             key="selectPerson"
             header={"공유 대상 선택"}

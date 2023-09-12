@@ -21,7 +21,7 @@ function Main({
     leaveChat: false,
     onMouseDown: false,
   },
-  friendTarget = { person1: false, modal_nameChange: false },
+  friendTarget = { person1: false, modal_nameChange: false, profile: false },
   friendOpen = { friendModal: false },
   tab = {
     friend: false,
