@@ -115,29 +115,29 @@ function Chats({ functionName, methodId, descriptionId }) {
 
       break;
     case functionName_sendImg:
-      choicedComponent =
-        methodId === "1"
-          ? [
-              <Home key="mainApps" appName_message />,
-              <Main key="MessageAppMain" target_sendMessage />,
-              <SelectPerson key="SelectPerson" target_person1 />,
-              <Chat key="Message1" target_sendImgBtn />,
-              <Chat key="Message2" open_imgOption target_sendImg />,
-            ][descriptionId]
-          : [
-              <Home key="mainApps" appName_message />,
-              <Main key="MessageAppMain" target_sendMessage />,
-              <SelectPerson key="SelectPerson" target_person1 />,
-              <Chat
-                key="Message1"
-                open_option={methodId === "2"}
-                target_sendImg
-              />,
-              <SelectFile key="SelectFile" target_sendImg />,
-              <ChoiceImgs key="ChoiceImgs" />,
-              <Chat key="Message2" open_optionInfo target_sendImg />,
-            ][descriptionId];
-
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson" target_person1 />,
+          <Chat key="Message1" target_sendImgBtn />,
+          <Chat key="Message2" open_imgOption target_sendImg />,
+        ][descriptionId];
+      }
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_sendMessage />,
+          <SelectPerson key="SelectPerson" target_person1 />,
+          <Chat key="Message1" open_option={methodId === "2"} target_sendImg />,
+          <SelectFile key="SelectFile" target_sendImg />,
+          <ChoiceImgs key="ChoiceImgs" />,
+          <Chat key="Message2" open_optionInfo target_sendImg />,
+        ][descriptionId];
+      }
+      if (methodId === "3") {
+        choicedComponent = <Error />;
+      }
       break;
     case functionName_sendAudio:
       choicedComponent = [

@@ -13,7 +13,12 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const Home = ({ appName_kakaotalk, appName_call, appName_message }) => {
+const Home = ({
+  appName_kakaotalk,
+  appName_call,
+  appName_message,
+  app = { gallery: false },
+}) => {
   const shareAppList = [
     {
       name: "arrow-right-circle",
@@ -72,7 +77,20 @@ const Home = ({ appName_kakaotalk, appName_call, appName_message }) => {
         <AppLine />
         {/*  */}
         <AppLine />
-        <AppLine />
+        <AppLine
+          appList={[
+            {
+              name: "flower3",
+              condition: app.gallery,
+              description: "갤러리",
+              style: {
+                backgroundColor: "rgb(255, 0, 76)",
+                color: "rgb(255, 255, 255)",
+                fontSize: "20px",
+              },
+            },
+          ]}
+        />
         <AppLine
           appList={[
             {

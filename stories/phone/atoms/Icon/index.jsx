@@ -7,6 +7,7 @@ const IconContainer = styled.i`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   border-radius: 999px;
   padding: ${(props) => (props.style.padding ? props.style.padding : "2px")};

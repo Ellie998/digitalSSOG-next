@@ -16,6 +16,7 @@ import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
 import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/index";
 import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
 import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index";
+import Gallery from "stories/phone/Apps/Basic/Gallery/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -278,21 +279,9 @@ function Chats({ functionName, methodId, descriptionId }) {
       }
       if (methodId === "4") {
         choicedComponent = [
-          <Home key="mainApps" appName_kakaotalk />,
-          <Main
-            key="Main"
-            tab={{ friend: true }}
-            friendTarget={{ person1: true }}
-          />,
-          <Profile key="profile" target={{ chat: true }} />,
-          <Chat key="chat1" target={{ optionBtn: true }} />,
-          <Chat
-            key="chat2"
-            target={{ option_gallery: true }}
-            open={{ option: true }}
-          />,
-          <Chat key="chat3" open={{ imgOption: true }} />,
-          <Chat key="chat4" open={{ chat: true }} />,
+          <Home key="mainApps" app={{ gallery: true }} />,
+          <Gallery key="gallery1" target_imgTab={{ shareBtn: true }} />,
+          <Gallery key="gallery2" open={{ shareOption: true }} />,
           <SelectPerson
             key="selectPerson"
             header={"공유 대상 선택"}
@@ -300,7 +289,17 @@ function Chats({ functionName, methodId, descriptionId }) {
           />,
           <Chat
             key="chat4"
-            content={{ chatName: "철수", sendChatContent: "좋은 아침^^" }}
+            content={{
+              chatName: "철수",
+              sendChatContent: (
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: "rgb(250,235,215)",
+                  }}></div>
+              ),
+            }}
             open={{ chat: false, sendedChat: true }}
           />,
         ][descriptionId];

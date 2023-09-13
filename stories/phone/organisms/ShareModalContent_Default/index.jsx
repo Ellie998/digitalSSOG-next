@@ -21,8 +21,9 @@ const BtnContainer = styled.div`
 
 const ShareModalContent_Default = ({
   onClick,
-  content,
+  content = { title: "", icon: "list" },
   target = { kakaotalk: false },
+  open = { kakaotalkOption: true },
 }) => {
   const friendListContents = [
     {
@@ -52,10 +53,10 @@ const ShareModalContent_Default = ({
       color: "rgb(36, 25, 4)",
       target: {
         condition: target.kakaotalk && !isOptionOpen,
-        isNextTriger: false,
+        isNextTriger: open.kakaotalkOption ? false : true,
       },
       option: {
-        content: (
+        content: open.kakaotalkOption && (
           <>
             <TargetBox
               condition={target.kakaotalk}
@@ -117,15 +118,17 @@ const ShareModalContent_Default = ({
           style={{ fontSize: "0.85rem", justifyContent: "left" }}
           items={[
             <Icon
-              name="list"
+              name={content.icon}
               key="list"
-              style={{
-                border: "1px solid rgb(223, 223, 223)",
-                padding: "4px",
-                borderRadius: "8px",
-              }}
+              style={
+                content.icon && {
+                  border: "1px solid rgb(223, 223, 223)",
+                  padding: "4px",
+                  borderRadius: "8px",
+                }
+              }
             />,
-            <div key="share_content">{content}</div>,
+            <div key="share_content">{content.title}</div>,
           ]}></Flex>
         <Flex
           style={{

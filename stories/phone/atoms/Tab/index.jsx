@@ -46,6 +46,8 @@ const Tab = ({
               : item.content
               ? item.content
               : item.id
+            : item.content
+            ? item.content
             : item.id}
         </TargetContent>
       ))}
