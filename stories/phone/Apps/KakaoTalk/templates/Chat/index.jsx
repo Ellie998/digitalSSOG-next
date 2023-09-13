@@ -321,7 +321,7 @@ function Chat({
             top: "134px",
           }}>
           <ShareModalContent_Default
-            content={"좋은 아침^^"}
+            content={{ title: "좋은 아침^^", icon: "list" }}
             target={{ kakaotalk: true }}
           />
         </Modal_downUp>

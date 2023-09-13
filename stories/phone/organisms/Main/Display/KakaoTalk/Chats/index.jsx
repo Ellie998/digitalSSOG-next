@@ -51,7 +51,11 @@ function Chats({ functionName, methodId, descriptionId }) {
       if (methodId === "1") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ friend: true }} target={{ profile: true }} />,
+          <Main
+            key="Main"
+            tab={{ friend: true }}
+            friendTarget={{ profile: true }}
+          />,
           <Profile key="Profile" target={{ chat: true }} />,
           <Chat key="chat" />,
         ][descriptionId];
@@ -131,6 +135,11 @@ function Chats({ functionName, methodId, descriptionId }) {
             key="chat1"
             target={{ chatOption: true, resend: true }}
             open={{ chat: true }}
+          />,
+          <Chat
+            key="chat2"
+            target={{ resend: true }}
+            open={{ chat: true, contentOption: true }}
           />,
           <Chat
             key="chat2"

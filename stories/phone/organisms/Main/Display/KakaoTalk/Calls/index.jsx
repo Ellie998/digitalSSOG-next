@@ -35,7 +35,7 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Main
           key="KakaoAppMain"
           tab={{ friend: true }}
-          target={{ profile: true }}
+          friendTarget={{ profile: true }}
         />,
         <Profile key="Profile" target={{ call: true }} />,
         <CallConnected key="callConnected" />,
@@ -55,7 +55,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ friend: true }}
-            target={{ profile: true }}
+            friendTarget={{ profile: true }}
           />,
           <Profile key="Profile" target={{ videoCall: true }} />,
           <VideoCallConnected key="connected1" open={{ modal: true }} />,
@@ -90,7 +90,11 @@ function Calls({ functionName, methodId, descriptionId }) {
       if (methodId === "1") {
         choicedComponent = [
           <Home key={"1"} appName_kakaotalk={true} />,
-          <Main key={"2"} tab={{ friend: true }} target={{ profile: true }} />,
+          <Main
+            key={"2"}
+            tab={{ friend: true }}
+            friendTarget={{ profile: true }}
+          />,
           <Profile key={"3"} target={{ name: true }} />,
           <Setting_ProfileName
             key="4"
