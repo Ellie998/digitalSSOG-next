@@ -18,6 +18,7 @@ const Gallery = ({
   num = 13,
   target_imgTab = { shareBtn: false },
   open = { shareOption: false },
+  target_share = { kakaotalk: false },
 }) => {
   const [isTabOpen, setIsTabOpen] = useState(true);
   const [clickedTab, setClickedTab] = useState("사진");
@@ -59,7 +60,7 @@ const Gallery = ({
         <Modal_downUp top="57px">
           <ShareModalContent_Default
             open={{ kakaotalkOption: false }}
-            target={{ kakaotalk: true }}
+            target={target_share}
             content={{
               title: (
                 <>

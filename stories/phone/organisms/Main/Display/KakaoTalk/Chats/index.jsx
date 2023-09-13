@@ -290,7 +290,11 @@ function Chats({ functionName, methodId, descriptionId }) {
         choicedComponent = [
           <Home key="mainApps" app={{ gallery: true }} />,
           <Gallery key="gallery1" target_imgTab={{ shareBtn: true }} />,
-          <Gallery key="gallery2" open={{ shareOption: true }} />,
+          <Gallery
+            key="gallery2"
+            open={{ shareOption: true }}
+            target_share={{ kakaotalk: true }}
+          />,
           <SelectPerson
             key="selectPerson"
             header={"공유 대상 선택"}

@@ -14,6 +14,7 @@ import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs/in
 import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main/index";
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
+import Gallery from "stories/phone/Apps/Basic/Gallery/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   const {
@@ -136,7 +137,11 @@ function Chats({ functionName, methodId, descriptionId }) {
         ][descriptionId];
       }
       if (methodId === "3") {
-        choicedComponent = <Error />;
+        choicedComponent = [
+          <Home key="home" app={{ gallery: true }} />,
+          <Gallery key="gallery1" target_imgTab={{ shareBtn: true }} />,
+          <Gallery key="gallery2" open={{ shareOption: true }} />,
+        ][descriptionId];
       }
       break;
     case functionName_sendAudio:
