@@ -17,6 +17,7 @@ import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/in
 import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
 import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index";
 import Gallery from "stories/phone/Apps/Basic/Gallery/index";
+import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -30,8 +31,11 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
+    //
     functionName_groupChat,
     functionName_leaveChat,
+    functionName_chatRoomNameChange,
+    functionName_chatRoomImgChange,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -512,6 +516,106 @@ function Chats({ functionName, methodId, descriptionId }) {
 
       break;
     case functionName_leaveChat:
+      if (methodId === "1")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main1"
+            tab={{ chat: true }}
+            target={{ groupChat: true, onMouseDown: true }}
+          />,
+          <Main
+            key="Main2"
+            tab={{ chat: true }}
+            target={{ groupChat: true, leaveChat: true }}
+            open={{ optionModal: true }}
+          />,
+          <Main
+            key="Main3"
+            tab={{ chat: true }}
+            target={{ groupChat: true, leaveChat: true }}
+            open={{ modal: true }}
+          />,
+          <Main key="Main4" tab={{ chat: true }} />,
+        ][descriptionId];
+
+      break;
+    case functionName_chatRoomNameChange:
+      if (methodId === "1")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main1"
+            tab={{ chat: true }}
+            target_chat={{ groupChat: true, onMouseDown: true }}
+          />,
+          <Main
+            key="Main2"
+            tab={{ chat: true }}
+            target_chat={{ groupChat: true, changeName: true }}
+            open={{ optionModal: true }}
+          />,
+          <Setting_ProfileName
+            key="changeName"
+            content={{
+              title: "채팅방 이름",
+              name: groupName,
+              setName: setGroupName,
+            }}
+          />,
+          <Main
+            key="Main4"
+            tab={{ chat: true }}
+            open={{ groupChat: true }}
+            content_chat={{ groupName: groupName }}
+          />,
+        ][descriptionId];
+      if (methodId === "2")
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main1"
+            tab={{ chat: true }}
+            target_chat={{ groupChat: true }}
+          />,
+          <Chat
+            key="chat1"
+            content={{
+              name: "김대리",
+              chatName: "그룹채팅방1",
+              chat: "퇴사합니다.",
+            }}
+            target={{ menu: true }}
+          />,
+          <Chat
+            key="chat2"
+            content={{
+              name: "김대리",
+              chatName: "그룹채팅방1",
+              chat: "퇴사합니다.",
+            }}
+            target={{ setting: true }}
+            open={{ menu: true }}
+          />,
+          <ChatSetting key="chatSetting" target={{ changeName: true }} />,
+          <Setting_ProfileName
+            key="changeName"
+            content={{
+              title: "채팅방 이름",
+              name: groupName,
+              setName: setGroupName,
+            }}
+          />,
+          <Main
+            key="Main4"
+            tab={{ chat: true }}
+            open={{ groupChat: true }}
+            content_chat={{ groupName: groupName }}
+          />,
+        ][descriptionId];
+
+      break;
+    case functionName_chatRoomImgChange:
       if (methodId === "1")
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,

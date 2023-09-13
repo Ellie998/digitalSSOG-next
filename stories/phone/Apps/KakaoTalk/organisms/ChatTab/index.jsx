@@ -14,14 +14,16 @@ import Button from "stories/phone/atoms/Button/index";
 
 const ChatTab = ({
   target = {
-    chat: false,
     groupChat: false,
-    newChat: false,
     leaveChat: false,
+    changeName: false,
+    chat: false,
+    newChat: false,
     modal: false,
     onMouseDown: false,
   },
-  open = { topModal: false, optionModal: false },
+  open = { topModal: false, optionModal: false, groupChat: false },
+  content = { groupName: "그룹채팅방1" },
 }) => {
   const chatListContents = [
     <StackedList_Profile
@@ -35,7 +37,7 @@ const ChatTab = ({
           />
         ),
       }}
-      title={{ content: "그룹채팅방1", className: "col-end-7" }}
+      title={{ content: content.groupName, className: "col-end-7" }}
       subTitle={{
         className: "",
         content: "퇴사합니다",
@@ -94,7 +96,11 @@ const ChatTab = ({
     />,
   ];
   const optionListContents = [
-    { content: "채팅방 이름 설정" },
+    {
+      content: "채팅방 이름 설정",
+      target: target.changeName,
+      isNextTriger: true,
+    },
     { content: "즐겨찾기에 추가" },
     { content: "채팅방 상단 고정" },
     { content: "채팅방 알림 끄기" },
@@ -165,11 +171,11 @@ const ChatTab = ({
         <ChatHeader target={target} open={open}></ChatHeader>
 
         <>
-          {target.groupChat && (
+          {(open.groupChat || target.groupChat) && (
             <TargetBox
               condition={target.groupChat}
               onMouseDown={
-                target.onMouseDown && target.groupChat && (() => {})
+                target.onMouseDown && target.groupChat ? () => {} : null
               }>
               {chatListContents[0]}
             </TargetBox>

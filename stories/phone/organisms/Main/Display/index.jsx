@@ -35,6 +35,8 @@ function Display() {
     //
     functionName_groupChat,
     functionName_leaveChat,
+    functionName_chatRoomNameChange,
+    functionName_chatRoomImgChange,
     //
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
@@ -65,7 +67,9 @@ function Display() {
       functionName === functionName_kakaotalk_groubChatLock ||
       functionName === functionName_kakaotalk_groubChatLeave_quietly ||
       functionName === functionName_groupChat ||
-      functionName === functionName_leaveChat
+      functionName === functionName_leaveChat ||
+      functionName === functionName_chatRoomImgChange ||
+      functionName === functionName_chatRoomNameChange
     )
       return "Chats";
   };

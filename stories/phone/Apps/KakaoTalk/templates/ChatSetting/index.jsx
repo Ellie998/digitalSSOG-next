@@ -25,6 +25,7 @@ function KakaoChatRoom_setting({
   target_groubChatLeave,
   target_backBtn,
   open_modal,
+  target = { changeName: false },
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -111,9 +112,11 @@ function KakaoChatRoom_setting({
                 <i className="bi bi-camera-fill"></i>
               </div>
             </div>
-            <StackedList
-              title={{ content: "채팅방 이름" }}
-              subTitle={{ content: "그룹채팅방 1" }}></StackedList>
+            <TargetBox condition={target.changeName}>
+              <StackedList
+                title={{ content: "채팅방 이름" }}
+                subTitle={{ content: "그룹채팅방 1" }}></StackedList>
+            </TargetBox>
             <div className="display_subTitle--light">
               내가 설정한 사진과 이름은 나에게만 보입니다.
             </div>
