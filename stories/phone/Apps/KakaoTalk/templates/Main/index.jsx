@@ -11,27 +11,24 @@ import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab/inde
 import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab/index";
 
 function Main({
-  open = { topModal: false, optionModal: false, groupChat: false },
-  target = {
-    profile: false,
-    chat: false,
-    groupChat: false,
-    setting: false,
-    newChat: false,
-    leaveChat: false,
-    onMouseDown: false,
-  },
-  friendTarget = { person1: false, modal_nameChange: false, profile: false },
+  target_friend = { person1: false, modal_nameChange: false, profile: false },
   target_chat = {
-    groupChat: false,
-    leaveChat: false,
-    changeName: false,
     chat: false,
+    groupChat: false,
     newChat: false,
-    modal: false,
     onMouseDown: false,
+    leaveChat: false,
+
+    // profile: false,
+    changeName: false,
+    modal: false,
   },
-  friendOpen = { friendModal: false },
+  target_openChat = {},
+  target_shopping = {},
+  target_ETC = { setting: false },
+  open_friend = { friendModal: false },
+  open_chat = { topModal: false, optionModal: false, groupChat: false },
+  content_chat = { groupName: "그룹채팅방1" },
   tab = {
     friend: false,
     chat: false,
@@ -39,7 +36,6 @@ function Main({
     shopping: false,
     ETC: false,
   },
-  content_chat = { groupName: "그룹채팅방1" },
 }) {
   function matchDefaultTabName() {
     if (tab.friend) return "friend";
@@ -59,26 +55,26 @@ function Main({
     <Phone>
       {clickedTabName === "friend" && (
         <FriendTab
-          target={{ ...target, ...friendTarget }}
-          open={friendOpen}
+          target={{ ...target_friend }}
+          open={open_friend}
           tab={tab.friend}
         />
       )}
       {clickedTabName === "chat" && (
         <ChatTab
-          target={{ ...target, ...target_chat }}
-          open={open}
+          target={{ ...target_chat }}
+          open={open_chat}
           tab={tab.chat}
           content={content_chat}
         />
       )}
       {clickedTabName === "openChat" && (
-        <OpenChatTab target={target} tab={tab.openChat} />
+        <OpenChatTab target={target_openChat} tab={tab.openChat} />
       )}
       {clickedTabName === "shopping" && (
-        <ShoppingTab target={target} tab={tab.shopping} />
+        <ShoppingTab target={target_shopping} tab={tab.shopping} />
       )}
-      {clickedTabName === "ETC" && <ETCTab target={target} tab={tab.ETC} />}
+      {clickedTabName === "ETC" && <ETCTab target={target_ETC} tab={tab.ETC} />}
 
       <KakaoTab
         setClickedTab={setClickedTabName}

@@ -46,7 +46,7 @@ function Chats({ functionName, methodId, descriptionId }) {
       if (methodId === "1") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
           <Chat key="chat" />,
         ][descriptionId];
       }
@@ -58,7 +58,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            friendTarget={{ profile: true }}
+            target_friend={{ profile: true }}
           />,
           <Profile key="Profile" target={{ chat: true }} />,
           <Chat key="chat" />,
@@ -67,7 +67,7 @@ function Chats({ functionName, methodId, descriptionId }) {
       if (methodId === "2") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
           <Chat key="chat" />,
         ][descriptionId];
       }
@@ -76,7 +76,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     case functionName_reserveMessage:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+        <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
         <Chat key="Chat1" target={{ optionBtn: true }} />,
         <Chat
           key="Chat2"
@@ -107,12 +107,11 @@ function Chats({ functionName, methodId, descriptionId }) {
       ][descriptionId];
 
       break;
-
     case functionName_resendMessage:
       if (methodId === "1") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
           <Chat
             key="chat1"
             target={{ chatOption: true }}
@@ -134,7 +133,7 @@ function Chats({ functionName, methodId, descriptionId }) {
       if (methodId === "2") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
           <Chat
             key="chat1"
             target={{ chatOption: true, resend: true }}
@@ -172,7 +171,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            friendTarget={{ profile: true }}
+            target_friend={{ profile: true }}
           />,
           <Profile key="profile" target={{ chat: true }} />,
           <Chat key="chat1" target={{ optionBtn: true }} />,
@@ -207,7 +206,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            friendTarget={{ profile: true }}
+            target_friend={{ profile: true }}
           />,
           <Profile key="profile" target={{ chat: true }} />,
           <Chat key="chat1" target={{ optionBtn: true }} />,
@@ -244,7 +243,7 @@ function Chats({ functionName, methodId, descriptionId }) {
       if (methodId === "3") {
         choicedComponent = [
           <Home key="mainApps" appName_kakaotalk />,
-          <Main key="Main" tab={{ chat: true }} target={{ chat: true }} />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
           <Chat
             key="chat1"
             target={{ chatOption: true }}
@@ -329,13 +328,7 @@ function Chats({ functionName, methodId, descriptionId }) {
         <Main
           key="Main"
           tab={{ chat: true }}
-          content={{
-            name: "김대리",
-            chat: "퇴사합니다.",
-            num: "3",
-            chatName: "그룹채팅",
-          }}
-          target={{ groupChat: true }}
+          target_chat={{ groupChat: true }}
         />,
         <Chat
           key="Chat1"
@@ -360,12 +353,12 @@ function Chats({ functionName, methodId, descriptionId }) {
         />,
         <ChatSetting
           key="ChatSetting1"
-          target_groubChatLeave_rejectInvitation
+          target={{ groubChatLeave_rejectInvitation: true }}
         />,
         <ChatSetting
           key="ChatSetting2"
-          target_groubChatLeave_rejectInvitation
-          open_modal
+          target={{ groubChatLeave_rejectInvitation: true }}
+          open={{ modal: true }}
         />,
         //
         <Main key="Main" tab={{ chat: true }} />,
@@ -375,7 +368,11 @@ function Chats({ functionName, methodId, descriptionId }) {
     case functionName_kakaotalk_groubChatLock:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="Main" tab={{ chat: true }} target={{ groupChat: true }} />,
+        <Main
+          key="Main"
+          tab={{ chat: true }}
+          target_chat={{ groupChat: true }}
+        />,
         <Chat
           key="Chat1"
           content={{
@@ -397,7 +394,10 @@ function Chats({ functionName, methodId, descriptionId }) {
           open={{ menu: true }}
           target={{ setting: true }}
         />,
-        <ChatSetting key="ChatSetting" target_groubChatLock target_backBtn />,
+        <ChatSetting
+          key="ChatSetting"
+          target={{ groubChatLock: true, backBtn: true }}
+        />,
         <Chat
           key="Chat4"
           content={{
@@ -423,12 +423,16 @@ function Chats({ functionName, methodId, descriptionId }) {
     case functionName_kakaotalk_groubChatLeave_quietly:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="Main" tab={{ ETC: true }} target={{ setting: true }} />,
+        <Main key="Main" tab={{ ETC: true }} target_ETC={{ setting: true }} />,
         <ETCSetting key="ETCSetting1" target_lab />,
         <ETCSetting_lab key="ETCSetting_lab" target_groubChatLeave_quietly />,
         <ETCSetting key="ETCSetting2" target_backBtn />,
         //
-        <Main key="Main1" tab={{ chat: true }} target={{ groupChat: true }} />,
+        <Main
+          key="Main1"
+          tab={{ chat: true }}
+          target_chat={{ groupChat: true }}
+        />,
         <Chat
           key="Chat1"
           content={{
@@ -464,7 +468,6 @@ function Chats({ functionName, methodId, descriptionId }) {
         <Main key="Main2" tab={{ chat: true }} />,
       ][descriptionId];
       break;
-
     case functionName_groupChat:
       if (methodId === "1")
         choicedComponent = [
@@ -472,7 +475,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ chat: true }}
-            target={{ groupChat: true }}
+            target_chat={{ groupChat: true }}
           />,
           <Chat
             key="Chat"
@@ -490,13 +493,13 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ chat: true }}
-            target={{ newChat: true }}
+            target_chat={{ newChat: true }}
           />,
           <Main
             key="KakaoAppMain"
             tab={{ chat: true }}
-            target={{ newChat: true }}
-            open={{ topModal: true }}
+            target_chat={{ newChat: true }}
+            open_chat={{ topModal: true }}
           />,
           <SelectPerson key="4" target={{ twoPerson: true }} />,
           <SettingChatRoom_NameImg
@@ -522,19 +525,19 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main1"
             tab={{ chat: true }}
-            target={{ groupChat: true, onMouseDown: true }}
+            target_chat={{ groupChat: true, onMouseDown: true }}
           />,
           <Main
             key="Main2"
             tab={{ chat: true }}
-            target={{ groupChat: true, leaveChat: true }}
-            open={{ optionModal: true }}
+            target_chat={{ groupChat: true, leaveChat: true }}
+            open_chat={{ optionModal: true }}
           />,
           <Main
             key="Main3"
             tab={{ chat: true }}
-            target={{ groupChat: true, leaveChat: true }}
-            open={{ modal: true }}
+            target_chat={{ groupChat: true, leaveChat: true }}
+            open_chat={{ modal: true }}
           />,
           <Main key="Main4" tab={{ chat: true }} />,
         ][descriptionId];
@@ -553,7 +556,7 @@ function Chats({ functionName, methodId, descriptionId }) {
             key="Main2"
             tab={{ chat: true }}
             target_chat={{ groupChat: true, changeName: true }}
-            open={{ optionModal: true }}
+            open_chat={{ optionModal: true }}
           />,
           <Setting_ProfileName
             key="changeName"
@@ -566,7 +569,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main4"
             tab={{ chat: true }}
-            open={{ groupChat: true }}
+            open_chat={{ groupChat: true }}
             content_chat={{ groupName: groupName }}
           />,
         ][descriptionId];
@@ -609,7 +612,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main4"
             tab={{ chat: true }}
-            open={{ groupChat: true }}
+            open_chat={{ groupChat: true }}
             content_chat={{ groupName: groupName }}
           />,
         ][descriptionId];
@@ -622,21 +625,32 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main1"
             tab={{ chat: true }}
-            target={{ groupChat: true, onMouseDown: true }}
+            target_chat={{ groupChat: true }}
           />,
-          <Main
-            key="Main2"
-            tab={{ chat: true }}
-            target={{ groupChat: true, leaveChat: true }}
-            open={{ optionModal: true }}
+          <Chat
+            key="chat1"
+            content={{
+              name: "김대리",
+              chatName: "그룹채팅방1",
+              chat: "퇴사합니다.",
+            }}
+            target={{ menu: true }}
           />,
-          <Main
-            key="Main3"
-            tab={{ chat: true }}
-            target={{ groupChat: true, leaveChat: true }}
-            open={{ modal: true }}
+          <Chat
+            key="chat2"
+            content={{
+              name: "김대리",
+              chatName: "그룹채팅방1",
+              chat: "퇴사합니다.",
+            }}
+            target={{ setting: true }}
+            open={{ menu: true }}
           />,
-          <Main key="Main4" tab={{ chat: true }} />,
+          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
+          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
+          <SelectFile key="selectFile" />,
+          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
+          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
         ][descriptionId];
 
       break;

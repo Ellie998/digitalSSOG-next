@@ -35,7 +35,7 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Main
           key="KakaoAppMain"
           tab={{ friend: true }}
-          friendTarget={{ profile: true }}
+          target_friend={{ profile: true }}
         />,
         <Profile key="Profile" target={{ call: true }} />,
         <CallConnected key="callConnected" />,
@@ -55,7 +55,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ friend: true }}
-            friendTarget={{ profile: true }}
+            target_friend={{ profile: true }}
           />,
           <Profile key="Profile" target={{ videoCall: true }} />,
           <VideoCallConnected key="connected1" open={{ modal: true }} />,
@@ -68,7 +68,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ chat: true }}
-            target={{ chat: true }}
+            target_chat={{ chat: true }}
           />,
           <Chat key="chat1" target={{ optionBtn: true }} />,
           <Chat
@@ -93,7 +93,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key={"2"}
             tab={{ friend: true }}
-            friendTarget={{ profile: true }}
+            target_friend={{ profile: true }}
           />,
           <Profile key={"3"} target={{ name: true }} />,
           <Setting_ProfileName
@@ -109,13 +109,13 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key={"2"}
             tab={{ friend: true }}
-            friendTarget={{ person1: true }}
+            target_friend={{ person1: true }}
           />,
           <Main
             key={"2"}
             tab={{ friend: true }}
-            friendTarget={{ modal_nameChange: true }}
-            friendOpen={{ friendModal: true }}
+            target_friend={{ modal_nameChange: true }}
+            open_friend={{ friendModal: true }}
           />,
           <Setting_ProfileName
             key="4"

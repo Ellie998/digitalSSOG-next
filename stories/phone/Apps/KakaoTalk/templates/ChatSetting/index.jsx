@@ -20,19 +20,22 @@ import CancelBtn from "stories/phone/atoms/CancelBtn/index";
 import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
 
 function KakaoChatRoom_setting({
-  target_groubChatLeave_rejectInvitation,
-  target_groubChatLock,
-  target_groubChatLeave,
-  target_backBtn,
-  open_modal,
-  target = { changeName: false },
+  open = { modal: false },
+  target = {
+    changeName: false,
+    changeImg: false,
+    groubChatLeave_rejectInvitation: false,
+    groubChatLock: false,
+    groubChatLeave: false,
+    backBtn: false,
+  },
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <Phone>
       <NoScrollBar height="305px">
-        {open_modal && (
+        {open.modal && (
           <Modal
             modalStyle={{ top: "50px" }}
             onClickBackDrop={() => {
@@ -62,7 +65,7 @@ function KakaoChatRoom_setting({
                   <SubmitBtn
                     key="btn2"
                     condition={
-                      isChecked && target_groubChatLeave_rejectInvitation
+                      isChecked && target.groubChatLeave_rejectInvitation
                     }>
                     나가기
                   </SubmitBtn>,
@@ -72,7 +75,7 @@ function KakaoChatRoom_setting({
                 <Checkbox
                   id="info_config"
                   onChangeHandler={() => {
-                    target_groubChatLeave_rejectInvitation && isChecked
+                    target.groubChatLeave_rejectInvitation && isChecked
                       ? setIsChecked(false)
                       : setIsChecked(true);
                   }}
@@ -88,7 +91,7 @@ function KakaoChatRoom_setting({
           <AppHeader
             leftItem={[
               <BackBtn
-                condition={isChecked && target_backBtn}
+                condition={isChecked && target.backBtn}
                 isNavTriger={true}
               />,
             ]}
@@ -97,21 +100,26 @@ function KakaoChatRoom_setting({
             ]}></AppHeader>
           {/* main */}
           {/* title={{ content: "채팅방 이름" }} */}
+
           <StackedListWrap>
-            <div className={classes.groupProfileWrap}>
-              <div className={classes["iconWrap_background--skyBlue"]}>
-                <i className="bi bi-person-fill"></i>
+            <TargetBox
+              condition={target.changeImg}
+              style={{ margin: "0 auto" }}>
+              <div className={classes.groupProfileWrap}>
+                <div className={classes["iconWrap_background--skyBlue"]}>
+                  <i className="bi bi-person-fill"></i>
+                </div>
+                <div className={classes["iconWrap_background--blue"]}>
+                  <i className="bi bi-person-fill"></i>
+                </div>
+                <div className={classes["iconWrap_background--purple"]}>
+                  <i className="bi bi-person-fill"></i>
+                </div>
+                <div className={classes.groupProfileSettingBtn}>
+                  <i className="bi bi-camera-fill"></i>
+                </div>
               </div>
-              <div className={classes["iconWrap_background--blue"]}>
-                <i className="bi bi-person-fill"></i>
-              </div>
-              <div className={classes["iconWrap_background--purple"]}>
-                <i className="bi bi-person-fill"></i>
-              </div>
-              <div className={classes.groupProfileSettingBtn}>
-                <i className="bi bi-camera-fill"></i>
-              </div>
-            </div>
+            </TargetBox>
             <TargetBox condition={target.changeName}>
               <StackedList
                 title={{ content: "채팅방 이름" }}
@@ -143,7 +151,7 @@ function KakaoChatRoom_setting({
             <TargetBox
               style={{ witdh: "170px" }}
               isNextTriger={false}
-              condition={target_groubChatLock && !isChecked}>
+              condition={target.groubChatLock && !isChecked}>
               <Switch
                 className=""
                 theme={"#fff200"}
@@ -192,14 +200,14 @@ function KakaoChatRoom_setting({
 
           {/* Buttons */}
           <div className="py-2 px-1 mx-auto">
-            <TargetBox condition={target_groubChatLeave}>
+            <TargetBox condition={target.groubChatLeave}>
               <Button
                 className="mb-1 text-sm"
                 textColor="rgb(255, 115, 0)"
                 borderColor="rgb(255, 115, 0)"
                 content="채팅방 나가기"></Button>
             </TargetBox>
-            <TargetBox condition={target_groubChatLeave_rejectInvitation}>
+            <TargetBox condition={target.groubChatLeave_rejectInvitation}>
               <Button
                 className={`text-sm`}
                 btnColor="rgb(255, 115, 0)"
