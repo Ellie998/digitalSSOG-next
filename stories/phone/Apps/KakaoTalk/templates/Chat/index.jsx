@@ -10,7 +10,7 @@ import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
 
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
 import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
-import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
@@ -33,7 +33,10 @@ import TargetBox from "stories/phone/atoms/TargetBox/index";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 import ShareModalContent_Default from "stories/phone/organisms/ShareModalContent_Default/index";
 import ShareModalContent from "stories/phone/Apps/KakaoTalk/organisms/ShareModalContent/index";
-import ImgOptionBox from "../../organisms/ImgOptionBox/index";
+import ImgOptionBox from "stories/phone/Apps/KakaoTalk/organisms/ImgOptionBox/index";
+import Icon from "stories/phone/atoms/Icon/index";
+import CheckBox from "stories/phone/Apps/KakaoTalk/atoms/CheckBox/index";
+import Flex from "stories/phone/atoms/Flex/index";
 
 function Chat({
   content = {
@@ -42,6 +45,15 @@ function Chat({
     num: null,
     chatName: "영희",
     sendChatContent: null,
+    modalTitle: "이 기기에서 삭제",
+    modalContent: (
+      <>
+        나가기를 하면 대화내용이 모두 삭제되고
+        <br />
+        채팅 목록에서도 삭제됩니다.
+      </>
+    ),
+    modalBtn: "나가기",
   },
   inputLocked,
   target = {
@@ -57,10 +69,14 @@ function Chat({
     chatOption: false,
     option_call: false,
     option_videoCall: false,
+    modalBtn: false,
   },
   target_option = {
     gallery: false,
     img_totalBtn: false,
+  },
+  target_chat = {
+    delete: false,
   },
   open = {
     chat: true,
@@ -75,6 +91,7 @@ function Chat({
     shareModal: false,
     shareModal_default: false,
     imgOption: false,
+    deleteMode: false,
   },
   share = { friend2: false, shareOut: false },
   reopen = { optionSetting: false },
@@ -90,6 +107,7 @@ function Chat({
   const [isOptionInputSubmit, setIsOptionInputSubmit] = useState(false);
   //
   const [choicedImgs, setChoicedImgs] = useState([]);
+  const [isChecked, setIsChecked] = useState(open.deleteMode);
 
   function backClickHandler() {
     setOptionInput("");
@@ -102,17 +120,13 @@ function Chat({
         <Modal modalStyle={{ top: "80px" }}>
           <ModalContents
             title={{
-              content: target.option_videoCall ? "통화하기" : "채팅방 나가기",
+              content: target.option_videoCall
+                ? "통화하기"
+                : content.modalTitle,
               style: { fontWeight: "bold" },
             }}
             subTitle={{
-              content: !target.option_videoCall && (
-                <>
-                  나가기를 하면 대화내용이 모두 삭제되고
-                  <br />
-                  채팅 목록에서도 삭제됩니다.
-                </>
-              ),
+              content: !target.option_videoCall && content.modalContent,
             }}
             buttons={
               !target.option_videoCall && {
@@ -128,9 +142,10 @@ function Chat({
                     key="btn2"
                     style={{ color: "rgb(59 130 246)" }}
                     condition={
-                      isCheckbox && (target.leave_quietly || target.leave)
+                      (isCheckbox && (target.leave_quietly || target.leave)) ||
+                      target.modalBtn
                     }>
-                    나가기
+                    {content.modalBtn}
                   </SubmitBtn>,
                 ],
               }
@@ -251,7 +266,11 @@ function Chat({
           <div className={`text-2xs text-gray-400 my-0.5 flex`}>
             <Icon
               name="info-circle"
-              className={`text-2xs text-gray-400 mr-1`}
+              style={{
+                fontSize: "0.5rem",
+                color: "rgb(156 163 175)",
+                marginRight: "0.25rem",
+              }}
             />
             예약 메시지가 많을 경우, 약간의 시간 오차가 발생할 수 있습니다.
           </div>
@@ -296,7 +315,7 @@ function Chat({
       {open.contentOption && (
         <ChatContentOptionModal
           onClickBackDrop={backClickHandler}
-          target={target}
+          target={{ ...target, ...target_chat }}
         />
       )}
       {open.shareModal && (
@@ -335,29 +354,104 @@ function Chat({
         }`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>
+        {/* normal mode header */}
+
         <AppHeader
           onClick={backClickHandler}
           className={`bg-[#b2c6da] h-[35px]`}
           leftItem={[
             <BackBtn></BackBtn>,
-            <div className="text-sm ml-1 font-bold align-middle">
+            <div
+              style={{
+                fontSize: "0.875rem",
+                marginLeft: "0.25rem",
+                fontWeight: "700",
+                verticalAlign: "middle",
+              }}>
               {content.chatName}
             </div>,
-            <div className="text-sm ml-1 align-middle">{content.num}</div>,
+            <div
+              style={{
+                fontSize: "0.875rem",
+                marginLeft: "0.25rem",
+                verticalAlign: "middle",
+              }}>
+              {content.num}
+            </div>,
           ]}
           rightItem={[
-            <Icon name="search" className={`text-sm m-1 align-middle`} />,
+            <Icon
+              name="search"
+              style={{ margin: "0.25rem", verticalAlign: "middle" }}
+            />,
             <TargetContent targetOption={target.menu} isNextDescriptionLink>
-              <Icon name="list" className={`text-sm mx-1 align-middle`} />
+              <Icon
+                name="list"
+                style={{ margin: "0.25rem", verticalAlign: "middle" }}
+              />
             </TargetContent>,
           ]}></AppHeader>
-        {open.chat && (
+
+        {/* delete mode mode header */}
+        {open.deleteMode && (
+          <>
+            <AppHeader
+              onClick={backClickHandler}
+              style={{
+                backgroundColor: "white",
+                height: "35px",
+                width: "175px",
+                marginLeft: "-4px",
+                marginTop: "-4px",
+                borderBottom: "1px solid rgb(228, 228, 228)",
+                position: "relative",
+                top: "-35px",
+              }}
+              leftItem={[
+                <BackBtn></BackBtn>,
+                <div
+                  style={{
+                    fontSize: "0.875rem",
+                    marginLeft: "0.25rem",
+                    fontWeight: "700",
+                    verticalAlign: "middle",
+                  }}>
+                  삭제
+                </div>,
+              ]}
+              rightItem={[
+                <div
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: "700",
+                    verticalAlign: "middle",
+                  }}>
+                  선택 해제
+                </div>,
+              ]}></AppHeader>
+            <div
+              style={{
+                backgroundColor: "white",
+                height: "20px",
+                fontSize: "10px",
+                textAlign: "center",
+                position: "relative",
+                top: "-35px",
+                width: "175px",
+                marginLeft: "-4px",
+              }}>
+              삭제할 메시지를 선택하세요
+            </div>
+          </>
+        )}
+        {/* normal mode messges */}
+        {!open.deleteMode && open.chat && (
           <ChatList
             isGetList={true}
             className=""
             profile={{
               className: "bg-kakaoSkyblue",
-              content: <i className="text-kakaoIcon bi bi-person-fill"></i>,
+              content: <Icon name="person-fill" style={{ color: "white" }} />,
             }}
             name={{
               content: content.name,
@@ -379,7 +473,7 @@ function Chat({
             }}
           />
         )}
-        {(messageContent || open.sendedChat) && (
+        {(messageContent || open.sendedChat) && !open.deleteMode && (
           <ChatList
             isSendList={true}
             className="mt-2"
@@ -393,6 +487,78 @@ function Chat({
               content: "오전 9:54",
             }}
           />
+        )}
+        {/* delete mode messages */}
+        {open.deleteMode && open.chat && (
+          <>
+            <CheckBox setIsChecked={setIsChecked} isChecked={isChecked}>
+              <ChatList
+                isGetList={true}
+                className=""
+                profile={{
+                  className: "bg-kakaoSkyblue",
+                  content: (
+                    <Icon name="person-fill" style={{ color: "white" }} />
+                  ),
+                }}
+                name={{
+                  content: content.name,
+                  className: "",
+                }}
+                message={{
+                  className: "bg-white",
+                  content: (
+                    <TargetBox
+                      condition={target.chatOption && !open.contentOption}
+                      onMouseDown={target.chatOption && (() => {})}>
+                      {content.chat}
+                    </TargetBox>
+                  ),
+                }}
+                timeStamp={{
+                  className: "",
+                  content: "오후 2:05",
+                }}
+              />
+            </CheckBox>
+            <CheckBox>
+              <ChatList
+                isGetList={true}
+                message={{
+                  className: "bg-white ml-2 mt-1",
+                  content: (
+                    <TargetBox
+                      condition={target.chatOption && !open.contentOption}
+                      onMouseDown={target.chatOption && (() => {})}>
+                      밥 먹었나?
+                    </TargetBox>
+                  ),
+                }}
+                timeStamp={{
+                  className: "",
+                  content: "오후 2:06",
+                }}
+              />
+            </CheckBox>
+          </>
+        )}
+        {(messageContent || open.sendedChat) && open.deleteMode && (
+          <CheckBox>
+            <ChatList
+              isSendList={true}
+              className="mt-2"
+              message={{
+                className: "bg-kakaoYellow",
+                content:
+                  messageContent ||
+                  (open.sendedChat && content.sendChatContent),
+              }}
+              timeStamp={{
+                className: "",
+                content: "오전 9:54",
+              }}
+            />
+          </CheckBox>
         )}
         {/* alert */}
         {open.alert && (
@@ -411,7 +577,7 @@ function Chat({
       </NoScrollBar>
 
       {/* input line */}
-      {!inputLocked && (
+      {!inputLocked && !open.deleteMode && (
         <MessageSendLine
           navOption_focused={{
             content: [
@@ -438,7 +604,7 @@ function Chat({
             content: <Icon name="hash" />,
           }}></MessageSendLine>
       )}
-      {inputLocked && (
+      {inputLocked && !open.deleteMode && (
         <FlexContent
           items={[
             <Icon name="plus-lg" />,
@@ -447,11 +613,30 @@ function Chat({
             </div>,
             <TargetContent targetOption={inputLocked} isNextDescriptionLink>
               <div className={classes.sendIcon}>
-                <Icon name="lock bg-[#f7e540]" />
+                <Icon name="lock" style={{ backgroundColor: "#f7e540" }} />
               </div>
             </TargetContent>,
           ]}
         />
+      )}
+      {open.deleteMode && (
+        <TargetBox
+          condition={open.deleteMode && isChecked}
+          style={{ margin: "0 auto" }}>
+          <Flex
+            style={{
+              backgroundColor: "white",
+              color: "rgb(235, 37, 37)",
+              justifyContent: "center",
+            }}
+            items={[
+              <div style={{ color: "rgb(235, 37, 37)" }}>삭제하기</div>,
+              <div style={{ fontWeight: "bold", color: "rgb(235, 37, 37)" }}>
+                1
+              </div>,
+            ]}
+          />
+        </TargetBox>
       )}
       {/* Option Box */}
       {open.option && (

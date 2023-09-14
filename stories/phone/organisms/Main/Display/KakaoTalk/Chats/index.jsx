@@ -36,6 +36,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_leaveChat,
     functionName_chatRoomNameChange,
     functionName_chatRoomImgChange,
+    functionName_messageDelete,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -654,7 +655,45 @@ function Chats({ functionName, methodId, descriptionId }) {
         ][descriptionId];
 
       break;
-
+    case functionName_messageDelete:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
+          <Chat
+            key="chat1"
+            target={{ chatOption: true }}
+            open={{ chat: true }}
+          />,
+          <Chat
+            key="chat2"
+            target_chat={{ delete: true }}
+            open={{ chat: true, contentOption: true }}
+          />,
+          <Chat key="chat3" open={{ chat: true, deleteMode: true }} />,
+          <Chat
+            key="chat4"
+            open={{ chat: true, modal: true }}
+            target={{ modalBtn: true }}
+            content={{
+              chat: "좋은 아침^^",
+              name: "영희",
+              chatName: "영희",
+              modalTitle: "이 기기에서 삭제",
+              modalContent: (
+                <>
+                  현재 사용 중인 기기에서만 <br />
+                  삭제되며 <br />
+                  상대방의 채팅방에서는 삭제되지 않습니다.
+                </>
+              ),
+              modalBtn: "삭제",
+            }}
+          />,
+          <Chat key="chat5" open={{ chat: false }} />,
+        ][descriptionId];
+      }
+      break;
     default:
       choicedComponent = <Error />;
   }

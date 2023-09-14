@@ -29,7 +29,7 @@ const OptionContainer = styled.div`
 const ChatContentOptionModal = ({
   onClickBackDrop,
   closeChatOption,
-  target = { resend: false },
+  target = { resend: false, delete: false },
 }) => {
   return (
     <Modal onClickBackDrop={onClickBackDrop}>
@@ -108,7 +108,14 @@ const ChatContentOptionModal = ({
 
         <OptionContainer>복사</OptionContainer>
         <OptionContainer>선택 복사</OptionContainer>
-        <OptionContainer>삭제</OptionContainer>
+        <OptionContainer>
+          <TargetBox
+            onClick={closeChatOption}
+            condition={target.delete}
+            style={{ width: "100%" }}>
+            삭제
+          </TargetBox>
+        </OptionContainer>
         <OptionContainer>답장</OptionContainer>
         <OptionContainer>
           <TargetBox

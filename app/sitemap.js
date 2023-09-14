@@ -75,8 +75,23 @@ export default function sitemap() {
       lastModified: new Date(),
     },
     {
-      // <!--저장된-연락처(친구)-이름-바꾸기-->
-      url: "https://digitalssog.com/description/저장된-연락처(친구)-이름-바꾸기",
+      // <!--메시지-삭제하기-->
+      url: "https://digitalssog.com/description/메시지-삭제하기",
+      lastModified: new Date(),
+    },
+    {
+      // <!--채팅방-이름-변경하기-->
+      url: "https://digitalssog.com/description/채팅방-이름-변경하기",
+      lastModified: new Date(),
+    },
+    {
+      // <!--그룹채팅방-프로필-이미지-변경하기-->
+      url: "https://digitalssog.com/description/그룹채팅방-프로필-이미지-변경하기",
+      lastModified: new Date(),
+    },
+    {
+      // <!--채팅방(개인-채팅,-그룹-채팅)-나가기-->
+      url: "https://digitalssog.com/description/채팅방(개인-채팅,-그룹-채팅)-나가기",
       lastModified: new Date(),
     },
   ];
