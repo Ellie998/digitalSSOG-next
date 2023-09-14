@@ -24,6 +24,8 @@ import CancelBtn from "stories/phone/atoms/CancelBtn/index";
 import Button from "stories/phone/atoms/Button/index";
 import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader/index";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
+import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
 
 function Chat({
   open_option,
@@ -38,14 +40,20 @@ function Chat({
   target_sendAudio,
   target_sendPhoneNum,
   message_fill,
-  target = { call: false },
-  open = { profile: false, contentOption: false },
+  target = { call: false, message: false },
+  open = {
+    profile: false,
+    contentOption: false,
+    selectMode: false,
+    chat: true,
+  },
   content = { name: "홍길동" },
+  target_option = { delete: false },
 }) {
   const [sendBtnClicked, setSendBtnClicked] = useState(false);
   const [messageContent, setMessageContent] = useState("");
   const [plusClicked, setPlusClicked] = useState(false);
-  const [isOvered, setIsOvered] = useState(false);
+  const [isChecked1, setIsChecked] = useState(true);
 
   // Choice IMG
   const [choicedImgs, setChoicedImgs] = useState([]);
@@ -305,17 +313,31 @@ function Chat({
           height: `${
             plusClicked || (open_imgOption && !sendBtnClicked)
               ? "170px"
-              : "275px"
+              : "265px"
           }`,
         }}>
-        <ChatHeader
-          onClick={backClickHandler}
-          open={open.profile}
-          target={target}
-          name={message_fill ? "홍길순" : content.name}
-        />
+        {!open.selectMode && (
+          <ChatHeader
+            onClick={backClickHandler}
+            open={open.profile}
+            target={target}
+            name={message_fill ? "홍길순" : content.name}
+          />
+        )}
+        {open.selectMode && (
+          <div style={{ display: "flex" }}>
+            <CheckBox
+              setIsChecked={setIsChecked}
+              isChecked={isChecked1}
+              style={{ margin: "0 5px", display: "block" }}>
+              <div style={{ fontSize: "10px" }}>전체</div>
+            </CheckBox>
+            {isChecked1 && <div>1개 선택됨</div>}
+            {!isChecked1 && <div>메시지 선택</div>}
+          </div>
+        )}
 
-        {!message_fill && (
+        {!message_fill && !open.selectMode && open.chat && (
           <ChatList
             onClick={backClickHandler}
             isGetList
@@ -324,7 +346,9 @@ function Chat({
               className: "bg-gray-200 ml-1",
               content: (
                 <TargetBox
-                  condition={!open.contentOption && target_resend}
+                  condition={
+                    (!open.contentOption && target_resend) || target.message
+                  }
                   onMouseDown={() => {}}>
                   결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
                   OO로 OOO번길 O, OOO 컨벤션
@@ -335,6 +359,31 @@ function Chat({
               className: "",
               content: "오전 8:03",
             }}></ChatList>
+        )}
+        {!message_fill && open.selectMode && open.chat && (
+          <CheckBox setIsChecked={setIsChecked} isChecked={isChecked1}>
+            <ChatList
+              onClick={backClickHandler}
+              isGetList
+              className={`mb-2 `}
+              message={{
+                className: "bg-gray-200 ml-1",
+                content: (
+                  <TargetBox
+                    condition={
+                      (!open.contentOption && target_resend) || target.message
+                    }
+                    onMouseDown={() => {}}>
+                    결혼식 주소입니다. <br></br>OO특별시 OO구 <br></br>
+                    OO로 OOO번길 O, OOO 컨벤션
+                  </TargetBox>
+                ),
+              }}
+              timeStamp={{
+                className: "",
+                content: "오전 8:03",
+              }}></ChatList>
+          </CheckBox>
         )}
 
         {!messageContent && sendBtnClicked && !target_reserveMessage && (
@@ -462,7 +511,7 @@ function Chat({
 
         {open.contentOption && (
           <div className={classes.options}>
-            <div>삭제</div>
+            <TargetBox condition={target_option.delete}>삭제</TargetBox>
             <div>답장</div>
             <div>글자 복사</div>
             <div>텍스트 선택</div>
@@ -499,54 +548,73 @@ function Chat({
           </div>
         )}
       </div>
-
-      <MessageSendLine
-        className={`self-end`}
-        navOption_blured={{
-          content: [
-            // img btn
-            <TargetContent
-              onClick={imgNavBtnClickHandler}
-              targetOption={target_sendImgBtn}
-              isNextDescriptionLink>
-              <Icon name="image" />
-            </TargetContent>,
-            // camera btn
-            <Icon name="camera" />,
-            // plus btn
-            <TargetContent
-              onClick={plusBtnClickHandler}
-              targetOption={!plusClicked && open_option}>
-              <Icon name="plus" />
-            </TargetContent>,
-          ],
-        }}
-        navOption_focused={{
-          content: [<Icon name="chevron-right" />],
-        }}
-        defaultEnteredMessage={
-          message_fill && target_resend
-            ? "결혼식 주소입니다. OO특별시 OO구 OO로 OOO번길 O, OOO 컨벤션"
-            : ""
-        }
-        input={{
-          className: "bg-[#e3e3e3cc] rounded-xl",
-          onClick: backClickHandler,
-        }}
-        setMessageContent={setMessageContent}
-        sendBtn={{ className: "bg-[#b8b8b8cc] " }}
-        sendBtn_default={{
-          className: "bg-[#e3e3e3cc]",
-        }}
-        onSendBtnClickHandler={() => {
-          setChoicedImgs([]);
-          setSendBtnClicked(true);
-        }}
-        sendBtnTriger={
-          !sendBtnClicked &&
-          (choicedImgs.length !== 0 ||
-            (open_optionInfo && !target_reserveMessage))
-        }></MessageSendLine>
+      {!open.selectMode && (
+        <MessageSendLine
+          className={`self-end`}
+          navOption_blured={{
+            content: [
+              // img btn
+              <TargetContent
+                onClick={imgNavBtnClickHandler}
+                targetOption={target_sendImgBtn}
+                isNextDescriptionLink>
+                <Icon name="image" />
+              </TargetContent>,
+              // camera btn
+              <Icon name="camera" />,
+              // plus btn
+              <TargetContent
+                onClick={plusBtnClickHandler}
+                targetOption={!plusClicked && open_option}>
+                <Icon name="plus" />
+              </TargetContent>,
+            ],
+          }}
+          navOption_focused={{
+            content: [<Icon name="chevron-right" />],
+          }}
+          defaultEnteredMessage={
+            message_fill && target_resend
+              ? "결혼식 주소입니다. OO특별시 OO구 OO로 OOO번길 O, OOO 컨벤션"
+              : ""
+          }
+          input={{
+            className: "bg-[#e3e3e3cc] rounded-xl",
+            onClick: backClickHandler,
+          }}
+          setMessageContent={setMessageContent}
+          sendBtn={{ className: "bg-[#b8b8b8cc] " }}
+          sendBtn_default={{
+            className: "bg-[#e3e3e3cc]",
+          }}
+          onSendBtnClickHandler={() => {
+            setChoicedImgs([]);
+            setSendBtnClicked(true);
+          }}
+          sendBtnTriger={
+            !sendBtnClicked &&
+            (choicedImgs.length !== 0 ||
+              (open_optionInfo && !target_reserveMessage))
+          }></MessageSendLine>
+      )}
+      {open.selectMode && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            boxShadow: "0 0 8px -1px rgba(118, 118, 118, 0.335)",
+          }}>
+          <TargetBox condition={isChecked1}>
+            <IconBottom
+              icon={{ name: "trash" }}
+              description={{
+                content: isChecked1 ? "모두 삭제" : "삭제",
+                style: { fontSize: "10px" },
+              }}
+            />
+          </TargetBox>
+        </div>
+      )}
       {/* options */}
       {open_option && plusClicked && (
         <NoScrollbar height={"100px"}>

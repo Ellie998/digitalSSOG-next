@@ -25,6 +25,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_sendImg,
     functionName_sendAudio,
     functionName_sendPhoneNum,
+    functionName_messageDelete,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -164,6 +165,24 @@ function Chats({ functionName, methodId, descriptionId }) {
         <SelectPerson key="SelectPerson2" target_person2 />,
         <Chat key="Message2" open_optionInfo target_sendPhoneNum />,
       ][descriptionId];
+
+      break;
+
+    case functionName_messageDelete:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_seeMessage />,
+          <Chat key="Message1" target={{ message: true }} />,
+          <Chat
+            key="Message1"
+            open={{ chat: true, contentOption: true }}
+            target_option={{ delete: true }}
+          />,
+          <Chat key="Message1" open={{ chat: true, selectMode: true }} />,
+          <Chat key="Message1" open={{ chat: false }} />,
+        ][descriptionId];
+      }
 
       break;
 
