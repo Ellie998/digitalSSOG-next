@@ -183,7 +183,41 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Chat key="Message1" open={{ chat: false }} />,
         ][descriptionId];
       }
-
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main
+            key="MessageAppMain"
+            target_seeMessage
+            target={{ onMouseDown: true }}
+          />,
+          <Main
+            key="MessageAppMain2"
+            target={{ delete: true }}
+            open={{ selectMode: true, message: true }}
+          />,
+          <Main
+            key="MessageAppMain3"
+            target={{ delete: true }}
+            open={{ selectMode: true, modal_bottom: true, message: true }}
+          />,
+          <Main key="MessageAppMain4" open={{ message: false }} />,
+        ][descriptionId];
+      }
+      if (methodId === "3") {
+        choicedComponent = [
+          <Home key="mainApps" appName_message />,
+          <Main key="MessageAppMain" target_seeMessage />,
+          <Chat key="Message1" target={{ message: true }} />,
+          <Chat
+            key="Message1"
+            open={{ chat: true, contentOption: true }}
+            target_option={{ delete: true }}
+          />,
+          <Chat key="Message1" open={{ chat: true, selectMode: true }} />,
+          <Chat key="Message1" open={{ chat: false }} />,
+        ][descriptionId];
+      }
       break;
 
     default:

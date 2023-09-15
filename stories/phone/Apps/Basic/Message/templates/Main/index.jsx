@@ -7,15 +7,30 @@ import AppTitle_center from "components/DisplayBox/AppDisplays/components/layout
 import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import BlurModal from "components/DisplayBox/AppDisplays/components/UI/BlurModal";
 import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
 import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
 
 import Phone from "stories/phone/molecules/Phone/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import CheckBox from "../../../atoms/CheckBox/index";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
+import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import MessageInfoAlert from "../../../atoms/MassageInfoAlert/index";
+import StackedList from "stories/phone/molecules/StackedList/index";
+import Modal from "stories/phone/molecules/Modal/index";
+import ModalContents from "stories/phone/organisms/ModalContents/index";
 
-function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
+function Main({
+  target_sendMessage,
+  target_seeMessage,
+  target_unreadMessage,
+  target = { onMouseDown: false, delete: false },
+  open = { selectMode: false, modal_bottom: false, message: true },
+}) {
   const [isOptionOpened, setIsOptionOpened] = useState(false);
+  const [temp, setTemp] = useState(false);
+  const [isChecked1, setIsChecked1] = useState(open.selectMode);
   const iconStyle =
     " rounded-full px-1 py-1  cursor-pointer hover:shadow-sm hover:bg-gray-200";
   const iconStyleShadow = "rounded-full shadow-md  border-1 drop-shadow-2xl ";
@@ -23,10 +38,60 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
   return (
     // "374px"
     <Phone>
-      <NoScrollBar height={`${!isOptionOpened ? "300px" : "300px"}`}>
+      <NoScrollBar height={`${!open.selectMode ? "300px" : "260px"}`}>
+        {open.modal_bottom && (
+          <Modal
+            modalStyle={{
+              width: "170px",
+              top: temp ? "150px" : "180px",
+              left: "2px",
+            }}>
+            <ModalContents
+              title={{
+                content: "이 대화를 휴지통으로 이동할까요?",
+                style: { marginBottom: "5px" },
+              }}
+              buttons={{
+                content: [
+                  <div key="1" style={{ fontWeight: "bold" }}>
+                    취소
+                  </div>,
+                  <TargetBox
+                    condition={target.delete}
+                    key="2"
+                    style={{ fontWeight: "bold" }}>
+                    휴지통으로 이동
+                  </TargetBox>,
+                ],
+                style: { justifyContent: "space-between", marginTop: "5px" },
+              }}>
+              <>
+                <label
+                  htmlFor="modal_bottom_checkbox"
+                  style={{ fontSize: "14px" }}>
+                  <input
+                    type="checkbox"
+                    id="modal_bottom_checkbox"
+                    style={{ marginRight: "4px" }}
+                    onChange={(e) => setTemp(e.target.checked)}
+                  />
+                  번호도 함께 차단
+                </label>
+                {temp && (
+                  <div style={{ marginLeft: "15px", fontSize: "10px" }}>
+                    이 번호의 전화 또는 메시지를 더 이상 받지 않습니다.
+                  </div>
+                )}
+              </>
+            </ModalContents>
+          </Modal>
+        )}
         {/* title : message */}
-        {(target_sendMessage || target_seeMessage) && (
-          <AppTitle_center title={{ content: "Messages" }}></AppTitle_center>
+        {!target_unreadMessage && (
+          <AppTitle_center
+            title={{
+              content: open.selectMode ? "1개 선택됨" : "Messages",
+            }}></AppTitle_center>
         )}
         {/* title : 읽지않은 메시지 */}
         {target_unreadMessage && (
@@ -49,45 +114,115 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
               }}></AppTitle_center>
           </TargetContent>
         )}
-        <AppHeader
-          rightItem={[
-            <Icon name="funnel-fill" className={`${iconStyle} text-sm`} />,
-            <Icon name="search" className={`${iconStyle} text-sm`} />,
-            <Icon
-              name="three-dots-vertical"
-              className={`${iconStyle} text-sm`}
-            />,
-          ]}></AppHeader>
+        {!open.selectMode && (
+          <AppHeader
+            rightItem={[
+              <Icon name="funnel-fill" className={`${iconStyle} text-sm`} />,
+              <Icon name="search" className={`${iconStyle} text-sm`} />,
+              <Icon
+                name="three-dots-vertical"
+                className={`${iconStyle} text-sm`}
+              />,
+            ]}></AppHeader>
+        )}
+        {open.selectMode && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "0 5px",
+            }}>
+            <CheckBox
+              setIsChecked={setIsChecked1}
+              isChecked={isChecked1}
+              style={{ margin: "0 5px", display: "block" }}>
+              <div style={{ fontSize: "10px" }}>전체</div>
+            </CheckBox>
+            <Icon name="search" />
+          </div>
+        )}
         <AppHeader
           leftItem={[
-            <div className="underline underline-offset-4 cursor-pointer">
+            <div
+              style={{
+                textDecorationLine: "underline",
+                textUnderlineOffset: "4px",
+                cursor: "pointer",
+                color: open.selectMode
+                  ? "rgba(37, 59, 255, 0.608)"
+                  : "rgb(37, 59, 255)",
+              }}>
               전체
             </div>,
-            <Icon name="plus" className={`${iconStyle}`} />,
+            <Icon
+              name="plus"
+              style={{
+                color: open.selectMode
+                  ? "rgba(111, 111, 111, 0.608)"
+                  : "rgb(50, 50, 50)",
+              }}
+            />,
           ]}></AppHeader>
         {/* message */}
-        <TargetContent
-          targetOption={target_seeMessage}
-          isNextDescriptionLink={true}>
-          <StackedList_Profile
-            profile={{ className: "bg-gray-200", content: "홍" }}
-            title={{ className: "ml-1", content: "홍길동" }}
-            info={{
-              className: "text-end",
-              content: "오전 8:03",
-            }}
-            subTitle={{
-              className: "ml-1 col-end-6",
-              content: "결혼식 장소 정보입니다...",
-            }}
-            subInfo={{
-              className:
-                target_seeMessage || target_unreadMessage
-                  ? "alert--yellow"
-                  : "",
-              content: target_seeMessage || target_unreadMessage ? "1" : "",
-            }}></StackedList_Profile>
-        </TargetContent>
+        {!open.selectMode && open.message && (
+          <TargetBox
+            condition={target_seeMessage}
+            isNextTriger={true}
+            onMouseDown={target.onMouseDown ? () => {} : null}>
+            <StackedList_Profile
+              profile={{
+                content: "홍",
+                style: { backgroundColor: "rgb(227, 227, 227)" },
+              }}
+              title={{ content: "홍길동", style: { marginLeft: "4px" } }}
+              info={{
+                content: "오전 8:03",
+              }}
+              subTitle={{
+                content: "결혼식 장소 정보입니다...",
+                style: {
+                  gridColumnEnd: "6",
+                  marginLeft: "4px",
+                },
+              }}
+              subInfo={{
+                content: <MessageInfoAlert>1</MessageInfoAlert>,
+              }}></StackedList_Profile>
+          </TargetBox>
+        )}
+        {open.selectMode && open.message && (
+          <CheckBox
+            isChecked={isChecked1}
+            setIsChecked={setIsChecked1}
+            checkboxStyle={{
+              width: "25px",
+              height: "25px",
+              after: {
+                left: "8px",
+                top: "5px",
+              },
+            }}>
+            <TargetBox
+              condition={target_seeMessage}
+              isNextTriger={true}
+              onMouseDown={target.onMouseDown ? () => {} : null}>
+              <StackedList
+                style={{ width: "145px", margin: "0 5px" }}
+                title={{ className: "ml-1", content: "홍길동" }}
+                info={{
+                  className: "text-end",
+                  content: "오전 8:03",
+                }}
+                subTitle={{
+                  className: "ml-1 col-end-6",
+                  content: "결혼식 장소 정보입니다...",
+                }}
+                subInfo={{
+                  content: <MessageInfoAlert>1</MessageInfoAlert>,
+                }}></StackedList>
+            </TargetBox>
+          </CheckBox>
+        )}
         {/* message plus btn */}
         {!isOptionOpened && target_sendMessage && (
           <TargetContent
@@ -103,6 +238,42 @@ function Main({ target_sendMessage, target_seeMessage, target_unreadMessage }) {
           </TargetContent>
         )}
       </NoScrollBar>
+      {open.selectMode && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            boxShadow: "0 0 8px -1px rgba(118, 118, 118, 0.335)",
+          }}>
+          <TargetBox condition={null}>
+            <IconBottom
+              icon={{ name: "bell-slash" }}
+              description={{
+                content: "알림",
+                style: { fontSize: "10px" },
+              }}
+            />
+          </TargetBox>
+          <TargetBox condition={isChecked1 && target.delete}>
+            <IconBottom
+              icon={{ name: "trash" }}
+              description={{
+                content: isChecked1 ? "모두 삭제" : "삭제",
+                style: { fontSize: "10px" },
+              }}
+            />
+          </TargetBox>
+          <TargetBox condition={null}>
+            <IconBottom
+              icon={{ name: "three-dots-vertical" }}
+              description={{
+                content: "더보기",
+                style: { fontSize: "10px" },
+              }}
+            />
+          </TargetBox>
+        </div>
+      )}
       {isOptionOpened && (
         <BlurModal
           style={{ bottom: "390px" }}

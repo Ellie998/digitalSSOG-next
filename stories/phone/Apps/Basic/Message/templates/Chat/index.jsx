@@ -548,6 +548,7 @@ function Chat({
           </div>
         )}
       </div>
+      {/* bottom line */}
       {!open.selectMode && (
         <MessageSendLine
           className={`self-end`}

@@ -35,10 +35,19 @@ const CheckMarkContainer = styled.span`
     border: solid rgb(255, 255, 255);
     border-width: 0 1.5px 1.5px 0;
     transform: rotate(45deg);
+    ${(props) => (props.style.after ? props.style.after : null)}
   }
+  ${(props) => (props.style ? props.style : null)}
 `;
 
-const CheckBox = ({ id, children, isChecked, setIsChecked, style }) => {
+const CheckBox = ({
+  id,
+  children,
+  isChecked,
+  setIsChecked,
+  style,
+  checkboxStyle = { after: {} },
+}) => {
   const [myIsChecked, mySetIsMyChecked] = useState(false);
   return (
     <Container style={style}>
@@ -51,7 +60,8 @@ const CheckBox = ({ id, children, isChecked, setIsChecked, style }) => {
             : mySetIsMyChecked(e.target.checked);
         }}></InputContainer>
       <CheckMarkContainer
-        isChecked={isChecked ? isChecked : myIsChecked}></CheckMarkContainer>
+        isChecked={isChecked ? isChecked : myIsChecked}
+        style={checkboxStyle}></CheckMarkContainer>
       {children}
     </Container>
   );
