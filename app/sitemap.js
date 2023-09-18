@@ -94,5 +94,15 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/채팅방(개인-채팅,-그룹-채팅)-나가기",
       lastModified: new Date(),
     },
+    {
+      // <!--저장된-연락처(친구)-이름-바꾸기-->
+      url: "https://digitalssog.com/description/저장된-연락처(친구)-이름-바꾸기",
+      lastModified: new Date(),
+    },
+    {
+      // <!--메시지-삭제하기-->
+      url: "https://digitalssog.com/description/메시지-삭제하기",
+      lastModified: new Date(),
+    },
   ];
 }
