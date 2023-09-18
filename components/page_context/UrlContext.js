@@ -25,6 +25,8 @@ const UrlContext = createContext({
   functionName_kakaotalk_groubChatLock: "그룹채팅방 채팅 입력창 잠금하기",
   functionName_kakaotalk_groubChatLeave_quietly: "그룹채팅방 조용히 나가기",
   functionName_messageDelete: "",
+  functionName_deleteRecentHistory: "",
+  ///
   functionName_chatRoomImgChange: "",
   functionName_chatRoomNameChange: "",
 

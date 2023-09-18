@@ -18,10 +18,12 @@ const Main = ({
     chat: false,
     info: false,
     person1: false,
+    onMouseDown: false,
   },
   content = { setPhoneNum: () => {}, phoneNum: "010-0000-0000" },
+  open = { selectMode: false, person1: true, person2: true },
 }) => {
-  const [clickedTapName, setClickedTapName] = useState("키패드");
+  const [clickedTapName, setClickedTapName] = useState(targetTab);
 
   return (
     <Phone
@@ -46,6 +48,7 @@ const Main = ({
             targetTab={targetTab}
             clickedTapName={clickedTapName}
             target={target}
+            open={open}
           />
         )}
         {clickedTapName === "연락처" && (
@@ -53,6 +56,7 @@ const Main = ({
             targetTab={targetTab}
             clickedTapName={clickedTapName}
             target={target}
+            open={open}
           />
         )}
       </NoScrollbar>

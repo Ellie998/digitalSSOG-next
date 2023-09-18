@@ -9,15 +9,25 @@ import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
 import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
+import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
 
 // eslint-disable-next-line react/prop-types
 const Histories = ({
   targetTab,
   clickedTapName,
-  target = { call: false, person1: false, videoCall: false },
+  open = { selectMode: false, person1: true, person2: true },
+  target = {
+    call: false,
+    person1: false,
+    videoCall: false,
+    onMouseDown: false,
+  },
 }) => {
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
+  const [isChecked1, setIsChecked1] = useState(open.selectMode);
+  const [isChecked2, setIsChecked2] = useState(false);
 
   const showListOption1 = () => {
     !isListClicked1 && setIsListClicked1(true);
@@ -89,103 +99,214 @@ const Histories = ({
     />
   );
 
-  const callHistoryListProps = [
-    {
-      id: `callHistoryList1`,
-      onClickFunction: showListOption1,
-      profile: {
-        name: "telephone-outbound-fill",
-        style: { color: "rgb(21 128 61)" },
-      },
-      title: { content: "영희" },
-      info: { content: "오후 7:38" },
-      children: isListClicked1 && (
-        <ListOption
-          style={{
-            backgroundColor: "white",
-            borderBottomLeftRadius: "12px",
-            borderBottomRightRadius: "12px",
-          }}
-          title={{ content: "휴대전화 010-1234-0000" }}
-          subTitle={{ content: "휴대전화 발신전화, 0분 33초" }}>
-          {optionlistContent}
-        </ListOption>
-      ),
-    },
-    {
-      id: `callHistoryList2`,
-      onClickFunction: showListOption2,
-
-      profile: {
-        name: "telephone-outbound-fill",
-        style: { color: "rgb(21 128 61)" },
-      },
-      title: { content: "철수" },
-      info: { content: "오후 5:20" },
-      children: isListClicked2 && (
-        <ListOption
-          style={{
-            backgroundColor: "white",
-            borderBottomLeftRadius: "12px",
-            borderBottomRightRadius: "12px",
-          }}
-          title={{ content: "휴대전화 010-1234-0000" }}
-          subTitle={{ content: "휴대전화 발신전화, 0분 24초" }}>
-          {optionlistContent}
-        </ListOption>
-      ),
-    },
-  ];
   return (
     <>
-      <Top title={{ content: "전화" }} />
-      <FlexInFlex
-        rightItem={[
-          <Icon key="1" name="filter" style={{ fontSize: "0.875rem" }} />,
-          <Icon key="2" name="search" style={{ fontSize: "0.875rem" }} />,
-          <Icon
-            key="3"
-            name="three-dots-vertical"
-            style={{ fontSize: "0.875rem" }}
-          />,
-        ]}
-      />
+      <Top title={{ content: open.selectMode ? "항목 선택" : "전화" }} />
+      {!open.selectMode && (
+        <FlexInFlex
+          rightItem={[
+            <Icon key="1" name="filter" style={{ fontSize: "0.875rem" }} />,
+            <Icon key="2" name="search" style={{ fontSize: "0.875rem" }} />,
+            <Icon
+              key="3"
+              name="three-dots-vertical"
+              style={{ fontSize: "0.875rem" }}
+            />,
+          ]}
+        />
+      )}
+      {open.selectMode && (
+        <FlexInFlex
+          leftItem={[
+            <CheckBox
+              key="1"
+              setIsChecked={(value) => {
+                setIsChecked1(value);
+                setIsChecked2(value);
+              }}
+              isChecked={isChecked1 && isChecked2}
+              style={{ margin: "0 5px", display: "block" }}>
+              <div style={{ fontSize: "10px" }}>전체</div>
+            </CheckBox>,
+          ]}
+          rightItem={[
+            <Icon key="2" name="search" style={{ fontSize: "0.875rem" }} />,
+          ]}
+        />
+      )}
       <StackedListWrap
         style={{ border: "none", marginTop: "10px" }}
         listTitle={{ content: "6월 17일" }}>
-        {callHistoryListProps.map((prop, i) => (
-          <TargetBox
-            key={i}
-            condition={i === 0 && !isListClicked1 && target.person1}
-            isNextTriger={false}>
-            <StackedList_Profile
-              style={{
-                padding: "4px 0",
-                backgroundColor: "white",
-                borderTopLeftRadius: i === 0 ? "12px" : "0px",
-                borderTopRightRadius: i === 0 ? "12px" : "0px",
-                borderBottomLeftRadius:
-                  i === 1 && !isListClicked2 ? "12px" : "0px",
-                borderBottomRightRadius:
-                  i === 1 && !isListClicked2 ? "12px" : "0px",
-                borderTop: i === 1 ? "1px solid rgb(233,233,233)" : "none",
-              }}
-              profile={{
-                name: prop.profile.name,
-                style: prop.profile.style,
-              }}
-              title={{
-                content: prop.title.content,
-              }}
-              info={{
-                content: prop.info.content,
-              }}
-              onClick={prop.onClickFunction ? prop.onClickFunction : null}>
-              {prop.children ? prop.children : null}
-            </StackedList_Profile>
-          </TargetBox>
-        ))}
+        {!open.selectMode && (
+          <>
+            {open.person1 && (
+              <TargetBox
+                condition={!isListClicked1 && target.person1}
+                isNextTriger={target.onMouseDown ? true : false}
+                onMouseDown={target.onMouseDown ? () => {} : null}>
+                <StackedList_Profile
+                  style={{
+                    padding: "4px 0",
+                    backgroundColor: "white",
+                    borderTopLeftRadius: "12px",
+                    borderTopRightRadius: "12px",
+                    borderBottomLeftRadius: "0px",
+                    borderBottomRightRadius: "0px",
+                    borderTop: "none",
+                  }}
+                  profile={{
+                    name: "telephone-outbound-fill",
+                    style: { color: "rgb(21 128 61)" },
+                  }}
+                  title={{ content: "영희" }}
+                  info={{
+                    content: "오후 7:38",
+                  }}
+                  onClick={showListOption1}>
+                  {isListClicked1 && (
+                    <ListOption
+                      style={{
+                        backgroundColor: "white",
+                        borderBottomLeftRadius: "12px",
+                        borderBottomRightRadius: "12px",
+                      }}
+                      title={{ content: "휴대전화 010-1234-0000" }}
+                      subTitle={{ content: "휴대전화 발신전화, 0분 33초" }}>
+                      {optionlistContent}
+                    </ListOption>
+                  )}
+                </StackedList_Profile>
+              </TargetBox>
+            )}
+            {open.person2 && (
+              <TargetBox
+                condition={!isListClicked2 && target.person2}
+                isNextTriger={target.onMouseDown ? true : false}
+                onMouseDown={target.onMouseDown ? () => {} : null}>
+                <StackedList_Profile
+                  style={{
+                    padding: "4px 0",
+                    backgroundColor: "white",
+                    borderBottomLeftRadius: "12px",
+                    borderBottomRightRadius: "12px",
+                    borderTop: "1px solid rgb(233,233,233)",
+                  }}
+                  profile={{
+                    name: "telephone-outbound-fill",
+                    style: { color: "rgb(21 128 61)" },
+                  }}
+                  title={{
+                    content: "철수",
+                  }}
+                  info={{
+                    content: "오후 5:20",
+                  }}
+                  onClick={showListOption2}>
+                  {isListClicked2 && (
+                    <ListOption
+                      style={{
+                        backgroundColor: "white",
+                        borderBottomLeftRadius: "12px",
+                        borderBottomRightRadius: "12px",
+                      }}
+                      title={{ content: "휴대전화 010-1234-0000" }}
+                      subTitle={{ content: "휴대전화 발신전화, 0분 24초" }}>
+                      {optionlistContent}
+                    </ListOption>
+                  )}
+                </StackedList_Profile>
+              </TargetBox>
+            )}
+          </>
+        )}
+        {open.selectMode && (
+          <>
+            <TargetBox
+              condition={!isListClicked1 && target.person1}
+              isNextTriger={target.onMouseDown ? true : false}
+              onMouseDown={target.onMouseDown ? () => {} : null}>
+              <CheckBox
+                style={{
+                  padding: "4px 4px",
+                  backgroundColor: "white",
+                  borderTopLeftRadius: "12px",
+                  borderTopRightRadius: "12px",
+                }}
+                setIsChecked={setIsChecked1}
+                isChecked={isChecked1}>
+                <StackedList_Profile
+                  style={{
+                    width: "150px",
+                  }}
+                  profile={{
+                    name: "telephone-outbound-fill",
+                    style: { color: "rgb(21 128 61)" },
+                  }}
+                  title={{ content: "영희" }}
+                  info={{
+                    content: "오후 7:38",
+                  }}
+                  onClick={showListOption1}></StackedList_Profile>
+              </CheckBox>
+            </TargetBox>
+            <TargetBox
+              condition={!isListClicked2 && target.person2}
+              isNextTriger={target.onMouseDown ? true : false}
+              onMouseDown={target.onMouseDown ? () => {} : null}>
+              <CheckBox
+                style={{
+                  padding: "4px 4px",
+                  backgroundColor: "white",
+                  borderTopLeftRadius: "0px",
+                  borderTopRightRadius: "0px",
+                  borderBottomLeftRadius: !isListClicked2 ? "12px" : "0px",
+                  borderBottomRightRadius: !isListClicked2 ? "12px" : "0px",
+                  borderTop: "1px solid rgb(233,233,233)",
+                }}
+                setIsChecked={setIsChecked2}
+                isChecked={isChecked2}>
+                <StackedList_Profile
+                  style={{
+                    width: "150px",
+                  }}
+                  profile={{
+                    name: "telephone-outbound-fill",
+                    style: { color: "rgb(21 128 61)" },
+                  }}
+                  title={{
+                    content: "철수",
+                  }}
+                  info={{
+                    content: "오후 5:20",
+                  }}
+                  onClick={showListOption2}></StackedList_Profile>
+              </CheckBox>
+            </TargetBox>
+          </>
+        )}
       </StackedListWrap>
+      {open.selectMode && (
+        <div
+          style={{
+            position: "absolute",
+            display: "flex",
+            justifyContent: "center",
+            width: "175px",
+            marginTop: "74px",
+            background: "white",
+            boxShadow: "0 0 8px -1px rgba(118, 118, 118, 0.335)",
+          }}>
+          <TargetBox condition={isChecked1}>
+            <IconBottom
+              icon={{ name: "trash" }}
+              description={{
+                content: isChecked1 && isChecked2 ? "모두 삭제" : "삭제",
+                style: { fontSize: "10px" },
+              }}
+            />
+          </TargetBox>
+        </div>
+      )}
     </>
   );
 };

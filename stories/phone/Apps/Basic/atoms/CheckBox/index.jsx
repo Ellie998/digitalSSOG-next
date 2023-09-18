@@ -21,7 +21,7 @@ const CheckMarkContainer = styled.span`
   width: 15px;
   border-radius: 100%;
   background-color: ${(props) =>
-    props.isChecked ? "rgb(0, 114, 253)" : "rgb(255, 255, 255)"};
+    props.isChecked ? props.style.checkedColor : "rgb(255, 255, 255)"};
   border: ${(props) =>
     props.isChecked ? "none" : "1px solid rgba(1, 1, 1, 0.474)"};
   &::after {
@@ -46,7 +46,7 @@ const CheckBox = ({
   isChecked,
   setIsChecked,
   style,
-  checkboxStyle = { after: {} },
+  checkboxStyle = { after: {}, checkedColor: "rgb(0, 114, 253)" },
 }) => {
   const [myIsChecked, mySetIsMyChecked] = useState(false);
   return (
