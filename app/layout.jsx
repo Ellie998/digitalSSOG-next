@@ -23,6 +23,11 @@ export default function RootLayout({ children }) {
         }
           `}
         </Script>
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013250950684251"
+          crossOrigin="anonymous"></script>
       </head>
       <body suppressHydrationWarning={true}>{children}</body>
     </html>
