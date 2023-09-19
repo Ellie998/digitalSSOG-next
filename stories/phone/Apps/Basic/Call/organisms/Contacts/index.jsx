@@ -31,7 +31,7 @@ const Contacts = ({
   },
   open = { selectMode: false, person1: true, person2: true },
 }) => {
-  const scrollElement = document.getElementById("NoScrollbar");
+  // const scrollElement = document.getElementById("NoScrollbar");
 
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
@@ -261,7 +261,7 @@ const Contacts = ({
                 <StackedList_Profile
                   onClick={() => {
                     showListOption1();
-                    scrollElement.scroll(0, 315);
+                    // scrollElement.scroll(0, 315);
                   }}
                   style={{
                     height: "2rem",
@@ -316,7 +316,7 @@ const Contacts = ({
                 <StackedList_Profile
                   onClick={() => {
                     showListOption2();
-                    scrollElement.scroll(0, 340);
+                    // scrollElement.scroll(0, 340);
                   }}
                   style={{
                     height: "2rem",
