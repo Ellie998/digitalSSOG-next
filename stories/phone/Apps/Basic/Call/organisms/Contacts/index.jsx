@@ -12,6 +12,9 @@ import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
 
 import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
+import IconBottom from "stories/phone/molecules/IconBottom/index";
+import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
+import Flex from "stories/phone/atoms/Flex/index";
 
 // eslint-disable-next-line react/prop-types
 const Contacts = ({
@@ -23,12 +26,18 @@ const Contacts = ({
     chat: false,
     info: false,
     person1: false,
+    onMouseDown: false,
+    delete: false,
   },
+  open = { selectMode: false, person1: true, person2: true },
 }) => {
   const scrollElement = document.getElementById("NoScrollbar");
 
   const [isListClicked1, setIsListClicked1] = useState(false);
   const [isListClicked2, setIsListClicked2] = useState(false);
+
+  const [isChecked1, setIsChecked1] = useState(open.selectMode);
+  const [isChecked2, setIsChecked2] = useState(false);
 
   const showListOption1 = () => {
     !isListClicked1 && setIsListClicked1(true);
@@ -145,22 +154,65 @@ const Contacts = ({
   return (
     <>
       <Top
-        title={{ content: "전화" }}
+        title={{
+          content: !open.selectMode
+            ? "전화"
+            : isChecked1 && isChecked2
+            ? "2개 선택됨"
+            : isChecked1 || isChecked2
+            ? "1개 선택됨"
+            : "연락처 선택",
+        }}
         subTitle={{
-          content: "전화번호가 저장된 연락처 2개",
+          content: !open.selectMode
+            ? !open.person1 || !open.person2
+              ? "전화번호가 저장된 연락처 1개"
+              : "전화번호가 저장된 연락처 2개"
+            : null,
         }}
       />
-      <FlexInFlex
-        rightItem={[
-          <Icon key="plus" name="plus" style={{ fontSize: "0.875rem" }} />,
-          <Icon key="search" name="search" style={{ fontSize: "0.875rem" }} />,
-          <Icon
-            key="dots"
-            name="three-dots-vertical"
-            style={{ fontSize: "0.875rem" }}
-          />,
-        ]}
-      />
+      {!open.selectMode && (
+        <FlexInFlex
+          rightItem={[
+            <Icon key="plus" name="plus" style={{ fontSize: "0.875rem" }} />,
+            <Icon
+              key="search"
+              name="search"
+              style={{ fontSize: "0.875rem" }}
+            />,
+            <Icon
+              key="dots"
+              name="three-dots-vertical"
+              style={{ fontSize: "0.875rem" }}
+            />,
+          ]}
+        />
+      )}
+      {open.selectMode && (
+        <Flex
+          style={{ display: "flex", justifyContent: "space-between" }}
+          items={[
+            <CheckBox
+              style={{
+                fontSize: "10px",
+                display: "block",
+              }}
+              isChecked={isChecked1 && isChecked2}
+              setIsChecked={(value) => {
+                setIsChecked1(value);
+                setIsChecked2(value);
+              }}
+              key="1">
+              전체
+            </CheckBox>,
+            <Icon
+              key="search"
+              name="search"
+              style={{ fontSize: "0.875rem" }}
+            />,
+          ]}
+        />
+      )}
       <StackedListWrap
         style={{ border: "none" }}
         listTitle={{ content: "내 프로필" }}>
@@ -169,110 +221,282 @@ const Contacts = ({
             key={prop.id}
             onClick={prop.onClick}
             style={{
-              backgroundColor: "white",
+              backgroundColor:
+                isChecked1 || isChecked2 ? "rgb(250, 250, 250)" : "white",
               marginBottom: "8px",
               borderRadius: "12px",
               ...prop.style,
             }}
             profile={prop.profile}
-            title={prop.title}>
+            title={{
+              content: prop.title.content,
+              style: {
+                color:
+                  isChecked1 || isChecked2
+                    ? "rgb(184, 184, 184)"
+                    : "rgb(35, 35, 35)",
+              },
+            }}>
             {prop.children}
           </StackedList_Profile>
         ))}
       </StackedListWrap>
-      <StackedListWrap
-        listTitle={{ content: "ㅇ" }}
-        style={{
-          border: "none",
-        }}>
-        <TargetBox
-          condition={target.person1 && !isListClicked1}
-          isNextTriger={false}>
-          <StackedList_Profile
-            onClick={() => {
-              showListOption1();
-              scrollElement.scroll(0, 315);
-            }}
+      {/* contacts */}
+      {!open.selectMode && (
+        <>
+          {open.person1 && (
+            <StackedListWrap
+              listTitle={{ content: "ㅇ" }}
+              style={{
+                border: "none",
+              }}>
+              <TargetBox
+                condition={target.person1 && !isListClicked1}
+                isNextTriger={
+                  target.person1 && target.onMouseDown ? true : false
+                }
+                onMouseDown={
+                  target.person1 && target.onMouseDown ? () => {} : null
+                }>
+                <StackedList_Profile
+                  onClick={() => {
+                    showListOption1();
+                    scrollElement.scroll(0, 315);
+                  }}
+                  style={{
+                    height: "2rem",
+                    backgroundColor: "white",
+                    borderTopLeftRadius: "12px",
+                    borderTopRightRadius: "12px",
+                    borderBottomLeftRadius: !isListClicked1 && "12px",
+                    borderBottomRightRadius: !isListClicked1 && "12px",
+                  }}
+                  //
+                  profile={{
+                    style: {
+                      color: "white",
+                      backgroundColor: "rgb(251 207 232)",
+                      padding: "4px 4px",
+                    },
+                    content: "영",
+                  }}
+                  title={{
+                    content: "영희",
+                  }}>
+                  {isListClicked1 && !target.onMouseDown && (
+                    <ListOption
+                      title={{
+                        content: "휴대전화 010-1234-0000",
+                        style: { color: "rgb(22, 163, 74)" },
+                      }}
+                      style={{
+                        backgroundColor: "white",
+                        borderBottomLeftRadius: "12px",
+                        borderBottomRightRadius: "12px",
+                      }}>
+                      {optionlistContent}
+                    </ListOption>
+                  )}
+                </StackedList_Profile>
+              </TargetBox>
+            </StackedListWrap>
+          )}
+          {open.person2 && (
+            <StackedListWrap
+              listTitle={{ content: "ㅊ" }}
+              style={{ border: "none" }}>
+              <TargetBox
+                condition={false}
+                isNextTriger={
+                  target.person2 && target.onMouseDown ? true : false
+                }
+                onMouseDown={
+                  target.person2 && target.onMouseDown ? () => {} : null
+                }>
+                <StackedList_Profile
+                  onClick={() => {
+                    showListOption2();
+                    scrollElement.scroll(0, 340);
+                  }}
+                  style={{
+                    height: "2rem",
+                    backgroundColor: "white",
+                    borderTopLeftRadius: "12px",
+                    borderTopRightRadius: "12px",
+                    borderBottomLeftRadius: !isListClicked2 && "12px",
+                    borderBottomRightRadius: !isListClicked2 && "12px",
+                  }} //
+                  profile={{
+                    style: {
+                      color: "white",
+                      backgroundColor: "rgb(254 215 170)",
+                      padding: "4px 4px",
+                    },
+                    content: "철",
+                  }}
+                  title={{
+                    content: "철수",
+                  }}>
+                  {isListClicked2 && !target.onMouseDown && (
+                    <ListOption
+                      style={{
+                        backgroundColor: "white",
+                        borderBottomLeftRadius: "12px",
+                        borderBottomRightRadius: "12px",
+                      }}
+                      title={{
+                        content: "휴대전화 010-1234-0001",
+                        style: { color: "rgb(22, 163, 74)" },
+                      }}>
+                      {optionlistContent}
+                    </ListOption>
+                  )}
+                </StackedList_Profile>
+              </TargetBox>
+            </StackedListWrap>
+          )}
+        </>
+      )}
+      {open.selectMode && (
+        <>
+          <StackedListWrap
+            listTitle={{ content: "ㅇ" }}
             style={{
-              height: "2rem",
-              backgroundColor: "white",
-              borderTopLeftRadius: "12px",
-              borderTopRightRadius: "12px",
-              borderBottomLeftRadius: !isListClicked1 && "12px",
-              borderBottomRightRadius: !isListClicked1 && "12px",
-            }}
-            //
-            profile={{
-              style: {
-                color: "white",
-                backgroundColor: "rgb(251 207 232)",
-                padding: "4px 4px",
-              },
-              content: "영",
-            }}
-            title={{
-              content: "영희",
+              border: "none",
             }}>
-            {isListClicked1 && (
-              <ListOption
-                title={{
-                  content: "휴대전화 010-1234-0000",
-                  style: { color: "rgb(22, 163, 74)" },
-                }}
+            <TargetBox
+              condition={target.person1 && !isChecked1}
+              isNextTriger={false}
+              onMouseDown={
+                target.person1 && target.onMouseDown ? () => {} : null
+              }>
+              <CheckBox
+                display={isChecked1}
+                isChecked={isChecked1}
+                setIsChecked={setIsChecked1}
                 style={{
+                  padding: "0 5px",
+                  height: "2rem",
                   backgroundColor: "white",
-                  borderBottomLeftRadius: "12px",
-                  borderBottomRightRadius: "12px",
+                  borderTopLeftRadius: "12px",
+                  borderTopRightRadius: "12px",
+                  borderBottomLeftRadius: !isListClicked1 && "12px",
+                  borderBottomRightRadius: !isListClicked1 && "12px",
                 }}>
-                {optionlistContent}
-              </ListOption>
-            )}
-          </StackedList_Profile>
-        </TargetBox>
-      </StackedListWrap>
-      <StackedListWrap listTitle={{ content: "ㅊ" }} style={{ border: "none" }}>
-        <TargetBox condition={false} isNextTriger={false}>
-          <StackedList_Profile
-            onClick={() => {
-              showListOption2();
-              scrollElement.scroll(0, 340);
-            }}
-            style={{
-              height: "2rem",
-              backgroundColor: "white",
-              borderTopLeftRadius: "12px",
-              borderTopRightRadius: "12px",
-              borderBottomLeftRadius: !isListClicked2 && "12px",
-              borderBottomRightRadius: !isListClicked2 && "12px",
-            }} //
-            profile={{
-              style: {
-                color: "white",
-                backgroundColor: "rgb(254 215 170)",
-                padding: "4px 4px",
-              },
-              content: "철",
-            }}
-            title={{
-              content: "철수",
-            }}>
-            {isListClicked2 && (
-              <ListOption
+                <StackedList_Profile
+                  style={{ width: isChecked1 ? "150px" : "175px" }}
+                  profile={
+                    !isChecked1 && {
+                      style: {
+                        color: "white",
+                        backgroundColor: "rgb(251 207 232)",
+                        padding: "4px 4px",
+                      },
+                      content: "영",
+                    }
+                  }
+                  title={{
+                    content: "영희",
+                    style: {
+                      gridColumnStart: isChecked1 ? "1" : "2",
+                      marginLeft: isChecked1 ? "5px" : "0",
+                    },
+                  }}></StackedList_Profile>
+              </CheckBox>
+            </TargetBox>
+          </StackedListWrap>
+          <StackedListWrap
+            listTitle={{ content: "ㅊ" }}
+            style={{ border: "none" }}>
+            <TargetBox
+              condition={false}
+              isNextTriger={false}
+              onMouseDown={
+                target.person2 && target.onMouseDown ? () => {} : null
+              }>
+              <CheckBox
+                display={isChecked2}
+                isChecked={isChecked2}
+                setIsChecked={setIsChecked2}
                 style={{
+                  padding: "0 5px",
+                  height: "2rem",
                   backgroundColor: "white",
-                  borderBottomLeftRadius: "12px",
-                  borderBottomRightRadius: "12px",
-                }}
-                title={{
-                  content: "휴대전화 010-1234-0001",
-                  style: { color: "rgb(22, 163, 74)" },
+                  borderTopLeftRadius: "12px",
+                  borderTopRightRadius: "12px",
+                  borderBottomLeftRadius: !isListClicked2 && "12px",
+                  borderBottomRightRadius: !isListClicked2 && "12px",
                 }}>
-                {optionlistContent}
-              </ListOption>
-            )}
-          </StackedList_Profile>
-        </TargetBox>
-      </StackedListWrap>
+                <StackedList_Profile
+                  style={{ width: isChecked2 ? "150px" : "175px" }}
+                  profile={
+                    !isChecked2 && {
+                      style: {
+                        color: "white",
+                        backgroundColor: "rgb(254 215 170)",
+                        padding: "4px 4px",
+                      },
+                      content: "철",
+                    }
+                  }
+                  title={{
+                    content: "철수",
+                    style: {
+                      gridColumnStart: isChecked2 ? "1" : "2",
+                      marginLeft: isChecked2 ? "5px" : "0",
+                    },
+                  }}></StackedList_Profile>
+              </CheckBox>
+            </TargetBox>
+          </StackedListWrap>
+        </>
+      )}
+      {/* bottom modal */}
+      {open.selectMode && (
+        <div
+          style={{
+            position: "absolute",
+            display: "flex",
+            justifyContent: "space-around",
+            width: "175px",
+            height: "35px",
+            marginTop: "-70px",
+            background: "rgb(244,244,244)",
+            boxShadow: "0 0 8px -1px rgba(118, 118, 118, 0.335)",
+          }}>
+          {(isChecked1 || isChecked2) && (
+            <>
+              <TargetBox condition={null}>
+                <IconBottom
+                  icon={{ name: "chat" }}
+                  description={{
+                    content: "채팅",
+                    style: { fontSize: "10px" },
+                  }}
+                />
+              </TargetBox>
+              <TargetBox condition={null}>
+                <IconBottom
+                  icon={{ name: "share-fill" }}
+                  description={{
+                    content: "공유",
+                    style: { fontSize: "10px" },
+                  }}
+                />
+              </TargetBox>
+              <TargetBox condition={isChecked1 && target.delete}>
+                <IconBottom
+                  icon={{ name: "trash" }}
+                  description={{
+                    content: isChecked1 && isChecked2 ? "모두 삭제" : "삭제",
+                    style: { fontSize: "10px" },
+                  }}
+                />
+              </TargetBox>
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 };

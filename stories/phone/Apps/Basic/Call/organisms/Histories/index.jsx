@@ -22,6 +22,7 @@ const Histories = ({
     person1: false,
     videoCall: false,
     onMouseDown: false,
+    delete: false,
   },
 }) => {
   const [isListClicked1, setIsListClicked1] = useState(false);

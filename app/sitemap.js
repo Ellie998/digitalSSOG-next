@@ -109,5 +109,10 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/최근-기록-삭제하기",
       lastModified: new Date(),
     },
+    {
+      // <!--연락처-삭제하기-->
+      url: "https://digitalssog.com/description/연락처-삭제하기",
+      lastModified: new Date(),
+    },
   ];
 }

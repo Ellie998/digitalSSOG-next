@@ -23,6 +23,7 @@ function Calls({ functionName, methodId, descriptionId }) {
     functionName_makeVideoCall,
     functionName_changeName,
     functionName_deleteRecentHistory,
+    functionName_deleteContact,
   } = useContext(UrlContext);
 
   const [name, setName] = useState("영희");
@@ -115,6 +116,28 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Main
           key="callAppMain"
           targetTab="최근기록"
+          open={{ person1: false, person2: true }}
+        />,
+      ][descriptionId];
+
+      break;
+    case functionName_deleteContact:
+      choicedComponent = [
+        <Home key="mainApps" appName_call />,
+        <Main
+          key="callAppMain"
+          targetTab="연락처"
+          target={{ person1: true, onMouseDown: true }}
+        />,
+        <Main
+          key="callAppMain"
+          targetTab="연락처"
+          target={{ person1: true, delete: true }}
+          open={{ selectMode: true }}
+        />,
+        <Main
+          key="callAppMain"
+          targetTab="연락처"
           open={{ person1: false, person2: true }}
         />,
       ][descriptionId];

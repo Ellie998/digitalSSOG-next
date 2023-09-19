@@ -19,6 +19,7 @@ const Main = ({
     info: false,
     person1: false,
     onMouseDown: false,
+    delete: false,
   },
   content = { setPhoneNum: () => {}, phoneNum: "010-0000-0000" },
   open = { selectMode: false, person1: true, person2: true },

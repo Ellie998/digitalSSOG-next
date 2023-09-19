@@ -39,6 +39,7 @@ function Display() {
     functionName_chatRoomImgChange,
     functionName_messageDelete,
     functionName_deleteRecentHistory,
+    functionName_deleteContact,
     //
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
@@ -55,7 +56,8 @@ function Display() {
       functionName === functionName_makeCall ||
       functionName === functionName_makeVideoCall ||
       functionName === functionName_changeName ||
-      functionName === functionName_deleteRecentHistory
+      functionName === functionName_deleteRecentHistory ||
+      functionName === functionName_deleteContact
     )
       return "Calls";
     if (

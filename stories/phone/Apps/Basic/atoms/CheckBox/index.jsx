@@ -47,6 +47,7 @@ const CheckBox = ({
   setIsChecked,
   style,
   checkboxStyle = { after: {}, checkedColor: "rgb(0, 114, 253)" },
+  display = true,
 }) => {
   const [myIsChecked, mySetIsMyChecked] = useState(false);
   return (
@@ -59,9 +60,11 @@ const CheckBox = ({
             ? setIsChecked(e.target.checked)
             : mySetIsMyChecked(e.target.checked);
         }}></InputContainer>
-      <CheckMarkContainer
-        isChecked={isChecked ? isChecked : myIsChecked}
-        style={checkboxStyle}></CheckMarkContainer>
+      {display && (
+        <CheckMarkContainer
+          isChecked={isChecked ? isChecked : myIsChecked}
+          style={checkboxStyle}></CheckMarkContainer>
+      )}
       {children}
     </Container>
   );

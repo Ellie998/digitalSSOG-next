@@ -26,6 +26,7 @@ const UrlContext = createContext({
   functionName_kakaotalk_groubChatLeave_quietly: "그룹채팅방 조용히 나가기",
   functionName_messageDelete: "",
   functionName_deleteRecentHistory: "",
+  functionName_deleteContact: "",
   ///
   functionName_chatRoomImgChange: "",
   functionName_chatRoomNameChange: "",
