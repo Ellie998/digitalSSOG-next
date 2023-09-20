@@ -11,22 +11,27 @@ import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab/inde
 import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab/index";
 
 function Main({
-  target_friend = { person1: false, modal_nameChange: false, profile: false },
+  target_friend = {
+    person1: false,
+    profile: false,
+    setting: false,
+    modal_nameChange: false,
+    modal_hide: false,
+    settingFriend: false,
+  },
   target_chat = {
     chat: false,
     groupChat: false,
     newChat: false,
     onMouseDown: false,
     leaveChat: false,
-
-    // profile: false,
     changeName: false,
     modal: false,
   },
   target_openChat = {},
   target_shopping = {},
   target_ETC = { setting: false },
-  open_friend = { friendModal: false },
+  open_friend = { friendModal: false, modal: false },
   open_chat = { topModal: false, optionModal: false, groupChat: false },
   content_chat = { groupName: "그룹채팅방1" },
   tab = {
@@ -35,6 +40,9 @@ function Main({
     openChat: false,
     shopping: false,
     ETC: false,
+  },
+  content = {
+    modal: { title: "", subTitle: "", content: "", button1: "", button2: "" },
   },
 }) {
   function matchDefaultTabName() {
@@ -58,6 +66,7 @@ function Main({
           target={{ ...target_friend }}
           open={open_friend}
           tab={tab.friend}
+          content={content}
         />
       )}
       {clickedTabName === "chat" && (

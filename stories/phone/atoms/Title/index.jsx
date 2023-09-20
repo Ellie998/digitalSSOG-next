@@ -6,6 +6,7 @@ const Container = styled.div`
   margin-left: 0.5rem /* 8px */;
   color: rgb(38 38 38);
   text-align: start;
+  font-weight: bold;
   ${(props) => (props.style ? props.style : null)}
 `;
 

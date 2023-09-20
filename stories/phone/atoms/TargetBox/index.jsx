@@ -13,12 +13,16 @@ const Container = styled.div`
   border: ${(props) => (props.condition ? "2px solid red" : "none")};
   border-radius: "2px";
   ${(props) => (props.style ? props.style : null)}
+  &:hover {
+    ${(props) => (props.hover ? props.hover : null)}
+  }
 `;
 
 /**  make component border and tooltip */
 const TargetBox = ({
   id = "TargetBox",
   style = { width: "fit-content" },
+  hover,
   onClick,
   condition,
   isNextTriger = true,
@@ -32,6 +36,7 @@ const TargetBox = ({
     <Container
       id={id}
       style={style}
+      hover={hover}
       condition={condition && !isBackTriger}
       data-tooltip={
         condition && !isBackTriger

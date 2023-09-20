@@ -8,15 +8,27 @@ import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/S
 import TargetBox from "stories/phone/atoms/TargetBox/index";
 import Modal from "stories/phone/molecules/Modal/index";
 import ModalContents from "stories/phone/organisms/ModalContents/index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function FriendTab({
   // eslint-disable-next-line react/prop-types
-  target = { profile: false, person1: false, modal_nameChange: false },
+  target = {
+    profile: false,
+    person1: false,
+    setting: false,
+    modal_nameChange: false,
+    modal_hide: false,
+    settingFriend: false,
+  },
   tab,
-  open = { friendModal: false },
+  open = { friendModal: false, modal: false },
+  content,
 }) {
   const [isPerson1Overed, setIsPerson1Overed] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  useEffect(() => {
+    setIsClicked(false);
+  }, []);
 
   const friendListContents = [
     <StackedList_Profile
@@ -78,6 +90,31 @@ function FriendTab({
 
   return (
     <>
+      {open.modal && (
+        <Modal modalStyle={{ top: "70px" }}>
+          <ModalContents
+            title={{
+              content: null || content.modal.title,
+              style: { fontWeight: "bold" },
+            }}
+            subTitle={{
+              content: null || content.modal.subTitle,
+              style: { fontSize: "12px" },
+            }}
+            buttons={{
+              content: [content.modal.button1, content.modal.button2],
+              style: {
+                color: "rgb(8, 119, 255)",
+                fontWeight: "bold",
+                fontSize: "13px",
+                justifyContent: "space-around",
+                marginTop: "4px",
+              },
+            }}>
+            {null || content.modal.content}
+          </ModalContents>
+        </Modal>
+      )}
       {open.friendModal && (
         <Modal modalStyle={{ top: "80px" }}>
           <ModalContents
@@ -93,12 +130,17 @@ function FriendTab({
                 style={{ padding: "2px 0" }}>
                 이름 변경
               </TargetBox>
-              <TargetBox style={{ padding: "2px 0" }}>숨김</TargetBox>
+              <TargetBox
+                condition={target.modal_hide}
+                style={{ padding: "2px 0" }}>
+                숨김
+              </TargetBox>
               <TargetBox style={{ padding: "2px 0" }}>차단</TargetBox>
             </div>
           </ModalContents>
         </Modal>
       )}
+
       <NoScrollBar height="260px">
         <AppHeader
           leftItem={[
@@ -110,9 +152,38 @@ function FriendTab({
             <Icon key="search_icon" name="search" />,
             <Icon key="add_friend_icon" name="person-plus" />,
             <Icon key="music_icon" name="music-note-beamed" />,
-            <Icon key="setting_icon" name="gear" />,
+            <TargetBox
+              condition={target.setting && !isClicked}
+              key="setting_icon"
+              onClick={() => setIsClicked(true)}
+              isNextTriger={false}>
+              <Icon name="gear" />
+            </TargetBox>,
+            isClicked && (
+              <div
+                key={"modal"}
+                style={{
+                  fontSize: "14px",
+                  position: "absolute",
+                  zIndex: "100",
+                  backgroundColor: "white",
+                  borderRadius: "6px",
+                  boxShadow: "0 0 4px rgba(1, 1, 1, 0.275)",
+                  padding: "10px",
+                  width: "100px",
+                  marginLeft: "-100px",
+                  marginTop: "30px",
+                }}>
+                <TargetBox style={{ marginBottom: "4px" }}>편집</TargetBox>
+                <TargetBox
+                  style={{ marginBottom: "4px" }}
+                  condition={target.settingFriend}>
+                  친구 관리
+                </TargetBox>
+                <TargetBox>전체 설정</TargetBox>
+              </div>
+            ),
           ]}></AppHeader>
-
         <>
           <StackedListWrap>{friendListContents[0]}</StackedListWrap>
           <StackedListWrap
