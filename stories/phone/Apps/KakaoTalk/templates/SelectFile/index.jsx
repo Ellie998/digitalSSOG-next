@@ -9,7 +9,11 @@ import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
 import { useState } from "react";
 import ImgSelectedBox from "../../atoms/ImgSelectedBox/index";
 
-const SelectFile = ({ num = 13, target = { send: false } }) => {
+const SelectFile = ({
+  num = 13,
+  target = { send: false },
+  open = { one: false },
+}) => {
   const [choicedImgs, setChoicedImgs] = useState([]);
   const imgNum = [];
   for (let i = 0; i < num; i++) {
@@ -91,33 +95,47 @@ const SelectFile = ({ num = 13, target = { send: false } }) => {
           gridTemplateColumns: "repeat(3,auto)",
           rowGap: "4px",
         }}>
-        {imgNum.map((num) => (
-          <ImgSelectBox
-            choicedImgs={choicedImgs}
-            key={num}
-            id={num}
-            style={{ width: "55px", height: "55px" }}
-            onChangeHandler={imgCheckHandler}
-          />
-        ))}
+        {!open.one &&
+          imgNum.map((num) => (
+            <ImgSelectBox
+              choicedImgs={choicedImgs}
+              key={num}
+              id={num}
+              style={{ width: "55px", height: "55px" }}
+              onChangeHandler={imgCheckHandler}
+            />
+          ))}
+        {open.one &&
+          imgNum.map((num) => (
+            <TargetBox key={num} condition={num === 4}>
+              <ImgSelectBox
+                choicedImgs={choicedImgs}
+                id={num}
+                style={{ width: "55px", height: "55px" }}
+                onChangeHandler={imgCheckHandler}
+              />
+            </TargetBox>
+          ))}
       </NoScrollbar>
-      <Flex
-        items={[
-          <TargetBox key="1">
-            <label htmlFor="group_img" style={{ display: "flex" }}>
-              <input id="group_img" type="checkbox" />
-              <div>사진 묶어보내기</div>
-            </label>
-          </TargetBox>,
-          <Flex
-            key="2"
-            items={[
-              <Icon key="1" name="magic" />,
-              <Icon key="2" name="three-dots" />,
-            ]}
-          />,
-        ]}
-      />
+      {!open.one && (
+        <Flex
+          items={[
+            <TargetBox key="1">
+              <label htmlFor="group_img" style={{ display: "flex" }}>
+                <input id="group_img" type="checkbox" />
+                <div>사진 묶어보내기</div>
+              </label>
+            </TargetBox>,
+            <Flex
+              key="2"
+              items={[
+                <Icon key="1" name="magic" />,
+                <Icon key="2" name="three-dots" />,
+              ]}
+            />,
+          ]}
+        />
+      )}
     </Phone>
   );
 };

@@ -18,6 +18,7 @@ import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/Sett
 import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index";
 import Gallery from "stories/phone/Apps/Basic/Gallery/index";
 import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
+import EditImg from "stories/phone/Apps/KakaoTalk/templates/EditImg/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -36,6 +37,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_leaveChat,
     functionName_chatRoomNameChange,
     functionName_chatRoomImgChange,
+    functionName_changeProileImg,
     functionName_messageDelete,
   } = useContext(UrlContext);
 
@@ -59,7 +61,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            target_friend={{ profile: true }}
+            target_friend={{ person1: true }}
           />,
           <Profile key="Profile" target={{ chat: true }} />,
           <Chat key="chat" />,
@@ -172,7 +174,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            target_friend={{ profile: true }}
+            target_friend={{ person1: true }}
           />,
           <Profile key="profile" target={{ chat: true }} />,
           <Chat key="chat1" target={{ optionBtn: true }} />,
@@ -207,7 +209,7 @@ function Chats({ functionName, methodId, descriptionId }) {
           <Main
             key="Main"
             tab={{ friend: true }}
-            target_friend={{ profile: true }}
+            target_friend={{ person1: true }}
           />,
           <Profile key="profile" target={{ chat: true }} />,
           <Chat key="chat1" target={{ optionBtn: true }} />,
@@ -691,6 +693,80 @@ function Chats({ functionName, methodId, descriptionId }) {
             }}
           />,
           <Chat key="chat5" open={{ chat: false }} />,
+        ][descriptionId];
+      }
+      break;
+    case functionName_changeProileImg:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main
+            key="Main"
+            tab={{ friend: true }}
+            target_friend={{ profile: true }}
+          />,
+          <Profile
+            key="3"
+            open={{ myProfile: true }}
+            target={{ edit: true }}
+            content={{
+              name: "진수",
+              profileStyle: {
+                color: "rgb(226, 243, 255)",
+                backgroundColor: "rgb(193, 229, 255)",
+              },
+            }}
+          />,
+          <Profile
+            key="4"
+            open={{ edit: true }}
+            target_edit={{ img: true }}
+            content={{
+              name: "진수",
+              profileStyle: {
+                color: "rgb(226, 243, 255)",
+                backgroundColor: "rgb(193, 229, 255)",
+              },
+            }}
+          />,
+          <Profile
+            key="4"
+            open={{ edit: true, modal: true }}
+            target_edit={{ img: true }}
+            content={{
+              name: "진수",
+              profileStyle: {
+                color: "rgb(226, 243, 255)",
+                backgroundColor: "rgb(193, 229, 255)",
+              },
+            }}
+            target_modal={{ gallery: true }}
+          />,
+          <SelectFile key="5" open={{ one: true }} />,
+          <EditImg key="6" target={{ submit: true }} />,
+          <Profile
+            key="7"
+            open={{ edit: true }}
+            target_edit={{ submit: true }}
+            content={{
+              name: "진수",
+              profileStyle: {
+                color: "antiquewhite",
+                backgroundColor: "antiquewhite",
+              },
+            }}
+          />,
+          <Profile
+            key="8"
+            open={{ myProfile: true }}
+            content={{
+              name: "진수",
+              profileStyle: {
+                color: "antiquewhite",
+                backgroundColor: "antiquewhite",
+              },
+            }}
+          />,
         ][descriptionId];
       }
       break;

@@ -26,6 +26,7 @@ const functionName_messageDelete = "메시지 삭제하기";
 const functionName_deleteRecentHistory = "최근 기록 삭제하기";
 const functionName_deleteContact = "연락처 삭제하기";
 //
+const functionName_changeProileImg = "프로필 사진 변경하기";
 const functionName_chatRoomNameChange = "채팅방 이름 변경하기";
 const functionName_chatRoomImgChange = "그룹채팅방 프로필 이미지 변경하기";
 const functionName_leaveChat = "채팅방(개인 채팅, 그룹 채팅) 나가기";
@@ -118,6 +119,8 @@ export default function UrlContextProvider({ children }) {
         functionName_leaveChat,
         functionName_chatRoomImgChange,
         functionName_chatRoomNameChange,
+        functionName_changeProileImg,
+        ///
         functionName_messageDelete,
         functionName_deleteRecentHistory,
         functionName_deleteContact,

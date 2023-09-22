@@ -39,7 +39,7 @@ function Calls({ functionName, methodId, descriptionId }) {
         <Main
           key="KakaoAppMain"
           tab={{ friend: true }}
-          target_friend={{ profile: true }}
+          target_friend={{ person1: true }}
         />,
         <Profile key="Profile" target={{ call: true }} />,
         <CallConnected key="callConnected" />,
@@ -59,7 +59,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key="KakaoAppMain"
             tab={{ friend: true }}
-            target_friend={{ profile: true }}
+            target_friend={{ person1: true }}
           />,
           <Profile key="Profile" target={{ videoCall: true }} />,
           <VideoCallConnected key="connected1" open={{ modal: true }} />,
@@ -97,7 +97,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key={"2"}
             tab={{ friend: true }}
-            target_friend={{ profile: true }}
+            target_friend={{ person1: true }}
           />,
           <Profile key={"3"} target={{ name: true }} />,
           <Setting_ProfileName
@@ -113,7 +113,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key={"2"}
             tab={{ friend: true }}
-            target_friend={{ person1: true }}
+            target_friend={{ person1: true, onMouseDown: true }}
           />,
           <Main
             key={"2"}
@@ -136,7 +136,7 @@ function Calls({ functionName, methodId, descriptionId }) {
           <Main
             key={"2"}
             tab={{ friend: true }}
-            target_friend={{ person1: true }}
+            target_friend={{ person1: true, onMouseDown: true }}
           />,
           <Main
             key={"3"}

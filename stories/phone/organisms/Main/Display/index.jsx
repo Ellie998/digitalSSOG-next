@@ -37,6 +37,8 @@ function Display() {
     functionName_leaveChat,
     functionName_chatRoomNameChange,
     functionName_chatRoomImgChange,
+    functionName_changeProileImg,
+    //
     functionName_messageDelete,
     functionName_deleteRecentHistory,
     functionName_deleteContact,
@@ -75,7 +77,8 @@ function Display() {
       functionName === functionName_leaveChat ||
       functionName === functionName_chatRoomImgChange ||
       functionName === functionName_chatRoomNameChange ||
-      functionName === functionName_messageDelete
+      functionName === functionName_messageDelete ||
+      functionName === functionName_changeProileImg
     )
       return "Chats";
   };

@@ -18,6 +18,7 @@ function Main({
     modal_nameChange: false,
     modal_hide: false,
     settingFriend: false,
+    onMouseDown: false,
   },
   target_chat = {
     chat: false,

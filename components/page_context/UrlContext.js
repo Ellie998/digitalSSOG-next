@@ -30,6 +30,7 @@ const UrlContext = createContext({
   ///
   functionName_chatRoomImgChange: "",
   functionName_chatRoomNameChange: "",
+  functionName_changeProileImg: "",
 
   //
   appName_basic: "",

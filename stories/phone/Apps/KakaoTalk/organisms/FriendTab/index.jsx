@@ -19,12 +19,12 @@ function FriendTab({
     modal_nameChange: false,
     modal_hide: false,
     settingFriend: false,
+    onMouseDown: false,
   },
   tab,
   open = { friendModal: false, modal: false },
   content,
 }) {
-  const [isPerson1Overed, setIsPerson1Overed] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     setIsClicked(false);
@@ -185,15 +185,19 @@ function FriendTab({
             ),
           ]}></AppHeader>
         <>
-          <StackedListWrap>{friendListContents[0]}</StackedListWrap>
+          <StackedListWrap>
+            <TargetBox condition={target.profile && tab}>
+              {friendListContents[0]}
+            </TargetBox>
+          </StackedListWrap>
           <StackedListWrap
             className="border-none"
             listTitle={{ content: "친구 2" }}>
             <TargetBox
-              onMouseDown={target.person1 && (() => setIsPerson1Overed(true))}
-              condition={
-                (target.profile || (target.person1 && !isPerson1Overed)) && tab
-              }>
+              onMouseDown={
+                target.person1 && target.onMouseDown ? () => {} : null
+              }
+              condition={target.person1 && tab}>
               {friendListContents[1]}
             </TargetBox>
             {friendListContents[2]}
