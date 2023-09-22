@@ -114,5 +114,10 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/연락처-삭제하기",
       lastModified: new Date(),
     },
+    {
+      // <!--프로필 사진 변경하기-->
+      url: "https://digitalssog.com/description/프로필-사진-변경하기",
+      lastModified: new Date(),
+    },
   ];
 }
