@@ -57,6 +57,7 @@ function Chat({
   },
   inputLocked,
   target = {
+    sendChatContent: false,
     sendImg: false,
     sendPhoneNum: false,
     resend: false,
@@ -473,21 +474,23 @@ function Chat({
             }}
           />
         )}
-        {(messageContent || open.sendedChat) && !open.deleteMode && (
-          <ChatList
-            isSendList={true}
-            className="mt-2"
-            message={{
-              className: "bg-kakaoYellow",
-              content:
-                messageContent || (open.sendedChat && content.sendChatContent),
-            }}
-            timeStamp={{
-              className: "",
-              content: "오전 9:54",
-            }}
-          />
-        )}
+        {(messageContent || (open.sendedChat && content.sendChatContent)) &&
+          !open.deleteMode && (
+            <ChatList
+              isSendList={true}
+              className="mt-2"
+              message={{
+                className: "bg-kakaoYellow",
+                content:
+                  messageContent ||
+                  (open.sendedChat && content.sendChatContent),
+              }}
+              timeStamp={{
+                className: "",
+                content: "오전 9:54",
+              }}
+            />
+          )}
         {/* delete mode messages */}
         {open.deleteMode && open.chat && (
           <>

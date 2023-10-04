@@ -119,5 +119,10 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/프로필-사진-변경하기",
       lastModified: new Date(),
     },
+    {
+      // <!--보낸 메시지 취소하기-->
+      url: "https://digitalssog.com/description/보낸-메시지-취소하기",
+      lastModified: new Date(),
+    },
   ];
 }

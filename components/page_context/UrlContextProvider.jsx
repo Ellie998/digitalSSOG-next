@@ -124,6 +124,7 @@ export default function UrlContextProvider({ children }) {
         functionName_messageDelete,
         functionName_deleteRecentHistory,
         functionName_deleteContact,
+        functionName_cancelMessage: "보낸 메시지 취소하기",
         //
         functionName_kakaotalk_groubChatLeave_rejectInvitation,
         functionName_kakaotalk_groubChatLock,

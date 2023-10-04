@@ -40,6 +40,7 @@ function Display() {
     functionName_changeProileImg,
     //
     functionName_messageDelete,
+    functionName_cancelMessage,
     functionName_deleteRecentHistory,
     functionName_deleteContact,
     //
@@ -78,6 +79,7 @@ function Display() {
       functionName === functionName_chatRoomImgChange ||
       functionName === functionName_chatRoomNameChange ||
       functionName === functionName_messageDelete ||
+      functionName === functionName_cancelMessage ||
       functionName === functionName_changeProileImg
     )
       return "Chats";

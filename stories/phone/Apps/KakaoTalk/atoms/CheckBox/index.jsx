@@ -37,10 +37,11 @@ const CheckMarkContainer = styled.span`
   }
 `;
 
-const CheckBox = ({ id, children, isChecked, setIsChecked }) => {
+const CheckBox = ({ id, children, isChecked, setIsChecked, label }) => {
   const [myIsChecked, mySetIsMyChecked] = useState(false);
   return (
     <Container>
+      {label}
       <InputContainer
         type="checkbox"
         id={`check${id}`}

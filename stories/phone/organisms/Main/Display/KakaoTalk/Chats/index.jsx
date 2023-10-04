@@ -19,6 +19,9 @@ import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index"
 import Gallery from "stories/phone/Apps/Basic/Gallery/index";
 import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
 import EditImg from "stories/phone/Apps/KakaoTalk/templates/EditImg/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Icon from "stories/phone/atoms/Icon/index";
+import CheckBox from "stories/phone/Apps/KakaoTalk/atoms/CheckBox/index";
 
 function Chats({ functionName, methodId, descriptionId }) {
   //
@@ -39,6 +42,7 @@ function Chats({ functionName, methodId, descriptionId }) {
     functionName_chatRoomImgChange,
     functionName_changeProileImg,
     functionName_messageDelete,
+    functionName_cancelMessage,
   } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -693,6 +697,115 @@ function Chats({ functionName, methodId, descriptionId }) {
             }}
           />,
           <Chat key="chat5" open={{ chat: false }} />,
+        ][descriptionId];
+      }
+      break;
+    case functionName_cancelMessage:
+      if (methodId === "1") {
+        choicedComponent = [
+          <Home key="mainApps" appName_kakaotalk />,
+          <Main key="Main" tab={{ chat: true }} target_chat={{ chat: true }} />,
+          <Chat
+            key="chat1"
+            // target={{ chatOption: true, sendChatContent: true }}
+            open={{ chat: true, sendedChat: true }}
+            content={{
+              name: "영희",
+              chat: "좋은 아침 ^^",
+              chatName: "영희",
+              sendChatContent: (
+                <TargetBox condition={true} onMouseDown={() => {}}>
+                  그래^^ 좋은 아침
+                </TargetBox>
+              ),
+            }}
+          />,
+          <Chat
+            key="chat2"
+            target_chat={{ delete: true }}
+            open={{ chat: true, contentOption: true }}
+          />,
+          <Chat
+            key="chat3"
+            open={{ chat: true, modal: true }}
+            content={{
+              chat: "좋은 아침^^",
+              name: "영희",
+              chatName: "영희",
+              modalTitle: "삭제",
+              modalContent: (
+                <>
+                  <label
+                    htmlFor="radio1"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "4px 0",
+                    }}>
+                    <div>모든 대화 상대에게서 삭제</div>
+                    <input type="radio" id="radio1" name="delete" />
+                  </label>
+                  <label
+                    htmlFor="radio2"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "4px 0",
+                    }}>
+                    <div>이 기기에서 삭제</div>
+                    <input type="radio" id="radio2" name="delete" />
+                  </label>
+                </>
+              ),
+              modalBtn: (
+                <TargetBox
+                  condition={true}
+                  style={{ color: "rgb(59, 130, 246)" }}>
+                  확인
+                </TargetBox>
+              ),
+            }}
+          />,
+          <Chat
+            key="chat4"
+            open={{ chat: true, modal: true }}
+            target={{ modalBtn: true }}
+            content={{
+              chat: "좋은 아침^^",
+              name: "영희",
+              chatName: "영희",
+              modalTitle: "모든 대화 상대에게서 삭제",
+              modalContent: (
+                <>
+                  선택한 메시지를 모든 대화 상대의 채팅방 화면에서 삭제합니다.
+                  다만, 채팅방 내 사용자의 카카오톡 버전에 따라 메시지가
+                  삭제되지 않을 수 있습니다. 메시지를 삭제하겠습니까?
+                </>
+              ),
+              modalBtn: "삭제",
+            }}
+          />,
+          <Chat
+            key="chat5"
+            open={{ chat: true, sendedChat: true }}
+            content={{
+              chat: "좋은 아침^^",
+              name: "영희",
+              chatName: "영희",
+              modalTitle: "모든 대화 상대에게서 삭제",
+              sendChatContent: (
+                <div style={{ display: "flex" }}>
+                  <Icon
+                    name="info-circle-fill"
+                    style={{ fontSize: "10px", color: "grey" }}
+                  />
+                  <div style={{ fontSize: "10px", color: "grey" }}>
+                    삭제된 메시지입니다.
+                  </div>
+                </div>
+              ),
+            }}
+          />,
         ][descriptionId];
       }
       break;
