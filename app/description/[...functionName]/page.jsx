@@ -50,6 +50,7 @@ export async function generateMetadata({ params }) {
       manifest: "/assets/favicon/site.webmanifest",
     },
     openGraph: {
+      site_name: "DigitalSSOG Description",
       title: `${functionName} 기능 사용법 - 디지털쏙`,
       description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
       url: `https://digitalssog.com/description/${functionName}`,

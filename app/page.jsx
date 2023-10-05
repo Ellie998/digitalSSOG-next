@@ -46,6 +46,7 @@ export const metadata = {
     manifest: "/assets/favicon/site.webmanifest",
   },
   openGraph: {
+    site_name: "DigitalSSOG",
     title: "디지털쏙",
     description:
       "디지털쏙 페이지에서 스마트 기기로 할 수 있는 다양한 기능들을 만나 보세요.",
