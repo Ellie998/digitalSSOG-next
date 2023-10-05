@@ -23,10 +23,14 @@ function ETCSetting_lab({ target_groubChatLeave_quietly }) {
       theme: "#fff200",
       title: "실험실 이용하기",
     },
-    //       title: "톡 음성모드",
+
+    //       title: "채팅방 조용히 나가기",
     {
-      title: "톡 음성모드",
-      subTitle: "사용안함",
+      targetOption: target_groubChatLeave_quietly,
+      theme: "#fff200",
+      title: "조용한 채팅방",
+      subTitle: `활동하지 않는 채팅방을 보관하고 숨길 수 있습니다. 
+      기능을 사용하지 않으면 조용한 채팅방이 모두 해제됩니다.`,
     },
     //       title: "말풍선 번역",
     {
@@ -34,20 +38,6 @@ function ETCSetting_lab({ target_groubChatLeave_quietly }) {
       title: "말풍선 번역",
       subTitle:
         "카카오톡에서 사용하는 언어와 다른 언어의 말풍선을 길게 눌러 번역할 수 있습니다.",
-    },
-    //       title: "채팅방 조용히 나가기",
-    {
-      targetOption: target_groubChatLeave_quietly,
-      theme: "#fff200",
-      title: "채팅방 조용히 나가기",
-      subTitle: `그룹채팅방에서 나가기 시, 조용히 나가기를 선택할 수 있습니다.
-        조용히 나가는 경우 채팅방에 나간 기록이 표시되지 않습니다.`,
-    },
-    //      title: "빠른 공감하기",
-    {
-      theme: "#fff200",
-      title: "빠른 공감하기",
-      subTitle: `말풍선을 빠르게 두 번 탭해 하트 공감을 날릴 수 있습니다.`,
     },
     //       title: "인앱브라우저 앱 화면 분리",
     {

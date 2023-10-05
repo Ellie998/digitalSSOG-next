@@ -430,11 +430,6 @@ function Chats({ functionName, methodId, descriptionId }) {
     case functionName_kakaotalk_groubChatLeave_quietly:
       choicedComponent = [
         <Home key="mainApps" appName_kakaotalk />,
-        <Main key="Main" tab={{ ETC: true }} target_ETC={{ setting: true }} />,
-        <ETCSetting key="ETCSetting1" target_lab />,
-        <ETCSetting_lab key="ETCSetting_lab" target_groubChatLeave_quietly />,
-        <ETCSetting key="ETCSetting2" target_backBtn />,
-        //
         <Main
           key="Main1"
           tab={{ chat: true }}
@@ -468,6 +463,11 @@ function Chats({ functionName, methodId, descriptionId }) {
             chat: "퇴사합니다.",
             num: "3",
             chatName: "그룹채팅",
+            modalTitle: "채팅방 나가기",
+            modalContent: `나가기를 하면 대화내용이 모두
+            삭제되고
+            채팅 목록에서도 삭제됩니다.`,
+            modalBtn: "나가기",
           }}
           open={{ modal: true }}
           target={{ leave_quietly: true }}

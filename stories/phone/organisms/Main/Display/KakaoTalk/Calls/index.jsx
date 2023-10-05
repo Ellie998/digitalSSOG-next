@@ -104,7 +104,16 @@ function Calls({ functionName, methodId, descriptionId }) {
             key="4"
             content={{ name: name, setName: setName }}
           />,
-          <Profile key={"5"} content={{ name: name }} />,
+          <Profile
+            key={"5"}
+            content={{
+              name: name,
+              profileStyle: {
+                color: "rgb(226, 243, 255)",
+                backgroundColor: "rgb(193, 229, 255)",
+              },
+            }}
+          />,
         ][descriptionId];
       }
       if (methodId === "2") {
@@ -125,7 +134,16 @@ function Calls({ functionName, methodId, descriptionId }) {
             key="4"
             content={{ name: name, setName: setName }}
           />,
-          <Profile key={"5"} content={{ name: name }} />,
+          <Profile
+            key={"5"}
+            content={{
+              name: name,
+              profileStyle: {
+                color: "rgb(226, 243, 255)",
+                backgroundColor: "rgb(193, 229, 255)",
+              },
+            }}
+          />,
         ][descriptionId];
       }
       break;
