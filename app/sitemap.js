@@ -124,5 +124,10 @@ export default function sitemap() {
       url: "https://digitalssog.com/description/보낸-메시지-취소하기",
       lastModified: new Date(),
     },
+    {
+      // <!--글자-크기-변경하기-->
+      url: "https://digitalssog.com/description/글자-크기-변경하기",
+      lastModified: new Date(),
+    },
   ];
 }
