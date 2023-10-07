@@ -20,6 +20,7 @@ export const metadata = {
   },
   robots: {
     index: true,
+    follow: true,
   },
   keywords: ["digital", "app", "function", "description", "tech"],
   icons: {
