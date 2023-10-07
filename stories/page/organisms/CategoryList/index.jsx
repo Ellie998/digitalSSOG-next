@@ -17,8 +17,14 @@ const ListIndex = styled.p`
 
 // eslint-disable-next-line react/prop-types
 const CategoryList = ({ setTabName, tabName }) => {
-  const icons = ["🌱", "🔥", "📞", "❤️"];
-  const categoryNames = ["새로운 기능", "인기있는 기능", "전화와 문자", "sns"];
+  const icons = ["🌱", "🔥", "📞", "❤️", "⚙️"];
+  const categoryNames = [
+    "새로운 기능",
+    "인기있는 기능",
+    "전화와 문자",
+    "sns",
+    "설정",
+  ];
 
   return (
     <Container>

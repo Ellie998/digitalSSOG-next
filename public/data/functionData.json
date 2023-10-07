@@ -1125,7 +1125,7 @@
     ]
   },
   {
-    "category": "setting",
+    "category": "설정",
     "objects": [
       {
         "name": "글자 크기 변경하기",
