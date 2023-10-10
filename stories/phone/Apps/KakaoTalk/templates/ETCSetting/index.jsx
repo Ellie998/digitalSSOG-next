@@ -14,9 +14,7 @@ import Phone from "stories/phone/molecules/Phone/index";
 import TargetBox from "stories/phone/atoms/TargetBox/index";
 
 function ETCSetting({
-  target_lab,
-  target_backBtn,
-  target = { display: false },
+  target = { display: false, backBtn: false, lab: false },
 }) {
   const settingMenuContents1 = [
     // 개인/보안
@@ -63,7 +61,7 @@ function ETCSetting({
     },
     // 실험실
     {
-      condition: target_lab,
+      condition: target.lab,
       profile: "lightbulb",
       title: "실험실",
     },
@@ -108,7 +106,7 @@ function ETCSetting({
           <AppHeader
             leftItem={[
               <BackBtn
-                condition={target_backBtn}
+                condition={target.backBtn}
                 isNextTriger={true}></BackBtn>,
               "설정",
             ]}
