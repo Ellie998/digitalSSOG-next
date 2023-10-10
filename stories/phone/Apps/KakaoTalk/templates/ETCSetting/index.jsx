@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
@@ -11,8 +11,13 @@ import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
 
 import Phone from "stories/phone/molecules/Phone/index";
+import TargetBox from "stories/phone/atoms/TargetBox/index";
 
-function ETCSetting({ target_lab, target_backBtn }) {
+function ETCSetting({
+  target_lab,
+  target_backBtn,
+  target = { display: false },
+}) {
   const settingMenuContents1 = [
     // 개인/보안
     {
@@ -31,6 +36,7 @@ function ETCSetting({ target_lab, target_backBtn }) {
     },
     // 화면
     {
+      condition: target.display,
       profile: "brightness-low",
       title: "화면",
     },
@@ -57,7 +63,7 @@ function ETCSetting({ target_lab, target_backBtn }) {
     },
     // 실험실
     {
-      targetOption: target_lab,
+      condition: target_lab,
       profile: "lightbulb",
       title: "실험실",
     },
@@ -132,10 +138,9 @@ function ETCSetting({ target_lab, target_backBtn }) {
           {/*  settingMenuContents1 */}
           <StackedListWrap>
             {settingMenuContents1?.map((menu, i) => (
-              <TargetContent
+              <TargetBox
                 key={i}
-                isNextDescriptionLink
-                targetOption={menu.targetOption}
+                condition={menu.condition}
                 onClick={menu.onClick}>
                 <StackedList_Profile
                   className="hover:bg-gray-100 h-10"
@@ -154,15 +159,15 @@ function ETCSetting({ target_lab, target_backBtn }) {
                       ? { content: menu.subTitle, className: "ml-2" }
                       : undefined
                   }></StackedList_Profile>
-              </TargetContent>
+              </TargetBox>
             ))}
           </StackedListWrap>
           {/*  settingMenuContents2 */}
           <StackedListWrap>
             {settingMenuContents2?.map((menu, i) => (
-              <TargetContent
+              <TargetBox
                 key={i}
-                targetOption={menu.targetOption}
+                condition={menu.condition}
                 onClick={menu.onClick}>
                 <StackedList_Profile
                   className="hover:bg-gray-100 h-10"
@@ -181,7 +186,7 @@ function ETCSetting({ target_lab, target_backBtn }) {
                       ? { content: menu.subTitle, className: "ml-2" }
                       : undefined
                   }></StackedList_Profile>
-              </TargetContent>
+              </TargetBox>
             ))}
           </StackedListWrap>
         </>

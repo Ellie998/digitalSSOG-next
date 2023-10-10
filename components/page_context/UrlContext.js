@@ -32,7 +32,8 @@ const UrlContext = createContext({
   functionName_chatRoomImgChange: "",
   functionName_chatRoomNameChange: "",
   functionName_changeProileImg: "",
-
+  //
+  functionName_controlFontSize: "글자 크기 변경하기",
   //
   appName_basic: "",
   appName_kakaotalk: "",

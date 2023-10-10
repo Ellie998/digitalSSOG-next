@@ -125,6 +125,7 @@ export default function UrlContextProvider({ children }) {
         functionName_deleteRecentHistory,
         functionName_deleteContact,
         functionName_cancelMessage: "보낸 메시지 취소하기",
+        functionName_controlFontSize: "글자 크기 변경하기",
         //
         functionName_kakaotalk_groubChatLeave_rejectInvitation,
         functionName_kakaotalk_groubChatLock,

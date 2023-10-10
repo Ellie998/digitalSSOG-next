@@ -9,6 +9,7 @@ import { default as Calls_Basic } from "stories/phone/organisms/Main/Display/Bas
 import { default as Chats_Basic } from "stories/phone/organisms/Main/Display/Basic/Chats/index";
 import { default as Calls_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Calls/index";
 import { default as Chats_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Chats/index";
+import { default as Settings_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Settings/index";
 
 function Display() {
   const {
@@ -47,6 +48,8 @@ function Display() {
     functionName_kakaotalk_groubChatLeave_rejectInvitation,
     functionName_kakaotalk_groubChatLock,
     functionName_kakaotalk_groubChatLeave_quietly,
+    //setting
+    functionName_controlFontSize,
   } = useContext(UrlContext);
 
   const appName = myAppName;
@@ -83,6 +86,7 @@ function Display() {
       functionName === functionName_changeProileImg
     )
       return "Chats";
+    if (functionName === functionName_controlFontSize) return "Settings";
   };
 
   const functionCategory = findFunctionCategory();
@@ -119,6 +123,13 @@ function Display() {
           )}
           {functionCategory === "Chats" && (
             <Chats_KakaoTalk
+              functionName={functionName}
+              methodId={methodId}
+              descriptionId={descriptionId}
+            />
+          )}
+          {functionCategory === "Settings" && (
+            <Settings_KakaoTalk
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
