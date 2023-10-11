@@ -12,6 +12,7 @@ import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 
 import ETCSetting from "stories/phone/Apps/KakaoTalk/templates/ETCSetting/index";
+import Setting_Display from "stories/phone/Apps/KakaoTalk/templates/Setting_Display/index";
 
 function Settings({ functionName, methodId, descriptionId }) {
   const { functionName_controlFontSize } = useContext(UrlContext);
@@ -29,6 +30,7 @@ function Settings({ functionName, methodId, descriptionId }) {
             target_ETC={{ setting: true }}
           />,
           <ETCSetting key="etc_setting" target={{ display: true }} />,
+          <Setting_Display key="setting_display" target={{ fontSize: true }} />,
         ][descriptionId];
       break;
     default:
