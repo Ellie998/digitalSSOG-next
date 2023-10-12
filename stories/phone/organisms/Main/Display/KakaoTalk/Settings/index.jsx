@@ -13,6 +13,7 @@ import UrlContext from "components/page_context/UrlContext";
 
 import ETCSetting from "stories/phone/Apps/KakaoTalk/templates/ETCSetting/index";
 import Setting_Display from "stories/phone/Apps/KakaoTalk/templates/Settings/Setting_Display/index";
+import Setting_FontSize from "stories/phone/Apps/KakaoTalk/templates/Settings/Setting_FontSize/index";
 
 function Settings({ functionName, methodId, descriptionId }) {
   const { functionName_controlFontSize } = useContext(UrlContext);
@@ -31,6 +32,7 @@ function Settings({ functionName, methodId, descriptionId }) {
           />,
           <ETCSetting key="etc_setting" target={{ display: true }} />,
           <Setting_Display key="setting_display" target={{ fontSize: true }} />,
+          <Setting_FontSize key="settig_fontsize" />,
         ][descriptionId];
       break;
     default:
