@@ -13,6 +13,7 @@ export default function ChatList({
   children,
   onPointerDown,
   id,
+  fontSize,
 }) {
   return (
     <>
@@ -30,6 +31,7 @@ export default function ChatList({
           {/* name */}
           {name !== undefined && (
             <div
+              style={{ fontSize: fontSize ? fontSize : null }}
               className={`text-xs text-left col-start-2 row-start-1 col-end-7
           row-end-2 ${name.className}`}>
               {name.content}
@@ -38,6 +40,7 @@ export default function ChatList({
           {/* message */}
           {message !== undefined && (
             <div
+              style={{ fontSize: fontSize ? fontSize : null }}
               className={`text-xs w-fit text-gray-700 rounded-xl py-1 px-2  col-end-5  row-start-2 row-end-3 ${
                 message.className
               }
@@ -54,6 +57,7 @@ export default function ChatList({
           {/* timeStamp */}
           {timeStamp !== undefined && (
             <div
+              style={{ fontSize: fontSize ? fontSize : null }}
               className={`ml-1 text-2xs self-end row-start-2 row-end-3 col-start-5 col-end-7  ${timeStamp.className}`}>
               {timeStamp.content}
             </div>

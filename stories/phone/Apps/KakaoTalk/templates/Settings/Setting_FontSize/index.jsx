@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const SampleContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 180px;
   background-color: var(--kakao-blue);
   padding-top: 30px;
 `;
@@ -37,6 +37,7 @@ const Setting_FontSize = () => {
       />
       <SampleContainer>
         <ChatList
+          fontSize={`${position * 2 + 8}px`}
           isGetList={true}
           className=""
           profile={{
@@ -56,6 +57,7 @@ const Setting_FontSize = () => {
           }}
         />
         <ChatList
+          fontSize={`${position * 2 + 8}px`}
           isGetList={true}
           profile={{
             content: <></>,
