@@ -8,6 +8,7 @@ import Title from "stories/phone/atoms/Title/index";
 
 import Phone from "stories/phone/molecules/Phone/index";
 import ScrollController from "../../../atoms/ScrollController/index";
+import { useState } from "react";
 
 const SampleContainer = styled.div`
   width: 100%;
@@ -26,6 +27,8 @@ const FontSizeControllerContainer = styled.div`
 `;
 
 const Setting_FontSize = () => {
+  const [position, setPosition] = useState(2);
+
   return (
     <Phone>
       <Flex
@@ -70,7 +73,9 @@ const Setting_FontSize = () => {
       </SampleContainer>
       <FontSizeControllerContainer>
         <div style={{ fontSize: "10px" }}>가</div>
-        <ScrollController></ScrollController>
+        <ScrollController
+          position={position}
+          setPosition={setPosition}></ScrollController>
         <div style={{ fontSize: "18px" }}>가</div>
       </FontSizeControllerContainer>
     </Phone>

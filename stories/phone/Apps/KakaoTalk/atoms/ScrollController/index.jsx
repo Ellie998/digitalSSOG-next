@@ -5,7 +5,7 @@ const ControlBarContainer = styled.div`
   width: 100px;
 `;
 const ControlBar = styled.div`
-  width: 25px;
+  width: 20px;
   height: 6px;
   border-left: 1px solid rgb(195, 195, 195);
   ${(props) => (props.style ? props.style : null)}
@@ -13,7 +13,7 @@ const ControlBar = styled.div`
   &::after {
     content: "";
     display: block;
-    width: 25px;
+    width: 20px;
     height: 1px;
     margin-top: 2.5px;
     background-color: rgb(195, 195, 195);
@@ -26,24 +26,31 @@ const Controller = styled.div`
   background-color: white;
   position: absolute;
   z-index: 10;
-  margin-left: 68px;
+  margin-left: ${(props) =>
+    props.position ? `${props.position * 20 + 15}px` : "68px"};
   box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.83);
   cursor: pointer;
 `;
 
-const ScrollController = () => {
+const ScrollController = ({ setPosition, position }) => {
   return (
     <>
       <ControlBarContainer>
-        <ControlBar onDragEnter={() => console.log("entered1")} />
-        <ControlBar onDragEnter={() => console.log("entered2")} />
-        <ControlBar onDragEnter={() => console.log("entered3")} />
-        <ControlBar
-          onDragEnter={() => console.log("entered4")}
-          style={{ borderRight: "1px solid rgb(195, 195, 195)" }}
-        />
+        <ControlBar onDragEnter={() => setPosition(0)} />
+        <ControlBar onDragEnter={() => setPosition(1)} />
+        <ControlBar onDragEnter={() => setPosition(2)} />
+        <ControlBar onDragEnter={() => setPosition(3)} />
+        <ControlBar onDragEnter={() => setPosition(4)} />
+        <div
+          style={{
+            height: "8px",
+            width: "20px",
+            backgroundColor: "black",
+            borderLeft: "1px solid rgb(195, 195, 195)",
+          }}
+          onDragEnter={() => setPosition(5)}></div>
       </ControlBarContainer>
-      <Controller draggable={true}></Controller>
+      <Controller draggable={true} position={position}></Controller>
     </>
   );
 };
