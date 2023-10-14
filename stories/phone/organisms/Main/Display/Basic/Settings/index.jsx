@@ -7,7 +7,7 @@ import Default from "stories/phone/organisms/Main/Default/index";
 import { useContext } from "react";
 import UrlContext from "components/page_context/UrlContext";
 
-function Calls({ functionName, methodId, descriptionId }) {
+function Settings({ functionName, methodId, descriptionId }) {
   const { functionName_controlFontSize } = useContext(UrlContext);
 
   let choicedComponent = <Default />;
@@ -15,7 +15,24 @@ function Calls({ functionName, methodId, descriptionId }) {
   switch (functionName) {
     case functionName_controlFontSize:
       if (methodId === "1") {
-        choicedComponent = [<Home key="mainApps" />][descriptionId];
+        choicedComponent = [
+          <Home key="mainApps" target_action={{ openAlertBar: true }} />,
+          <Home
+            key="mainApps2"
+            open={{ alertBar: true }}
+            target_alertBar={{ setting: true }}
+          />,
+        ][descriptionId];
+      }
+      if (methodId === "2") {
+        choicedComponent = [
+          <Home key="mainApps" target_action={{ openApps: true }} />,
+          <Home
+            key="mainApps2"
+            open={{ apps: true }}
+            target_apps={{ searchBox: true }}
+          />,
+        ][descriptionId];
       }
 
       break;
@@ -27,4 +44,4 @@ function Calls({ functionName, methodId, descriptionId }) {
   return choicedComponent;
 }
 
-export default Calls;
+export default Settings;

@@ -10,6 +10,7 @@ import { default as Chats_Basic } from "stories/phone/organisms/Main/Display/Bas
 import { default as Calls_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Calls/index";
 import { default as Chats_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Chats/index";
 import { default as Settings_KakaoTalk } from "stories/phone/organisms/Main/Display/KakaoTalk/Settings/index";
+import { default as Settings_Basic } from "stories/phone/organisms/Main/Display/Basic/Settings/index";
 
 function Display() {
   const {
@@ -104,6 +105,13 @@ function Display() {
           )}
           {functionCategory === "Chats" && (
             <Chats_Basic
+              functionName={functionName}
+              methodId={methodId}
+              descriptionId={descriptionId}
+            />
+          )}
+          {functionCategory === "Settings" && (
+            <Settings_Basic
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
