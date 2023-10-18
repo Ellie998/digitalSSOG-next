@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import CategoryName from "stories/page/atoms/CategoryName";
+import CategoryName from "stories/page/atoms/CategoryName/index";
 
 const Container = styled.ul`
   padding: 0 50px;

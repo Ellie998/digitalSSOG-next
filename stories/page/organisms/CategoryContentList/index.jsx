@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 
-import CategoryContentLine from "stories/page/atoms/CategoryContentLine";
+import CategoryContentLine from "stories/page/atoms/CategoryContentLine/index";
 
 const data = require("/public/data/functionData.json");
 

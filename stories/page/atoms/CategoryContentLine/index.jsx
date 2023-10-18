@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "@emotion/styled";
 import Link from "next/link";
-import NoteParagraph from "stories/page/atoms/NoteParagraph";
+import NoteParagraph from "stories/page/atoms/NoteParagraph/index";
 
 const Container = styled.li`
   list-style: none;
