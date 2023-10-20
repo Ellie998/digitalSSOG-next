@@ -34,7 +34,7 @@ const PostitDescriptions = () => {
           </>
         }
         content={"화면을 직접 눌러보며 기능을 미리 경험할 수 있습니다."}
-      />{" "}
+      />
     </Container>
   );
 };
