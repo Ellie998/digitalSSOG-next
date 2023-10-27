@@ -1,4 +1,5 @@
 // app/page.jsx
+import IndexFunntionNote from "component/server/organisms/IndexFunctionNote/index";
 import IndexIntro from "component/server/templates/IndexIntro/index";
 import MyLayout from "components/layout/MyLayout";
 
@@ -83,6 +84,7 @@ export default function Page() {
       <MyLayout>
         <main>
           <IndexIntro />
+          <IndexFunntionNote />
         </main>
       </MyLayout>
     </>

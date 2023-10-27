@@ -1,11 +1,16 @@
-import IndexFunctionsPostit from "stories/page/organisms/IndexFunctionsPostit/index";
-import Note from "stories/page/molecules/Note/index";
+import styled from "@emotion/styled";
+import Note from "component/server/molecules/Note/index";
+import IndexFunctionsPostit from "../IndexFunctionsPostit/index";
+
+const Container = styled.section`
+  margin: 0 auto;
+  max-width: 800px;
+`;
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const IndexFunntionNote = () => {
   return (
-    /* max-width: 800px; */
-    <section className="max-w-4xl mx-auto my-0">
+    <Container>
       <Note
         title={"스마트 기기로 사용 가능한 기능들"}
         subTitle={
@@ -14,7 +19,7 @@ const IndexFunntionNote = () => {
         holeNum={17}>
         <IndexFunctionsPostit />
       </Note>
-    </section>
+    </Container>
   );
 };
 
