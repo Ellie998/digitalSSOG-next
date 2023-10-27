@@ -18,34 +18,32 @@
   position: "block";
   transition: 0.1s;
 
-  &:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0;
-    height: "0px";
-
-    transform: skewX(-30deg);
-  }
-
   @media (max-width: 600px) {
     font-size: 1.3rem;
   }
 }
 
+.container:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: "0px";
+
+  transform: skewX(-30deg);
+}
 .container--clicked {
   position: "relative";
-  &:after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 0;
-    height: "4px";
-    background-color: "red";
-    transform: skewX(-30deg);
-    animation: "border_lr_anim 0.5s linear forwards";
-  }
-
+}
+.container--clicked:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: "4px";
+  background-color: "red";
+  transform: skewX(-30deg);
+  animation: "border_lr_anim 0.5s linear forwards";
   @keyframes border_lr_anim {
     0% {
       width: 0%;
@@ -60,9 +58,10 @@
   font-family: "Cafe24Shiningstar";
   font-size: 1.5rem;
   font-weight: "normal";
-  &:hover {
-    font-weight: 900;
-  }
+}
+
+.paragraphContainer:hover {
+  font-weight: 900;
 }
 .paragraphContainer--clicked {
   font-weight: "bold";

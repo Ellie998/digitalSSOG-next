@@ -7,10 +7,10 @@
   box-shadow:
     inset 2px 4px 3px rgba(166, 166, 166, 0.187),
     0 0px 3px rgba(0, 0, 0, 0.333);
+}
 
-  &:hover {
-    box-shadow:
-      inset 2px 4px 3px rgba(166, 166, 166, 0),
-      0 0px 3px rgba(0, 0, 0, 0.45);
-  }
+.NoteHoleOne:hover {
+  box-shadow:
+    inset 2px 4px 3px rgba(166, 166, 166, 0),
+    0 0px 3px rgba(0, 0, 0, 0.45);
 }
