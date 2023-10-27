@@ -8,7 +8,7 @@ const Container = styled.section`
 `;
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const IndexFunntionNote = ({ tabName, setTabName }) => {
+const IndexFuntionNote = ({ tabName, setTabName }) => {
   return (
     <Container>
       <Note
