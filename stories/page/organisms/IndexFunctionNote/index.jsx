@@ -22,3 +22,5 @@ const IndexFuntionNote = ({ tabName, setTabName }) => {
     </Container>
   );
 };
+
+export default IndexFuntionNote;
