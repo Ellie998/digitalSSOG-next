@@ -1,19 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "./index.module.css";
 import CategoryName from "component/server/atoms/CategoryName/index";
-
-const Container = styled.ul`
-  padding: 0 50px;
-`;
-
-const ListIndex = styled.p`
-  font-weight: bold;
-  padding: 0 0 10px 0;
-  display: inline-block;
-  margin-left: 0.5rem;
-  min-width: max-content;
-
-  transition: 0.1s;
-`;
 
 // eslint-disable-next-line react/prop-types
 const CategoryList = ({ setTabName, tabName }) => {
@@ -27,8 +13,8 @@ const CategoryList = ({ setTabName, tabName }) => {
   ];
 
   return (
-    <Container>
-      <ListIndex>카테고리 : </ListIndex>
+    <ul className={styled.container}>
+      <p className={styled.listIndex}>카테고리 : </p>
       {categoryNames.map((categoryName, i) => (
         <CategoryName
           key={i}
@@ -40,7 +26,7 @@ const CategoryList = ({ setTabName, tabName }) => {
             : `${icons[i]} ${categoryName}`}
         </CategoryName>
       ))}
-    </Container>
+    </ul>
   );
 };
 

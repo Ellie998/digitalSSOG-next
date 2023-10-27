@@ -1,14 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "./index.module.css";
 import NoteHoleOne from "component/server/atoms/NoteHoleOne/index";
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-`;
 
 // eslint-disable-next-line react/prop-types
 const NoteHoles = ({ number }) => {
@@ -21,11 +12,11 @@ const NoteHoles = ({ number }) => {
   }
 
   return (
-    <Container>
+    <div className={styled.NoteHoles}>
       {noteHoleComponents.map((i) => (
         <NoteHoleOne key={i} />
       ))}
-    </Container>
+    </div>
   );
 };
 

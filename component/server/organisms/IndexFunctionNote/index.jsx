@@ -1,16 +1,12 @@
-import styled from "@emotion/styled";
 import Note from "component/server/molecules/Note/index";
 import IndexFunctionsPostit from "../IndexFunctionsPostit/index";
 
-const Container = styled.section`
-  margin: 0 auto;
-  max-width: 800px;
-`;
+/* max-width: 800px; */
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const IndexFunntionNote = () => {
   return (
-    <Container>
+    <section className="max-w-3xl mx-auto my-0">
       <Note
         title={"스마트 기기로 사용 가능한 기능들"}
         subTitle={
@@ -19,7 +15,7 @@ const IndexFunntionNote = () => {
         holeNum={17}>
         <IndexFunctionsPostit />
       </Note>
-    </Container>
+    </section>
   );
 };
 

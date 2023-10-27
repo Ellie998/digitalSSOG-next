@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Cafe24Shiningstar";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.container {
+  list-style: none;
+  padding: 0 0 10px 0;
+  display: inline-block;
+  margin-left: 0.5rem;
+  min-width: max-content;
+  max-height: 40px;
+  /*  */
+  position: "block";
+  transition: 0.1s;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: "0px";
+
+    transform: skewX(-30deg);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+  }
+}
+
+.container--clicked {
+  position: "relative";
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: "4px";
+    background-color: "red";
+    transform: skewX(-30deg);
+    animation: "border_lr_anim 0.5s linear forwards";
+  }
+
+  @keyframes border_lr_anim {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 105%;
+    }
+  }
+}
+
+.paragraphContainer {
+  font-family: "Cafe24Shiningstar";
+  font-size: 1.5rem;
+  font-weight: "normal";
+  &:hover {
+    font-weight: 900;
+  }
+}
+.paragraphContainer--clicked {
+  font-weight: "bold";
+}
