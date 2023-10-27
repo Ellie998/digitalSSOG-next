@@ -1,5 +1,5 @@
 // app/page.jsx
-import Index from "components/layout/Index";
+import IndexIntro from "component/server/templates/IndexIntro/index";
 import MyLayout from "components/layout/MyLayout";
 
 export const runtime = "edge";
@@ -81,7 +81,9 @@ export default function Page() {
   return (
     <>
       <MyLayout>
-        <Index></Index>
+        <main>
+          <IndexIntro />
+        </main>
       </MyLayout>
     </>
   );

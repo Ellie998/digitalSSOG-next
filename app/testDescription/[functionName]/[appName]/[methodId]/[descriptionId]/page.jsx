@@ -1,4 +1,4 @@
-import MyLink from "component/MyLink/index";
+import MyLink from "component/client/MyLink/index";
 
 import { getSortedFunctionData } from "lib/functionDatas";
 

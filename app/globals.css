@@ -10,6 +10,9 @@
   .subTitle {
     @apply text-sm text-gray-400 my-2;
   }
+  .layout-subTitle {
+    @apply text-sm text-gray-400 my-2;
+  }
   .h2 {
     @apply text-xl font-bold text-neutral-800 sm:text-2xl;
   }
