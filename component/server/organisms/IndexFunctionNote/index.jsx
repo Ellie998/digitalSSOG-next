@@ -1,5 +1,5 @@
 import Note from "component/server/molecules/Note/index";
-import IndexFunctionsPostit from "../IndexFunctionsPostit/index";
+// import IndexFunctionsPostit from "../IndexFunctionsPostit/index";
 
 /* max-width: 800px; */
 
@@ -13,7 +13,7 @@ const IndexFunntionNote = () => {
           "카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다."
         }
         holeNum={17}>
-        <IndexFunctionsPostit />
+        {/* <IndexFunctionsPostit /> */}
       </Note>
     </section>
   );
