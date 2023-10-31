@@ -1,10 +1,13 @@
 import Note from "component/server/molecules/Note/index";
+import { testFunction } from "lib/functionDatas";
 // import IndexFunctionsPostit from "../IndexFunctionsPostit/index";
 
 /* max-width: 800px; */
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const IndexFunntionNote = () => {
+  const result = testFunction();
+
   return (
     <section className="max-w-3xl mx-auto my-0">
       <Note
@@ -14,6 +17,9 @@ const IndexFunntionNote = () => {
         }
         holeNum={17}>
         {/* <IndexFunctionsPostit /> */}
+        {result?.map((category, i) => (
+          <div key={i}>{category}</div>
+        ))}
       </Note>
     </section>
   );

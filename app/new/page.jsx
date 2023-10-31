@@ -1,9 +1,7 @@
-// app/page.jsx
 import IndexFunntionNote from "component/server/organisms/IndexFunctionNote/index";
 import IndexIntro from "component/server/templates/IndexIntro/index";
 import MyLayout from "components/layout/MyLayout";
-
-export const runtime = "edge";
+import { testFunction } from "lib/functionDatas";
 
 export const metadata = {
   // metadataBase: "/",
@@ -78,7 +76,18 @@ export const metadata = {
   },
 };
 
+// export function getData() {
+//   const result = testFunction();
+
+//   return {
+//     ...result,
+//   };
+// }
+
 export default function Page() {
+  const result = testFunction();
+  console.log(result);
+
   return (
     <>
       <MyLayout>

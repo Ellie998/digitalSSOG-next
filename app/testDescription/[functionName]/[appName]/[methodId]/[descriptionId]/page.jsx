@@ -1,6 +1,6 @@
 import MyLink from "component/client/MyLink/index";
 
-import { getSortedFunctionData } from "lib/functionDatas";
+import { getSortedFunctionData, testFunction } from "lib/functionDatas";
 
 export async function generateStaticParams() {
   // const data = await getSortedFunctionData()[0];
@@ -41,7 +41,8 @@ export function getData() {
 
 export default function Page() {
   const { contents } = getData();
-
+  const result = testFunction();
+  console.log(result);
   // return <div>{id}</div>;
 
   return (
@@ -50,6 +51,9 @@ export default function Page() {
       <MyLink href={"/description/전화받기(수신)"}>test link2</MyLink>
       {contents.methodContent?.map((content, i) => (
         <div key={i}>{content}</div>
+      ))}
+      {result.map((category, i) => (
+        <div key={i}>{category}</div>
       ))}
     </>
   );
