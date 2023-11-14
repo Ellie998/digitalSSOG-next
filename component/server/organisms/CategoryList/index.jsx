@@ -16,7 +16,7 @@ const CategoryList = async () => {
       <p className={styled.listIndex}>카테고리 : </p>
       {Object.values(data).map((category, i) => (
         <CategoryName key={i} name={category.name.replace(" ", "-")}>
-          {i !== Object.values.length
+          {i + 1 !== Object.values(data).length
             ? `${category.icon} ${category.name} ,`
             : `${category.icon} ${category.name}`}
         </CategoryName>
