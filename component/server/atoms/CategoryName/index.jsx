@@ -3,23 +3,23 @@ import MyLink from "component/client/MyLink/index";
 import styled from "./index.module.css";
 
 // eslint-disable-next-line react/prop-types
-const CategoryName = ({ children, name }) => {
+const CategoryName = ({ children, name, tabName }) => {
   /**function for change query in home page */
-
   return (
     <li
-      className={
-        styled.container
-        // !tabName === name ? styled.container : styled["container--clicked"]
-      }>
+      className={`
+        ${styled.container}
+        ${
+          !tabName === name ? styled.container : styled["container--clicked"]
+        }`}>
       <MyLink scroll={false} href={{ query: { tab: name } }}>
         <p
           className={
-            // !tabName === name
-            //   ? styled.paragraphContainer
-            //   : styled["paragraphContainer--clicked"]
+            !tabName === name
+              ? styled.paragraphContainer
+              : styled["paragraphContainer--clicked"]
 
-            styled.paragraphContainer
+            // styled.paragraphContainer
           }
           // onClick={linkClickHandler}
           id={name}>

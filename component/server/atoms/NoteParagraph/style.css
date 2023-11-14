@@ -1,0 +1,10 @@
+.noteParagraph {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-bottom: 1px solid #b9b9b986;
+}
+.noteParagraph:hover {
+  color: gray;
+}

@@ -1,6 +1,5 @@
-import IndexFunntionNote from "component/server/organisms/IndexFunctionNote/index";
-import IndexIntro from "component/server/templates/IndexIntro/index";
-import MyLayout from "components/layout/MyLayout";
+import Note from "component/server/molecules/Note/index";
+import IndexFunctionsPostit from "component/server/organisms/IndexFunctionsPostit/index";
 
 export const metadata = {
   // metadataBase: "/",
@@ -75,15 +74,29 @@ export const metadata = {
   },
 };
 
-export default function Page() {
+export default function Page(props) {
   return (
     <>
-      <MyLayout>
-        <main>
-          <IndexIntro />
-          <IndexFunntionNote />
-        </main>
-      </MyLayout>
+      <main>
+        <section className="max-w-3xl mx-auto my-0">
+          <Note
+            title={"스마트 기기로 사용 가능한 기능들"}
+            subTitle={
+              "카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다."
+            }
+            holeNum={17}>
+            <IndexFunctionsPostit
+              tabName={
+                props.searchParams.tab === "전화"
+                  ? "call"
+                  : props.searchParams.tab === "문자"
+                  ? "message"
+                  : props.searchParams.tab
+              }
+            />
+          </Note>
+        </section>
+      </main>
     </>
   );
 }

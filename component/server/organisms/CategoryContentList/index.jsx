@@ -1,33 +1,24 @@
-"use client";
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-
 import CategoryContentLine from "component/server/atoms/CategoryContentLine/index";
-import { useEffect, useState } from "react";
 
-const data = require("/public/data/functionData.json");
-
-// eslint-disable-next-line react/prop-types, no-unused-vars
-const CategoryContentList = ({ tabName }) => {
-  const [selectedCategoryObject, setSelectedCategoryObject] = useState({});
-
-  useEffect(() => {
-    data.forEach((categoryObject) => {
-      setSelectedCategoryObject({});
-      data.forEach((categoryObject) => {
-        if (categoryObject.category === tabName?.replaceAll("-", " ")) {
-          setSelectedCategoryObject(categoryObject);
-        }
-      });
-    });
-  }, [tabName]);
+const CategoryContentList = async ({ tabName }) => {
+  const res = await fetch(
+    `https://mydigitalssog-web-default-rtdb.firebaseio.com/description/${tabName}.json`,
+    { cache: "no-cache" }
+  );
+  const data = await res.json();
 
   return (
     <ol>
-      {selectedCategoryObject.objects?.map((functionObject, i) => (
-        <CategoryContentLine key={i} functionObject={functionObject} />
-      ))}
+      {Object.keys(data)?.map(
+        (categoryData, i) =>
+          typeof data[categoryData] === "object" && (
+            <CategoryContentLine
+              key={i}
+              functionObject={categoryData}
+              tabName={tabName}
+            />
+          )
+      )}
     </ol>
   );
 };

@@ -1,22 +1,22 @@
 /* eslint-disable react/prop-types */
-import styled from "@emotion/styled";
+
 import MyLink from "component/client/MyLink/index";
 import NoteParagraph from "../NoteParagraph/index";
 
-const Container = styled.li`
-  list-style: none;
-`;
 // eslint-disable-next-line react/prop-types
-const CategoryContentLine = ({ functionObject }) => {
+const CategoryContentLine = async ({ functionObject, tabName }) => {
+  const res = await fetch(
+    `https://mydigitalssog-web-default-rtdb.firebaseio.com/description/${tabName}/${functionObject}.json`,
+    { cache: "no-cache" }
+  );
+  const data = await res.json();
+
   return (
-    <Container>
-      <MyLink
-        href={
-          "/description/" + functionObject.name.slice(2).replaceAll(" ", "-")
-        }>
-        <NoteParagraph content={functionObject.name.slice(2)} />
+    <>
+      <MyLink href={"/description/" + data.title?.replaceAll(" ", "-")}>
+        <NoteParagraph content={data.title.slice(2)} />
       </MyLink>
-    </Container>
+    </>
   );
 };
 
