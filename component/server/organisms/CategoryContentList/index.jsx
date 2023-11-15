@@ -8,18 +8,23 @@ const CategoryContentList = async ({ tabName }) => {
   const data = await res.json();
 
   return (
-    <ol>
-      {Object.keys(data)?.map(
-        (categoryData, i) =>
-          typeof data[categoryData] === "object" && (
-            <CategoryContentLine
-              key={i}
-              functionObject={categoryData}
-              tabName={tabName}
-            />
-          )
-      )}
-    </ol>
+    <>
+      <p className={" font-light pb-2 min-w-max tracking-[1.5rem]"}>
+        기능 목록
+      </p>
+      <ol>
+        {Object.keys(data)?.map(
+          (categoryData, i) =>
+            typeof data[categoryData] === "object" && (
+              <CategoryContentLine
+                key={i}
+                functionObject={categoryData}
+                tabName={tabName}
+              />
+            )
+        )}
+      </ol>
+    </>
   );
 };
 

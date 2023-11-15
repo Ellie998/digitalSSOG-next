@@ -85,15 +85,7 @@ export default function Page(props) {
               "카테고리를 누르면 카테고리에 속하는 기능들을 볼 수 있습니다."
             }
             holeNum={17}>
-            <IndexFunctionsPostit
-              tabName={
-                props.searchParams.tab === "전화"
-                  ? "call"
-                  : props.searchParams.tab === "문자"
-                  ? "message"
-                  : props.searchParams.tab
-              }
-            />
+            <IndexFunctionsPostit tabName={props.searchParams.tab} />
           </Note>
         </section>
       </main>

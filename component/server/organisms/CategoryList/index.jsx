@@ -12,19 +12,20 @@ const CategoryList = async ({ tabName }) => {
   // const icons = ["🌱", "🔥", "📞", "❤️", "⚙️"];
 
   return (
-    <ul className={styled.container}>
-      <p className={styled.listIndex}>카테고리 : </p>
-      {Object.values(data).map((category, i) => (
-        <CategoryName
-          key={i}
-          name={category.name?.replace(" ", "-")}
-          tabName={tabName}>
-          {i + 1 !== Object.values(data).length
-            ? `${category.icon} ${category.name} ,`
-            : `${category.icon} ${category.name}`}
-        </CategoryName>
-      ))}
-    </ul>
+    <>
+      <p className={styled.listIndex}>카테고리</p>
+      <ul className={styled.container}>
+        {Object.values(data).map((category, i) => (
+          <CategoryName
+            key={i}
+            name={category.name?.replace(" ", "-")}
+            tabName={tabName}
+            icon={category.icon}>
+            {category.name}
+          </CategoryName>
+        ))}
+      </ul>
+    </>
   );
 };
 

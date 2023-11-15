@@ -1,13 +1,14 @@
 .container {
   padding: 0 50px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .listIndex {
-  font-weight: bold;
+  font-weight: 300;
+  letter-spacing: 2rem;
   padding: 0 0 10px 0;
-  display: inline-block;
-  margin-left: 0.5rem;
   min-width: max-content;
-
   transition: 0.1s;
+  color: black;
 }

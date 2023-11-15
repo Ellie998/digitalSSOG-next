@@ -1,68 +1,51 @@
-@font-face {
-  font-family: "Cafe24Shiningstar";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-.container {
+.categoryWrap {
   list-style: none;
   padding: 0 0 10px 0;
-  display: inline-block;
+  display: flex;
   margin-left: 0.5rem;
   min-width: max-content;
   max-height: 40px;
   /*  */
   position: "block";
   transition: 0.1s;
-
-  @media (max-width: 600px) {
-    font-size: 1.3rem;
-  }
 }
 
-.container:after {
+.categoryWrap:after {
   content: "";
   position: absolute;
   display: block;
   width: 0;
-  height: "0px";
-
+  height: 0px;
   transform: skewX(-30deg);
 }
-.container--clicked {
-  position: "relative";
+.categoryWrap--clicked {
+  position: relative;
 }
-.container--clicked:after {
+.categoryWrap--clicked:after {
   content: "";
   position: absolute;
   display: block;
   width: 0;
-  height: "4px";
-  background-color: "red";
+  height: 4px;
+  margin-top: 25px;
+  background-color: red;
   transform: skewX(-30deg);
-  animation: "border_lr_anim 0.5s linear forwards";
-  @keyframes border_lr_anim {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 105%;
-    }
-  }
+  animation: border_lr_anim 0.5s linear forwards;
 }
 
 .paragraphContainer {
-  font-family: "Cafe24Shiningstar";
-  font-size: 1.5rem;
-  font-weight: "normal";
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
 .paragraphContainer:hover {
   font-weight: 900;
 }
-.paragraphContainer--clicked {
-  font-weight: "bold";
+@keyframes border_lr_anim {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 110%;
+  }
 }
