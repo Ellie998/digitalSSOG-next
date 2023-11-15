@@ -17,7 +17,7 @@ const CategoryList = async ({ tabName }) => {
       {Object.values(data).map((category, i) => (
         <CategoryName
           key={i}
-          name={category.title?.replace(" ", "-")}
+          name={category.name?.replace(" ", "-")}
           tabName={tabName}>
           {i + 1 !== Object.values(data).length
             ? `${category.icon} ${category.name} ,`

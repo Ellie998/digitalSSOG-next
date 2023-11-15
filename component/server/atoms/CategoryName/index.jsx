@@ -5,6 +5,7 @@ import styled from "./index.module.css";
 // eslint-disable-next-line react/prop-types
 const CategoryName = ({ children, name, tabName }) => {
   /**function for change query in home page */
+
   return (
     <li
       className={`
