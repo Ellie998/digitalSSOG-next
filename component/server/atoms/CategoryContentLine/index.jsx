@@ -13,7 +13,8 @@ const CategoryContentLine = async ({ functionObject, tabName }) => {
 
   return (
     <>
-      <MyLink href={"/description/" + data.title?.replaceAll(" ", "-")}>
+      <MyLink
+        href={"/description/" + data.title?.slice(2).replaceAll(" ", "-")}>
         <NoteParagraph content={data.title.slice(2)} />
       </MyLink>
     </>

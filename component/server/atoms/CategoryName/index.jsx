@@ -3,7 +3,7 @@ import MyLink from "component/client/MyLink/index";
 import styled from "./index.module.css";
 
 // eslint-disable-next-line react/prop-types
-const CategoryName = ({ children, name, tabName, icon }) => {
+const CategoryName = ({ children, name, tabName = "전화", icon }) => {
   /**function for change query in home page */
 
   return (

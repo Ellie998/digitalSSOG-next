@@ -1,6 +1,6 @@
 import CategoryContentLine from "component/server/atoms/CategoryContentLine/index";
 
-const CategoryContentList = async ({ tabName }) => {
+const CategoryContentList = async ({ tabName = "전화" }) => {
   const res = await fetch(
     `https://mydigitalssog-web-default-rtdb.firebaseio.com/description/${tabName}.json`,
     { cache: "no-cache" }
