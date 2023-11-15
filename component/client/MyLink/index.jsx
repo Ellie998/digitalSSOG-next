@@ -2,5 +2,9 @@
 import Link from "next/link";
 
 export default function MyLink({ href, children }) {
-  return <Link href={href}>{children}</Link>;
+  return (
+    <Link href={href} scroll={false}>
+      {children}
+    </Link>
+  );
 }

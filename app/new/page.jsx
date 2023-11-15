@@ -1,5 +1,7 @@
 import Note from "component/server/molecules/Note/index";
 import IndexFunctionsPostit from "component/server/organisms/IndexFunctionsPostit/index";
+import IndexIntro from "component/server/templates/IndexIntro/index";
+import MyLayout from "components/layout/MyLayout";
 export const runtime = "edge";
 
 export const metadata = {
@@ -77,7 +79,9 @@ export const metadata = {
 
 export default function Page(props) {
   return (
-    <>
+    <MyLayout>
+      <IndexIntro />
+
       <main>
         <section className="max-w-3xl mx-auto my-0">
           <Note
@@ -90,6 +94,6 @@ export default function Page(props) {
           </Note>
         </section>
       </main>
-    </>
+    </MyLayout>
   );
 }
