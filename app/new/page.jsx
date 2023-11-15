@@ -1,5 +1,6 @@
 import Note from "component/server/molecules/Note/index";
 import IndexFunctionsPostit from "component/server/organisms/IndexFunctionsPostit/index";
+export const runtime = "edge";
 
 export const metadata = {
   // metadataBase: "/",
