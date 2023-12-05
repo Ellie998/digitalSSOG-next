@@ -1,13 +1,15 @@
-// app/description/[functionName]/page.jsx
+// app/description/[functionKey]/page.jsx
 
-import FunctionDescriptionProvider from "../../../components/FunctionDescription/FunctionDescriptionProvider";
-import MyLayout from "../../../components/layout/MyLayout";
+import MyLayout from "component/layout/MyLayout";
+import FunctionIntro from "component/server/templates/FunctionIntro/index";
+
+// import { Suspense } from "react";
 
 export const runtime = "edge";
 
 // or Dynamic metadata
 export async function generateMetadata({ params }) {
-  const functionName = decodeURI(params.functionName[0])
+  const functionKey = decodeURI(params.functionKey[0])
     .replaceAll("-", " ")
     .replaceAll("%2C", ",");
 
@@ -18,9 +20,9 @@ export async function generateMetadata({ params }) {
       width: "device-width",
       initialScale: 1,
     },
-    title: `${functionName} 기능 사용법`,
-    description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-    url: `https://digitalssog.com/description/${functionName}`,
+    title: `${functionKey} 기능 사용법`,
+    description: `${functionKey} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+    url: `https://digitalssog.com/description/${functionKey}`,
     verification: {
       naver: "55145f147d68935311d0493b0428d0a9843e5eb9",
     },
@@ -54,9 +56,9 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       site_name: "DigitalSSOG Description",
-      title: `${functionName} 기능 사용법 - 디지털쏙`,
-      description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-      url: `https://digitalssog.com/description/${functionName}`,
+      title: `${functionKey} 기능 사용법 - 디지털쏙`,
+      description: `${functionKey} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+      url: `https://digitalssog.com/description/${functionKey}`,
       type: "website",
       images: [
         {
@@ -67,9 +69,9 @@ export async function generateMetadata({ params }) {
       ],
     },
     twitter: {
-      title: `${functionName} 기능 사용법 - 디지털쏙`,
-      description: `${functionName} 기능을 사용하는 여러가지 방법을 공유합니다.`,
-      url: `https://digitalssog.com/description/${functionName}`,
+      title: `${functionKey} 기능 사용법 - 디지털쏙`,
+      description: `${functionKey} 기능을 사용하는 여러가지 방법을 공유합니다.`,
+      url: `https://digitalssog.com/description/${functionKey}`,
       type: "website",
       images: [
         {
@@ -82,10 +84,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function Page() {
+export default function Page(props) {
   return (
     <MyLayout>
-      <FunctionDescriptionProvider></FunctionDescriptionProvider>
+      <main>
+        <FunctionIntro functionName={props.params.functionKey[0]} />
+      </main>
     </MyLayout>
   );
 }
