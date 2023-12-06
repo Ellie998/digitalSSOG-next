@@ -1,11 +1,69 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
+
+
+// model App {
+//   id String @id @default(uuid())
+//   name String 
+//   icon String 
+//   version String 
+
+//   functions  Function[]
+
+//   created_at DateTime @default(now())
+//   updated_at DateTime @updatedAt
+// }
+
+// model Function {
+//   id String @id @default(uuid())
+//   title String  @unique
+//   description String @db.text
+  
+//   category_title String
+//   category Function_category @relation(fields: [category_title],references: [title])
+
+//   apps App[]
+//   guides Guide[]
+
+//   created_at DateTime @default(now())
+//   updated_at DateTime @updatedAt
+// }
+
+// model Guide {
+//   id String @id @default(uuid())
+//   description String[]
+
+//   function_title String
+//   function Function @relation(fields: [function_title],references: [title])
+  
+//   app_name String
+//   app App @relation(fields: [app_name], references: [name])
+// }
+
+// model Guide_component {
+//   id String @id @default(uuid())
+//   code String @db.text
+
+  
+// }
+
+
+
+// model Function_category {
+//   id String @id @default(uuid()) 
+//   title String @unique
+
+//   functions Function[]
+// }
+
+
+
+
