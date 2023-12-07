@@ -73,6 +73,7 @@ model Guide_component {
 model Function_category {
   id String @id @default(uuid()) 
   name String @unique
+  icon String
 
   functions Function[]
 }
