@@ -10,59 +10,72 @@ generator client {
 
 
 
-// model App {
-//   id String @id @default(uuid())
-//   name String 
-//   icon String 
-//   version String 
+model App {
+  id String @id @default(uuid())
+  name String 
+  icon String 
+  version String 
 
-//   functions  Function[]
+  functions  Function[]
 
-//   created_at DateTime @default(now())
-//   updated_at DateTime @updatedAt
-// }
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
 
-// model Function {
-//   id String @id @default(uuid())
-//   title String  @unique
-//   description String @db.text
+model Function {
+  id String @id @default(uuid())
+  title String  @unique
+  description String @db.Text
   
-//   category_title String
-//   category Function_category @relation(fields: [category_title],references: [title])
+  appId String?
+  app App? @relation(fields: [appId],references: [id],onDelete: Cascade) 
 
-//   apps App[]
-//   guides Guide[]
-
-//   created_at DateTime @default(now())
-//   updated_at DateTime @updatedAt
-// }
-
-// model Guide {
-//   id String @id @default(uuid())
-//   description String[]
-
-//   function_title String
-//   function Function @relation(fields: [function_title],references: [title])
-  
-//   app_name String
-//   app App @relation(fields: [app_name], references: [name])
-// }
-
-// model Guide_component {
-//   id String @id @default(uuid())
-//   code String @db.text
+  categoryId String?
+  category Function_category? @relation(fields: [categoryId],references: [name],onDelete: Cascade)
 
   
-// }
+  guides Guide[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([appId])
+}
+
+model Guide {
+  id String @id @default(uuid())
+  description String @db.Text
+
+  functionId String
+  function Function @relation(fields: [functionId],references: [id])
+
+  guide_component Guide_component?
+
+  @@index([functionId])
+  
+}
+
+model Guide_component {
+  id String @id @default(uuid())
+  code String 
+
+  guideId String @unique
+  guide Guide @relation(fields: [guideId],references: [id])
+
+  
+
+@@index([guideId])
+}
 
 
 
-// model Function_category {
-//   id String @id @default(uuid()) 
-//   title String @unique
+model Function_category {
+  id String @id @default(uuid()) 
+  name String @unique
 
-//   functions Function[]
-// }
+  functions Function[]
+}
 
 
 
