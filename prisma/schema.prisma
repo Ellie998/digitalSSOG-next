@@ -13,59 +13,93 @@ generator client {
 model App {
   id String @id @default(uuid())
   name String 
-  icon String 
-  version String 
-
-  functions  Function[]
+  icon String? 
+  version String? 
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+
+  functions AppsOnFunctions[]
 }
 
 model Function {
   id String @id @default(uuid())
   title String  @unique
-  description String @db.Text
+  description String? @db.Text
+  icon String?
   
-  appId String?
-  app App? @relation(fields: [appId],references: [id],onDelete: Cascade) 
+  apps AppsOnFunctions[]
 
   categoryId String?
-  category Function_category? @relation(fields: [categoryId],references: [name],onDelete: Cascade)
+  category Function_category? @relation(fields: [categoryId],references: [id],onDelete: Cascade)
 
   
-  guides Guide[]
+  methods Method[]
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@index([categoryId])
-  @@index([appId])
+
 }
 
-model Guide {
-  id String @id @default(uuid())
-  description String @db.Text
+model AppsOnFunctions {
+  appId String
+  app App @relation(fields: [appId],references: [id])
 
   functionId String
   function Function @relation(fields: [functionId],references: [id])
 
-  guide_component Guide_component?
 
+  @@id([appId,functionId ])
+  @@index([appId])
   @@index([functionId])
+}
+
+model Method {
+  id String @id @default(uuid())
+  description String?
+  order Int?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
   
+  functionId String?
+  function Function? @relation(fields: [functionId],references: [id])
+
+  guides Guide[]
+    
+  @@index([functionId])
+
+}
+
+model Guide {
+  id String @id @default(uuid())
+  description String 
+  order Int?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  methodId String?
+  method Method? @relation(fields: [methodId],references: [id])
+
+  guide_component Guide_component?  
+  
+  @@index([methodId])
 }
 
 model Guide_component {
   id String @id @default(uuid())
-  code String 
+  code String @db.Text
 
-  guideId String @unique
-  guide Guide @relation(fields: [guideId],references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 
-  
+  guideId String? @unique
+  guide Guide? @relation(fields: [guideId],references: [id])
 
-@@index([guideId])
+  @@index([guideId])
 }
 
 
@@ -73,7 +107,7 @@ model Guide_component {
 model Function_category {
   id String @id @default(uuid()) 
   name String @unique
-  icon String
+  icon String?
 
   functions Function[]
 }
