@@ -1,7 +1,0 @@
-.postitTitle {
-  font-size: 1.25rem;
-  margin-bottom: 1.25rem /* 20px */;
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-  word-break: keep-all;
-}
