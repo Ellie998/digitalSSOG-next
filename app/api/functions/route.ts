@@ -9,6 +9,9 @@ export async function POST(req: Request) {
         title: functionName,
       },
     });
+    if (!functionData) {
+      return new NextResponse("Internal DB Error", { status: 404 });
+    }
     return NextResponse.json(functionData);
   } catch (error) {
     console.log("[FUNCTIONS]", error);
