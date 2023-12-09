@@ -127,7 +127,7 @@ export default async function FunctionDescriptionPage({
       <div>
         {functionData?.methods.map((method) => (
           <div key={method.id}>
-            {method.description ? method.description : "no description"}
+            {method.appName + " 어플"}
             {method.guides?.map((guide) => <div>{guide.description}</div>)}
           </div>
         ))}

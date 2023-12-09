@@ -20,6 +20,7 @@ model App {
   updated_at DateTime @updatedAt
 
   functions AppsOnFunctions[]
+  methods Method[]
 }
 
 model Function {
@@ -61,15 +62,19 @@ model Method {
   description String?
   order Int?
 
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  
   functionName String?
   function Function? @relation(fields: [functionName],references: [title])
+  
+  appName String?
+  app App? @relation(fields: [appName],references: [name])
 
   guides Guide[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
     
   @@index([functionName])
+  @@index([appName])
 
 }
 
