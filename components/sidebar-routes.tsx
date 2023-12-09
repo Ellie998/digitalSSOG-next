@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BsPersonCircle } from "react-icons/bs";
 
 const SidebarRoutes = () => {
   return (

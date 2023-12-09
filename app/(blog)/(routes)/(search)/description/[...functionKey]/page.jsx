@@ -1,10 +1,3 @@
-// app/description/[functionKey]/page.jsx
-
-import MyLayout from "component/layout/MyLayout";
-import FunctionIntro from "component/server/templates/FunctionIntro/index";
-
-// import { Suspense } from "react";
-
 export const runtime = "edge";
 
 // or Dynamic metadata
@@ -84,12 +77,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function Page(props) {
-  return (
-    <MyLayout>
-      <main>
-        <FunctionIntro functionName={props.params.functionKey[0]} />
-      </main>
-    </MyLayout>
-  );
+export default function Page() {
+  return <div>Description Page</div>;
 }
