@@ -92,6 +92,15 @@ export default async function FunctionDescriptionPage({
     },
     include: {
       apps: true,
+      methods: {
+        include: {
+          guides: {
+            include: {
+              guide_component: true,
+            },
+          },
+        },
+      },
     },
   });
 
@@ -115,6 +124,14 @@ export default async function FunctionDescriptionPage({
         </DescriptionBox>
       </div>
       {/* add guide db */}
+      <div>
+        {functionData?.methods.map((method) => (
+          <div key={method.id}>
+            {method.description ? method.description : "no description"}
+            {method.guides?.map((guide) => <div>{guide.description}</div>)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
