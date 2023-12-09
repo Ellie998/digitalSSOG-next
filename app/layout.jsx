@@ -1,6 +1,8 @@
 import Script from "next/script";
 import "./layout.css";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({ children }) {
   return (
@@ -29,7 +31,10 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013250950684251"
           crossOrigin="anonymous"></Script>
       </head>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        {children}
+        <ToastContainer />
+      </body>
     </html>
   );
 }
