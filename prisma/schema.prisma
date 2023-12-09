@@ -12,7 +12,7 @@ generator client {
 
 model App {
   id String @id @default(uuid())
-  name String 
+  name String  @unique
   icon String? 
   version String? 
 
@@ -30,8 +30,8 @@ model Function {
   
   apps AppsOnFunctions[]
 
-  categoryId String?
-  category Function_category? @relation(fields: [categoryId],references: [id],onDelete: Cascade)
+  categoryName String?
+  category Function_category? @relation(fields: [categoryName],references: [name],onDelete: Cascade)
 
   
   methods Method[]
@@ -39,21 +39,21 @@ model Function {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  @@index([categoryId])
+  @@index([categoryName])
 
 }
 
 model AppsOnFunctions {
-  appId String
-  app App @relation(fields: [appId],references: [id])
+  appName String
+  app App @relation(fields: [appName],references: [name])
 
-  functionId String
-  function Function @relation(fields: [functionId],references: [id])
+  functionName String
+  function Function @relation(fields: [functionName],references: [title])
 
 
-  @@id([appId,functionId ])
-  @@index([appId])
-  @@index([functionId])
+  @@id([appName,functionName ])
+  @@index([appName])
+  @@index([functionName])
 }
 
 model Method {
@@ -64,12 +64,12 @@ model Method {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   
-  functionId String?
-  function Function? @relation(fields: [functionId],references: [id])
+  functionName String?
+  function Function? @relation(fields: [functionName],references: [title])
 
   guides Guide[]
     
-  @@index([functionId])
+  @@index([functionName])
 
 }
 
