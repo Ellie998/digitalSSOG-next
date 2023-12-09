@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 
 import { toast } from "react-toastify";
+import { useState } from "react";
+import Link from "next/link";
 
 const formSchema = z.object({
   functionName: z.string().min(1),
@@ -32,6 +34,7 @@ const AdminCreatePage = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      toast("DB 생성중", { autoClose: 2000 });
       const response = await fetch(`/api/functions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,23 +46,21 @@ const AdminCreatePage = () => {
         toast.error("ERROR!");
         throw Error("FAIL :CREATE FUNCTION DESCRIPTION");
       }
-      toast.success("function 생성 성공!");
+      // toast.success("function 생성 성공!");
+      toast.success(() => (
+        <div className="flex justify-between">
+          <div>function 생성 성공</div>
+          <div>
+            <Link href={`/admin/functions/${values.functionName}`}>
+              Go To Edit
+            </Link>
+          </div>
+        </div>
+      ));
     } catch (error) {
       console.log(error);
     }
   }
-  // async function getData() {
-  //   try {
-  //     const response = await fetch("/api/functions");
-  //     if (!response.ok) {
-  //       throw Error("get data failure");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // getData();
 
   return (
     <div>

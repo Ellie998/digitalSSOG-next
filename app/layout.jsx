@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning={true}>
         {children}
-        <ToastContainer />
+        <ToastContainer position="bottom-left" />
       </body>
     </html>
   );
