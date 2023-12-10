@@ -20,36 +20,42 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 const formSchema = z.object({
-  title: z.string().min(1),
+  description: z.string().min(1),
 });
 
-const FunctionTitleForm = ({ title }: { title: string }) => {
+const FunctionDescriptionForm = ({
+  description,
+  functionName,
+}: {
+  description: string;
+  functionName: string;
+}) => {
   const router = useRouter();
   const [isSubmited, setIsSubmited] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: title,
+      description: description,
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmited(true);
-      const response = await fetch(`/api/functions/${title}`, {
+      const response = await fetch(`/api/functions/${functionName}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: values.title,
+          description: values.description,
         }),
       });
       if (!response.ok) {
         toast.error("Fail");
         throw Error("");
       }
-      toast.success("title 수정 성공!");
-      router.push(`/admin/functions/${values.title}`);
+      toast.success("description 수정 성공!");
+      router.push(`/admin/functions/${functionName}`);
       router.refresh();
     } catch (error) {
       console.log(error);
@@ -63,10 +69,10 @@ const FunctionTitleForm = ({ title }: { title: string }) => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="title"
+            name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Title</FormLabel>
+                <FormLabel>Description</FormLabel>
                 <FormControl>
                   <Input placeholder="shadcn" {...field} />
                 </FormControl>
@@ -84,4 +90,4 @@ const FunctionTitleForm = ({ title }: { title: string }) => {
   );
 };
 
-export default FunctionTitleForm;
+export default FunctionDescriptionForm;
