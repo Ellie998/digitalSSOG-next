@@ -92,7 +92,7 @@ const FunctionCategoryForm = ({
             name={"category"}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Category</FormLabel>
+                <FormLabel className="w-full block">Category</FormLabel>
                 <FormControl>
                   <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>

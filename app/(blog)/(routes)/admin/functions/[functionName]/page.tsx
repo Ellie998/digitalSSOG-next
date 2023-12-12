@@ -4,6 +4,7 @@ import FunctionTitleForm from "./_components/title_form";
 import FunctionDescriptionForm from "./_components/description_form";
 import FunctionIconForm from "./_components/icon_form";
 import FunctionCategoryForm from "./_components/category_form";
+import FunctionMethodForm from "./_components/method_form";
 
 const FunctionEditPage = async ({
   params,
@@ -25,7 +26,7 @@ const FunctionEditPage = async ({
   const categories = await db.function_category.findMany({});
 
   return (
-    <div>
+    <div className="flex flex-col gap-y-20 px-10 pb-40">
       <FunctionTitleForm title={functionData?.title || ""} />
       <FunctionDescriptionForm
         description={functionData?.description || ""}
@@ -40,6 +41,7 @@ const FunctionEditPage = async ({
         category={functionData?.category!}
         functionName={params.functionName}
       />
+      <FunctionMethodForm functionName={params.functionName} />
     </div>
   );
 };
