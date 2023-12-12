@@ -3,6 +3,7 @@ import { decodeUrl } from "@/lib/utils";
 import FunctionTitleForm from "./_components/title_form";
 import FunctionDescriptionForm from "./_components/description_form";
 import FunctionIconForm from "./_components/icon_form";
+import FunctionCategoryForm from "./_components/category_form";
 
 const FunctionEditPage = async ({
   params,
@@ -17,10 +18,11 @@ const FunctionEditPage = async ({
     },
     include: {
       apps: true,
-      category: true,
+      category: {},
       methods: true,
     },
   });
+  const categories = await db.function_category.findMany({});
 
   return (
     <div>
@@ -31,6 +33,11 @@ const FunctionEditPage = async ({
       />
       <FunctionIconForm
         icon={functionData?.icon || ""}
+        functionName={params.functionName}
+      />
+      <FunctionCategoryForm
+        categories={categories}
+        category={functionData?.category!}
         functionName={params.functionName}
       />
     </div>
