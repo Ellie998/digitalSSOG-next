@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { decodeUrl } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
 export async function POST(
@@ -12,7 +13,7 @@ export async function POST(
         order: order,
         description: description,
         appName: appName,
-        functionName: params.functionName,
+        functionName: decodeUrl(params.functionName),
       },
     });
     if (!method) {

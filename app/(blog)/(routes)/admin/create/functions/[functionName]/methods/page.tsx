@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
 
 import Link from "next/link";
+import { decodeUrl, encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
   order: z.string(),
@@ -39,18 +40,15 @@ const AdminMethodCreatePage = ({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       toast("DB 생성중", { autoClose: 2000 });
-      const response = await fetch(
-        `/api/functions/${params.functionName}/methods`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            order: Number(values.order),
-            description: values.description,
-            appName: values.appName,
-          }),
-        }
-      );
+      const response = await fetch(`/api/functions/${params.functionName}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          order: Number(values.order),
+          description: values.description,
+          appName: values.appName,
+        }),
+      });
       if (!response.ok) {
         toast.error("ERROR!");
         throw Error("FAIL :CREATE FUNCTION DESCRIPTION");
@@ -61,7 +59,9 @@ const AdminMethodCreatePage = ({
           <div>Method 생성 성공</div>
           <div>
             <Link
-              href={`/admin/functions/${params.functionName}/methods/${values.order}`}>
+              href={`/admin/functions/${encodeUrl(params.functionName)}/${
+                values.appName
+              }/${values.order}`}>
               Go To Edit
             </Link>
           </div>
@@ -74,6 +74,9 @@ const AdminMethodCreatePage = ({
 
   return (
     <div>
+      <h1 className="my-10 text-xl text-center">
+        {decodeUrl(params.functionName)}기능 Method 생성 페이지
+      </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -109,7 +112,7 @@ const AdminMethodCreatePage = ({
             name="appName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Method Description</FormLabel>
+                <FormLabel>Method App Name</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>

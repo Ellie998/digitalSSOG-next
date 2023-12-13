@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Link from "next/link";
+import { decodeUrl, encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
   functionName: z.string().min(1),
@@ -51,7 +52,7 @@ const AdminCreatePage = () => {
         <div className="flex justify-between">
           <div>function 생성 성공</div>
           <div>
-            <Link href={`/admin/functions/${values.functionName}`}>
+            <Link href={`/admin/functions/${encodeUrl(values.functionName)}`}>
               Go To Edit
             </Link>
           </div>

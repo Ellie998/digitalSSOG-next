@@ -20,6 +20,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BsPlusCircle } from "react-icons/bs";
 import { useParams, usePathname } from "next/navigation";
+import { decodeUrl, encodeUrl } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -42,7 +43,7 @@ export function MethodDataTable<TData, TValue>({
     <div>
       <div className="py-4 ml-auto w-fit">
         <Link
-          href={`/admin/create/functions/${encodeURI(
+          href={`/admin/create/functions/${encodeUrl(
             params.functionName
           )}/methods`}>
           <Button>
