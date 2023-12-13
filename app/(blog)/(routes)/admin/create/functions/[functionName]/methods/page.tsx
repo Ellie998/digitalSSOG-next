@@ -40,20 +40,23 @@ const AdminMethodCreatePage = ({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       toast("DB 생성중", { autoClose: 2000 });
-      const response = await fetch(`/api/functions/${params.functionName}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          order: Number(values.order),
-          description: values.description,
-          appName: values.appName,
-        }),
-      });
+      const response = await fetch(
+        `/api/functions/${encodeUrl(params.functionName)}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            order: Number(values.order),
+            description: values.description,
+            appName: values.appName,
+          }),
+        }
+      );
       if (!response.ok) {
         toast.error("ERROR!");
         throw Error("FAIL :CREATE FUNCTION DESCRIPTION");
       }
-      // toast.success("function 생성 성공!");
+
       toast.success(() => (
         <div className="flex justify-between">
           <div>Method 생성 성공</div>
