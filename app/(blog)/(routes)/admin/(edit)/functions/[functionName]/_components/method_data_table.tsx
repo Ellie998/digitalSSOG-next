@@ -42,9 +42,9 @@ export function MethodDataTable<TData, TValue>({
     <div>
       <div className="py-4 ml-auto w-fit">
         <Link
-          href={`/admin/functions/${encodeURI(
+          href={`/admin/create/functions/${encodeURI(
             params.functionName
-          )}/create/methods`}>
+          )}/methods`}>
           <Button>
             <BsPlusCircle className="w-4 h-4 mr-2" />
             Create Method
