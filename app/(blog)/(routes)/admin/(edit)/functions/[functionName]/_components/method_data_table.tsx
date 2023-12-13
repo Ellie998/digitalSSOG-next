@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BsPlusCircle } from "react-icons/bs";
+import { useParams, usePathname } from "next/navigation";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -35,17 +36,22 @@ export function MethodDataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  const params = useParams();
+
   return (
     <div>
-      <div className="w-fit py-4 ml-auto">
-        <Link href={"/teacher/create"}>
+      <div className="py-4 ml-auto w-fit">
+        <Link
+          href={`/admin/functions/${encodeURI(
+            params.functionName
+          )}/create/methods`}>
           <Button>
             <BsPlusCircle className="w-4 h-4 mr-2" />
-            New Course
+            Create Method
           </Button>
         </Link>
-      </div>{" "}
-      <div className="rounded-md border">
+      </div>
+      <div className="border rounded-md">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

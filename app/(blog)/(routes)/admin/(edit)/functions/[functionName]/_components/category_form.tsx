@@ -45,7 +45,7 @@ const FunctionCategoryForm = ({
   functionName,
 }: {
   categories: Array<Function_category>;
-  category: Function_category;
+  category: Function_category | null;
   functionName: string;
 }) => {
   const router = useRouter();
@@ -56,7 +56,7 @@ const FunctionCategoryForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      category: category.name,
+      category: category?.name,
     },
   });
 
@@ -92,7 +92,7 @@ const FunctionCategoryForm = ({
             name={"category"}
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="w-full block">Category</FormLabel>
+                <FormLabel className="block w-full">Category</FormLabel>
                 <FormControl>
                   <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
