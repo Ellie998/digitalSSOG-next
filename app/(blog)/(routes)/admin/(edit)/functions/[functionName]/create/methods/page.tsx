@@ -21,27 +21,36 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 
 const formSchema = z.object({
-  functionName: z.string().min(1),
+  order: z.string(),
+  description: z.string(),
+  appName: z.string(),
 });
 
-const AdminMethodCreatePage = () => {
+const AdminMethodCreatePage = ({
+  params,
+}: {
+  params: { functionName: string };
+}) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      functionName: "",
-    },
+    defaultValues: { description: "", appName: "" },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       toast("DB 생성중", { autoClose: 2000 });
-      const response = await fetch(`/api/functions`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          functionName: values.functionName,
-        }),
-      });
+      const response = await fetch(
+        `/api/functions/${params.functionName}/methods`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            order: Number(values.order),
+            description: values.description,
+            appName: values.appName,
+          }),
+        }
+      );
       if (!response.ok) {
         toast.error("ERROR!");
         throw Error("FAIL :CREATE FUNCTION DESCRIPTION");
@@ -49,9 +58,10 @@ const AdminMethodCreatePage = () => {
       // toast.success("function 생성 성공!");
       toast.success(() => (
         <div className="flex justify-between">
-          <div>function 생성 성공</div>
+          <div>Method 생성 성공</div>
           <div>
-            <Link href={`/admin/functions/${values.functionName}`}>
+            <Link
+              href={`/admin/functions/${params.functionName}/methods/${values.order}`}>
               Go To Edit
             </Link>
           </div>
@@ -68,15 +78,43 @@ const AdminMethodCreatePage = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="functionName"
+            name="order"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>functionName</FormLabel>
+                <FormLabel>Method Order</FormLabel>
                 <FormControl>
-                  <Input placeholder="ex) 전화 받기" {...field} />
+                  <Input placeholder="ex) 0" {...field} type="number" min={0} />
+                </FormControl>
+                <FormDescription>해당 기능의 method 번호이다.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Method Description</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormDescription>해당 기능의 method 설명이다.</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="appName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Method Description</FormLabel>
+                <FormControl>
+                  <Input {...field} />
                 </FormControl>
                 <FormDescription>
-                  description page의 제목으로 표시된다.
+                  해당 기능의 method가 속하는 어플 이름을 작성한다.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
