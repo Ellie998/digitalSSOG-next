@@ -3,6 +3,7 @@ import { decodeUrl } from "@/lib/utils";
 import MethodOrderForm from "./_component/method-order-form";
 import MethodDescriptionForm from "./_component/method-description-form";
 import MethodAppNameForm from "./_component/method-app-name-form";
+import MethodFunctionNameForm from "./_component/method-function-name-form";
 
 const MethodEditPage = async ({
   params,
@@ -22,6 +23,8 @@ const MethodEditPage = async ({
     include: { guides: true },
   });
 
+  const functions = await db.function.findMany();
+
   return (
     <div className="flex flex-col px-10 pb-40 gap-y-20">
       <h1 className="text-xl text-center">
@@ -37,7 +40,11 @@ const MethodEditPage = async ({
         />
         <MethodAppNameForm appName={method?.appName!} id={method?.id!} />
 
-        {/* <MethodFunctionNameForm/> */}
+        <MethodFunctionNameForm
+          functionName={method?.functionName!}
+          functions={functions}
+          id={method?.id!}
+        />
         {/* <MethodGuideForm/> */}
       </>
     </div>

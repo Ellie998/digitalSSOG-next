@@ -20,7 +20,7 @@ export async function DELETE(req: Request, params: { params: { id: string } }) {
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
-export async function POST(
+export async function PATCH(
   req: Request,
   { params }: { params: { id: string } }
 ) {

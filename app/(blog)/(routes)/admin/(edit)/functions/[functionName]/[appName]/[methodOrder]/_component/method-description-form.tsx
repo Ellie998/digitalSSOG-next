@@ -42,7 +42,7 @@ const MethodDescriptionForm = ({
     try {
       setIsSubmit(true);
       const response = await fetch(`/api/methods/${id}`, {
-        method: "POST",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           description: values.description,
@@ -79,7 +79,7 @@ const MethodDescriptionForm = ({
           )}
         />
         <Button type="submit" disabled={isSubmit}>
-          Submit
+          Edit
         </Button>
       </form>
     </Form>

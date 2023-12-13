@@ -38,7 +38,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
     try {
       setIsSubmit(true);
       const response = await fetch(`/api/methods/${id}`, {
-        method: "POST",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           order: Number(values.order),
@@ -86,7 +86,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
           )}
         />
         <Button type="submit" disabled={isSubmit}>
-          Submit
+          Edit
         </Button>
       </form>
     </Form>
