@@ -21,17 +21,23 @@ import { useParams, useRouter } from "next/navigation";
 import { encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
-  order: z.string(),
+  description: z.string(),
 });
 
-const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
+const MethodDescriptionForm = ({
+  id,
+  description,
+}: {
+  id: string;
+  description: string;
+}) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
   const params = useParams();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { order: String(order) },
+    defaultValues: { description: description },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -41,7 +47,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          order: Number(values.order),
+          description: values.description,
         }),
       });
       if (!response.ok) {
@@ -49,12 +55,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
         throw Error("FAIL : METHOD ORDER FORM");
       }
 
-      toast.success("Method order 수정 성공");
-      router.push(
-        `/admin/functions/${encodeUrl(params.functionName)}/${encodeUrl(
-          params.appName
-        )}/${values.order}`
-      );
+      toast.success("Method description 수정 성공");
       router.refresh();
     } catch (error) {
       console.log(error);
@@ -68,19 +69,13 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="order"
+          name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Method Order</FormLabel>
+              <FormLabel>Method Description</FormLabel>
               <FormControl>
-                <Input
-                  placeholder={String(order)}
-                  {...field}
-                  type="number"
-                  min={0}
-                />
+                <Input placeholder={description} {...field} />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -93,4 +88,4 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   );
 };
 
-export default MethodOrderForm;
+export default MethodDescriptionForm;

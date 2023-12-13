@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { decodeUrl } from "@/lib/utils";
 import MethodOrderForm from "./_component/method-order-form";
+import MethodDescriptionForm from "./_component/method-description-form";
 
 const MethodEditPage = async ({
   params,
@@ -29,7 +30,10 @@ const MethodEditPage = async ({
       </h1>
       <>
         <MethodOrderForm order={method?.order!} id={method?.id!} />
-        {/* <MethodDescriptionForm/> */}
+        <MethodDescriptionForm
+          description={method?.description!}
+          id={method?.id!}
+        />
         {/* <MethodAppNameForm/> */}
         {/* <MethodFunctionNameForm/> */}
         {/* <MethodGuideForm/> */}
