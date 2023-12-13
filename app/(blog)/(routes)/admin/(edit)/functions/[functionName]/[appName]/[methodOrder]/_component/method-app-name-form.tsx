@@ -17,25 +17,27 @@ import { Input } from "@/components/ui/input";
 
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
-  description: z.string(),
+  appName: z.string(),
 });
 
-const MethodDescriptionForm = ({
+const MethodAppNameForm = ({
   id,
-  description,
+  appName,
 }: {
   id: string;
-  description: string;
+  appName: string;
 }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
+  const params = useParams();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { description: description },
+    defaultValues: { appName: appName },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -45,15 +47,20 @@ const MethodDescriptionForm = ({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          description: values.description,
+          appName: values.appName,
         }),
       });
       if (!response.ok) {
         toast.error("ERROR!");
-        throw Error("FAIL : METHOD DESCRIPTION FORM");
+        throw Error("FAIL : METHOD APP NAME FORM");
       }
 
-      toast.success("Method description 수정 성공");
+      toast.success("Method appName 수정 성공");
+      router.push(
+        `/admin/functions/${encodeUrl(params.functionName)}/${values.appName}/${
+          params.methodOrder
+        }`
+      );
       router.refresh();
     } catch (error) {
       console.log(error);
@@ -67,12 +74,12 @@ const MethodDescriptionForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="description"
+          name="appName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Method Description</FormLabel>
+              <FormLabel>Method Linked App Name</FormLabel>
               <FormControl>
-                <Input placeholder={description} {...field} />
+                <Input placeholder={appName} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -86,4 +93,4 @@ const MethodDescriptionForm = ({
   );
 };
 
-export default MethodDescriptionForm;
+export default MethodAppNameForm;
