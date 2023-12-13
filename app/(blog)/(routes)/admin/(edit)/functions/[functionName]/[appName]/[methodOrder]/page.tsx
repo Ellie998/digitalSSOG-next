@@ -36,6 +36,7 @@ const MethodEditPage = async ({
           id={method?.id!}
         />
         <MethodAppNameForm appName={method?.appName!} id={method?.id!} />
+
         {/* <MethodFunctionNameForm/> */}
         {/* <MethodGuideForm/> */}
       </>
