@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { decodeUrl } from "@/lib/utils";
+import MethodOrderForm from "./_component/method-order-form";
 
 const MethodEditPage = async ({
   params,
@@ -13,14 +14,27 @@ const MethodEditPage = async ({
   const method = await db.method.findFirst({
     where: {
       order: Number(params.methodOrder),
-      functionName: params.functionName,
-      appName: params.appName,
+      functionName: decodeUrl(params.functionName),
+      appName: decodeUrl(params.appName),
     },
     include: { guides: true },
   });
 
   return (
-    <div className="flex flex-col px-10 pb-40 gap-y-20">method edit page</div>
+    <div className="flex flex-col px-10 pb-40 gap-y-20">
+      <h1 className="text-xl text-center">
+        <b>{decodeUrl(params.appName)}</b>어플의{" "}
+        <b>{decodeUrl(params.functionName)}</b>기능의 method{params.methodOrder}{" "}
+        Edit Page
+      </h1>
+      <>
+        <MethodOrderForm order={method?.order!} id={method?.id!} />
+        {/* <MethodDescriptionForm/> */}
+        {/* <MethodAppNameForm/> */}
+        {/* <MethodFunctionNameForm/> */}
+        {/* <MethodGuideForm/> */}
+      </>
+    </div>
   );
 };
 

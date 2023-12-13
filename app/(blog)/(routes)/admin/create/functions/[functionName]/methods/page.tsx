@@ -62,9 +62,9 @@ const AdminMethodCreatePage = ({
           <div>Method 생성 성공</div>
           <div>
             <Link
-              href={`/admin/functions/${encodeUrl(params.functionName)}/${
-                values.appName
-              }/${values.order}`}>
+              href={`/admin/functions/${encodeUrl(
+                params.functionName
+              )}/${encodeUrl(values.appName)}/${values.order}`}>
               Go To Edit
             </Link>
           </div>

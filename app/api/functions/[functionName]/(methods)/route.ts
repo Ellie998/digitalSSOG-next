@@ -12,7 +12,7 @@ export async function POST(
       data: {
         order: order,
         description: description,
-        appName: appName,
+        appName: decodeUrl(appName),
         functionName: decodeUrl(params.functionName),
       },
     });
