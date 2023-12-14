@@ -2,18 +2,15 @@ import { db } from "@/lib/db";
 import { decodeUrl } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
-export async function POST(
-  req: Request,
-  { params }: { params: { functionName: string } }
-) {
+export async function POST(req: Request) {
   try {
-    const { order, description, appName } = await req.json();
+    const { order, description, appName, functionName } = await req.json();
     const method = await db.method.create({
       data: {
         order: order,
         description: description,
         appName: decodeUrl(appName),
-        functionName: decodeUrl(params.functionName),
+        functionName: decodeUrl(functionName),
       },
     });
     if (!method) {

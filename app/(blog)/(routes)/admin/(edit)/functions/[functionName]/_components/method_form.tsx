@@ -1,8 +1,6 @@
-import { Method } from "@prisma/client";
-
-import { MethodDataTable } from "./method_data_table";
-import { columns } from "./method_colums";
 import { db } from "@/lib/db";
+import MethodTable from "./method-table";
+import { decodeUrl } from "@/lib/utils";
 
 const FunctionMethodForm = async ({
   functionName,
@@ -11,19 +9,20 @@ const FunctionMethodForm = async ({
 }) => {
   const methods = await db.method.findMany({
     where: {
-      functionName: decodeURI(functionName),
+      functionName: decodeUrl(functionName),
     },
     include: { guides: true },
-    orderBy: {
-      order: "asc",
-    },
+    orderBy: [
+      {
+        appName: "asc",
+      },
+      { order: "asc" },
+    ],
   });
 
   return (
-    <div className="w-full p-6 shadow-md">
-      <div className="">Linked Methods</div>
-      <MethodDataTable
-        columns={columns}
+    <div className="w-full shadow-md">
+      <MethodTable
         data={methods?.map((method) => ({
           id: method.id,
           order: method.order,
@@ -31,6 +30,7 @@ const FunctionMethodForm = async ({
           guideLength: method.guides.length,
           appName: method.appName,
         }))}
+        functionName={decodeUrl(functionName)}
       />
     </div>
   );

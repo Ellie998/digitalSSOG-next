@@ -20,7 +20,6 @@ import {
   GridRowEditStopReasons,
 } from "@mui/x-data-grid";
 import { randomId } from "@mui/x-data-grid-generator";
-import { Guide } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 import { BsArrowsAngleExpand } from "react-icons/bs";
@@ -42,35 +41,50 @@ function EditToolbar(props: EditToolbarProps) {
     const id = randomId();
     setRows((oldRows) => [
       ...oldRows,
-      { id, order: "", description: "", isNew: true },
+      {
+        id,
+        order: "",
+        description: "",
+        appName: "",
+        guideLength: "0",
+        isNew: true,
+      },
     ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: "order" },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: "appName" },
     }));
   };
 
   return (
     <GridToolbarContainer className="flex justify-between mx-4 mt-4">
-      <div className="text-lg font-bold">Linked Guides</div>
+      <div className="text-lg font-bold">Linked Methods</div>
       <Button color="primary" onClick={handleClick}>
-        Add guide
+        Add method
       </Button>
     </GridToolbarContainer>
   );
 }
 
-export default function GuideTable({
-  guides,
-  methodId,
+export default function MethodTable({
+  data,
+  functionName,
 }: {
-  guides: Guide[];
-  methodId: string;
+  data: {
+    id: string;
+    order: number | null;
+    description: string | null;
+    guideLength: number | null;
+    appName: string | null;
+  }[];
+  functionName: string;
 }) {
-  const initialRows: GridRowsProp = guides.map((guide) => ({
-    id: guide.id,
-    order: guide.order,
-    description: guide.description,
+  const initialRows: GridRowsProp = data?.map((method) => ({
+    id: method.id,
+    order: method?.order,
+    description: method?.description,
+    guideLength: method?.guideLength,
+    appName: method?.appName,
   }));
   const params = useParams();
   const [rows, setRows] = React.useState(initialRows);
@@ -96,12 +110,12 @@ export default function GuideTable({
   };
 
   const handleDeleteClick = (id: GridRowId) => async () => {
-    let text = "확인 버튼을 누르면 선택한 가이드 목록이 삭제됩니다. ";
+    let text = "확인 버튼을 누르면 선택한 method 목록이 삭제됩니다. ";
     if (confirm(text) == true) {
       setRows(rows.filter((row) => row.id !== id));
 
       try {
-        const response = await fetch(`/api/guides/${id}`, {
+        const response = await fetch(`/api/methods/${id}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -110,10 +124,10 @@ export default function GuideTable({
         });
         if (!response.ok) {
           toast.error("ERROR!");
-          throw Error("FAIL : GUIDE TABLE");
+          throw Error("FAIL : METHOD TABLE");
         }
 
-        toast.success("Guide 삭제 성공");
+        toast.success("method 삭제 성공");
       } catch (error) {
         console.log(error);
       }
@@ -139,30 +153,32 @@ export default function GuideTable({
 
     try {
       if (newRow.isNew) {
-        const response = await fetch(`/api/guides`, {
+        const response = await fetch(`/api/methods`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             id: newRow.id,
-            methodId: methodId,
             description: newRow.description,
+            functionName: functionName,
+            appName: newRow.appName,
             order: Number(newRow.order),
           }),
         });
         if (!response.ok) {
           toast.error("ERROR!");
-          throw Error("FAIL : GUIDE TABLE");
+          throw Error("FAIL : METHOD TABLE");
         }
 
-        toast.success("Guide 저장 성공");
+        toast.success("methods 저장 성공");
       } else {
-        const response = await fetch(`/api/guides/${newRow.id}`, {
+        const response = await fetch(`/api/methods/${newRow.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             id: newRow.id,
-            methodId: methodId,
+            functionName: functionName,
             description: newRow.description,
+            appName: newRow.appName,
             order: Number(newRow.order),
           }),
         });
@@ -186,6 +202,14 @@ export default function GuideTable({
 
   const columns: GridColDef[] = [
     {
+      field: "appName",
+      headerName: "App Name",
+      width: 150,
+      editable: true,
+      align: "center",
+      headerAlign: "center",
+    },
+    {
       field: "order",
       headerName: "Order",
       width: 100,
@@ -196,10 +220,18 @@ export default function GuideTable({
     {
       field: "description",
       headerName: "Description",
-      width: 500,
+      width: 400,
       align: "left",
       headerAlign: "left",
       editable: true,
+    },
+    {
+      field: "guideLength",
+      headerName: "Guide Length",
+      width: 100,
+      align: "center",
+      headerAlign: "center",
+      editable: false,
     },
 
     {
@@ -208,7 +240,7 @@ export default function GuideTable({
       headerName: "Actions",
       width: 100,
       cellClassName: "actions",
-      getActions: ({ id }) => {
+      getActions: ({ id, row }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
         if (isInEditMode) {
           return [
@@ -229,9 +261,9 @@ export default function GuideTable({
             />,
 
             <Link
-              href={`/admin/functions/${encodeUrl(
-                params.functionName
-              )}/${encodeUrl(params.appName)}/${params.methodOrder}/${id}`}>
+              href={`/admin/functions/${encodeUrl(functionName)}/${encodeUrl(
+                row.appName
+              )}/${row.order}`}>
               <GridActionsCellItem
                 icon={<BsArrowsAngleExpand size={14} />}
                 label="ETC"
@@ -256,9 +288,9 @@ export default function GuideTable({
             color="inherit"
           />,
           <Link
-            href={`/admin/functions/${encodeUrl(
-              params.functionName
-            )}/${encodeUrl(params.appName)}/${params.methodOrder}/${id}`}>
+            href={`/admin/functions/${encodeUrl(functionName)}/${encodeUrl(
+              row.appName
+            )}/${row.order}`}>
             <GridActionsCellItem
               icon={<BsArrowsAngleExpand size={14} />}
               label="ETC"
