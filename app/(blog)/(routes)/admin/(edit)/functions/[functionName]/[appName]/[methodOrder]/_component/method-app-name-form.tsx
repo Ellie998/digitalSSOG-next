@@ -70,26 +70,30 @@ const MethodAppNameForm = ({
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="appName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Method Linked App Name</FormLabel>
-              <FormControl>
-                <Input placeholder={appName} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={isSubmit}>
-          Edit
-        </Button>
-      </form>
-    </Form>
+    <div className="p-6 border rounded-sm shadow-md ">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="appName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg">
+                  Method Linked App Name
+                </FormLabel>
+                <FormControl>
+                  <Input placeholder={appName} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" disabled={isSubmit}>
+            Edit
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 

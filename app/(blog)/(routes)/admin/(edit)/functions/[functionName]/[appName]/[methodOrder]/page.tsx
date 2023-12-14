@@ -43,7 +43,7 @@ const MethodEditPage = async ({
         <b>{decodeUrl(params.functionName)}</b>기능의 method{params.methodOrder}{" "}
         Edit Page
       </h1>
-      <>
+      <div className="grid grid-cols-2 gap-x-20 gap-y-32">
         <MethodOrderForm order={method?.order!} id={method?.id!} />
         <MethodDescriptionForm
           description={method?.description!}
@@ -58,7 +58,7 @@ const MethodEditPage = async ({
         />
 
         <GuideTable guides={guides} methodId={method?.id!} />
-      </>
+      </div>
     </div>
   );
 };

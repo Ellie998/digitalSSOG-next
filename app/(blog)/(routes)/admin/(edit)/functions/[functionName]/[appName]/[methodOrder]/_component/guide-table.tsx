@@ -47,11 +47,9 @@ function EditToolbar(props: EditToolbarProps) {
   };
 
   return (
-    <GridToolbarContainer>
-      <Button
-        color="primary"
-        onClick={handleClick}
-        className="mt-2 ml-auto mr-2">
+    <GridToolbarContainer className="flex justify-between mx-4 mt-4">
+      <div className="text-lg font-bold">Linked Guides</div>
+      <Button color="primary" onClick={handleClick}>
         Add guide
       </Button>
     </GridToolbarContainer>

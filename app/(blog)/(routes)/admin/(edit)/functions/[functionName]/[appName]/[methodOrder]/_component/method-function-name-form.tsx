@@ -90,72 +90,74 @@ const MethodFunctionNameForm = ({
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="functionName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="block">
-                Method Linked Function Name
-              </FormLabel>
-              <FormControl>
-                <Popover open={open} onOpenChange={setOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={"outline"}
-                      role="combobox"
-                      aria-expanded={open}
-                      className="w-[200px] justify-between">
-                      {value
-                        ? functions?.find(
-                            (functionData) => functionData.title === value
-                          )?.title
-                        : "Select Function..."}
-                      <BsChevronExpand className="w-4 h-4 ml-2 opacity-50 shrink-0" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[200px] p-0">
-                    <Command>
-                      <CommandInput placeholder="Search framework..." />
-                      <CommandEmpty>No Category found.</CommandEmpty>
-                      <CommandGroup>
-                        {functions.map((functionData) => (
-                          <CommandItem
-                            key={functionData.id}
-                            value={functionData.title}
-                            onSelect={(currentValue) => {
-                              setValue(
-                                currentValue === value ? "" : currentValue
-                              );
-                              setOpen(false);
-                            }}>
-                            <BsCheck
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                value === functionData.title
-                                  ? "opacity-100"
-                                  : "opacity-0"
-                              )}
-                            />
-                            {functionData.title}
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={isSubmit}>
-          Edit
-        </Button>
-      </form>
-    </Form>
+    <div className="p-6 border rounded-sm shadow-md ">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="functionName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="block text-lg">
+                  Method Linked Function Name
+                </FormLabel>
+                <FormControl>
+                  <Popover open={open} onOpenChange={setOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        role="combobox"
+                        aria-expanded={open}
+                        className="w-[200px] justify-between">
+                        {value
+                          ? functions?.find(
+                              (functionData) => functionData.title === value
+                            )?.title
+                          : "Select Function..."}
+                        <BsChevronExpand className="w-4 h-4 ml-2 opacity-50 shrink-0" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[200px] p-0">
+                      <Command>
+                        <CommandInput placeholder="Search framework..." />
+                        <CommandEmpty>No Category found.</CommandEmpty>
+                        <CommandGroup>
+                          {functions.map((functionData) => (
+                            <CommandItem
+                              key={functionData.id}
+                              value={functionData.title}
+                              onSelect={(currentValue) => {
+                                setValue(
+                                  currentValue === value ? "" : currentValue
+                                );
+                                setOpen(false);
+                              }}>
+                              <BsCheck
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  value === functionData.title
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                                )}
+                              />
+                              {functionData.title}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" disabled={isSubmit}>
+            Edit
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 

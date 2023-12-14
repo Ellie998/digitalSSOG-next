@@ -64,32 +64,34 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="order"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Method Order</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder={String(order)}
-                  {...field}
-                  type="number"
-                  min={0}
-                />
-              </FormControl>
+    <div className="p-6 border rounded-sm shadow-md ">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="order"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg">Method Order</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder={String(order)}
+                    {...field}
+                    type="number"
+                    min={0}
+                  />
+                </FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={isSubmit}>
-          Edit
-        </Button>
-      </form>
-    </Form>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" disabled={isSubmit}>
+            Edit
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 
