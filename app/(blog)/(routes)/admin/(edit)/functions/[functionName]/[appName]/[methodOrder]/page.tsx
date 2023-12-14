@@ -50,14 +50,14 @@ const MethodEditPage = async ({
           id={method?.id!}
         />
         <MethodAppNameForm appName={method?.appName!} id={method?.id!} />
-
         <MethodFunctionNameForm
           functionName={method?.functionName!}
           functions={functions}
           id={method?.id!}
         />
-
-        <GuideTable guides={guides} methodId={method?.id!} />
+        <div className="col-start-1 col-end-3 shadow-md">
+          <GuideTable guides={guides} methodId={method?.id!} />
+        </div>
       </div>
     </div>
   );

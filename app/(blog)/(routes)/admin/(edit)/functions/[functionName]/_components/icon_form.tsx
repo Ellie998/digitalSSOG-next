@@ -72,7 +72,7 @@ const FunctionIconForm = ({
             name="icon"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Icon</FormLabel>
+                <FormLabel className="text-lg">Icon</FormLabel>
                 <FormControl>
                   <Input placeholder="shadcn" {...field} />
                 </FormControl>

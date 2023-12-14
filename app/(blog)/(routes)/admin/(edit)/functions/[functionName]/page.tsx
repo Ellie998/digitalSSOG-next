@@ -27,21 +27,28 @@ const FunctionEditPage = async ({
 
   return (
     <div className="flex flex-col px-10 pb-40 gap-y-20">
-      <FunctionTitleForm title={functionData?.title || ""} />
-      <FunctionDescriptionForm
-        description={functionData?.description || ""}
-        functionName={params.functionName}
-      />
-      <FunctionIconForm
-        icon={functionData?.icon || ""}
-        functionName={params.functionName}
-      />
-      <FunctionCategoryForm
-        categories={categories}
-        category={functionData?.category!}
-        functionName={params.functionName}
-      />
-      <FunctionMethodForm functionName={params.functionName} />
+      <h1 className="text-xl text-center">
+        <b>{decodeUrl(params.functionName)}</b> 기능의 Edit Page
+      </h1>
+      <div className="grid grid-cols-2 gap-x-20 gap-y-32">
+        <FunctionTitleForm title={functionData?.title || ""} />
+        <FunctionDescriptionForm
+          description={functionData?.description || ""}
+          functionName={params.functionName}
+        />
+        <FunctionIconForm
+          icon={functionData?.icon || ""}
+          functionName={params.functionName}
+        />
+        <FunctionCategoryForm
+          categories={categories}
+          category={functionData?.category!}
+          functionName={params.functionName}
+        />
+        <div className="col-start-1 col-end-3">
+          <FunctionMethodForm functionName={params.functionName} />
+        </div>
+      </div>
     </div>
   );
 };
