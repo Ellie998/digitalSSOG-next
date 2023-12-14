@@ -23,6 +23,10 @@ import { randomId } from "@mui/x-data-grid-generator";
 import { Guide } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
+import { BsArrowsAngleExpand } from "react-icons/bs";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { encodeUrl } from "@/lib/utils";
 
 interface EditToolbarProps {
   setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
@@ -68,6 +72,7 @@ export default function GuideTable({
     order: guide.order,
     description: guide.description,
   }));
+  const params = useParams();
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
@@ -201,7 +206,6 @@ export default function GuideTable({
       cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-
         if (isInEditMode) {
           return [
             <GridActionsCellItem
@@ -219,6 +223,17 @@ export default function GuideTable({
               onClick={handleCancelClick(id)}
               color="inherit"
             />,
+
+            <Link
+              href={`/admin/functions/${encodeUrl(
+                params.functionName
+              )}/${encodeUrl(params.appName)}/${params.methodOrder}/${id}`}>
+              <GridActionsCellItem
+                icon={<BsArrowsAngleExpand size={14} />}
+                label="ETC"
+                color="inherit"
+              />
+            </Link>,
           ];
         }
 
@@ -236,6 +251,16 @@ export default function GuideTable({
             onClick={handleDeleteClick(id)}
             color="inherit"
           />,
+          <Link
+            href={`/admin/functions/${encodeUrl(
+              params.functionName
+            )}/${encodeUrl(params.appName)}/${params.methodOrder}/${id}`}>
+            <GridActionsCellItem
+              icon={<BsArrowsAngleExpand size={14} />}
+              label="ETC"
+              color="inherit"
+            />
+          </Link>,
         ];
       },
     },
