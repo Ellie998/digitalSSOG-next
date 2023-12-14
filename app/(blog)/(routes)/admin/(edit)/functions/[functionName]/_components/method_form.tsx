@@ -15,7 +15,7 @@ const FunctionMethodForm = async ({
     },
     include: { guides: true },
     orderBy: {
-      order: "desc",
+      order: "asc",
     },
   });
 
