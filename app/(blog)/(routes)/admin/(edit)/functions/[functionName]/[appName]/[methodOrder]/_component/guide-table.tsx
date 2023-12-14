@@ -96,24 +96,28 @@ export default function GuideTable({
   };
 
   const handleDeleteClick = (id: GridRowId) => async () => {
-    setRows(rows.filter((row) => row.id !== id));
+    let text = "확인 버튼을 누르면 선택한 가이드 목록이 삭제됩니다. ";
+    if (confirm(text) == true) {
+      setRows(rows.filter((row) => row.id !== id));
 
-    try {
-      const response = await fetch(`/api/guides/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: id,
-        }),
-      });
-      if (!response.ok) {
-        toast.error("ERROR!");
-        throw Error("FAIL : GUIDE TABLE");
+      try {
+        const response = await fetch(`/api/guides/${id}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: id,
+          }),
+        });
+        if (!response.ok) {
+          toast.error("ERROR!");
+          throw Error("FAIL : GUIDE TABLE");
+        }
+
+        toast.success("Guide 삭제 성공");
+      } catch (error) {
+        console.log(error);
       }
-
-      toast.success("Guide 삭제 성공");
-    } catch (error) {
-      console.log(error);
+    } else {
     }
   };
 
