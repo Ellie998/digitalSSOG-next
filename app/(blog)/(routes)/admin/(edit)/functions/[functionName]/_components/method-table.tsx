@@ -24,7 +24,6 @@ import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { encodeUrl } from "@/lib/utils";
 
 interface EditToolbarProps {
@@ -86,7 +85,7 @@ export default function MethodTable({
     guideLength: method?.guideLength,
     appName: method?.appName,
   }));
-  const params = useParams();
+
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
@@ -110,7 +109,7 @@ export default function MethodTable({
   };
 
   const handleDeleteClick = (id: GridRowId) => async () => {
-    let text = "확인 버튼을 누르면 선택한 method 목록이 삭제됩니다. ";
+    const text = "확인 버튼을 누르면 선택한 method 목록이 삭제됩니다. ";
     if (confirm(text) == true) {
       setRows(rows.filter((row) => row.id !== id));
 
@@ -131,7 +130,6 @@ export default function MethodTable({
       } catch (error) {
         console.log(error);
       }
-    } else {
     }
   };
 

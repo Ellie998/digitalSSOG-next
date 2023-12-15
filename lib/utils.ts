@@ -6,14 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function decodeUrl(url: string): string {
-  let result = decodeURI(url).replaceAll("-", " ").replaceAll("%2C", ",");
-
-  return result;
+  return decodeURI(url).replaceAll("-", " ").replaceAll("%2C", ",");
 }
 export function encodeUrl(url: string): string {
-  let result = decodeURI(url).replaceAll(" ", "-").replaceAll("%2C", ",");
-
-  return result;
+  return decodeURI(url).replaceAll(" ", "-").replaceAll("%2C", ",");
 }
 
 // export function functionKeysArrayToObject(functionKeys: string[]): object {

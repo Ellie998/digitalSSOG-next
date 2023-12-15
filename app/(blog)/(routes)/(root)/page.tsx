@@ -1,10 +1,10 @@
 import Categorires from "./_components/categories";
 import Functions from "./_components/functions";
 
-const BlogPage = ({ params, searchParams }: any) => {
+const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (
     <div>
-      <Categorires searchParams={searchParams} />
+      <Categorires />
       <Functions searchParams={searchParams} />
     </div>
   );

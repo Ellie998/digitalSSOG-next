@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 import { Function_category } from "@prisma/client";
@@ -29,7 +28,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -45,10 +43,9 @@ const FunctionCategoryForm = ({
   functionName,
 }: {
   categories: Array<Function_category>;
-  category: Function_category | null;
+  category: Function_category | null | undefined;
   functionName: string;
 }) => {
-  const router = useRouter();
   const [isSubmited, setIsSubmited] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(category?.name);
@@ -61,7 +58,7 @@ const FunctionCategoryForm = ({
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit() {
     try {
       setIsSubmited(true);
       const response = await fetch(`/api/functions/${functionName}`, {
@@ -90,7 +87,7 @@ const FunctionCategoryForm = ({
           <FormField
             control={form.control}
             name={"category"}
-            render={({ field }) => (
+            render={() => (
               <FormItem>
                 <FormLabel className="block w-full text-lg">Category</FormLabel>
                 <FormControl>

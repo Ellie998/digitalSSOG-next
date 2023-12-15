@@ -96,7 +96,7 @@ export default function GuideTable({
   };
 
   const handleDeleteClick = (id: GridRowId) => async () => {
-    let text = "확인 버튼을 누르면 선택한 가이드 목록이 삭제됩니다. ";
+    const text = "확인 버튼을 누르면 선택한 가이드 목록이 삭제됩니다. ";
     if (confirm(text) == true) {
       setRows(rows.filter((row) => row.id !== id));
 
@@ -117,7 +117,6 @@ export default function GuideTable({
       } catch (error) {
         console.log(error);
       }
-    } else {
     }
   };
 

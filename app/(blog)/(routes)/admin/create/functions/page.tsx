@@ -17,9 +17,9 @@ import {
 import { Input } from "@/components/ui/input";
 
 import { toast } from "react-toastify";
-import { useState } from "react";
+
 import Link from "next/link";
-import { decodeUrl, encodeUrl } from "@/lib/utils";
+import { encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
   functionName: z.string().min(1),

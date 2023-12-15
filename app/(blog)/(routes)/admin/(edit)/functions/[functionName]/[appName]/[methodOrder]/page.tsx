@@ -44,19 +44,22 @@ const MethodEditPage = async ({
         Edit Page
       </h1>
       <div className="grid grid-cols-2 gap-x-20 gap-y-32">
-        <MethodOrderForm order={method?.order!} id={method?.id!} />
+        <MethodOrderForm order={method?.order || -1} id={method?.id || ""} />
         <MethodDescriptionForm
-          description={method?.description!}
-          id={method?.id!}
+          description={method?.description || ""}
+          id={method?.id || ""}
         />
-        <MethodAppNameForm appName={method?.appName!} id={method?.id!} />
+        <MethodAppNameForm
+          appName={method?.appName || ""}
+          id={method?.id || ""}
+        />
         <MethodFunctionNameForm
-          functionName={method?.functionName!}
+          functionName={method?.functionName || ""}
           functions={functions}
-          id={method?.id!}
+          id={method?.id || ""}
         />
         <div className="col-start-1 col-end-3 shadow-md">
-          <GuideTable guides={guides} methodId={method?.id!} />
+          <GuideTable guides={guides} methodId={method?.id || ""} />
         </div>
       </div>
     </div>

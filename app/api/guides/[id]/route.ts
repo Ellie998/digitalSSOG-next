@@ -5,7 +5,6 @@ export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const { id } = await req.json();
   try {
     const guide = await db.guide.delete({
       where: {

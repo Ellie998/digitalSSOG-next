@@ -1,7 +1,13 @@
 import { db } from "@/lib/db";
 import Link from "next/link";
 
-const Functions = async ({ searchParams }: any) => {
+const Functions = async ({
+  searchParams,
+}: {
+  searchParams: {
+    tab: string;
+  };
+}) => {
   const functions = await db.function.findMany({
     where: {
       category: {

@@ -46,6 +46,7 @@ const MethodFunctionNameForm = ({
 }: {
   id: string;
   functionName: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   functions: Function[];
 }) => {
   const [isSubmit, setIsSubmit] = useState(false);
@@ -60,7 +61,7 @@ const MethodFunctionNameForm = ({
     defaultValues: { functionName: functionName },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit() {
     try {
       setIsSubmit(true);
       const response = await fetch(`/api/methods/${id}`, {
@@ -96,7 +97,7 @@ const MethodFunctionNameForm = ({
           <FormField
             control={form.control}
             name="functionName"
-            render={({ field }) => (
+            render={() => (
               <FormItem>
                 <FormLabel className="block text-lg">
                   Method Linked Function Name

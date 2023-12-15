@@ -1,10 +1,7 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(req: Request) {
   const { id } = await req.json();
   try {
     const method = await db.method.delete({

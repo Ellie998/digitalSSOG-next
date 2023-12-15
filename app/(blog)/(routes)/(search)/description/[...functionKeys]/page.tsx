@@ -5,7 +5,13 @@ import { db } from "@/lib/db";
 import { decodeUrl } from "@/lib/utils";
 
 // or Dynamic metadata
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    functionKeys: string[];
+  };
+}) {
   const functionName = decodeUrl(params.functionKeys[0]);
 
   return {

@@ -42,7 +42,7 @@ const FunctionEditPage = async ({
         />
         <FunctionCategoryForm
           categories={categories}
-          category={functionData?.category!}
+          category={functionData?.category}
           functionName={params.functionName}
         />
         <div className="col-start-1 col-end-3">
