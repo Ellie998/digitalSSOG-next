@@ -1,3 +1,6 @@
+export const runtime = "nodejs";
+export const dynamic = "force-static";
+
 import Navbar from "./_components/navbar";
 import Sidebar from "./_components/sidebar";
 
