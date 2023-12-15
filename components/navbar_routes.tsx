@@ -7,7 +7,7 @@ import Link from "next/link";
 const NavbarRoutes = () => {
   return (
     <div className="flex ml-auto gap-x-2">
-      {location.hostname === "localhost" && (
+      {window.location.hostname === "localhost" && (
         <Button variant={"secondary"}>
           <Link href={`/admin`}>Admin</Link>
         </Button>
