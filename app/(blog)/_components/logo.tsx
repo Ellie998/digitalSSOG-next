@@ -1,11 +1,6 @@
 const Logo = () => {
   return (
-    <image
-      href="/assets/images/logo.png"
-      aria-label="logo"
-      width={96}
-      height={30}
-    />
+    <img src={"/assets/images/logo.png"} alt="logo" width={96} height={30} />
   );
 };
 
