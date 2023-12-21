@@ -1,4 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { PrismaClient } from "@prisma/client/edge";
 import { db } from "../lib/db";
 
 const prisma = new PrismaClient();

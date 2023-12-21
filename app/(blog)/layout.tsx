@@ -1,5 +1,4 @@
-export const runtime = "nodejs";
-export const dynamic = "force-static";
+export const runtime = "edge";
 
 import Navbar from "./_components/navbar";
 import Sidebar from "./_components/sidebar";
