@@ -1,11 +1,12 @@
 "use client";
-
 import * as React from "react";
+
 import Box from "@mui/material/Box";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
+
 import {
   GridRowsProp,
   GridRowModesModel,
@@ -42,48 +43,48 @@ function EditToolbar(props: EditToolbarProps) {
       ...oldRows,
       {
         id,
-        order: "",
+        categoryName: "",
+        title: "",
+        icon: "",
         description: "",
-        appName: "",
-        guideLength: "0",
+        methodLength: 0,
         isNew: true,
       },
     ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: "appName" },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: "title" },
     }));
   };
 
   return (
-    <GridToolbarContainer className="flex justify-between mx-4 mt-4">
-      <div className="text-lg font-bold">Linked Methods</div>
-      <Button color="primary" onClick={handleClick}>
-        Add method
+    <GridToolbarContainer className="mx-4 mt-4 ">
+      <Button color="primary" onClick={handleClick} className="ml-auto">
+        Add Function
       </Button>
     </GridToolbarContainer>
   );
 }
 
-export default function MethodTable({
+export default function FunctionTable({
   data,
-  functionName,
 }: {
   data: {
     id: string;
-    order: number | null;
+    categoryName: string | null;
+    title: string | null;
+    icon: string | null;
     description: string | null;
-    guideLength: number | null;
-    appName: string | null;
+    methodLength: number | null;
   }[];
-  functionName: string;
 }) {
-  const initialRows: GridRowsProp = data?.map((method) => ({
-    id: method.id,
-    order: method?.order,
-    description: method?.description,
-    guideLength: method?.guideLength,
-    appName: method?.appName,
+  const initialRows: GridRowsProp = data?.map((functionData) => ({
+    id: functionData.id,
+    categoryName: functionData?.categoryName,
+    title: functionData.title,
+    icon: functionData.icon,
+    description: functionData?.description,
+    methodLength: functionData?.methodLength,
   }));
 
   const [rows, setRows] = React.useState(initialRows);
@@ -109,24 +110,28 @@ export default function MethodTable({
   };
 
   const handleDeleteClick = (id: GridRowId) => async () => {
-    const text = "확인 버튼을 누르면 선택한 method 목록이 삭제됩니다. ";
+    const text = "확인 버튼을 누르면 선택한 function 목록이 삭제됩니다. ";
     if (confirm(text) == true) {
       setRows(rows.filter((row) => row.id !== id));
+      const functionName = rows.find((row) => row.id === id);
 
       try {
-        const response = await fetch(`/api/methods/${id}`, {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            id: id,
-          }),
-        });
+        const response = await fetch(
+          `/api/functions/${encodeUrl(functionName?.title)}`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: id,
+            }),
+          }
+        );
         if (!response.ok) {
           toast.error("ERROR!");
-          throw Error("FAIL : METHOD TABLE");
+          throw Error("FAIL : FUNCTION TABLE");
         }
 
-        toast.success("method 삭제 성공");
+        toast.success(`[${functionName?.title}] function 삭제 성공`);
       } catch (error) {
         console.log(error);
       }
@@ -148,44 +153,48 @@ export default function MethodTable({
   const processRowUpdate = async (newRow: GridRowModel) => {
     const updatedRow = { ...newRow, isNew: false };
     setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
+    const functionName = rows.find((row) => row.id === newRow.id);
 
     try {
       if (newRow.isNew) {
-        const response = await fetch(`/api/methods`, {
+        const response = await fetch(`/api/functions`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             id: newRow.id,
-            description: newRow.description,
-            functionName: functionName,
-            appName: newRow.appName,
-            order: Number(newRow.order),
+            categoryName: newRow?.categoryName,
+            title: newRow?.title,
+            icon: newRow?.icon,
+            description: newRow?.description,
           }),
         });
         if (!response.ok) {
           toast.error("ERROR!");
-          throw Error("FAIL : METHOD TABLE");
+          throw Error("FAIL : FUNCTION TABLE");
         }
 
-        toast.success("methods 저장 성공");
+        toast.success(`[${newRow.title}] function 저장 성공`);
       } else {
-        const response = await fetch(`/api/methods/${newRow.id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            id: newRow.id,
-            functionName: functionName,
-            description: newRow.description,
-            appName: newRow.appName,
-            order: Number(newRow.order),
-          }),
-        });
+        const response = await fetch(
+          `/api/functions/${encodeUrl(functionName?.title)}`,
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: newRow.id,
+              categoryName: newRow?.categoryName,
+              title: newRow?.title,
+              icon: newRow?.icon,
+              description: newRow?.description,
+            }),
+          }
+        );
         if (!response.ok) {
           toast.error("ERROR!");
-          throw Error("FAIL : METHOD TABLE");
+          throw Error("FAIL : FUNCTION TABLE");
         }
 
-        toast.success("METHOD 업데이트 성공");
+        toast.success(`[${newRow.title}] function 업데이트 성공`);
       }
     } catch (error) {
       console.log(error);
@@ -200,32 +209,41 @@ export default function MethodTable({
 
   const columns: GridColDef[] = [
     {
-      field: "appName",
-      headerName: "App Name",
+      field: "categoryName",
+      headerName: "Category Name",
       width: 150,
       editable: true,
       align: "center",
       headerAlign: "center",
     },
     {
-      field: "order",
-      headerName: "Order",
-      width: 100,
+      field: "title",
+      headerName: "Title",
+      width: 200,
       editable: true,
-      align: "center",
-      headerAlign: "center",
+      align: "left",
+      headerAlign: "left",
     },
+    {
+      field: "icon",
+      headerName: "Icon",
+      width: 70,
+      editable: true,
+      align: "left",
+      headerAlign: "left",
+    },
+
     {
       field: "description",
       headerName: "Description",
-      width: 400,
+      width: 300,
       align: "left",
       headerAlign: "left",
       editable: true,
     },
     {
-      field: "guideLength",
-      headerName: "Guide Length",
+      field: "methodLength",
+      headerName: "Method Length",
       width: 100,
       align: "center",
       headerAlign: "center",
@@ -258,10 +276,7 @@ export default function MethodTable({
               color="inherit"
             />,
 
-            <Link
-              href={`/admin/functions/${encodeUrl(functionName)}/${encodeUrl(
-                row.appName
-              )}/${row.order}`}>
+            <Link href={`/admin/functions/${encodeUrl(row.title)}`}>
               <GridActionsCellItem
                 icon={<BsArrowsAngleExpand size={14} />}
                 label="ETC"
@@ -285,10 +300,7 @@ export default function MethodTable({
             onClick={handleDeleteClick(id)}
             color="inherit"
           />,
-          <Link
-            href={`/admin/functions/${encodeUrl(functionName)}/${encodeUrl(
-              row.appName
-            )}/${row.order}`}>
+          <Link href={`/admin/functions/${encodeUrl(row.title)}`}>
             <GridActionsCellItem
               icon={<BsArrowsAngleExpand size={14} />}
               label="ETC"
@@ -303,7 +315,7 @@ export default function MethodTable({
   return (
     <Box
       sx={{
-        height: 500,
+        height: 700,
         width: "100%",
         "& .actions": {
           color: "text.secondary",
@@ -313,6 +325,11 @@ export default function MethodTable({
         },
       }}>
       <DataGrid
+        pageSizeOptions={[
+          5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+          95, 100,
+        ]}
+        initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
         rows={rows}
         columns={columns}
         editMode="row"
