@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { db } from "@/lib/db";
 import { decodeUrl } from "@/lib/utils";
 import { NextResponse } from "next/server";
