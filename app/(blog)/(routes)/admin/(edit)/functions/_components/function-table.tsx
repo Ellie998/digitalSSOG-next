@@ -1,11 +1,12 @@
 "use client";
-
 import * as React from "react";
+
 import Box from "@mui/material/Box";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
+
 import {
   GridRowsProp,
   GridRowModesModel,
@@ -324,6 +325,11 @@ export default function FunctionTable({
         },
       }}>
       <DataGrid
+        pageSizeOptions={[
+          5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+          95, 100,
+        ]}
+        initialState={{ pagination: { paginationModel: { pageSize: 5 } } }}
         rows={rows}
         columns={columns}
         editMode="row"
