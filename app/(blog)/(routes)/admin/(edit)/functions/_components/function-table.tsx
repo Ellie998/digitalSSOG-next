@@ -299,7 +299,7 @@ export default function FunctionTable({
             onClick={handleDeleteClick(id)}
             color="inherit"
           />,
-          <Link href={`/admin/functions/${encodeUrl(row.functionName)}`}>
+          <Link href={`/admin/functions/${encodeUrl(row.title)}`}>
             <GridActionsCellItem
               icon={<BsArrowsAngleExpand size={14} />}
               label="ETC"
