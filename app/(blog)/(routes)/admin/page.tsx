@@ -13,9 +13,8 @@ const AdminPage = () => {
           </Link>
         </Button>
       </div>
-      <div>
-        <FunctionForm />
-      </div>
+
+      <FunctionForm />
     </div>
   );
 };

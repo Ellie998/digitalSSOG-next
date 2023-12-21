@@ -1,6 +1,10 @@
+import Link from "next/link";
+
 const Logo = () => {
   return (
-    <img src={"/assets/images/logo.png"} alt="logo" width={96} height={30} />
+    <Link href={"/"}>
+      <img src={"/assets/images/logo.png"} alt="logo" width={96} height={30} />
+    </Link>
   );
 };
 
