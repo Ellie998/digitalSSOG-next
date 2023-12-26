@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import Script from "next/script";
 import "./layout.css";
 import "./globals.css";
