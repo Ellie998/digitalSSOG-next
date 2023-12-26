@@ -1,7 +1,6 @@
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
-import Navbar from "./(blog)/_components/navbar";
 import { Sidebar } from "lucide-react";
 
 export default function Error({
@@ -20,9 +19,7 @@ export default function Error({
     <html>
       <body>
         <div className="h-full">
-          <div className="h-[80px] md:pl-56 fixed z-50 w-full inset-y-0">
-            <Navbar />
-          </div>
+          <div className="h-[80px] md:pl-56 fixed z-50 w-full inset-y-0"></div>
           <div className="fixed inset-y-0 z-50 flex-col hidden w-56 h-full md:flex">
             <Sidebar />
           </div>
