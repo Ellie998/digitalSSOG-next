@@ -4,7 +4,7 @@ export const runtime = "edge";
 import { useEffect } from "react";
 import { Sidebar } from "lucide-react";
 
-export default function Error({
+export default function GlobalError({
   error,
   reset,
 }: {
