@@ -27,15 +27,14 @@ export async function PATCH(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const { description, order } = await req.json();
+  const values = await req.json();
   try {
     const guide = await db.guide.update({
       where: {
         id: params.id,
       },
       data: {
-        description: description,
-        order: order,
+        ...values,
       },
     });
 

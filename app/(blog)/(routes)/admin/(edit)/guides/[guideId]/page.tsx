@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import GuideDescriptionForm from "./_components/guide-description-form";
+import GuideOrderForm from "./_components/guide-order-form";
 
 const GuideEditPage = async ({
   params,
@@ -21,6 +22,7 @@ const GuideEditPage = async ({
           id={params.guideId}
           description={guide?.description || ""}
         />
+        <GuideOrderForm id={params.guideId} order={guide?.order || null} />
       </div>
     </div>
   );

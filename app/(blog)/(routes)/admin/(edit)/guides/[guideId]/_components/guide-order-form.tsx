@@ -17,17 +17,19 @@ import { Input } from "@/components/ui/input";
 
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { encodeUrl } from "@/lib/utils";
 
 const formSchema = z.object({
   order: z.string(),
 });
 
-const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
+const GuideOrderForm = ({
+  id,
+  order,
+}: {
+  id: string;
+  order: number | null;
+}) => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const router = useRouter();
-  const params = useParams();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -37,7 +39,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmit(true);
-      const response = await fetch(`/api/methods/${id}`, {
+      const response = await fetch(`/api/guides/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -46,16 +48,10 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
       });
       if (!response.ok) {
         toast.error("ERROR!");
-        throw Error("FAIL : METHOD ORDER FORM");
+        throw Error("FAIL : GUIDE ORDER FORM");
       }
 
-      toast.success("Method order 수정 성공");
-      router.push(
-        `/admin/functions/${encodeUrl(params.functionName)}/${encodeUrl(
-          params.appName
-        )}/${values.order}`
-      );
-      router.refresh();
+      toast.success("Guide order 수정 성공");
     } catch (error) {
       console.log(error);
     } finally {
@@ -72,7 +68,7 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
             name="order"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-lg">Method Order</FormLabel>
+                <FormLabel className="text-lg">Guide Order</FormLabel>
                 <FormControl>
                   <Input
                     placeholder={String(order)}
@@ -95,4 +91,4 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   );
 };
 
-export default MethodOrderForm;
+export default GuideOrderForm;
