@@ -1,5 +1,5 @@
-"use client"; // Error components must be Client Components
 export const runtime = "edge";
+("use client"); // Error components must be Client Components
 
 import { useEffect } from "react";
 import { Sidebar } from "lucide-react";
