@@ -40,7 +40,7 @@ const AdminCreatePage = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          functionName: values.functionName,
+          title: values.functionName,
         }),
       });
       if (!response.ok) {
