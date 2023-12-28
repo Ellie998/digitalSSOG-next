@@ -19,39 +19,33 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 const formSchema = z.object({
-  order: z.string(),
+  code: z.string(),
 });
 
-const GuideOrderForm = ({
-  id,
-  order,
-}: {
-  id: string;
-  order: number | null;
-}) => {
+const ComponentCodeForm = ({ id, code }: { id: string; code: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { order: String(order) },
+    defaultValues: { code: code },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmit(true);
-      const response = await fetch(`/api/guides/${id}`, {
+      const response = await fetch(`/api/guide-components/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          order: Number(values.order),
+          code: values.code,
         }),
       });
       if (!response.ok) {
         toast.error("ERROR!");
-        throw Error("FAIL : GUIDE ORDER FORM");
+        throw Error("FAIL : GUIDE COMPONENT CODE FORM");
       }
 
-      toast.success("Guide order 수정 성공");
+      toast.success("Guide code 수정 성공");
     } catch (error) {
       console.log(error);
     } finally {
@@ -65,19 +59,16 @@ const GuideOrderForm = ({
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="order"
+            name="code"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-lg">Guide Order</FormLabel>
+                <FormLabel className="text-lg">Guide Component Code</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={String(order)}
+                    placeholder={"guide component의 code 작성"}
                     {...field}
-                    type="number"
-                    min={0}
                   />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             )}
@@ -91,4 +82,4 @@ const GuideOrderForm = ({
   );
 };
 
-export default GuideOrderForm;
+export default ComponentCodeForm;
