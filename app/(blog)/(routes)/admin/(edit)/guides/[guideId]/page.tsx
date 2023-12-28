@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import GuideDescriptionForm from "./_components/guide-description-form";
 import GuideOrderForm from "./_components/guide-order-form";
+import GuideComponentButton from "./_components/guide-components-button";
 
 const GuideEditPage = async ({
   params,
@@ -13,10 +14,20 @@ const GuideEditPage = async ({
     where: {
       id: params.guideId,
     },
+    include: {
+      guide_component: true,
+    },
   });
+
   return (
     <div className="flex flex-col px-10 pb-40 gap-y-20">
       <h1 className="text-2xl text-center">{params.guideId}</h1>
+      <div className="ml-auto">
+        <GuideComponentButton
+          guide={guide}
+          guide_component_id={guide?.guide_component?.id || null}
+        />
+      </div>
       <div className="grid grid-cols-2 gap-x-20 gap-y-32">
         <GuideDescriptionForm
           id={params.guideId}
