@@ -325,12 +325,9 @@ export default function FunctionTable({
         },
       }}>
       <DataGrid
-        pageSizeOptions={[
-          5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
-          95, 100,
-        ]}
+        pageSizeOptions={[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
         initialState={{
-          pagination: { paginationModel: { pageSize: 5 } },
+          pagination: { paginationModel: { pageSize: 10 } },
         }}
         rows={rows}
         columns={columns}

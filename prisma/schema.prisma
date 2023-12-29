@@ -97,7 +97,7 @@ model Guide {
 
 model Guide_component {
   id String @id @default(uuid())
-  code String @db.Text
+  code String? @db.Text
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

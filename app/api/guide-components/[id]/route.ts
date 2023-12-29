@@ -7,17 +7,17 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const guide = await db.guide.delete({
+    const guide_component = await db.guide_component.delete({
       where: {
         id: params.id,
       },
     });
 
-    if (!guide) {
+    if (!guide_component) {
       return new NextResponse("Internal DB Error", { status: 404 });
     }
 
-    return NextResponse.json(guide);
+    return NextResponse.json(guide_component);
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Error", { status: 500 });
@@ -29,7 +29,7 @@ export async function PATCH(
 ) {
   const values = await req.json();
   try {
-    const guide = await db.guide.update({
+    const guide_component = await db.guide_component.update({
       where: {
         id: params.id,
       },
@@ -38,11 +38,11 @@ export async function PATCH(
       },
     });
 
-    if (!guide) {
+    if (!guide_component) {
       return new NextResponse("Internal DB Error", { status: 404 });
     }
 
-    return NextResponse.json(guide);
+    return NextResponse.json(guide_component);
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Error", { status: 500 });
