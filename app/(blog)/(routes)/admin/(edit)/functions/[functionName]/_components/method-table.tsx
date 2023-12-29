@@ -167,7 +167,7 @@ export default function MethodTable({
           throw Error("FAIL : METHOD TABLE");
         }
 
-        toast.success("methods 저장 성공");
+        toast.success(`methods ${newRow.order} 저장 성공`);
       } else {
         const response = await fetch(`/api/methods/${newRow.id}`, {
           method: "PATCH",
@@ -185,7 +185,7 @@ export default function MethodTable({
           throw Error("FAIL : METHOD TABLE");
         }
 
-        toast.success("METHOD 업데이트 성공");
+        toast.success(`METHOD ${newRow.order} 업데이트 성공`);
       }
     } catch (error) {
       console.log(error);

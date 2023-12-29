@@ -151,7 +151,7 @@ export default function GuideTable({
           throw Error("FAIL : GUIDE TABLE");
         }
 
-        toast.success("Guide 저장 성공");
+        toast.success(`Guide ${newRow.order} 저장 성공`);
       } else {
         const response = await fetch(`/api/guides/${newRow.id}`, {
           method: "PATCH",
@@ -168,7 +168,7 @@ export default function GuideTable({
           throw Error("FAIL : GUIDE TABLE");
         }
 
-        toast.success("Guide 업데이트 성공");
+        toast.success(`Guide ${newRow.order} 업데이트 성공`);
       }
     } catch (error) {
       console.log(error);
