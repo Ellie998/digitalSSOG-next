@@ -20,15 +20,17 @@ const Functions = async ({
     <div>
       {!functions && <div>Loading</div>}
       {functions && (
-        <div className="flex flex-col">
+        <ul className="flex flex-col text-left gap-y-5">
           {functions?.map((item) => (
-            <div key={item.id}>
+            <li
+              key={item.id}
+              className="flex border-b-[0.5px] border-slate-300 ">
               <Link href={`/description/${item.title.replaceAll(" ", "-")}`}>
                 {item.title}
               </Link>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
