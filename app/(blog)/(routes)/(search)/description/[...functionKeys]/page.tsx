@@ -1,8 +1,19 @@
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { AlertCircle } from "lucide-react";
+
 import DescriptionBox from "@/components/description_box";
 import DescriptionTitle from "@/components/description_title";
 import { db } from "@/lib/db";
 
 import { decodeUrl } from "@/lib/utils";
+import classes from "./page.module.css";
+import Link from "next/link";
 
 // or Dynamic metadata
 export async function generateMetadata({
@@ -110,34 +121,98 @@ export default async function FunctionDescriptionPage({
     },
   });
 
+  const num = [
+    "0️⃣",
+    "1️⃣",
+    "2️⃣",
+    "3️⃣",
+    "4️⃣",
+    "5️⃣",
+    "6️⃣",
+    "7️⃣",
+    "8️⃣",
+    "9️⃣",
+    "🔟",
+  ];
+
   return (
-    <div>
-      <DescriptionTitle>
-        {functionData ? `${functionData.icon} ${functionData.title}` : ""}
-      </DescriptionTitle>
-      <div className="flex justify-around w-full">
-        <DescriptionBox>
-          <>
-            <div>특징</div>
-            {functionData?.description}
-          </>
-        </DescriptionBox>
-        <DescriptionBox>
-          <>
-            <div>관련 어플</div>
-            {functionData?.apps.map((appData) => <div>{appData.appName}</div>)}
-          </>
-        </DescriptionBox>
-      </div>
+    <div className="w-full h-full">
+      <section className={`w-4/5 mx-auto text-center pt-10 pb-20`}>
+        <DescriptionTitle>
+          <b>
+            {functionData ? `${functionData.icon} ${functionData.title} ` : ""}
+          </b>
+          기능 소개
+        </DescriptionTitle>
+        <ul className="flex flex-col items-center justify-center gap-8 mx-auto my-8 md:grid md:grid-cols-2">
+          <li className="w-full">
+            <DescriptionBox title="특징">
+              {functionData?.description}
+            </DescriptionBox>
+          </li>
+          <li className="w-full">
+            <DescriptionBox title="관련 어플">
+              {functionData?.apps.map((appData) => (
+                <div>{appData.appName}</div>
+              ))}
+            </DescriptionBox>
+          </li>
+        </ul>
+      </section>
       {/* add guide db */}
-      <div>
-        {functionData?.methods.map((method) => (
-          <div key={method.id}>
-            {method.appName + " 어플"}
-            {method.guides?.map((guide) => <div>{guide.description}</div>)}
-          </div>
-        ))}
-      </div>
+      <section className={classes.description}>
+        <DescriptionTitle>
+          <b>
+            {functionData ? `${functionData.icon} ${functionData.title} ` : ""}
+          </b>
+          기능 사용 방법
+        </DescriptionTitle>
+
+        <div>
+          <ol>
+            {functionData?.methods.map((method, i) => (
+              <li key={method.id}>
+                <Accordion type="multiple">
+                  <AccordionItem value={`item-${i}`}>
+                    <AccordionTrigger>{method.appName} 어플</AccordionTrigger>
+                    <AccordionContent className="">
+                      {method.guides?.map((guide, j) => (
+                        <li key={guide.id} className="w-full pb-4 ">
+                          <Link
+                            className="block w-full"
+                            href={`/description/${params.functionKeys[0]}/${
+                              method.appName
+                            }/${j + 1}`}
+                            scroll={false}>
+                            {num[j + 1]} {guide.description}
+                          </Link>
+                        </li>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div className="mx-auto my-0 ">
+          <Alert variant={"ghost"}>
+            <AlertCircle className="w-4 h-4 " color="red" />
+            <AlertDescription className="text-sm text-slate-500">
+              학습에 도움을 드리기 위해 실제 스마트폰의 모습을 본따 만든
+              화면입니다.
+            </AlertDescription>
+          </Alert>
+          <Alert variant={"ghost"}>
+            <AlertCircle className="w-4 h-4" color="red" />
+            <AlertDescription className="text-sm text-slate-500">
+              스마트폰 기종에 따라 화면 모습에 차이가 있을 수 있습니다.
+            </AlertDescription>
+          </Alert>
+
+          {/* <DisplayBox></DisplayBox> */}
+        </div>
+      </section>
     </div>
   );
 }
