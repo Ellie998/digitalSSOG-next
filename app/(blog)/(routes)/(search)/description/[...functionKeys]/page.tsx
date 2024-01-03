@@ -179,9 +179,17 @@ export default async function FunctionDescriptionPage({
                     <AccordionTrigger>{method.appName} 어플</AccordionTrigger>
                     <AccordionContent className="">
                       {method.guides?.map((guide, j) => (
-                        <li key={guide.id} className="w-full pb-4 ">
+                        <li
+                          key={guide.id}
+                          className="w-full pb-4 hover:underline ">
                           <Link
-                            className="block w-full"
+                            className={`block w-full ${
+                              method.appName ===
+                                decodeUrl(params.functionKeys[1]) &&
+                              j + 1 + "" === params.functionKeys[2]
+                                ? "font-bold"
+                                : ""
+                            }`}
                             href={`/description/${params.functionKeys[0]}/${
                               method.appName
                             }/${j + 1}`}
