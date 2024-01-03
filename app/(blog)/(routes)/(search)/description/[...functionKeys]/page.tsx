@@ -1,3 +1,7 @@
+import { db } from "@/lib/db";
+import { decodeUrl } from "@/lib/utils";
+import Link from "next/link";
+
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Accordion,
@@ -9,11 +13,9 @@ import { AlertCircle } from "lucide-react";
 
 import DescriptionBox from "@/components/description_box";
 import DescriptionTitle from "@/components/description_title";
-import { db } from "@/lib/db";
+import PhoneBackground from "@/components/my-ui/phone-background";
 
-import { decodeUrl } from "@/lib/utils";
 import classes from "./page.module.css";
-import Link from "next/link";
 
 // or Dynamic metadata
 export async function generateMetadata({
@@ -210,7 +212,7 @@ export default async function FunctionDescriptionPage({
             </AlertDescription>
           </Alert>
 
-          {/* <DisplayBox></DisplayBox> */}
+          <PhoneBackground></PhoneBackground>
         </div>
       </section>
     </div>
