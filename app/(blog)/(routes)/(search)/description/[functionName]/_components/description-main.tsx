@@ -18,6 +18,7 @@ export default async function DescriptionMain({
   functionData,
   methods,
   uniqueApps,
+  searchParams,
 }: {
   functionData: FunctionData | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,8 +26,9 @@ export default async function DescriptionMain({
   // methods: Array<Method & Array<Guide & Guide_component>>;
   uniqueApps: Array<string | null>;
   params: {
-    functionKeys: string[];
+    functionName: string;
   };
+  searchParams: { appName: string; methodOrder: string; guideOrder: string };
 }) {
   const num = [
     "0️⃣",
@@ -57,7 +59,7 @@ export default async function DescriptionMain({
             <li key={"appName" + i} className={`pb-2 `}>
               <details
                 className="transition-all"
-                open={appName === decodeUrl(params.functionKeys[1])}>
+                open={appName === decodeUrl(searchParams.appName)}>
                 <summary className="text-lg">{appName} 어플</summary>
 
                 {methods.map(
@@ -68,7 +70,9 @@ export default async function DescriptionMain({
                           className="w-full pb-4 ml-4 "
                           key={"method" + method.order}>
                           <details
-                            open={method.order + "" === params.functionKeys[2]}>
+                            open={
+                              method.order + "" === searchParams.methodOrder
+                            }>
                             <summary className="mb-2">
                               방법 {method.order}. {method.description}
                             </summary>
@@ -80,16 +84,18 @@ export default async function DescriptionMain({
                                 <Link
                                   className={`block w-full ${
                                     method.appName ===
-                                      decodeUrl(params.functionKeys[1]) &&
+                                      decodeUrl(searchParams.appName) &&
                                     method.order + "" ===
-                                      params.functionKeys[2] &&
-                                    j + 1 + "" === params.functionKeys[3]
+                                      searchParams.methodOrder &&
+                                    j + 1 + "" === searchParams.guideOrder
                                       ? "font-bold"
                                       : ""
                                   }`}
                                   href={`/description/${
-                                    params.functionKeys[0]
-                                  }/${method.appName}/${method.order}/${j + 1}`}
+                                    params.functionName
+                                  }/?appName=${method.appName}&methodOrder=${
+                                    method.order
+                                  }&guideOrder=${j + 1}`}
                                   scroll={false}>
                                   {num[j + 1]} {guide.description}
                                 </Link>

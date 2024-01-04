@@ -9,10 +9,10 @@ export async function generateMetadata({
   params,
 }: {
   params: {
-    functionKeys: string[];
+    functionName: string;
   };
 }) {
-  const functionName = decodeUrl(params.functionKeys[0]);
+  const functionName = decodeUrl(params.functionName);
 
   return {
     // metadataBase: "/",
@@ -87,20 +87,26 @@ export async function generateMetadata({
 
 export default async function FunctionDescriptionPage({
   params,
+  searchParams,
 }: {
   params: {
-    functionKeys: string[];
+    functionName: string;
+  };
+  searchParams: {
+    appName: string;
+    methodOrder: string;
+    guideOrder: string;
   };
 }) {
   const functionData = await db.function.findUnique({
     where: {
-      title: decodeUrl(params.functionKeys[0]),
+      title: decodeUrl(params.functionName),
     },
   });
 
   const methods = await db.method.findMany({
     where: {
-      functionName: decodeUrl(params.functionKeys[0]),
+      functionName: decodeUrl(params.functionName),
     },
     include: {
       guides: {
@@ -126,6 +132,7 @@ export default async function FunctionDescriptionPage({
         uniqueApps={uniqueApps}
         methods={methods}
         params={params}
+        searchParams={searchParams}
       />
     </div>
   );
