@@ -104,19 +104,26 @@ export default async function FunctionDescriptionPage({
     where: {
       title: decodeUrl(params.functionKeys[0]),
     },
+  });
+
+  const methods = await db.method.findMany({
+    where: {
+      functionName: decodeUrl(params.functionKeys[0]),
+    },
     include: {
-      apps: true,
-      methods: {
+      guides: {
         include: {
-          guides: {
-            include: {
-              guide_component: true,
-            },
-          },
+          guide_component: true,
         },
       },
     },
+    orderBy: {
+      // appName: "asc",
+      order: "asc",
+    },
   });
+  const apps = methods.map((methods) => methods.appName);
+  const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
 
   const num = [
     "0️⃣",
@@ -142,15 +149,15 @@ export default async function FunctionDescriptionPage({
           기능 소개
         </DescriptionTitle>
         <ul className="flex flex-col items-center justify-center gap-8 mx-auto my-8 md:grid md:grid-cols-2">
-          <li className="w-full">
+          <li className="w-full" key={"description-box1"}>
             <DescriptionBox title="특징">
               {functionData?.description}
             </DescriptionBox>
           </li>
-          <li className="w-full">
+          <li className="w-full" key={"description-box2"}>
             <DescriptionBox title="관련 어플">
-              {functionData?.apps.map((appData) => (
-                <div>{appData.appName}</div>
+              {uniqueApps.map((appName) => (
+                <div>{appName}</div>
               ))}
             </DescriptionBox>
           </li>
@@ -167,33 +174,60 @@ export default async function FunctionDescriptionPage({
 
         <div>
           <ol>
-            {functionData?.methods.map((method) => (
-              <li key={method.id} className={`pb-2 `}>
+            {uniqueApps?.map((appName, i) => (
+              <li key={"appName" + i} className={`pb-2 `}>
                 <details
                   className="transition-all"
-                  open={method.appName === decodeUrl(params.functionKeys[1])}>
-                  <summary className="text-lg">{method.appName} 어플</summary>
+                  open={appName === decodeUrl(params.functionKeys[1])}>
+                  <summary className="text-lg">{appName} 어플</summary>
 
-                  {method.guides?.map((guide, j) => (
-                    <li
-                      key={guide.id}
-                      className="w-full pb-4 ml-2 hover:underline ">
-                      <Link
-                        className={`block w-full ${
-                          method.appName ===
-                            decodeUrl(params.functionKeys[1]) &&
-                          j + 1 + "" === params.functionKeys[2]
-                            ? "font-bold"
-                            : ""
-                        }`}
-                        href={`/description/${params.functionKeys[0]}/${
-                          method.appName
-                        }/${j + 1}`}
-                        scroll={false}>
-                        {num[j + 1]} {guide.description}
-                      </Link>
-                    </li>
-                  ))}
+                  {methods.map((method) =>
+                    method.guides.length === methods.length ? (
+                      <></>
+                    ) : (
+                      method.appName === appName && (
+                        <ul key={"method-container" + method.id}>
+                          <li
+                            className="w-full pb-4 ml-4 "
+                            key={"method" + method.order}>
+                            <details
+                              open={
+                                method.order + "" === params.functionKeys[2]
+                              }>
+                              <summary className="mb-2">
+                                방법 {method.order}. {method.description}
+                              </summary>
+
+                              {method.guides?.map((guide, j) => (
+                                <li
+                                  key={guide.id}
+                                  className="w-full pb-4 ml-4 hover:underline ">
+                                  <Link
+                                    className={`block w-full ${
+                                      method.appName ===
+                                        decodeUrl(params.functionKeys[1]) &&
+                                      method.order + "" ===
+                                        params.functionKeys[2] &&
+                                      j + 1 + "" === params.functionKeys[3]
+                                        ? "font-bold"
+                                        : ""
+                                    }`}
+                                    href={`/description/${
+                                      params.functionKeys[0]
+                                    }/${method.appName}/${method.order}/${
+                                      j + 1
+                                    }`}
+                                    scroll={false}>
+                                    {num[j + 1]} {guide.description}
+                                  </Link>
+                                </li>
+                              ))}
+                            </details>
+                          </li>
+                        </ul>
+                      )
+                    )
+                  )}
                 </details>
               </li>
             ))}
