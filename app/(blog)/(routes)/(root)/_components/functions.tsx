@@ -11,7 +11,7 @@ const Functions = async ({
   const functions = await db.function.findMany({
     where: {
       category: {
-        name: searchParams.tab,
+        name: searchParams.tab ? searchParams.tab : "hot",
       },
     },
   });
