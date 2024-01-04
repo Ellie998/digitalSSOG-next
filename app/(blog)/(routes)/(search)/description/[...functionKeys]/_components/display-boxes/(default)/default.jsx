@@ -30,6 +30,7 @@ function Default() {
               iconClassName=" hover:animate-bounce hover:animate-pulse"
               setIsClicked={() => {
                 setStartAnimation(true);
+                // eslint-disable-next-line no-undef
                 setTimeout(() => {
                   setIsClicked(true);
                 }, 300);

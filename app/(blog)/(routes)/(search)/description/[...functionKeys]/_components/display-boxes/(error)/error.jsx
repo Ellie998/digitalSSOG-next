@@ -1,3 +1,4 @@
+"use client";
 import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
 import Spinner from "components/DisplayBox/AppDisplays/components/UI/Spinner";
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
@@ -19,7 +20,8 @@ const Error = () => {
           textColor="white"
           content="다른 기능 보러가기"
           onClick={() => {
-            history.back();
+            // eslint-disable-next-line no-undef
+            window.history.back();
           }}></Button>
       </NoScrollBar>
     </PhoneBackground>
