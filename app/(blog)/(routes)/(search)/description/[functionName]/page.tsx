@@ -1,18 +1,18 @@
-import DescriptionBox from "@/components/description_box";
-import DescriptionTitle from "@/components/description_title";
 import { db } from "@/lib/db";
-
 import { decodeUrl } from "@/lib/utils";
+
+import DescriptionIntro from "./_components/description-intro";
+import DescriptionMain from "./_components/description-main";
 
 // or Dynamic metadata
 export async function generateMetadata({
   params,
 }: {
   params: {
-    functionKeys: string[];
+    functionName: string;
   };
 }) {
-  const functionName = decodeUrl(params.functionKeys[0]);
+  const functionName = decodeUrl(params.functionName);
 
   return {
     // metadataBase: "/",
@@ -87,57 +87,53 @@ export async function generateMetadata({
 
 export default async function FunctionDescriptionPage({
   params,
+  searchParams,
 }: {
   params: {
-    functionKeys: string[];
+    functionName: string;
+  };
+  searchParams: {
+    appName: string;
+    methodOrder: string;
+    guideOrder: string;
   };
 }) {
   const functionData = await db.function.findUnique({
     where: {
-      title: decodeUrl(params.functionKeys[0]),
-    },
-    include: {
-      apps: true,
-      methods: {
-        include: {
-          guides: {
-            include: {
-              guide_component: true,
-            },
-          },
-        },
-      },
+      title: decodeUrl(params.functionName),
     },
   });
 
+  const methods = await db.method.findMany({
+    where: {
+      functionName: decodeUrl(params.functionName),
+    },
+    include: {
+      guides: {
+        include: {
+          guide_component: true,
+        },
+      },
+    },
+    orderBy: {
+      // appName: "asc",
+      order: "asc",
+    },
+  });
+  const apps = methods.map((methods) => methods.appName);
+  const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
+
   return (
-    <div>
-      <DescriptionTitle>
-        {functionData ? `${functionData.icon} ${functionData.title}` : ""}
-      </DescriptionTitle>
-      <div className="flex justify-around w-full">
-        <DescriptionBox>
-          <>
-            <div>특징</div>
-            {functionData?.description}
-          </>
-        </DescriptionBox>
-        <DescriptionBox>
-          <>
-            <div>관련 어플</div>
-            {functionData?.apps.map((appData) => <div>{appData.appName}</div>)}
-          </>
-        </DescriptionBox>
-      </div>
+    <div className="w-full h-full">
+      <DescriptionIntro functionData={functionData} uniqueApps={uniqueApps} />
       {/* add guide db */}
-      <div>
-        {functionData?.methods.map((method) => (
-          <div key={method.id}>
-            {method.appName + " 어플"}
-            {method.guides?.map((guide) => <div>{guide.description}</div>)}
-          </div>
-        ))}
-      </div>
+      <DescriptionMain
+        functionData={functionData}
+        uniqueApps={uniqueApps}
+        methods={methods}
+        params={params}
+        searchParams={searchParams}
+      />
     </div>
   );
 }
