@@ -3,12 +3,7 @@ import { decodeUrl } from "@/lib/utils";
 import Link from "next/link";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import { AlertCircle } from "lucide-react";
 
 import DescriptionBox from "@/components/description_box";
@@ -172,35 +167,34 @@ export default async function FunctionDescriptionPage({
 
         <div>
           <ol>
-            {functionData?.methods.map((method, i) => (
-              <li key={method.id}>
-                <Accordion type="multiple">
-                  <AccordionItem value={`item-${i}`}>
-                    <AccordionTrigger>{method.appName} 어플</AccordionTrigger>
-                    <AccordionContent className="">
-                      {method.guides?.map((guide, j) => (
-                        <li
-                          key={guide.id}
-                          className="w-full pb-4 hover:underline ">
-                          <Link
-                            className={`block w-full ${
-                              method.appName ===
-                                decodeUrl(params.functionKeys[1]) &&
-                              j + 1 + "" === params.functionKeys[2]
-                                ? "font-bold"
-                                : ""
-                            }`}
-                            href={`/description/${params.functionKeys[0]}/${
-                              method.appName
-                            }/${j + 1}`}
-                            scroll={false}>
-                            {num[j + 1]} {guide.description}
-                          </Link>
-                        </li>
-                      ))}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+            {functionData?.methods.map((method) => (
+              <li key={method.id} className={`pb-2 `}>
+                <details
+                  className="transition-all"
+                  open={method.appName === decodeUrl(params.functionKeys[1])}>
+                  <summary className="text-lg">{method.appName} 어플</summary>
+
+                  {method.guides?.map((guide, j) => (
+                    <li
+                      key={guide.id}
+                      className="w-full pb-4 ml-2 hover:underline ">
+                      <Link
+                        className={`block w-full ${
+                          method.appName ===
+                            decodeUrl(params.functionKeys[1]) &&
+                          j + 1 + "" === params.functionKeys[2]
+                            ? "font-bold"
+                            : ""
+                        }`}
+                        href={`/description/${params.functionKeys[0]}/${
+                          method.appName
+                        }/${j + 1}`}
+                        scroll={false}>
+                        {num[j + 1]} {guide.description}
+                      </Link>
+                    </li>
+                  ))}
+                </details>
               </li>
             ))}
           </ol>
