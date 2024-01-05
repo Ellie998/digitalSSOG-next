@@ -19,16 +19,16 @@ import { Input } from "@/components/ui/input";
 // import { toast } from "react-toastify";
 import { useContext, useState } from "react";
 import { DisplayContext } from "./component-section";
+import ComponentUiThemeForm from "./component-ui-theme-form";
 
 const formSchema = z.object({
-  theme: z.string(),
   bgColor: z.string(),
-  divide: z.string(),
 });
 
-const ComponentForm = ({ id }: { id: string }) => {
+const ComponentPreviewForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const { bgColor, setBgColor } = useContext(DisplayContext);
+  const { bgColor, setBgColor, uiThemeChoiceMode, setUiThemeChoiceMode } =
+    useContext(DisplayContext);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,61 +36,14 @@ const ComponentForm = ({ id }: { id: string }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // try {
-    //   setIsSubmit(true);
-    //   const response = await fetch(`/api/guides-components/${id}`, {
-    //     method: "PATCH",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({
-    //       order: Number(values.theme),
-    //     }),
-    //   });
-    //   if (!response.ok) {
-    //     toast.error("ERROR!");
-    //     throw Error("FAIL : GUIDE ORDER FORM");
-    //   }
-
-    //   toast.success("Guide order 수정 성공");
-    // } catch (error) {
-    //   console.log(error);
-    // } finally {
-    //   setIsSubmit(false);
-    // }
     console.log(values);
   }
 
   return (
     <div className="p-6 border rounded-sm shadow-md ">
+      <div className="py-2 font-bold font-xl">Display Setting</div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="theme"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Theme</FormLabel>
-                <FormControl>
-                  <Input {...field} type="text" />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />{" "}
-          <FormField
-            control={form.control}
-            name="divide"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>divide</FormLabel>
-                <FormControl>
-                  <Input {...field} type="number" min="1" />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="bgColor"
@@ -104,6 +57,7 @@ const ComponentForm = ({ id }: { id: string }) => {
                     onChange={(e) => {
                       setBgColor(e.target.value);
                     }}
+                    value={bgColor}
                   />
                 </FormControl>
 
@@ -111,6 +65,17 @@ const ComponentForm = ({ id }: { id: string }) => {
               </FormItem>
             )}
           />
+          {uiThemeChoiceMode && <ComponentUiThemeForm id={id || ""} />}
+          <Button
+            type="button"
+            disabled={isSubmit}
+            onClick={() => {
+              setUiThemeChoiceMode(true);
+            }}
+            className="mr-4"
+            variant={"secondary"}>
+            ADD UI
+          </Button>
           <Button type="submit" disabled={isSubmit}>
             Edit
           </Button>
@@ -120,4 +85,4 @@ const ComponentForm = ({ id }: { id: string }) => {
   );
 };
 
-export default ComponentForm;
+export default ComponentPreviewForm;
