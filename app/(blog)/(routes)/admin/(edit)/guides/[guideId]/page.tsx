@@ -3,6 +3,8 @@ import GuideDescriptionForm from "./_components/guide-description-form";
 import GuideOrderForm from "./_components/guide-order-form";
 import GuideComponentButton from "./_components/guide-components-button";
 
+import ComponentSection from "./_components/component-section";
+
 const GuideEditPage = async ({
   params,
 }: {
@@ -35,6 +37,10 @@ const GuideEditPage = async ({
         />
         <GuideOrderForm id={params.guideId} order={guide?.order || null} />
       </div>
+      {/* guide component */}
+      <ComponentSection
+        guide_component_id={guide?.guide_component?.id || null}
+      />
     </div>
   );
 };
