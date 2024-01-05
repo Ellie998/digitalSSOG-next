@@ -22,12 +22,12 @@ import { DisplayContext } from "./component-section";
 
 const formSchema = z.object({
   uiBgColor: z.string(),
+  iconName: z.string(),
 });
 
 const ComponentUiForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const { uiBgColor, setUiBgColor, setUiMakingMode } =
-    useContext(DisplayContext);
+  const { uiBgColor, setUiBgColor, setIconName } = useContext(DisplayContext);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,7 +48,7 @@ const ComponentUiForm = ({ id }: { id: string }) => {
             name="uiBgColor"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>uiBgColor</FormLabel>
+                <FormLabel>UI Background Color</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
@@ -57,6 +57,26 @@ const ComponentUiForm = ({ id }: { id: string }) => {
                       setUiBgColor(e.target.value);
                     }}
                     value={uiBgColor}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="iconName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Icon Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    onChange={(e) => {
+                      setIconName(e.target.value);
+                    }}
                   />
                 </FormControl>
 

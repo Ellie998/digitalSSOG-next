@@ -9,6 +9,9 @@ const IconContainer = styled.i`
   align-items: center;
   cursor: pointer;
   border-radius: 999px;
+
+  background-color: ${(props) =>
+    props.style.backgroundColor ? props.style.backgroundColor : "white"};
   padding: ${(props) => (props.style.padding ? props.style.padding : "2px")};
   font-size: ${(props) =>
     props.style.fontSize ? props.style.fontSize : "0.875rem"};
@@ -22,9 +25,12 @@ const Icon = ({
   id = undefined,
   name,
   content = undefined,
-  style = { fontSize: "0.875rem", padding: "2px" },
+
+  style = { fontSize: "0.875rem", padding: "2px", backgroundColor: "white" },
   onClick = undefined,
+  className = undefined,
 }) => {
+  console.log(className);
   return (
     <IconContainer
       style={style}

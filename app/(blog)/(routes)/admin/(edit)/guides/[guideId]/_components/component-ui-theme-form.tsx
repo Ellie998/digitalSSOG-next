@@ -33,6 +33,7 @@ import { DisplayContext } from "./component-section";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 const uiTypes = [
+  { label: "Icon", value: "icon" },
   { label: "Flex", value: "flex" },
   { label: "tab", value: "tab" },
 ] as const;
@@ -48,7 +49,8 @@ const formSchema = z.object({
 const ComponentUiThemeForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const { setUiMakingMode, setUiThemeChoiceMode } = useContext(DisplayContext);
+  const { setUiMakingMode, setUiThemeChoiceMode, setUiType, setUiTheme } =
+    useContext(DisplayContext);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {},
@@ -100,6 +102,7 @@ const ComponentUiThemeForm = ({ id }: { id: string }) => {
                           key={app.value}
                           onSelect={() => {
                             form.setValue("app", app.value);
+                            setUiTheme(app.value);
                           }}>
                           <Check
                             className={cn(
@@ -157,6 +160,7 @@ const ComponentUiThemeForm = ({ id }: { id: string }) => {
                           key={uiType.value}
                           onSelect={() => {
                             form.setValue("type", uiType.value);
+                            setUiType(uiType.value);
                           }}>
                           <Check
                             className={cn(
