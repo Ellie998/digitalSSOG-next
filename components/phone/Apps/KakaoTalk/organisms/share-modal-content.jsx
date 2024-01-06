@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 
 import styled from "@emotion/styled";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import Flex from "stories/phone/atoms/Flex/index";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import Flex from "@/components/phone/atoms/flex";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
+import Icon from "@/components/phone/atoms/icon";
+import TargetBox from "@/components/phone/atoms/target-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
 const Container = styled.div``;
 

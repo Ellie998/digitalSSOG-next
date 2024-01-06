@@ -1,8 +1,8 @@
 import classes from "./unread.module.css";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Phone from "stories/phone/molecules/Phone/index";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import StackedList_Profile from "@/components/DisplayBox/AppDisplays/_components/list/StackedList_Profile";
+import Phone from "@/components/phone/molecules/phone";
 
 function Unread() {
   return (

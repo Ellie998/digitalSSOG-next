@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 import { useState } from "react";
-import Flex from "stories/phone/atoms/Flex/index";
+import Flex from "@/components/phone/atoms/flex";
 
-import Icon from "stories/phone/atoms/Icon/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import IconBottom_Option from "stories/phone/molecules/IconBottom_Option/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import Icon from "@/components/phone/atoms/icon";
+import TargetBox from "@/components/phone/atoms/target-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import IconBottom_Option from "@/components/phone/molecules/icon-bottom-option";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
 const Container = styled.div``;
 const BtnContainer = styled.div`

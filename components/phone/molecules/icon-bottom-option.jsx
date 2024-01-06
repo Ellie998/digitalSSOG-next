@@ -3,7 +3,7 @@
 import styled from "@emotion/styled";
 
 import IconBottom from "./icon-bottom";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
   ${(props) => (props.style ? props.style : null)}

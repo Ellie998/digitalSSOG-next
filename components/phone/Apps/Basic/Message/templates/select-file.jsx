@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import classes from "./select-file.module.css";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Phone from "stories/phone/molecules/Phone/index";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Phone from "@/components/phone/molecules/phone";
 
 function SelectFile({ target_sendImg, target_sendAudio }) {
   const [isFolderClicked, setFolderClicked] = useState(false);

@@ -1,17 +1,17 @@
 // kakaotalk/sendImg/4
 
-import Icon from "stories/phone/atoms/Icon/index";
+import Icon from "@/components/phone/atoms/icon";
 
-import Phone from "stories/phone/molecules/Phone/index";
+import Phone from "@/components/phone/molecules/phone";
 
 import { useState } from "react";
 
-import ShareModalContent_Default from "stories/phone/organisms/ShareModalContent_Default/index";
-import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
-import Tab from "stories/phone/atoms/Tab/index";
-import ImgTab from "./img-tab";
-import GalleryTab from "./gallery-tab";
-import StoryTab from "./templates/StoryTab/index";
+import ShareModalContent_Default from "@/components/phone/organisms/shareModalContent_default";
+import Modal_downUp from "@/components/phone/molecules/modal-down-up";
+import Tab from "@/components/phone/atoms/tab";
+import ImgTab from "@/components/phone/Apps/Basic/Gallery/img-tab";
+import GalleryTab from "@/components/phone/Apps/Basic/Gallery/gallery-tab";
+import StoryTab from "@/components/phone/Apps/Basic/Gallery/story-tab";
 
 const Gallery = ({
   num = 13,

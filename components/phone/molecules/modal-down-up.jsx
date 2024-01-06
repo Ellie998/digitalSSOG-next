@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Modal from "stories/phone/molecules/Modal";
+import Modal from "@/components/phone/molecules/modal";
 
 const Container = styled.div`
   padding: 0.25rem /* 4px */;

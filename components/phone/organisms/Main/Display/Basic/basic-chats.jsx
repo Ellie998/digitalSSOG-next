@@ -1,18 +1,19 @@
-import Home from "stories/phone/Apps/Basic/Home/index";
-import Error from "stories/phone/organisms/Main/Error/index";
-import Default from "stories/phone/organisms/Main/Default/index";
+import Home from "@/components/phone/Apps/Basic/home";
+import Error from "@/components/phone/organisms/Main/Display/error";
+import Default from "@/components/phone/organisms/Main/default";
 // message
-import Main from "stories/phone/Apps/Basic/Message/templates/Main/index";
-import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
-import Unread from "stories/phone/Apps/Basic/Message/templates/Unread/index";
-import SelectPerson from "stories/phone/Apps/Basic/Message/templates/SelectPerson/index";
-import SelectFile from "stories/phone/Apps/Basic/Message/templates/SelectFile/index";
-import ChoiceImgs from "stories/phone/Apps/Basic/Message/templates/ChoiceImgs/index";
+import Main from "@/components/phone/Apps/Basic/Message/templates/main";
+import Chat from "@/components/phone/Apps/Basic/Message/templates/chat";
+import Unread from "@/components/phone/Apps/Basic/Message/templates/unread";
+import SelectPerson from "@/components/phone/Apps/Basic/Message/templates/select-person";
+import SelectFile from "@/components/phone/Apps/Basic/Message/templates/select-file";
+import ChoiceImgs from "@/components/phone/Apps/Basic/Message/templates/choice-imgs";
 //
-import { default as CallMain } from "stories/phone/Apps/Basic/Call/templates/Main/index";
+import { default as CallMain } from "@/components/phone/Apps/Basic/Call/templates/main";
 import { useContext } from "react";
-import UrlContext from "components/page_context/UrlContext";
-import Gallery from "stories/phone/Apps/Basic/Gallery/index";
+
+import Gallery from "@/components/phone/Apps/Basic/Gallery/gallery";
+import { UrlContext } from "@/components/phone/templates/display-box";
 
 function BasicChats({ functionName, methodId, descriptionId }) {
   const {

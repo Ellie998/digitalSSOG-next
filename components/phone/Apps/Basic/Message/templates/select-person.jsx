@@ -1,9 +1,9 @@
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Phone from "stories/phone/molecules/Phone/index";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import StackedList_Profile from "@/components/DisplayBox/AppDisplays/_components/list/StackedList_Profile";
+import Phone from "@/components/phone/molecules/phone";
 
 function SelectPerson({ target_person1, target_person2 }) {
   return (

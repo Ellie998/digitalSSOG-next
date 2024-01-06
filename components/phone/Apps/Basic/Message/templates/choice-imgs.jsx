@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import classes from "./choice-imgs.module.css";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Phone from "stories/phone/molecules/Phone/index";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Phone from "@/components/phone/molecules/phone";
 
 function ChoiceImgs() {
   const [choicedImgs, setChoicedImgs] = useState([]);

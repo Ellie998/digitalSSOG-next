@@ -1,14 +1,14 @@
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
 
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
+import TargetBox from "@/components/phone/atoms/target-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
-import ImgSelectBox from "stories/phone/Apps/Basic/atoms/ImgSelectBox/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import ImgSelectBox from "@/components/phone/Apps/Basic/atoms/img-select-box";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
 import { useState } from "react";
 
-import Top from "stories/phone/atoms/Top/index";
+import Top from "@/components/phone/atoms/top";
 
 const ImgTab = ({ num = 13, target, setIsTabOpen }) => {
   const [choicedImgs, setChoicedImgs] = useState([]);
