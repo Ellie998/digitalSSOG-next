@@ -1,15 +1,15 @@
 import classes from "./profile.module.css";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Phone from "@/components/phone/molecules/phone";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Icon from "@/components/phone/atoms/icon";
 
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
-import Title from "stories/phone/atoms/Title/index";
-import Flex from "stories/phone/atoms/Flex/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
+import Title from "@/components/phone/atoms/title";
+import Flex from "@/components/phone/atoms/flex";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
 
 function Profile({
   target = { call: false, chat: false, name: false, videoCall: false },

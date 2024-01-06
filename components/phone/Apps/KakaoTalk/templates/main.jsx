@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import KakaoTab from "stories/phone/Apps/KakaoTalk/organisms/kakaoTab/index";
-import FriendTab from "stories/phone/Apps/KakaoTalk/organisms/FriendTab/index";
-import ChatTab from "stories/phone/Apps/KakaoTalk/organisms/ChatTab/index";
-import OpenChatTab from "stories/phone/Apps/KakaoTalk/organisms/OpenChatTab/index";
-import ShoppingTab from "stories/phone/Apps/KakaoTalk/organisms/ShoppingTab/index";
-import ETCTab from "stories/phone/Apps/KakaoTalk/organisms/ETCTab/index";
+import Phone from "@/components/phone/molecules/phone";
+import KakaoTab from "@/components/phone/Apps/KakaoTalk/organisms/kakao-tab";
+import FriendTab from "@/components/phone/Apps/KakaoTalk/organisms/friend-tab";
+import ChatTab from "@/components/phone/Apps/KakaoTalk/organisms/chat-tab";
+import OpenChatTab from "@/components/phone/Apps/KakaoTalk/organisms/open-chat-tab";
+import ShoppingTab from "@/components/phone/Apps/KakaoTalk/organisms/shopping-tab";
+import ETCTab from "@/components/phone/Apps/KakaoTalk/organisms/etc-tab";
 
 function Main({
   target_friend = {

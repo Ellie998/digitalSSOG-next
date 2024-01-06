@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 
-import Phone from "stories/phone/molecules/Phone/index";
+import Phone from "@/components/phone/molecules/phone";
 
-import Top from "stories/phone/atoms/Top/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import Flex from "stories/phone/atoms/Flex/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Top from "@/components/phone/atoms/top";
+import Icon from "@/components/phone/atoms/icon";
+import Flex from "@/components/phone/atoms/flex";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const VideoCallConnected = ({ open = { modal: false } }) => {
   const [time, setTime] = useState(0);

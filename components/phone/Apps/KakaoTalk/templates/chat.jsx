@@ -1,40 +1,40 @@
 import { useState } from "react";
 
 import classes from "./chat.module.css";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
-import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
+import ChatList from "@/components/DisplayBox/AppDisplays/_components/UI/ChatList";
 
-import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
+import FlexContent from "@/components/DisplayBox/AppDisplays/_components/list/FlexContent";
+import MessageSendLine from "@/components/DisplayBox/AppDisplays/_components/UI/MessageSendLine";
 
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
+import Checkbox from "@/components/DisplayBox/AppDisplays/_components/UI/Checkbox";
 
-import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
-import Alert from "components/DisplayBox/AppDisplays/components/UI/Alert";
-import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
-import Phone from "stories/phone/molecules/Phone/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import CancelBtn from "stories/phone/atoms/CancelBtn/index";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
+import Button from "@/components/DisplayBox/AppDisplays/_components/UI/Button";
+import Alert from "@/components/DisplayBox/AppDisplays/_components/UI/Alert";
+import GetDate from "@/components/DisplayBox/AppDisplays/_components/GetDate";
+import Phone from "@/components/phone/molecules/phone";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import CancelBtn from "@/components/phone/atoms/cancel-btn";
+import SubmitBtn from "@/components/phone/atoms/submit-btn";
 
-import Modal_downUp from "stories/phone/molecules/Modal_downUp/index";
-import ChatOptionBox from "stories/phone/Apps/KakaoTalk/organisms/ChatOptionBox/index";
-import ChatSideMenu from "stories/phone/Apps/KakaoTalk/organisms/ChatSideMenu/index";
-import ChatContentOptionModal from "stories/phone/Apps/KakaoTalk/organisms/ChatContentOptionModal/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Modal_downUp from "@/components/phone/molecules/modal-down-up";
+import ChatOptionBox from "@/components/phone/Apps/KakaoTalk/organisms/chat-option-box";
+import ChatSideMenu from "@/components/phone/Apps/KakaoTalk/organisms/chat-side-menu";
+import ChatContentOptionModal from "@/components/phone/Apps/KakaoTalk/organisms/chat-content-option-modal";
+import TargetBox from "@/components/phone/atoms/target-box";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import ShareModalContent_Default from "stories/phone/organisms/ShareModalContent_Default/index";
-import ShareModalContent from "stories/phone/Apps/KakaoTalk/organisms/ShareModalContent/index";
-import ImgOptionBox from "stories/phone/Apps/KakaoTalk/organisms/ImgOptionBox/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import CheckBox from "stories/phone/Apps/KakaoTalk/atoms/CheckBox/index";
-import Flex from "stories/phone/atoms/Flex/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import ShareModalContent_Default from "@/components/phone/organisms/shareModalContent_default";
+import ShareModalContent from "@/components/phone/Apps/KakaoTalk/organisms/share-modal-content";
+import ImgOptionBox from "@/components/phone/Apps/KakaoTalk/organisms/img-option-box";
+import Icon from "@/components/phone/atoms/icon";
+import CheckBox from "@/components/phone/Apps/KakaoTalk/atoms/check-box";
+import Flex from "@/components/phone/atoms/flex";
 
 function Chat({
   content = {

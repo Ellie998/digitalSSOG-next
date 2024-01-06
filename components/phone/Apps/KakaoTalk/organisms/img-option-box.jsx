@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import ImgSelectBox from "stories/phone/Apps/KakaoTalk/atoms/ImgSelectBox/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
+import Icon from "@/components/phone/atoms/icon";
+import ImgSelectBox from "@/components/phone/Apps/KakaoTalk/atoms/img-select-box";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const ImgsContainer = styled.div`
   display: flex;

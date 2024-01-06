@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 
-import Icon from "stories/phone/atoms/Icon";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import Icon from "@/components/phone/atoms/icon";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
 
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const ETCTab = ({ target = { setting: false }, tab }) => {
   return (

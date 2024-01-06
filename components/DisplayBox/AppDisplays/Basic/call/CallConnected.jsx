@@ -1,7 +1,7 @@
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
 import classes from "./CallConnected.module.css";
-import { AppTitle_center } from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
-import { Phone } from "stories/phone/molecules/Phone";
+import { AppTitle_center } from "@/components/DisplayBox/AppDisplays/_components/layout/AppTitle_center";
+import { Phone } from "@/components/phone/molecules/phone";
 
 const CallConnected = ({ appName_basic, appName_kakaotalk }) => {
   return (

@@ -1,6 +1,6 @@
-import Icon from "stories/phone/atoms/Icon";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import Icon from "@/components/phone/atoms/icon";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
 
 const OpenChatTab = () => {
   return (

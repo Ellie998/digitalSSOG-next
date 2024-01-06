@@ -1,12 +1,12 @@
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Icon from "@/components/phone/atoms/icon";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
 
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
 import { useEffect, useState } from "react";
 
 function FriendTab({

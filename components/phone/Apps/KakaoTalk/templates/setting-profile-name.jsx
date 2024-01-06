@@ -1,10 +1,10 @@
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
 import { useEffect } from "react";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import Input_TextLength from "stories/phone/Apps/KakaoTalk/atoms/Input_TextLength/index";
-import Flex from "stories/phone/atoms/Flex/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Phone from "stories/phone/molecules/Phone/index";
+import Input_TextLength from "@/components/phone/Apps/KakaoTalk/atoms/input-text-length";
+import Flex from "@/components/phone/atoms/flex";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Phone from "@/components/phone/molecules/phone";
 
 const Setting_ProfileName = ({
   content = { title: "이름", name: "영희", setName: () => {} },

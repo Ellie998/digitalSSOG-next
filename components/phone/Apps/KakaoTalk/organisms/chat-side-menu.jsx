@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
   position: absolute;

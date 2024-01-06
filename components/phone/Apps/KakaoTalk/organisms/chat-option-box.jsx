@@ -1,5 +1,5 @@
-import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import Grid_4x4 from "@/components/DisplayBox/AppDisplays/_components/layout/Grid_4x4";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
 
 const ChatOptionBox = ({
   target = {

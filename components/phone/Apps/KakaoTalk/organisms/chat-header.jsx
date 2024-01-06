@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile";
-import Icon from "stories/phone/atoms/Icon";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Icon from "@/components/phone/atoms/icon";
 
-import Modal from "stories/phone/molecules/Modal";
-import Flex from "stories/phone/atoms/Flex";
-import TargetBox from "stories/phone/atoms/TargetBox";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import IconBottom from "stories/phone/molecules/IconBottom";
+import Modal from "@/components/phone/molecules/modal";
+import Flex from "@/components/phone/atoms/flex";
+import TargetBox from "@/components/phone/atoms/target-box";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
 const ChatHeader = ({
   onClick,

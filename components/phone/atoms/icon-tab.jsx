@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Icon from "stories/phone/atoms/Icon";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Icon from "@/components/phone/atoms/icon";
 
 const Container = styled.div`
   display: flex;

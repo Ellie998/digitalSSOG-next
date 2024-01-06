@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import Modal from "components/DisplayBox/AppDisplays/components/UI/Modal";
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Modal from "@/components/DisplayBox/AppDisplays/_components/UI/Modal";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
 
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
   background-color: white;

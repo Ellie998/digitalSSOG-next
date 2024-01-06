@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import classes from "./index.module.css";
-import Title from "stories/phone/atoms/Title/index";
-import SubTitle from "stories/phone/atoms/SubTitle/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import classes from "./switch-line.module.css";
+import Title from "@/components/phone/atoms/title";
+import SubTitle from "@/components/phone/atoms/sub-title";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
   align-items: center;

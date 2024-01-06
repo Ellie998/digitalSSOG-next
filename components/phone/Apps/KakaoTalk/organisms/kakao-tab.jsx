@@ -1,4 +1,4 @@
-import IconTab from "stories/phone/atoms/IconTab";
+import IconTab from "@/components/phone/atoms/icon-tab";
 
 const KakaoTab = ({ targetTab, clickedTab, setClickedTab }) => {
   return (

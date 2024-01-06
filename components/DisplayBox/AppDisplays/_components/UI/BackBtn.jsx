@@ -1,5 +1,5 @@
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Icon from "@/components/phone/atoms/icon";
 
 export default function BackBtn({
   style,

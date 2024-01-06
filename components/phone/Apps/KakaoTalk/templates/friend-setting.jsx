@@ -2,19 +2,19 @@
 
 import { useState } from "react";
 
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
+import StackedList from "@/components/DisplayBox/AppDisplays/_components/list/StackedList";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import Title from "stories/phone/atoms/Title/index";
-import SwitchLine from "stories/phone/Apps/KakaoTalk/molecules/SwichLine/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Phone from "@/components/phone/molecules/phone";
+import Title from "@/components/phone/atoms/title";
+import SwitchLine from "@/components/phone/Apps/KakaoTalk/molecules/switch-line";
+import Icon from "@/components/phone/atoms/icon";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 function FriendSetting({ target = { hideFriend: false } }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

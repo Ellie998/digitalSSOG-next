@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
-import Icon from "stories/phone/atoms/Icon/index";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import StackedList_Profile from "@/components/DisplayBox/AppDisplays/_components/list/StackedList_Profile";
+import Icon from "@/components/phone/atoms/icon";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import ChatHeader from "stories/phone/Apps/KakaoTalk/organisms/ChatHeader/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import Button from "stories/phone/atoms/Button/index";
+import TargetBox from "@/components/phone/atoms/target-box";
+import ChatHeader from "@/components/phone/Apps/KakaoTalk/organisms/chat-header";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import Button from "@/components/phone/atoms/button";
 
 const ChatTab = ({
   target = {

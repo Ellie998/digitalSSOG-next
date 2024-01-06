@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
-import Phone from "stories/phone/molecules/Phone";
-import Top from "stories/phone/atoms/Top";
-import IconBottom from "stories/phone/molecules/IconBottom";
-import Icon from "stories/phone/atoms/Icon";
+import Phone from "@/components/phone/molecules/phone";
+import Top from "@/components/phone/atoms/top";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import Icon from "@/components/phone/atoms/icon";
 import { useState } from "react";
 
 const Container = styled.div`

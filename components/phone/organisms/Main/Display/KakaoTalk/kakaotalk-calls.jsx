@@ -1,21 +1,22 @@
-import Home from "stories/phone/Apps/Basic/Home/index";
-import Error from "stories/phone/organisms/Main/Error/index";
-import Default from "stories/phone/organisms/Main/Default/index";
+import { useContext, useState } from "react";
+
+import Home from "@/components/phone/Apps/Basic/home";
+import Error from "@/components/phone/organisms/Main/Display/error";
+import Default from "@/components/phone/organisms/Main/default";
 // call
 
-import CallConnected from "stories/phone/Apps/KakaoTalk/templates/CallConnected/index";
+import CallConnected from "@/components/phone/Apps/KakaoTalk/templates/call-connected";
 
-import Main from "stories/phone/Apps/KakaoTalk/templates/Main/index";
-import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
-import { useContext, useState } from "react";
-import UrlContext from "components/page_context/UrlContext";
-import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
-import AnswerCall from "stories/phone/Apps/KakaoTalk/templates/AnswerCall/index";
-import Chat from "stories/phone/Apps/KakaoTalk/templates/Chat/index";
-import VideoCallConnected from "stories/phone/Apps/KakaoTalk/templates/VideoCallConnected/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import FriendSetting from "stories/phone/Apps/KakaoTalk/templates/FriendSetting/index";
-import FriendList from "stories/phone/Apps/KakaoTalk/templates/FriendList/index";
+import Main from "@/components/phone/Apps/KakaoTalk/templates/main";
+import Profile from "@/components/phone/Apps/KakaoTalk/templates/profile";
+import Setting_ProfileName from "@/components/phone/Apps/KakaoTalk/templates/setting-profile-name";
+import AnswerCall from "@/components/phone/Apps/KakaoTalk/templates/answer-call";
+import Chat from "@/components/phone/Apps/KakaoTalk/templates/chat";
+import VideoCallConnected from "@/components/phone/Apps/KakaoTalk/templates/video-call-connected";
+import TargetBox from "@/components/phone/atoms/target-box";
+import FriendSetting from "@/components/phone/Apps/KakaoTalk/templates/friend-setting";
+import FriendList from "@/components/phone/Apps/KakaoTalk/templates/friend-list";
+import { UrlContext } from "@/components/phone/templates/display-box";
 
 function KakaotalkCalls({ functionName, methodId, descriptionId }) {
   const {
