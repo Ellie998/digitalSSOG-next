@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import Phone from "stories/phone/molecules/Phone/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Phone from "@/components/phone/molecules/phone";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import Modal from "@/components/phone/molecules/modal";
+import TargetBox from "@/components/phone/atoms/target-box";
 
-import ProfileIcons from "stories/phone/Apps/KakaoTalk/organisms/ProfileIcons/index";
-import SubTitle from "stories/phone/atoms/SubTitle/index";
-import Input_TextLength from "stories/phone/Apps/KakaoTalk/atoms/Input_TextLength/index";
+import ProfileIcons from "@/components/phone/Apps/KakaoTalk/organisms/profile-icons";
+import SubTitle from "@/components/phone/atoms/sub-title";
+import Input_TextLength from "@/components/phone/Apps/KakaoTalk/atoms/input-text-length";
 
 function SettingChatRoom_NameImg({
   target_backBtn,

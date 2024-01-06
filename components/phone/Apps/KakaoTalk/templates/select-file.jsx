@@ -1,12 +1,12 @@
+import { useState } from "react";
 import Flex from "@/components/phone/atoms/flex";
 import Icon from "@/components/phone/atoms/icon";
 import TargetBox from "@/components/phone/atoms/target-box";
 import Phone from "@/components/phone/molecules/phone";
-import StackedList_Profile from "@/components/phone/molecules/StackedList_Profile";
-import ImgSelectBox from "../../atoms/ImgSelectBox";
-import NoScrollbar from "@/components/phone/atoms/NoScrollbar";
-import { useState } from "react";
-import ImgSelectedBox from "../../atoms/ImgSelectedBox";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import ImgSelectBox from "@/components/phone/Apps/KakaoTalk/atoms/img-select-box";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
+import ImgSelectedBox from "@/components/phone/Apps/KakaoTalk/atoms/img-selected-box";
 
 const SelectFile = ({
   num = 13,

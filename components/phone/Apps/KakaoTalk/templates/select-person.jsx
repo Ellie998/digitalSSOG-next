@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import Phone from "stories/phone/molecules/Phone/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
-import SearchInput from "stories/phone/Apps/KakaoTalk/atoms/SearchInput/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Phone from "@/components/phone/molecules/phone";
+import Icon from "@/components/phone/atoms/icon";
+import TargetBox from "@/components/phone/atoms/target-box";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
+import SearchInput from "@/components/phone/Apps/KakaoTalk/atoms/search-input";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
 function SelectPerson({
   header = "대화상대 초대",

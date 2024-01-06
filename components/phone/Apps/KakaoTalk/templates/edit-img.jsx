@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Phone from "stories/phone/molecules/Phone/index";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Phone from "@/components/phone/molecules/phone";
 
 const ImgContainer = styled.div`
   width: 175px;

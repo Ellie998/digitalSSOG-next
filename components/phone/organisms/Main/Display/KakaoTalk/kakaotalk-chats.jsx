@@ -1,23 +1,23 @@
 import { useContext, useState } from "react";
-import UrlContext from "components/page_context/UrlContext";
 
-import Home from "stories/phone/Apps/Basic/Home/index";
-import Error from "stories/phone/organisms/Main/Error/index";
-import Default from "stories/phone/organisms/Main/Default/index";
+import Home from "@/components/phone/Apps/Basic/home";
+import Error from "@/components/phone/organisms/Main/Display/error";
+import Default from "@/components/phone/organisms/Main/default";
 
-import Main from "stories/phone/Apps/KakaoTalk/templates/Main/index";
-import Chat from "stories/phone/Apps/KakaoTalk/templates/Chat/index";
+import Main from "@/components/phone/Apps/KakaoTalk/templates/main";
+import Chat from "@/components/phone/Apps/KakaoTalk/templates/chat";
 
-import ChatSetting from "stories/phone/Apps/KakaoTalk/templates/ChatSetting/index";
-import Profile from "stories/phone/Apps/KakaoTalk/templates/Profile/index";
-import SelectPerson from "stories/phone/Apps/KakaoTalk/templates/SelectPerson/index";
-import SettingChatRoom_NameImg from "stories/phone/Apps/KakaoTalk/templates/SettingChatRoom_NameImg/index";
-import SelectFile from "stories/phone/Apps/KakaoTalk/templates/SelectFile/index";
-import Gallery from "stories/phone/Apps/Basic/Gallery/index";
-import Setting_ProfileName from "stories/phone/Apps/KakaoTalk/templates/Setting_ProfileName/index";
-import EditImg from "stories/phone/Apps/KakaoTalk/templates/EditImg/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import ChatSetting from "@/components/phone/Apps/KakaoTalk/templates/chat-setting";
+import Profile from "@/components/phone/Apps/KakaoTalk/templates/profile";
+import SelectPerson from "@/components/phone/Apps/KakaoTalk/templates/select-person";
+import SettingChatRoom_NameImg from "@/components/phone/Apps/KakaoTalk/templates/setting-chat-room-name-img";
+import SelectFile from "@/components/phone/Apps/KakaoTalk/templates/select-file";
+import Gallery from "@/components/phone/Apps/Basic/Gallery/gallery";
+import Setting_ProfileName from "@/components/phone/Apps/KakaoTalk/templates/setting-profile-name";
+import EditImg from "@/components/phone/Apps/KakaoTalk/templates/edit-img";
+import TargetBox from "@/components/phone/atoms/target-box";
+import Icon from "@/components/phone/atoms/icon";
+import { UrlContext } from "@/components/phone/templates/display-box";
 
 function KakaotalkChats({ functionName, methodId, descriptionId }) {
   //

@@ -1,21 +1,21 @@
 import { useState } from "react";
 import classes from "./chat-setting.module.css";
 
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
-import StackedList from "components/DisplayBox/AppDisplays/components/list/StackedList";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
+import StackedList from "@/components/DisplayBox/AppDisplays/_components/list/StackedList";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
-import Switch from "components/DisplayBox/AppDisplays/components/UI/Switch";
-import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
-import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
-import Phone from "stories/phone/molecules/Phone/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import CancelBtn from "stories/phone/atoms/CancelBtn/index";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
+import Switch from "@/components/DisplayBox/AppDisplays/_components/UI/Switch";
+import Button from "@/components/DisplayBox/AppDisplays/_components/UI/Button";
+import Checkbox from "@/components/DisplayBox/AppDisplays/_components/UI/Checkbox";
+import Phone from "@/components/phone/molecules/phone";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import Modal from "@/components/phone/molecules/modal";
+import TargetBox from "@/components/phone/atoms/target-box";
+import CancelBtn from "@/components/phone/atoms/cancel-btn";
+import SubmitBtn from "@/components/phone/atoms/submit-btn";
 
 function KakaoChatRoom_setting({
   open = { modal: false },
