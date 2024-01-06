@@ -1,20 +1,34 @@
 // import styles from "./Nav.module.css";
 import { useContext } from "react";
-import UrlContext from "components/page_context/UrlContext";
-import Icon from "stories/phone/atoms/Icon/index";
-import Flex from "stories/phone/atoms/Flex/index";
+
+import Icon from "@/components/phone/atoms/icon";
+import Flex from "@/components/phone/atoms/flex";
+import { UrlContext } from "@/components/phone/templates/display-box";
+import { useRouter } from "next/navigation";
+import { encodeUrl } from "@/lib/utils";
 
 function Nav() {
-  const { setMyDescriptionId, myDescriptionId } = useContext(UrlContext);
+  const router = useRouter();
+  const { functionName, appName, methodOrder, guideOrder } =
+    useContext(UrlContext);
 
   function goToBack() {
-    myDescriptionId !== "0" &&
-      setMyDescriptionId((prevValue) => {
-        return `${prevValue - 1}`;
-      });
+    guideOrder !== "0" &&
+      router.push(
+        `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+          appName
+        )}&methodOrder=${methodOrder}&guideOrder=${String(
+          Number(guideOrder) - 1
+        )}`,
+        { scroll: false }
+      );
   }
   function goToHome() {
-    setMyDescriptionId("0");
+    router.push(
+      `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+        appName
+      )}&methodOrder=${methodOrder}&guideOrder=1`
+    );
   }
   return (
     <Flex

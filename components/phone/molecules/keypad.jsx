@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import KeypadLine from "stories/phone/atoms/KeypadLine";
+import KeypadLine from "@/components/phone/atoms/keypad-line";
 
 /* eslint-disable no-unused-vars */
 

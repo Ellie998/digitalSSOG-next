@@ -1,4 +1,4 @@
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const SubmitBtn = ({
   id = "submit_btn",

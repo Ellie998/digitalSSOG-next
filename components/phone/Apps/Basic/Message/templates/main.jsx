@@ -1,23 +1,23 @@
 import { useState } from "react";
 
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-import AppTitle_center from "components/DisplayBox/AppDisplays/components/layout/AppTitle_center";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import BlurModal from "components/DisplayBox/AppDisplays/components/UI/BlurModal";
-import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
-import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import AppTitle_center from "@/components/DisplayBox/AppDisplays/_components/layout/AppTitle_center";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Button from "@/components/DisplayBox/AppDisplays/_components/UI/Button";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import BlurModal from "@/components/DisplayBox/AppDisplays/_components/UI/BlurModal";
+import FlexContent from "@/components/DisplayBox/AppDisplays/_components/list/FlexContent";
+import Icon from "@/components/DisplayBox/AppDisplays/_components/UI/Icon";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import CheckBox from "../../../atoms/CheckBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import MessageInfoAlert from "../../../atoms/MassageInfoAlert/index";
-import StackedList from "stories/phone/molecules/StackedList/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
+import Phone from "@/components/phone/molecules/phone";
+import TargetBox from "@/components/phone/atoms/target-box";
+import CheckBox from "@/components/phone/Apps/Basic/atoms/check-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import MessageInfoAlert from "@/components/phone/Apps/Basic/atoms/message-info-alert";
+import StackedList from "@/components/phone/molecules/stacked-list";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
 
 function Main({
   target_sendMessage,

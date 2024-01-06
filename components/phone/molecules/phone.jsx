@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-// import Header from "stories/phone/organisms/Header/index";
-// import Nav from "stories/phone/organisms/Nav/index";
-// import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
+import Header from "@/components/phone/organisms/header";
+import Nav from "@/components/phone/organisms/nav";
+import PhoneBackground from "@/components/phone/atoms/phone-background";
 
 const MainContainer = styled.div`
   height: 300px;

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import styled from "@emotion/styled";
-import Phone from "stories/phone/molecules/Phone/index";
-import AppLine from "stories/phone/molecules/AppLine/index";
+import Phone from "@/components/phone/molecules/phone";
+import AppLine from "@/components/phone/molecules/app-line";
 
 const Container = styled.div`
   height: 300px;

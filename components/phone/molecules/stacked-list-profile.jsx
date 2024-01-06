@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import ProfileIcon from "stories/phone/atoms/ProfileIcon/index";
+import ProfileIcon from "@/components/phone/atoms/profile-icon";
 
 const Container = styled.div`
   display: grid;

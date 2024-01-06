@@ -1,5 +1,5 @@
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/error";
+import Error from "@/components/phone/organisms/Main/Display/error";
 import Default from "@/components/phone/organisms/Main/default";
 // call
 import Main from "@/components/phone/Apps/Basic/Call/templates/main";

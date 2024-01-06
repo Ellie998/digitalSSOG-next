@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+
 import classes from "./tab.module.css";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
 
 const Container = styled.div`
   display: flex;

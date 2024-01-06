@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Title from "stories/phone/atoms/Title/index";
-import SubTitle from "stories/phone/atoms/SubTitle/index";
+import Title from "@/components/phone/atoms/title";
+import SubTitle from "@/components/phone/atoms/sub-title";
 
 const Container = styled.div`
   ${(props) => (props.style ? props.style : null)}

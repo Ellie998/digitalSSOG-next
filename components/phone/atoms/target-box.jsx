@@ -1,8 +1,10 @@
 // components/TargetBox.jsx
 import styled from "@emotion/styled";
-import UrlContext from "components/page_context/UrlContext";
 
 import { useContext } from "react";
+import { UrlContext } from "@/components/phone/templates/display-box";
+import { useRouter } from "next/navigation";
+import { encodeUrl } from "@/lib/utils";
 
 const Container = styled.div`
   cursor: pointer;
@@ -29,7 +31,9 @@ const TargetBox = ({
   children,
   onMouseDown,
 }) => {
-  const { setMyDescriptionId } = useContext(UrlContext);
+  const router = useRouter();
+  const { functionName, appName, methodOrder, guideOrder } =
+    useContext(UrlContext);
 
   return (
     <Container
@@ -50,23 +54,51 @@ const TargetBox = ({
           setTimeout(() => {
             isNextTriger &&
               condition &&
-              setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
+              router.push(
+                `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+                  appName
+                )}&methodOrder=${methodOrder}&guideOrder=${String(
+                  Number(guideOrder) + 1
+                )}`,
+                { scroll: false }
+              );
 
             isBackTriger &&
               condition &&
-              setMyDescriptionId((prevValue) => (+prevValue - 1).toString());
+              router.push(
+                `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+                  appName
+                )}&methodOrder=${methodOrder}&guideOrder=${String(
+                  Number(guideOrder) - 1
+                )}`,
+                { scroll: false }
+              );
           }, 1000);
       }}
       onClick={() => {
         !onMouseDown &&
           isNextTriger &&
           condition &&
-          setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
+          router.push(
+            `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+              appName
+            )}&methodOrder=${methodOrder}&guideOrder=${String(
+              Number(guideOrder) + 1
+            )}`,
+            { scroll: false }
+          );
         onClick ? onClick() : null;
         !onMouseDown &&
           isBackTriger &&
           condition &&
-          setMyDescriptionId((prevValue) => (+prevValue - 1).toString());
+          router.push(
+            `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+              appName
+            )}&methodOrder=${methodOrder}&guideOrder=${String(
+              Number(guideOrder) - 1
+            )}`,
+            { scroll: false }
+          );
       }}>
       {children}
     </Container>

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
   position: absolute;

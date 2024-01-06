@@ -1,5 +1,5 @@
-import Icon from "stories/phone/atoms/Icon/index";
-import Flex from "stories/phone/atoms/Flex/index";
+import Icon from "@/components/phone/atoms/icon";
+import Flex from "@/components/phone/atoms/flex";
 
 const Header = ({ backgroundColor = "white" }) => {
   return (

@@ -12,6 +12,8 @@ function Display() {
   const {
     functionName,
     appName,
+    methodOrder,
+    guideOrder,
 
     functionName_makeCall,
     functionName_getCall,
@@ -47,6 +49,8 @@ function Display() {
 
     //
   } = useContext(UrlContext);
+  const methodId = methodOrder;
+  const descriptionId = guideOrder;
 
   const findFunctionCategory = () => {
     if (

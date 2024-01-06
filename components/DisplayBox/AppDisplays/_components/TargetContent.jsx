@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 
 import { useContext } from "react";
 import { UrlContext } from "@/components/phone/templates/display-box";
+import { useRouter } from "next/navigation";
+import { encodeUrl } from "@/lib/utils";
 
 const Container = styled.div`
   ${(props) => (props.style ? props.style : null)}
@@ -26,7 +28,9 @@ const TargetContent = (prop) => {
     height: "fit-content",
     borderRadius: "2px",
   };
-  const { setMyDescriptionId } = useContext(UrlContext);
+  const router = useRouter();
+  const { functionName, appName, methodOrder, guideOrder } =
+    useContext(UrlContext);
   return (
     <Container style={prop.style}>
       {!prop.isNextDescriptionLink && !prop.goBackDescription && (
@@ -48,7 +52,14 @@ const TargetContent = (prop) => {
           onClick={() => {
             prop.onClick ? prop.onClick() : null;
             prop.targetOption &&
-              setMyDescriptionId((prevValue) => (+prevValue + 1).toString());
+              router.push(
+                `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
+                  appName
+                )}&methodOrder=${methodOrder}&guideOrder=${String(
+                  Number(guideOrder) + 1
+                )}`,
+                { scroll: false }
+              );
           }}>
           {prop.children}
         </div>

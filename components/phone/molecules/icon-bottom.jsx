@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import Icon from "stories/phone/atoms/Icon/index";
+import Icon from "@/components/phone/atoms/icon";
 
 const Container = styled.div`
   cursor: pointer;

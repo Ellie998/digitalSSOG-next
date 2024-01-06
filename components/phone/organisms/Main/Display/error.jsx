@@ -1,8 +1,8 @@
-import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
-import Spinner from "components/DisplayBox/AppDisplays/components/UI/Spinner";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import Button from "@/components/DisplayBox/AppDisplays/_components/UI/Button";
+import Spinner from "@/components/DisplayBox/AppDisplays/_components/UI/Spinner";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
+import PhoneBackground from "@/components/phone/atoms/phone-background";
 
 const Error = () => {
   return (
@@ -14,7 +14,7 @@ const Error = () => {
           <p>최대한 빨리 완성할게요</p>
         </div>
         <Button
-          className="hover:animate-pulse font-bold mx-auto"
+          className="mx-auto font-bold hover:animate-pulse"
           btnColor="rgb(90, 162, 255)"
           textColor="white"
           content="다른 기능 보러가기"

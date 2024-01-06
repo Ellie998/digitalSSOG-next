@@ -1,5 +1,5 @@
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import TargetBox from "../TargetBox/index";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const AppIcon = ({ id, name, condition, style, content, description }) => {
   return (
