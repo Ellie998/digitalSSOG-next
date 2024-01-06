@@ -9,14 +9,6 @@ export const UrlContext = createContext({
   appName: "",
   methodOrder: "",
   guideOrder: "",
-  // myAppName: "",
-  // myMethodId: "",
-  // myDescriptionId: "",
-  // setMyAppName: null,
-  // setMyMethodId: null,
-  // setMyDescriptionId: null,
-  // urlContent: "",
-  // urlChangeDetecter: null,
   //
   functionName_makeCall: "",
   functionName_getCall: "",
@@ -89,9 +81,6 @@ function DisplayBox() {
   const appName = decodeUrl(searchParams.get("appName"));
   const methodOrder = searchParams.get("methodOrder");
   const guideOrder = searchParams.get("guideOrder");
-  // const [apppName, setMyAppName] = useState("");
-  // const [myMethodId, setMyMethodId] = useState("");
-  // const [myDescriptionId, setMyDescriptionId] = useState("");
 
   return (
     <UrlContext.Provider
@@ -100,13 +89,6 @@ function DisplayBox() {
         appName,
         methodOrder,
         guideOrder,
-        // myAppName: myAppName,
-        // myMethodId: myMethodId,
-        // myDescriptionId: myDescriptionId,
-        // setMyAppName: setMyAppName,
-        // setMyMethodId: setMyMethodId,
-        // setMyDescriptionId: setMyDescriptionId,
-        // urlChangeDetecter: urlChangeDetecter,
         //
         functionName_makeCall,
         functionName_getCall,

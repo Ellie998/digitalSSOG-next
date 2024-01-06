@@ -28,6 +28,7 @@ function BasicCalls({ functionName, methodId, descriptionId }) {
   const [name, setName] = useState("영희");
 
   let choicedComponent = <Default />;
+  console.log(descriptionId);
 
   switch (functionName) {
     case functionName_makeCall:

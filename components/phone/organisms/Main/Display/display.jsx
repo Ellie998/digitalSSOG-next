@@ -50,7 +50,7 @@ function Display() {
     //
   } = useContext(UrlContext);
   const methodId = methodOrder;
-  const descriptionId = guideOrder;
+  const descriptionId = String(Number(guideOrder) - 1);
 
   const findFunctionCategory = () => {
     if (

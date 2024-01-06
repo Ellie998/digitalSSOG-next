@@ -113,6 +113,9 @@ export default async function FunctionDescriptionPage({
         include: {
           guide_component: true,
         },
+        orderBy: {
+          order: "asc",
+        },
       },
     },
     orderBy: {
@@ -120,6 +123,7 @@ export default async function FunctionDescriptionPage({
       order: "asc",
     },
   });
+
   const apps = methods.map((methods) => methods.appName);
   const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
 
