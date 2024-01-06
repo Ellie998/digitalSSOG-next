@@ -10,7 +10,7 @@ import {
 import { decodeUrl } from "@/lib/utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import DescriptionTitle from "@/components/description_title";
-import PhoneBackground from "@/components/my-ui/phone-background";
+import DisplayBox from "@/components/phone/templates/display-box";
 import { AlertCircle } from "lucide-react";
 import classes from "./description-main.module.css";
 import { useRouter } from "next/navigation";
@@ -153,7 +153,7 @@ export default function DescriptionMain({
           </AlertDescription>
         </Alert>
 
-        <PhoneBackground></PhoneBackground>
+        <DisplayBox />
       </div>
     </section>
   );

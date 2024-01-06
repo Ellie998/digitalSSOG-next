@@ -1,53 +1,52 @@
-import { default as Calls_Basic } from "../../organisms/Main/Display/Basic/Calls";
-import { default as Chats_Basic } from "../../organisms/Main/Display/Basic/Chats";
-import { default as Calls_KakaoTalk } from "../../organisms/Main/Display/KakaoTalk/Calls";
-import { default as Chats_KakaoTalk } from "../../organisms/Main/Display/KakaoTalk/Chats";
-import { default as Settings_KakaoTalk } from "../../organisms/Main/Display/KakaoTalk/Settings";
+// import BasicCalls from "@/components/phone/organisms/Main/Display/Basic/basic-calls";
+// import BasicChats from "@/components/phone/organisms/Main/Display/Basic/basic-chats";
+// import KakaotalkCalls from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-calls";
+// import KakaotalkChats from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-chats";
+// import KakaotalkSetting from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-settings";
+import { useContext } from "react";
+import { UrlContext } from "@/components/phone/templates/display-box";
+
+import Default from "@/components/phone/organisms/Main/default";
 
 function Display() {
-  // const {
-  //   functionName,
-  //   myAppName,
-  //   myMethodId,
-  //   myDescriptionId,
-  //   //
-  //   appName_basic,
-  //   appName_kakaotalk,
-  //   //
-  //   functionName_makeCall,
-  //   functionName_getCall,
-  //   functionName_makeVideoCall,
-  //   functionName_changeName,
-  //   //
-  //   functionName_sendMessage,
-  //   functionName_seeMessage,
-  //   functionName_resendMessage,
-  //   functionName_reserveMessage,
-  //   functionName_sendImg,
-  //   functionName_sendAudio,
-  //   functionName_sendPhoneNum,
-  //   //
-  //   functionName_groupChat,
-  //   functionName_leaveChat,
-  //   functionName_chatRoomNameChange,
-  //   functionName_chatRoomImgChange,
-  //   functionName_changeProileImg,
-  //   //
-  //   functionName_messageDelete,
-  //   functionName_cancelMessage,
-  //   functionName_deleteRecentHistory,
-  //   functionName_deleteContact,
-  //   //
-  //   functionName_kakaotalk_groubChatLeave_rejectInvitation,
-  //   functionName_kakaotalk_groubChatLock,
-  //   functionName_kakaotalk_groubChatLeave_quietly,
-  //   //setting
-  //   functionName_controlFontSize,
-  // } = useContext(UrlContext);
+  const {
+    functionName,
+    appName,
 
-  const appName = myAppName;
-  const methodId = myMethodId.toString();
-  const descriptionId = myDescriptionId.toString();
+    functionName_makeCall,
+    functionName_getCall,
+    functionName_makeVideoCall,
+    functionName_changeName,
+    //
+    functionName_sendMessage,
+    functionName_seeMessage,
+    functionName_resendMessage,
+    functionName_reserveMessage,
+    functionName_sendImg,
+    functionName_sendAudio,
+    functionName_sendPhoneNum,
+    //
+    functionName_groupChat,
+    functionName_leaveChat,
+    functionName_chatRoomImgChange,
+    functionName_chatRoomNameChange,
+    functionName_changeProileImg,
+    ///
+    functionName_messageDelete,
+    functionName_deleteRecentHistory,
+    functionName_deleteContact,
+    functionName_cancelMessage,
+    functionName_controlFontSize,
+    //
+    functionName_kakaotalk_groubChatLeave_rejectInvitation,
+    functionName_kakaotalk_groubChatLock,
+    functionName_kakaotalk_groubChatLeave_quietly,
+    //
+    appName_basic,
+    appName_kakaotalk,
+
+    //
+  } = useContext(UrlContext);
 
   const findFunctionCategory = () => {
     if (
@@ -88,46 +87,47 @@ function Display() {
     case appName_basic:
       return (
         <>
-          {functionCategory === "Calls" && (
-            <Calls_Basic
+          <Default />
+          {/* {functionCategory === "Calls" && (
+            <BasicCalls
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
-          )}
-          {functionCategory === "Chats" && (
-            <Chats_Basic
+          )} */}
+          {/* {functionCategory === "Chats" && (
+            <BasicChats
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
-          )}
+          )} */}
         </>
       );
     case appName_kakaotalk:
       return (
         <>
-          {functionCategory === "Calls" && (
-            <Calls_KakaoTalk
+          {/* {functionCategory === "Calls" && (
+            <KakaotalkCalls
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
           )}
           {functionCategory === "Chats" && (
-            <Chats_KakaoTalk
+            <KakaotalkChats
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
           )}
           {functionCategory === "Settings" && (
-            <Settings_KakaoTalk
+            <KakaotalkSetting
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
-          )}
+          )} */}
         </>
       );
     default:
