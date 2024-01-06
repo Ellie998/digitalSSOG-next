@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
-import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
+import ChatList from "@/components/DisplayBox/AppDisplays/_components/UI/ChatList";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
 
-import Title from "stories/phone/atoms/Title/index";
+import Title from "@/components/phone/atoms/title";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import ScrollController from "../../../atoms/ScrollController/index";
+import Phone from "@/components/phone/molecules/phone";
+import ScrollController from "@/components/phone/Apps/KakaoTalk/atoms/scroll-controller";
 import { useState } from "react";
 
 const SampleContainer = styled.div`

@@ -1,14 +1,14 @@
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import StackedList_Profile from "@/components/DisplayBox/AppDisplays/_components/list/StackedList_Profile";
 
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Phone from "@/components/phone/molecules/phone";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 function ETCSetting({
   target = { display: false, backBtn: false, lab: false },

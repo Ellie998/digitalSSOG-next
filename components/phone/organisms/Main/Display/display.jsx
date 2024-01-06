@@ -2,7 +2,7 @@ import BasicCalls from "@/components/phone/organisms/Main/Display/Basic/basic-ca
 import BasicChats from "@/components/phone/organisms/Main/Display/Basic/basic-chats";
 import KakaotalkCalls from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-calls";
 import KakaotalkChats from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-chats";
-// import KakaotalkSetting from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-settings";
+import KakaotalkSetting from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-settings";
 import { useContext } from "react";
 import { UrlContext } from "@/components/phone/templates/display-box";
 
@@ -124,13 +124,13 @@ function Display() {
               descriptionId={descriptionId}
             />
           )}
-          {/* {functionCategory === "Settings" && (
+          {functionCategory === "Settings" && (
             <KakaotalkSetting
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
-          )} */}
+          )}
         </>
       );
     default:

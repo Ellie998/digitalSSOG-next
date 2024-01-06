@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
-import Flex from "stories/phone/atoms/Flex/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
+import Flex from "@/components/phone/atoms/flex";
+import TargetBox from "@/components/phone/atoms/target-box";
 
-import Title from "stories/phone/atoms/Title/index";
+import Title from "@/components/phone/atoms/title";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import Phone from "@/components/phone/molecules/phone";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
 const SettingTitle = styled.div`
   padding-left: 8px;

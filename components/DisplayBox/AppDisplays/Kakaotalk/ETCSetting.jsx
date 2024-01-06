@@ -1,12 +1,12 @@
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import StackedList_Profile from "@/components/DisplayBox/AppDisplays/_components/list/StackedList_Profile";
 
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
 
-import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
-import BackBtn from "components/DisplayBox/AppDisplays/components/UI/BackBtn";
+import AppHeader from "@/components/DisplayBox/AppDisplays/_components/layout/AppHeader";
+import BackBtn from "@/components/DisplayBox/AppDisplays/_components/UI/BackBtn";
 
-import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";
+import StackedListWrap from "@/components/DisplayBox/AppDisplays/_components/list/StackedListWrap";
 
 function ETCSetting({ target_lab, target_backBtn }) {
   const settingMenuContents1 = [
