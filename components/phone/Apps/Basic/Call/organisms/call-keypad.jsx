@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Keypad from "stories/phone/molecules/Keypad/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Keypad from "@/components/phone/molecules/keypad";
+import Icon from "@/components/phone/atoms/icon";
 
 const ClickedNumContainer = styled.div`
   margin-top: 1.25rem /* 20px */;

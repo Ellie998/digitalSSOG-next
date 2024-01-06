@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import classes from "./MessageSendLine.module.css";
 
-import Flex from "stories/phone/atoms/Flex/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Flex from "@/components/phone/atoms/flex";
+import Icon from "@/components/phone/atoms/icon";
 
 import TargetContent from "../TargetContent";
 

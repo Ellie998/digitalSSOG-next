@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
-import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
+import ListOption from "components/DisplayBox/AppDisplays/_components/list/ListOption";
+import FlexContent from "components/DisplayBox/AppDisplays/_components/list/FlexContent";
 
-import Icon from "stories/phone/atoms/Icon/index";
-import Top from "stories/phone/atoms/Top/index";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
+import Icon from "@/components/phone/atoms/icon";
+import Top from "@/components/phone/atoms/top";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
 
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
-import Flex from "stories/phone/atoms/Flex/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import TargetBox from "@/components/phone/atoms/target-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import CheckBox from "@/components/phone/Apps/Basic/atoms/check-box";
+import Flex from "@/components/phone/atoms/flex";
 
 const Contacts = ({
   targetTab,

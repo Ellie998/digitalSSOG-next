@@ -2,29 +2,29 @@
 
 import { useEffect, useState } from "react";
 import classes from "./chat.module.css";
-import ChoiceFile from "components/DisplayBox/AppDisplays/components/layout/ChoiceFile";
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
-import Icon from "components/DisplayBox/AppDisplays/components/UI/Icon";
-import ChatList from "components/DisplayBox/AppDisplays/components/UI/ChatList";
-import MessageSendLine from "components/DisplayBox/AppDisplays/components/UI/MessageSendLine";
-import Grid_4x4 from "components/DisplayBox/AppDisplays/components/layout/Grid_4x4";
-import ChoicedFile from "components/DisplayBox/AppDisplays/components/UI/ChoicedFile";
-import Input from "components/DisplayBox/AppDisplays/components/UI/Input";
-import Checkbox from "components/DisplayBox/AppDisplays/components/UI/Checkbox";
-import GetDate from "components/DisplayBox/AppDisplays/components/GetDate";
+import ChoiceFile from "@/components/DisplayBox/AppDisplays/_components/layout/ChoiceFile";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
+import Icon from "@/components/DisplayBox/AppDisplays/_components/UI/Icon";
+import ChatList from "@/components/DisplayBox/AppDisplays/_components/UI/ChatList";
+import MessageSendLine from "@/components/DisplayBox/AppDisplays/_components/UI/MessageSendLine";
+import Grid_4x4 from "@/components/DisplayBox/AppDisplays/_components/layout/Grid_4x4";
+import ChoicedFile from "@/components/DisplayBox/AppDisplays/_components/UI/ChoicedFile";
+import Input from "@/components/DisplayBox/AppDisplays/_components/UI/Input";
+import Checkbox from "@/components/DisplayBox/AppDisplays/_components/UI/Checkbox";
+import GetDate from "@/components/DisplayBox/AppDisplays/_components/GetDate";
 //
-import Phone from "stories/phone/molecules/Phone/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import ModalContents from "stories/phone/organisms/ModalContents/index";
-import SubmitBtn from "stories/phone/atoms/SubmitBtn/index";
-import CancelBtn from "stories/phone/atoms/CancelBtn/index";
-import Button from "stories/phone/atoms/Button/index";
-import ChatHeader from "stories/phone/Apps/Basic/Message/organisms/ChatHeader/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
+import Phone from "@/components/phone/molecules/phone";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Modal from "@/components/phone/molecules/modal";
+import ModalContents from "@/components/phone/organisms/modal-contents";
+import SubmitBtn from "@/components/phone/atoms/submit-btn";
+import CancelBtn from "@/components/phone/atoms/cancel-btn";
+import Button from "@/components/phone/atoms/button";
+import ChatHeader from "@/components/phone/Apps/Basic/Message/organisms/chat-header";
+import TargetBox from "@/components/phone/atoms/target-box";
+import CheckBox from "@/components/phone/Apps/Basic/atoms/check-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
 function Chat({
   open_option,

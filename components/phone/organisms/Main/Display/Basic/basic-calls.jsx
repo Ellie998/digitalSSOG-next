@@ -1,18 +1,19 @@
-import Home from "stories/phone/Apps/Basic/Home/index";
-import Error from "stories/phone/organisms/Main/Error/index";
-import Default from "stories/phone/organisms/Main/Default/index";
+import Home from "@/components/phone/Apps/Basic/home";
+import Error from "@/components/phone/organisms/Main/error";
+import Default from "@/components/phone/organisms/Main/default";
 // call
-import Main from "stories/phone/Apps/Basic/Call/templates/Main/index";
-import AnswerCall from "stories/phone/Apps/Basic/Call/templates/AnswerCall/index";
-import CallConnected from "stories/phone/Apps/Basic/Call/templates/CallConnected/index";
-import VideoCallConnected from "stories/phone/Apps/Basic/Call/templates/VideoCallConnected/index";
+import Main from "@/components/phone/Apps/Basic/Call/templates/main";
+import AnswerCall from "@/components/phone/Apps/Basic/Call/templates/anser-call";
+import CallConnected from "@/components/phone/Apps/Basic/Call/templates/call-connected";
+import VideoCallConnected from "@/components/phone/Apps/Basic/Call/templates/video-call-connected";
 // chat
-import { default as ChatMain } from "stories/phone/Apps/Basic/Message/templates/Main/index";
-import Chat from "stories/phone/Apps/Basic/Message/templates/Chat/index";
+import { default as ChatMain } from "@/components/phone/Apps/Basic/Message/templates/main";
+import Chat from "@/components/phone/Apps/Basic/Message/templates/chat";
 import { useContext, useState } from "react";
-import UrlContext from "components/page_context/UrlContext";
-import ContactInfo from "stories/phone/Apps/Basic/Call/templates/ContactInfo/index";
-import Edit_ContactInfo from "stories/phone/Apps/Basic/Call/templates/Edit_ContactInfo/index";
+
+import ContactInfo from "@/components/phone/Apps/Basic/Call/templates/contact-info";
+import Edit_ContactInfo from "@/components/phone/Apps/Basic/Call/templates/edit-contact-info";
+import { UrlContext } from "@/components/phone/templates/display-box";
 
 function BasicCalls({ functionName, methodId, descriptionId }) {
   const {

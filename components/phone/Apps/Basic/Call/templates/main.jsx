@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import CallTab from "stories/phone/Apps/Basic/Call/organisms/CallTab/index";
-import CallKeypad from "stories/phone/Apps/Basic/Call/organisms/CallKeypad/index";
-import Phone from "stories/phone/molecules/Phone/index";
-import Histories from "stories/phone/Apps/Basic/Call/organisms/Histories/index";
-import Contacts from "stories/phone/Apps/Basic/Call/organisms/Contacts/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
+import CallTab from "@/components/phone/Apps/Basic/Call/organisms/call-tab";
+import CallKeypad from "@/components/phone/Apps/Basic/Call/organisms/call-keypad";
+import Phone from "@/components/phone/molecules/phone";
+import Histories from "@/components/phone/Apps/Basic/Call/organisms/histories";
+import Contacts from "@/components/phone/Apps/Basic/Call/organisms/contacts";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
 
 /** targetTab option "키패드","최근기록","연락처" */
 

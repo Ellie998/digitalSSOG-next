@@ -1,4 +1,4 @@
-import Tab from "stories/phone/atoms/Tab/index";
+import Tab from "@/components/phone/atoms/tab";
 
 const CallTab = ({ targetTab, clickedTapName, setClickedTapName }) => {
   return (

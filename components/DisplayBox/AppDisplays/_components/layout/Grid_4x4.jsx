@@ -1,5 +1,5 @@
 import TargetContent from "../TargetContent";
-import IconBottom from "stories/phone/molecules/IconBottom";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
 function Grid_4x4({ className, items, iconClassName_common, iconClassName }) {
   return (

@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import Modal from "stories/phone/molecules/Modal/index";
-import Flex from "stories/phone/atoms/Flex/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import Icon from "@/components/phone/atoms/icon";
+import Modal from "@/components/phone/molecules/modal";
+import Flex from "@/components/phone/atoms/flex";
+import TargetBox from "@/components/phone/atoms/target-box";
 
 const BtnContainer = styled.div`
   font-size: 0.7rem;

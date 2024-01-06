@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
-import Flex from "stories/phone/atoms/Flex/index";
+import Flex from "@/components/phone/atoms/flex";
 
-import Icon from "stories/phone/atoms/Icon/index";
-import NoScrollbar from "stories/phone/atoms/NoScrollbar/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
+import Icon from "@/components/phone/atoms/icon";
+import NoScrollbar from "@/components/phone/atoms/no-scroll-bar";
+import TargetBox from "@/components/phone/atoms/target-box";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
+import Phone from "@/components/phone/molecules/phone";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
 
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
 
 const NavContainer = styled.div`
   background: rgb(244, 244, 244);

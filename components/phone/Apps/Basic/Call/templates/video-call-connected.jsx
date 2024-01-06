@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
-import Top from "stories/phone/atoms/Top/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import Flex from "stories/phone/atoms/Flex/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
+import Phone from "@/components/phone/molecules/phone";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
+import Top from "@/components/phone/atoms/top";
+import Icon from "@/components/phone/atoms/icon";
+import Flex from "@/components/phone/atoms/flex";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
 const Container = styled.div`
   display: grid;

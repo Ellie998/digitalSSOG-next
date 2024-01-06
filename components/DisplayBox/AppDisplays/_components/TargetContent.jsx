@@ -2,7 +2,7 @@
 import styled from "@emotion/styled";
 
 import { useContext } from "react";
-import UrlContext from "../../../page_context/UrlContext";
+import { UrlContext } from "@/components/phone/templates/display-box";
 
 const Container = styled.div`
   ${(props) => (props.style ? props.style : null)}

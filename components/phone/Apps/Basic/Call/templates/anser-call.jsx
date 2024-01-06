@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import TargetContent from "components/DisplayBox/AppDisplays/components/TargetContent";
+import TargetContent from "@/components/DisplayBox/AppDisplays/_components/TargetContent";
 
-import Top from "stories/phone/atoms/Top/index";
-import Phone from "stories/phone/molecules/Phone/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Top from "@/components/phone/atoms/top";
+import Phone from "@/components/phone/molecules/phone";
+import Icon from "@/components/phone/atoms/icon";
 
 const Container = styled.div`
   text-align: center;

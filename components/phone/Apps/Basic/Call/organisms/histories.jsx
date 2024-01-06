@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-import ListOption from "components/DisplayBox/AppDisplays/components/list/ListOption";
-import FlexContent from "components/DisplayBox/AppDisplays/components/list/FlexContent";
+import ListOption from "@/components/DisplayBox/AppDisplays/_components/list/ListOption";
+import FlexContent from "@/components/DisplayBox/AppDisplays/_components/list/FlexContent";
 
-import Top from "stories/phone/atoms/Top/index";
-import Icon from "stories/phone/atoms/Icon/index";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
-import StackedListWrap from "stories/phone/molecules/StackedListWrap/index";
-import StackedList_Profile from "stories/phone/molecules/StackedList_Profile/index";
-import TargetBox from "stories/phone/atoms/TargetBox/index";
-import CheckBox from "stories/phone/Apps/Basic/atoms/CheckBox/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
+import Top from "@/components/phone/atoms/top";
+import Icon from "@/components/phone/atoms/icon";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
+import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
+import StackedList_Profile from "@/components/phone/molecules/stacked-list-profile";
+import TargetBox from "@/components/phone/atoms/target-box";
+import CheckBox from "@/components/phone/Apps/Basic/atoms/check-box";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
 
 const Histories = ({
   targetTab,

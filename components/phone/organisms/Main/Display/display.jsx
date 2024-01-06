@@ -1,4 +1,4 @@
-// import BasicCalls from "@/components/phone/organisms/Main/Display/Basic/basic-calls";
+import BasicCalls from "@/components/phone/organisms/Main/Display/Basic/basic-calls";
 // import BasicChats from "@/components/phone/organisms/Main/Display/Basic/basic-chats";
 // import KakaotalkCalls from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-calls";
 // import KakaotalkChats from "@/components/phone/organisms/Main/Display/KakaoTalk/kakaotalk-chats";
@@ -87,14 +87,13 @@ function Display() {
     case appName_basic:
       return (
         <>
-          <Default />
-          {/* {functionCategory === "Calls" && (
+          {functionCategory === "Calls" && (
             <BasicCalls
               functionName={functionName}
               methodId={methodId}
               descriptionId={descriptionId}
             />
-          )} */}
+          )}
           {/* {functionCategory === "Chats" && (
             <BasicChats
               functionName={functionName}

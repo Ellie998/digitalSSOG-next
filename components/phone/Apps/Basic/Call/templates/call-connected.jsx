@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-import Phone from "stories/phone/molecules/Phone/index";
-import FlexInFlex from "stories/phone/atoms/FlexInFlex/index";
-import Top from "stories/phone/atoms/Top/index";
-import IconBottom from "stories/phone/molecules/IconBottom/index";
-import Icon from "stories/phone/atoms/Icon/index";
+import Phone from "@/components/phone/molecules/phone";
+import FlexInFlex from "@/components/phone/atoms/flex-in-flex";
+import Top from "@/components/phone/atoms/top";
+import IconBottom from "@/components/phone/molecules/icon-bottom";
+import Icon from "@/components/phone/atoms/icon";
 
 const Container = styled.div`
   text-align: center;
