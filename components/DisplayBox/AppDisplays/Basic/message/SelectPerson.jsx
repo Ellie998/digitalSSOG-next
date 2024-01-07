@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
 import AppHeader from "components/DisplayBox/AppDisplays/components/layout/AppHeader";
 import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/StackedListWrap";

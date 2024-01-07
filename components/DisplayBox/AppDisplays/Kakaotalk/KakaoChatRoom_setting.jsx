@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import classes from "./KakaoChatRoom_setting.module.css";
 
@@ -104,8 +102,8 @@ function KakaoChatRoom_setting({
             title={{ content: "현재 채팅방 배경화면" }}
             subTitle={{
               content: (
-                <div className="flex display_subTitle--light ml-0">
-                  <div className="w-4 h-5 bg-kakaoBlue rounded-sm mr-1"></div>
+                <div className="flex ml-0 display_subTitle--light">
+                  <div className="w-4 h-5 mr-1 rounded-sm bg-kakaoBlue"></div>
                   색상
                 </div>
               ),
@@ -165,7 +163,7 @@ function KakaoChatRoom_setting({
         </StackedListWrap>
 
         {/* Buttons */}
-        <div className="py-2 px-1 mx-auto">
+        <div className="px-1 py-2 mx-auto">
           <TargetContent
             isNextDescriptionLink
             targetOption={target_groubChatLeave}>

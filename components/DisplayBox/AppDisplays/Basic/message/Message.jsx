@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import classes from "./Message.module.css";
 import ChoiceFile from "components/DisplayBox/AppDisplays/components/layout/ChoiceFile";

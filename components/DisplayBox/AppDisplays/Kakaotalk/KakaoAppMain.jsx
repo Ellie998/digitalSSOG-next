@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import StackedList_Profile from "components/DisplayBox/AppDisplays/components/list/StackedList_Profile";
 import Icon from "stories/phone/atoms/Icon";
@@ -10,11 +8,10 @@ import StackedListWrap from "components/DisplayBox/AppDisplays/components/list/S
 import Tab from "stories/phone/atoms/Tab";
 
 function KakaoAppMain({
-  // eslint-disable-next-line react/prop-types
   defaultTab_friend,
   defaultTab_chat,
   defaultTab_openChat,
-  // eslint-disable-next-line react/prop-types
+
   defaultTab_shopping,
   defaultTab_ETC,
   target_chat,
@@ -156,7 +153,7 @@ function KakaoAppMain({
           <AppHeader
             leftItem={[<div className="text-sm font-bold">오픈채팅</div>]}
             rightItem={[
-              <Icon name="plus-circle" className=" text-sm" />,
+              <Icon name="plus-circle" className="text-sm " />,
               <Icon name="chat" className="ml-1 text-sm" />,
               <Icon name="gear" className="ml-1 text-sm" />,
             ]}></AppHeader>
@@ -226,7 +223,7 @@ function KakaoAppMain({
 
       {/* tab start */}
       <Tab
-        className="bg-neutral-100 shadow-sm"
+        className="shadow-sm bg-neutral-100"
         setClickedTab={setClickedTabName}
         defaultTab={defaultTabName}
         clickedTab={clickedTabName}

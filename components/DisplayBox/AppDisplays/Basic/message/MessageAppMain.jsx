@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import { NoScrollBar } from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
@@ -61,7 +59,7 @@ function MessageAppMain({
           ]}></AppHeader>
         <AppHeader
           leftItem={[
-            <div className="underline underline-offset-4 cursor-pointer">
+            <div className="underline cursor-pointer underline-offset-4">
               전체
             </div>,
             <Icon name="plus" className={`${iconStyle}`} />,

@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import classes from "./KakaoChatRoom.module.css";
@@ -159,10 +157,10 @@ function KakaoChatRoom({
           className={`bg-[#b2c6da] h-[35px]`}
           leftItem={[
             <BackBtn></BackBtn>,
-            <div className="text-sm ml-1 font-bold align-middle">
+            <div className="ml-1 text-sm font-bold align-middle">
               {chatType_group ? "그룹채팅" : "영희"}
             </div>,
-            <div className="text-sm ml-1 align-middle">
+            <div className="ml-1 text-sm align-middle">
               {chatType_group && "3"}
             </div>,
           ]}
@@ -261,7 +259,7 @@ function KakaoChatRoom({
         <FlexContent
           items={[
             <Icon name="plus-lg" />,
-            <div className="px-1 text-2xs ml-1 text-start text-gray-400 leading-4">
+            <div className="px-1 ml-1 leading-4 text-gray-400 text-2xs text-start">
               대화에 주의가 필요한 방입니다.
             </div>,
             <TargetContent targetOption={inputLocked} isNextDescriptionLink>

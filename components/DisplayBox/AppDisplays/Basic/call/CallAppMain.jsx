@@ -11,7 +11,6 @@ import Icon from "../../components/UI/Icon";
 import StackedListWrap from "../../components/list/StackedListWrap";
 import ListOption from "../../components/list/ListOption";
 
-// eslint-disable-next-line react/prop-types
 function CallAppMain({ targetTab, target_videoCall, target_Call }) {
   const scrollElement = document.getElementById("component_NoScrollBar");
 
@@ -55,7 +54,7 @@ function CallAppMain({ targetTab, target_videoCall, target_Call }) {
       onClickFunction: showListOption1,
       className1: "",
       content1: (
-        <i className="profileIconWrap text-green-700 bi bi-telephone-outbound-fill"></i>
+        <i className="text-green-700 profileIconWrap bi bi-telephone-outbound-fill"></i>
       ),
       className2: "",
       content2: "영희",
@@ -74,7 +73,7 @@ function CallAppMain({ targetTab, target_videoCall, target_Call }) {
       onClickFunction: showListOption2,
       className1: "",
       content1: (
-        <i className="profileIconWrap text-green-700 bi bi-telephone-outbound-fill"></i>
+        <i className="text-green-700 profileIconWrap bi bi-telephone-outbound-fill"></i>
       ),
       className2: "",
       content2: "철수",
@@ -156,7 +155,7 @@ function CallAppMain({ targetTab, target_videoCall, target_Call }) {
       className: "h-8",
       profile: {
         className: "bg-pink-200",
-        content: <i className="iconWrap text-white bi bi-person-fill"></i>,
+        content: <i className="text-white iconWrap bi bi-person-fill"></i>,
       },
       title: {
         className: "",
@@ -223,9 +222,8 @@ function CallAppMain({ targetTab, target_videoCall, target_Call }) {
             <AppTitle_center title={{ content: "전화" }}></AppTitle_center>
             <FlexContent
               items={[
-                // eslint-disable-next-line react/jsx-key
                 <div />,
-                // eslint-disable-next-line react/jsx-key
+
                 <FlexContent
                   items={[
                     <Icon key="1" name="filter" className={`text-sm`} />,
@@ -274,16 +272,14 @@ function CallAppMain({ targetTab, target_videoCall, target_Call }) {
               }}></AppTitle_center>
             <FlexContent
               items={[
-                // eslint-disable-next-line react/jsx-key
                 <div />,
-                // eslint-disable-next-line react/jsx-key
+
                 <FlexContent
                   items={[
-                    // eslint-disable-next-line react/jsx-key
                     <Icon name="plus" className={`text-sm`} />,
-                    // eslint-disable-next-line react/jsx-key
+
                     <Icon name="search" className={`text-sm`} />,
-                    // eslint-disable-next-line react/jsx-key
+
                     <Icon name="three-dots-vertical" className={`text-sm`} />,
                   ]}
                 />,

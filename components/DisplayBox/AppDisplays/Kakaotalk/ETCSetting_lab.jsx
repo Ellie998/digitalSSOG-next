@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import classes from "./ETCSetting.module.css";
@@ -83,7 +81,7 @@ function ETCSetting_lab({ target_groubChatLeave_quietly }) {
           </div>
         </div>
         <StackedList
-          className="border-none mb-2"
+          className="mb-2 border-none"
           title={{ content: "카카오 실험실", className: "text-center py-2" }}
           subTitle={{
             className: "text-center",
@@ -115,7 +113,7 @@ function ETCSetting_lab({ target_groubChatLeave_quietly }) {
           ))}
         </StackedListWrap>
 
-        <div className="display_subTitle--light py-2">
+        <div className="py-2 display_subTitle--light">
           실험실 기능은 바람처럼 나타났다 소리없이 사라질 수 있습니다.
         </div>
       </>
