@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import {
   Function as FunctionData,
   // Method,
@@ -9,11 +10,12 @@ import {
 import { decodeUrl } from "@/lib/utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import DescriptionTitle from "@/components/description_title";
-import PhoneBackground from "@/components/my-ui/phone-background";
+import DisplayBox from "@/components/phone/templates/display-box";
 import { AlertCircle } from "lucide-react";
 import classes from "./description-main.module.css";
+import { useRouter } from "next/navigation";
 
-export default async function DescriptionMain({
+export default function DescriptionMain({
   params,
   functionData,
   methods,
@@ -30,6 +32,8 @@ export default async function DescriptionMain({
   };
   searchParams: { appName: string; methodOrder: string; guideOrder: string };
 }) {
+  const router = useRouter();
+
   const num = [
     "0️⃣",
     "1️⃣",
@@ -78,27 +82,50 @@ export default async function DescriptionMain({
                             </summary>
 
                             {method.guides?.map((guide: Guide, j: number) => (
+                              // <li
+                              //   key={guide.id}
+                              //   className="w-full pb-4 ml-4 hover:underline ">
+                              //   <Link
+                              //     className={`block w-full ${
+                              //       method.appName ===
+                              //         decodeUrl(searchParams.appName) &&
+                              //       method.order + "" ===
+                              //         searchParams.methodOrder &&
+                              //       j + 1 + "" === searchParams.guideOrder
+                              //         ? "font-bold"
+                              //         : ""
+                              //     }`}
+                              //     href={`/description/${
+                              //       params.functionName
+                              //     }/?appName=${method.appName}&methodOrder=${
+                              //       method.order
+                              //     }&guideOrder=${j + 1}`}
+                              //     scroll={false}>
+                              //     {num[j + 1]} {guide.description}
+                              //   </Link>
+                              // </li>
                               <li
                                 key={guide.id}
-                                className="w-full pb-4 ml-4 hover:underline ">
-                                <Link
-                                  className={`block w-full ${
-                                    method.appName ===
-                                      decodeUrl(searchParams.appName) &&
-                                    method.order + "" ===
-                                      searchParams.methodOrder &&
-                                    j + 1 + "" === searchParams.guideOrder
-                                      ? "font-bold"
-                                      : ""
-                                  }`}
-                                  href={`/description/${
-                                    params.functionName
-                                  }/?appName=${method.appName}&methodOrder=${
-                                    method.order
-                                  }&guideOrder=${j + 1}`}
-                                  scroll={false}>
-                                  {num[j + 1]} {guide.description}
-                                </Link>
+                                className={`w-full pb-4 ml-4 hover:underline  ${
+                                  method.appName ===
+                                    decodeUrl(searchParams.appName) &&
+                                  method.order + "" ===
+                                    searchParams.methodOrder &&
+                                  j + 1 + "" === searchParams.guideOrder
+                                    ? "font-bold"
+                                    : ""
+                                }`}
+                                onClick={() => {
+                                  router.push(
+                                    `/description/${
+                                      params.functionName
+                                    }/?appName=${method.appName}&methodOrder=${
+                                      method.order
+                                    }&guideOrder=${j + 1}`,
+                                    { scroll: false }
+                                  );
+                                }}>
+                                {num[j + 1]} {guide.description}
                               </li>
                             ))}
                           </details>
@@ -126,7 +153,9 @@ export default async function DescriptionMain({
           </AlertDescription>
         </Alert>
 
-        <PhoneBackground></PhoneBackground>
+        <div className="flex justify-center">
+          <DisplayBox appNames={uniqueApps} />
+        </div>
       </div>
     </section>
   );

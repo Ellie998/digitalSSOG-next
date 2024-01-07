@@ -12,10 +12,12 @@ export default function RootLayout({ children }) {
       <head>
         <meta
           name="naver-site-verification"
-          content="7bc2ddaf7d98ebb70891ceb9bca0dbc61e27cbfb"
+          content={process.env.NEXT_PUBLIC_NAVER_VERIFICATION}
         />
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-RZYK6J2QZ2" />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
         <Script id="google-analytics">
           {`const host = window.location.hostname;
           if(host != "localhost"){
@@ -23,14 +25,17 @@ export default function RootLayout({ children }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           
-          gtag('config', 'G-RZYK6J2QZ2');
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
         }
           `}
         </Script>
 
         <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9013250950684251"
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          async={true}
+          rel="preload"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
           crossOrigin="anonymous"></Script>
       </head>
       <body suppressHydrationWarning={true}>

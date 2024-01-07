@@ -25,6 +25,14 @@
     "paths": { "@/*": ["./*"] }
   },
 
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/my-ui/phone-display.jsx",
+    "components/my-ui/phone-header.jsx",
+    "components/phone/templates/display-box.jsx"
+  ],
   "exclude": ["node_modules"]
 }

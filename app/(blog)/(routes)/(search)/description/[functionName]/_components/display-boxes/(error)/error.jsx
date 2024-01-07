@@ -1,9 +1,8 @@
 "use client";
-import Button from "components/DisplayBox/AppDisplays/components/UI/Button";
-import Spinner from "components/DisplayBox/AppDisplays/components/UI/Spinner";
-import NoScrollBar from "components/DisplayBox/AppDisplays/components/layout/NoScrollBar";
-
-import PhoneBackground from "stories/phone/atoms/PhoneBackground/index";
+import Button from "@/components/DisplayBox/AppDisplays/_components/UI/Button";
+import Spinner from "@/components/DisplayBox/AppDisplays/_components/UI/Spinner";
+import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/NoScrollBar";
+import PhoneBackground from "@/components/phone/atoms/phone-background";
 
 const Error = () => {
   return (
