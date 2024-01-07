@@ -27,15 +27,22 @@ function KakaoChatRoom_setting({
     groubChatLeave: false,
     backBtn: false,
   },
+  content = {
+    modalTitle: "",
+    modalSubTitle: "",
+    modalContent: <></>,
+    modalBtn: "",
+    modalTop: "",
+  },
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
     <Phone>
       <NoScrollBar height="305px">
-        {open.modal && (
+        {open.modal && target.groubChatLeave_rejectInvitation && (
           <Modal
-            modalStyle={{ top: "50px" }}
+            modalStyle={{ top: content.modalTop }}
             onClickBackDrop={() => {
               setIsChecked(false);
             }}>
@@ -81,6 +88,39 @@ function KakaoChatRoom_setting({
                     content: "위 내용을 모두 확인하였습니다.",
                   }}></Checkbox>
               </TargetBox>
+            </ModalContents>
+          </Modal>
+        )}
+        {open.modal && (
+          <Modal modalStyle={{ top: "50px" }}>
+            <ModalContents
+              title={{
+                content: content.modalTitle,
+                style: { fontWeight: "bold" },
+              }}
+              subTitle={{
+                content: content.modalSubTitle,
+              }}
+              buttons={
+                content.modalBtn && {
+                  style: { justifyContent: "end" },
+                  content: [
+                    <CancelBtn
+                      key="btn1"
+                      condition={true}
+                      style={{ color: "rgb(59 130 246)" }}>
+                      취소
+                    </CancelBtn>,
+                    <SubmitBtn
+                      key="btn2"
+                      style={{ color: "rgb(59 130 246)" }}
+                      condition={target.modalBtn}>
+                      {content.modalBtn}
+                    </SubmitBtn>,
+                  ],
+                }
+              }>
+              {content.modalContent}
             </ModalContents>
           </Modal>
         )}

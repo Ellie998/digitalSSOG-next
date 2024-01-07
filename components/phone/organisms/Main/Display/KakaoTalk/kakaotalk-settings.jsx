@@ -1,7 +1,7 @@
 import { useContext } from "react";
 //
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/Display/error";
+import DisplayError from "@/components/phone/organisms/Main/Display/display-error";
 import Default from "@/components/phone/organisms/Main/default";
 // call
 
@@ -33,7 +33,7 @@ function KakaotalkSettings({ functionName, methodId, descriptionId }) {
         ][descriptionId];
       break;
     default:
-      choicedComponent = <Error />;
+      choicedComponent = <DisplayError />;
   }
 
   return choicedComponent;

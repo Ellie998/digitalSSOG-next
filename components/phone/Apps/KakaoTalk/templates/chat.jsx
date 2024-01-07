@@ -164,12 +164,12 @@ function Chat({
               <div style={{ fontSize: "0.8rem", marginLeft: "5px" }}>
                 <TargetBox
                   condition={target.option_call}
-                  style={{ padding: "3px 2px" }}>
+                  style={{ padding: "3px 2px", width: "100%" }}>
                   보이스톡
                 </TargetBox>
                 <TargetBox
                   condition={target.option_videoCall}
-                  style={{ padding: "3px 2px" }}>
+                  style={{ padding: "3px 2px", width: "100%" }}>
                   페이스톡
                 </TargetBox>
               </div>
@@ -209,7 +209,7 @@ function Chat({
       )}
       {/* setting option */}
       {(open.optionSetting || reopen.optionSetting) && (
-        <Modal_downUp onClickBackDrop={backClickHandler}>
+        <Modal_downUp onClickBackDrop={backClickHandler} top="43px">
           <StackedListWrap
             className={``}
             listTitle={{
@@ -223,7 +223,7 @@ function Chat({
                   }>
                   <input
                     placeholder="메시지 입력"
-                    className="w-full"
+                    className="w-full text-sm"
                     onChange={(e) => {
                       setOptionInput(e.target.value);
                     }}
@@ -235,17 +235,13 @@ function Chat({
           />
           <TargetContent
             targetOption={optionInput !== "" && !isOptionInputSubmit}>
-            <FlexContent
-              className={`my-0.5`}
-              items={[
-                <div className={`text-xs text-gray-400`}>일시</div>,
-                <input
-                  className={`text-2xs cursor-pointer`}
-                  type="datetime-local"
-                  defaultValue={GetDate().y_m_d_h_plus1_m}
-                />,
-              ]}
+            <div className={`text-xs text-gray-400`}>일시</div>
+            <input
+              className={`text-xs cursor-pointer w-[140px]`}
+              type="datetime-local"
+              defaultValue={GetDate().y_m_d_h_plus1_m}
             />
+
             <FlexContent
               className={`my-0.5 py-0.5`}
               items={[
@@ -262,11 +258,11 @@ function Chat({
             />
           </TargetContent>
 
-          <div className={`text-2xs text-gray-400 my-0.5 flex`}>
+          <div className={`text-xs text-gray-400 my-0.5 flex`}>
             <Icon
               name="info-circle"
               style={{
-                fontSize: "0.5rem",
+                fontSize: "0.6rem",
                 color: "rgb(156 163 175)",
                 marginRight: "0.25rem",
               }}
@@ -279,7 +275,7 @@ function Chat({
               <TargetContent targetOption={reopen.optionSetting}>
                 <Button
                   btnColor={`#efefef`}
-                  className={`text-2xs font-bold`}
+                  className={`text-xs font-bold`}
                   width={`70px`}
                   content={"예약 목록 보기"}
                 />
@@ -293,7 +289,7 @@ function Chat({
                 isNextDescriptionLink={true}>
                 <Button
                   btnColor={`${optionInput === "" ? "#fafafa" : "#fff200"}`}
-                  className={`text-2xs font-bold`}
+                  className={`text-xs font-bold`}
                   width={`70px`}
                   textColor={`${optionInput === "" ? "#b7b7b7" : ""}`}
                   content={"예약하기"}
@@ -336,8 +332,8 @@ function Chat({
             width: "175px",
             left: "0",
             borderRadius: "0",
-            top: "134px",
-          }}>
+          }}
+          top="68px">
           <ShareModalContent_Default
             content={{ title: "좋은 아침^^", icon: "list" }}
             target={{ kakaotalk: true }}
@@ -349,7 +345,7 @@ function Chat({
         height={`${
           open.option || open.optionSetting || open.imgOption
             ? "150px"
-            : "280px"
+            : "275px"
         }`}
         className={`bg-[#b2c6d9] p-1`}
         onClick={backClickHandler}>

@@ -250,7 +250,10 @@ function Profile({
 
         {!open.myProfile && !open.edit && (
           <div className={classes.listLayout}>
-            <TargetBox condition={target.chat} isNextTriger={true}>
+            <TargetBox
+              condition={target.chat}
+              isNextTriger={true}
+              style={{ padding: "2px" }}>
               <IconBottom
                 icon={{
                   name: "chat-fill",
@@ -263,7 +266,7 @@ function Profile({
                   content: "1:1채팅",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}
@@ -283,7 +286,7 @@ function Profile({
                   content: "통화하기",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}
@@ -302,7 +305,7 @@ function Profile({
                   content: "페이스톡",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}
@@ -320,7 +323,7 @@ function Profile({
                 content: "스토리",
                 style: {
                   color: "white",
-                  fontSize: "8px",
+                  fontSize: "10px",
                   fontWeight: "bold",
                 },
               }}
@@ -342,7 +345,7 @@ function Profile({
                   content: "나와의 채팅",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}
@@ -362,7 +365,7 @@ function Profile({
                   content: "프로필 편집",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}
@@ -381,7 +384,7 @@ function Profile({
                   content: "펑 만들기",
                   style: {
                     color: "white",
-                    fontSize: "8px",
+                    fontSize: "10px",
                     fontWeight: "bold",
                   },
                 }}

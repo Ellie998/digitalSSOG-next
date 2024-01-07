@@ -57,7 +57,7 @@ const IconBottom_Option = ({
           }}
           description={{
             content: description,
-            style: { fontSize: "6px" },
+            style: { fontSize: "10px" },
           }}></IconBottom>
       </TargetBox>
       {children && <OptionContainer style={style}>{children}</OptionContainer>}

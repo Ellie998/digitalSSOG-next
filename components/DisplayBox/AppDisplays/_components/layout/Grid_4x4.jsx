@@ -16,7 +16,7 @@ function Grid_4x4({ className, items, iconClassName_common, iconClassName }) {
             icon={{
               name: item.iconName,
               style: {
-                fontSize: "0.5rem",
+                fontSize: "12px",
                 backgroundColor: item.backgroundColor
                   ? item.backgroundColor
                   : "white",
@@ -27,7 +27,7 @@ function Grid_4x4({ className, items, iconClassName_common, iconClassName }) {
             }}
             description={{
               content: item.content,
-              style: { fontSize: "0.5rem", marginTop: "0.25rem" },
+              style: { fontSize: "10px", marginTop: "0.25rem" },
             }}
             className={`${iconClassName_common} ${
               iconClassName ? iconClassName[i] : ""

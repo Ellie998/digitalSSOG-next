@@ -2,19 +2,12 @@ import styled from "@emotion/styled";
 import TargetBox from "@/components/phone/atoms/target-box";
 
 const Container = styled.div`
-  position: absolute;
+  position: relative;
+  width: 175px;
   animation: opacity0to100 0.5s;
   z-index: 100;
-  ${(props) => (props.style ? props.style : null)}
 
-  @keyframes opacity0to100 {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  ${(props) => (props.style ? props.style : null)}
 `;
 const ModalContainer = styled.div`
   width: 150px;

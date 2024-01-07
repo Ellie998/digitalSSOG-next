@@ -171,6 +171,7 @@ function FriendTab({
                   width: "100px",
                   marginLeft: "-100px",
                   marginTop: "30px",
+                  animation: "opacity0to100 0.5s;",
                 }}>
                 <TargetBox style={{ marginBottom: "4px" }}>편집</TargetBox>
                 <TargetBox

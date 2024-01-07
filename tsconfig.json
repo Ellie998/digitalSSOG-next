@@ -31,7 +31,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/my-ui/phone-display.jsx",
-    "components/my-ui/phone-header.jsx"
+    "components/my-ui/phone-header.jsx",
+    "components/phone/templates/display-box.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 function Default() {
   const router = useRouter();
-  const { functionName, appName, methodOrder } = useContext(UrlContext);
+  const { functionName, appNames } = useContext(UrlContext);
 
   return (
     <Container>
@@ -33,8 +33,8 @@ function Default() {
         onClick={() => {
           router.push(
             `/description/${encodeUrl(functionName)}?appName=${encodeUrl(
-              appName
-            )}&methodOrder=${methodOrder}&guideOrder=1`,
+              appNames[0]
+            )}&methodOrder=1&guideOrder=1`,
             { scroll: false }
           );
         }}

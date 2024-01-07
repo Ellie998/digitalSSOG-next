@@ -27,7 +27,7 @@ function Main({
   open = { selectMode: false, modal_bottom: false, message: true },
 }) {
   const [isOptionOpened, setIsOptionOpened] = useState(false);
-  const [temp, setTemp] = useState(false);
+  const [isRejectChecked, setRejectCheck] = useState(false);
   const [isChecked1, setIsChecked1] = useState(open.selectMode);
   const iconStyle =
     " rounded-full px-1 py-1  cursor-pointer hover:shadow-sm hover:bg-gray-200";
@@ -41,8 +41,14 @@ function Main({
           <Modal
             modalStyle={{
               width: "170px",
-              top: temp ? "150px" : "180px",
+              top: isRejectChecked ? "110px" : "130px",
               left: "2px",
+            }}
+            backdropStyle={{
+              position: "absolute",
+              backgroundColor: "#2a2a2a6a",
+              height: "260px",
+              width: "175px",
             }}>
             <ModalContents
               title={{
@@ -51,13 +57,13 @@ function Main({
               }}
               buttons={{
                 content: [
-                  <div key="1" style={{ fontWeight: "bold" }}>
+                  <div key="1" style={{ fontWeight: "bold", fontSize: "14px" }}>
                     취소
                   </div>,
                   <TargetBox
                     condition={target.delete}
                     key="2"
-                    style={{ fontWeight: "bold" }}>
+                    style={{ fontWeight: "bold", fontSize: "14px" }}>
                     휴지통으로 이동
                   </TargetBox>,
                 ],
@@ -71,11 +77,11 @@ function Main({
                     type="checkbox"
                     id="modal_bottom_checkbox"
                     style={{ marginRight: "4px" }}
-                    onChange={(e) => setTemp(e.target.checked)}
+                    onChange={(e) => setRejectCheck(e.target.checked)}
                   />
                   번호도 함께 차단
                 </label>
-                {temp && (
+                {isRejectChecked && (
                   <div style={{ marginLeft: "15px", fontSize: "10px" }}>
                     이 번호의 전화 또는 메시지를 더 이상 받지 않습니다.
                   </div>
@@ -195,6 +201,7 @@ function Main({
             checkboxStyle={{
               width: "25px",
               height: "25px",
+              checkedColor: "rgb(0, 114, 253)",
               after: {
                 left: "8px",
                 top: "5px",
@@ -252,7 +259,8 @@ function Main({
               }}
             />
           </TargetBox>
-          <TargetBox condition={isChecked1 && target.delete}>
+          <TargetBox
+            condition={isChecked1 && target.delete && !open.modal_bottom}>
             <IconBottom
               icon={{ name: "trash" }}
               description={{

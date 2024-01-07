@@ -7,6 +7,7 @@ import { createContext } from "react";
 export const UrlContext = createContext({
   functionName: "",
   appName: "",
+  appNames: [],
   methodOrder: "",
   guideOrder: "",
   //
@@ -73,20 +74,21 @@ const functionName_kakaotalk_groubChatLock = "그룹채팅방 채팅 입력창 �
 const functionName_kakaotalk_groubChatLeave_quietly =
   "그룹채팅방 조용히 나가기";
 
-function DisplayBox() {
+function DisplayBox({ appNames }) {
   const params = useParams();
   const searchParams = useSearchParams();
 
   const functionName = decodeUrl(params.functionName);
-  const appName = decodeUrl(searchParams.get("appName"));
-  const methodOrder = searchParams.get("methodOrder");
-  const guideOrder = searchParams.get("guideOrder");
+  const appName = decodeUrl(searchParams.get("appName") || appNames[0] || "");
+  const methodOrder = searchParams.get("methodOrder") || "1";
+  const guideOrder = searchParams.get("guideOrder") || "1";
 
   return (
     <UrlContext.Provider
       value={{
         functionName: functionName,
         appName,
+        appNames,
         methodOrder,
         guideOrder,
         //

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/Display/error";
+import DisplayError from "@/components/phone/organisms/Main/Display/display-error";
 import Default from "@/components/phone/organisms/Main/default";
 
 import Main from "@/components/phone/Apps/KakaoTalk/templates/main";
@@ -650,10 +650,36 @@ function KakaotalkChats({ functionName, methodId, descriptionId }) {
             open={{ menu: true }}
           />,
           <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
-          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
-          <SelectFile key="selectFile" />,
-          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
-          <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
+          <ChatSetting
+            key="chatSetting"
+            open={{ modal: true }}
+            content={{
+              modalTop: "80px",
+              modalTitle: "프로필 사진 등록",
+              modalContent: (
+                <div className="mt-1 ml-1 text-sm">
+                  <TargetBox
+                    isNextTriger={true}
+                    condition={true}
+                    style={{ padding: "2px" }}>
+                    앨범에서 사진 선택
+                  </TargetBox>
+                  <TargetBox isNextTriger={true} style={{ padding: "2px" }}>
+                    사진 촬영
+                  </TargetBox>
+                  <TargetBox isNextTriger={true} style={{ padding: "2px" }}>
+                    커스텀 프로필 만들기
+                  </TargetBox>
+                </div>
+              ),
+            }}
+          />,
+          <DisplayError />,
+          <DisplayError />,
+          <DisplayError />,
+          // <SelectFile key="selectFile" />,
+          // <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
+          // <ChatSetting key="chatSetting" target={{ changeImg: true }} />,
         ][descriptionId];
 
       break;
@@ -880,7 +906,7 @@ function KakaotalkChats({ functionName, methodId, descriptionId }) {
       }
       break;
     default:
-      choicedComponent = <Error />;
+      choicedComponent = <DisplayError />;
   }
 
   return choicedComponent;

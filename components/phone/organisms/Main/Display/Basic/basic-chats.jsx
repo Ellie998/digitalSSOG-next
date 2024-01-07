@@ -1,5 +1,5 @@
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/Display/error";
+import DisplayError from "@/components/phone/organisms/Main/Display/display-error";
 import Default from "@/components/phone/organisms/Main/default";
 // message
 import Main from "@/components/phone/Apps/Basic/Message/templates/main";
@@ -220,7 +220,7 @@ function BasicChats({ functionName, methodId, descriptionId }) {
       break;
 
     default:
-      choicedComponent = <Error />;
+      choicedComponent = <DisplayError />;
   }
 
   return choicedComponent;

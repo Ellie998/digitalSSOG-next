@@ -78,11 +78,11 @@ const ShareModalContent = ({
                 description={{
                   content: (
                     <div>
-                      <div style={{ fontSize: "6px" }}>{info.name}</div>
+                      <div style={{ fontSize: "10px" }}>{info.name}</div>
                       <Icon
                         name={"star-fill"}
                         style={{
-                          fontSize: "4px",
+                          fontSize: "10px",
                           margin: "0 auto",
                           color: "rgb(212,212,212)",
                         }}
@@ -107,7 +107,7 @@ const ShareModalContent = ({
               }}
               description={{
                 content: info.name,
-                style: { fontSize: "6px", width: "40px" },
+                style: { fontSize: "10px", width: "40px" },
               }}></IconBottom>
           ))}
         </NoScrollBar>
@@ -124,7 +124,7 @@ const ShareModalContent = ({
               height: "20px",
             },
           }}
-          description={{ content: "나에게", style: { fontSize: "6px" } }}
+          description={{ content: "나에게", style: { fontSize: "10px" } }}
           style={{ width: "50px" }}
         />
         <TargetBox condition={target.shareOut}>
@@ -137,7 +137,7 @@ const ShareModalContent = ({
                 height: "20px",
               },
             }}
-            description={{ content: "외부 공유", style: { fontSize: "6px" } }}
+            description={{ content: "외부 공유", style: { fontSize: "10px" } }}
           />
         </TargetBox>
       </StackedListWrap>

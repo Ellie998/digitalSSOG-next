@@ -312,7 +312,7 @@ function Chat({
           height: `${
             plusClicked || (open_imgOption && !sendBtnClicked)
               ? "170px"
-              : "265px"
+              : "260px"
           }`,
         }}>
         {!open.selectMode && (
@@ -529,7 +529,7 @@ function Chat({
         )}
         {open_optionInfo && !sendBtnClicked && (
           <div
-            className={`h-[65px] mt-[100px] p-1 text-xs py-[5px] border-t flex  items-start border-t-gray-200`}>
+            className={`h-[65px] mt-[80px] p-1 text-xs py-[5px] border-t flex  items-start border-t-gray-200`}>
             <div
               className={`mx-auto ${
                 optionInfoContent[optionInfoNum].grayBox

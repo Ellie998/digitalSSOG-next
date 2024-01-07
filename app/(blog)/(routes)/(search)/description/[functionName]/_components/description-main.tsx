@@ -153,7 +153,9 @@ export default function DescriptionMain({
           </AlertDescription>
         </Alert>
 
-        <DisplayBox />
+        <div className="flex justify-center">
+          <DisplayBox appNames={uniqueApps} />
+        </div>
       </div>
     </section>
   );

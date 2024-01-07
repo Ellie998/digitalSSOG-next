@@ -25,7 +25,9 @@ export default function ModalContents({
       {children}
       {buttons && (
         <BtnsContainer style={buttons.style}>
-          {buttons.content?.map((item) => item)}
+          {buttons.content?.map((item) => (
+            <div key={`modal_btn_${Math.random()}`}>{item}</div>
+          ))}
         </BtnsContainer>
       )}
     </Container>

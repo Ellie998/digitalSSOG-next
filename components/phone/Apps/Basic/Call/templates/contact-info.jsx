@@ -10,6 +10,7 @@ import Top from "@/components/phone/atoms/top";
 import IconBottom from "@/components/phone/molecules/icon-bottom";
 import Phone from "@/components/phone/molecules/phone";
 import StackedListWrap from "@/components/phone/molecules/stacked-list-wrap";
+import { BsChevronRight } from "react-icons/bs";
 
 const NavContainer = styled.div`
   background: rgb(244, 244, 244);
@@ -39,17 +40,17 @@ const ContactInfo = ({
           title={{ content: content.name }}
           subTitle={{
             content: (
-              <div style={{ display: "flex", padding: "4px auto 4px 10px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "4px auto 4px 10px",
+                  width: "100%",
+                  justifyContent: "space-around",
+                  cursor: "pointer",
+                }}>
                 <div style={{ color: "rgb(144,144,144)" }}>휴대전화</div>
                 <div style={{ fontSize: "0.9rem" }}>010-1234-0000</div>
-                <Icon
-                  name="chevron-right"
-                  style={{
-                    backgroundColor: "rgb(157, 157, 157)",
-                    color: "white",
-                    fontSize: "4px",
-                  }}
-                />
+                <BsChevronRight name="chevron-right" color="white" />
               </div>
             ),
           }}

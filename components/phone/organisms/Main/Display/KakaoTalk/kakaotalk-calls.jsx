@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/Display/error";
+import DisplayError from "@/components/phone/organisms/Main/Display/display-error";
 import Default from "@/components/phone/organisms/Main/default";
 // call
 
@@ -239,7 +239,9 @@ function KakaotalkCalls({ functionName, methodId, descriptionId }) {
                       친구목록으로 복귀
                     </TargetBox>
                     <TargetBox style={{ padding: "2px 0" }}>차단</TargetBox>
-                    <TargetBox condition={true} style={{ padding: "2px 0" }}>
+                    <TargetBox
+                      condition={true}
+                      style={{ padding: "2px 0", width: "100%" }}>
                       삭제
                     </TargetBox>
                   </div>
@@ -327,7 +329,7 @@ function KakaotalkCalls({ functionName, methodId, descriptionId }) {
       break;
 
     default:
-      choicedComponent = <Error />;
+      choicedComponent = <DisplayError />;
   }
 
   return choicedComponent;

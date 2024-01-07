@@ -165,7 +165,7 @@ const ShareModalContent_Default = ({
                 }}
                 description={{
                   content: info.name,
-                  style: { fontSize: "6px", width: "40px" },
+                  style: { fontSize: "10px", width: "40px" },
                 }}></IconBottom>
             </>
           ))}

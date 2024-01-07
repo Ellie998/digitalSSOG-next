@@ -52,7 +52,7 @@ function FriendSetting({ target = { hideFriend: false } }) {
               subTitle={{
                 content: `최종 추가시간 ${
                   date.getMonth() + 1
-                }월 ${date.getDate()}일 ${date.getHours()}:${date.getMinutes()}`,
+                }월 ${date.getDate()}일 `,
                 style: { gridColumn: "1/7", paddingLeft: "4px" },
               }}
               info={{
@@ -78,7 +78,7 @@ function FriendSetting({ target = { hideFriend: false } }) {
           </>
         </StackedListWrap>
         <StackedListWrap listTitle={{ content: "친구 관리" }}>
-          <TargetBox condition={target.hideFriend}>
+          <TargetBox condition={target.hideFriend} style={{ width: "100%" }}>
             <StackedList title={{ content: "숨긴친구 관리" }}></StackedList>
           </TargetBox>
           <StackedList title={{ content: "차단친구 관리" }}></StackedList>

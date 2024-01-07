@@ -4,7 +4,7 @@ import NoScrollBar from "@/components/DisplayBox/AppDisplays/_components/layout/
 
 import PhoneBackground from "@/components/phone/atoms/phone-background";
 
-const Error = () => {
+const DisplayError = () => {
   return (
     <PhoneBackground>
       <NoScrollBar height="305px">
@@ -26,4 +26,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default DisplayError;

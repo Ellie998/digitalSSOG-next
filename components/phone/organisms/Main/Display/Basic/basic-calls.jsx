@@ -1,5 +1,5 @@
 import Home from "@/components/phone/Apps/Basic/home";
-import Error from "@/components/phone/organisms/Main/Display/error";
+import DisplayError from "@/components/phone/organisms/Main/Display/display-error";
 import Default from "@/components/phone/organisms/Main/default";
 // call
 import Main from "@/components/phone/Apps/Basic/Call/templates/main";
@@ -28,7 +28,6 @@ function BasicCalls({ functionName, methodId, descriptionId }) {
   const [name, setName] = useState("영희");
 
   let choicedComponent = <Default />;
-  console.log(descriptionId);
 
   switch (functionName) {
     case functionName_makeCall:
@@ -145,7 +144,7 @@ function BasicCalls({ functionName, methodId, descriptionId }) {
       break;
 
     default:
-      choicedComponent = <Error />;
+      choicedComponent = <DisplayError />;
   }
 
   return choicedComponent;
