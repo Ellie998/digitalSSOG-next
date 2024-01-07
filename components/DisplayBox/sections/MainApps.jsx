@@ -10,7 +10,6 @@ const Container = styled.div`
   padding: 0 5px;
 `;
 
-// eslint-disable-next-line react/prop-types
 const MainApps = ({ kakaotalk, call, message }) => {
   return (
     <Container>
