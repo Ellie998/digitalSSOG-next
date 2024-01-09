@@ -31,10 +31,7 @@ export default function RootLayout({ children }) {
         </Script>
 
         <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive"
-          async={true}
-          rel="preload"
+          async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
           crossOrigin="anonymous"></Script>
       </head>
