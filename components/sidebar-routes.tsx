@@ -13,8 +13,8 @@ const SidebarRoutes = () => {
         </>
       ) : (
         <>
-          <Link href={"/description/function"}>기능 메인</Link>
-          <Link href={"/description/app"}>앱 메인</Link>
+          {/* <Link href={"/description/function"}>기능 메인</Link> */}
+          {/* <Link href={"/description/app"}>앱 메인</Link> */}
         </>
       )}
     </div>
