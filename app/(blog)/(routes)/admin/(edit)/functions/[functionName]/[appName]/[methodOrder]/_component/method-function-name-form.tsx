@@ -54,8 +54,7 @@ const MethodFunctionNameForm = ({
   const [value, setValue] = useState(functionName);
 
   const router = useRouter();
-  const params: { functionName: string; appName: string; methodOrder: string } =
-    useParams();
+  const params = useParams();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { functionName: functionName },
@@ -77,11 +76,12 @@ const MethodFunctionNameForm = ({
       }
 
       toast.success("Method functionName 수정 성공");
-      router.push(
-        `/admin/functions/${encodeUrl(value)}/${encodeUrl(params.appName)}/${
-          params.methodOrder
-        }`
-      );
+      typeof params.appName === "string" &&
+        router.push(
+          `/admin/functions/${encodeUrl(value)}/${encodeUrl(params.appName)}/${
+            params.methodOrder
+          }`
+        );
       router.refresh();
     } catch (error) {
       console.log(error);

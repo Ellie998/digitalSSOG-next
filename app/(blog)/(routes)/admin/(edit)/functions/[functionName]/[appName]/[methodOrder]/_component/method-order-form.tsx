@@ -27,8 +27,7 @@ const formSchema = z.object({
 const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
-  const params: { functionName: string; appName: string; methodOrder: string } =
-    useParams();
+  const params = useParams();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { order: String(order) },
@@ -50,11 +49,13 @@ const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
       }
 
       toast.success("Method order 수정 성공");
-      router.push(
-        `/admin/functions/${encodeUrl(params.functionName)}/${encodeUrl(
-          params.appName
-        )}/${values.order}`
-      );
+      typeof params.functionName === "string" &&
+        typeof params.appName === "string" &&
+        router.push(
+          `/admin/functions/${encodeUrl(params.functionName)}/${encodeUrl(
+            params.appName
+          )}/${values.order}`
+        );
       router.refresh();
     } catch (error) {
       console.log(error);
