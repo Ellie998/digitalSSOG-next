@@ -27,8 +27,8 @@ const formSchema = z.object({
 const MethodOrderForm = ({ id, order }: { id: string; order: number }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
-  const params: { functionName: string; appName: string } = useParams();
-
+  const params: { functionName: string; appName: string; methodOrder: string } =
+    useParams();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { order: String(order) },

@@ -33,7 +33,8 @@ const MethodAppNameForm = ({
 }) => {
   const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
-  const params: { functionName: string; methodOrder: string } = useParams();
+  const params: { functionName: string; appName: string; methodOrder: string } =
+    useParams();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
