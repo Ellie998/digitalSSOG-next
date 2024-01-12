@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
           crossOrigin="anonymous"></Script>
       </head>
-      <body suppressHydrationWarning={true} className="h-full ">
+      <body suppressHydrationWarning={true} className="h-full">
         {children}
         <ToastContainer position="bottom-left" />
       </body>
