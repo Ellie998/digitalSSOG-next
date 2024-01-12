@@ -1,8 +1,10 @@
+import Loading from "@/app/(blog)/(routes)/(root)/loading";
 import Display from "@/components/phone/organisms/Main/Display/display";
 import { decodeUrl } from "@/lib/utils";
 import { useParams, useSearchParams } from "next/navigation";
 
-import { createContext } from "react";
+import { Suspense, createContext } from "react";
+import Phone from "../molecules/phone";
 
 export const UrlContext = createContext({
   functionName: "",
@@ -126,7 +128,14 @@ function DisplayBox({ appNames }) {
         appName_message,
         appName_call,
       }}>
-      <Display />
+      <Suspense
+        fallback={
+          <Phone>
+            <Loading />
+          </Phone>
+        }>
+        <Display />
+      </Suspense>
     </UrlContext.Provider>
   );
 }
