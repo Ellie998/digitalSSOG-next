@@ -6,7 +6,6 @@ import { Suspense } from "react";
 import Loading from "./loading.js";
 
 const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
-  console.log(searchParams.tab);
   return (
     <Suspense fallback={<Loading />}>
       <div className="py-20 ">
