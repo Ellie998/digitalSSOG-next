@@ -3,7 +3,7 @@ import Categorires from "./_components/categories";
 import Functions from "./_components/functions";
 import Note from "@/components/my-ui/note";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "./loading.js";
 
 const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (

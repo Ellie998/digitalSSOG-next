@@ -6,6 +6,8 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
+import Progress from "@/components/progress";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" suppressHydrationWarning={true} className="h-full">
@@ -39,6 +41,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"></Script>
       </head>
       <body suppressHydrationWarning={true} className="h-full">
+        <Progress />
         {children}
         <ToastContainer position="bottom-left" />
       </body>
