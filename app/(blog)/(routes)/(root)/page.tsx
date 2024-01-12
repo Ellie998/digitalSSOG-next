@@ -9,7 +9,7 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (
     <Suspense fallback={<Loading />}>
       <Note
-        className="w-4/5 mx-auto mt-8 "
+        className="w-4/5 mx-auto mt-20 "
         holeNum={17}
         title={"스마트 기기로 사용 가능한 기능들"}
         subTitle={

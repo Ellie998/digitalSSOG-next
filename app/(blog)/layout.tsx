@@ -5,7 +5,7 @@ import Sidebar from "./_components/sidebar";
 
 const BlogLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full">
+    <div className="min-h-[200vh] ">
       <div className="h-[80px]  lg:pl-56 fixed z-10 w-full inset-y-0">
         <Navbar />
       </div>
