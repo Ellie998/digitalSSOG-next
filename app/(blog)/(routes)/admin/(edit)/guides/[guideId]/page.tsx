@@ -22,7 +22,7 @@ const GuideEditPage = async ({
   });
 
   return (
-    <div className="flex flex-col px-10 pb-40 gap-y-20">
+    <div className="flex flex-col pb-40 gap-y-20">
       <h1 className="text-2xl text-center">{params.guideId}</h1>
       <div className="ml-auto">
         <GuideComponentButton
