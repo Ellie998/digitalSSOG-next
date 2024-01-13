@@ -10,14 +10,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import ComponentPreview from "./component-preview";
-import {
-  BsBack,
-  BsBox,
-  BsFillGrid1X2Fill,
-  BsFillPaletteFill,
-  BsTextCenter,
-} from "react-icons/bs";
+import CanvasPreview from "./canvas-preview";
+
 import CanvasCategories from "./(canvas)/canvas-categories";
 import CanvasCategoryDetail from "./(canvas)/canvas-category-detail";
 
@@ -44,7 +38,7 @@ const DisplayRecoilRoot = ({
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel className="p-8">
-          <ComponentPreview />
+          <CanvasPreview />
         </ResizablePanel>
       </ResizablePanelGroup>
     </RecoilRoot>

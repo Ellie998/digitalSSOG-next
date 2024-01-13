@@ -3,7 +3,7 @@
 
 import React from "react";
 
-import ComponentPreview from "./component-preview";
+import ComponentPreview from "./canvas-preview";
 import ComponentUiForm from "./component-ui-form";
 import ComponentPreviewForm from "./component-preview-form";
 import ComponentUiPreview from "./component-ui-preview";
