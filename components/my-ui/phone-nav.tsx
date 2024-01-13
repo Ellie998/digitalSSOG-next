@@ -12,7 +12,6 @@ function PhoneNav() {
         padding: "0 10px",
       }}>
       <Flex
-        style={{ width: "170px" }}
         items={[
           <BsList key="list" />,
           <BsSquare key="home" />,

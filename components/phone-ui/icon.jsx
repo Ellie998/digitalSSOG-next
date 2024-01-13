@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import styled from "@emotion/styled";
 
 const IconContainer = styled.i`
@@ -30,13 +31,12 @@ const Icon = ({
   onClick = undefined,
   className = undefined,
 }) => {
-  console.log(className);
   return (
     <IconContainer
       style={style}
       id={id}
       onClick={onClick}
-      className={`bi bi-${name}`}>
+      className={cn(`bi bi-${name}`, className)}>
       {content}
     </IconContainer>
   );
