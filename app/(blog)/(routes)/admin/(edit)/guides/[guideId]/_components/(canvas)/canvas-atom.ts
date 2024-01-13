@@ -8,4 +8,9 @@ export const elementsState = atom<Array<{ type: string; style: string }>>({
   key: "elements",
   default: [],
 });
+export const selectedElementState = atom({
+  key: "selectedElement",
+  default: "",
+});
+
 //
