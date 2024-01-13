@@ -4,7 +4,9 @@ export const canvasCategoryState = atom({
   key: "canvasCategory",
   default: "템플릿",
 });
-export const elementsState = atom<Array<{ type: string; style: string }>>({
+export const elementsState = atom<
+  Array<{ type: string; style: string; id: string }>
+>({
   key: "elements",
   default: [],
 });

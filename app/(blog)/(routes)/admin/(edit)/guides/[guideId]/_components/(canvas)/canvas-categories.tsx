@@ -8,13 +8,14 @@ import {
   BsFillPaletteFill,
   BsTextCenter,
 } from "react-icons/bs";
-import { useRecoilState } from "recoil";
-import { canvasCategoryState } from "./canvas-atom";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { canvasCategoryState, selectedElementState } from "./canvas-atom";
 import { cn } from "@/lib/utils";
 
 const CanvasCategories = () => {
   const [canvasCategory, setCanvasCategory] =
     useRecoilState(canvasCategoryState);
+  const setSelectedElement = useSetRecoilState(selectedElementState);
   const content = [
     {
       icon: <BsFillGrid1X2Fill />,
@@ -48,6 +49,7 @@ const CanvasCategories = () => {
           )}
           onClick={() => {
             setCanvasCategory(text);
+            setSelectedElement("");
           }}>
           {icon}
           {text}

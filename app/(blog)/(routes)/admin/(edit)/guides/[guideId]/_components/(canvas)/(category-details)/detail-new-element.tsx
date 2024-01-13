@@ -3,6 +3,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
 import * as z from "zod";
 
@@ -44,6 +45,7 @@ const types = [
 const formSchema = z.object({
   type: z.string(),
   style: z.string(),
+  id: z.string(),
 });
 
 const DetailNewElement = () => {
@@ -54,21 +56,22 @@ const DetailNewElement = () => {
     defaultValues: {
       type: "",
       style: "",
+      id: "",
     },
   });
 
-  const addElement = (newElement: { type: string; style: string }) => {
-    return setElements((prevElements): { type: string; style: string }[] => [
-      ...prevElements,
-      newElement,
-    ]);
+  const addElement = (newElement: {
+    type: string;
+    style: string;
+    id: string;
+  }) => {
+    return setElements(
+      (prevElements): { type: string; style: string; id: string }[] => [
+        ...prevElements,
+        newElement,
+      ]
+    );
   };
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    addElement({ type: values.type, style: values.style });
-  }
 
   return (
     <Form {...form}>
@@ -151,12 +154,13 @@ const DetailNewElement = () => {
         <Button
           className="mr-4"
           type="button"
-          onClick={() =>
+          onClick={() => {
             addElement({
               type: form.getValues().type,
               style: form.getValues().style,
-            })
-          }>
+              id: uuidv4(),
+            });
+          }}>
           Add
         </Button>
       </form>

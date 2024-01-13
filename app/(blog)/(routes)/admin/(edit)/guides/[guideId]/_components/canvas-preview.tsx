@@ -3,16 +3,16 @@ import PhoneBackground from "@/components/my-ui/phone-background";
 import PhoneDisplay from "@/components/my-ui/phone-display";
 import PhoneHeader from "@/components/my-ui/phone-header";
 import PhoneNav from "@/components/my-ui/phone-nav";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { bgColorState } from "./atoms";
 import { elementsState, selectedElementState } from "./(canvas)/canvas-atom";
 import { cn } from "@/lib/utils";
-import { v4 as uuidv4 } from "uuid";
 
 const CanvasPreview = () => {
   const bgColor = useRecoilValue(bgColorState);
   const elements = useRecoilValue(elementsState);
-  const setSelectedElement = useSetRecoilState(selectedElementState);
+  const [selectedElement, setSelectedElement] =
+    useRecoilState(selectedElementState);
   // type : icon,
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -25,10 +25,14 @@ const CanvasPreview = () => {
       <PhoneDisplay backgroundColor={bgColor} main={undefined}>
         {elements.map((element, i) => (
           <div
-            id={uuidv4()}
+            id={element.id}
             key={element.type + i}
             onClick={handleClick}
-            className={cn("cursor-pointer", element.style)}
+            className={cn(
+              "cursor-pointer",
+              element.style,
+              selectedElement === element.id && " border-2 border-blue-400 "
+            )}
             draggable>
             {element.type}
           </div>
