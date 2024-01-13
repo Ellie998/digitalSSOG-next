@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 import { useRecoilState } from "recoil";
-import { bgColorState, uiThemeChoiceModeState } from "../canvas-atom";
+import { bgColorState, uiThemeChoiceModeState } from "../../atoms";
 
 const formSchema = z.object({
   bgColor: z.string(),

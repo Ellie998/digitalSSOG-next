@@ -3,6 +3,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -28,48 +29,33 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { useState } from "react";
-
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSetRecoilState } from "recoil";
-import {
-  elementsState,
-  uiThemeChoiceModeState,
-  uiThemeState,
-  uiTypeState,
-} from "../canvas-atom";
+import { elementsState } from "../canvas-atom";
+import { Input } from "@/components/ui/input";
 
-const uiTypes = [
+const types = [
   { label: "Icon", value: "icon" },
   { label: "Flex", value: "flex" },
   { label: "tab", value: "tab" },
 ] as const;
-const apps = [
-  { label: "기본", value: "기본" },
-  { label: "카카오톡", value: "카카오톡" },
-] as const;
+
 const formSchema = z.object({
-  app: z.string(),
   type: z.string(),
+  style: z.string(),
 });
 
 const DetailNewElement = () => {
-  const [isSubmit, setIsSubmit] = useState(false);
-
-  const setUiThemeChoiceMode = useSetRecoilState(uiThemeChoiceModeState);
-  const setUiType = useSetRecoilState(uiTypeState);
-  const setUiTheme = useSetRecoilState(uiThemeState);
   const setElements = useSetRecoilState(elementsState);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {},
+    defaultValues: {
+      type: "",
+      style: "",
+    },
   });
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
 
   const addElement = (newElement: { type: string; style: string }) => {
     return setElements((prevElements): { type: string; style: string }[] => [
@@ -78,159 +64,103 @@ const DetailNewElement = () => {
     ]);
   };
 
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    addElement({ type: values.type, style: values.style });
+  }
+
   return (
-    // <Form {...form}>
-    //   <form onSubmit={form.handleSubmit(onSubmit)} className="p-4 space-y-8 ">
-    //     <div className="font-bold text-md">UI Theme Setting</div>
+    <Form {...form}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+        className="p-4 space-y-8 ">
+        <div className="font-bold text-md">New UI</div>
 
-    //     <FormField
-    //       control={form.control}
-    //       name="app"
-    //       render={({ field }) => (
-    //         <FormItem>
-    //           <FormLabel className="mr-2">App Name</FormLabel>
-    //           <Popover>
-    //             <PopoverTrigger asChild>
-    //               <FormControl>
-    //                 <Button
-    //                   variant="outline"
-    //                   role="combobox"
-    //                   className={cn(
-    //                     "w-[200px] justify-between",
-    //                     !field.value && "text-muted-foreground"
-    //                   )}>
-    //                   {field.value
-    //                     ? apps.find((app) => app.value === field.value)?.label
-    //                     : "Select App"}
-    //                   <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
-    //                 </Button>
-    //               </FormControl>
-    //             </PopoverTrigger>
-    //             <PopoverContent className="w-[200px] p-0  cursor-pointer">
-    //               <Command className="  z-[999] cursor-pointer">
-    //                 <CommandInput placeholder="Search App..." />
-    //                 <CommandEmpty>No App found.</CommandEmpty>
-    //                 <CommandGroup>
-    //                   {apps.map((app) => (
-    //                     <CommandItem
-    //                       className="cursor-pointer z-100"
-    //                       value={app.label}
-    //                       key={app.value}
-    //                       onSelect={() => {
-    //                         form.setValue("app", app.value);
-    //                         setUiTheme(app.value);
-    //                       }}>
-    //                       <Check
-    //                         className={cn(
-    //                           "mr-2 h-4 w-4",
-    //                           app.value === field.value
-    //                             ? "opacity-100"
-    //                             : "opacity-0"
-    //                         )}
-    //                       />
-    //                       {app.label}
-    //                     </CommandItem>
-    //                   ))}
-    //                 </CommandGroup>
-    //               </Command>
-    //             </PopoverContent>
-    //           </Popover>
+        <FormField
+          control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="mr-2">UI type</FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        "w-[200px] justify-between",
+                        !field.value && "text-muted-foreground"
+                      )}>
+                      {field.value
+                        ? types.find((type) => type.value === field.value)
+                            ?.label
+                        : "Select Type"}
+                      <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-[200px] p-0  cursor-pointer">
+                  <Command className="  z-[999] cursor-pointer">
+                    <CommandInput placeholder="Search App..." />
+                    <CommandEmpty>No App found.</CommandEmpty>
+                    <CommandGroup>
+                      {types.map((type) => (
+                        <CommandItem
+                          className="cursor-pointer z-100"
+                          value={type.label}
+                          key={type.value}
+                          onSelect={() => {
+                            form.setValue("type", type.value);
+                          }}>
+                          <Check
+                            className={cn(
+                              "mr-2 h-4 w-4",
+                              type.value === field.value
+                                ? "opacity-100"
+                                : "opacity-0"
+                            )}
+                          />
+                          {type.label}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </Command>
+                </PopoverContent>
+              </Popover>
 
-    //           <FormMessage />
-    //         </FormItem>
-    //       )}
-    //     />
-    //     <FormField
-    //       control={form.control}
-    //       name="type"
-    //       render={({ field }) => (
-    //         <FormItem>
-    //           <FormLabel className="mr-4">UI Type</FormLabel>
-    //           <Popover>
-    //             <PopoverTrigger asChild>
-    //               <FormControl>
-    //                 <Button
-    //                   variant="outline"
-    //                   role="combobox"
-    //                   className={cn(
-    //                     "w-[200px] justify-between",
-    //                     !field.value && "text-muted-foreground"
-    //                   )}>
-    //                   {field.value
-    //                     ? uiTypes.find((uiType) => uiType.value === field.value)
-    //                         ?.label
-    //                     : "Select UI type"}
-    //                   <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
-    //                 </Button>
-    //               </FormControl>
-    //             </PopoverTrigger>
-    //             <PopoverContent className="w-[200px] p-0  cursor-pointer">
-    //               <Command className="  z-[999] cursor-pointer">
-    //                 <CommandInput placeholder="Search UI type..." />
-    //                 <CommandEmpty>No UI type found.</CommandEmpty>
-    //                 <CommandGroup>
-    //                   {uiTypes.map((uiType) => (
-    //                     <CommandItem
-    //                       className="cursor-pointer z-100"
-    //                       value={uiType.label}
-    //                       key={uiType.value}
-    //                       onSelect={() => {
-    //                         form.setValue("type", uiType.value);
-    //                         setUiType(uiType.value);
-    //                       }}>
-    //                       <Check
-    //                         className={cn(
-    //                           "mr-2 h-4 w-4",
-    //                           uiType.value === field.value
-    //                             ? "opacity-100"
-    //                             : "opacity-0"
-    //                         )}
-    //                       />
-    //                       {uiType.label}
-    //                     </CommandItem>
-    //                   ))}
-    //                 </CommandGroup>
-    //               </Command>
-    //             </PopoverContent>
-    //           </Popover>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="style"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="mr-4">UI Style</FormLabel>
+              <Input type="text" {...field} />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-    //           <FormMessage />
-    //         </FormItem>
-    //       )}
-    //     />
-
-    //     <Button disabled={isSubmit} className="mr-4">
-    //       Go To Edit UI
-    //     </Button>
-    //     <Button
-    //       variant={"secondary"}
-    //       onClick={() => {
-    //         setUiThemeChoiceMode(false);
-    //       }}>
-    //       Cancel
-    //     </Button>
-    //   </form>
-    // </Form>
-    <>
-      <Button
-        onClick={() => {
-          addElement({ type: "text", style: "" });
-        }}>
-        red
-      </Button>
-      <Button
-        onClick={() => {
-          addElement({ type: "text", style: "" });
-        }}>
-        blue
-      </Button>
-      <Button
-        onClick={() => {
-          addElement({ type: "text", style: "" });
-        }}>
-        green
-      </Button>
-    </>
+        <Button
+          className="mr-4"
+          type="button"
+          onClick={() =>
+            addElement({
+              type: form.getValues().type,
+              style: form.getValues().style,
+            })
+          }>
+          Add
+        </Button>
+      </form>
+    </Form>
   );
 };
 

@@ -33,11 +33,7 @@ import { useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSetRecoilState } from "recoil";
-import {
-  uiThemeChoiceModeState,
-  uiThemeState,
-  uiTypeState,
-} from "../canvas-atom";
+import { uiThemeChoiceModeState, uiThemeState, uiTypeState } from "../../atoms";
 
 const uiTypes = [
   { label: "Icon", value: "icon" },
