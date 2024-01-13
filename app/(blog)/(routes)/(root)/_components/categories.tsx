@@ -19,7 +19,7 @@ const Categorires = async ({ tab }: { tab: string }) => {
             <div
               className={` flex text-lg ${
                 tab === category.name.replaceAll(" ", "-") ||
-                (tab === undefined && category.name === "hot")
+                (tab === undefined && category.name.includes("hot"))
                   ? classes.clicked
                   : ""
               } `}>
