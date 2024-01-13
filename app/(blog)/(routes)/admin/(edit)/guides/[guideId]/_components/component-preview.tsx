@@ -3,12 +3,11 @@ import PhoneBackground from "@/components/my-ui/phone-background";
 import PhoneDisplay from "@/components/my-ui/phone-display";
 import PhoneHeader from "@/components/my-ui/phone-header";
 import PhoneNav from "@/components/my-ui/phone-nav";
-
-import { useContext } from "react";
-import { DisplayContext } from "./component-section";
+import { useRecoilValue } from "recoil";
+import { bgColorState } from "./atoms";
 
 const ComponentPreview = () => {
-  const { bgColor } = useContext(DisplayContext);
+  const bgColor = useRecoilValue(bgColorState);
 
   return (
     <PhoneBackground>

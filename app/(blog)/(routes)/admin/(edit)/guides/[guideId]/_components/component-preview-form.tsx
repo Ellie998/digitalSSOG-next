@@ -17,9 +17,11 @@ import {
 import { Input } from "@/components/ui/input";
 
 // import { toast } from "react-toastify";
-import { useContext, useState } from "react";
-import { DisplayContext } from "./component-section";
+import { useState } from "react";
+
 import ComponentUiThemeForm from "./component-ui-theme-form";
+import { useRecoilState } from "recoil";
+import { bgColorState, uiThemeChoiceModeState } from "./atoms";
 
 const formSchema = z.object({
   bgColor: z.string(),
@@ -27,8 +29,11 @@ const formSchema = z.object({
 
 const ComponentPreviewForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
-  const { bgColor, setBgColor, uiThemeChoiceMode, setUiThemeChoiceMode } =
-    useContext(DisplayContext);
+
+  const [bgColor, setBgColor] = useRecoilState(bgColorState);
+  const [uiThemeChoiceMode, setUiThemeChoiceMode] = useRecoilState(
+    uiThemeChoiceModeState
+  );
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

@@ -28,10 +28,17 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { useContext, useState } from "react";
-import { DisplayContext } from "./component-section";
+import { useState } from "react";
+
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useSetRecoilState } from "recoil";
+import {
+  uiMakingModeState,
+  uiThemeChoiceModeState,
+  uiThemeState,
+  uiTypeState,
+} from "./atoms";
 const uiTypes = [
   { label: "Icon", value: "icon" },
   { label: "Flex", value: "flex" },
@@ -49,8 +56,11 @@ const formSchema = z.object({
 const ComponentUiThemeForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const { setUiMakingMode, setUiThemeChoiceMode, setUiType, setUiTheme } =
-    useContext(DisplayContext);
+  const setUiMakingMode = useSetRecoilState(uiMakingModeState);
+  const setUiThemeChoiceMode = useSetRecoilState(uiThemeChoiceModeState);
+  const setUiType = useSetRecoilState(uiTypeState);
+  const setUiTheme = useSetRecoilState(uiThemeState);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {},
