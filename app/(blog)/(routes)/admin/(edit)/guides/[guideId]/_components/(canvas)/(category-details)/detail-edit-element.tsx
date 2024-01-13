@@ -31,7 +31,7 @@ import {
 
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { elementsState, selectedElementState } from "../canvas-atom";
 import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
@@ -49,7 +49,8 @@ const formSchema = z.object({
 
 const DetailEditElement = () => {
   const [elements, setElements] = useRecoilState(elementsState);
-  const selectedElement = useRecoilValue(selectedElementState);
+  const [selectedElement, setSelectedElement] =
+    useRecoilState(selectedElementState);
 
   const selectedElementInfo = elements.find(
     (element) => element.id === selectedElement
@@ -79,6 +80,16 @@ const DetailEditElement = () => {
           (element) => element.id !== editElement.id
         );
         return [...tempElements, editElement];
+      }
+    );
+  };
+  const deleteElement = (deleteElement: { id: string }) => {
+    return setElements(
+      (prevElements): { type: string; style: string; id: string }[] => {
+        const tempElements = prevElements.filter(
+          (element) => element.id !== deleteElement.id
+        );
+        return [...tempElements];
       }
     );
   };
@@ -172,6 +183,16 @@ const DetailEditElement = () => {
             })
           }>
           Edit
+        </Button>
+        <Button
+          className="mr-4"
+          type="button"
+          variant={"destructive"}
+          onClick={() => {
+            deleteElement({ id: selectedElement });
+            setSelectedElement("");
+          }}>
+          Delete
         </Button>
       </form>
     </Form>
