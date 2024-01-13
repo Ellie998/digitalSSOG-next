@@ -20,9 +20,10 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { iconNameState, uiBgColorState } from "./atoms";
+import { iconNameState, uiBgColorState, uiColorState } from "./atoms";
 
 const formSchema = z.object({
+  uiColor: z.string(),
   uiBgColor: z.string(),
   iconName: z.string(),
 });
@@ -31,6 +32,7 @@ const ComponentUiForm = ({ id }: { id: string }) => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const [uiBgColor, setUiBgColor] = useRecoilState(uiBgColorState);
+  const [uiColor, setUiColor] = useRecoilState(uiColorState);
   const setIconName = useSetRecoilState(iconNameState);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -47,6 +49,27 @@ const ComponentUiForm = ({ id }: { id: string }) => {
       <div className="py-2 font-bold font-xl">Ui Setting</div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="uiColor"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>UI Color</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="color"
+                    onChange={(e) => {
+                      setUiColor(e.target.value);
+                    }}
+                    value={uiColor}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="uiBgColor"

@@ -23,13 +23,12 @@ const IconContainer = styled.i`
 `;
 
 const Icon = ({
-  id = undefined,
+  id,
   name,
-  content = undefined,
-
+  content,
   style = { fontSize: "0.875rem", padding: "2px", backgroundColor: "white" },
-  onClick = undefined,
-  className = undefined,
+  onClick,
+  className,
 }) => {
   return (
     <IconContainer

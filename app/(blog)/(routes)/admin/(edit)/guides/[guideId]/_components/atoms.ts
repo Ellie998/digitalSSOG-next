@@ -9,11 +9,6 @@ export const uiMakingModeState = atom({
   key: "uiMakingMode", // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
-
-export const uiBgColorState = atom({
-  key: "uiBgColor",
-  default: "#ffffff",
-});
 export const uiTypeState = atom({
   key: "uiType",
   default: "",
@@ -31,4 +26,12 @@ export const uiThemeState = atom({
 export const iconNameState = atom({
   key: "iconName",
   default: "",
+});
+export const uiBgColorState = atom({
+  key: "uiBgColor",
+  default: "#ffffff",
+});
+export const uiColorState = atom({
+  key: "uiColor",
+  default: "#000000",
 });
