@@ -18,6 +18,8 @@ export type elementStyleType = {
   width: string;
   height: string;
   zIndex: string;
+  left: string;
+  top: string;
 };
 
 export const canvasCategoryState = atom({

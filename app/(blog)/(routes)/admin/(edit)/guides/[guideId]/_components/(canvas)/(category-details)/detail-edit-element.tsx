@@ -102,7 +102,6 @@ const DetailEditElement = () => {
   }, [selectedElement]);
 
   const editElement = (editElement: elementType) => {
-    console.log(editElement.style);
     return setElements((prevElements): elementType[] => {
       const tempElements = prevElements.filter((element) => element.id !== editElement.id);
       return [...tempElements, editElement];
@@ -247,6 +246,8 @@ const DetailEditElement = () => {
                 width: form.getValues().width !== '' ? form.getValues().width : '100%',
                 height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
                 zIndex: `${form.getValues().zIndex}`,
+                left: selectedElementInfo?.style.left || '0px',
+                top: selectedElementInfo?.style.top || '0px',
               },
               id: selectedElement,
             })

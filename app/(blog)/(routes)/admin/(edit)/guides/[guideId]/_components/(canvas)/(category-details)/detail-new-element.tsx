@@ -210,7 +210,6 @@ const DetailNewElement = () => {
           onClick={() => {
             addElement({
               type: form.getValues().type,
-
               style: {
                 fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
                 textAlign:
@@ -224,6 +223,8 @@ const DetailNewElement = () => {
                 width: form.getValues().width !== '' ? form.getValues().width : '100%',
                 height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
                 zIndex: `${form.getValues().zIndex}`,
+                left: `0px`,
+                top: `0px`,
               },
               id: uuidv4(),
             });
