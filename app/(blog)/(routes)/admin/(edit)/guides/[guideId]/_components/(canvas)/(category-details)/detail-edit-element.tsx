@@ -60,7 +60,6 @@ const DetailEditElement = () => {
   const selectedElementInfo: elementType | undefined = elements.find(
     (element) => element.id === selectedElement,
   );
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -109,6 +108,35 @@ const DetailEditElement = () => {
       return [...tempElements];
     });
   };
+  const formContent: Array<{
+    name: string;
+    label: string;
+    type: string;
+    inputAttrybuttes?: object;
+  }> = [
+    { name: 'text', label: 'UI Text', type: 'text' },
+    { name: 'fontSize', label: 'UI Font Size', type: 'text' },
+    { name: 'width', label: 'UI Width', type: 'text' },
+    { name: 'height', label: 'UI Height', type: 'text' },
+    { name: 'textAlign', label: 'UI Text Align', type: 'text' },
+    { name: 'color', label: 'UI Text Color', type: 'color' },
+    { name: 'backgroundColor', label: 'UI Background Color', type: 'color' },
+    {
+      name: 'opacity',
+      label: 'UI opacity',
+      type: 'number',
+      inputAttrybuttes: { min: 0, max: 100, step: 10 },
+    },
+    { name: 'border', label: 'UI Border', type: 'text' },
+    {
+      name: 'borderRadius',
+      label: 'UI Border Radius',
+      type: 'number',
+      inputAttrybuttes: { min: 0, max: 100, step: 10 },
+    },
+    { name: 'shadow', label: 'UI Shadow', type: 'text' },
+    { name: 'zIndex', label: 'UI zIndex', type: 'number' },
+  ];
 
   return (
     <Form {...form}>
@@ -176,153 +204,23 @@ const DetailEditElement = () => {
             </FormItem>
           )}
         />
-        {/* text */}
-        <FormField
-          control={form.control}
-          name="text"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">text</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* fontSize */}
-        <FormField
-          control={form.control}
-          name="fontSize"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">fontSize</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* width */}
-        <FormField
-          control={form.control}
-          name="width"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">width</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* height */}
-        <FormField
-          control={form.control}
-          name="height"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">height</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* textAlign */}
-        <FormField
-          control={form.control}
-          name="textAlign"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">textAlign</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* color */}
-        <FormField
-          control={form.control}
-          name="color"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">color</FormLabel>
-              <Input type="color" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* backgroundColor */}
-        <FormField
-          control={form.control}
-          name="backgroundColor"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">backgroundColor</FormLabel>
-              <Input type="color" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* opacity */}
-        <FormField
-          control={form.control}
-          name="opacity"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">opacity</FormLabel>
-              <Input type="number" {...field} min={0} max={100} step={10} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* border */}
-        <FormField
-          control={form.control}
-          name="border"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">border</FormLabel>
-              <Input type="text" {...field} placeholder="ex) 1px soild black" />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* borderRadius */}
-        <FormField
-          control={form.control}
-          name="borderRadius"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">borderRadius</FormLabel>
-              <Input type="number" {...field} min={0} max={100} step={1} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* shadow */}
-        <FormField
-          control={form.control}
-          name="shadow"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">shadow</FormLabel>
-              <Input type="text" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        {/* zIndex */}
-        <FormField
-          control={form.control}
-          name="zIndex"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-4">zIndex</FormLabel>
-              <Input type="number" {...field} />
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-2 gap-x-2 gap-y-4">
+          {formContent.map((item, i) => (
+            <FormField
+              key={item.name + i}
+              control={form.control}
+              // @ts-expect-error: textAlign 할당 타입 문제
+              name={item.name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="mr-4">{item.label}</FormLabel>
+                  <Input type={item.type} {...field} {...item.inputAttrybuttes} />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ))}
+        </div>
 
         <Button
           className="mr-4"

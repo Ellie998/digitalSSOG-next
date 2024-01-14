@@ -18,7 +18,7 @@ const CanvasPreview = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     setCanvasCategory('요소');
-    setSelectedElement(e.currentTarget.dataset.elementId || '');
+    setSelectedElement(e.currentTarget.id.replace('_container', '') || '');
   };
 
   useEffect(() => {}, [elements, selectedElement]);
@@ -36,12 +36,12 @@ const CanvasPreview = () => {
             )}
             draggable
             onClick={handleClick}
-            data-element-id={element.type + i}
+            id={element.id + '_container'}
           >
             <div
               // @ts-expect-error: textAlign 할당 타입 문제
               style={{ ...element.style }}
-              data-element-id={element.type + i}
+              id={element.id}
             >
               {element.type}
             </div>
