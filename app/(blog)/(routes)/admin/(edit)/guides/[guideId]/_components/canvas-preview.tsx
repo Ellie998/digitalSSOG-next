@@ -1,23 +1,27 @@
-"use client";
-import PhoneBackground from "@/components/my-ui/phone-background";
-import PhoneDisplay from "@/components/my-ui/phone-display";
-import PhoneHeader from "@/components/my-ui/phone-header";
-import PhoneNav from "@/components/my-ui/phone-nav";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { bgColorState } from "./atoms";
-import { elementsState, selectedElementState } from "./(canvas)/canvas-atom";
-import { cn } from "@/lib/utils";
+'use client';
+import PhoneBackground from '@/components/my-ui/phone-background';
+import PhoneDisplay from '@/components/my-ui/phone-display';
+import PhoneHeader from '@/components/my-ui/phone-header';
+import PhoneNav from '@/components/my-ui/phone-nav';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { bgColorState } from './atoms';
+import { canvasCategoryState, elementsState, selectedElementState } from './(canvas)/canvas-atom';
+import { cn } from '@/lib/utils';
+import { useEffect } from 'react';
 
 const CanvasPreview = () => {
   const bgColor = useRecoilValue(bgColorState);
   const elements = useRecoilValue(elementsState);
-  const [selectedElement, setSelectedElement] =
-    useRecoilState(selectedElementState);
+  const setCanvasCategory = useSetRecoilState(canvasCategoryState);
+  const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
   // type : icon,
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    setSelectedElement(e.currentTarget.id);
+    setCanvasCategory('요소');
+    setSelectedElement(e.currentTarget.dataset.elementId || '');
   };
+
+  useEffect(() => {}, [elements, selectedElement]);
 
   return (
     <PhoneBackground>
@@ -25,16 +29,22 @@ const CanvasPreview = () => {
       <PhoneDisplay backgroundColor={bgColor} main={undefined}>
         {elements.map((element, i) => (
           <div
-            id={element.id}
             key={element.type + i}
-            onClick={handleClick}
             className={cn(
-              "cursor-pointer",
-              element.style,
-              selectedElement === element.id && " border-2 border-blue-400 "
+              'cursor-pointer',
+              selectedElement === `${element.type}${i}` && 'border-2 border-blue-400 ',
             )}
-            draggable>
-            {element.type}
+            draggable
+            onClick={handleClick}
+            data-element-id={element.type + i}
+          >
+            <div
+              // @ts-expect-error: textAlign 할당 타입 문제
+              style={{ ...element.style }}
+              data-element-id={element.type + i}
+            >
+              {element.type}
+            </div>
           </div>
         ))}
       </PhoneDisplay>

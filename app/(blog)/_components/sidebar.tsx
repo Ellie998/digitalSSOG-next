@@ -1,5 +1,5 @@
-import SidebarRoutes from "@/components/sidebar-routes";
-import Logo from "./logo";
+import SidebarRoutes from '@/components/sidebar-routes';
+import Logo from './logo';
 
 const Sidebar = () => {
   return (

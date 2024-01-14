@@ -1,15 +1,15 @@
-import { headers } from "next/headers";
-import Link from "next/link";
+import { headers } from 'next/headers';
+import Link from 'next/link';
 
 const SidebarRoutes = () => {
   const headersList = headers();
 
   return (
     <div className="flex flex-col w-full pl-6">
-      {headersList.get("host")?.includes("localhost") ? (
+      {headersList.get('host')?.includes('localhost') ? (
         <>
-          <Link href={"/admin"}>admin 메인</Link>
-          <Link href={"/admin/functions"}>function 메인</Link>
+          <Link href={'/admin'}>admin 메인</Link>
+          <Link href={'/admin/functions'}>function 메인</Link>
         </>
       ) : (
         <>
