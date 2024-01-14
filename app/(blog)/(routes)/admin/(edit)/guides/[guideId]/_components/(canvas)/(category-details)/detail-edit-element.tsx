@@ -41,7 +41,9 @@ const types = [
 const formSchema = z.object({
   type: z.string(),
   text: z.string(),
-  fontSize: z.string(),
+  fontSize: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
+    message: '유효하지 않은 값',
+  }),
   textAlign: z.string(),
   color: z.string(),
   backgroundColor: z.string(),
@@ -49,8 +51,12 @@ const formSchema = z.object({
   border: z.string(),
   borderRadius: z.number(),
   shadow: z.string(),
-  width: z.string(),
-  height: z.string(),
+  width: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
+    message: '유효하지 않은 값',
+  }),
+  height: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
+    message: '유효하지 않은 값',
+  }),
   zIndex: z.number(),
 });
 
@@ -229,16 +235,17 @@ const DetailEditElement = () => {
             editElement({
               type: form.getValues().type,
               style: {
-                fontSize: form.getValues().fontSize,
-                textAlign: form.getValues().textAlign,
+                fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
+                textAlign:
+                  form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
                 color: form.getValues().color,
                 backgroundColor: form.getValues().backgroundColor,
-                opacity: `${form.getValues().opacity}%`,
+                opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
                 border: form.getValues().border,
                 borderRadius: `${form.getValues().borderRadius}px`,
                 shadow: form.getValues().shadow,
-                width: form.getValues().width,
-                height: form.getValues().height,
+                width: form.getValues().width !== '' ? form.getValues().width : '100%',
+                height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
                 zIndex: `${form.getValues().zIndex}`,
               },
               id: selectedElement,
