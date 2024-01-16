@@ -62,36 +62,6 @@ const DetailEditElement = () => {
       zIndex: Number(selectedElementInfo?.style.zIndex),
     },
   });
-
-  useEffect(() => {
-    // form.setValue('text',selectedElementInfo?.text||"");
-    form.setValue('top', Number(selectedElementInfo?.style.top) || 0);
-    form.setValue('left', Number(selectedElementInfo?.style.left) || 0);
-    form.setValue('fontSize', selectedElementInfo?.style.fontSize || '');
-    form.setValue('textAlign', selectedElementInfo?.style.textAlign || '');
-    form.setValue('color', selectedElementInfo?.style.color || '');
-    form.setValue('backgroundColor', selectedElementInfo?.style.backgroundColor || '');
-    form.setValue('opacity', Number(selectedElementInfo?.style.opacity.replace('%', '')) || 100);
-    form.setValue('border', selectedElementInfo?.style.border || '');
-    form.setValue('borderRadius', Number(selectedElementInfo?.style.borderRadius) || 0);
-    form.setValue('shadow', selectedElementInfo?.style.shadow || '');
-    form.setValue('width', selectedElementInfo?.style.width || '');
-    form.setValue('height', selectedElementInfo?.style.height || '');
-    form.setValue('zIndex', Number(selectedElementInfo?.style.zIndex) || 0);
-  }, [selectedElement]);
-
-  const editElement = (editElement: elementType) => {
-    return setElements((prevElements): elementType[] => {
-      const tempElements = prevElements.filter((element) => element.id !== editElement.id);
-      return [...tempElements, editElement];
-    });
-  };
-  const deleteElement = (deleteElement: { id: string }) => {
-    return setElements((prevElements): elementType[] => {
-      const tempElements = prevElements.filter((element) => element.id !== deleteElement.id);
-      return [...tempElements];
-    });
-  };
   const formContent: Array<{
     name: string;
     label: string;
@@ -123,6 +93,36 @@ const DetailEditElement = () => {
     { name: 'shadow', label: 'UI Shadow', type: 'text' },
     { name: 'zIndex', label: 'UI zIndex', type: 'number' },
   ];
+
+  useEffect(() => {
+    // form.setValue('text',selectedElementInfo?.text||"");
+    form.setValue('top', Number(selectedElementInfo?.style.top.replace('px', '')) || 0);
+    form.setValue('left', Number(selectedElementInfo?.style.left.replace('px', '')) || 0);
+    form.setValue('fontSize', selectedElementInfo?.style.fontSize || '');
+    form.setValue('textAlign', selectedElementInfo?.style.textAlign || '');
+    form.setValue('color', selectedElementInfo?.style.color || '');
+    form.setValue('backgroundColor', selectedElementInfo?.style.backgroundColor || '');
+    form.setValue('opacity', Number(selectedElementInfo?.style.opacity.replace('%', '')) || 100);
+    form.setValue('border', selectedElementInfo?.style.border || '');
+    form.setValue('borderRadius', Number(selectedElementInfo?.style.borderRadius) || 0);
+    form.setValue('shadow', selectedElementInfo?.style.shadow || '');
+    form.setValue('width', selectedElementInfo?.style.width || '');
+    form.setValue('height', selectedElementInfo?.style.height || '');
+    form.setValue('zIndex', Number(selectedElementInfo?.style.zIndex) || 0);
+  }, [elements, selectedElement]);
+
+  const editElement = (editElement: elementType) => {
+    return setElements((prevElements): elementType[] => {
+      const tempElements = prevElements.filter((element) => element.id !== editElement.id);
+      return [...tempElements, editElement];
+    });
+  };
+  const deleteElement = (deleteElement: { id: string }) => {
+    return setElements((prevElements): elementType[] => {
+      const tempElements = prevElements.filter((element) => element.id !== deleteElement.id);
+      return [...tempElements];
+    });
+  };
 
   return (
     <Form {...form}>

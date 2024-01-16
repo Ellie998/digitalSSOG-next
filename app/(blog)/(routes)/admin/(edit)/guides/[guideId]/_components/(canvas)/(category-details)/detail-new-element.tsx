@@ -73,7 +73,7 @@ const DetailNewElement = () => {
       fontSize: '14px',
       textAlign: 'inherit',
       color: '#000000',
-      backgroundColor: '#ffffff',
+      backgroundColor: 'transparent',
       opacity: 100,
       border: 'none',
       borderRadius: 0,

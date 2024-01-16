@@ -35,7 +35,6 @@ const CanvasPreview = () => {
     });
   };
 
-  console.log(elements);
   return (
     <PhoneBackground>
       <PhoneHeader backgroundColor={bgColor} />
@@ -44,7 +43,11 @@ const CanvasPreview = () => {
           {elements.map((element, i) => (
             <div
               key={element.type + i}
-              style={{ top: element.style.top, left: element.style.left }}
+              style={{
+                top: element.style.top,
+                left: element.style.left,
+                zIndex: element.style.zIndex,
+              }}
               className={cn(
                 'cursor-pointer w-fit h-fit absolute',
                 selectedElement === `${element.id}` && 'border-2 border-blue-400 ',
