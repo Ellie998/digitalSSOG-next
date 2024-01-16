@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { useSetRecoilState } from 'recoil';
-import { elementType, elementsState } from '../canvas-atom';
+import { elementType, elementDatasState } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
 
 const types = [
@@ -43,7 +43,7 @@ const formSchema = z.object({
 });
 
 const TextForm = () => {
-  const setElements = useSetRecoilState(elementsState);
+  const setElementDatas = useSetRecoilState(elementDatasState);
   // color, border - color, 두께, type, round, 그림자, 요소 크기, 투명도, 정렬, 순서,
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -66,7 +66,7 @@ const TextForm = () => {
   });
 
   const addElement = (newElement: elementType) => {
-    return setElements((prevElements): elementType[] => [...prevElements, newElement]);
+    return setElementDatas((prevElements): elementType[] => [...prevElements, newElement]);
   };
 
   const formContent: Array<{

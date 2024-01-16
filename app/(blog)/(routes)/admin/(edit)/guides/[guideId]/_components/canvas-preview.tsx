@@ -7,8 +7,8 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { bgColorState } from './atoms';
 import {
   canvasCategoryState,
+  elementDatasState,
   elementType,
-  elementsState,
   selectedElementState,
 } from './(canvas)/canvas-atom';
 import { cn } from '@/lib/utils';
@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 
 const CanvasPreview = () => {
   const bgColor = useRecoilValue(bgColorState);
-  const [elements, setElements] = useRecoilState(elementsState);
+  const [elementDatas, setElementDatas] = useRecoilState(elementDatasState);
   const setCanvasCategory = useSetRecoilState(canvasCategoryState);
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
   // type : icon,
@@ -26,10 +26,10 @@ const CanvasPreview = () => {
     setSelectedElement(e.currentTarget.id.replace('_container', '') || '');
   };
 
-  useEffect(() => {}, [elements, selectedElement]);
+  useEffect(() => {}, [elementDatas, selectedElement]);
 
   const editElement = (editElement: elementType) => {
-    return setElements((prevElements): elementType[] => {
+    return setElementDatas((prevElements): elementType[] => {
       const tempElements = prevElements.filter((element) => element.id !== editElement.id);
       return [...tempElements, editElement];
     });
@@ -40,28 +40,26 @@ const CanvasPreview = () => {
       <PhoneHeader backgroundColor={bgColor} />
       <PhoneDisplay backgroundColor={bgColor} main={undefined}>
         <div className="absolute ">
-          {elements.map((element, i) => (
+          {elementDatas.map((data, i) => (
             <div
-              key={element.type + i}
+              key={data.type + i}
               style={{
-                top: element.style.top,
-                left: element.style.left,
-                zIndex: element.style.zIndex,
+                top: data.style.top,
+                left: data.style.left,
+                zIndex: data.style.zIndex,
               }}
               className={cn(
                 'cursor-pointer w-fit h-fit absolute',
-                selectedElement === `${element.id}` && 'border-2 border-blue-400 ',
+                selectedElement === `${data.id}` && 'border-2 border-blue-400 ',
               )}
               draggable
               onDragEnd={(e) => {
                 editElement({
-                  type: element.type,
+                  type: data.type,
                   style: {
-                    ...element.style,
-                    top: `${Number(element.style.top.replace('px', '')) + e.nativeEvent.offsetY}px`,
-                    left: `${
-                      Number(element.style.left.replace('px', '')) + e.nativeEvent.offsetX
-                    }px`,
+                    ...data.style,
+                    top: `${Number(data.style.top.replace('px', '')) + e.nativeEvent.offsetY}px`,
+                    left: `${Number(data.style.left.replace('px', '')) + e.nativeEvent.offsetX}px`,
                   },
                   id: e.currentTarget.id.replace('_container', ''),
                 });
@@ -71,15 +69,15 @@ const CanvasPreview = () => {
                 setSelectedElement(e.currentTarget.id.replace('_container', '') || '');
               }}
               onClick={handleClick}
-              id={element.id + '_container'}
+              id={data.id + '_container'}
             >
               <div
                 className=""
                 // @ts-expect-error: textAlign 할당 타입 문제
-                style={{ ...element.style }}
-                id={element.id}
+                style={{ ...data.style }}
+                id={data.id}
               >
-                {element.type}
+                {data.type}
               </div>
             </div>
           ))}

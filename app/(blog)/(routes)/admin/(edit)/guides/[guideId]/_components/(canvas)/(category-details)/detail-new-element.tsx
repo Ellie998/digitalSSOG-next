@@ -29,8 +29,8 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSetRecoilState } from 'recoil';
-import { elementType, elementsState } from '../canvas-atom';
-import { Input } from '@/components/ui/input';
+import { elementDatasState, elementType } from '../canvas-atom';
+
 import { useState } from 'react';
 import TextForm from './text-form';
 import IconForm from './icon-form';
@@ -43,85 +43,15 @@ const types = [
 
 const formSchema = z.object({
   type: z.string(),
-  text: z.string(),
-  fontSize: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
-    message: '유효하지 않은 값',
-  }),
-  textAlign: z.string(),
-  color: z.string(),
-  backgroundColor: z.string(),
-  opacity: z.number(),
-  border: z.string(),
-  borderRadius: z.number(),
-  shadow: z.string(),
-  width: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
-    message: '유효하지 않은 값',
-  }),
-  height: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
-    message: '유효하지 않은 값',
-  }),
-  zIndex: z.number(),
-  id: z.string(),
 });
 
 const DetailNewElement = () => {
-  const setElements = useSetRecoilState(elementsState);
-  // color, border - color, 두께, type, round, 그림자, 요소 크기, 투명도, 정렬, 순서,
   const [uiType, setUiType] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      type: '',
-      text: '',
-      fontSize: '14px',
-      textAlign: 'inherit',
-      color: '#000000',
-      backgroundColor: 'transparent',
-      opacity: 100,
-      border: 'none',
-      borderRadius: 0,
-      shadow: 'inherit',
-      width: '100%',
-      height: 'fit-content',
-      zIndex: 0,
-      id: '',
-    },
+    defaultValues: { type: '' },
   });
-
-  const addElement = (newElement: elementType) => {
-    return setElements((prevElements): elementType[] => [...prevElements, newElement]);
-  };
-
-  const formContent: Array<{
-    name: string;
-    label: string;
-    type: string;
-    inputAttrybuttes?: object;
-  }> = [
-    { name: 'text', label: 'UI Text', type: 'text' },
-    { name: 'fontSize', label: 'UI Font Size', type: 'text' },
-    { name: 'width', label: 'UI Width', type: 'text' },
-    { name: 'height', label: 'UI Height', type: 'text' },
-    { name: 'textAlign', label: 'UI Text Align', type: 'text' },
-    { name: 'color', label: 'UI Text Color', type: 'color' },
-    { name: 'backgroundColor', label: 'UI Background Color', type: 'color' },
-    {
-      name: 'opacity',
-      label: 'UI opacity',
-      type: 'number',
-      inputAttrybuttes: { min: 0, max: 100, step: 10 },
-    },
-    { name: 'border', label: 'UI Border', type: 'text' },
-    {
-      name: 'borderRadius',
-      label: 'UI Border Radius',
-      type: 'number',
-      inputAttrybuttes: { min: 0, max: 100, step: 10 },
-    },
-    { name: 'shadow', label: 'UI Shadow', type: 'text' },
-    { name: 'zIndex', label: 'UI zIndex', type: 'number' },
-  ];
 
   return (
     <Form {...form}>

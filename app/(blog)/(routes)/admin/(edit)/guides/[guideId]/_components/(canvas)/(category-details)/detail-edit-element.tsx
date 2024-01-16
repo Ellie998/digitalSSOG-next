@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { useRecoilState } from 'recoil';
-import { elementType, elementsState, selectedElementState } from '../canvas-atom';
+import { elementDatasState, elementType, selectedElementState } from '../canvas-atom';
 
 import { Input } from '@/components/ui/input';
 import { useEffect } from 'react';
@@ -38,9 +38,9 @@ const formSchema = z.object({
 });
 
 const DetailEditElement = () => {
-  const [elements, setElements] = useRecoilState(elementsState);
+  const [elementDatas, setElementDatas] = useRecoilState(elementDatasState);
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
-  const selectedElementInfo: elementType | undefined = elements.find(
+  const selectedElementInfo: elementType | undefined = elementDatas.find(
     (element) => element.id === selectedElement,
   );
   const form = useForm<z.infer<typeof formSchema>>({
@@ -109,16 +109,16 @@ const DetailEditElement = () => {
     form.setValue('width', selectedElementInfo?.style.width || '');
     form.setValue('height', selectedElementInfo?.style.height || '');
     form.setValue('zIndex', Number(selectedElementInfo?.style.zIndex) || 0);
-  }, [elements, selectedElement]);
+  }, [elementDatas, selectedElement]);
 
   const editElement = (editElement: elementType) => {
-    return setElements((prevElements): elementType[] => {
+    return setElementDatas((prevElements): elementType[] => {
       const tempElements = prevElements.filter((element) => element.id !== editElement.id);
       return [...tempElements, editElement];
     });
   };
   const deleteElement = (deleteElement: { id: string }) => {
-    return setElements((prevElements): elementType[] => {
+    return setElementDatas((prevElements): elementType[] => {
       const tempElements = prevElements.filter((element) => element.id !== deleteElement.id);
       return [...tempElements];
     });
