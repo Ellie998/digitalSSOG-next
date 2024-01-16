@@ -35,6 +35,7 @@ const CanvasPreview = () => {
     });
   };
 
+  console.log(elements);
   return (
     <PhoneBackground>
       <PhoneHeader backgroundColor={bgColor} />

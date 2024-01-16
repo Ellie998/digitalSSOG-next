@@ -6,40 +6,17 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from '@/components/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-
-import { Check, ChevronsUpDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { useRecoilState } from 'recoil';
 import { elementType, elementsState, selectedElementState } from '../canvas-atom';
 
 import { Input } from '@/components/ui/input';
 import { useEffect } from 'react';
 
-const types = [
-  { label: 'Icon', value: 'icon' },
-  { label: 'Flex', value: 'flex' },
-  { label: 'tab', value: 'tab' },
-] as const;
-
 const formSchema = z.object({
-  type: z.string(),
+  top: z.number(),
+  left: z.number(),
   text: z.string(),
   fontSize: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
     message: '유효하지 않은 값',
@@ -69,7 +46,8 @@ const DetailEditElement = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      type: selectedElementInfo?.type,
+      top: Number(selectedElementInfo?.style.top),
+      left: Number(selectedElementInfo?.style.left),
       text: '',
       fontSize: selectedElementInfo?.style.fontSize,
       textAlign: selectedElementInfo?.style.textAlign,
@@ -86,8 +64,9 @@ const DetailEditElement = () => {
   });
 
   useEffect(() => {
-    form.setValue('type', selectedElementInfo?.type || '');
     // form.setValue('text',selectedElementInfo?.text||"");
+    form.setValue('top', Number(selectedElementInfo?.style.top) || 0);
+    form.setValue('left', Number(selectedElementInfo?.style.left) || 0);
     form.setValue('fontSize', selectedElementInfo?.style.fontSize || '');
     form.setValue('textAlign', selectedElementInfo?.style.textAlign || '');
     form.setValue('color', selectedElementInfo?.style.color || '');
@@ -119,6 +98,8 @@ const DetailEditElement = () => {
     type: string;
     inputAttrybuttes?: object;
   }> = [
+    { name: 'top', label: 'Position - top', type: 'number' },
+    { name: 'left', label: 'Position - left', type: 'number' },
     { name: 'text', label: 'UI Text', type: 'text' },
     { name: 'fontSize', label: 'UI Font Size', type: 'text' },
     { name: 'width', label: 'UI Width', type: 'text' },
@@ -152,64 +133,8 @@ const DetailEditElement = () => {
         className="p-4 space-y-8 "
       >
         <div className="font-bold text-md">Edit UI</div>
-        {/* type */}
-        <FormField
-          control={form.control}
-          name="type"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="mr-2">UI type</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      className={cn(
-                        'w-[200px] justify-between',
-                        !field.value && 'text-muted-foreground',
-                      )}
-                    >
-                      {field.value
-                        ? types.find((type) => type.value === field.value)?.label
-                        : 'Select Type'}
-                      <ChevronsUpDown className="w-4 h-4 ml-2 opacity-50 shrink-0" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0  cursor-pointer">
-                  <Command className="  z-[999] cursor-pointer">
-                    <CommandInput placeholder="Search App..." />
-                    <CommandEmpty>No App found.</CommandEmpty>
-                    <CommandGroup>
-                      {types.map((type) => (
-                        <CommandItem
-                          className="cursor-pointer z-100"
-                          value={type.label}
-                          key={type.value}
-                          onSelect={() => {
-                            form.setValue('type', type.value);
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              'mr-2 h-4 w-4',
-                              type.value === field.value ? 'opacity-100' : 'opacity-0',
-                            )}
-                          />
-                          {type.label}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="grid grid-cols-2 gap-x-2 gap-y-4">
+        <div className="grid grid-cols-3 gap-x-2 gap-y-4">
           {formContent.map((item, i) => (
             <FormField
               key={item.name + i}
@@ -232,7 +157,7 @@ const DetailEditElement = () => {
           type="button"
           onClick={() =>
             editElement({
-              type: form.getValues().type,
+              type: selectedElementInfo?.type || '',
               style: {
                 fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
                 textAlign:
@@ -246,8 +171,8 @@ const DetailEditElement = () => {
                 width: form.getValues().width !== '' ? form.getValues().width : '100%',
                 height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
                 zIndex: `${form.getValues().zIndex}`,
-                left: selectedElementInfo?.style.left || '0px',
-                top: selectedElementInfo?.style.top || '0px',
+                left: form.getValues().left + 'px',
+                top: form.getValues().top + 'px',
               },
               id: selectedElement,
             })
