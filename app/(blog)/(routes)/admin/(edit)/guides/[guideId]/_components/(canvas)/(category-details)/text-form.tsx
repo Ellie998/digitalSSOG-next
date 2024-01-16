@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { useSetRecoilState } from 'recoil';
-import { elementType, elementDatasState } from '../canvas-atom';
+import { elementDataType, elementDatasState } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
 
 const types = [
@@ -65,8 +65,8 @@ const TextForm = () => {
     },
   });
 
-  const addElement = (newElement: elementType) => {
-    return setElementDatas((prevElements): elementType[] => [...prevElements, newElement]);
+  const addElement = (newElement: elementDataType) => {
+    return setElementDatas((prevElements): elementDataType[] => [...prevElements, newElement]);
   };
 
   const formContent: Array<{
@@ -123,23 +123,24 @@ const TextForm = () => {
         className="mr-4"
         type="button"
         onClick={() => {
+          const styleObj = {
+            fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
+            textAlign: form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
+            color: form.getValues().color,
+            backgroundColor: form.getValues().backgroundColor,
+            opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
+            border: form.getValues().border,
+            borderRadius: `${form.getValues().borderRadius}px`,
+            shadow: form.getValues().shadow,
+            width: form.getValues().width !== '' ? form.getValues().width : '100%',
+            height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
+            zIndex: `${form.getValues().zIndex}`,
+            left: `0px`,
+            top: `0px`,
+          };
           addElement({
             type: 'text',
-            style: {
-              fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
-              textAlign: form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
-              color: form.getValues().color,
-              backgroundColor: form.getValues().backgroundColor,
-              opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
-              border: form.getValues().border,
-              borderRadius: `${form.getValues().borderRadius}px`,
-              shadow: form.getValues().shadow,
-              width: form.getValues().width !== '' ? form.getValues().width : '100%',
-              height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
-              zIndex: `${form.getValues().zIndex}`,
-              left: `0px`,
-              top: `0px`,
-            },
+            style: styleObj,
             id: uuidv4(),
           });
         }}

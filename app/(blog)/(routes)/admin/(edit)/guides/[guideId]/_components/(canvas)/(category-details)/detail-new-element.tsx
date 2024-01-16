@@ -3,7 +3,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { v4 as uuidv4 } from 'uuid';
 
 import * as z from 'zod';
 
@@ -28,8 +27,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useSetRecoilState } from 'recoil';
-import { elementDatasState, elementType } from '../canvas-atom';
 
 import { useState } from 'react';
 import TextForm from './text-form';

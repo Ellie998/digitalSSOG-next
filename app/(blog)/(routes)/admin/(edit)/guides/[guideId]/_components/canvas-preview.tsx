@@ -8,15 +8,17 @@ import { bgColorState } from './atoms';
 import {
   canvasCategoryState,
   elementDatasState,
-  elementType,
+  elementDataType,
   selectedElementState,
 } from './(canvas)/canvas-atom';
 import { cn } from '@/lib/utils';
 import { useEffect } from 'react';
+import Icon from '@/components/DisplayBox/AppDisplays/_components/UI/Icon';
 
 const CanvasPreview = () => {
   const bgColor = useRecoilValue(bgColorState);
   const [elementDatas, setElementDatas] = useRecoilState(elementDatasState);
+
   const setCanvasCategory = useSetRecoilState(canvasCategoryState);
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
   // type : icon,
@@ -28,8 +30,8 @@ const CanvasPreview = () => {
 
   useEffect(() => {}, [elementDatas, selectedElement]);
 
-  const editElement = (editElement: elementType) => {
-    return setElementDatas((prevElements): elementType[] => {
+  const editElement = (editElement: elementDataType) => {
+    return setElementDatas((prevElements): elementDataType[] => {
       const tempElements = prevElements.filter((element) => element.id !== editElement.id);
       return [...tempElements, editElement];
     });
@@ -55,13 +57,14 @@ const CanvasPreview = () => {
               draggable
               onDragEnd={(e) => {
                 editElement({
+                  id: e.currentTarget.id.replace('_container', ''),
                   type: data.type,
+
                   style: {
                     ...data.style,
                     top: `${Number(data.style.top.replace('px', '')) + e.nativeEvent.offsetY}px`,
                     left: `${Number(data.style.left.replace('px', '')) + e.nativeEvent.offsetX}px`,
                   },
-                  id: e.currentTarget.id.replace('_container', ''),
                 });
               }}
               onDragStart={(e) => {
@@ -71,14 +74,27 @@ const CanvasPreview = () => {
               onClick={handleClick}
               id={data.id + '_container'}
             >
-              <div
-                className=""
-                // @ts-expect-error: textAlign 할당 타입 문제
-                style={{ ...data.style }}
-                id={data.id}
-              >
-                {data.type}
-              </div>
+              {data.type === 'icon' && (
+                <Icon
+                  style={{ ...data.style }}
+                  id={undefined}
+                  name={'person'}
+                  className={undefined}
+                  onClick={undefined}
+                />
+              )}
+              {data.type === 'text' && (
+                <div
+                  // @ts-expect-error: textAlign 할당 타입 문제
+                  style={{ ...data.style }}
+                  id={undefined}
+                  name={data.type}
+                  className={undefined}
+                  onClick={undefined}
+                >
+                  {data.type}
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { useRecoilState } from 'recoil';
-import { elementDatasState, elementType, selectedElementState } from '../canvas-atom';
+import { elementDatasState, elementDataType, selectedElementState } from '../canvas-atom';
 
 import { Input } from '@/components/ui/input';
 import { useEffect } from 'react';
@@ -40,7 +40,7 @@ const formSchema = z.object({
 const DetailEditElement = () => {
   const [elementDatas, setElementDatas] = useRecoilState(elementDatasState);
   const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
-  const selectedElementInfo: elementType | undefined = elementDatas.find(
+  const selectedElementInfo: elementDataType | undefined = elementDatas.find(
     (element) => element.id === selectedElement,
   );
   const form = useForm<z.infer<typeof formSchema>>({
@@ -111,14 +111,14 @@ const DetailEditElement = () => {
     form.setValue('zIndex', Number(selectedElementInfo?.style.zIndex) || 0);
   }, [elementDatas, selectedElement]);
 
-  const editElement = (editElement: elementType) => {
-    return setElementDatas((prevElements): elementType[] => {
+  const editElement = (editElement: elementDataType) => {
+    return setElementDatas((prevElements): elementDataType[] => {
       const tempElements = prevElements.filter((element) => element.id !== editElement.id);
       return [...tempElements, editElement];
     });
   };
   const deleteElement = (deleteElement: { id: string }) => {
-    return setElementDatas((prevElements): elementType[] => {
+    return setElementDatas((prevElements): elementDataType[] => {
       const tempElements = prevElements.filter((element) => element.id !== deleteElement.id);
       return [...tempElements];
     });
@@ -155,7 +155,7 @@ const DetailEditElement = () => {
         <Button
           className="mr-4"
           type="button"
-          onClick={() =>
+          onClick={() => {
             editElement({
               type: selectedElementInfo?.type || '',
               style: {
@@ -175,8 +175,8 @@ const DetailEditElement = () => {
                 top: form.getValues().top + 'px',
               },
               id: selectedElement,
-            })
-          }
+            });
+          }}
         >
           Edit
         </Button>

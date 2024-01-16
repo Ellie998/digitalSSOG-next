@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export type elementType = {
+export type elementDataType = {
   type: string;
   style: elementStyleType;
   id: string;
@@ -26,7 +26,8 @@ export const canvasCategoryState = atom({
   key: 'canvasCategory',
   default: '템플릿',
 });
-export const elementDatasState = atom<Array<elementType>>({
+
+export const elementDatasState = atom<Array<elementDataType>>({
   key: 'elementDatas',
   default: [],
 });

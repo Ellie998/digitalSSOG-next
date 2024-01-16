@@ -11,8 +11,9 @@ import { Button } from '@/components/ui/button';
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { useSetRecoilState } from 'recoil';
-import { elementDatasState, elementType } from '../canvas-atom';
+import { elementDatasState, elementDataType } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
+import Icon from '@/components/DisplayBox/AppDisplays/_components/UI/Icon';
 
 const iconFormSchema = z.object({
   text: z.string(),
@@ -38,6 +39,7 @@ const iconFormSchema = z.object({
 
 const IconForm = () => {
   const setElementDatas = useSetRecoilState(elementDatasState);
+
   // color, border - color, 두께, type, round, 그림자, 요소 크기, 투명도, 정렬, 순서,
 
   const form = useForm<z.infer<typeof iconFormSchema>>({
@@ -59,8 +61,8 @@ const IconForm = () => {
     },
   });
 
-  const addElement = (newElement: elementType) => {
-    return setElementDatas((prevElements): elementType[] => [...prevElements, newElement]);
+  const addElementData = (newElement: elementDataType) => {
+    return setElementDatas((prevElements): elementDataType[] => [...prevElements, newElement]);
   };
 
   const formContent: Array<{
@@ -117,23 +119,24 @@ const IconForm = () => {
         className="mr-4"
         type="button"
         onClick={() => {
-          addElement({
+          const styleObj = {
+            fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
+            textAlign: form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
+            color: form.getValues().color,
+            backgroundColor: form.getValues().backgroundColor,
+            opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
+            border: form.getValues().border,
+            borderRadius: `${form.getValues().borderRadius}px`,
+            shadow: form.getValues().shadow,
+            width: form.getValues().width !== '' ? form.getValues().width : '100%',
+            height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
+            zIndex: `${form.getValues().zIndex}`,
+            left: `0px`,
+            top: `0px`,
+          };
+          addElementData({
             type: 'icon',
-            style: {
-              fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
-              textAlign: form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
-              color: form.getValues().color,
-              backgroundColor: form.getValues().backgroundColor,
-              opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
-              border: form.getValues().border,
-              borderRadius: `${form.getValues().borderRadius}px`,
-              shadow: form.getValues().shadow,
-              width: form.getValues().width !== '' ? form.getValues().width : '100%',
-              height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
-              zIndex: `${form.getValues().zIndex}`,
-              left: `0px`,
-              top: `0px`,
-            },
+            style: styleObj,
             id: uuidv4(),
           });
         }}
