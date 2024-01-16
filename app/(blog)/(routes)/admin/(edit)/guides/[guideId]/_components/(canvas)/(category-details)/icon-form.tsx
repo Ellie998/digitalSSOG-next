@@ -13,10 +13,9 @@ import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/for
 import { useSetRecoilState } from 'recoil';
 import { elementDatasState, elementDataType } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
-import Icon from '@/components/DisplayBox/AppDisplays/_components/UI/Icon';
 
 const iconFormSchema = z.object({
-  text: z.string(),
+  name: z.string(),
   fontSize: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
     message: '유효하지 않은 값',
   }),
@@ -45,7 +44,7 @@ const IconForm = () => {
   const form = useForm<z.infer<typeof iconFormSchema>>({
     resolver: zodResolver(iconFormSchema),
     defaultValues: {
-      text: '',
+      name: 'circle',
       fontSize: '14px',
       textAlign: 'inherit',
       color: '#000000',
@@ -71,7 +70,7 @@ const IconForm = () => {
     type: string;
     inputAttrybuttes?: object;
   }> = [
-    { name: 'text', label: 'Icon Name', type: 'text' },
+    { name: 'name', label: 'Icon Name', type: 'text' },
     { name: 'fontSize', label: 'UI Font Size', type: 'text' },
     { name: 'width', label: 'UI Width', type: 'text' },
     { name: 'height', label: 'UI Height', type: 'text' },
@@ -138,6 +137,7 @@ const IconForm = () => {
             type: 'icon',
             style: styleObj,
             id: uuidv4(),
+            content: form.getValues().name,
           });
         }}
       >

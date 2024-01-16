@@ -142,6 +142,7 @@ const TextForm = () => {
             type: 'text',
             style: styleObj,
             id: uuidv4(),
+            content: form.getValues().text,
           });
         }}
       >

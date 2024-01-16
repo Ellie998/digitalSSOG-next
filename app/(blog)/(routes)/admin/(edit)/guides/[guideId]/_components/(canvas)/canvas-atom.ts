@@ -2,6 +2,7 @@ import { atom } from 'recoil';
 
 export type elementDataType = {
   type: string;
+  content: string;
   style: elementStyleType;
   id: string;
 };

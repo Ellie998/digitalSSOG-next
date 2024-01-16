@@ -104,7 +104,10 @@ const DetailEditElement = () => {
     form.setValue('backgroundColor', selectedElementInfo?.style.backgroundColor || '');
     form.setValue('opacity', Number(selectedElementInfo?.style.opacity.replace('%', '')) || 100);
     form.setValue('border', selectedElementInfo?.style.border || '');
-    form.setValue('borderRadius', Number(selectedElementInfo?.style.borderRadius) || 0);
+    form.setValue(
+      'borderRadius',
+      Number(selectedElementInfo?.style.borderRadius.replace('px', '')) || 0,
+    );
     form.setValue('shadow', selectedElementInfo?.style.shadow || '');
     form.setValue('width', selectedElementInfo?.style.width || '');
     form.setValue('height', selectedElementInfo?.style.height || '');
@@ -175,6 +178,7 @@ const DetailEditElement = () => {
                 top: form.getValues().top + 'px',
               },
               id: selectedElement,
+              content: form.getValues().text,
             });
           }}
         >

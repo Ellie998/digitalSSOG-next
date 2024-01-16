@@ -59,7 +59,7 @@ const CanvasPreview = () => {
                 editElement({
                   id: e.currentTarget.id.replace('_container', ''),
                   type: data.type,
-
+                  content: data.content,
                   style: {
                     ...data.style,
                     top: `${Number(data.style.top.replace('px', '')) + e.nativeEvent.offsetY}px`,
@@ -78,7 +78,7 @@ const CanvasPreview = () => {
                 <Icon
                   style={{ ...data.style }}
                   id={undefined}
-                  name={'person'}
+                  name={data.content || 'circle'}
                   className={undefined}
                   onClick={undefined}
                 />
@@ -88,11 +88,11 @@ const CanvasPreview = () => {
                   // @ts-expect-error: textAlign 할당 타입 문제
                   style={{ ...data.style }}
                   id={undefined}
-                  name={data.type}
+                  name={data.type || 'empty'}
                   className={undefined}
                   onClick={undefined}
                 >
-                  {data.type}
+                  {data.content}
                 </div>
               )}
             </div>
