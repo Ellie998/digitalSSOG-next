@@ -31,11 +31,14 @@ import { cn } from '@/lib/utils';
 import { useSetRecoilState } from 'recoil';
 import { elementType, elementsState } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
+import { useState } from 'react';
+import TextForm from './text-form';
+import IconForm from './icon-form';
 
 const types = [
+  { label: 'Text', value: 'text' },
   { label: 'Icon', value: 'icon' },
-  { label: 'Flex', value: 'flex' },
-  { label: 'tab', value: 'tab' },
+  { label: 'Tab', value: 'tab' },
 ] as const;
 
 const formSchema = z.object({
@@ -64,6 +67,7 @@ const formSchema = z.object({
 const DetailNewElement = () => {
   const setElements = useSetRecoilState(elementsState);
   // color, border - color, 두께, type, round, 그림자, 요소 크기, 투명도, 정렬, 순서,
+  const [uiType, setUiType] = useState('');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -165,6 +169,7 @@ const DetailNewElement = () => {
                           key={type.value}
                           onSelect={() => {
                             form.setValue('type', type.value);
+                            setUiType(type.value);
                           }}
                         >
                           <Check
@@ -185,53 +190,8 @@ const DetailNewElement = () => {
             </FormItem>
           )}
         />
-
-        <div className="grid grid-cols-2 gap-x-2 gap-y-4">
-          {formContent.map((item, i) => (
-            <FormField
-              key={item.name + i}
-              control={form.control}
-              // @ts-expect-error: textAlign 할당 타입 문제
-              name={item.name}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="mr-4">{item.label}</FormLabel>
-                  <Input type={item.type} {...field} {...item.inputAttrybuttes} />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          ))}
-        </div>
-
-        <Button
-          className="mr-4"
-          type="button"
-          onClick={() => {
-            addElement({
-              type: form.getValues().type,
-              style: {
-                fontSize: form.getValues().fontSize !== '' ? form.getValues().fontSize : '14px',
-                textAlign:
-                  form.getValues().textAlign !== '' ? form.getValues().textAlign : 'inherit',
-                color: form.getValues().color,
-                backgroundColor: form.getValues().backgroundColor,
-                opacity: `${form.getValues().opacity !== null ? form.getValues().opacity : 100}%`,
-                border: form.getValues().border,
-                borderRadius: `${form.getValues().borderRadius}px`,
-                shadow: form.getValues().shadow,
-                width: form.getValues().width !== '' ? form.getValues().width : '100%',
-                height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
-                zIndex: `${form.getValues().zIndex}`,
-                left: `0px`,
-                top: `0px`,
-              },
-              id: uuidv4(),
-            });
-          }}
-        >
-          Add
-        </Button>
+        {uiType === 'text' && <TextForm />}
+        {uiType === 'icon' && <IconForm />}
       </form>
     </Form>
   );
