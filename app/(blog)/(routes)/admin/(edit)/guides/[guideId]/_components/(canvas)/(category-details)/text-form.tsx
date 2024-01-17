@@ -10,9 +10,11 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
-import { useSetRecoilState } from 'recoil';
-import { elementDataType, elementDatasState } from '../canvas-atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { elementDatasState, selectedElementState } from '../canvas-atom';
 import { Input } from '@/components/ui/input';
+import { useEffect } from 'react';
+import { useElementDataManipulation } from '../canvas-libs';
 
 const types = [
   { label: 'Text', value: 'text' },
@@ -21,6 +23,8 @@ const types = [
 ] as const;
 
 const formSchema = z.object({
+  top: z.number(),
+  left: z.number(),
   text: z.string(),
   fontSize: z.string().endsWith('px' || 'rem' || 'em' || '%' || 'content' || 'em' || 'vw', {
     message: '유효하지 않은 값',
@@ -43,38 +47,55 @@ const formSchema = z.object({
 });
 
 const TextForm = () => {
-  const setElementDatas = useSetRecoilState(elementDatasState);
-  // color, border - color, 두께, type, round, 그림자, 요소 크기, 투명도, 정렬, 순서,
-
+  const elementDatas = useRecoilValue(elementDatasState);
+  const [selectedElement, setSelectedElement] = useRecoilState(selectedElementState);
+  const { selectedElementInfo, onAddElementData, onDeleteElementData, onEditElementData } =
+    useElementDataManipulation();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      text: '',
-      fontSize: '14px',
-      textAlign: 'inherit',
-      color: '#000000',
-      backgroundColor: 'transparent',
-      opacity: 100,
-      border: 'none',
-      borderRadius: 0,
-      shadow: 'inherit',
-      width: '100%',
-      height: 'fit-content',
-      zIndex: 0,
-      id: '',
-    },
+    defaultValues: selectedElementInfo
+      ? {
+          top: Number(selectedElementInfo?.style.top),
+          left: Number(selectedElementInfo?.style.left),
+          text: '...',
+          fontSize: selectedElementInfo?.style.fontSize,
+          textAlign: selectedElementInfo?.style.textAlign,
+          color: selectedElementInfo?.style.color,
+          backgroundColor: selectedElementInfo?.style.backgroundColor,
+          opacity: Number(selectedElementInfo?.style.opacity.replace('%', '')),
+          border: selectedElementInfo?.style.border,
+          borderRadius: Number(selectedElementInfo?.style.borderRadius.replace('px', '')),
+          shadow: selectedElementInfo?.style.shadow,
+          width: selectedElementInfo?.style.width,
+          height: selectedElementInfo?.style.height,
+          zIndex: Number(selectedElementInfo?.style.zIndex),
+        }
+      : {
+          top: 0,
+          left: 0,
+          text: '',
+          fontSize: '14px',
+          textAlign: 'inherit',
+          color: '#000000',
+          backgroundColor: 'transparent',
+          opacity: 100,
+          border: 'none',
+          borderRadius: 0,
+          shadow: 'inherit',
+          width: '100%',
+          height: 'fit-content',
+          zIndex: 0,
+          id: '',
+        },
   });
-
-  const addElement = (newElement: elementDataType) => {
-    return setElementDatas((prevElements): elementDataType[] => [...prevElements, newElement]);
-  };
-
   const formContent: Array<{
     name: string;
     label: string;
     type: string;
     inputAttrybuttes?: object;
   }> = [
+    { name: 'top', label: 'Position - top', type: 'number' },
+    { name: 'left', label: 'Position - left', type: 'number' },
     { name: 'text', label: 'UI Text', type: 'text' },
     { name: 'fontSize', label: 'UI Font Size', type: 'text' },
     { name: 'width', label: 'UI Width', type: 'text' },
@@ -99,9 +120,47 @@ const TextForm = () => {
     { name: 'zIndex', label: 'UI zIndex', type: 'number' },
   ];
 
+  useEffect(() => {
+    if (selectedElement) {
+      form.setValue('text', selectedElementInfo?.content || '...');
+      form.setValue(
+        'top',
+        Number(selectedElementInfo?.style.top.replace('px', '')) || form.getValues().top,
+      );
+      form.setValue(
+        'left',
+        Number(selectedElementInfo?.style.left.replace('px', '')) || form.getValues().left,
+      );
+      form.setValue('fontSize', selectedElementInfo?.style.fontSize || form.getValues().fontSize);
+      form.setValue(
+        'textAlign',
+        selectedElementInfo?.style.textAlign || form.getValues().textAlign,
+      );
+      form.setValue('color', selectedElementInfo?.style.color || form.getValues().color);
+      form.setValue(
+        'backgroundColor',
+        selectedElementInfo?.style.backgroundColor || form.getValues().backgroundColor,
+      );
+      form.setValue(
+        'opacity',
+        Number(selectedElementInfo?.style.opacity.replace('%', '')) || form.getValues().opacity,
+      );
+      form.setValue('border', selectedElementInfo?.style.border || form.getValues().border);
+      form.setValue(
+        'borderRadius',
+        Number(selectedElementInfo?.style.borderRadius.replace('px', '')) ||
+          form.getValues().borderRadius,
+      );
+      form.setValue('shadow', selectedElementInfo?.style.shadow || form.getValues().shadow);
+      form.setValue('width', selectedElementInfo?.style.width || form.getValues().width);
+      form.setValue('height', selectedElementInfo?.style.height || form.getValues().height);
+      form.setValue('zIndex', Number(selectedElementInfo?.style.zIndex) || form.getValues().zIndex);
+    }
+  }, [elementDatas, selectedElement]);
+
   return (
     <>
-      <div className="grid grid-cols-2 gap-x-2 gap-y-4">
+      <div className="grid grid-cols-3 gap-x-2 gap-y-4">
         {formContent.map((item, i) => (
           <FormField
             key={item.name + i}
@@ -135,19 +194,39 @@ const TextForm = () => {
             width: form.getValues().width !== '' ? form.getValues().width : '100%',
             height: form.getValues().height !== '' ? form.getValues().height : 'fit-content',
             zIndex: `${form.getValues().zIndex}`,
-            left: `0px`,
-            top: `0px`,
+            left: `${form.getValues().left}px`,
+            top: `${form.getValues().top}px`,
           };
-          addElement({
-            type: 'text',
-            style: styleObj,
-            id: uuidv4(),
-            content: form.getValues().text,
-          });
+          selectedElementInfo
+            ? onEditElementData({
+                type: selectedElementInfo?.type || 'text',
+                style: styleObj,
+                id: selectedElement,
+                content: form.getValues().text || 'empty...',
+              })
+            : onAddElementData({
+                type: 'text',
+                style: styleObj,
+                id: uuidv4(),
+                content: form.getValues().text || 'empty...',
+              });
         }}
       >
-        Add
+        {selectedElementInfo ? 'edit' : 'Add'}
       </Button>
+      {selectedElement && (
+        <Button
+          className="mr-4"
+          type="button"
+          variant={'destructive'}
+          onClick={() => {
+            onDeleteElementData({ id: selectedElement });
+            setSelectedElement('');
+          }}
+        >
+          Delete
+        </Button>
+      )}
     </>
   );
 };

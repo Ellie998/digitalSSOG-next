@@ -88,7 +88,7 @@ const CanvasPreview = () => {
                   // @ts-expect-error: textAlign 할당 타입 문제
                   style={{ ...data.style }}
                   id={undefined}
-                  name={data.type || 'empty'}
+                  name={data.content || 'empty...'}
                   className={undefined}
                   onClick={undefined}
                 >
