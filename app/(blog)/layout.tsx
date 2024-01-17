@@ -1,9 +1,9 @@
-export const runtime = "edge";
+export const runtime = 'edge';
 
-import { Suspense } from "react";
-import Navbar from "./_components/navbar";
-import Sidebar from "./_components/sidebar";
-import Loading from "./(routes)/(root)/loading";
+import { Suspense } from 'react';
+import Navbar from './_components/navbar';
+import Sidebar from './_components/sidebar';
+import Loading from './(routes)/(root)/loading';
 
 const BlogLayout = ({ children }: { children: React.ReactNode }) => {
   return (
