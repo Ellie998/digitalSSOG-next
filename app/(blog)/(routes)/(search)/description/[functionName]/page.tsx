@@ -116,10 +116,10 @@ export default async function FunctionDescriptionPage({
         },
       },
     },
-    orderBy: {
-      // appName: "asc",
-      order: 'asc',
-    },
+    // orderBy: {
+    // appName: "asc",
+    // order: 'asc',
+    // },
   });
   // const apps = methods.map((methods) => methods.appName);
   // const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
