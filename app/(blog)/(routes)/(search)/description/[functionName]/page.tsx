@@ -102,7 +102,6 @@ export default async function FunctionDescriptionPage({
       title: decodeUrl(params.functionName),
     },
   });
-
   const methods = await db.method.findMany({
     where: {
       functionName: decodeUrl(params.functionName),
@@ -122,9 +121,8 @@ export default async function FunctionDescriptionPage({
       order: 'asc',
     },
   });
-
-  const apps = methods.map((methods) => methods.appName);
-  const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
+  // const apps = methods.map((methods) => methods.appName);
+  // const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
 
   return (
     <div className="w-full h-full">
@@ -139,8 +137,8 @@ export default async function FunctionDescriptionPage({
       /> */}
       {functionData?.title}
       {methods.map((method) => method.appName)}
-      {apps.map((app) => app)}
-      {uniqueApps.map((app) => app)}
+      {/* {apps.map((app) => app)} */}
+      {/* {uniqueApps.map((app) => app)} */}
     </div>
   );
 }
