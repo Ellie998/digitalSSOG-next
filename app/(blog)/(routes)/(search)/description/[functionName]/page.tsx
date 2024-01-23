@@ -1,7 +1,7 @@
 import { db } from '@/lib/db';
 import { decodeUrl } from '@/lib/utils';
 
-// import DescriptionIntro from './_components/description-intro';
+import DescriptionIntro from './_components/description-intro';
 // import DescriptionMain from './_components/description-main';
 
 // or Dynamic metadata
@@ -86,9 +86,8 @@ export async function generateMetadata({
 }
 
 export default async function FunctionDescriptionPage({
-  params,
-} // searchParams,
-: {
+  params, // searchParams,
+}: {
   params: {
     functionName: string;
   };
@@ -104,32 +103,32 @@ export default async function FunctionDescriptionPage({
     },
   });
 
-  // const methods = await db.method.findMany({
-  //   where: {
-  //     functionName: decodeUrl(params.functionName),
-  //   },
-  //   include: {
-  //     guides: {
-  //       include: {
-  //         guide_component: true,
-  //       },
-  //       orderBy: {
-  //         order: 'asc',
-  //       },
-  //     },
-  //   },
-  //   orderBy: {
-  //     // appName: "asc",
-  //     order: 'asc',
-  //   },
-  // });
+  const methods = await db.method.findMany({
+    where: {
+      functionName: decodeUrl(params.functionName),
+    },
+    include: {
+      guides: {
+        include: {
+          guide_component: true,
+        },
+        orderBy: {
+          order: 'asc',
+        },
+      },
+    },
+    orderBy: {
+      // appName: "asc",
+      order: 'asc',
+    },
+  });
 
-  // const apps = methods.map((methods) => methods.appName);
-  // const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
+  const apps = methods.map((methods) => methods.appName);
+  const uniqueApps = apps.filter((app, i) => apps.indexOf(app) === i);
 
   return (
     <div className="w-full h-full">
-      {/* <DescriptionIntro functionData={functionData} uniqueApps={uniqueApps} /> */}
+      <DescriptionIntro functionData={functionData} uniqueApps={uniqueApps} />
       {/* add guide db */}
       {/* <DescriptionMain
         functionData={functionData}
