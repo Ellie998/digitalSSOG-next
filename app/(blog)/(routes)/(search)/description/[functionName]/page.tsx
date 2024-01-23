@@ -1,4 +1,4 @@
-// import { db } from '@/lib/db';
+import { db } from '@/lib/db';
 import { decodeUrl } from '@/lib/utils';
 
 // import DescriptionIntro from './_components/description-intro';
@@ -87,22 +87,22 @@ export async function generateMetadata({
 
 export default async function FunctionDescriptionPage({
   params,
-  searchParams,
-}: {
+} // searchParams,
+: {
   params: {
     functionName: string;
   };
-  searchParams: {
-    appName?: string;
-    methodOrder?: string;
-    guideOrder?: string;
-  };
+  // searchParams: {
+  //   appName?: string;
+  //   methodOrder?: string;
+  //   guideOrder?: string;
+  // };
 }) {
-  // const functionData = await db.function.findUnique({
-  //   where: {
-  //     title: decodeUrl(params.functionName),
-  //   },
-  // });
+  const functionData = await db.function.findUnique({
+    where: {
+      title: decodeUrl(params.functionName),
+    },
+  });
 
   // const methods = await db.method.findMany({
   //   where: {
@@ -138,8 +138,7 @@ export default async function FunctionDescriptionPage({
         params={params}
         searchParams={searchParams}
       /> */}
-      description page{' '}
-      {params.functionName + ' & ' + searchParams.appName + '&' + searchParams.methodOrder}
+      {functionData?.title}
     </div>
   );
 }
