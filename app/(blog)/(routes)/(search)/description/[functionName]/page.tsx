@@ -85,18 +85,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function FunctionDescriptionPage({
-  params,
-  searchParams,
-}: {
-  params: {
-    functionName: string;
-  };
-  searchParams: {
-    appName?: string;
-    methodOrder?: string;
-    guideOrder?: string;
-  };
+export default async function FunctionDescriptionPage({} // params,
+// searchParams,
+: {
+  // params: {
+  //   functionName: string;
+  // };
+  // searchParams: {
+  //   appName?: string;
+  //   methodOrder?: string;
+  //   guideOrder?: string;
+  // };
 }) {
   // const functionData = await db.function.findUnique({
   //   where: {
