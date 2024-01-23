@@ -109,7 +109,11 @@ export default async function FunctionDescriptionPage({
       functionName: decodeUrl(params.functionName),
     },
     include: {
-      guides: true,
+      guides: {
+        orderBy: {
+          order: 'asc',
+        },
+      },
     },
   });
 
