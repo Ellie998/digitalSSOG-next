@@ -2,7 +2,7 @@ import { db } from '@/lib/db';
 import { decodeUrl } from '@/lib/utils';
 
 import DescriptionIntro from './_components/description-intro';
-// import DescriptionMain from './_components/description-main';
+import DescriptionMain from './_components/description-main';
 
 // or Dynamic metadata
 export async function generateMetadata({
@@ -86,16 +86,17 @@ export async function generateMetadata({
 }
 
 export default async function FunctionDescriptionPage({
-  params, // searchParams,
+  params,
+  searchParams,
 }: {
   params: {
     functionName: string;
   };
-  // searchParams: {
-  //   appName?: string;
-  //   methodOrder?: string;
-  //   guideOrder?: string;
-  // };
+  searchParams: {
+    appName?: string;
+    methodOrder?: string;
+    guideOrder?: string;
+  };
 }) {
   const functionData = await db.function.findUnique({
     where: {
@@ -107,6 +108,9 @@ export default async function FunctionDescriptionPage({
     where: {
       functionName: decodeUrl(params.functionName),
     },
+    include: {
+      guides: true,
+    },
   });
 
   const apps = methods.map((methods) => methods.appName);
@@ -116,13 +120,13 @@ export default async function FunctionDescriptionPage({
     <div className="w-full h-full">
       <DescriptionIntro functionData={functionData} uniqueApps={uniqueApps} />
       {/* add guide db */}
-      {/* <DescriptionMain
+      <DescriptionMain
         functionData={functionData}
         uniqueApps={uniqueApps}
         methods={methods}
         params={params}
         searchParams={searchParams}
-      /> */}
+      />
     </div>
   );
 }

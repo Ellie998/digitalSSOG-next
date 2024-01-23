@@ -4,6 +4,7 @@ import {
   Function as FunctionData,
   // Method,
   Guide,
+
   // Guide_component,
 } from '@prisma/client';
 
@@ -14,6 +15,7 @@ import DisplayBox from '@/components/phone/templates/display-box';
 import { AlertCircle } from 'lucide-react';
 import classes from './description-main.module.css';
 import { useRouter } from 'next/navigation';
+import { MethodWithGuide } from '@/lib/db';
 
 export default function DescriptionMain({
   params,
@@ -24,7 +26,7 @@ export default function DescriptionMain({
 }: {
   functionData: FunctionData | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  methods: Array<any>;
+  methods: MethodWithGuide[];
   // methods: Array<Method & Array<Guide & Guide_component>>;
   uniqueApps: Array<string | null>;
   params: {
@@ -55,23 +57,23 @@ export default function DescriptionMain({
 
                 {methods.map(
                   (method) =>
-                    method.appName === appName && (
-                      <ul key={'method-container' + method.id}>
-                        <li className="w-full pb-4 ml-4 " key={'method' + method.order}>
-                          <details open={method.order + '' === (searchParams.methodOrder || '')}>
+                    method?.appName === appName && (
+                      <ul key={'method-container' + method?.id}>
+                        <li className="w-full pb-4 ml-4 " key={'method' + method?.order}>
+                          <details open={method?.order + '' === (searchParams.methodOrder || '')}>
                             <summary className="mb-2">
-                              방법 {method.order}. {method.description}
+                              방법 {method?.order}. {method?.description}
                             </summary>
 
-                            {method.guides?.map((guide: Guide, j: number) => (
+                            {method?.guides?.map((guide: Guide, j: number) => (
                               // <li
                               //   key={guide.id}
                               //   className="w-full pb-4 ml-4 hover:underline ">
                               //   <Link
                               //     className={`block w-full ${
-                              //       method.appName ===
+                              //       method?.appName ===
                               //         decodeUrl(searchParams.appName) &&
-                              //       method.order + "" ===
+                              //       method?.order + "" ===
                               //         searchParams.methodOrder &&
                               //       j + 1 + "" === searchParams.guideOrder
                               //         ? "font-bold"
@@ -79,8 +81,8 @@ export default function DescriptionMain({
                               //     }`}
                               //     href={`/description/${
                               //       params.functionName
-                              //     }/?appName=${method.appName}&methodOrder=${
-                              //       method.order
+                              //     }/?appName=${method?.appName}&methodOrder=${
+                              //       method?.order
                               //     }&guideOrder=${j + 1}`}
                               //     scroll={false}>
                               //     {num[j + 1]} {guide.description}
@@ -89,17 +91,19 @@ export default function DescriptionMain({
                               <li
                                 key={guide.id}
                                 className={`w-full pb-4 ml-4 hover:underline  ${
-                                  method.appName === decodeUrl(searchParams?.appName || '') &&
-                                  method.order + '' === (searchParams.methodOrder || '') &&
+                                  method?.appName === decodeUrl(searchParams?.appName || '') &&
+                                  method?.order + '' === (searchParams.methodOrder || '') &&
                                   j + 1 + '' === (searchParams.guideOrder || '')
                                     ? 'font-bold'
                                     : ''
                                 }`}
                                 onClick={() => {
                                   router.push(
-                                    `/description/${params.functionName}/?appName=${
-                                      method.appName
-                                    }&methodOrder=${method.order}&guideOrder=${j + 1}`,
+                                    `/description/${
+                                      params.functionName
+                                    }/?appName=${method?.appName}&methodOrder=${method?.order}&guideOrder=${
+                                      j + 1
+                                    }`,
                                     { scroll: false },
                                   );
                                 }}
