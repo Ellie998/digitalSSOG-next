@@ -33,6 +33,7 @@
     "history": "^5.3.0",
     "lucide-react": "^0.294.0",
     "next": "^13.4.8",
+    "next-auth": "^4.24.5",
     "next-images": "^1.8.5",
     "next-nprogress-bar": "^2.1.2",
     "prop-types": "^15.8.1",
