@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 // import NextAuth from "next-auth"
 
 // const handler = NextAuth({
