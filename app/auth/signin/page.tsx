@@ -14,26 +14,43 @@ import Postit from '../_components/postit';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { supabase } from '@/lib/subabase/initSupabase';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const schema = z.object({
-  email: z.string().min(1, { message: 'Required' }),
-  pw: z.string().min(8),
+  email: z.string().email({ message: '유효하지 않은 이메일 형식입니다.' }),
+  pw: z
+    .string()
+    .min(8, { message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.' })
+    .regex(/(?=.*\d)(?=.*[a-z]).{8,}/, {
+      message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.',
+    }),
 });
 const AuthPage = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
   });
 
-  function onSubmit(values: z.infer<typeof schema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof schema>) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: values.email,
+      password: values.pw,
+    });
+    if (error) {
+      toast.error('에러가 발생했습니다.');
+      return;
+    }
+    router.push('/');
+    router.refresh();
+    toast.success(data.user?.email + '님 반갑습니다.');
+    console.log(data);
   }
   return (
     <div className="flex items-center justify-center w-full h-full bg-slate-100">
@@ -63,10 +80,6 @@ const AuthPage = () => {
                               {...field}
                             />
                           </FormControl>
-
-                          {form.formState.errors.email && (
-                            <FormDescription>This is your public display name.</FormDescription>
-                          )}
                         </FormItem>
 
                         <FormMessage />
@@ -87,9 +100,6 @@ const AuthPage = () => {
                             required={true}
                             {...field}
                           />
-                          {form.formState.errors.pw && (
-                            <FormDescription>This is your public display name.</FormDescription>
-                          )}
                         </FormItem>
                         <FormMessage />
                       </>
@@ -105,7 +115,7 @@ const AuthPage = () => {
                   비밀번호 찾기
                 </Link>
                 <Separator orientation="vertical" className="h-[24px]" />
-                <Link href={'/auth/signup'} className="cursor-pointer ">
+                <Link href={'/auth/signUp'} className="cursor-pointer ">
                   회원가입
                 </Link>
               </div>
