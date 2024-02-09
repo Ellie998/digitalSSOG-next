@@ -45,6 +45,7 @@
   }
   .container:hover {
     transform: none;
+    box-shadow: none;
   }
 
   .container:before {

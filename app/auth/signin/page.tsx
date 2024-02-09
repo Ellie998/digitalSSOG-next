@@ -6,7 +6,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
 import { Button } from '@/components/ui/button';
-import { CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 
 import { Separator } from '@/components/ui/separator';
@@ -61,83 +60,77 @@ const AuthPage = () => {
     }
   }
   return (
-    <div className="flex items-center justify-center w-full h-full max-sm:bg-white max-sm:block max-sm: bg-slate-100">
-      <div className=" w-96 max-sm:w-full">
-        <Postit
-          title={
-            <CardHeader>
-              <CardTitle>로그인</CardTitle>
-            </CardHeader>
-          }
-          content={
-            <>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <>
-                        <FormItem>
-                          <FormLabel htmlFor="email">이메일</FormLabel>
-                          <FormControl>
-                            <Input
-                              id="email"
-                              placeholder="example@domain.com"
-                              required={true}
-                              onClick={() => {
-                                setErrorMessage('');
-                              }}
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-
-                        <FormMessage />
-                      </>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="pw"
-                    render={({ field }) => (
-                      <>
-                        <FormItem>
-                          <FormLabel htmlFor="pw">비밀번호</FormLabel>
+    <div className=" w-96 max-sm:w-full">
+      <Postit
+        title={undefined}
+        content={
+          <>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <>
+                      <FormItem>
+                        <FormLabel htmlFor="email">이메일</FormLabel>
+                        <FormControl>
                           <Input
-                            id="pw"
-                            type="password"
-                            placeholder="password"
+                            id="email"
+                            placeholder="example@domain.com"
                             required={true}
                             onClick={() => {
                               setErrorMessage('');
                             }}
                             {...field}
                           />
-                        </FormItem>
-                        <FormMessage />
-                      </>
-                    )}
-                  />
-                  {errorMessage && <div className="text-red-600 ">{errorMessage}</div>}
-                  <Button type="submit" className="w-full" disabled={isSubmit}>
-                    로그인
-                  </Button>
-                </form>
-              </Form>
-              <div className="flex justify-around mt-8">
-                <Link href={'/auth/forget'} className="cursor-pointer ">
-                  비밀번호 찾기
-                </Link>
-                <Separator orientation="vertical" className="h-[24px]" />
-                <Link href={'/auth/signUp'} className="cursor-pointer ">
-                  회원가입
-                </Link>
-              </div>
-            </>
-          }
-        ></Postit>
-      </div>
+                        </FormControl>
+                      </FormItem>
+
+                      <FormMessage />
+                    </>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="pw"
+                  render={({ field }) => (
+                    <>
+                      <FormItem>
+                        <FormLabel htmlFor="pw">비밀번호</FormLabel>
+                        <Input
+                          id="pw"
+                          type="password"
+                          placeholder="password"
+                          required={true}
+                          onClick={() => {
+                            setErrorMessage('');
+                          }}
+                          {...field}
+                        />
+                      </FormItem>
+                      <FormMessage />
+                    </>
+                  )}
+                />
+                {errorMessage && <div className="text-red-600 ">{errorMessage}</div>}
+                <Button type="submit" className="w-full" disabled={isSubmit}>
+                  로그인
+                </Button>
+              </form>
+            </Form>
+            <div className="flex justify-around mt-8">
+              <Link href={'/auth/forget'} className="cursor-pointer ">
+                비밀번호 찾기
+              </Link>
+              <Separator orientation="vertical" className="h-[24px]" />
+              <Link href={'/auth/signUp'} className="cursor-pointer ">
+                회원가입
+              </Link>
+            </div>
+          </>
+        }
+      ></Postit>
     </div>
   );
 };
