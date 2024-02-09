@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 
 import Loading from '../(blog)/(routes)/(root)/loading';
 import Logo from '../(blog)/_components/logo';
+import UserRecoilRoot from './_components/UserRecoilRoot';
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -12,7 +13,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <Logo />
       </div>
       <main className="flex items-center justify-center w-full h-full max-sm:h-max">
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        <UserRecoilRoot>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </UserRecoilRoot>
       </main>
     </div>
   );

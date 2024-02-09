@@ -22,6 +22,8 @@ import {
 import { supabase } from '@/lib/subabase/initSupabase';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { useSetRecoilState } from 'recoil';
+import { userEmailState } from '../_components/user_atom';
 
 const schema = z.object({
   nickname: z.string().min(2, { message: '두글자 이상의 닉네임이 필요합니다.' }),
@@ -36,9 +38,10 @@ const schema = z.object({
     message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.',
   }),
 });
-const AuthPage = () => {
+const AuthSignUpPage = () => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isSubmit, setIsSubmit] = React.useState(false);
+  const setUserEmail = useSetRecoilState(userEmailState);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof schema>>({
@@ -67,9 +70,9 @@ const AuthPage = () => {
         toast.error('에러가 발생했습니다.');
         return;
       }
-
+      setUserEmail(values.email);
       toast.success('가입이 완료되었습니다.');
-      router.push('/auth/signIn');
+      router.push('/auth/signUpEnd');
       router.refresh();
     } catch (error) {
     } finally {
@@ -172,13 +175,17 @@ const AuthPage = () => {
               </form>
             </Form>
             <div className="flex justify-around mt-8">
-              <Link href={'/auth/forget'} className="cursor-pointer ">
-                비밀번호 찾기
-              </Link>
+              <Button className="w-full" variant={'ghost'}>
+                <Link href={'/auth/forget'} className="cursor-pointer ">
+                  비밀번호 찾기
+                </Link>
+              </Button>
               <Separator orientation="vertical" className="h-[24px]" />
-              <Link href={'/auth/signIn'} className="cursor-pointer ">
-                로그인
-              </Link>
+              <Button className="w-full" variant={'ghost'}>
+                <Link href={'/auth/signIn'} className="cursor-pointer ">
+                  로그인
+                </Link>
+              </Button>
             </div>
           </>
         }
@@ -186,4 +193,4 @@ const AuthPage = () => {
     </div>
   );
 };
-export default AuthPage;
+export default AuthSignUpPage;

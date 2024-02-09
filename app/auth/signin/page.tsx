@@ -31,7 +31,7 @@ const schema = z.object({
       message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.',
     }),
 });
-const AuthPage = () => {
+const AuthSignInPage = () => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isSubmit, setIsSubmit] = React.useState(false);
 
@@ -120,13 +120,17 @@ const AuthPage = () => {
               </form>
             </Form>
             <div className="flex justify-around mt-8">
-              <Link href={'/auth/forget'} className="cursor-pointer ">
-                비밀번호 찾기
-              </Link>
+              <Button className="w-full" variant={'ghost'}>
+                <Link href={'/auth/forget'} className="cursor-pointer ">
+                  비밀번호 찾기
+                </Link>
+              </Button>
               <Separator orientation="vertical" className="h-[24px]" />
-              <Link href={'/auth/signUp'} className="cursor-pointer ">
-                회원가입
-              </Link>
+              <Button className="w-full" variant={'ghost'}>
+                <Link href={'/auth/signUp'} className="cursor-pointer ">
+                  회원가입
+                </Link>
+              </Button>
             </div>
           </>
         }
@@ -134,4 +138,4 @@ const AuthPage = () => {
     </div>
   );
 };
-export default AuthPage;
+export default AuthSignInPage;
