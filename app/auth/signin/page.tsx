@@ -61,8 +61,8 @@ const AuthPage = () => {
     }
   }
   return (
-    <div className="flex items-center justify-center w-full h-full bg-slate-100">
-      <div className=" w-96 max-sm:w-3/4">
+    <div className="flex items-center justify-center w-full h-full max-sm:bg-white max-sm:block max-sm: bg-slate-100">
+      <div className=" w-96 max-sm:w-full">
         <Postit
           title={
             <CardHeader>

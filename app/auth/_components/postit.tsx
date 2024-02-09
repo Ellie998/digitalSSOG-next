@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import classes from './postit.module.css';
 
 const Postit = ({
@@ -10,7 +11,7 @@ const Postit = ({
   className?: string;
 }) => {
   return (
-    <div className={`${classes.container} ${className}`}>
+    <div className={cn(classes.container, className)}>
       <div className={classes.title}>{title ? title : null}</div>
       <div className={classes.content}>{content ? content : null}</div>
     </div>
