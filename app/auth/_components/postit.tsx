@@ -12,7 +12,7 @@ const Postit = ({
 }) => {
   return (
     <div className={cn(classes.container, className)}>
-      <div className={classes.title}>{title ? title : null}</div>
+      <div className={cn(classes.title, 'mb-2')}>{title ? title : null}</div>
       <div className={classes.content}>{content ? content : null}</div>
     </div>
   );
