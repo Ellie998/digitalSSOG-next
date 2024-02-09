@@ -14,11 +14,12 @@ import {
 import { supabase } from '@/lib/subabase/initSupabase';
 
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const LoginButton = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [user, setUser] = useState<{ email: string | undefined } | null>({
     email: '' || undefined,
@@ -31,7 +32,7 @@ const LoginButton = () => {
         const currentUser = await supabase.auth.getUser();
 
         // 현재 사용자가 로그인한 경우
-        if (currentUser) {
+        if (currentUser.data.user) {
           // 사용자 email 가져오기
           const userEmail = currentUser.data.user?.email;
 
@@ -42,6 +43,10 @@ const LoginButton = () => {
         } else {
           // 로그인하지 않은 경우
           setUser(null);
+          if (pathname.includes('/user')) {
+            router.push('/');
+            router.refresh();
+          }
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -73,6 +78,11 @@ const LoginButton = () => {
                       if (error) toast.error('에러가 발생했습니다.');
                       else {
                         setUser(null);
+                        if (pathname.includes('/user')) {
+                          router.push('/');
+                          router.refresh();
+                          return;
+                        }
                         router.refresh();
                       }
                     }}
