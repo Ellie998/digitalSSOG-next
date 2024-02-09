@@ -33,24 +33,32 @@ const schema = z.object({
     }),
 });
 const AuthPage = () => {
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const [isSubmit, setIsSubmit] = React.useState(false);
+
   const router = useRouter();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
   });
 
   async function onSubmit(values: z.infer<typeof schema>) {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: values.email,
-      password: values.pw,
-    });
-    if (error) {
-      toast.error('에러가 발생했습니다.');
-      return;
+    try {
+      setIsSubmit(true);
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.pw,
+      });
+      if (error) {
+        setErrorMessage('유효하지 않은 로그인입니다.');
+        return;
+      }
+      router.push('/');
+      router.refresh();
+      toast.success(data.user?.email + '님 반갑습니다.');
+    } catch (error) {
+    } finally {
+      setIsSubmit(false);
     }
-    router.push('/');
-    router.refresh();
-    toast.success(data.user?.email + '님 반갑습니다.');
-    console.log(data);
   }
   return (
     <div className="flex items-center justify-center w-full h-full bg-slate-100">
@@ -77,6 +85,9 @@ const AuthPage = () => {
                               id="email"
                               placeholder="example@domain.com"
                               required={true}
+                              onClick={() => {
+                                setErrorMessage('');
+                              }}
                               {...field}
                             />
                           </FormControl>
@@ -98,6 +109,9 @@ const AuthPage = () => {
                             type="password"
                             placeholder="password"
                             required={true}
+                            onClick={() => {
+                              setErrorMessage('');
+                            }}
                             {...field}
                           />
                         </FormItem>
@@ -105,7 +119,8 @@ const AuthPage = () => {
                       </>
                     )}
                   />
-                  <Button type="submit" className="w-full">
+                  {errorMessage && <div className="text-red-600 ">{errorMessage}</div>}
+                  <Button type="submit" className="w-full" disabled={isSubmit}>
                     로그인
                   </Button>
                 </form>
