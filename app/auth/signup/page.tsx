@@ -37,6 +37,8 @@ const schema = z.object({
   }),
 });
 const AuthPage = () => {
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const [isSubmit, setIsSubmit] = React.useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof schema>>({
@@ -44,19 +46,35 @@ const AuthPage = () => {
   });
 
   async function onSubmit(values: z.infer<typeof schema>) {
-    const { error } = await supabase.auth.signUp({
-      email: values.email,
-      password: values.pw,
-      options: { emailRedirectTo: '/auth/signIn' },
-    });
-    if (error) {
-      toast.error('에러가 발생했습니다.');
+    if (values.pw !== values.re_pw) {
+      setErrorMessage('비밀번호가 일치하지 않습니다.');
       return;
     }
+    try {
+      setIsSubmit(true);
 
-    toast.success('가입이 완료되었습니다.');
-    router.push('/auth/signIn');
-    router.refresh();
+      const { error } = await supabase.auth.signUp({
+        email: values.email,
+        password: values.pw,
+        options: {
+          emailRedirectTo: '/auth/signIn',
+          data: {
+            nickname: values.nickname,
+          },
+        },
+      });
+      if (error) {
+        toast.error('에러가 발생했습니다.');
+        return;
+      }
+
+      toast.success('가입이 완료되었습니다.');
+      router.push('/auth/signIn');
+      router.refresh();
+    } catch (error) {
+    } finally {
+      setIsSubmit(false);
+    }
   }
   return (
     <div className="flex items-center justify-center w-full h-full bg-slate-100">
@@ -120,6 +138,9 @@ const AuthPage = () => {
                             type="password"
                             placeholder="password"
                             required={true}
+                            onClick={() => {
+                              setErrorMessage('');
+                            }}
                             {...field}
                           />
                         </FormItem>
@@ -139,6 +160,9 @@ const AuthPage = () => {
                             type="password"
                             placeholder="password"
                             required={true}
+                            onClick={() => {
+                              setErrorMessage('');
+                            }}
                             {...field}
                           />
                         </FormItem>
@@ -146,7 +170,8 @@ const AuthPage = () => {
                       </>
                     )}
                   />
-                  <Button type="submit" className="w-full">
+                  {errorMessage && <div className="text-red-600 ">{errorMessage}</div>}
+                  <Button type="submit" className="w-full" disabled={isSubmit}>
                     회원가입
                   </Button>
                 </form>
