@@ -48,7 +48,7 @@ const AuthSignInPage = () => {
         password: values.pw,
       });
       if (error) {
-        setErrorMessage('유효하지 않은 로그인입니다.');
+        setErrorMessage('유효하지 않은 로그인입니다. 아이디와 비밀번호를 다시 확인해 주세요.');
         return;
       }
       router.push('/');

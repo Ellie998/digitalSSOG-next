@@ -11,19 +11,10 @@ import { Input } from '@/components/ui/input';
 
 import { Separator } from '@/components/ui/separator';
 import Postit from '../_components/postit';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/lib/subabase/initSupabase';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-import { useSetRecoilState } from 'recoil';
-import { userEmailState } from '../_components/user_atom';
 
 const schema = z.object({
   pw: z
@@ -39,7 +30,6 @@ const schema = z.object({
 const AuthUpdatePwPage = () => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isSubmit, setIsSubmit] = React.useState(false);
-  const setUserEmail = useSetRecoilState(userEmailState);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof schema>>({
@@ -58,6 +48,7 @@ const AuthUpdatePwPage = () => {
         password: values.pw,
       });
       if (error) {
+        setErrorMessage('이전과 동일한 비밀번호입니다.');
         toast.error('에러가 발생했습니다.');
         return;
       }
