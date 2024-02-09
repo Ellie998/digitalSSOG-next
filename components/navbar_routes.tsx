@@ -1,7 +1,11 @@
-// import { BsPersonCircle } from 'react-icons/bs';
+import LoginButton from './login_button';
 
 const NavbarRoutes = () => {
-  return <div className="flex ml-auto gap-x-2">{/* <BsPersonCircle size={'36'} /> */}</div>;
+  return (
+    <div className="flex ml-auto gap-x-2">
+      <LoginButton />
+    </div>
+  );
 };
 
 export default NavbarRoutes;
