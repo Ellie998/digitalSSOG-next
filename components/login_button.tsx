@@ -105,7 +105,7 @@ const LoginButton = () => {
         </div>
       ) : (
         <Button>
-          <Link href={'/auth/signIn'}>로그인</Link>
+          <Link href={'/auth/sign-in'}>로그인</Link>
         </Button>
       )}
     </>

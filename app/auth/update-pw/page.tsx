@@ -11,23 +11,12 @@ import { Input } from '@/components/ui/input';
 
 import { Separator } from '@/components/ui/separator';
 import Postit from '../_components/postit';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/lib/subabase/initSupabase';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-import { useSetRecoilState } from 'recoil';
-import { userEmailState } from '../_components/user_atom';
 
 const schema = z.object({
-  nickname: z.string().min(2, { message: '두글자 이상의 닉네임이 필요합니다.' }),
-  email: z.string().email({ message: '유효하지 않은 이메일 형식입니다.' }),
   pw: z
     .string()
     .min(8, { message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.' })
@@ -38,10 +27,9 @@ const schema = z.object({
     message: '비밀번호는 숫자, 영문을 포함한 8자리 이상의 값이어야 합니다.',
   }),
 });
-const AuthSignUpPage = () => {
+const AuthUpdatePwPage = () => {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isSubmit, setIsSubmit] = React.useState(false);
-  const setUserEmail = useSetRecoilState(userEmailState);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof schema>>({
@@ -56,23 +44,17 @@ const AuthSignUpPage = () => {
     try {
       setIsSubmit(true);
 
-      const { error } = await supabase.auth.signUp({
-        email: values.email,
+      const { error } = await supabase.auth.updateUser({
         password: values.pw,
-        options: {
-          emailRedirectTo: '/auth/signUpEnd',
-          data: {
-            nickname: values.nickname,
-          },
-        },
       });
       if (error) {
+        setErrorMessage('이전과 동일한 비밀번호입니다.');
         toast.error('에러가 발생했습니다.');
         return;
       }
-      setUserEmail(values.email);
-      toast.success('가입이 완료되었습니다.');
-      router.push('/auth/signUpEnd');
+
+      toast.success('비밀번호 재설정이 완료되었습니다.');
+      router.push('/auth/sign-in');
       router.refresh();
     } catch (error) {
     } finally {
@@ -87,43 +69,6 @@ const AuthSignUpPage = () => {
           <>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                  control={form.control}
-                  name="nickname"
-                  render={({ field }) => (
-                    <>
-                      <FormItem>
-                        <FormLabel htmlFor="text">닉네임</FormLabel>
-                        <FormControl>
-                          <Input id="nickname" placeholder="닉네임" required={true} {...field} />
-                        </FormControl>
-                      </FormItem>
-
-                      <FormMessage />
-                    </>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <>
-                      <FormItem>
-                        <FormLabel htmlFor="email">이메일</FormLabel>
-                        <FormControl>
-                          <Input
-                            id="email"
-                            placeholder="example@domain.com"
-                            required={true}
-                            {...field}
-                          />
-                        </FormControl>
-                      </FormItem>
-
-                      <FormMessage />
-                    </>
-                  )}
-                />
                 <FormField
                   control={form.control}
                   name="pw"
@@ -170,19 +115,19 @@ const AuthSignUpPage = () => {
                 />
                 {errorMessage && <div className="text-red-600 ">{errorMessage}</div>}
                 <Button type="submit" className="w-full" disabled={isSubmit}>
-                  회원가입
+                  비밀번호 변경
                 </Button>
               </form>
             </Form>
             <div className="flex justify-around mt-8">
               <Button className="w-full" variant={'ghost'}>
-                <Link href={'/auth/forget'} className="cursor-pointer ">
-                  비밀번호 찾기
+                <Link href={'/'} className="cursor-pointer ">
+                  홈으로
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-[24px]" />
               <Button className="w-full" variant={'ghost'}>
-                <Link href={'/auth/signIn'} className="cursor-pointer ">
+                <Link href={'/auth/sign-in'} className="cursor-pointer ">
                   로그인
                 </Link>
               </Button>
@@ -193,4 +138,4 @@ const AuthSignUpPage = () => {
     </div>
   );
 };
-export default AuthSignUpPage;
+export default AuthUpdatePwPage;

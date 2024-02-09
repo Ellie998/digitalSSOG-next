@@ -71,7 +71,7 @@ const UserPage = () => {
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data, error } = await supabase.auth.resetPasswordForEmail(user?.email || '', {
-        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/updatePw`,
+        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/update-pw`,
       });
       if (error) {
         setErrorMessage('에러가 발생했습니다.');

@@ -127,7 +127,7 @@ const AuthSignInPage = () => {
               </Button>
               <Separator orientation="vertical" className="h-[24px]" />
               <Button className="w-full" variant={'ghost'}>
-                <Link href={'/auth/signUp'} className="cursor-pointer ">
+                <Link href={'/auth/sign-up'} className="cursor-pointer ">
                   회원가입
                 </Link>
               </Button>
