@@ -40,14 +40,14 @@ const AuthForgetPage = () => {
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data, error } = await supabase.auth.resetPasswordForEmail(values.email, {
-        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/updatePw`,
+        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/update-pw`,
       });
       if (error) {
         setErrorMessage('에러가 발생했습니다.');
         return;
       }
 
-      router.push('/auth/forgetEnd');
+      router.push('/auth/forget-end');
       router.refresh();
     } catch (error) {
     } finally {
@@ -95,13 +95,13 @@ const AuthForgetPage = () => {
             </Form>
             <div className="flex justify-around mt-8">
               <Button className="w-full" variant={'ghost'}>
-                <Link href={'/auth/signIn'} className="cursor-pointer ">
+                <Link href={'/auth/sign-in'} className="cursor-pointer ">
                   로그인
                 </Link>
               </Button>
               <Separator orientation="vertical" className="h-[24px]" />
               <Button className="w-full" variant={'ghost'}>
-                <Link href={'/auth/signUp'} className="cursor-pointer ">
+                <Link href={'/auth/sign-up'} className="cursor-pointer ">
                   회원가입
                 </Link>
               </Button>

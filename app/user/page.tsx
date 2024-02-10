@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -40,7 +40,7 @@ const UserPage = () => {
   const [pwMessage, setPwMessage] = React.useState('');
   const [isSubmit, setIsSubmit] = React.useState(false);
   const [isSubmit2, setIsSubmit2] = React.useState(false);
-  // const router = useRouter();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -71,7 +71,7 @@ const UserPage = () => {
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { data, error } = await supabase.auth.resetPasswordForEmail(user?.email || '', {
-        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/updatePw`,
+        redirectTo: `${process.env.NEXT_PUBLIC_DOMAIN}/auth/update-pw`,
       });
       if (error) {
         setErrorMessage('에러가 발생했습니다.');
@@ -90,7 +90,7 @@ const UserPage = () => {
         const currentUser = await supabase.auth.getUser();
 
         // 현재 사용자가 로그인한 경우
-        if (currentUser) {
+        if (currentUser.data.user) {
           // 사용자 email 가져오기
           const userEmail = currentUser.data.user?.email;
 
@@ -103,7 +103,8 @@ const UserPage = () => {
           });
         } else {
           // 로그인하지 않은 경우
-          setUser(null);
+          router.push('/');
+          router.refresh();
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -183,4 +184,3 @@ const UserPage = () => {
   );
 };
 export default UserPage;
-// added commit for build test
