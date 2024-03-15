@@ -82,7 +82,15 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (
     <Suspense fallback={<Loading />}>
       <div className="py-20 ">
-        {process.env.NEXT_PUBLIC_DOMAIN}
+        {process.env.DATABASE_URL || 'DATABASE_URL ERROR'}
+        {process.env.DIRECT_URL || 'DIRECT_URL ERROR'}
+        {process.env.NEXT_PUBLIC_DOMAIN || 'NEXT_PUBLIC_DOMAIN ERROR'}
+        {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE || 'NEXT_PUBLIC_GOOGLE_ADSENSE ERROR'}
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || 'NEXT_PUBLIC_GOOGLE_ANALYTICS ERROR'}
+        {process.env.NEXT_PUBLIC_NAVER_VERIFICATION || 'NEXT_PUBLIC_NAVER_VERIFICATION ERROR'}
+        {process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'NEXT_PUBLIC_SUPABASE_ANON_KEY ERROR'}
+        {process.env.NEXT_PUBLIC_SUPABASE_URL || 'ERROR'}
+
         {/* <Note
           className="w-4/5 mx-auto "
           holeNum={17}
