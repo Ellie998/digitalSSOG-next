@@ -38,11 +38,13 @@
 ### 용어 정리
 
 - 기능 설명
-    - 사진
+    - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 18" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/68ff99b1-5036-40f7-b041-0b0a8e931ba7">
+
     - 기능을 사용하기 위한 순차적인 방법을 나열해놓은 것
     - 설명을 누르면 그 설명에 해당하는 기기화면을 보여준다.
 - 기기 화면
-    - 사진
+    - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 40" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/72040163-f919-4164-be37-43b14d6afd88">
+
     - 기능 설명에 해당하는 기기 화면이다.
     - 실제 기기와 동일하게 동작한다.
     - 기기 화면에서 타겟을 누르면 다음 설명 화면으로 넘어간다.
@@ -58,10 +60,13 @@
 
 ### 사이트 구조
 
-- /
+- /   
+    - <img width="200" alt="스크린샷 2024-03-15 오후 8 20 04" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/6596fff1-c362-40c5-9782-8d9f1bbeb298">
     - 가장 먼저 보이는 페이지
     - /description/[기능이름]의 Link 제공
 - /description/[기능이름]
+    -    <img width="200" alt="스크린샷 2024-03-15 오후 8 21 36" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/e6b6cadb-a218-417c-96ec-be807ec926bd">
+ 
     - 기능 설명을 위한 페이지
     - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
 - /admin
