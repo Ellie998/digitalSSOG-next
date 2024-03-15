@@ -38,6 +38,10 @@ export default function DescriptionMain({
 
   const num = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
 
+  methods.sort((a, b) => {
+    return Number(a?.order) - Number(b?.order);
+  });
+
   return (
     <section className={classes.description}>
       <DescriptionTitle>
