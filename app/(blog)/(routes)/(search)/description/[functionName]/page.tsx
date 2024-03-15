@@ -98,9 +98,9 @@ export default async function FunctionDescriptionPage({
     guideOrder?: string;
   };
 }) {
-  const functionData = await db.function.findUnique({
+  const functionData = await db.function.findMany({
     where: {
-      title: decodeUrl(params.functionName),
+      // title: decodeUrl(params.functionName),
     },
   });
 
@@ -122,10 +122,10 @@ export default async function FunctionDescriptionPage({
 
   return (
     <div className="w-full h-full">
-      <DescriptionIntro functionData={functionData} uniqueApps={uniqueApps} />
+      <DescriptionIntro functionData={functionData[0]} uniqueApps={uniqueApps} />
       {/* add guide db */}
       <DescriptionMain
-        functionData={functionData}
+        functionData={functionData[0]}
         uniqueApps={uniqueApps}
         methods={methods}
         params={params}
