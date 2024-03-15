@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import PostitMedium from '@/components/my-ui/postit-medium';
 import Categorires from './_components/categories';
 import Functions from './_components/functions';
@@ -81,7 +82,7 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (
     <Suspense fallback={<Loading />}>
       <div className="py-20 ">
-        <Note
+        {/* <Note
           className="w-4/5 mx-auto "
           holeNum={17}
           title={'스마트 기기로 사용 가능한 기능들'}
@@ -92,7 +93,7 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
             title={<Categorires tab={searchParams.tab} />}
             content={<Functions searchParams={searchParams} />}
           />
-        </Note>
+        </Note> */}
       </div>
     </Suspense>
   );
