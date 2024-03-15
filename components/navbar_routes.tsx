@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import LoginButton from './login_button';
 
 const NavbarRoutes = () => {

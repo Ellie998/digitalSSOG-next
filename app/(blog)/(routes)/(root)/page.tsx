@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import PostitMedium from '@/components/my-ui/postit-medium';
 import Categorires from './_components/categories';
 import Functions from './_components/functions';
