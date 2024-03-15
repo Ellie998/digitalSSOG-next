@@ -81,7 +81,8 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
   return (
     <Suspense fallback={<Loading />}>
       <div className="py-20 ">
-        <Note
+        {process.env.NEXT_PUBLIC_DOMAIN}
+        {/* <Note
           className="w-4/5 mx-auto "
           holeNum={17}
           title={'스마트 기기로 사용 가능한 기능들'}
@@ -92,7 +93,7 @@ const BlogPage = ({ searchParams }: { searchParams: { tab: string } }) => {
             title={<Categorires tab={searchParams.tab} />}
             content={<Functions searchParams={searchParams} />}
           />
-        </Note>
+        </Note> */}
       </div>
     </Suspense>
   );
