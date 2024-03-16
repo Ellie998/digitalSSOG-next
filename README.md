@@ -12,6 +12,10 @@
 
 - 디지털 기기의 정보를 가장 많이, 손쉽게 익힐 수 있도록 돕는 서비스
 - 어플이나 기기의 버전(릴리즈 버전, sw 버전 등)에 따라 달라지는 화면 구성에 대한 정보를 저장하여, 이전 버전의 사용자들도 언제든 사용 방법(how to use)에 대한 정보에 손쉽게 접근할 수 있는 서비스를 만든다.
+### 미리보기
+![main체험](https://github.com/Ellie998/digitalSSOG-next/assets/89681100/a4210fce-284c-49ec-9115-ed0377490cf1)
+![기능설명체험영상](https://github.com/Ellie998/digitalSSOG-next/assets/89681100/ed88b219-0e2f-42e6-900a-5c66e8a42936)
+
 
 ### 사용 라이브러리
 
@@ -32,11 +36,10 @@
     - react-toastify 9.1.3
 - 데이터베이스
     - prisma/client 5.11.0
-    - supabase 2.39.3
 - 상태관리
     - recoil 0.7.7
 - 인증
-    - supabase
+    - supabase 2.39.3
 
 ## 기능
 
