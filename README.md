@@ -32,6 +32,8 @@
     - supabase 2.39.3
 - 상태관리
     - recoil 0.7.7
+- 인증
+    - supabase
 
 ## 기능
 
