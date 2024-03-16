@@ -72,7 +72,7 @@
     - 기능 설명을 위한 페이지
     - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
 - /admin
-    - 깃허브 링크
+    - [깃허브 링크](https://github.com/Ellie998/digitalSSOG-vanila)
 
 ### 추가하고 있는 기능
 
