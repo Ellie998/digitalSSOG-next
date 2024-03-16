@@ -1,6 +1,7 @@
 ## 개요
 
 ### 배포 링크
+
 : https://digitalssog.com
 
 ### 프로젝트 목적
@@ -16,80 +17,71 @@
 ### 사용 라이브러리
 
 - 프레임워크
-    - next 13.4.8 (app router)
-    - react 18.2.0
-    - react-dom 18.2.0
+  - next 13.4.8 (app router)
+  - react 18.2.0
+  - react-dom 18.2.0
 - 스타일
-    - tailwind
-    - mui
-    - shadcn-ui
-    - bootstrap-icons 1.10.5
-    - react-icons 4.12.0
-- form
-    - react-hook-form 7.48.2
-    - zod 3.22.4
-    - uuid 9.0.1
-    - react-toastify 9.1.3
+  - tailwind
+  - shadcn-ui
+  - bootstrap-icons 1.10.5
+  - react-icons 4.12.0
 - 데이터베이스
-    - prisma/client 5.11.0
-    - supabase 2.39.3
-- 상태관리
-    - recoil 0.7.7
+  - prisma/client 5.11.0
 - 인증
-    - supabase
+  - supabase 2.39.3
 
 ## 기능
 
 ### 용어 정리
 
 - 기능 설명
-    - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 18" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/68ff99b1-5036-40f7-b041-0b0a8e931ba7">
 
-    - 기능을 사용하기 위한 순차적인 방법을 나열해놓은 것
-    - 설명을 누르면 그 설명에 해당하는 기기화면을 보여준다.
+  - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 18" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/68ff99b1-5036-40f7-b041-0b0a8e931ba7">
+
+  - 기능을 사용하기 위한 순차적인 방법을 나열해놓은 것
+  - 설명을 누르면 그 설명에 해당하는 기기화면을 보여준다.
+
 - 기기 화면
-    - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 40" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/72040163-f919-4164-be37-43b14d6afd88">
 
-    - 기능 설명에 해당하는 기기 화면이다.
-    - 실제 기기와 동일하게 동작한다.
-    - 기기 화면에서 타겟을 누르면 다음 설명 화면으로 넘어간다.
+  - <img width="200" alt="스크린샷 2024-03-15 오후 8 22 40" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/72040163-f919-4164-be37-43b14d6afd88">
+
+  - 기능 설명에 해당하는 기기 화면이다.
+  - 실제 기기와 동일하게 동작한다.
+  - 기기 화면에서 타겟을 누르면 다음 설명 화면으로 넘어간다.
 
 ### 제공 중인 기능
 
 - 사용자
-    - 디지털 기기의 기능 설명 제공
-    - 디지털 기기의 기능 설명의 이해를 돕는 기기 화면을 제공
-    - 로그인 기능
+  - 디지털 기기의 기능 설명 제공
+  - 디지털 기기의 기능 설명의 이해를 돕는 기기 화면을 제공
+  - 로그인 기능
 - 관리자
-    - 디지털 기기의 기능 설명 데이터를 작성할 수 있는 form 제공
+  - 디지털 기기의 기능 설명 데이터를 작성할 수 있는 form 제공
 
 ### 사이트 구조
 
-- /   
-    - <img width="200" alt="스크린샷 2024-03-15 오후 8 20 04" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/6596fff1-c362-40c5-9782-8d9f1bbeb298">
-    - 가장 먼저 보이는 페이지
-    - /description/[기능이름]의 Link 제공
+- /
+  - <img width="200" alt="스크린샷 2024-03-15 오후 8 20 04" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/6596fff1-c362-40c5-9782-8d9f1bbeb298">
+  - 가장 먼저 보이는 페이지
+  - /description/[기능이름]의 Link 제공
 - /description/[기능이름]
-    -    <img width="200" alt="스크린샷 2024-03-15 오후 8 21 36" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/e6b6cadb-a218-417c-96ec-be807ec926bd">
- 
-    - 기능 설명을 위한 페이지
-    - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
+
+  - <img width="200" alt="스크린샷 2024-03-15 오후 8 21 36" src="https://github.com/Ellie998/digitalSSOG-next/assets/89681100/e6b6cadb-a218-417c-96ec-be807ec926bd">
+  - 기능 설명을 위한 페이지
+  - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
+
 - /admin
-    - [깃허브 링크](https://github.com/Ellie998/digitalSSOG-vanila)
+  - [깃허브 링크](https://github.com/Ellie998/digitalSSOG-vanila)
 
 ### 추가하고 있는 기능
 
 관리자 페이지에서 컨텐츠 생성을 효율적이고 빠르게 하는 방법에 대해 고민, 개선 중
 
 - 기기 화면과 관련된 데이터를 DB에 저장할 수 있도록 데이터 처리 방법과 데이터 생성 방법을 개선중이다.
-    - 기존
-        
-        컴포넌트 하나하나 코드로 작성하여 구현
-        
-    - 진행 중
-        
-        기능 설명과 기기 화면 정보를 연결하여, 데이터베이스에서 기기 화면 데이터를 불러와 
-        
+  - 기존
+    컴포넌트 하나하나 코드로 작성하여 구현
+  - 진행 중
+    기능 설명과 기기 화면 정보를 연결하여, 데이터베이스에서 기기 화면 데이터를 불러와
 
 ### 추가하고 싶은 기능
 
@@ -111,10 +103,10 @@
 ![git flow](https://github.com/Ellie998/digitalSSOG-next/assets/89681100/a39e8825-8ee2-4142-8eaf-445aa63e088f)
 
 - main
-    - 최종 배포를 위한 브랜치
+  - 최종 배포를 위한 브랜치
 - hotfix
-    - main에서 급하게 수정해야 할 때 사용하는 브랜치
+  - main에서 급하게 수정해야 할 때 사용하는 브랜치
 - dev
-    - 자잘한 개선을 포함하는 브랜치
+  - 자잘한 개선을 포함하는 브랜치
 - feature
-    - dev 브랜치로부터 나와, 새로운 기능을 개발, 개선하기 위한 브랜치
+  - dev 브랜치로부터 나와, 새로운 기능을 개발, 개선하기 위한 브랜치
