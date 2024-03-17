@@ -1,7 +1,13 @@
 ## 개요
 
-### 배포 링크
+### 배포 URL
 : https://digitalssog.com
+
+- 관리자 버전
+    -  배포 URL
+      https://digitalssog-admin.vercel.app/
+    - Github URL
+      https://github.com/Ellie998/digitalssog-admin
 
 ### 프로젝트 목적
 
