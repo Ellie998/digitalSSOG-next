@@ -84,7 +84,9 @@
     - 기능 설명을 위한 페이지
     - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
 - /admin
-    - [깃허브 링크](https://github.com/Ellie998/digitalSSOG-vanila)
+    - 디지털쏙에 필요한 데이터들을 생성하는 페이지
+    - 로그인한 사용자가 관리자일 경우에만 DB의 CREATE, UPDATE, DELETE가 가능하다.    
+    - https://github.com/Ellie998/digitalssog-admin
 
 ### 추가하고 있는 기능
 
