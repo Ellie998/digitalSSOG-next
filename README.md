@@ -1,8 +1,19 @@
 ## 개요
 
-### 배포 링크
+### 배포 URL
 
 : https://digitalssog.com
+
+- 관리자 버전
+  - 배포 URL
+    https://digitalssog-admin.vercel.app/
+  - Github URL
+    https://github.com/Ellie998/digitalssog-admin
+
+### 미리보기
+
+![main체험](https://github.com/Ellie998/digitalSSOG-next/assets/89681100/a4210fce-284c-49ec-9115-ed0377490cf1)
+![기능설명체험영상](https://github.com/Ellie998/digitalSSOG-next/assets/89681100/ed88b219-0e2f-42e6-900a-5c66e8a42936)
 
 ### 프로젝트 목적
 
@@ -113,7 +124,9 @@
   - 각 기능별 사용 방법들과 사용 방법의 이해를 돕는 기기 화면을 제공
 
 - /admin
-  - [깃허브 링크](https://github.com/Ellie998/digitalSSOG-vanila)
+  - 디지털쏙에 필요한 데이터들을 생성하는 페이지
+  - 로그인한 사용자가 관리자일 경우에만 DB의 CREATE, UPDATE, DELETE가 가능하다.
+  - https://github.com/Ellie998/digitalssog-admin
 
 ### 추가하고 있는 기능
 
