@@ -9,6 +9,7 @@
     https://digitalssog-admin.vercel.app/
   - Github URL
     https://github.com/Ellie998/digitalssog-admin
+    
 
 ### 미리보기
 
@@ -150,6 +151,9 @@
 
 - 페이지 성능 개선
 - 페이지 디자인 개선
+
+## CHANGE LOG URL
+*  https://github.com/Ellie998/digitalSSOG-next/blob/main/ChangeLog.md
 
 ## 프로젝트 구현
 
