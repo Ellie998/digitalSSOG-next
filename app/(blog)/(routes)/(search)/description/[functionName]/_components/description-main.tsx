@@ -94,7 +94,7 @@ export default function DescriptionMain({
                               // </li>
                               <li
                                 key={guide.id}
-                                className={`w-full pb-4 ml-4 hover:underline  ${
+                                className={`w-full cursor-pointer pb-4 ml-4 hover:underline  ${
                                   method?.appName === decodeUrl(searchParams?.appName || '') &&
                                   method?.order + '' === (searchParams.methodOrder || '') &&
                                   j + 1 + '' === (searchParams.guideOrder || '')
