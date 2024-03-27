@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import {
   Function as FunctionData,
@@ -14,8 +14,9 @@ import DescriptionTitle from '@/components/description_title';
 import DisplayBox from '@/components/phone/templates/display-box';
 import { AlertCircle } from 'lucide-react';
 import classes from './description-main.module.css';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { MethodWithGuide } from '@/lib/db';
+import Link from 'next/link';
 
 export default function DescriptionMain({
   params,
@@ -34,7 +35,7 @@ export default function DescriptionMain({
   };
   searchParams: { appName?: string; methodOrder?: string; guideOrder?: string };
 }) {
-  const router = useRouter();
+  // const router = useRouter();
 
   const num = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
 
@@ -70,50 +71,47 @@ export default function DescriptionMain({
                             </summary>
 
                             {method?.guides?.map((guide: Guide, j: number) => (
+                              <li key={guide.id} className="w-full pb-4 ml-4 hover:underline ">
+                                <Link
+                                  className={`block w-full ${
+                                    method?.appName === decodeUrl(searchParams.appName || '') &&
+                                    method?.order + '' === searchParams.methodOrder &&
+                                    j + 1 + '' === searchParams.guideOrder
+                                      ? 'font-bold'
+                                      : ''
+                                  }`}
+                                  href={`/description/${
+                                    params.functionName
+                                  }/?appName=${method?.appName}&methodOrder=${method?.order}&guideOrder=${
+                                    j + 1
+                                  }`}
+                                  scroll={false}
+                                >
+                                  {num[j + 1]} {guide.description}
+                                </Link>
+                              </li>
                               // <li
                               //   key={guide.id}
-                              //   className="w-full pb-4 ml-4 hover:underline ">
-                              //   <Link
-                              //     className={`block w-full ${
-                              //       method?.appName ===
-                              //         decodeUrl(searchParams.appName) &&
-                              //       method?.order + "" ===
-                              //         searchParams.methodOrder &&
-                              //       j + 1 + "" === searchParams.guideOrder
-                              //         ? "font-bold"
-                              //         : ""
-                              //     }`}
-                              //     href={`/description/${
-                              //       params.functionName
-                              //     }/?appName=${method?.appName}&methodOrder=${
-                              //       method?.order
-                              //     }&guideOrder=${j + 1}`}
-                              //     scroll={false}>
-                              //     {num[j + 1]} {guide.description}
-                              //   </Link>
+                              //   className={`w-full cursor-pointer pb-4 ml-4 hover:underline  ${
+                              //     method?.appName === decodeUrl(searchParams?.appName || '') &&
+                              //     method?.order + '' === (searchParams.methodOrder || '') &&
+                              //     j + 1 + '' === (searchParams.guideOrder || '')
+                              //       ? 'font-bold'
+                              //       : ''
+                              //   }`}
+                              //   onClick={() => {
+                              //     router.push(
+                              //       `/description/${
+                              //         params.functionName
+                              //       }/?appName=${method?.appName}&methodOrder=${method?.order}&guideOrder=${
+                              //         j + 1
+                              //       }`,
+                              //       { scroll: false },
+                              //     );
+                              //   }}
+                              // >
+                              //   {num[j + 1]} {guide.description}
                               // </li>
-                              <li
-                                key={guide.id}
-                                className={`w-full cursor-pointer pb-4 ml-4 hover:underline  ${
-                                  method?.appName === decodeUrl(searchParams?.appName || '') &&
-                                  method?.order + '' === (searchParams.methodOrder || '') &&
-                                  j + 1 + '' === (searchParams.guideOrder || '')
-                                    ? 'font-bold'
-                                    : ''
-                                }`}
-                                onClick={() => {
-                                  router.push(
-                                    `/description/${
-                                      params.functionName
-                                    }/?appName=${method?.appName}&methodOrder=${method?.order}&guideOrder=${
-                                      j + 1
-                                    }`,
-                                    { scroll: false },
-                                  );
-                                }}
-                              >
-                                {num[j + 1]} {guide.description}
-                              </li>
                             ))}
                           </details>
                         </li>
